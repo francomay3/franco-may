@@ -1,9 +1,9 @@
 import Layout from "@/components/Layout";
 
-const Home = () => {
+const About = () => {
   return (
     <Layout>
-      <h1>Home</h1>
+      <h1>About</h1>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -19,4 +19,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default About;
