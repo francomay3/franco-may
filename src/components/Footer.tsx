@@ -8,6 +8,8 @@ const Wrapper = styled.footer`
   display: flex;
   justify-content: center;
   min-height: 100px;
+  flex-direction: column;
+  padding: ${({ theme }) => theme.spacing[4]};
   a {
     color: ${({ theme }) => theme.colors.lightBlue};
   }
@@ -17,10 +19,13 @@ const Footer = () => {
   return (
     <Wrapper>
       <p>
-        © {new Date().getFullYear()}, Custom Build Site. Check my GitHub profile
-        {` `}
-        <a href="https://www.gatsbyjs.org">www.wswswef.com</a>
+        {`© ${new Date().getFullYear()}, Made from scratch. Check out the `}
+        <a href="https://github.com/francomay3/franco-may" target="blank">
+          Source code
+        </a>
+        {` for this site on GitHub.`}
       </p>
+      <p>Also, feel free to steal my code 😊.</p>
     </Wrapper>
   );
 };

@@ -1,6 +1,47 @@
 import { ThemeProvider } from "@emotion/react";
 import "@emotion/react";
 
+declare module "@emotion/react" {
+  export interface Theme {
+    colors: {
+      black: string;
+      lightBlack: string;
+      darkGrey: string;
+      grey: string;
+      lightGrey: string;
+      white: string;
+      red: string;
+      orange: string;
+      green: string;
+      lightBlue: string;
+      blue: string;
+      violet: string;
+    };
+    spacing: {
+      0: string;
+      1: string;
+      2: string;
+      3: string;
+      4: string;
+      5: string;
+      6: string;
+      7: string;
+      8: string;
+      aBit: string;
+      aLot: string;
+      aWholeLot: string;
+    };
+    mobile: string;
+    tablet: string;
+    borderRadius: {
+      1: string;
+      2: string;
+      3: string;
+      4: string;
+    };
+  }
+}
+
 const theme = {
   colors: {
     black: "#0d1117",
@@ -26,8 +67,20 @@ const theme = {
     6: "1.5rem",
     7: "1.75rem",
     8: "2rem",
+    aBit: "0.5rem",
+    aLot: "3rem",
+    aWholeLot: "8rem",
+  },
+  mobile: "only screen and (max-width: 550px)",
+  tablet: "only screen and (min-width: 551px) and (max-width: 900px)",
+  borderRadius: {
+    1: "0.125rem",
+    2: "0.25rem",
+    3: "0.5rem",
+    4: "1rem",
   },
 };
+
 export default function Theme({ children }: { children: React.ReactNode }) {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }

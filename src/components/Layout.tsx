@@ -14,6 +14,15 @@ const Main = styled.main`
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
   flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: ${({ theme }) => theme.spacing.aWholeLot};
+  @media ${({ theme }) => theme.tablet} {
+    padding: ${({ theme }) => theme.spacing.aLot};
+  }
+  @media ${({ theme }) => theme.mobile} {
+    padding: ${({ theme }) => theme.spacing.aBit};
+  }
 `;
 
 const Layout = ({ children }: { children: React.ReactNode }) => {

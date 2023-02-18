@@ -12,8 +12,8 @@ const PageNotFound = () => {
       <Content>
         <h1>Error 404</h1>
         <p>
-          Whoops! Looks like this page doesn't exist. Please check the URL and
-          try again.
+          Whoops! Looks like this page doesn&apos;t exist. Please check the URL
+          and try again.
         </p>
       </Content>
     </Layout>

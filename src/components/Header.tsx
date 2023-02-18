@@ -1,18 +1,28 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { Theme } from "@emotion/react";
+
+type ButtonProps = {
+  active: boolean;
+};
 
 const Wrapper = styled.header`
   background-color: ${({ theme }) => theme.colors.darkGrey};
   display: flex;
   gap: ${({ theme }) => theme.spacing[2]};
   justify-content: space-between;
+  a {
+    color: ${({ theme }) => theme.colors.white};
+    text-decoration: none;
+  }
 `;
 
 const Logo = styled.h1`
   color: ${({ theme }) => theme.colors.white};
-  margin-inline-start: ${({ theme }) => theme.spacing[2]};
   margin: 0;
   padding: 0;
+  padding-inline-start: ${({ theme }) => theme.spacing[3]};
 `;
 
 const Buttons = styled.ul`
@@ -25,31 +35,38 @@ const Buttons = styled.ul`
   padding: 0;
 `;
 
-const Button = styled.li`
+const Button = styled.li<ButtonProps>`
+  height: 90%;
+  display: flex;
+  align-items: center;
   color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
   list-style: none;
-  a {
-    color: ${({ theme }) => theme.colors.white};
-    text-decoration: none;
-  }
+
+  ${({ active, theme }) =>
+    active &&
+    `text-decoration: underline ${theme.colors.white}; text-underline-offset: ${theme.spacing[3]};`};
 `;
 
 const Header = () => {
+  const { route } = useRouter();
+  console.log(route);
   return (
     <Wrapper>
-      <Logo>Franco May</Logo>
+      <Link href="/">
+        <Logo>Franco May</Logo>
+      </Link>
       <Buttons>
-        <Button>
+        <Button active={route === "/"}>
           <Link href="/">Home</Link>
         </Button>
-        <Button>
+        <Button active={route === "/about"}>
           <Link href="/about">About Me</Link>
         </Button>
-        <Button>
+        <Button active={route === "/blog"}>
           <Link href="/blog">Blog</Link>
         </Button>
-        <Button>
+        <Button active={route === "/contact"}>
           <Link href="/contact">Contact</Link>
         </Button>
       </Buttons>

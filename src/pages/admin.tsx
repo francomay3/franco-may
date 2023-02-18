@@ -1,9 +1,13 @@
 import Layout from "@/components/Layout";
+import Header from "@/components/Header";
+import styled from "@emotion/styled";
 
-const Home = () => {
+const Admin = () => {
   return (
-    <Layout>
-      <h1>Home</h1>
+    <>
+      <Header />
+      <h1>Hello handsome.</h1>
+      <h3>Do your thing 👇</h3>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry&apos;s standard dummy text
@@ -15,8 +19,8 @@ const Home = () => {
         with desktop publishing software like Aldus PageMaker including versions
         of Lorem Ipsum.
       </p>
-    </Layout>
+    </>
   );
 };
 
-export default Home;
+export default Admin;
