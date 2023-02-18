@@ -50,7 +50,6 @@ const Button = styled.li<ButtonProps>`
 
 const Header = () => {
   const { route } = useRouter();
-  console.log(route);
   return (
     <Wrapper>
       <Link href="/">
