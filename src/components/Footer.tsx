@@ -1,5 +1,5 @@
-import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import Link from "@/components/Link";
 
 const Wrapper = styled.footer`
   align-items: center;
@@ -10,8 +10,9 @@ const Wrapper = styled.footer`
   min-height: 100px;
   flex-direction: column;
   padding: ${({ theme }) => theme.spacing[4]};
-  a {
-    color: ${({ theme }) => theme.colors.lightBlue};
+  gap: ${({ theme }) => theme.spacing[2]};
+  p {
+    text-align: center;
   }
 `;
 
@@ -20,9 +21,13 @@ const Footer = () => {
     <Wrapper>
       <p>
         {`© ${new Date().getFullYear()}, Made from scratch. Check out the `}
-        <a href="https://github.com/francomay3/franco-may" target="blank">
-          Source code
-        </a>
+        <Link
+          light
+          href="https://github.com/francomay3/franco-may"
+          target="blank"
+        >
+          Source&nbsp;code
+        </Link>
         {` for this site on GitHub.`}
       </p>
       <p>Also, feel free to steal my code 😊.</p>

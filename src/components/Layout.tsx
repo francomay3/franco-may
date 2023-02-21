@@ -1,4 +1,4 @@
-import Header from "./Header";
+import Header, { Menu } from "./Header/Header";
 import Footer from "./Footer";
 import styled from "@emotion/styled";
 

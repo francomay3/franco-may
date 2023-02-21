@@ -16,6 +16,11 @@ declare module "@emotion/react" {
       lightBlue: string;
       blue: string;
       violet: string;
+      link: {
+        text: string;
+        underline: string;
+        hover: string;
+      };
     };
     spacing: {
       0: string;
@@ -42,7 +47,7 @@ declare module "@emotion/react" {
   }
 }
 
-const theme = {
+export const theme = {
   colors: {
     black: "#0d1117",
     lightBlack: "#161b22",
@@ -56,6 +61,11 @@ const theme = {
     lightBlue: "#a2d2fb",
     blue: "#77bdfb",
     violet: "#cea5fb",
+    link: {
+      text: "#0969da",
+      underline: "rgba(0, 127, 255, 0.4)",
+      hover: "#0057b8",
+    },
   },
   spacing: {
     0: "0",
