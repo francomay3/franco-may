@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-block: ${({ theme }) => theme.spacing[4]};
-  @media ${({ theme }) => theme.mobile} {
+  ${({ theme }) => theme.mobile} {
     flex-direction: column;
     gap: ${({ theme }) => theme.spacing[4]};
   }
@@ -18,10 +18,10 @@ const ImageWrapper = styled.div`
   position: relative;
   border-radius: ${({ theme }) => theme.borderRadius[4]};
   overflow: hidden;
-  @media ${({ theme }) => theme.mobile} {
+  ${({ theme }) => theme.mobile} {
     width: 100%;
   }
-  @media ${({ theme }) => theme.tablet} {
+  ${({ theme }) => theme.tablet} {
     width: 50%;
   }
 `;
