@@ -1,4 +1,4 @@
-import Header, { Menu } from "./Header/Header";
+import Header from "./Header/Header";
 import Footer from "./Footer";
 import styled from "@emotion/styled";
 
@@ -17,10 +17,10 @@ const Main = styled.main`
   align-items: center;
   justify-content: center;
   padding: ${({ theme }) => theme.spacing.aWholeLot};
-  @media ${({ theme }) => theme.tablet} {
+  ${({ theme }) => theme.tablet} {
     padding: ${({ theme }) => theme.spacing.aLot};
   }
-  @media ${({ theme }) => theme.mobile} {
+  ${({ theme }) => theme.mobile} {
     padding: ${({ theme }) => theme.spacing.aBit};
   }
 `;

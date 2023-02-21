@@ -81,8 +81,8 @@ export const theme = {
     aLot: "3rem",
     aWholeLot: "8rem",
   },
-  mobile: "only screen and (max-width: 550px)",
-  tablet: "only screen and (min-width: 551px) and (max-width: 900px)",
+  mobile: "@media only screen and (max-width: 550px)",
+  tablet: "@media only screen and (min-width: 551px) and (max-width: 900px)",
   borderRadius: {
     1: "0.125rem",
     2: "0.25rem",
