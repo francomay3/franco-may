@@ -7,7 +7,7 @@ function LoggedIn() {
   return (
     <Layout>
       <p>logged in</p>
-      <button onClick={logOut}>sign out</button>
+      <button onClick={() => logOut()}>sign out</button>
     </Layout>
   );
 }

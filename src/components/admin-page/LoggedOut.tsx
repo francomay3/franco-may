@@ -26,7 +26,7 @@ function LoggedOut() {
           alt="log in with google"
           width={100}
           height={100}
-          onClick={logIn}
+          onClick={() => logIn()}
         />
       </ContentWrapper>
     </Layout>

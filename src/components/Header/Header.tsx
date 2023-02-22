@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
+import DarkModeSwitch from "./DarkModeSwitch";
 
 const HeaderWrapper = styled.header`
   background-color: ${({ theme }) => theme.colors.darkGrey};
@@ -16,10 +17,10 @@ const HeaderWrapper = styled.header`
 `;
 
 const navLinks = [
-  { href: "/", name: "Home" },
-  { href: "/about", name: "About" },
-  { href: "/blog", name: "Blog" },
-  { href: "/contact", name: "Contact" },
+  { href: "/", pageName: "Home" },
+  { href: "/about", pageName: "About" },
+  { href: "/blog", pageName: "Blog" },
+  { href: "/contact", pageName: "Contact" },
 ];
 
 const Header = () => {
@@ -28,6 +29,7 @@ const Header = () => {
       <h1>Franco May</h1>
       <DesktopNav navLinks={navLinks} />
       <MobileNav navLinks={navLinks} />
+      <DarkModeSwitch />
     </HeaderWrapper>
   );
 };

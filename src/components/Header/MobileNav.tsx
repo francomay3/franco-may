@@ -42,7 +42,7 @@ const Items = styled.div`
   }
 `;
 
-const Item = styled(Link)`
+const Item = styled(Link)<{ active: boolean }>`
   padding-block: ${({ theme }) => theme.spacing[2]};
   text-decoration: none;
   width: 100%;
@@ -57,7 +57,7 @@ const Item = styled(Link)`
 function MobileNav({
   navLinks,
 }: {
-  navLinks: { href: string; name: string }[];
+  navLinks: { href: string; pageName: string }[];
 }) {
   return (
     <Menu as={Nav}>
@@ -68,11 +68,11 @@ function MobileNav({
           </Menu.Button>
 
           <Menu.Items as={Items}>
-            {navLinks.map((link) => (
-              <Menu.Item key={link.href}>
+            {navLinks.map(({ href, pageName }) => (
+              <Menu.Item key={href}>
                 {({ active }) => (
-                  <Item active={active} href={link.href}>
-                    {link.name}
+                  <Item active={active} href={href}>
+                    {pageName}
                   </Item>
                 )}
               </Menu.Item>

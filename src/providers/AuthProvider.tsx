@@ -1,9 +1,15 @@
 import { createContext, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, User } from "firebase/auth";
 import { auth, provider } from "@/firebase";
+// import firebase types
 
-export const UserContext = createContext({
+export const UserContext = createContext<{
+  user: User | null | undefined;
+  isAdmin: boolean;
+  logIn: Function;
+  logOut: Function;
+}>({
   user: null,
   isAdmin: false,
   logIn: () => {},
