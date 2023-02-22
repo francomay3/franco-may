@@ -10,9 +10,13 @@ const HeaderWrapper = styled.header`
   align-items: center;
   padding-inline: ${({ theme }) => theme.spacing[4]};
   height: ${({ theme }) => theme.spacing.aLot};
-  & > h1 {
-    color: ${({ theme }) => theme.colors.white};
-    line-height: 0;
+`;
+
+const Logo = styled.h1`
+  color: ${({ theme }) => theme.colors.white};
+  line-height: 0;
+  ${({ theme }) => theme.mobile} {
+    order: 2;
   }
 `;
 
@@ -26,7 +30,7 @@ const navLinks = [
 const Header = () => {
   return (
     <HeaderWrapper>
-      <h1>Franco May</h1>
+      <Logo>Franco May</Logo>
       <DesktopNav navLinks={navLinks} />
       <MobileNav navLinks={navLinks} />
       <DarkModeSwitch />

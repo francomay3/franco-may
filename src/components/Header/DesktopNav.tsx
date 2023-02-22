@@ -10,6 +10,9 @@ const Wrapper = styled.nav`
     margin: 0;
     padding: 0;
   }
+  ${({ theme }) => theme.mobile} {
+    display: none;
+  }
 `;
 
 const NavLink = styled(Link)<{ active: boolean }>`

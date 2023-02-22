@@ -25,6 +25,7 @@ const Button = styled.button`
   &:focus {
     outline: none;
   }
+  order: 1;
 `;
 
 const Items = styled.div`
