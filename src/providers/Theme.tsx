@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@emotion/react";
 import "@emotion/react";
+import { useState } from "react";
 
 declare module "@emotion/react" {
   export interface Theme {
@@ -47,6 +48,13 @@ declare module "@emotion/react" {
   }
 }
 
+const smallScreen = 550;
+const mediumScreen = 900;
+export const mobile = `(max-width: ${smallScreen}px)`;
+export const tablet = `(min-width: ${
+  smallScreen + 1
+}px) and (max-width: ${mediumScreen}px)`;
+
 export const theme = {
   colors: {
     black: "#0d1117",
@@ -81,8 +89,10 @@ export const theme = {
     aLot: "3rem",
     aWholeLot: "8rem",
   },
-  mobile: "@media only screen and (max-width: 550px)",
-  tablet: "@media only screen and (min-width: 551px) and (max-width: 900px)",
+  mobile: `@media only screen and (max-width: ${smallScreen}px)`,
+  tablet: `@media only screen and (min-width: ${
+    smallScreen + 1
+  }px) and (max-width: ${mediumScreen}px)`,
   borderRadius: {
     1: "0.125rem",
     2: "0.25rem",

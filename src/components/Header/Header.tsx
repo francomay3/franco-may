@@ -1,24 +1,6 @@
-import styled from "@emotion/styled";
-import MobileNav from "./MobileNav";
-import DesktopNav from "./DesktopNav";
-import DarkModeSwitch from "./DarkModeSwitch";
-
-const HeaderWrapper = styled.header`
-  background-color: ${({ theme }) => theme.colors.darkGrey};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-inline: ${({ theme }) => theme.spacing[4]};
-  height: ${({ theme }) => theme.spacing.aLot};
-`;
-
-const Logo = styled.h1`
-  color: ${({ theme }) => theme.colors.white};
-  line-height: 0;
-  ${({ theme }) => theme.mobile} {
-    order: 2;
-  }
-`;
+import MobileHeader from "./MobileHeader";
+import DesktopHeader from "./DesktopHeader";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const navLinks = [
   { href: "/", pageName: "Home" },
@@ -27,15 +9,11 @@ const navLinks = [
   { href: "/contact", pageName: "Contact" },
 ];
 
-const Header = () => {
-  return (
-    <HeaderWrapper>
-      <Logo>Franco May</Logo>
-      <DesktopNav navLinks={navLinks} />
-      <MobileNav navLinks={navLinks} />
-      <DarkModeSwitch />
-    </HeaderWrapper>
+const Header = () =>
+  useIsMobile() ? (
+    <MobileHeader navLinks={navLinks} />
+  ) : (
+    <DesktopHeader navLinks={navLinks} />
   );
-};
 
 export default Header;

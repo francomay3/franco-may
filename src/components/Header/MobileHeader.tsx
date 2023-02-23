@@ -2,6 +2,17 @@ import styled from "@emotion/styled";
 import { Menu } from "@headlessui/react";
 import Link from "next/link";
 import Icon from "@/components/Icon";
+import Logo from "./Logo";
+import DarkModeSwitch from "./DarkModeSwitch";
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.darkGrey};
+  padding-inline: ${({ theme }) => theme.spacing[4]};
+  height: ${({ theme }) => theme.spacing.aLot};
+`;
 
 const Nav = styled.nav`
   display: none;
@@ -61,27 +72,31 @@ function MobileNav({
   navLinks: { href: string; pageName: string }[];
 }) {
   return (
-    <Menu as={Nav}>
-      {({ open }) => (
-        <>
-          <Menu.Button as={Button}>
-            <Icon id={open ? "close" : "menu"} />
-          </Menu.Button>
+    <Wrapper>
+      <Menu as={Nav}>
+        {({ open }) => (
+          <>
+            <Menu.Button as={Button}>
+              <Icon id={open ? "close" : "menu"} />
+            </Menu.Button>
 
-          <Menu.Items as={Items}>
-            {navLinks.map(({ href, pageName }) => (
-              <Menu.Item key={href}>
-                {({ active }) => (
-                  <Item active={active} href={href}>
-                    {pageName}
-                  </Item>
-                )}
-              </Menu.Item>
-            ))}
-          </Menu.Items>
-        </>
-      )}
-    </Menu>
+            <Menu.Items as={Items}>
+              {navLinks.map(({ href, pageName }) => (
+                <Menu.Item key={href}>
+                  {({ active }) => (
+                    <Item active href={href}>
+                      {pageName}
+                    </Item>
+                  )}
+                </Menu.Item>
+              ))}
+            </Menu.Items>
+          </>
+        )}
+      </Menu>
+      <Logo />
+      <DarkModeSwitch />
+    </Wrapper>
   );
 }
 
