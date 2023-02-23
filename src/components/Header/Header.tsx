@@ -1,24 +1,7 @@
-import styled from "@emotion/styled";
-import MobileNav from "./MobileNav";
-import DesktopNav from "./DesktopNav";
-import DarkModeSwitch from "./DarkModeSwitch";
-
-const HeaderWrapper = styled.header`
-  background-color: ${({ theme }) => theme.colors.darkGrey};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-inline: ${({ theme }) => theme.spacing[4]};
-  height: ${({ theme }) => theme.spacing.aLot};
-`;
-
-const Logo = styled.h1`
-  color: ${({ theme }) => theme.colors.white};
-  line-height: 0;
-  ${({ theme }) => theme.mobile} {
-    order: 2;
-  }
-`;
+import MobileHeader from "./MobileHeader";
+import DesktopHeader from "./DesktopHeader";
+import Media from "react-media";
+import { mobile } from "@/providers/Theme";
 
 const navLinks = [
   { href: "/", pageName: "Home" },
@@ -29,12 +12,15 @@ const navLinks = [
 
 const Header = () => {
   return (
-    <HeaderWrapper>
-      <Logo>Franco May</Logo>
-      <DesktopNav navLinks={navLinks} />
-      <MobileNav navLinks={navLinks} />
-      <DarkModeSwitch />
-    </HeaderWrapper>
+    <Media query={mobile}>
+      {(matches) => {
+        return matches ? (
+          <MobileHeader navLinks={navLinks} />
+        ) : (
+          <DesktopHeader navLinks={navLinks} />
+        );
+      }}
+    </Media>
   );
 };
 

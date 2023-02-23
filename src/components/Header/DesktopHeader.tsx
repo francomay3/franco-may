@@ -1,8 +1,19 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import DarkModeSwitch from "./DarkModeSwitch";
+import Logo from "./Logo";
 
-const Wrapper = styled.nav`
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.darkGrey};
+  padding-inline: ${({ theme }) => theme.spacing[4]};
+  height: ${({ theme }) => theme.spacing.aLot};
+`;
+
+const Nav = styled.nav`
   & > ul {
     display: flex;
     list-style: none;
@@ -34,15 +45,19 @@ function DesktopNav({
   const { pathname } = useRouter();
   return (
     <Wrapper>
-      <ul>
-        {navLinks.map(({ href, pageName }) => (
-          <li key={href}>
-            <NavLink active={pathname === href} href={href}>
-              {pageName}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
+      <Logo />
+      <Nav>
+        <ul>
+          {navLinks.map(({ href, pageName }) => (
+            <li key={href}>
+              <NavLink active={pathname === href} href={href}>
+                {pageName}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </Nav>
+      <DarkModeSwitch />
     </Wrapper>
   );
 }

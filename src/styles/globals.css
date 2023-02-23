@@ -31,3 +31,7 @@ p {
   'GRAD' 0,
   'opsz' 40
 }
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
