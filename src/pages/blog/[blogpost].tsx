@@ -1,8 +1,9 @@
 import Layout from "@/components/Layout";
-import { useRouter } from "next/router";
 import { getDate, anyOf } from "@/utils";
 import styled from "@emotion/styled";
 import ImageWithCaption from "@/components/ImageWithCaption";
+import { db } from "@/firebase";
+import { ref, get } from "firebase/database";
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -33,31 +34,42 @@ const AuthorAndDate = styled.p`
   color: ${({ theme }) => theme.colors.grey};
 `;
 
-const BlogPost = () => {
-  const {
-    query: { blogpost: id },
-  } = useRouter();
+export async function getServerSideProps(context: {
+  params: { blogpost: any };
+}) {
+  const id = context.params?.blogpost;
+  const dbRef = ref(db, `posts/${id}`);
+  const snapshot = await get(dbRef);
+  const post = snapshot.val();
+  if (!post) {
+    return {
+      notFound: true,
+    };
+  }
 
-  const date = getDate(new Date());
-  const author = "Franco May";
-  const title = "Blog Post Title";
-  const tags = ["Philosophy", "A.I.", "fuck you"];
-  const description = "Blog Post Description";
-  const image = "https://francomay.com/images/blog-post-image.png";
-  const imageCaption = "Blog Post Image Caption";
-  const location = "Göteborg, Sverige";
-  const content =
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
-  console.log({
-    date,
-    author,
-    title,
-    description,
-    image,
-    imageCaption,
-    location,
-    content,
-  });
+  return {
+    props: { post }, // will be passed to the page component as props
+  };
+}
+
+type Post = {
+  author: string;
+  title: string;
+  description: string;
+  image: string;
+  imageCaption: string;
+  location: string;
+  content: string;
+  tags: string;
+  date: number;
+};
+
+const BlogPost = ({ post }: { post: Post }) => {
+  const { author, title, description, image, imageCaption, location, content } =
+    post;
+  const tags: string[] = JSON.parse(post.tags);
+  const date = getDate(new Date(post.date));
+
   return (
     <Layout>
       <ContentWrapper>
