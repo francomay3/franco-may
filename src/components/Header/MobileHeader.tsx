@@ -84,7 +84,7 @@ function MobileNav({
               {navLinks.map(({ href, pageName }) => (
                 <Menu.Item key={href}>
                   {({ active }) => (
-                    <Item active={active} href={href}>
+                    <Item active href={href}>
                       {pageName}
                     </Item>
                   )}

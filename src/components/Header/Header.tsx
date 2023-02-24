@@ -1,7 +1,6 @@
 import MobileHeader from "./MobileHeader";
 import DesktopHeader from "./DesktopHeader";
-import Media from "react-media";
-import { mobile } from "@/providers/Theme";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const navLinks = [
   { href: "/", pageName: "Home" },
@@ -10,18 +9,11 @@ const navLinks = [
   { href: "/contact", pageName: "Contact" },
 ];
 
-const Header = () => {
-  return (
-    <Media query={mobile}>
-      {(matches) => {
-        return matches ? (
-          <MobileHeader navLinks={navLinks} />
-        ) : (
-          <DesktopHeader navLinks={navLinks} />
-        );
-      }}
-    </Media>
+const Header = () =>
+  useIsMobile() ? (
+    <MobileHeader navLinks={navLinks} />
+  ) : (
+    <DesktopHeader navLinks={navLinks} />
   );
-};
 
 export default Header;

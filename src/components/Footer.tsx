@@ -22,7 +22,7 @@ const Footer = () => {
       <p>
         {`© ${new Date().getFullYear()}, Made from scratch. Check out the `}
         <Link
-          light
+          light={1}
           href="https://github.com/francomay3/franco-may"
           target="blank"
         >

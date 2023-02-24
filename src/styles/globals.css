@@ -33,5 +33,6 @@ p {
 }
 
 button {
-  -webkit-tap-highlight-color: transparent;
+  all: unset;
+  cursor: pointer;
 }

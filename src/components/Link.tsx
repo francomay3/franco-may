@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
 
-const StyledLink = styled(Link)<{ light?: boolean }>`
+const StyledLink = styled(Link)<{ light?: 1 | 0 }>`
   color: ${({ theme, light }) =>
     light ? theme.colors.lightBlue : theme.colors.link.text};
   text-decoration: none;

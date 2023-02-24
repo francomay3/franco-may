@@ -21,19 +21,13 @@ const Nav = styled.nav`
     margin: 0;
     padding: 0;
   }
-  ${({ theme }) => theme.mobile} {
-    display: none;
-  }
 `;
 
-const NavLink = styled(Link)<{ active: boolean }>`
+const NavLink = styled(Link)<{ active: 0 | 1 }>`
   color: ${({ theme }) => theme.colors.white};
   text-decoration: none;
   &:hover {
     color: ${({ theme }) => theme.colors.lightGrey};
-  }
-  ${({ theme }) => theme.mobile} {
-    display: none;
   }
 `;
 
@@ -50,7 +44,7 @@ function DesktopNav({
         <ul>
           {navLinks.map(({ href, pageName }) => (
             <li key={href}>
-              <NavLink active={pathname === href} href={href}>
+              <NavLink active={pathname === href ? 1 : 0} href={href}>
                 {pageName}
               </NavLink>
             </li>
