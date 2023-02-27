@@ -96,8 +96,9 @@ const BlogPost = ({ post }: { post: Post }) => {
           including versions of Lorem Ipsum.
         </p>
         <ImageWithCaption
-          imageName={"musk.webp"}
+          imageName={"granny.jpeg"}
           caption={"Elon is such a great guy."}
+          cloudStorage
         />
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting

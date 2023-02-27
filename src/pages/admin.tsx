@@ -5,7 +5,10 @@ import NotAllowedUser from "@/components/admin-page/NotAllowedUser";
 
 const Admin = () => {
   const { user, isAdmin, logIn, logOut } = useAuth();
-  console.log({ user, isAdmin, logIn, logOut });
+
+  // temp
+  return <LoggedIn />;
+
   return (
     <>
       {!user && <LoggedOut />}
