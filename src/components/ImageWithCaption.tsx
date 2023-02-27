@@ -1,5 +1,22 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { useState, useEffect } from "react";
+
+const getImage = async (imageName: string) => {
+  const url = await getDownloadURL(
+    ref(ref(getStorage()), `images/${imageName}`)
+  );
+  return url;
+};
+
+const useImage = (imageName: string) => {
+  const [url, setUrl] = useState("/images/musk.webp");
+  useEffect(() => {
+    getImage(imageName).then((url) => setUrl(url));
+  }, [imageName]);
+  return url;
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -35,19 +52,33 @@ const Caption = styled.h3`
 const ImageWithCaption = ({
   imageName,
   caption,
+  cloudStorage = false,
 }: {
   imageName: string;
   caption: string;
+  cloudStorage: boolean;
 }) => {
+  const url = useImage(imageName);
+  console.log(url);
   return (
     <Wrapper>
       <ImageWrapper>
-        <Image
-          src={`/images/${imageName}`}
-          alt="imageName"
-          fill
-          objectFit="cover"
-        />
+        {cloudStorage ? (
+          <Image
+            loader={({ src }) => src}
+            src={url}
+            alt="imageName"
+            fill
+            objectFit="cover"
+          />
+        ) : (
+          <Image
+            src={`/images/${imageName}`}
+            alt="imageName"
+            fill
+            objectFit="cover"
+          />
+        )}
       </ImageWrapper>
       <Caption>{caption}</Caption>
     </Wrapper>

@@ -1,6 +1,6 @@
 import Layout from "../Layout";
-
 import { useAuth } from "@/providers/AuthProvider";
+import RichTextArea from "./RichTextArea";
 
 function LoggedIn() {
   const { logOut } = useAuth();
@@ -8,6 +8,7 @@ function LoggedIn() {
     <Layout>
       <p>logged in</p>
       <button onClick={() => logOut()}>sign out</button>
+      <RichTextArea />
     </Layout>
   );
 }

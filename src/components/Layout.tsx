@@ -16,12 +16,13 @@ const Main = styled.main`
   flex: 1;
   align-items: center;
   justify-content: center;
-  padding: ${({ theme }) => theme.spacing.aWholeLot};
+  padding-block: ${({ theme }) => theme.spacing[6]};
+  padding-inline: ${({ theme }) => theme.spacing.aWholeLot};
   ${({ theme }) => theme.tablet} {
-    padding: ${({ theme }) => theme.spacing.aLot};
+    padding-inline: ${({ theme }) => theme.spacing.aLot};
   }
   ${({ theme }) => theme.mobile} {
-    padding: ${({ theme }) => theme.spacing.aBit};
+    padding-inline: ${({ theme }) => theme.spacing.aBit};
   }
 `;
 
