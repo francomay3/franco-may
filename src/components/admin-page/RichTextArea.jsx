@@ -4,7 +4,6 @@ import { Dialog } from "@headlessui/react";
 import styled from "@emotion/styled";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import RQ from "react-quill";
-import ReactQuill from "react-quill";
 
 const ReactQuill = ({ forwardedRef, ...props }) => (
   <RQ ref={forwardedRef} {...props} />

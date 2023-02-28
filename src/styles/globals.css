@@ -43,3 +43,17 @@ button {
   max-width: 250px !important;
   border-radius: 1rem !important;
 }
+
+.ql-editor {
+  min-height: 500px !important;
+} 
+
+.quill {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-items: stretch;
+}

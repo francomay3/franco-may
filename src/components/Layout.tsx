@@ -1,6 +1,8 @@
 import Header from "./Header/Header";
 import Footer from "./Footer";
 import styled from "@emotion/styled";
+import { SerializedStyles } from "@emotion/react";
+import { CSSProperties } from "react";
 
 const Wrapper = styled.div`
   display: flex;
@@ -26,11 +28,19 @@ const Main = styled.main`
   }
 `;
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({
+  children,
+  contentStyles,
+  WrapperStyles,
+}: {
+  children: React.ReactNode;
+  contentStyles?: CSSProperties;
+  WrapperStyles?: CSSProperties;
+}) => {
   return (
-    <Wrapper>
+    <Wrapper style={WrapperStyles}>
       <Header />
-      <Main>{children}</Main>
+      <Main style={contentStyles}>{children}</Main>
       <Footer />
     </Wrapper>
   );
