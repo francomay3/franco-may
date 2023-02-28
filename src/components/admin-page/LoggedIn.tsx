@@ -1,6 +1,8 @@
 import Layout from "../Layout";
+import dynamic from "next/dynamic";
 import { useAuth } from "@/providers/AuthProvider";
-import RichTextArea from "./RichTextArea";
+// import RichTextArea from "./RichTextArea";
+const RichTextArea = dynamic(() => import("./RichTextArea"), { ssr: false });
 
 function LoggedIn() {
   const { logOut } = useAuth();
