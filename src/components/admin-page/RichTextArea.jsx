@@ -1,20 +1,14 @@
-import { useState, useRef, useEffect, forwardRef } from "react";
-import dynamic from "next/dynamic";
+import { useState, useRef, useEffect } from "react";
 import "react-quill/dist/quill.snow.css";
-const ReactQuill = dynamic(
-  async () => {
-    const { default: RQ } = await import("react-quill");
-
-    return ({ forwardedRef, ...props }) => <RQ ref={forwardedRef} {...props} />;
-  },
-  {
-    ssr: false,
-  }
-);
-
 import { Dialog } from "@headlessui/react";
 import styled from "@emotion/styled";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import RQ from "react-quill";
+import ReactQuill from "react-quill";
+
+const ReactQuill = ({ forwardedRef, ...props }) => (
+  <RQ ref={forwardedRef} {...props} />
+);
 
 const DialogWrapper = styled(Dialog)`
   width: 100%;
@@ -47,13 +41,25 @@ const modules = {
 const submitImage = ({ e, title, caption, quillRef, index, setOpen }) => {
   e.preventDefault();
   const quill = quillRef.current.getEditor();
-  const file = document.querySelector("#image-file").files[0];
+  const fileInput = document.querySelector("#image-file");
+  const file = fileInput?.files ? fileInput.files[0] : null;
+
+  if (!file) {
+    // TODO: Alert user to select a file
+    return;
+  }
 
   uploadBytes(ref(getStorage(), `images/${title}`), file)
     .then(() => {
       getDownloadURL(ref(getStorage(), `images/${title}`))
         .then((url) => {
-          quill.insertEmbed(index, "image", url);
+          const p = document.createElement("p");
+          p.innerText = JSON.stringify({ title, caption, url });
+          p.setAttribute("class", "image");
+          const img = document.createElement("img");
+          img.setAttribute("alt", JSON.stringify({ title, caption, url }));
+          img.setAttribute("src", url);
+          quill.clipboard.dangerouslyPasteHTML(index, img.outerHTML);
           setOpen(false);
         })
         .catch((err) => console.log(err));
@@ -67,7 +73,7 @@ function RichTextArea() {
   const [title, setTitle] = useState("");
   const [caption, setCaption] = useState("");
   const [fileChosen, setFileChosen] = useState(false);
-  const quillRef = useRef(false);
+  const quillRef = useRef(null);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
