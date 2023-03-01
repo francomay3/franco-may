@@ -1,31 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import "react-quill/dist/quill.snow.css";
-import { Dialog } from "@headlessui/react";
-import styled from "@emotion/styled";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import RQ from "react-quill";
+import ImageUploadModal from "./ImageUploadModal";
 
 const ReactQuill = ({ forwardedRef, ...props }) => (
   <RQ ref={forwardedRef} {...props} />
 );
 
-const DialogWrapper = styled(Dialog)`
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10vw;
-`;
-const Panel = styled(Dialog.Panel)`
-  background-color: grey;
-  border-radius: 10px;
-  padding: 3rem;
-  border: 1px solid black;
-`;
 const modules = {
   toolbar: {
     container: [
@@ -37,41 +18,9 @@ const modules = {
   },
 };
 
-const submitImage = ({ e, title, caption, quillRef, index, setOpen }) => {
-  e.preventDefault();
-  const quill = quillRef.current.getEditor();
-  const fileInput = document.querySelector("#image-file");
-  const file = fileInput?.files ? fileInput.files[0] : null;
-
-  if (!file) {
-    // TODO: Alert user to select a file
-    return;
-  }
-
-  uploadBytes(ref(getStorage(), `images/${title}`), file)
-    .then(() => {
-      getDownloadURL(ref(getStorage(), `images/${title}`))
-        .then((url) => {
-          const p = document.createElement("p");
-          p.innerText = JSON.stringify({ title, caption, url });
-          p.setAttribute("class", "image");
-          const img = document.createElement("img");
-          img.setAttribute("alt", JSON.stringify({ title, caption, url }));
-          img.setAttribute("src", url);
-          quill.clipboard.dangerouslyPasteHTML(index, img.outerHTML);
-          setOpen(false);
-        })
-        .catch((err) => console.log(err));
-    })
-    .catch((err) => console.log(err));
-};
-
 function RichTextArea() {
   const [value, setValue] = useState("");
   const [open, setOpen] = useState(false);
-  const [title, setTitle] = useState("");
-  const [caption, setCaption] = useState("");
-  const [fileChosen, setFileChosen] = useState(false);
   const quillRef = useRef(null);
   const [index, setIndex] = useState(0);
 
@@ -86,51 +35,12 @@ function RichTextArea() {
 
   return (
     <>
-      <DialogWrapper open={open} onClose={() => setOpen(false)}>
-        <Panel>
-          <Dialog.Title>Upload an Image</Dialog.Title>
-          <form>
-            <label htmlFor="image-title">Title</label>
-            <input
-              type="text"
-              id="image-title"
-              onChange={(e) => setTitle(e.target.value)}
-              value={title}
-            />
-            <label htmlFor="image-caption">Caption</label>
-            <input
-              type="text"
-              id="image-caption"
-              onChange={(e) => setCaption(e.target.value)}
-              value={caption}
-            />
-            <label htmlFor="image-file">File</label>
-            <input
-              type="file"
-              accept="image/*"
-              id="image-file"
-              onChange={(e) => setFileChosen(e.target.value ? true : false)}
-            />
-            <button
-              type="submit"
-              onClick={(e) =>
-                submitImage({
-                  e,
-                  title,
-                  caption,
-                  file: fileChosen,
-                  quillRef,
-                  index,
-                  setOpen,
-                })
-              }
-            >
-              Upload
-            </button>
-          </form>
-          <button onClick={() => setOpen(false)}>Cancel</button>
-        </Panel>
-      </DialogWrapper>
+      <ImageUploadModal
+        open={open}
+        setOpen={setOpen}
+        quillRef={quillRef}
+        index={index}
+      />
       <ReactQuill
         value={value}
         onChange={setValue}
