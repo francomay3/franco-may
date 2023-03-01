@@ -18,8 +18,7 @@ const modules = {
   },
 };
 
-function RichTextArea() {
-  const [value, setValue] = useState("");
+function RichTextArea({ value, setValue }) {
   const [open, setOpen] = useState(false);
   const quillRef = useRef(null);
   const [index, setIndex] = useState(0);
