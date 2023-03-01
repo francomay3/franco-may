@@ -3,36 +3,34 @@ import { Dialog } from "@headlessui/react";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { uploadImage } from "./utils/utils";
+import { useTheme, Theme } from "@emotion/react";
 
 const FORM_ID = "image-form";
 const TITLE_ID = "image-title";
 const CAPTION_ID = "image-caption";
 const FILE_ID = "image-file";
 
-const DialogWrapper = styled(Dialog)`
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: ${({ theme }) => theme.spacing.aWholeLot};
-`;
-const Panel = styled(Dialog.Panel)`
-  background-color: ${({ theme }) => theme.colors.darkGrey};
-  border-radius: ${({ theme }) => theme.borderRadius[3]};
-  padding: ${({ theme }) => theme.spacing[4]};
-  display: flex;
-  gap: 1rem;
-  flex-direction: column;
-  color: ${({ theme }) => theme.colors.white};
+const DialogWrapper = (theme: Theme) => ({
+  width: "100%",
+  height: "100%",
+  position: "fixed",
+  top: 0,
+  left: 0,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: theme.spacing.aWholeLot,
+});
 
-  & > h2 {
-    text-align: center;
-  }
-`;
+const Panel = (theme: Theme) => ({
+  backgroundColor: theme.colors.darkGrey,
+  borderRadius: theme.borderRadius[3],
+  padding: theme.spacing[4],
+  display: "flex",
+  gap: "1rem",
+  flexDirection: "column",
+  color: theme.colors.white,
+});
 
 const Form = styled.form`
   display: flex;
@@ -56,10 +54,28 @@ const Footer = styled.div`
   margin-top: ${({ theme }) => theme.spacing[3]};
 `;
 
-const submitImage = async ({ e, title, caption, quillRef, index, setOpen }) => {
+interface submitImageArgs {
+  e: React.FormEvent<HTMLFormElement>;
+  title: string;
+  caption: string;
+  quillRef: React.MutableRefObject<any>;
+  index: number;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const submitImage = async ({
+  e,
+  title,
+  caption,
+  quillRef,
+  index,
+  setOpen,
+}: submitImageArgs) => {
   e.preventDefault();
   const quill = quillRef.current.getEditor();
-  const fileInput = document.querySelector(`#${FILE_ID}`);
+  const fileInput: HTMLInputElement | null = document.querySelector(
+    `#${FILE_ID}`
+  );
   const file = fileInput?.files ? fileInput.files[0] : null;
 
   // TODO: Alert user to fill out all fields. Maybe use a toast?
@@ -87,14 +103,43 @@ const submitImage = async ({ e, title, caption, quillRef, index, setOpen }) => {
   setOpen(false);
 };
 
-function ImageUploadModal({ open, setOpen, quillRef, index }) {
+interface ImageUploadModalProps {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  quillRef: React.MutableRefObject<any>;
+  index: number;
+}
+
+function ImageUploadModal({
+  open,
+  setOpen,
+  quillRef,
+  index,
+}: ImageUploadModalProps) {
   const [title, setTitle] = useState("");
   const [caption, setCaption] = useState("");
+  const theme = useTheme();
   return (
-    <DialogWrapper open={open} onClose={() => setOpen(false)}>
-      <Panel>
+    <Dialog
+      style={DialogWrapper(theme) as React.CSSProperties}
+      open={open}
+      onClose={() => setOpen(false)}
+    >
+      <Dialog.Panel style={Panel(theme) as React.CSSProperties}>
         <Dialog.Title>Upload an Image</Dialog.Title>
-        <Form id={FORM_ID}>
+        <Form
+          id={FORM_ID}
+          onSubmit={(e) =>
+            submitImage({
+              e,
+              title,
+              caption,
+              quillRef,
+              index,
+              setOpen,
+            })
+          }
+        >
           <FormSection>
             <label htmlFor={TITLE_ID}>Title</label>
             <input
@@ -119,28 +164,15 @@ function ImageUploadModal({ open, setOpen, quillRef, index }) {
           </FormSection>
         </Form>
         <Footer>
-          <button type="cancel" form={FORM_ID} onClick={() => setOpen(false)}>
+          <button type="reset" form={FORM_ID} onClick={() => setOpen(false)}>
             Cancel
           </button>
-          <button
-            type="submit"
-            form={FORM_ID}
-            onClick={(e) =>
-              submitImage({
-                e,
-                title,
-                caption,
-                quillRef,
-                index,
-                setOpen,
-              })
-            }
-          >
+          <button type="submit" form={FORM_ID}>
             Upload
           </button>
         </Footer>
-      </Panel>
-    </DialogWrapper>
+      </Dialog.Panel>
+    </Dialog>
   );
 }
 
