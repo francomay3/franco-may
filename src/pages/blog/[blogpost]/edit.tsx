@@ -5,7 +5,7 @@ const PostEditor = dynamic(() => import("@/components/blog-page/PostEditor"), {
   ssr: false,
 });
 
-function edit() {
+function Edit() {
   const router = useRouter();
   return (
     <Layout
@@ -16,4 +16,4 @@ function edit() {
   );
 }
 
-export default edit;
+export default Edit;

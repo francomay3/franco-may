@@ -1,11 +1,57 @@
+import { db } from "@/firebase";
+import { ref, get, set } from "firebase/database";
 import { debounce } from "lodash";
 import { useCallback, useEffect, useState } from "react";
-import {
-  setPostContentBackup,
-  setPostContent,
-  setHasUnsavedChanges,
-  getPostContentBackup,
-} from "@/utils";
+
+export const getPost = async (id: string) => {
+  const dbRef = ref(db, `posts/${id}`);
+  const snapshot = await get(dbRef);
+  return snapshot.val();
+};
+
+export const getPosts = async () => {
+  const dbRef = ref(db, "posts");
+  const snapshot = await get(dbRef);
+  return snapshot.val();
+};
+
+export const getPostIds = async () => {
+  const posts = await getPosts();
+  return Object.keys(posts);
+};
+
+// export const setPost = async (postId: string, data: any) => {
+//   await set(ref(db, `posts/${postId}`), data);
+// };
+
+export const setPostContent = async (postId: string, data: string) => {
+  set(ref(db, `posts/${postId}/content`), data);
+};
+
+export const setPostContentBackup = async (postId: string, data: string) => {
+  if (!data || !postId) return;
+  set(ref(db, `posts/${postId}/editorState`), data);
+  set(ref(db, `posts/${postId}/hasUnsavedChanges`), true);
+};
+
+// get editorState
+export const getPostContentBackup = async (postId: string) => {
+  const dbRef = ref(db, `posts/${postId}/editorState`);
+  const snapshot = await get(dbRef);
+  return snapshot.val();
+};
+
+export const publishPost = async (postId: string) => {
+  set(ref(db, `posts/${postId}/published`), true);
+};
+
+export const unpublishPost = async (postId: string) => {
+  set(ref(db, `posts/${postId}/published`), false);
+};
+
+export const setHasUnsavedChanges = async (postId: string, value: boolean) => {
+  set(ref(db, `posts/${postId}/hasUnsavedChanges`), value);
+};
 
 export const prepareContentForDB = (content: string) => {
   if (!content) return null;
