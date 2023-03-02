@@ -66,9 +66,16 @@ type PostProps = {
   date: string;
 };
 
+type contentItem = {
+  type: "text" | "image";
+  title?: string;
+  caption?: string;
+  data?: string;
+};
+
 const Post = (props: PostProps) => {
   const { author, date, description, image, location, tags, title } = props;
-  const content = JSON.parse(props.content);
+  const content: contentItem[] = JSON.parse(props.content);
   console.log(content);
   return (
     <Wrapper>
@@ -83,9 +90,13 @@ const Post = (props: PostProps) => {
         </AuthorAndDate>
         <h1 id="blog-title">{title}</h1>
       </div>
-      {content.map((html: any) => (
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      ))}
+      {content.map(({ type, title, caption, data }) =>
+        type === "image" ? (
+          <ImageWithCaption imageName={title} caption={caption} cloudStorage />
+        ) : (
+          <p dangerouslySetInnerHTML={{ __html: data }} />
+        )
+      )}
     </Wrapper>
   );
 };
