@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { anyOf } from "@/utils";
+import { anyOf } from "@/utils/generalUtils";
 
 const Tag = styled.span`
   color: ${({ theme }) => theme.colors.white};

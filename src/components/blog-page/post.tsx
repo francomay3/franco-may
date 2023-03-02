@@ -1,4 +1,4 @@
-import { anyOf } from "@/utils";
+import { anyOf } from "@/utils/generalUtils";
 import styled from "@emotion/styled";
 import ImageWithCaption from "@/components/ImageWithCaption";
 import { db } from "@/firebase";

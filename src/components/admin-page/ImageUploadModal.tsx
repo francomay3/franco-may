@@ -2,7 +2,7 @@ import React from "react";
 import { Dialog } from "@headlessui/react";
 import styled from "@emotion/styled";
 import { useState } from "react";
-import { uploadImage } from "./utils/utils";
+import { uploadImage } from "../../utils/storageUtils";
 import { useTheme, Theme } from "@emotion/react";
 
 const FORM_ID = "image-form";

@@ -1,7 +1,11 @@
 import { useAuth } from "@/providers/AuthProvider";
 import RichTextArea from "../admin-page/RichTextArea";
-import { saveChanges, useSaveBackup } from "./utils";
-import { publishPost, unpublishPost } from "@/utils";
+import {
+  publishPost,
+  unpublishPost,
+  saveChanges,
+  useSaveBackup,
+} from "@/utils/postUtils";
 
 function PostEditor({ id }) {
   const { logOut } = useAuth();
