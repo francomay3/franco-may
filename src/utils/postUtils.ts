@@ -3,6 +3,8 @@ import { ref, get, set } from "firebase/database";
 import { debounce } from "lodash";
 import { useCallback, useEffect, useState } from "react";
 
+const LOADING = "Loading...";
+
 export const getPost = async (id: string) => {
   const dbRef = ref(db, `posts/${id}`);
   const snapshot = await get(dbRef);
@@ -20,23 +22,18 @@ export const getPostIds = async () => {
   return Object.keys(posts);
 };
 
-// export const setPost = async (postId: string, data: any) => {
-//   await set(ref(db, `posts/${postId}`), data);
-// };
-
 export const setPostContent = async (postId: string, data: string) => {
   set(ref(db, `posts/${postId}/content`), data);
 };
 
 export const setPostContentBackup = async (postId: string, data: string) => {
   if (!data || !postId) return;
-  set(ref(db, `posts/${postId}/editorState`), data);
+  set(ref(db, `posts/${postId}/draftEditorState`), data);
   set(ref(db, `posts/${postId}/hasUnsavedChanges`), true);
 };
 
-// get editorState
 export const getPostContentBackup = async (postId: string) => {
-  const dbRef = ref(db, `posts/${postId}/editorState`);
+  const dbRef = ref(db, `posts/${postId}/draftEditorState`);
   const snapshot = await get(dbRef);
   return snapshot.val();
 };
@@ -51,6 +48,59 @@ export const unpublishPost = async (postId: string) => {
 
 export const setHasUnsavedChanges = async (postId: string, value: boolean) => {
   set(ref(db, `posts/${postId}/hasUnsavedChanges`), value);
+};
+
+export const setPostField = async (
+  postId: string,
+  postField: string,
+  value: string
+) => {
+  set(ref(db, `posts/${postId}/${postField}`), value);
+};
+
+export const getPostField = async (postId: string, postField: string) => {
+  const dbRef = ref(db, `posts/${postId}/${postField}`);
+  const snapshot = await get(dbRef);
+  return snapshot.val();
+};
+
+export const useSetDebouncedPostField = (id: string, postField: string) => {
+  const [value, setValue] = useState(LOADING);
+
+  const debouncedSave = useCallback(
+    debounce((nextValue) => {
+      if (nextValue === LOADING) return;
+      if (postField === "tags") {
+        // trim whitespace
+        const tagsValue = JSON.stringify(
+          nextValue
+            .split(",")
+            .map((tag) => tag.trim())
+            .filter((el) => el.length > 0)
+        );
+
+        setPostField(id, postField, tagsValue);
+        return;
+      }
+      setPostField(id, postField, nextValue);
+    }, 1000),
+    []
+  );
+  useEffect(() => {
+    debouncedSave(value);
+  }, [value]);
+  useEffect(() => {
+    getPostField(id, postField).then((storedValue) => {
+      if (typeof storedValue !== "string") return;
+      if (postField === "tags") {
+        const tags = JSON.parse(storedValue);
+        setValue(tags.join(", "));
+        return;
+      }
+      setValue(storedValue);
+    });
+  }, []);
+  return [value, setValue];
 };
 
 export const prepareContentForDB = (content: string) => {
@@ -75,7 +125,6 @@ export const prepareContentForDB = (content: string) => {
       figure.appendChild(img);
       figure.appendChild(figcaption);
       figureHTML = figure.outerHTML;
-      console.log("figureHTML", figureHTML);
     }
 
     if (figureHTML) {
@@ -88,18 +137,27 @@ export const prepareContentForDB = (content: string) => {
   return JSON.stringify(data);
 };
 
-export const saveChanges = (id: string, value: string) => {
-  const DBContent: string | null = prepareContentForDB(value);
-  if (!DBContent) return;
-  setPostContent(id, DBContent);
+export const saveChanges = (id: string, currentEditorState: string) => {
+  const DBContent: string | null = prepareContentForDB(currentEditorState);
+  if (!DBContent || !currentEditorState) return;
+  setPostField(id, "masterEditorState", currentEditorState);
+  setPostField(id, "content", DBContent);
   setHasUnsavedChanges(id, false);
 };
 
+export const restoreBackup = async (id: string, callback?: Function) => {
+  const masterEditorState = await getPostField(id, "masterEditorState");
+  await setPostField(id, "draftEditorState", masterEditorState);
+
+  if (typeof callback === "function") callback(masterEditorState);
+};
+
 export const useSaveBackup = (id: string) => {
-  const [content, setContent] = useState(null);
+  const [content, setContent] = useState(LOADING);
   const debouncedSave = useCallback(
     debounce((nextValue) => {
-      if (nextValue === null) return;
+      console.log("saving backup");
+      if (nextValue === LOADING) return;
       setPostContentBackup(id, nextValue);
     }, 1000),
     []
@@ -109,6 +167,7 @@ export const useSaveBackup = (id: string) => {
   }, [content]);
   useEffect(() => {
     getPostContentBackup(id).then((content) => {
+      if (typeof content !== "string") return;
       setContent(content);
     });
   }, []);
