@@ -11,9 +11,11 @@ const getImage = async (imageName: string) => {
 };
 
 const useImage = (imageName: string) => {
-  const [url, setUrl] = useState("/images/musk.webp");
+  const [url, setUrl] = useState("/images/waiting.gif");
   useEffect(() => {
-    getImage(imageName).then((url) => setUrl(url));
+    getImage(imageName)
+      .then((url) => setUrl(url))
+      .catch(() => setUrl("/images/lostDuck.gif"));
   }, [imageName]);
   return url;
 };
@@ -51,7 +53,7 @@ const Caption = styled.h3`
 
 const ImageWithCaption = ({
   imageName,
-  caption,
+  caption = "Hmm. Can't find that image.",
   cloudStorage = false,
 }: {
   imageName: string;

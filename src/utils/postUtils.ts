@@ -111,27 +111,18 @@ export const prepareContentForDB = (content: string) => {
   const nodes = Array.from(nodeList);
 
   const data = nodes.map((node) => {
-    let imageData = null;
-    let figureHTML = null;
     const childs = node.childNodes;
     if (childs.length > 0 && node.childNodes[0].nodeName === "IMG") {
-      imageData = JSON.parse(node.childNodes[0].alt);
-      const figure = document.createElement("figure");
-      const img = document.createElement("img");
-      const figcaption = document.createElement("figcaption");
-      figcaption.innerHTML = imageData.caption;
-      img.src = imageData.url;
-      img.alt = imageData.title;
-      figure.appendChild(img);
-      figure.appendChild(figcaption);
-      figureHTML = figure.outerHTML;
+      const imageData = JSON.parse(node.childNodes[0].alt);
+      return {
+        type: "image",
+        ...imageData,
+      };
     }
-
-    if (figureHTML) {
-      return figureHTML;
-    } else {
-      return node.outerHTML;
-    }
+    return {
+      type: "text",
+      data: node.innerHTML,
+    };
   });
 
   return JSON.stringify(data);
@@ -139,6 +130,7 @@ export const prepareContentForDB = (content: string) => {
 
 export const saveChanges = (id: string, currentEditorState: string) => {
   const DBContent: string | null = prepareContentForDB(currentEditorState);
+  console.log(DBContent);
   if (!DBContent || !currentEditorState) return;
   setPostField(id, "masterEditorState", currentEditorState);
   setPostField(id, "content", DBContent);
