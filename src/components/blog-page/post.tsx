@@ -4,12 +4,15 @@ import ImageWithCaption from "@/components/ImageWithCaption";
 import { db } from "@/firebase";
 import { ref, get } from "firebase/database";
 
-const ContentWrapper = styled.div`
+const Wrapper = styled.div`
+  width: 100%;
+  max-width: 680px;
+  gap: ${({ theme }) => theme.spacing[4]};
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing[4]};
+  margin-block: 3.5rem;
   #blog-title {
-    margin-bottom: ${({ theme }) => theme.spacing[4]};
+    margin-top: 1.25rem;
   }
 `;
 
@@ -47,7 +50,7 @@ export async function getServerSideProps(context: {
   }
 
   return {
-    props: { post }, // will be passed to the page component as props
+    props: { post },
   };
 }
 
@@ -63,19 +66,12 @@ type PostProps = {
   date: string;
 };
 
-const Post = ({
-  author,
-  title,
-  description,
-  image,
-  imageCaption,
-  location,
-  content,
-  tags,
-  date,
-}: PostProps) => {
+const Post = (props: PostProps) => {
+  const { author, date, description, image, location, tags, title } = props;
+  const content = JSON.parse(props.content);
+  console.log(content);
   return (
-    <ContentWrapper>
+    <Wrapper>
       <Tags>
         {tags.map((tag) => (
           <Tag key={tag}>{tag}</Tag>
@@ -83,38 +79,14 @@ const Post = ({
       </Tags>
       <div>
         <AuthorAndDate>
-          {author} | {date}
+          {author || "Franco May"} | {date}
         </AuthorAndDate>
         <h1 id="blog-title">{title}</h1>
       </div>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry&apos;s standard dummy text
-        ever since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
-      </p>
-      <ImageWithCaption
-        imageName={"granny.jpeg"}
-        caption={"Elon is such a great guy."}
-        cloudStorage
-      />
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry&apos;s standard dummy text
-        ever since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
-      </p>
-    </ContentWrapper>
+      {content.map((html: any) => (
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      ))}
+    </Wrapper>
   );
 };
 

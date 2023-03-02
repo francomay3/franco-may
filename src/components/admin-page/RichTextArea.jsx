@@ -30,7 +30,7 @@ function RichTextArea({ value, setValue }) {
       setIndex(editor.getSelection().index);
       setOpen(true);
     });
-  }, [quillRef.current]);
+  }, []);
 
   return (
     <>

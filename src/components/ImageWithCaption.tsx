@@ -59,7 +59,6 @@ const ImageWithCaption = ({
   cloudStorage: boolean;
 }) => {
   const url = useImage(imageName);
-  console.log(url);
   return (
     <Wrapper>
       <ImageWrapper>

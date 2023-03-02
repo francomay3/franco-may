@@ -1,7 +1,6 @@
 import Header from "./Header/Header";
 import Footer from "./Footer";
 import styled from "@emotion/styled";
-import { SerializedStyles } from "@emotion/react";
 import { CSSProperties } from "react";
 
 const Wrapper = styled.div`
