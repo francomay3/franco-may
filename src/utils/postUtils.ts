@@ -2,17 +2,31 @@ import { db } from "@/firebase";
 import { ref, get, set } from "firebase/database";
 import { debounce } from "lodash";
 import { useCallback, useEffect, useState } from "react";
-
-const LOADING = "Loading...";
+import {
+  DRAFT_EDITOR_STATE,
+  HAS_UNSAVED_CHANGES,
+  LOADING,
+  SAVED_EDITOR_STATE,
+  TAGS,
+  POSTS,
+  CONTENT,
+  CREATED_AT,
+  UPDATED_AT,
+  DESCRIPTION,
+  LOCATION,
+  PUBLISHED,
+  TITLE,
+  AUTHOR,
+} from "./constants";
 
 export const getPost = async (id: string) => {
-  const dbRef = ref(db, `posts/${id}`);
+  const dbRef = ref(db, `${POSTS}/${id}`);
   const snapshot = await get(dbRef);
   return snapshot.val();
 };
 
 export const getPosts = async () => {
-  const dbRef = ref(db, "posts");
+  const dbRef = ref(db, POSTS);
   const snapshot = await get(dbRef);
   return snapshot.val();
 };
@@ -22,44 +36,16 @@ export const getPostIds = async () => {
   return Object.keys(posts);
 };
 
-export const setPostContent = async (postId: string, data: string) => {
-  set(ref(db, `posts/${postId}/content`), data);
-};
-
-export const setPostContentBackup = async (postId: string, data: string) => {
-  if (!data || !postId) return;
-  set(ref(db, `posts/${postId}/draftEditorState`), data);
-  set(ref(db, `posts/${postId}/hasUnsavedChanges`), true);
-};
-
-export const getPostContentBackup = async (postId: string) => {
-  const dbRef = ref(db, `posts/${postId}/draftEditorState`);
-  const snapshot = await get(dbRef);
-  return snapshot.val();
-};
-
-export const publishPost = async (postId: string) => {
-  set(ref(db, `posts/${postId}/published`), true);
-};
-
-export const unpublishPost = async (postId: string) => {
-  set(ref(db, `posts/${postId}/published`), false);
-};
-
-export const setHasUnsavedChanges = async (postId: string, value: boolean) => {
-  set(ref(db, `posts/${postId}/hasUnsavedChanges`), value);
-};
-
 export const setPostField = async (
   postId: string,
   postField: string,
-  value: string
+  value: any
 ) => {
-  set(ref(db, `posts/${postId}/${postField}`), value);
+  set(ref(db, `${POSTS}/${postId}/${postField}`), value);
 };
 
 export const getPostField = async (postId: string, postField: string) => {
-  const dbRef = ref(db, `posts/${postId}/${postField}`);
+  const dbRef = ref(db, `${POSTS}/${postId}/${postField}`);
   const snapshot = await get(dbRef);
   return snapshot.val();
 };
@@ -70,8 +56,7 @@ export const useSetDebouncedPostField = (id: string, postField: string) => {
   const debouncedSave = useCallback(
     debounce((nextValue) => {
       if (nextValue === LOADING) return;
-      if (postField === "tags") {
-        // trim whitespace
+      if (postField === TAGS) {
         const tagsValue = JSON.stringify(
           nextValue
             .split(",")
@@ -92,7 +77,7 @@ export const useSetDebouncedPostField = (id: string, postField: string) => {
   useEffect(() => {
     getPostField(id, postField).then((storedValue) => {
       if (typeof storedValue !== "string") return;
-      if (postField === "tags") {
+      if (postField === TAGS) {
         const tags = JSON.parse(storedValue);
         setValue(tags.join(", "));
         return;
@@ -132,14 +117,14 @@ export const saveChanges = (id: string, currentEditorState: string) => {
   const DBContent: string | null = prepareContentForDB(currentEditorState);
   console.log(DBContent);
   if (!DBContent || !currentEditorState) return;
-  setPostField(id, "masterEditorState", currentEditorState);
-  setPostField(id, "content", DBContent);
-  setHasUnsavedChanges(id, false);
+  setPostField(id, SAVED_EDITOR_STATE, currentEditorState);
+  setPostField(id, CONTENT, DBContent);
+  setPostField(id, HAS_UNSAVED_CHANGES, false);
 };
 
 export const restoreBackup = async (id: string, callback?: Function) => {
-  const masterEditorState = await getPostField(id, "masterEditorState");
-  await setPostField(id, "draftEditorState", masterEditorState);
+  const masterEditorState = await getPostField(id, SAVED_EDITOR_STATE);
+  await setPostField(id, DRAFT_EDITOR_STATE, masterEditorState);
 
   if (typeof callback === "function") callback(masterEditorState);
 };
@@ -148,9 +133,9 @@ export const useSaveBackup = (id: string) => {
   const [content, setContent] = useState(LOADING);
   const debouncedSave = useCallback(
     debounce((nextValue) => {
-      console.log("saving backup");
       if (nextValue === LOADING) return;
-      setPostContentBackup(id, nextValue);
+      setPostField(id, DRAFT_EDITOR_STATE, nextValue);
+      setPostField(id, HAS_UNSAVED_CHANGES, true);
     }, 1000),
     []
   );
@@ -158,10 +143,36 @@ export const useSaveBackup = (id: string) => {
     debouncedSave(content);
   }, [content]);
   useEffect(() => {
-    getPostContentBackup(id).then((content) => {
+    getPostField(id, DRAFT_EDITOR_STATE).then((content) => {
       if (typeof content !== "string") return;
       setContent(content);
     });
   }, []);
   return [content, setContent];
+};
+
+export const createPost = async (id: any) => {
+  // check if id is already taken
+  const postIds = await getPostIds();
+  if (postIds.includes(id)) {
+    return false;
+  }
+  // create post
+  const value = {
+    [CONTENT]: "content",
+    [CREATED_AT]: new Date().getTime(),
+    [UPDATED_AT]: new Date().getTime(),
+    [DESCRIPTION]: "description",
+    [DRAFT_EDITOR_STATE]: "",
+    [SAVED_EDITOR_STATE]: "",
+    [HAS_UNSAVED_CHANGES]: false,
+    [LOCATION]: "",
+    [PUBLISHED]: false,
+    [TAGS]: "",
+    [TITLE]: "",
+    [AUTHOR]: "",
+  };
+
+  set(ref(db, `${POSTS}/${id}`), value);
+  return true;
 };
