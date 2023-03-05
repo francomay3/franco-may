@@ -8,6 +8,7 @@ function LoggedIn() {
     <Layout>
       <p>signed in</p>
       <button onClick={() => logOut()}>sign out</button>
+      <button>New post</button>
     </Layout>
   );
 }

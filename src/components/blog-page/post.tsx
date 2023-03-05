@@ -1,8 +1,7 @@
 import { anyOf } from "@/utils/generalUtils";
 import styled from "@emotion/styled";
 import ImageWithCaption from "@/components/ImageWithCaption";
-import { db } from "@/firebase";
-import { ref, get } from "firebase/database";
+import { getPost } from "@/utils/postUtils";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -40,9 +39,7 @@ export async function getServerSideProps(context: {
   params: { blogpost: any };
 }) {
   const id = context.params?.blogpost;
-  const dbRef = ref(db, `posts/${id}`);
-  const snapshot = await get(dbRef);
-  const post = snapshot.val();
+  const post = await getPost(id);
   if (!post) {
     return {
       notFound: true,
@@ -92,9 +89,14 @@ const Post = (props: PostProps) => {
       </div>
       {content.map(({ type, title, caption, data }) =>
         type === "image" ? (
-          <ImageWithCaption imageName={title} caption={caption} cloudStorage />
+          <ImageWithCaption
+            key={title}
+            imageName={title}
+            caption={caption}
+            cloudStorage
+          />
         ) : (
-          <p dangerouslySetInnerHTML={{ __html: data }} />
+          <p key={data} dangerouslySetInnerHTML={{ __html: data }} />
         )
       )}
     </Wrapper>

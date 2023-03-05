@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import { getPost } from "@/utils/postUtils";
 import { getDate } from "@/utils/generalUtils";
-import Post from "@/components/blog-page/post";
+import Post from "@/components/blog-page/Post";
 
 export async function getServerSideProps(context: {
   params: { blogpost: any };
