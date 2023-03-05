@@ -87,7 +87,7 @@ const Post = (props: PostProps) => {
         </AuthorAndDate>
         <h1 id="blog-title">{title}</h1>
       </div>
-      {content.map(({ type, title, caption, data }) =>
+      {content.map(({ type, title, caption, data = "<p>no data</p>" }) =>
         type === "image" ? (
           <ImageWithCaption
             key={title}
