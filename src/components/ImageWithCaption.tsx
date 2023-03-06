@@ -10,9 +10,10 @@ const getImage = async (imageName: string) => {
   return url;
 };
 
-const useImage = (imageName: string) => {
+const useImage = (imageName?: string) => {
   const [url, setUrl] = useState("/images/waiting.gif");
   useEffect(() => {
+    if (!imageName) return;
     getImage(imageName)
       .then((url) => setUrl(url))
       .catch(() => setUrl("/images/lostDuck.gif"));
@@ -56,8 +57,8 @@ const ImageWithCaption = ({
   caption = "Hmm. Can't find that image.",
   cloudStorage = false,
 }: {
-  imageName: string;
-  caption: string;
+  imageName?: string;
+  caption?: string;
   cloudStorage: boolean;
 }) => {
   const url = useImage(imageName);

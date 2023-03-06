@@ -1,14 +1,14 @@
 import { useAuth } from "@/providers/AuthProvider";
 import RichTextArea from "../admin-page/RichTextArea";
 import {
-  publishPost,
-  unpublishPost,
   saveChanges,
   useSaveBackup,
   useSetDebouncedPostField,
   restoreBackup,
+  setPostField,
 } from "@/utils/postUtils";
 import styled from "@emotion/styled";
+import { PUBLISHED } from "@/utils/constants";
 
 const inputs = [
   { inputId: "title-input", label: "Title", type: "text", field: "title" },
@@ -78,8 +78,12 @@ const PostEditor = ({ id }: { id: string }) => {
         ))}
       </InputsWrapper>
       <RichTextArea value={content} setValue={setContent} />
-      <button onClick={() => publishPost(id)}>publish post</button>
-      <button onClick={() => unpublishPost(id)}>unpublish post</button>
+      <button onClick={() => setPostField(id, PUBLISHED, true)}>
+        publish post
+      </button>
+      <button onClick={() => setPostField(id, PUBLISHED, false)}>
+        unpublish post
+      </button>
       <button onClick={() => saveChanges(id, content)}>save changes</button>
       <button
         onClick={() =>
