@@ -23,9 +23,9 @@ const Nav = styled.nav`
 
 const Button = styled.button`
   display: flex;
-  & > span {
+  & > svg {
     color: ${({ theme }) => theme.colors.white};
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
   background: none;
   border: none;
@@ -77,7 +77,7 @@ function MobileNav({
         {({ open }) => (
           <>
             <Menu.Button as={Button}>
-              <Icon id={open ? "close" : "menu"} />
+              {open ? <Icon id="x" /> : <Icon id="menu" />}
             </Menu.Button>
 
             <Menu.Items as={Items}>

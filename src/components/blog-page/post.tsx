@@ -2,6 +2,7 @@ import { anyOf } from "@/utils/generalUtils";
 import styled from "@emotion/styled";
 import ImageWithCaption from "@/components/ImageWithCaption";
 import { getPost } from "@/utils/postUtils";
+import { useAuth } from "@/providers/AuthProvider";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -71,6 +72,8 @@ type contentItem = {
 };
 
 const Post = (props: PostProps) => {
+  const { user, isAdmin } = useAuth();
+  console.log(user, isAdmin);
   const { author, date, description, image, location, tags, title } = props;
   const content: contentItem[] = JSON.parse(props.content);
   console.log(content);
