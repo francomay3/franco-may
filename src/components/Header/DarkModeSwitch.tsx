@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Switch } from "@headlessui/react";
 import styled from "@emotion/styled";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import Icon from "@/components/Icon";
 
 interface WrapperProps {
@@ -13,8 +15,9 @@ const SwitchWrapper = styled(Switch)<WrapperProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  & > span {
+  & > svg {
     color: ${({ theme }) => theme.colors.white};
+    font-size: 1.3rem;
   }
 `;
 const DarkModeSwitch = () => {
@@ -22,7 +25,7 @@ const DarkModeSwitch = () => {
 
   return (
     <SwitchWrapper checked={enabled} onChange={setEnabled}>
-      <Icon id={enabled ? "dark_mode" : "light_mode"} />
+      {enabled ? <Icon id="moon" /> : <Icon id="sun" />}
     </SwitchWrapper>
   );
 };

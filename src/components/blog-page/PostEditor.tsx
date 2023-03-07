@@ -87,7 +87,7 @@ const PostEditor = ({ id }: { id: string }) => {
       <button onClick={() => saveChanges(id, content)}>save changes</button>
       <button
         onClick={() =>
-          restoreBackup(id, (newContent) => setContent(newContent))
+          restoreBackup(id, (newContent: string) => setContent(newContent))
         }
       >
         restore backup

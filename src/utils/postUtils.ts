@@ -85,7 +85,7 @@ export const useSetDebouncedPostField = (id: string, postField: string) => {
       setValue(storedValue);
     });
   }, []);
-  return [value, setValue];
+  return [value, setValue] as const;
 };
 
 export const prepareContentForDB = (content: string) => {
@@ -148,7 +148,7 @@ export const useSaveBackup = (id: string) => {
       setContent(content);
     });
   }, []);
-  return [content, setContent];
+  return [content, setContent] as const;
 };
 
 export const createPost = async (id: any) => {
