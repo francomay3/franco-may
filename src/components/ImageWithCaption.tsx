@@ -2,6 +2,7 @@ import Image from "next/image";
 import styled from "@emotion/styled";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { useState, useEffect } from "react";
+import { useTheme } from "@emotion/react";
 
 const getImage = async (imageName: string) => {
   const url = await getDownloadURL(
@@ -46,43 +47,47 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const Caption = styled.h3`
-  flex: 1;
-  color: ${({ theme }) => theme.colors.grey};
-  text-align: center;
-`;
-
 const ImageWithCaption = ({
   imageName,
   caption = "Hmm. Can't find that image.",
-  cloudStorage = false,
+  url = "/images/lostDuck.gif",
+  isEditing,
+  onChange = () => {},
 }: {
-  imageName?: string;
+  imageName: string;
   caption?: string;
-  cloudStorage: boolean;
+  url: string;
+  isEditing?: boolean;
+  onChange?: Function;
 }) => {
-  const url = useImage(imageName);
+  const theme = useTheme();
   return (
     <Wrapper>
       <ImageWrapper>
-        {cloudStorage ? (
+        {url ? (
           <Image
             loader={({ src }) => src}
             src={url}
-            alt="imageName"
+            alt={imageName || "imageName"}
             fill
             objectFit="cover"
+            sizes="(max-width: 640px) 100vw, 320px"
           />
         ) : (
           <Image
             src={`/images/${imageName}`}
-            alt="imageName"
+            alt={imageName || "imageName"}
             fill
             objectFit="cover"
           />
         )}
       </ImageWrapper>
-      <Caption>{caption}</Caption>
+      <h3
+        contentEditable={isEditing}
+        onBlur={(e) => onChange(e.target.innerHTML)}
+        style={{ flex: "1", color: theme.colors.grey, textAlign: "center" }}
+        dangerouslySetInnerHTML={{ __html: caption }}
+      />
     </Wrapper>
   );
 };

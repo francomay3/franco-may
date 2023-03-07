@@ -115,7 +115,6 @@ export const prepareContentForDB = (content: string) => {
 
 export const saveChanges = (id: string, currentEditorState: string) => {
   const DBContent: string | null = prepareContentForDB(currentEditorState);
-  console.log(DBContent);
   if (!DBContent || !currentEditorState) return;
   setPostField(id, SAVED_EDITOR_STATE, currentEditorState);
   setPostField(id, CONTENT, DBContent);
@@ -175,4 +174,8 @@ export const createPost = async (id: any) => {
 
   set(ref(db, `${POSTS}/${id}`), value);
   return true;
+};
+
+export const updatePost = async (id: string, value: any) => {
+  set(ref(db, `${POSTS}/${id}`), value);
 };
