@@ -71,6 +71,7 @@ const ImageWithCaption = ({
             alt={imageName || "imageName"}
             fill
             objectFit="cover"
+            sizes="(max-width: 640px) 100vw, 320px"
           />
         ) : (
           <Image
@@ -85,9 +86,8 @@ const ImageWithCaption = ({
         contentEditable={isEditing}
         onBlur={(e) => onChange(e.target.innerHTML)}
         style={{ flex: "1", color: theme.colors.grey, textAlign: "center" }}
-      >
-        {caption}
-      </h3>
+        dangerouslySetInnerHTML={{ __html: caption }}
+      />
     </Wrapper>
   );
 };

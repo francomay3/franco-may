@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
 
-const AuthorAndDate = styled.p`
+const Wrapper = styled.p`
   color: ${({ theme }) => theme.colors.grey};
 `;
 
-const Component = ({ children, isEditing, onChange }) => {
-  return <AuthorAndDate>{children}</AuthorAndDate>;
+const AuthorAndDate = ({ children, isEditing, onChange, author, date }) => {
+  return <Wrapper>{`${author} | ${date}`}</Wrapper>;
 };
 
-export default Component;
+export default AuthorAndDate;

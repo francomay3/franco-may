@@ -1,4 +1,4 @@
-export const getDate = (date: Date) => {
+export const getDateAsString = (date: Date) => {
   const months = [
     "January",
     "February",
@@ -45,6 +45,7 @@ export const getDate = (date: Date) => {
     "thirtieth",
     "thirty-first",
   ];
+  date = new Date(date);
   const year = date.getFullYear();
   const month = date.getMonth();
   const day = date.getDate();

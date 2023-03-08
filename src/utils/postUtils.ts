@@ -175,3 +175,7 @@ export const createPost = async (id: any) => {
   set(ref(db, `${POSTS}/${id}`), value);
   return true;
 };
+
+export const updatePost = async (id: string, value: any) => {
+  set(ref(db, `${POSTS}/${id}`), value);
+};

@@ -1,57 +1,31 @@
 import Layout from "@/components/Layout";
 import { getPost } from "@/utils/postUtils";
-import { getDate } from "@/utils/generalUtils";
 import Post from "@/components/blog-page/Post";
+import { CONTENT, TAGS } from "@/utils/constants";
+import { memo } from "react";
 
 export async function getServerSideProps(context: {
   params: { blogpost: any };
 }) {
-  const post = await getPost(context.params.blogpost);
+  const id = context.params.blogpost;
+  const post = await getPost(id);
 
-  if (!post) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: { post }, // will be passed to the page component as props
-  };
+  return post
+    ? {
+        props: {
+          ...post,
+          [TAGS]: JSON.parse(post.tags),
+          [CONTENT]: JSON.parse(post.content),
+          id,
+        },
+      }
+    : { notFound: true };
 }
 
-type Post = {
-  author: string;
-  title: string;
-  description: string;
-  image: string;
-  imageCaption: string;
-  location: string;
-  content: string;
-  tags: string;
-  date: number;
-};
-
-const BlogPost = ({ post }: { post: Post }) => {
-  const { author, title, description, image, imageCaption, location, content } =
-    post;
-  const tags: string[] = JSON.parse(post.tags);
-  const date = getDate(new Date(post.date));
-
-  return (
-    <Layout>
-      <Post
-        author={author}
-        title={title}
-        description={description}
-        image={image}
-        imageCaption={imageCaption}
-        location={location}
-        content={content}
-        tags={tags}
-        date={date}
-      />
-    </Layout>
-  );
-};
+const BlogPost = (props) => (
+  <Layout>
+    <Post {...props} />
+  </Layout>
+);
 
 export default BlogPost;

@@ -9,6 +9,9 @@ import {
   faItalic,
   faUnderline,
   faStrikethrough,
+  faFloppyDisk,
+  faEarthAmericas,
+  faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Icon({ id }: { id: string }) {
@@ -29,6 +32,12 @@ function Icon({ id }: { id: string }) {
       return <FontAwesomeIcon icon={faUnderline} />;
     case "strikeThrough":
       return <FontAwesomeIcon icon={faStrikethrough} />;
+    case "save":
+      return <FontAwesomeIcon icon={faFloppyDisk} />;
+    case "earth":
+      return <FontAwesomeIcon icon={faEarthAmericas} />;
+    case "invisible":
+      return <FontAwesomeIcon icon={faEyeSlash} />;
     default:
       return <FontAwesomeIcon icon={faQuestion} />;
   }
