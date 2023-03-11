@@ -51,16 +51,20 @@ const Button = ({ iconId, onClick, text }) => {
   );
 };
 
+const preventDefault = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+};
+
 const Toolbar = ({ hasUnsavedChanges, save, published }) => {
   return (
-    <Wrapper>
-      <ButtonGroup>
+    <Wrapper onClick={preventDefault}>
+      <ButtonGroup onClick={preventDefault}>
         {["bold", "italic", "underline", "strikeThrough"].map((id) => (
           <Button
             key={id}
             onClick={(e) => {
-              e.stopPropagation();
-              e.preventDefault();
+              preventDefault(e);
               window.document.execCommand(id);
             }}
             iconId={id}

@@ -21,7 +21,7 @@ const Tags = memo(
   (prevProps, nextProps) => prevProps.tag === nextProps.tag
 );
 
-const Component = ({ tags, isEditing, onChange }) => {
+const Component = ({ tags, isEditingEnabled, onChange }) => {
   const parsedTags = JSON.parse(tags);
   return (
     <Tags>

@@ -1,7 +1,7 @@
 import ImageWithCaption from "@/components/ImageWithCaption";
 import { useState } from "react";
 
-function ImageBlock({ block, isEditing, onChange }) {
+function ImageBlock({ block, isEditingEnabled, onChange }) {
   const [blockState, setBlockState] = useState(block);
   const updateBlock = (newCaption) => {
     setBlockState((prev) => {
@@ -15,7 +15,7 @@ function ImageBlock({ block, isEditing, onChange }) {
       imageName={blockState.title}
       caption={blockState.caption}
       url={blockState.url}
-      isEditing={isEditing}
+      isEditingEnabled={isEditingEnabled}
       onChange={updateBlock}
     />
   );

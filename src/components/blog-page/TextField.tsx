@@ -23,7 +23,7 @@ const getWrapper = (as) => {
   }
 };
 
-const TextField = ({ value, isEditing, onChange, as }) => {
+const TextField = ({ value, isEditingEnabled, onChange, as }) => {
   const Wrapper = getWrapper(as);
   const handleBlur = (e) => {
     const newValue = e.target.innerHTML;
@@ -33,7 +33,7 @@ const TextField = ({ value, isEditing, onChange, as }) => {
   return (
     <Wrapper
       onBlur={handleBlur}
-      contentEditable={isEditing}
+      contentEditable={isEditingEnabled}
       dangerouslySetInnerHTML={{ __html: value }}
     />
   );

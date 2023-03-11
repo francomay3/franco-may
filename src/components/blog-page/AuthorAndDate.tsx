@@ -4,7 +4,13 @@ const Wrapper = styled.p`
   color: ${({ theme }) => theme.colors.grey};
 `;
 
-const AuthorAndDate = ({ children, isEditing, onChange, author, date }) => {
+const AuthorAndDate = ({
+  children,
+  isEditingEnabled,
+  onChange,
+  author,
+  date,
+}) => {
   return <Wrapper>{`${author} | ${date}`}</Wrapper>;
 };
 

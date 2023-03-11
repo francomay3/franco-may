@@ -12,7 +12,7 @@ const getNewContent = (parsedContent, newBlock) =>
     })
   );
 
-const Content = ({ content, isEditing, onChange }) => {
+const Content = ({ content, isEditingEnabled, onChange }) => {
   const parsedContent = JSON.parse(content);
   return parsedContent.map((block) => {
     switch (block.type) {
@@ -20,7 +20,7 @@ const Content = ({ content, isEditing, onChange }) => {
         return (
           <TextBlock
             key={block.blockId}
-            isEditing={isEditing}
+            isEditingEnabled={isEditingEnabled}
             block={block}
             onChange={(newBlock) =>
               onChange(getNewContent(parsedContent, newBlock))
@@ -32,7 +32,7 @@ const Content = ({ content, isEditing, onChange }) => {
           <ImageBlock
             key={block.blockId}
             block={block}
-            isEditing={isEditing}
+            isEditingEnabled={isEditingEnabled}
             onChange={(newBlock) =>
               onChange(getNewContent(parsedContent, newBlock))
             }

@@ -33,7 +33,7 @@ const AuthorAndDate = styled.p`
 
 const Post = ({ id, ...props }) => {
   const { user, isAdmin } = useAuth();
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditingEnabled, setIsEditingEnabled] = useState(false);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [postState, setPostStateTemp] = useState(props);
   const setPostState = (args) => {
@@ -53,7 +53,7 @@ const Post = ({ id, ...props }) => {
   useEffect(() => {
     // if (user && isAdmin) {
     if (true) {
-      setIsEditing(true);
+      setIsEditingEnabled(true);
     }
   }, [user, isAdmin]);
 
@@ -71,15 +71,19 @@ const Post = ({ id, ...props }) => {
 
   return (
     <Wrapper>
-      {isEditing && (
+      {isEditingEnabled && (
         <Toolbar hasUnsavedChanges={hasUnsavedChanges} save={handleSave} />
       )}
-      <Tags tags={postState[TAGS]} isEditing={isEditing} onChange={() => {}} />
+      <Tags
+        tags={postState[TAGS]}
+        isEditingEnabled={isEditingEnabled}
+        onChange={() => {}}
+      />
       <AuthorAndDate>
         <TextField
           as="span"
           value={postState[AUTHOR]}
-          isEditing={isEditing}
+          isEditingEnabled={isEditingEnabled}
           onChange={(value) => {
             handleStateFieldChange(AUTHOR, value);
           }}
@@ -87,7 +91,7 @@ const Post = ({ id, ...props }) => {
         {" | "}
         <DateField
           date={postState[CREATED_AT]}
-          isEditing={isEditing}
+          isEditingEnabled={isEditingEnabled}
           onChange={(value) => {
             handleStateFieldChange(CREATED_AT, value);
           }}
@@ -96,7 +100,7 @@ const Post = ({ id, ...props }) => {
       <TextField
         as="h1"
         value={postState[TITLE]}
-        isEditing={isEditing}
+        isEditingEnabled={isEditingEnabled}
         onChange={(value) => {
           handleStateFieldChange(TITLE, value);
         }}
@@ -104,7 +108,7 @@ const Post = ({ id, ...props }) => {
 
       <Content
         content={postState[CONTENT]}
-        isEditing={isEditing}
+        isEditingEnabled={isEditingEnabled}
         onChange={(value) => {
           handleStateFieldChange(CONTENT, value);
         }}

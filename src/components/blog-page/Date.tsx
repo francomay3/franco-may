@@ -1,7 +1,7 @@
 import { getDateAsString } from "@/utils/generalUtils";
 import { useState } from "react";
 
-const DateField = ({ date, isEditing, onChange }) => {
+const DateField = ({ date, isEditingEnabled, onChange }) => {
   const [isEditingDate, setIsEditingDate] = useState(false);
   const handleChange = (e) => {
     const time = new Date(e.target.value).getTime();
@@ -13,7 +13,7 @@ const DateField = ({ date, isEditing, onChange }) => {
   ) : (
     <span
       onClick={() => {
-        if (isEditing) setIsEditingDate(true);
+        if (isEditingEnabled) setIsEditingDate(true);
       }}
     >
       {getDateAsString(date)}

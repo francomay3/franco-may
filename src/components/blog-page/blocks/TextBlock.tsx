@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function TextBlock({ block, isEditing, onChange = () => {} }) {
+function TextBlock({ block, isEditingEnabled, onChange = () => {} }) {
   const [blockState, setBlockState] = useState(block);
   const handleBlur = (e) => {
     setBlockState((prev) => {
@@ -13,7 +13,7 @@ function TextBlock({ block, isEditing, onChange = () => {} }) {
   return (
     <p
       onBlur={handleBlur}
-      contentEditable={isEditing}
+      contentEditable={isEditingEnabled}
       dangerouslySetInnerHTML={{ __html: blockState.data }}
     />
   );
