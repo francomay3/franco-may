@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Icon from "@/components/Icon";
+import { IconId } from "@/utils/types";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightGrey};
@@ -42,7 +43,13 @@ const ButtonWrapper = styled.button`
   }
 `;
 
-const Button = ({ iconId, onClick, text }) => {
+interface ButtonProps {
+  iconId: IconId;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  text?: string;
+}
+
+const Button = ({ iconId, onClick, text }: ButtonProps) => {
   return (
     <ButtonWrapper onClick={onClick}>
       <Icon id={iconId} />
@@ -51,16 +58,35 @@ const Button = ({ iconId, onClick, text }) => {
   );
 };
 
-const Toolbar = ({ hasUnsavedChanges, save, published }) => {
+const preventDefault = (
+  e: React.MouseEvent<HTMLDivElement | HTMLButtonElement, MouseEvent>
+) => {
+  e.preventDefault();
+  e.stopPropagation();
+};
+
+interface ToolbarProps {
+  hasUnsavedChanges: boolean;
+  save: () => void;
+  published: boolean;
+}
+
+const ToolbarButtons = [
+  "bold",
+  "italic",
+  "underline",
+  "strikeThrough",
+] as const;
+
+const Toolbar = ({ hasUnsavedChanges, save, published }: ToolbarProps) => {
   return (
-    <Wrapper>
-      <ButtonGroup>
-        {["bold", "italic", "underline", "strikeThrough"].map((id) => (
+    <Wrapper onClick={(e) => preventDefault(e)}>
+      <ButtonGroup onClick={(e) => preventDefault(e)}>
+        {ToolbarButtons.map((id: IconId) => (
           <Button
             key={id}
             onClick={(e) => {
-              e.stopPropagation();
-              e.preventDefault();
+              preventDefault(e);
               window.document.execCommand(id);
             }}
             iconId={id}

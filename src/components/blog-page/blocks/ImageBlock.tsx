@@ -1,11 +1,19 @@
 import ImageWithCaption from "@/components/ImageWithCaption";
 import { useState } from "react";
+import { ImageBlockData } from "./types";
 
-function ImageBlock({ block, isEditing, onChange }) {
+interface ImageBlockProps {
+  block: ImageBlockData;
+  isEditingEnabled: boolean;
+  onChange: (block: ImageBlockData) => void;
+}
+
+function ImageBlock({ block, isEditingEnabled, onChange }: ImageBlockProps) {
   const [blockState, setBlockState] = useState(block);
-  const updateBlock = (newCaption) => {
+  const updateBlock = (newCaption: string) => {
     setBlockState((prev) => {
       const newBlock = { ...prev, caption: newCaption };
+      if (newBlock.caption === prev.caption) return prev;
       onChange(newBlock);
       return newBlock;
     });
@@ -15,7 +23,7 @@ function ImageBlock({ block, isEditing, onChange }) {
       imageName={blockState.title}
       caption={blockState.caption}
       url={blockState.url}
-      isEditing={isEditing}
+      isEditingEnabled={isEditingEnabled}
       onChange={updateBlock}
     />
   );
