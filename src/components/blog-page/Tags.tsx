@@ -1,5 +1,6 @@
 import { anyOf } from "@/utils/generalUtils";
 import styled from "@emotion/styled";
+import { memo } from "react";
 
 const Tag = styled.span`
   color: ${({ theme }) => theme.colors.white};
@@ -12,16 +13,22 @@ const Tag = styled.span`
   }};
 `;
 
-const Tags = styled.div`
-  display: flex;
-  gap: ${({ theme }) => theme.spacing[2]};
-`;
+const Tags = memo(
+  styled.div`
+    display: flex;
+    gap: ${({ theme }) => theme.spacing[2]};
+  `,
+  (prevProps, nextProps) => prevProps.tag === nextProps.tag
+);
 
 const Component = ({ tags, isEditing, onChange }) => {
+  const parsedTags = JSON.parse(tags);
   return (
     <Tags>
-      {tags.map((tag) => (
-        <Tag key={tag}>{tag}</Tag>
+      {parsedTags.map((tag) => (
+        <Tag key={tag} tag={tag}>
+          {tag}
+        </Tag>
       ))}
     </Tags>
   );

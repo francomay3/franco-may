@@ -57,7 +57,10 @@ const Toolbar = ({ hasUnsavedChanges, save, published }) => {
       <ButtonGroup>
         {["bold", "italic", "underline", "strikeThrough"].map((id) => (
           <Button
-            onClick={() => {
+            key={id}
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
               window.document.execCommand(id);
             }}
             iconId={id}

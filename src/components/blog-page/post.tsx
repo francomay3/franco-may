@@ -1,14 +1,9 @@
 import styled from "@emotion/styled";
-import { getPost } from "@/utils/postUtils";
 import { useAuth } from "@/providers/AuthProvider";
-import Icon from "@/components/Icon";
-import { useEffect, useState, useCallback, memo } from "react";
+import { useEffect, useState } from "react";
 import Tags from "./Tags";
 import TextField from "./TextField";
-import TextBlock from "./blocks/TextBlock";
-import ImageBlock from "./blocks/ImageBlock";
 import Toolbar from "./Toolbar";
-import { updatePost } from "@/utils/postUtils";
 import DateField from "./Date";
 import {
   CREATED_AT,
@@ -21,6 +16,7 @@ import {
   TAGS,
   IMAGE,
 } from "@/utils/constants";
+import Content from "./Content";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -39,17 +35,20 @@ const Post = ({ id, ...props }) => {
   const { user, isAdmin } = useAuth();
   const [isEditing, setIsEditing] = useState(false);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
-  const [postState, setPostState] = useState(props);
+  const [postState, setPostStateTemp] = useState(props);
+  const setPostState = (args) => {
+    console.log("setPostState", args);
+    setPostStateTemp(args);
+  };
 
   // // log the postState to the console every time it changes
   useEffect(() => {
     console.log(postState);
   }, [postState]);
 
-  const getUpdatedPostState = (field, value) => ({
-    ...postState,
-    [field]: value,
-  });
+  const getUpdatedPostState = (field, value) => {
+    return { ...postState, [field]: value };
+  };
 
   useEffect(() => {
     // if (user && isAdmin) {
@@ -57,18 +56,6 @@ const Post = ({ id, ...props }) => {
       setIsEditing(true);
     }
   }, [user, isAdmin]);
-
-  const updateBlockInContent = (newBlock) =>
-    setPostState((prev) => {
-      const newContent = prev.content.map((block) => {
-        if (block.blockId === newBlock.blockId) {
-          return newBlock;
-        }
-        return block;
-      });
-      setHasUnsavedChanges(true);
-      return getUpdatedPostState(CONTENT, newContent);
-    });
 
   const handleSave = () => {
     // updatePost(id, postState).then(() => {
@@ -82,28 +69,6 @@ const Post = ({ id, ...props }) => {
     setHasUnsavedChanges(true);
   };
 
-  const Title = () => (
-    <TextField
-      as="h1"
-      content={postState[TITLE]}
-      isEditing={isEditing}
-      onChange={(value) => {
-        handleStateFieldChange(TITLE, value);
-      }}
-    />
-  );
-
-  const Author = () => (
-    <TextField
-      as="span"
-      content={postState[AUTHOR]}
-      isEditing={isEditing}
-      onChange={(value) => {
-        handleStateFieldChange(AUTHOR, value);
-      }}
-    />
-  );
-
   return (
     <Wrapper>
       {isEditing && (
@@ -111,7 +76,15 @@ const Post = ({ id, ...props }) => {
       )}
       <Tags tags={postState[TAGS]} isEditing={isEditing} onChange={() => {}} />
       <AuthorAndDate>
-        <Author /> |{" "}
+        <TextField
+          as="span"
+          value={postState[AUTHOR]}
+          isEditing={isEditing}
+          onChange={(value) => {
+            handleStateFieldChange(AUTHOR, value);
+          }}
+        />
+        {" | "}
         <DateField
           date={postState[CREATED_AT]}
           isEditing={isEditing}
@@ -120,32 +93,22 @@ const Post = ({ id, ...props }) => {
           }}
         />
       </AuthorAndDate>
-      <Title />
+      <TextField
+        as="h1"
+        value={postState[TITLE]}
+        isEditing={isEditing}
+        onChange={(value) => {
+          handleStateFieldChange(TITLE, value);
+        }}
+      />
 
-      {postState[CONTENT].map((block) => {
-        switch (block.type) {
-          case "text":
-            return (
-              <TextBlock
-                key={block.blockId}
-                isEditing={isEditing}
-                block={block}
-                onChange={updateBlockInContent}
-              />
-            );
-          case "image":
-            return (
-              <ImageBlock
-                key={block.blockId}
-                block={block}
-                isEditing={isEditing}
-                onChange={updateBlockInContent}
-              />
-            );
-          default:
-            return null;
-        }
-      })}
+      <Content
+        content={postState[CONTENT]}
+        isEditing={isEditing}
+        onChange={(value) => {
+          handleStateFieldChange(CONTENT, value);
+        }}
+      />
     </Wrapper>
   );
 };
