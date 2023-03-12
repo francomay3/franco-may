@@ -13,6 +13,7 @@ import {
   faEyeSlash,
   faXmark,
   faPlus,
+  faMinus,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Icon({ id }: { id: string }) {
@@ -41,6 +42,8 @@ function Icon({ id }: { id: string }) {
       return <FontAwesomeIcon icon={faEyeSlash} />;
     case "plus":
       return <FontAwesomeIcon icon={faPlus} />;
+    case "minus":
+      return <FontAwesomeIcon icon={faMinus} />;
     default:
       return <FontAwesomeIcon icon={faQuestion} />;
   }

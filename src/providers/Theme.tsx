@@ -17,6 +17,7 @@ declare module "@emotion/react" {
       lightBlue: string;
       blue: string;
       violet: string;
+      darkBlue: string;
       link: {
         text: string;
         underline: string;
@@ -69,6 +70,7 @@ export const theme = {
     lightBlue: "#a2d2fb",
     blue: "#77bdfb",
     violet: "#cea5fb",
+    darkBlue: "#459ae4",
     link: {
       text: "#0969da",
       underline: "rgba(0, 127, 255, 0.4)",

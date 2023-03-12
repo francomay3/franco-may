@@ -21,13 +21,27 @@ import { BlogField, PostFields } from "@/utils/types";
 import Content from "./connectedFields/Content";
 import { updatePost } from "@/utils/postUtils";
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ isEditingEnabled: boolean }>`
   width: 100%;
   max-width: 680px;
   gap: ${({ theme }) => theme.spacing[4]};
   display: flex;
   flex-direction: column;
   margin-bottom: 3.5rem;
+  & [contenteditable="true"] {
+    ${({ isEditingEnabled }) =>
+      isEditingEnabled && "border: 2px solid transparent;"}
+    outline: none;
+    border-radius: ${({ theme }) => theme.borderRadius[3]};
+    &:hover {
+      border: 2px solid ${({ theme }) => theme.colors.lightBlue};
+      cursor: pointer;
+    }
+    &:focus {
+      border: 2px solid ${({ theme }) => theme.colors.darkBlue};
+      cursor: text;
+    }
+  }
 `;
 
 const AuthorAndDate = styled.p`
@@ -63,7 +77,7 @@ const Post = ({ id, ...props }: PostFields) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper isEditingEnabled={isEditingEnabled}>
       {isEditingEnabled && (
         <Toolbar
           published={postState[PUBLISHED]}
