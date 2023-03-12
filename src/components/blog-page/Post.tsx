@@ -38,7 +38,7 @@ const Wrapper = styled.div<{ isEditingEnabled: boolean }>`
       cursor: pointer;
     }
     &:focus {
-      border: 2px solid ${({ theme }) => theme.colors.blue};
+      border: 2px solid ${({ theme }) => theme.colors.darkBlue};
       cursor: text;
     }
   }

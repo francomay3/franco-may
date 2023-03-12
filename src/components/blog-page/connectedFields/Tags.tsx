@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 import { uniq } from "lodash";
 import { BlogField } from "@/utils/types";
+import { PlusButton, MinusButton } from "../ActionButtons";
 
 const NEW_TAG = "new tag";
 
@@ -17,20 +18,6 @@ const Tag = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: ${({ color }) => color};
-`;
-
-const IconWrapper = styled.div<{ color: string; size?: string }>`
-  background-color: ${({ color }) => color};
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: ${({ size }) => size || "1rem"};
-  height: ${({ size }) => size || "1rem"};
-  padding: 0.6rem;
-  border: 1px solid ${({ theme }) => theme.colors.white};
-  color: ${({ theme }) => theme.colors.white};
-  cursor: pointer;
 `;
 
 const Wrapper = styled.div`
@@ -105,16 +92,10 @@ const Tags = ({
           >
             {tag}
           </div>
-          {isEditingEnabled && (
-            <IconWrapper color={colors.red} onClick={() => deleteTag(tag)}>
-              <Icon id="x" />
-            </IconWrapper>
-          )}
+          {isEditingEnabled && <MinusButton onClick={() => deleteTag(tag)} />}
         </Tag>
       ))}
-      <IconWrapper color={colors.blue} size={"1.8rem"} onClick={addTag}>
-        <Icon id="plus" />
-      </IconWrapper>
+      <PlusButton onClick={addTag} />
     </Wrapper>
   );
 };
