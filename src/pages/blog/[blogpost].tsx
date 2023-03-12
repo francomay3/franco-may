@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import { getPost } from "@/utils/postUtils";
 import Post from "@/components/blog-page/Post";
+import { PostFields } from "@/utils/types";
 
 export async function getServerSideProps(context: {
   params: { blogpost: any };
@@ -18,7 +19,7 @@ export async function getServerSideProps(context: {
     : { notFound: true };
 }
 
-const BlogPost = (props) => (
+const BlogPost = (props: PostFields) => (
   <Layout>
     <Post {...props} />
   </Layout>

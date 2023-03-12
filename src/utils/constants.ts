@@ -8,12 +8,9 @@ export const AUTHOR = "author";
 export const CONTENT = "content";
 export const CREATED_AT = "createdAt";
 export const DESCRIPTION = "description";
-export const DRAFT_EDITOR_STATE = "draftEditorState";
-export const HAS_UNSAVED_CHANGES = "hasUnsavedChanges";
 export const IMAGE = "image";
 export const LOCATION = "location";
 export const PUBLISHED = "published";
-export const SAVED_EDITOR_STATE = "savedEditorState";
 export const TAGS = "tags";
 export const TITLE = "title";
 export const UPDATED_AT = "updatedAt";
@@ -23,16 +20,13 @@ export const POST_FIELDS = [
   CONTENT,
   CREATED_AT,
   DESCRIPTION,
-  DRAFT_EDITOR_STATE,
-  HAS_UNSAVED_CHANGES,
   IMAGE,
   LOCATION,
   PUBLISHED,
-  SAVED_EDITOR_STATE,
   TAGS,
   TITLE,
   UPDATED_AT,
-];
+] as const;
 
 export const DEFAULT_POST = {
   author: "Franco May",

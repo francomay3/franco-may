@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 import { useAuth } from "@/providers/AuthProvider";
 import { useEffect, useState } from "react";
-import Tags from "./Tags";
-import TextField from "./TextField";
+import Tags from "./connectedFields/Tags";
+import TextField from "./connectedFields/TextField";
+import DateField from "./connectedFields/Date";
 import Toolbar from "./Toolbar";
-import DateField from "./Date";
 import {
   CREATED_AT,
   UPDATED_AT,
@@ -15,8 +15,11 @@ import {
   LOCATION,
   TAGS,
   IMAGE,
+  PUBLISHED,
 } from "@/utils/constants";
-import Content from "./Content";
+import { BlogField, PostFields } from "@/utils/types";
+import Content from "./connectedFields/Content";
+import { updatePost } from "@/utils/postUtils";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -31,40 +34,30 @@ const AuthorAndDate = styled.p`
   color: ${({ theme }) => theme.colors.grey};
 `;
 
-const Post = ({ id, ...props }) => {
+const Post = ({ id, ...props }: PostFields) => {
   const { user, isAdmin } = useAuth();
   const [isEditingEnabled, setIsEditingEnabled] = useState(false);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
-  const [postState, setPostStateTemp] = useState(props);
-  const setPostState = (args) => {
-    console.log("setPostState", args);
-    setPostStateTemp(args);
-  };
+  const [postState, setPostState] = useState(props);
 
-  // // log the postState to the console every time it changes
-  useEffect(() => {
-    console.log(postState);
-  }, [postState]);
-
-  const getUpdatedPostState = (field, value) => {
+  const getUpdatedPostState = (field: BlogField, value: string | number) => {
     return { ...postState, [field]: value };
   };
 
   useEffect(() => {
-    // if (user && isAdmin) {
-    if (true) {
+    if (user && isAdmin) {
       setIsEditingEnabled(true);
     }
   }, [user, isAdmin]);
 
   const handleSave = () => {
-    // updatePost(id, postState).then(() => {
-    //   setHasUnsavedChanges(false);
-    // });
+    updatePost(id, postState).then(() => {
+      setHasUnsavedChanges(false);
+    });
     setHasUnsavedChanges(false);
   };
 
-  const handleStateFieldChange = (field, value) => {
+  const handleStateFieldChange = (field: BlogField, value: string | number) => {
     setPostState(getUpdatedPostState(field, value));
     setHasUnsavedChanges(true);
   };
@@ -72,46 +65,47 @@ const Post = ({ id, ...props }) => {
   return (
     <Wrapper>
       {isEditingEnabled && (
-        <Toolbar hasUnsavedChanges={hasUnsavedChanges} save={handleSave} />
+        <Toolbar
+          published={postState[PUBLISHED]}
+          hasUnsavedChanges={hasUnsavedChanges}
+          save={handleSave}
+        />
       )}
       <Tags
         tags={postState[TAGS]}
         isEditingEnabled={isEditingEnabled}
-        onChange={() => {}}
+        field={TAGS}
+        onChange={handleStateFieldChange}
       />
       <AuthorAndDate>
         <TextField
           as="span"
           value={postState[AUTHOR]}
+          field={AUTHOR}
           isEditingEnabled={isEditingEnabled}
-          onChange={(value) => {
-            handleStateFieldChange(AUTHOR, value);
-          }}
+          onChange={handleStateFieldChange}
         />
         {" | "}
         <DateField
           date={postState[CREATED_AT]}
+          field={CREATED_AT}
           isEditingEnabled={isEditingEnabled}
-          onChange={(value) => {
-            handleStateFieldChange(CREATED_AT, value);
-          }}
+          onChange={handleStateFieldChange}
         />
       </AuthorAndDate>
       <TextField
         as="h1"
         value={postState[TITLE]}
+        field={TITLE}
         isEditingEnabled={isEditingEnabled}
-        onChange={(value) => {
-          handleStateFieldChange(TITLE, value);
-        }}
+        onChange={handleStateFieldChange}
       />
 
       <Content
         content={postState[CONTENT]}
+        field={CONTENT}
         isEditingEnabled={isEditingEnabled}
-        onChange={(value) => {
-          handleStateFieldChange(CONTENT, value);
-        }}
+        onChange={handleStateFieldChange}
       />
     </Wrapper>
   );
