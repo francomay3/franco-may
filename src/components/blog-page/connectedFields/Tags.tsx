@@ -98,13 +98,13 @@ const Tags = ({
   return (
     <Wrapper>
       {parsedTags.map((tag, i) => (
-        <Tag
-          key={tag}
-          color={tagColors[i]}
-          contentEditable={isEditingEnabled}
-          onBlur={(e) => handleBlur(e, tag)}
-        >
-          {tag}
+        <Tag key={tag} color={tagColors[i]}>
+          <div
+            contentEditable={isEditingEnabled}
+            onBlur={(e) => handleBlur(e, tag)}
+          >
+            {tag}
+          </div>
           {isEditingEnabled && (
             <IconWrapper color={colors.red} onClick={() => deleteTag(tag)}>
               <Icon id="x" />
