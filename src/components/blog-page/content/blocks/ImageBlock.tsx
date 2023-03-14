@@ -4,11 +4,15 @@ import { ImageBlockData } from "./types";
 
 interface ImageBlockProps {
   block: ImageBlockData;
-  isEditingEnabled: boolean;
-  onChange: (block: ImageBlockData) => void;
+  isEditingEnabled?: boolean;
+  onChange?: (block: ImageBlockData) => void;
 }
 
-function ImageBlock({ block, isEditingEnabled, onChange }: ImageBlockProps) {
+function ImageBlock({
+  block,
+  isEditingEnabled = false,
+  onChange = () => {},
+}: ImageBlockProps) {
   const [blockState, setBlockState] = useState(block);
   const updateBlock = (newCaption: string) => {
     setBlockState((prev) => {
@@ -28,5 +32,17 @@ function ImageBlock({ block, isEditingEnabled, onChange }: ImageBlockProps) {
     />
   );
 }
+
+export const ImageBlockDataDefault: ImageBlockData = {
+  type: "image",
+  blockId: `${new Date().getTime()}`,
+  title: "Image Title",
+  caption: "This is a beautiful image, isn't it?",
+  url: "https://source.unsplash.com/random/600x400",
+};
+
+export const ExampleImageBlock = () => (
+  <ImageBlock block={ImageBlockDataDefault} />
+);
 
 export default ImageBlock;

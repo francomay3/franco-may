@@ -45,13 +45,13 @@ const ButtonWrapper = styled.button`
 
 interface ButtonProps {
   iconId: IconId;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseDown?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   text?: string;
 }
 
-const Button = ({ iconId, onClick, text }: ButtonProps) => {
+const Button = ({ iconId, onMouseDown, text }: ButtonProps) => {
   return (
-    <ButtonWrapper onClick={onClick}>
+    <ButtonWrapper onMouseDown={onMouseDown}>
       <Icon id={iconId} />
       {text}
     </ButtonWrapper>
@@ -80,12 +80,12 @@ const ToolbarButtons = [
 
 const Toolbar = ({ hasUnsavedChanges, save, published }: ToolbarProps) => {
   return (
-    <Wrapper onClick={(e) => preventDefault(e)}>
-      <ButtonGroup onClick={(e) => preventDefault(e)}>
+    <Wrapper>
+      <ButtonGroup>
         {ToolbarButtons.map((id: IconId) => (
           <Button
             key={id}
-            onClick={(e) => {
+            onMouseDown={(e) => {
               preventDefault(e);
               window.document.execCommand(id);
             }}
@@ -95,7 +95,7 @@ const Toolbar = ({ hasUnsavedChanges, save, published }: ToolbarProps) => {
       </ButtonGroup>
       <ButtonGroup>
         {hasUnsavedChanges && (
-          <Button onClick={save} iconId="save" text="Save" />
+          <Button onMouseDown={save} iconId="save" text="Save" />
         )}
         {published ? (
           <Button iconId="invisible" text="Unpublish" />

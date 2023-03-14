@@ -22,18 +22,34 @@ const Wrapper = styled.div`
   }
 `;
 
-export const PlusButton = ({ onClick }: { onClick: () => void }) => {
+export const PlusButton = ({
+  onClick,
+  className,
+}: {
+  onClick: () => void;
+  className?: string;
+}) => {
   const theme = useTheme();
 
   return (
-    <Wrapper onClick={onClick} color={theme.colors.darkBlue}>
+    <Wrapper
+      onClick={onClick}
+      color={theme.colors.darkBlue}
+      className={className}
+    >
       <Icon id="plus" />
     </Wrapper>
   );
 };
 
-export const MinusButton = ({ onClick }: { onClick: () => void }) => (
-  <Wrapper onClick={onClick} color={theme.colors.red}>
+export const MinusButton = ({
+  onClick,
+  className,
+}: {
+  onClick: () => void;
+  className?: string;
+}) => (
+  <Wrapper onClick={onClick} color={theme.colors.red} className={className}>
     <Icon id="minus" />
   </Wrapper>
 );

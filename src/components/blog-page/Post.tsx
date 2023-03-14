@@ -18,7 +18,7 @@ import {
   PUBLISHED,
 } from "@/utils/constants";
 import { BlogField, PostFields } from "@/utils/types";
-import Content from "./connectedFields/Content";
+import Content from "./content/Content";
 import { updatePost } from "@/utils/postUtils";
 
 const Wrapper = styled.div<{ isEditingEnabled: boolean }>`
