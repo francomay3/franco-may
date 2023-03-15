@@ -12,7 +12,7 @@ const BackDrop = styled.div`
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.3);
-  z-index: 2;
+  z-index: ${({ theme }) => theme.zIndex.modalBackdrop};
 `;
 
 const Panel = styled(Dialog.Panel)<{ children: ReactNode }>`
@@ -26,7 +26,7 @@ const Panel = styled(Dialog.Panel)<{ children: ReactNode }>`
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 2;
+  z-index: ${({ theme }) => theme.zIndex.modal};
   & .closedialog {
     position: absolute;
     top: 1rem;

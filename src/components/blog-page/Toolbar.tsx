@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: ${({ theme }) => theme.zIndex.sticky};
 `;
 
 const ButtonGroup = styled.div`

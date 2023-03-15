@@ -4,6 +4,16 @@ import { useState } from "react";
 
 declare module "@emotion/react" {
   export interface Theme {
+    zIndex: {
+      dropdown: number;
+      sticky: number;
+      fixed: number;
+      modalBackdrop: number;
+      offcanvas: number;
+      modal: number;
+      popover: number;
+      tooltip: number;
+    };
     colors: {
       black: string;
       lightBlack: string;
@@ -57,6 +67,16 @@ export const tablet = `(min-width: ${
 }px) and (max-width: ${mediumScreen}px)`;
 
 export const theme = {
+  zIndex: {
+    dropdown: 1000,
+    sticky: 1020,
+    fixed: 1030,
+    modalBackdrop: 1040,
+    offcanvas: 1050,
+    modal: 1060,
+    popover: 1070,
+    tooltip: 1080,
+  },
   colors: {
     black: "#0d1117",
     lightBlack: "#161b22",
