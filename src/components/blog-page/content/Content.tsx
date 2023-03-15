@@ -4,6 +4,14 @@ import AddBlock from "./blocks/AddBlock";
 import { ImageBlock, TextBlock } from "./blocks";
 import NewBlockDialog from "./NewBlockDialog";
 import React, { useState } from "react";
+import DraggableBlock from "./DraggableBlock";
+import {
+  addBlock,
+  deleteBlock,
+  mergeTextBlocks,
+  moveBlock,
+  updateBlock,
+} from "./utils";
 
 interface ContentProps {
   content: string;
@@ -11,63 +19,6 @@ interface ContentProps {
   onChange: (field: BlogField, value: string) => void;
   field: BlogField;
 }
-
-const updateBlock = (
-  oldContent: BlockData[],
-  updatedBlock: BlockData
-): BlockData[] =>
-  oldContent.map((block) => {
-    if (block.blockId === updatedBlock.blockId) {
-      return updatedBlock;
-    }
-    return block;
-  });
-
-const addBlock = (
-  oldContent: BlockData[],
-  newBlock: BlockData,
-  position: number
-): BlockData[] => {
-  const newContent = [...oldContent];
-  newContent.splice(position, 0, newBlock);
-
-  return newContent;
-};
-
-const deleteBlock = (
-  oldContent: BlockData[],
-  position: number
-): BlockData[] => {
-  const newContent = [...oldContent];
-  newContent.splice(position, 1);
-  return newContent;
-};
-
-const mergeTextBlocks = (oldContent: BlockData[]): BlockData[] => {
-  const newContent = oldContent.reduce((acc, currentBlock, i) => {
-    console.log(i);
-    const previousBlock: BlockData | undefined = oldContent[i - 1];
-    if (currentBlock.type === "text" && currentBlock.data === "") {
-      return acc;
-    }
-    if (
-      currentBlock.type === "text" &&
-      previousBlock &&
-      previousBlock.type === "text"
-    ) {
-      return [
-        ...acc.slice(0, -1),
-        {
-          ...previousBlock,
-          data: `${previousBlock.data}<br><br>${currentBlock.data}`,
-        },
-      ];
-    }
-
-    return [...acc, currentBlock];
-  }, [] as BlockData[]);
-  return newContent;
-};
 
 const Content = ({
   content: rawContent,
@@ -77,6 +28,7 @@ const Content = ({
 }: ContentProps) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectionIndex, setSelectionIndex] = useState(0);
+  const [draggedBlock, setDraggedBlock] = useState<BlockData | null>(null);
   const content: BlockData[] = JSON.parse(rawContent);
 
   const handleChange = (newContent: BlockData[]) => {
@@ -95,9 +47,14 @@ const Content = ({
         }}
       />
       <AddBlock
+        isDraggingBlock={!!draggedBlock}
         onClick={() => {
           setSelectionIndex(0);
           setIsDialogOpen(true);
+        }}
+        onDrop={() => {
+          setDraggedBlock(null);
+          handleChange(moveBlock(draggedBlock, content, 0));
         }}
       />
       {content.map((block, i) => {
@@ -105,20 +62,30 @@ const Content = ({
           case "text":
             return (
               <React.Fragment key={block.blockId}>
-                <TextBlock
-                  isEditingEnabled={isEditingEnabled}
+                <DraggableBlock
+                  draggable={isEditingEnabled}
                   block={block}
-                  onChange={(updatedBlock) =>
-                    handleChange(updateBlock(content, updatedBlock))
-                  }
-                  onDelete={() => {
-                    handleChange(deleteBlock(content, i));
-                  }}
-                />
+                  setDraggedBlock={setDraggedBlock}
+                >
+                  <TextBlock
+                    isEditingEnabled={isEditingEnabled}
+                    block={block}
+                    onChange={(updatedBlock) =>
+                      handleChange(updateBlock(content, updatedBlock))
+                    }
+                    onDelete={() => {
+                      handleChange(deleteBlock(content, i));
+                    }}
+                  />
+                </DraggableBlock>
                 <AddBlock
+                  isDraggingBlock={!!draggedBlock}
                   onClick={() => {
                     setSelectionIndex(i + 1);
                     setIsDialogOpen(true);
+                  }}
+                  onDrop={() => {
+                    handleChange(moveBlock(draggedBlock, content, i + 1));
                   }}
                 />
               </React.Fragment>
@@ -126,17 +93,28 @@ const Content = ({
           case "image":
             return (
               <React.Fragment key={block.blockId}>
-                <ImageBlock
+                <DraggableBlock
+                  draggable={isEditingEnabled}
                   block={block}
-                  isEditingEnabled={isEditingEnabled}
-                  onChange={(updatedBlock) =>
-                    handleChange(updateBlock(content, updatedBlock))
-                  }
-                />
+                  setDraggedBlock={setDraggedBlock}
+                >
+                  <ImageBlock
+                    block={block}
+                    isEditingEnabled={isEditingEnabled}
+                    onChange={(updatedBlock) =>
+                      handleChange(updateBlock(content, updatedBlock))
+                    }
+                  />
+                </DraggableBlock>
+
                 <AddBlock
+                  isDraggingBlock={!!draggedBlock}
                   onClick={() => {
                     setSelectionIndex(i + 1);
                     setIsDialogOpen(true);
+                  }}
+                  onDrop={() => {
+                    handleChange(moveBlock(draggedBlock, content, i + 1));
                   }}
                 />
               </React.Fragment>

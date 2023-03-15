@@ -34,7 +34,7 @@ export const PlusButton = ({
   return (
     <Wrapper
       onClick={onClick}
-      color={theme.colors.darkBlue}
+      color={theme.colors.darkGreen}
       className={className}
     >
       <Icon id="plus" />
@@ -51,5 +51,11 @@ export const MinusButton = ({
 }) => (
   <Wrapper onClick={onClick} color={theme.colors.red} className={className}>
     <Icon id="minus" />
+  </Wrapper>
+);
+
+export const MoveButton = ({ className }: { className?: string }) => (
+  <Wrapper color={theme.colors.darkBlue} className={className}>
+    <Icon id="move" />
   </Wrapper>
 );

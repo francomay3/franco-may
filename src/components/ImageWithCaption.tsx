@@ -62,7 +62,7 @@ const ImageWithCaption = ({
 }) => {
   const theme = useTheme();
   return (
-    <Wrapper draggable={isEditingEnabled}>
+    <Wrapper>
       <ImageWrapper>
         {url ? (
           <Image

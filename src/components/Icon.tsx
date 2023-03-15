@@ -14,6 +14,7 @@ import {
   faXmark,
   faPlus,
   faMinus,
+  faUpDownLeftRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Icon({ id }: { id: string }) {
@@ -44,6 +45,8 @@ function Icon({ id }: { id: string }) {
       return <FontAwesomeIcon icon={faPlus} />;
     case "minus":
       return <FontAwesomeIcon icon={faMinus} />;
+    case "move":
+      return <FontAwesomeIcon icon={faUpDownLeftRight} />;
     default:
       return <FontAwesomeIcon icon={faQuestion} />;
   }
