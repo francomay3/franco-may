@@ -15,6 +15,7 @@ import {
   faPlus,
   faMinus,
   faUpDownLeftRight,
+  faPen,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Icon({ id }: { id: string }) {
@@ -47,6 +48,8 @@ function Icon({ id }: { id: string }) {
       return <FontAwesomeIcon icon={faMinus} />;
     case "move":
       return <FontAwesomeIcon icon={faUpDownLeftRight} />;
+    case "edit":
+      return <FontAwesomeIcon icon={faPen} />;
     default:
       return <FontAwesomeIcon icon={faQuestion} />;
   }

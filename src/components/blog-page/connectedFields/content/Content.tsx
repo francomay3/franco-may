@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AddOrDropBlock from "./AddOrDropBlock";
 import { ImageBlock, TextBlock } from "./blocks";
 import NewBlockDialog from "./NewBlockDialog";
+import ImageSelectionDialog from "./ImageSelectionDialog";
 import { BlockData } from "./blocks/types";
 import DraggableBlock from "./DraggableBlock";
 import {
@@ -14,7 +15,6 @@ import {
 import { BlogField } from "@/utils/types";
 
 type OnChange = (field: BlogField, value: string) => void;
-
 interface ContentProps {
   content: string;
   field: BlogField;
@@ -29,7 +29,8 @@ const Content = ({
   onChange,
 }: ContentProps) => {
   const [draggedBlock, setDraggedBlock] = useState<BlockData | null>(null);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isNewBlockDialogOpen, setIsNewBlockDialogOpen] = useState(false);
+  const [isImageDialogOpen, setIsImageDialogOpen] = useState(false);
   const [selectionIndex, setSelectionIndex] = useState(0);
   const content: BlockData[] = JSON.parse(rawContent);
 
@@ -45,16 +46,24 @@ const Content = ({
           <NewBlockDialog
             addBlock={(newBlock) => {
               handleChange(addBlock(content, newBlock, selectionIndex));
-              setIsDialogOpen(false);
+              setIsNewBlockDialogOpen(false);
             }}
-            isDialogOpen={isDialogOpen}
-            setIsDialogOpen={setIsDialogOpen}
+            isDialogOpen={isNewBlockDialogOpen}
+            setIsDialogOpen={setIsNewBlockDialogOpen}
+          />
+          <ImageSelectionDialog
+            isDialogOpen={!isNewBlockDialogOpen && isImageDialogOpen}
+            setIsDialogOpen={setIsImageDialogOpen}
+            onSelect={(image) => {
+              console.log(image);
+              setIsImageDialogOpen(false);
+            }}
           />
           <AddOrDropBlock
             isDraggingBlock={Boolean(draggedBlock)}
             onClick={() => {
               setSelectionIndex(0);
-              setIsDialogOpen(true);
+              setIsNewBlockDialogOpen(true);
             }}
             onDrop={() => {
               setDraggedBlock(null);
@@ -64,78 +73,44 @@ const Content = ({
         </>
       )}
       {content.map((block, i) => {
-        switch (block.type) {
-          case "text":
-            return (
-              <React.Fragment key={block.blockId}>
-                <DraggableBlock
-                  block={block}
-                  draggable={isEditingEnabled}
-                  setDraggedBlock={setDraggedBlock}
-                  onDelete={() => {
-                    handleChange(deleteBlock(content, i));
-                  }}
-                >
-                  <TextBlock
-                    block={block}
-                    isEditingEnabled={isEditingEnabled}
-                    onChange={(updatedBlock) =>
-                      handleChange(updateBlock(content, updatedBlock))
-                    }
-                  />
-                </DraggableBlock>
-                {isEditingEnabled && (
-                  <AddOrDropBlock
-                    isDraggingBlock={Boolean(draggedBlock)}
-                    onClick={() => {
-                      setSelectionIndex(i + 1);
-                      setIsDialogOpen(true);
-                    }}
-                    onDrop={() => {
-                      handleChange(moveBlock(draggedBlock, content, i + 1));
-                    }}
-                  />
-                )}
-              </React.Fragment>
-            );
-          case "image":
-            return (
-              <React.Fragment key={block.blockId}>
-                <DraggableBlock
-                  block={block}
-                  draggable={isEditingEnabled}
-                  setDraggedBlock={setDraggedBlock}
-                  onDelete={() => {
-                    handleChange(deleteBlock(content, i));
-                  }}
-                >
-                  <ImageBlock
-                    block={block}
-                    isEditingEnabled={isEditingEnabled}
-                    onChange={(updatedBlock) => {
-                      if (updatedBlock)
-                        handleChange(updateBlock(content, updatedBlock));
-                    }}
-                  />
-                </DraggableBlock>
-
-                {isEditingEnabled && (
-                  <AddOrDropBlock
-                    isDraggingBlock={Boolean(draggedBlock)}
-                    onClick={() => {
-                      setSelectionIndex(i + 1);
-                      setIsDialogOpen(true);
-                    }}
-                    onDrop={() => {
-                      handleChange(moveBlock(draggedBlock, content, i + 1));
-                    }}
-                  />
-                )}
-              </React.Fragment>
-            );
-          default:
-            return null;
-        }
+        const props = {
+          onImageClick: () => {
+            setIsImageDialogOpen(true);
+          },
+          isEditingEnabled,
+          onChange: (updatedBlock?: BlockData) => {
+            if (updatedBlock) handleChange(updateBlock(content, updatedBlock));
+          },
+        };
+        return (
+          <React.Fragment key={block.blockId}>
+            <DraggableBlock
+              block={block}
+              draggable={isEditingEnabled}
+              onDelete={() => {
+                handleChange(deleteBlock(content, i));
+              }}
+              setDraggedBlock={setDraggedBlock}
+            >
+              {block.type === "text" && <TextBlock {...props} block={block} />}
+              {block.type === "image" && (
+                <ImageBlock {...props} block={block} />
+              )}
+            </DraggableBlock>
+            {isEditingEnabled && (
+              <AddOrDropBlock
+                isDraggingBlock={Boolean(draggedBlock)}
+                onClick={() => {
+                  setSelectionIndex(i + 1);
+                  setIsNewBlockDialogOpen(true);
+                }}
+                onDrop={() => {
+                  handleChange(moveBlock(draggedBlock, content, i + 1));
+                }}
+              />
+            )}
+          </React.Fragment>
+        );
       })}
     </>
   );

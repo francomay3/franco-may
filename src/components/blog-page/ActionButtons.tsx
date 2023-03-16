@@ -14,12 +14,12 @@ const Wrapper = styled.div`
   align-items: center;
   background-color: ${({ color }) => color};
   color: ${({ theme }) => theme.colors.white};
-  box-shadow: 0 0 0 0px rgb(0 0 0 / 0%), 1px 2px 4px rgb(0 0 0 / 30%);
+  box-shadow: ${({ theme }) => theme.shadows[1]};
   cursor: pointer;
-  opacity: 0.5;
-  transition: opacity 0.1s linear;
+  transition: opacity 0.1s, box-shadow 0.1s, transform 0.1s;
   &:hover {
-    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: ${({ theme }) => theme.shadows[2]};
   }
 `;
 
@@ -53,10 +53,10 @@ export const MinusButton = ({
   style?: CSSProperties;
 }) => (
   <Wrapper
-    style={style}
     className={className}
     color={theme.colors.red}
     onClick={onClick}
+    style={style}
   >
     <Icon id="minus" />
   </Wrapper>
@@ -65,5 +65,17 @@ export const MinusButton = ({
 export const MoveButton = ({ className }: { className?: string }) => (
   <Wrapper className={className} color={theme.colors.darkBlue}>
     <Icon id="move" />
+  </Wrapper>
+);
+
+export const EditButton = ({
+  className,
+  style,
+}: {
+  className?: string;
+  style?: CSSProperties;
+}) => (
+  <Wrapper style={style} className={className} color={theme.colors.darkBlue}>
+    <Icon id="edit" />
   </Wrapper>
 );

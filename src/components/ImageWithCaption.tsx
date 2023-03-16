@@ -1,6 +1,8 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
+import { EditButton } from "./blog-page/ActionButtons";
+import { useState } from "react";
 
 const Wrapper = styled.figure`
   display: flex;
@@ -13,7 +15,7 @@ const Wrapper = styled.figure`
   }
 `;
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled.div<{ isEditingEnabled?: boolean }>`
   width: 320px;
   aspect-ratio: 1.6/1;
   position: relative;
@@ -25,6 +27,8 @@ const ImageWrapper = styled.div`
   ${({ theme }) => theme.tablet} {
     width: 50%;
   }
+  cursor: ${({ isEditingEnabled }) =>
+    isEditingEnabled ? "pointer" : "default"};
 `;
 
 const ImageWithCaption = ({
@@ -33,33 +37,41 @@ const ImageWithCaption = ({
   url = "/images/lostDuck.gif",
   isEditingEnabled,
   onChange = () => null,
+  onImageClick,
 }: {
   imageName: string;
   caption?: string;
   url: string;
   isEditingEnabled?: boolean;
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  onChange?: Function;
+  onChange?: (value: string) => any;
+  onImageClick?: () => any;
 }) => {
   const theme = useTheme();
+  const [isHoveringImage, setIsHoveringImage] = useState(false);
   return (
     <Wrapper>
-      <ImageWrapper>
-        {url ? (
-          <Image
-            alt={imageName || "imageName"}
-            fill
-            loader={({ src }) => src}
-            objectFit="cover"
-            sizes="(max-width: 640px) 100vw, 320px"
-            src={url}
-          />
-        ) : (
-          <Image
-            alt={imageName || "imageName"}
-            fill
-            objectFit="cover"
-            src={`/images/${imageName}`}
+      <ImageWrapper isEditingEnabled={isEditingEnabled}>
+        <Image
+          onMouseEnter={() => {
+            setIsHoveringImage(true);
+          }}
+          onMouseLeave={() => setIsHoveringImage(false)}
+          alt={imageName}
+          draggable={!isEditingEnabled}
+          fill
+          loader={({ src }) => src}
+          objectFit="cover"
+          onClick={isEditingEnabled ? onImageClick : undefined}
+          sizes="(max-width: 640px) 100vw, 320px"
+          src={url || `/images/${imageName}`}
+        />
+        {isHoveringImage && (
+          <EditButton
+            style={{
+              position: "absolute",
+              top: "0.8rem",
+              right: "0.8rem",
+            }}
           />
         )}
       </ImageWrapper>

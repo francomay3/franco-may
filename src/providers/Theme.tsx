@@ -3,6 +3,11 @@ import { ReactNode } from "react";
 
 declare module "@emotion/react" {
   export interface Theme {
+    shadows: {
+      1: string;
+      2: string;
+      3: string;
+    };
     zIndex: {
       dropdown: number;
       sticky: number;
@@ -67,6 +72,11 @@ export const tablet = `(min-width: ${
 }px) and (max-width: ${mediumScreen}px)`;
 
 export const theme = {
+  shadows: {
+    1: "1px 2px 4px rgb(0 0 0 / 40%)",
+    2: "3px 4px 8px rgb(0 0 0 / 20%)",
+    3: "5px 6px 16px rgb(0 0 0 / 15%)",
+  },
   zIndex: {
     dropdown: 1000,
     sticky: 1020,

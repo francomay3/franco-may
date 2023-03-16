@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { ReactNode } from "react";
+import { useState } from "react";
 import { MinusButton, MoveButton } from "../../ActionButtons";
 import { BlockData } from "./blocks/types";
-import { useState } from "react";
 
 const MoveButtonWrapper = styled.div`
   position: absolute;
@@ -38,8 +38,6 @@ const DraggableBlock = ({
   const [isHovering, setIsHovering] = useState(false);
   return (
     <Wrapper
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
       draggable={draggable}
       onDragEnd={() => {
         setDraggedBlock(null);
@@ -47,6 +45,8 @@ const DraggableBlock = ({
       onDragStart={() => {
         setDraggedBlock(block);
       }}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
     >
       <DraggableExpansion />
       <DraggableExpansion left />
@@ -55,15 +55,16 @@ const DraggableBlock = ({
       {draggable && (
         <>
           <MoveButtonWrapper
+            id={`${block.blockId}-move-button`}
             style={{
               opacity: isHovering ? 1 : 0,
               transition: "opacity 0.2s",
             }}
-            id={`${block.blockId}-move-button`}
           >
             <MoveButton />
           </MoveButtonWrapper>
           <MinusButton
+            onClick={onDelete}
             style={{
               opacity: isHovering ? 1 : 0,
               transition: "opacity 0.2s",
@@ -72,7 +73,6 @@ const DraggableBlock = ({
               right: "0",
               transform: "translate(160%, 70%)",
             }}
-            onClick={onDelete}
           />
         </>
       )}

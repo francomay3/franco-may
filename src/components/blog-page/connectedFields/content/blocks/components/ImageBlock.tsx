@@ -6,12 +6,14 @@ interface ImageBlockProps {
   block: ImageBlockData;
   isEditingEnabled?: boolean;
   onChange?: (block: ImageBlockData | undefined) => void | null;
+  onImageClick?: () => void;
 }
 
 function ImageBlock({
   block,
   isEditingEnabled = false,
   onChange = () => null,
+  onImageClick = () => null,
 }: ImageBlockProps) {
   const [blockState, setBlockState] = useState(block);
   const updateBlock = (newCaption: string) => {
@@ -28,6 +30,7 @@ function ImageBlock({
       imageName={blockState.title}
       isEditingEnabled={isEditingEnabled}
       onChange={updateBlock}
+      onImageClick={onImageClick}
       url={blockState.url}
     />
   );

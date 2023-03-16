@@ -44,3 +44,7 @@ export const DEFAULT_POST = {
     },
   ],
 };
+
+// Storage paths
+
+export const IMAGES = "images";
