@@ -53,7 +53,6 @@ export const moveBlock = (
 
 export const mergeTextBlocks = (oldContent: BlockData[]): BlockData[] => {
   const newContent = oldContent.reduce((acc, currentBlock, i) => {
-    console.log(i);
     const previousBlock: BlockData | undefined = oldContent[i - 1];
     if (currentBlock.type === "text" && currentBlock.data === "") {
       return acc;

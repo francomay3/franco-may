@@ -80,13 +80,13 @@ const submitImage = async ({
   // TODO: Alert user to fill out all fields. Maybe use a toast?
   if (!file || !title || !caption) {
     if (!file) {
-      console.warn("No file selected");
+      // console.warn("No file selected");
     }
     if (!title) {
-      console.warn("No title provided");
+      // console.warn("No title provided");
     }
     if (!caption) {
-      console.warn("No caption provided");
+      // console.warn("No caption provided");
     }
     return;
   }

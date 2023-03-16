@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 
-const Wrapper = styled.div`
+const Wrapper = styled.figure`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,12 +63,15 @@ const ImageWithCaption = ({
           />
         )}
       </ImageWrapper>
-      <h3
-        contentEditable={isEditingEnabled}
-        dangerouslySetInnerHTML={{ __html: caption }}
-        onBlur={(e) => onChange(e.target.innerHTML)}
+      <figcaption
         style={{ flex: "1", color: theme.colors.grey, textAlign: "center" }}
-      />
+      >
+        <h3
+          contentEditable={isEditingEnabled}
+          dangerouslySetInnerHTML={{ __html: caption }}
+          onBlur={(e) => onChange(e.target.innerHTML)}
+        />
+      </figcaption>
     </Wrapper>
   );
 };

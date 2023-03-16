@@ -21,7 +21,7 @@ import { BlogField, PostFields } from "@/utils/types";
 import { useAuth } from "@/providers/AuthProvider";
 import { updatePost } from "@/utils/postUtils";
 
-const Wrapper = styled.div<{ isEditingEnabled: boolean }>`
+const Wrapper = styled.article<{ isEditingEnabled: boolean }>`
   width: 100%;
   max-width: 680px;
   gap: ${({ theme }) => theme.spacing[4]};
@@ -70,8 +70,7 @@ const Post = ({ id, ...props }: PostFields) => {
         setHasUnsavedChanges(false);
         return true;
       })
-      .catch((err) => {
-        console.error(err);
+      .catch(() => {
         return false;
       });
     return setHasUnsavedChanges(false);

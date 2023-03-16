@@ -5,7 +5,7 @@ import Logo from "./Logo";
 import DarkModeSwitch from "./DarkModeSwitch";
 import Icon from "@/components/Icon";
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;

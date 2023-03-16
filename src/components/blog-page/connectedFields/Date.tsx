@@ -24,13 +24,13 @@ const DateField = ({
   return isEditingDate ? (
     <input onChange={handleChange} type="date" />
   ) : (
-    <span
+    <time
       onClick={() => {
         if (isEditingEnabled) setIsEditingDate(true);
       }}
     >
       {getDateAsString(date)}
-    </span>
+    </time>
   );
 };
 

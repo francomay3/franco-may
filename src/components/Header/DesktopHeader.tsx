@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import DarkModeSwitch from "./DarkModeSwitch";
 import Logo from "./Logo";
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;

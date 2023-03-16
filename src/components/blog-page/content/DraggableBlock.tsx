@@ -9,7 +9,7 @@ const MoveButtonWrapper = styled.div`
   left: 0;
   transform: translate(-160%, 70%);
 `;
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   position: relative;
 `;
 

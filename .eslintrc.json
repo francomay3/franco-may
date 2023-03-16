@@ -18,7 +18,8 @@
     "import/order": "error",
     "@typescript-eslint/no-explicit-any": "off",
     "react/react-in-jsx-scope": "off",
-    "react/jsx-sort-props": "error"
+    "react/jsx-sort-props": "error",
+    "no-console": "error"   
   },
   "overrides": [
 		{

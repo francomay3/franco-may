@@ -27,7 +27,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const user = await signInWithPopup(auth, provider);
       return user;
     } catch (error) {
-      console.log(error);
       return undefined;
     }
   };
@@ -36,7 +35,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       await auth.signOut();
       return true;
     } catch (error) {
-      console.log(error);
       return false;
     }
   };
