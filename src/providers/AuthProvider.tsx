@@ -41,7 +41,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user] = useAuthState(auth);
   const [isAdmin, setIsAdmin] = useState(false);
   useEffect(() => {
-    setIsAdmin(user?.email === "francomay3@gmail.com");
+    setIsAdmin(
+      process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(",").includes(
+        user?.email || ""
+      ) || false
+    );
   }, [user]);
   return (
     <UserContext.Provider value={{ user, isAdmin, logIn, logOut }}>
