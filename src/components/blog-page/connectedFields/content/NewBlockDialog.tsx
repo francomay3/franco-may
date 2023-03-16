@@ -1,7 +1,7 @@
 import { Dialog } from "@headlessui/react";
 import styled from "@emotion/styled";
 import { ReactNode } from "react";
-import { MinusButton } from "../ActionButtons";
+import { MinusButton } from "../../ActionButtons";
 import { blocksExamples } from "./blocks";
 import { BlockData } from "./blocks/types";
 
@@ -27,11 +27,6 @@ const Panel = styled(Dialog.Panel)<{ children: ReactNode }>`
   border-radius: 0.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: ${({ theme }) => theme.zIndex.modal};
-  & .closedialog {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-  }
 `;
 
 const Block = styled.div`
@@ -91,6 +86,11 @@ const NewBlockDialog = ({
         </Blocks>
 
         <MinusButton
+          style={{
+            position: "absolute",
+            top: "1rem",
+            right: "1rem",
+          }}
           className="closedialog"
           onClick={() => setIsDialogOpen(false)}
         />

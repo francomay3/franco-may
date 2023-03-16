@@ -4,7 +4,7 @@ import Tags from "./connectedFields/Tags";
 import TextField from "./connectedFields/TextField";
 import DateField from "./connectedFields/Date";
 import Toolbar from "./Toolbar";
-import Content from "./content/Content";
+import Content from "./connectedFields/content/Content";
 import {
   CREATED_AT,
   // UPDATED_AT,

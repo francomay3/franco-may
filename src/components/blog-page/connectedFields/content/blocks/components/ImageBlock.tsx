@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ImageBlockData } from "./types";
+import { ImageBlockData } from "../types";
 import ImageWithCaption from "@/components/ImageWithCaption";
 
 interface ImageBlockProps {

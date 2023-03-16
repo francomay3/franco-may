@@ -1,20 +1,13 @@
 import { useEffect, useState } from "react";
-import { MinusButton } from "../../ActionButtons";
-import { TextBlockData } from "./types";
+import { TextBlockData } from "../types";
 
 interface TextBlockProps {
   block: TextBlockData;
   isEditingEnabled?: boolean;
   onChange?: (block: TextBlockData) => void;
-  onDelete?: () => void;
 }
 
-function TextBlock({
-  block,
-  isEditingEnabled,
-  onDelete,
-  onChange,
-}: TextBlockProps) {
+function TextBlock({ block, isEditingEnabled, onChange }: TextBlockProps) {
   const [blockState, setBlockState] = useState(block);
   useEffect(() => {
     setBlockState(block);
@@ -39,7 +32,6 @@ function TextBlock({
         onBlur={handleBlur}
         style={{ flexGrow: "1" }}
       />
-      {isEditingEnabled && onDelete && <MinusButton onClick={onDelete} />}
     </div>
   );
 }

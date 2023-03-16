@@ -1,0 +1,83 @@
+import styled from "@emotion/styled";
+import { ReactNode } from "react";
+import { MinusButton, MoveButton } from "../../ActionButtons";
+import { BlockData } from "./blocks/types";
+import { useState } from "react";
+
+const MoveButtonWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-160%, 70%);
+`;
+const Wrapper = styled.section`
+  position: relative;
+`;
+const DraggableExpansion = styled.div<{ left?: boolean }>`
+  position: absolute;
+  top: 0;
+  ${({ left }) => (left ? "right: 0" : "left: 0")};
+  width: 6rem;
+  height: 100%;
+  transform: translate(${({ left }) => (left ? "100%" : "-100%")}, 0);
+`;
+
+const DraggableBlock = ({
+  children,
+  draggable,
+  block,
+  setDraggedBlock,
+  onDelete,
+}: {
+  children: ReactNode;
+  draggable: boolean;
+  block: BlockData;
+  setDraggedBlock: (block: BlockData | null) => void;
+  onDelete: () => void;
+}) => {
+  const [isHovering, setIsHovering] = useState(false);
+  return (
+    <Wrapper
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      draggable={draggable}
+      onDragEnd={() => {
+        setDraggedBlock(null);
+      }}
+      onDragStart={() => {
+        setDraggedBlock(block);
+      }}
+    >
+      <DraggableExpansion />
+      <DraggableExpansion left />
+
+      {children}
+      {draggable && (
+        <>
+          <MoveButtonWrapper
+            style={{
+              opacity: isHovering ? 1 : 0,
+              transition: "opacity 0.2s",
+            }}
+            id={`${block.blockId}-move-button`}
+          >
+            <MoveButton />
+          </MoveButtonWrapper>
+          <MinusButton
+            style={{
+              opacity: isHovering ? 1 : 0,
+              transition: "opacity 0.2s",
+              position: "absolute",
+              top: "0",
+              right: "0",
+              transform: "translate(160%, 70%)",
+            }}
+            onClick={onDelete}
+          />
+        </>
+      )}
+    </Wrapper>
+  );
+};
+
+export default DraggableBlock;

@@ -1,3 +1,4 @@
+import { CSSProperties } from "react";
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 import Icon from "../Icon";
@@ -43,13 +44,20 @@ export const PlusButton = ({
 };
 
 export const MinusButton = ({
-  onClick,
   className,
+  onClick,
+  style,
 }: {
-  onClick: () => void;
   className?: string;
+  onClick: () => void;
+  style?: CSSProperties;
 }) => (
-  <Wrapper className={className} color={theme.colors.red} onClick={onClick}>
+  <Wrapper
+    style={style}
+    className={className}
+    color={theme.colors.red}
+    onClick={onClick}
+  >
     <Icon id="minus" />
   </Wrapper>
 );

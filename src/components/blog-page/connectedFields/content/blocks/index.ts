@@ -1,8 +1,11 @@
 import ImageBlock, {
   ImageBlockDataDefault,
   ExampleImageBlock,
-} from "./ImageBlock";
-import TextBlock, { TextBlockDataDefault, ExampleTextBlock } from "./TextBlock";
+} from "./components/ImageBlock";
+import TextBlock, {
+  TextBlockDataDefault,
+  ExampleTextBlock,
+} from "./components/TextBlock";
 
 export {
   ImageBlock,

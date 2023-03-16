@@ -14,6 +14,7 @@ const DropZone = styled.div<{ isDraggingBlock: boolean }>`
   transition: height 0.1s linear;
   width: 100vw;
   position: absolute;
+  z-index: 1;
 `;
 
 const Line = styled.div<{ blockHovering: boolean }>`

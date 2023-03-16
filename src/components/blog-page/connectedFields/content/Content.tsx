@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AddOrDropBlock from "./blocks/AddOrDropBlock";
+import AddOrDropBlock from "./AddOrDropBlock";
 import { ImageBlock, TextBlock } from "./blocks";
 import NewBlockDialog from "./NewBlockDialog";
 import { BlockData } from "./blocks/types";
@@ -72,6 +72,9 @@ const Content = ({
                   block={block}
                   draggable={isEditingEnabled}
                   setDraggedBlock={setDraggedBlock}
+                  onDelete={() => {
+                    handleChange(deleteBlock(content, i));
+                  }}
                 >
                   <TextBlock
                     block={block}
@@ -79,9 +82,6 @@ const Content = ({
                     onChange={(updatedBlock) =>
                       handleChange(updateBlock(content, updatedBlock))
                     }
-                    onDelete={() => {
-                      handleChange(deleteBlock(content, i));
-                    }}
                   />
                 </DraggableBlock>
                 {isEditingEnabled && (
@@ -105,6 +105,9 @@ const Content = ({
                   block={block}
                   draggable={isEditingEnabled}
                   setDraggedBlock={setDraggedBlock}
+                  onDelete={() => {
+                    handleChange(deleteBlock(content, i));
+                  }}
                 >
                   <ImageBlock
                     block={block}
