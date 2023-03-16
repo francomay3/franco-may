@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { getDateAsString } from "@/utils/generalUtils";
 import { BlogField } from "@/utils/types";
-import { useState } from "react";
 
 interface DateFieldProps {
   date: number;
@@ -22,7 +22,7 @@ const DateField = ({
     onChange(field, time);
   };
   return isEditingDate ? (
-    <input type="date" onChange={handleChange} />
+    <input onChange={handleChange} type="date" />
   ) : (
     <span
       onClick={() => {

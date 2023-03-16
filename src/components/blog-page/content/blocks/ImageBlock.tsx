@@ -1,17 +1,17 @@
-import ImageWithCaption from "@/components/ImageWithCaption";
 import { useState } from "react";
 import { ImageBlockData } from "./types";
+import ImageWithCaption from "@/components/ImageWithCaption";
 
 interface ImageBlockProps {
   block: ImageBlockData;
   isEditingEnabled?: boolean;
-  onChange?: (block: ImageBlockData) => void;
+  onChange?: (block: ImageBlockData | undefined) => void | null;
 }
 
 function ImageBlock({
   block,
   isEditingEnabled = false,
-  onChange = () => {},
+  onChange = () => null,
 }: ImageBlockProps) {
   const [blockState, setBlockState] = useState(block);
   const updateBlock = (newCaption: string) => {
@@ -24,11 +24,11 @@ function ImageBlock({
   };
   return (
     <ImageWithCaption
-      imageName={blockState.title}
       caption={blockState.caption}
-      url={blockState.url}
+      imageName={blockState.title}
       isEditingEnabled={isEditingEnabled}
       onChange={updateBlock}
+      url={blockState.url}
     />
   );
 }

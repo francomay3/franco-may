@@ -1,24 +1,24 @@
 import styled from "@emotion/styled";
-import { useAuth } from "@/providers/AuthProvider";
 import { useEffect, useState } from "react";
 import Tags from "./connectedFields/Tags";
 import TextField from "./connectedFields/TextField";
 import DateField from "./connectedFields/Date";
 import Toolbar from "./Toolbar";
+import Content from "./content/Content";
 import {
   CREATED_AT,
-  UPDATED_AT,
+  // UPDATED_AT,
   CONTENT,
   TITLE,
   AUTHOR,
-  DESCRIPTION,
-  LOCATION,
+  // DESCRIPTION,
+  // LOCATION,
   TAGS,
-  IMAGE,
+  // IMAGE,
   PUBLISHED,
 } from "@/utils/constants";
 import { BlogField, PostFields } from "@/utils/types";
-import Content from "./content/Content";
+import { useAuth } from "@/providers/AuthProvider";
 import { updatePost } from "@/utils/postUtils";
 
 const Wrapper = styled.div<{ isEditingEnabled: boolean }>`
@@ -65,10 +65,16 @@ const Post = ({ id, ...props }: PostFields) => {
   }, [user, isAdmin]);
 
   const handleSave = () => {
-    updatePost(id, postState).then(() => {
-      setHasUnsavedChanges(false);
-    });
-    setHasUnsavedChanges(false);
+    updatePost(id, postState)
+      .then(() => {
+        setHasUnsavedChanges(false);
+        return true;
+      })
+      .catch((err) => {
+        console.error(err);
+        return false;
+      });
+    return setHasUnsavedChanges(false);
   };
 
   const handleStateFieldChange = (field: BlogField, value: string | number) => {
@@ -80,24 +86,24 @@ const Post = ({ id, ...props }: PostFields) => {
     <Wrapper isEditingEnabled={isEditingEnabled}>
       {isEditingEnabled && (
         <Toolbar
-          published={postState[PUBLISHED]}
           hasUnsavedChanges={hasUnsavedChanges}
+          published={postState[PUBLISHED]}
           save={handleSave}
         />
       )}
       <Tags
-        tags={postState[TAGS]}
-        isEditingEnabled={isEditingEnabled}
         field={TAGS}
+        isEditingEnabled={isEditingEnabled}
         onChange={handleStateFieldChange}
+        tags={postState[TAGS]}
       />
       <AuthorAndDate>
         <TextField
           as="span"
-          value={postState[AUTHOR]}
           field={AUTHOR}
           isEditingEnabled={isEditingEnabled}
           onChange={handleStateFieldChange}
+          value={postState[AUTHOR]}
         />
         {" | "}
         <DateField
@@ -109,10 +115,10 @@ const Post = ({ id, ...props }: PostFields) => {
       </AuthorAndDate>
       <TextField
         as="h1"
-        value={postState[TITLE]}
         field={TITLE}
         isEditingEnabled={isEditingEnabled}
         onChange={handleStateFieldChange}
+        value={postState[TITLE]}
       />
 
       <Content

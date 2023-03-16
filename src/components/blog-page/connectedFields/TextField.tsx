@@ -66,9 +66,9 @@ const TextField = ({
   };
   return (
     <Wrapper
-      onBlur={handleBlur}
       contentEditable={isEditingEnabled}
       dangerouslySetInnerHTML={{ __html: value }}
+      onBlur={handleBlur}
     />
   );
 };

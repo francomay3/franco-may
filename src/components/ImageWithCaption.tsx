@@ -1,26 +1,6 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import { useState, useEffect } from "react";
 import { useTheme } from "@emotion/react";
-
-const getImage = async (imageName: string) => {
-  const url = await getDownloadURL(
-    ref(ref(getStorage()), `images/${imageName}`)
-  );
-  return url;
-};
-
-const useImage = (imageName?: string) => {
-  const [url, setUrl] = useState("/images/waiting.gif");
-  useEffect(() => {
-    if (!imageName) return;
-    getImage(imageName)
-      .then((url) => setUrl(url))
-      .catch(() => setUrl("/images/lostDuck.gif"));
-  }, [imageName]);
-  return url;
-};
 
 const Wrapper = styled.div`
   display: flex;
@@ -52,12 +32,13 @@ const ImageWithCaption = ({
   caption = "Hmm. Can't find that image.",
   url = "/images/lostDuck.gif",
   isEditingEnabled,
-  onChange = () => {},
+  onChange = () => null,
 }: {
   imageName: string;
   caption?: string;
   url: string;
   isEditingEnabled?: boolean;
+  // eslint-disable-next-line @typescript-eslint/ban-types
   onChange?: Function;
 }) => {
   const theme = useTheme();
@@ -66,27 +47,27 @@ const ImageWithCaption = ({
       <ImageWrapper>
         {url ? (
           <Image
-            loader={({ src }) => src}
-            src={url}
             alt={imageName || "imageName"}
             fill
+            loader={({ src }) => src}
             objectFit="cover"
             sizes="(max-width: 640px) 100vw, 320px"
+            src={url}
           />
         ) : (
           <Image
-            src={`/images/${imageName}`}
             alt={imageName || "imageName"}
             fill
             objectFit="cover"
+            src={`/images/${imageName}`}
           />
         )}
       </ImageWrapper>
       <h3
         contentEditable={isEditingEnabled}
+        dangerouslySetInnerHTML={{ __html: caption }}
         onBlur={(e) => onChange(e.target.innerHTML)}
         style={{ flex: "1", color: theme.colors.grey, textAlign: "center" }}
-        dangerouslySetInnerHTML={{ __html: caption }}
       />
     </Wrapper>
   );

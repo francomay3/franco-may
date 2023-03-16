@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { Switch } from "@headlessui/react";
 import styled from "@emotion/styled";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import Icon from "@/components/Icon";
 
 interface WrapperProps {
   checked: boolean;
   children: React.ReactNode;
+  // eslint-disable-next-line @typescript-eslint/ban-types
   onChange: Function;
 }
 

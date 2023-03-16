@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import Icon from "../Icon";
 import { useTheme } from "@emotion/react";
+import Icon from "../Icon";
 import { theme } from "@/providers/Theme";
 
 const Wrapper = styled.div`
@@ -33,9 +33,9 @@ export const PlusButton = ({
 
   return (
     <Wrapper
-      onClick={onClick}
-      color={theme.colors.darkGreen}
       className={className}
+      color={theme.colors.darkGreen}
+      onClick={onClick}
     >
       <Icon id="plus" />
     </Wrapper>
@@ -49,13 +49,13 @@ export const MinusButton = ({
   onClick: () => void;
   className?: string;
 }) => (
-  <Wrapper onClick={onClick} color={theme.colors.red} className={className}>
+  <Wrapper className={className} color={theme.colors.red} onClick={onClick}>
     <Icon id="minus" />
   </Wrapper>
 );
 
 export const MoveButton = ({ className }: { className?: string }) => (
-  <Wrapper color={theme.colors.darkBlue} className={className}>
+  <Wrapper className={className} color={theme.colors.darkBlue}>
     <Icon id="move" />
   </Wrapper>
 );

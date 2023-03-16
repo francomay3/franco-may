@@ -84,18 +84,18 @@ const Toolbar = ({ hasUnsavedChanges, save, published }: ToolbarProps) => {
       <ButtonGroup>
         {ToolbarButtons.map((id: IconId) => (
           <Button
+            iconId={id}
             key={id}
             onMouseDown={(e) => {
               preventDefault(e);
               window.document.execCommand(id);
             }}
-            iconId={id}
           />
         ))}
       </ButtonGroup>
       <ButtonGroup>
         {hasUnsavedChanges && (
-          <Button onMouseDown={save} iconId="save" text="Save" />
+          <Button iconId="save" onMouseDown={save} text="Save" />
         )}
         {published ? (
           <Button iconId="invisible" text="Unpublish" />

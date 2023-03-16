@@ -6,6 +6,7 @@ interface WrapperProps {
   checked: boolean;
   children: React.ReactNode;
   enabled: 1 | 0 | boolean;
+  // eslint-disable-next-line @typescript-eslint/ban-types
   onChange: Function;
 }
 
@@ -60,7 +61,7 @@ const DarkModeSwitch = () => {
   return (
     <Wrapper>
       <p>{enabled ? "dark" : "light"}</p>
-      <SwitchWrapper checked={enabled} onChange={setEnabled} enabled>
+      <SwitchWrapper checked={enabled} enabled onChange={setEnabled}>
         <Pill enabled={enabled} />
       </SwitchWrapper>
     </Wrapper>

@@ -1,25 +1,45 @@
-import { createContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useEffect,
+  useState,
+  useContext,
+  ReactNode,
+} from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { signInWithPopup, User } from "firebase/auth";
+import { signInWithPopup, User, UserCredential } from "firebase/auth";
 import { auth, provider } from "@/firebase";
-// import firebase types
 
 export const UserContext = createContext<{
   user: User | null | undefined;
   isAdmin: boolean;
-  logIn: Function;
-  logOut: Function;
+  logIn: () => Promise<UserCredential | undefined>;
+  logOut: () => Promise<boolean>;
 }>({
   user: null,
   isAdmin: false,
-  logIn: () => {},
-  logOut: () => {},
+  logIn: () => Promise.resolve(undefined),
+  logOut: () => Promise.resolve(false),
 });
-export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logIn = async () => {
-    await signInWithPopup(auth, provider);
+    try {
+      const user = await signInWithPopup(auth, provider);
+      return user;
+    } catch (error) {
+      console.log(error);
+      return undefined;
+    }
   };
-  const logOut = () => auth.signOut();
+  const logOut = async () => {
+    try {
+      await auth.signOut();
+      return true;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  };
   const [user] = useAuthState(auth);
   const [isAdmin, setIsAdmin] = useState(false);
   useEffect(() => {
@@ -31,8 +51,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     </UserContext.Provider>
   );
 };
-
-import { useContext } from "react";
 
 export const useAuth = () => {
   const { user, isAdmin, logIn, logOut } = useContext(UserContext);

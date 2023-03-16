@@ -1,9 +1,8 @@
-import Icon from "@/components/Icon";
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 import { uniq } from "lodash";
-import { BlogField } from "@/utils/types";
 import { PlusButton, MinusButton } from "../ActionButtons";
+import { BlogField } from "@/utils/types";
 
 const NEW_TAG = "new tag";
 
@@ -39,6 +38,8 @@ const formatTags = (tags: string[]) =>
     )
   );
 
+type OnChange = (field: BlogField, value: string) => void;
+
 const Tags = ({
   field,
   tags,
@@ -48,7 +49,7 @@ const Tags = ({
   field: BlogField;
   tags: string;
   isEditingEnabled: boolean;
-  onChange: (field: BlogField, value: string) => void;
+  onChange: OnChange;
 }) => {
   const parsedTags: string[] = JSON.parse(tags);
 
@@ -85,7 +86,7 @@ const Tags = ({
   return (
     <Wrapper>
       {parsedTags.map((tag, i) => (
-        <Tag key={tag} color={tagColors[i]}>
+        <Tag color={tagColors[i]} key={tag}>
           <div
             contentEditable={isEditingEnabled}
             onBlur={(e) => handleBlur(e, tag)}

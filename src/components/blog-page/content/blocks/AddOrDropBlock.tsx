@@ -1,7 +1,6 @@
+import { useState } from "react";
 import styled from "@emotion/styled";
 import { PlusButton } from "../../ActionButtons";
-import { BlockData } from "./types";
-import { useState, useCallback } from "react";
 
 const Wrapper = styled.div`
   height: 0;
@@ -26,7 +25,7 @@ const Line = styled.div<{ blockHovering: boolean }>`
   position: absolute;
 `;
 
-function AddBlock({
+function AddOrDropBlock({
   onClick,
   onDrop,
   isDraggingBlock,
@@ -41,9 +40,9 @@ function AddBlock({
       <Line blockHovering={draggedOver} />
       <DropZone
         isDraggingBlock={isDraggingBlock}
-        onDragOver={(e) => e.preventDefault()}
         onDragEnter={() => setDraggedOver(true)}
         onDragLeave={() => setDraggedOver(false)}
+        onDragOver={(e) => e.preventDefault()}
         onDrop={(e) => {
           e.preventDefault();
           setDraggedOver(false);
@@ -55,4 +54,4 @@ function AddBlock({
   );
 }
 
-export default AddBlock;
+export default AddOrDropBlock;

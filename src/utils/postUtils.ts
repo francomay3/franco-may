@@ -1,4 +1,3 @@
-import { db } from "@/firebase";
 import { ref, get, set } from "firebase/database";
 import {
   TAGS,
@@ -14,6 +13,7 @@ import {
   IMAGE,
 } from "./constants";
 import { PostFields } from "./types";
+import { db } from "@/firebase";
 
 export const getPost = async (id: string) => {
   const dbRef = ref(db, `${POSTS}/${id}`);

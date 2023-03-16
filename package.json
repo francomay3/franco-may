@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint --fix"
   },
   "dependencies": {
     "@emotion/css": "^11.10.6",
@@ -22,8 +22,10 @@
     "@types/node": "18.13.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
-    "eslint": "8.34.0",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
     "eslint-config-next": "13.1.6",
+    "eslint-plugin-react": "^7.32.2",
     "firebase": "^9.17.1",
     "lodash": "^4.17.21",
     "next": "13.1.6",
@@ -32,6 +34,11 @@
     "react-dom": "18.2.0",
     "react-firebase-hooks": "^5.1.1",
     "react-quill": "^2.0.0",
-    "typescript": "4.9.5"
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.36.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-testing-library": "^5.10.2"
   }
 }

@@ -1,7 +1,7 @@
-import Layout from "../Layout";
-import { useAuth } from "@/providers/AuthProvider";
 import Image from "next/image";
 import styled from "@emotion/styled";
+import Layout from "../Layout";
+// import { useAuth } from "@/providers/AuthProvider";
 import Link from "@/components/Link";
 
 const ContentWrapper = styled.div`
@@ -9,10 +9,6 @@ const ContentWrapper = styled.div`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing[4]};
   align-items: center;
-`;
-
-const GoogleLogo = styled(Image)`
-  cursor: pointer;
 `;
 
 const TrumpWrong = styled.div`
@@ -24,16 +20,16 @@ const TrumpWrong = styled.div`
 `;
 
 function NotAllowedUser() {
-  const { logOut } = useAuth();
+  // const { logOut } = useAuth();
   return (
     <Layout>
       <ContentWrapper>
         <TrumpWrong>
           <Image
-            src="/images/trumpWrong.gif"
+            alt="trumpWrong"
             fill
             objectFit="cover"
-            alt="trumpWrong"
+            src="/images/trumpWrong.gif"
           />
         </TrumpWrong>
         <h1 style={{ textAlign: "center" }}>

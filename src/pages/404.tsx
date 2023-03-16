@@ -1,5 +1,5 @@
-import Layout from "@/components/Layout";
 import styled from "@emotion/styled";
+import Layout from "@/components/Layout";
 
 const Content = styled.div`
   margin-block: auto;

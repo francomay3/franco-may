@@ -1,8 +1,8 @@
 import Layout from "../Layout";
-import dynamic from "next/dynamic";
 import { useAuth } from "@/providers/AuthProvider";
 
 function LoggedIn() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { logOut, user } = useAuth();
   return (
     <Layout>

@@ -1,6 +1,4 @@
-import { POST_FIELDS } from "@/utils/constants";
-import { iconIds } from "@/components/Icon";
-import {
+import { POST_FIELDS ,
   AUTHOR,
   CONTENT,
   CREATED_AT,
@@ -12,6 +10,7 @@ import {
   UPDATED_AT,
   PUBLISHED,
 } from "@/utils/constants";
+import { iconIds } from "@/components/Icon";
 
 export type BlogField = typeof POST_FIELDS[number];
 export type IconId = typeof iconIds[number];

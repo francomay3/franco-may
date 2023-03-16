@@ -1,9 +1,8 @@
-import { BlockData } from "./blocks/types";
-import { BlogField } from "@/utils/types";
-import AddBlock from "./blocks/AddBlock";
+import React, { useState } from "react";
+import AddOrDropBlock from "./blocks/AddOrDropBlock";
 import { ImageBlock, TextBlock } from "./blocks";
 import NewBlockDialog from "./NewBlockDialog";
-import React, { useState } from "react";
+import { BlockData } from "./blocks/types";
 import DraggableBlock from "./DraggableBlock";
 import {
   addBlock,
@@ -12,23 +11,26 @@ import {
   moveBlock,
   updateBlock,
 } from "./utils";
+import { BlogField } from "@/utils/types";
+
+type OnChange = (field: BlogField, value: string) => void;
 
 interface ContentProps {
   content: string;
-  isEditingEnabled: boolean;
-  onChange: (field: BlogField, value: string) => void;
   field: BlogField;
+  isEditingEnabled: boolean;
+  onChange: OnChange;
 }
 
 const Content = ({
   content: rawContent,
+  field,
   isEditingEnabled,
   onChange,
-  field,
 }: ContentProps) => {
+  const [draggedBlock, setDraggedBlock] = useState<BlockData | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectionIndex, setSelectionIndex] = useState(0);
-  const [draggedBlock, setDraggedBlock] = useState<BlockData | null>(null);
   const content: BlockData[] = JSON.parse(rawContent);
 
   const handleChange = (newContent: BlockData[]) => {
@@ -39,15 +41,15 @@ const Content = ({
   return (
     <>
       <NewBlockDialog
-        isDialogOpen={isDialogOpen}
-        setIsDialogOpen={setIsDialogOpen}
         addBlock={(newBlock) => {
           handleChange(addBlock(content, newBlock, selectionIndex));
           setIsDialogOpen(false);
         }}
+        isDialogOpen={isDialogOpen}
+        setIsDialogOpen={setIsDialogOpen}
       />
-      <AddBlock
-        isDraggingBlock={!!draggedBlock}
+      <AddOrDropBlock
+        isDraggingBlock={Boolean(draggedBlock)}
         onClick={() => {
           setSelectionIndex(0);
           setIsDialogOpen(true);
@@ -63,13 +65,13 @@ const Content = ({
             return (
               <React.Fragment key={block.blockId}>
                 <DraggableBlock
-                  draggable={isEditingEnabled}
                   block={block}
+                  draggable={isEditingEnabled}
                   setDraggedBlock={setDraggedBlock}
                 >
                   <TextBlock
-                    isEditingEnabled={isEditingEnabled}
                     block={block}
+                    isEditingEnabled={isEditingEnabled}
                     onChange={(updatedBlock) =>
                       handleChange(updateBlock(content, updatedBlock))
                     }
@@ -78,8 +80,8 @@ const Content = ({
                     }}
                   />
                 </DraggableBlock>
-                <AddBlock
-                  isDraggingBlock={!!draggedBlock}
+                <AddOrDropBlock
+                  isDraggingBlock={Boolean(draggedBlock)}
                   onClick={() => {
                     setSelectionIndex(i + 1);
                     setIsDialogOpen(true);
@@ -94,8 +96,8 @@ const Content = ({
             return (
               <React.Fragment key={block.blockId}>
                 <DraggableBlock
-                  draggable={isEditingEnabled}
                   block={block}
+                  draggable={isEditingEnabled}
                   setDraggedBlock={setDraggedBlock}
                 >
                   <ImageBlock
@@ -107,8 +109,8 @@ const Content = ({
                   />
                 </DraggableBlock>
 
-                <AddBlock
-                  isDraggingBlock={!!draggedBlock}
+                <AddOrDropBlock
+                  isDraggingBlock={Boolean(draggedBlock)}
                   onClick={() => {
                     setSelectionIndex(i + 1);
                     setIsDialogOpen(true);

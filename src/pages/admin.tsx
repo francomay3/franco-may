@@ -4,6 +4,7 @@ import LoggedOut from "@/components/admin-page/LoggedOut";
 import NotAllowedUser from "@/components/admin-page/NotAllowedUser";
 
 const Admin = () => {
+  // eslint-disable-next-line
   const { user, isAdmin, logIn, logOut } = useAuth();
 
   return (

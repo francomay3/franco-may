@@ -1,7 +1,7 @@
-import { BlockData } from "./blocks/types";
-import { MoveButton } from "../ActionButtons";
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { ReactNode } from "react";
+import { MoveButton } from "../ActionButtons";
+import { BlockData } from "./blocks/types";
 
 const MoveButtonWrapper = styled.div`
   position: absolute;
@@ -19,7 +19,7 @@ const DraggableBlock = ({
   block,
   setDraggedBlock,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   draggable: boolean;
   block: BlockData;
   setDraggedBlock: (block: BlockData | null) => void;
@@ -27,11 +27,11 @@ const DraggableBlock = ({
   return (
     <Wrapper
       draggable={draggable}
-      onDragStart={() => {
-        setDraggedBlock(block);
-      }}
       onDragEnd={() => {
         setDraggedBlock(null);
+      }}
+      onDragStart={() => {
+        setDraggedBlock(block);
       }}
     >
       {children}

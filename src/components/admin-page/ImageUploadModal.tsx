@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import styled from "@emotion/styled";
-import { useState } from "react";
-import { uploadImage } from "../../utils/storageUtils";
 import { useTheme, Theme } from "@emotion/react";
+import { uploadImage } from "../../utils/storageUtils";
 
 const FORM_ID = "image-form";
 const TITLE_ID = "image-title";
@@ -121,9 +120,9 @@ function ImageUploadModal({
   const theme = useTheme();
   return (
     <Dialog
-      style={DialogWrapper(theme) as React.CSSProperties}
-      open={open}
       onClose={() => setOpen(false)}
+      open={open}
+      style={DialogWrapper(theme) as React.CSSProperties}
     >
       <Dialog.Panel style={Panel(theme) as React.CSSProperties}>
         <Dialog.Title>Upload an Image</Dialog.Title>
@@ -143,31 +142,31 @@ function ImageUploadModal({
           <FormSection>
             <label htmlFor={TITLE_ID}>Title</label>
             <input
-              type="text"
               id={TITLE_ID}
               onChange={(e) => setTitle(e.target.value)}
+              type="text"
               value={title}
             />
           </FormSection>
           <FormSection>
             <label htmlFor={CAPTION_ID}>Caption</label>
             <input
-              type="text"
               id={CAPTION_ID}
               onChange={(e) => setCaption(e.target.value)}
+              type="text"
               value={caption}
             />
           </FormSection>
           <FormSection>
             <label htmlFor={FILE_ID}>File</label>
-            <input type="file" accept="image/*" id={FILE_ID} />
+            <input accept="image/*" id={FILE_ID} type="file" />
           </FormSection>
         </Form>
         <Footer>
-          <button type="reset" form={FORM_ID} onClick={() => setOpen(false)}>
+          <button form={FORM_ID} onClick={() => setOpen(false)} type="reset">
             Cancel
           </button>
-          <button type="submit" form={FORM_ID}>
+          <button form={FORM_ID} type="submit">
             Upload
           </button>
         </Footer>

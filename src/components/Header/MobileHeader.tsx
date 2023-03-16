@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { Menu } from "@headlessui/react";
 import Link from "next/link";
-import Icon from "@/components/Icon";
 import Logo from "./Logo";
 import DarkModeSwitch from "./DarkModeSwitch";
+import Icon from "@/components/Icon";
 
 const Wrapper = styled.div`
   display: flex;
@@ -84,7 +84,7 @@ function MobileNav({
               {navLinks.map(({ href, pageName }) => (
                 <Menu.Item key={href}>
                   {({ active }) => (
-                    <Item active href={href}>
+                    <Item active={active} href={href}>
                       {pageName}
                     </Item>
                   )}

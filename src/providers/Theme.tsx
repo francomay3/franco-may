@@ -1,6 +1,5 @@
 import { ThemeProvider } from "@emotion/react";
-import "@emotion/react";
-import { useState } from "react";
+import { ReactNode } from "react";
 
 declare module "@emotion/react" {
   export interface Theme {
@@ -125,6 +124,6 @@ export const theme = {
   },
 };
 
-export default function Theme({ children }: { children: React.ReactNode }) {
+export default function Theme({ children }: { children: ReactNode }) {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }

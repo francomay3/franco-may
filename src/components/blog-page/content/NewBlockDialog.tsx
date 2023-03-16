@@ -1,9 +1,9 @@
 import { Dialog } from "@headlessui/react";
 import styled from "@emotion/styled";
-import { blocksExamples } from "./blocks";
-import { MinusButton } from "../ActionButtons";
-import { BlockData } from "./blocks/types";
 import { ReactNode } from "react";
+import { MinusButton } from "../ActionButtons";
+import { blocksExamples } from "./blocks";
+import { BlockData } from "./blocks/types";
 
 const BackDrop = styled.div`
   position: fixed;
@@ -72,7 +72,7 @@ const NewBlockDialog = ({
   addBlock: (block: BlockData) => void;
 }) => {
   return (
-    <Dialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
+    <Dialog onClose={() => setIsDialogOpen(false)} open={isDialogOpen}>
       <BackDrop aria-hidden="true" />
       <Panel>
         <Dialog.Title style={{ marginBottom: "1.5rem" }}>
@@ -91,8 +91,8 @@ const NewBlockDialog = ({
         </Blocks>
 
         <MinusButton
-          onClick={() => setIsDialogOpen(false)}
           className="closedialog"
+          onClick={() => setIsDialogOpen(false)}
         />
       </Panel>
     </Dialog>

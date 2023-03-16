@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { TextBlockData } from "./types";
 import { MinusButton } from "../../ActionButtons";
+import { TextBlockData } from "./types";
 
 interface TextBlockProps {
   block: TextBlockData;
@@ -34,10 +34,10 @@ function TextBlock({
       style={{ display: "flex", justifyContent: "space-between", gap: "1rem" }}
     >
       <div
-        style={{ flexGrow: "1" }}
-        onBlur={handleBlur}
         contentEditable={isEditingEnabled}
         dangerouslySetInnerHTML={{ __html: blockState.data }}
+        onBlur={handleBlur}
+        style={{ flexGrow: "1" }}
       />
       {onDelete ? <MinusButton onClick={onDelete} /> : null}
     </div>
