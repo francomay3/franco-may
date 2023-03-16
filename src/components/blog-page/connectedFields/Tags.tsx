@@ -96,7 +96,7 @@ const Tags = ({
           {isEditingEnabled && <MinusButton onClick={() => deleteTag(tag)} />}
         </Tag>
       ))}
-      <PlusButton onClick={addTag} />
+      {isEditingEnabled && <PlusButton onClick={addTag} />}
     </Wrapper>
   );
 };

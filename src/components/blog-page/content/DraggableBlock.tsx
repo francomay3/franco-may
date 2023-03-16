@@ -35,9 +35,11 @@ const DraggableBlock = ({
       }}
     >
       {children}
-      <MoveButtonWrapper id={`${block.blockId}-move-button`}>
-        <MoveButton />
-      </MoveButtonWrapper>
+      {draggable && (
+        <MoveButtonWrapper id={`${block.blockId}-move-button`}>
+          <MoveButton />
+        </MoveButtonWrapper>
+      )}
     </Wrapper>
   );
 };

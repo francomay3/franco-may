@@ -39,7 +39,7 @@ function TextBlock({
         onBlur={handleBlur}
         style={{ flexGrow: "1" }}
       />
-      {onDelete ? <MinusButton onClick={onDelete} /> : null}
+      {isEditingEnabled && onDelete && <MinusButton onClick={onDelete} />}
     </div>
   );
 }

@@ -40,25 +40,29 @@ const Content = ({
 
   return (
     <>
-      <NewBlockDialog
-        addBlock={(newBlock) => {
-          handleChange(addBlock(content, newBlock, selectionIndex));
-          setIsDialogOpen(false);
-        }}
-        isDialogOpen={isDialogOpen}
-        setIsDialogOpen={setIsDialogOpen}
-      />
-      <AddOrDropBlock
-        isDraggingBlock={Boolean(draggedBlock)}
-        onClick={() => {
-          setSelectionIndex(0);
-          setIsDialogOpen(true);
-        }}
-        onDrop={() => {
-          setDraggedBlock(null);
-          handleChange(moveBlock(draggedBlock, content, 0));
-        }}
-      />
+      {isEditingEnabled && (
+        <>
+          <NewBlockDialog
+            addBlock={(newBlock) => {
+              handleChange(addBlock(content, newBlock, selectionIndex));
+              setIsDialogOpen(false);
+            }}
+            isDialogOpen={isDialogOpen}
+            setIsDialogOpen={setIsDialogOpen}
+          />
+          <AddOrDropBlock
+            isDraggingBlock={Boolean(draggedBlock)}
+            onClick={() => {
+              setSelectionIndex(0);
+              setIsDialogOpen(true);
+            }}
+            onDrop={() => {
+              setDraggedBlock(null);
+              handleChange(moveBlock(draggedBlock, content, 0));
+            }}
+          />
+        </>
+      )}
       {content.map((block, i) => {
         switch (block.type) {
           case "text":
@@ -80,16 +84,18 @@ const Content = ({
                     }}
                   />
                 </DraggableBlock>
-                <AddOrDropBlock
-                  isDraggingBlock={Boolean(draggedBlock)}
-                  onClick={() => {
-                    setSelectionIndex(i + 1);
-                    setIsDialogOpen(true);
-                  }}
-                  onDrop={() => {
-                    handleChange(moveBlock(draggedBlock, content, i + 1));
-                  }}
-                />
+                {isEditingEnabled && (
+                  <AddOrDropBlock
+                    isDraggingBlock={Boolean(draggedBlock)}
+                    onClick={() => {
+                      setSelectionIndex(i + 1);
+                      setIsDialogOpen(true);
+                    }}
+                    onDrop={() => {
+                      handleChange(moveBlock(draggedBlock, content, i + 1));
+                    }}
+                  />
+                )}
               </React.Fragment>
             );
           case "image":
@@ -103,22 +109,25 @@ const Content = ({
                   <ImageBlock
                     block={block}
                     isEditingEnabled={isEditingEnabled}
-                    onChange={(updatedBlock) =>
-                      handleChange(updateBlock(content, updatedBlock))
-                    }
+                    onChange={(updatedBlock) => {
+                      if (updatedBlock)
+                        handleChange(updateBlock(content, updatedBlock));
+                    }}
                   />
                 </DraggableBlock>
 
-                <AddOrDropBlock
-                  isDraggingBlock={Boolean(draggedBlock)}
-                  onClick={() => {
-                    setSelectionIndex(i + 1);
-                    setIsDialogOpen(true);
-                  }}
-                  onDrop={() => {
-                    handleChange(moveBlock(draggedBlock, content, i + 1));
-                  }}
-                />
+                {isEditingEnabled && (
+                  <AddOrDropBlock
+                    isDraggingBlock={Boolean(draggedBlock)}
+                    onClick={() => {
+                      setSelectionIndex(i + 1);
+                      setIsDialogOpen(true);
+                    }}
+                    onDrop={() => {
+                      handleChange(moveBlock(draggedBlock, content, i + 1));
+                    }}
+                  />
+                )}
               </React.Fragment>
             );
           default:
