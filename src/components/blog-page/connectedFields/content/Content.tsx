@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import AddOrDropBlock from "./AddOrDropBlock";
 import { ImageBlock, TextBlock } from "./blocks";
 import NewBlockDialog from "./NewBlockDialog";
-import ImageSelectionDialog from "./ImageSelectionDialog";
 import { BlockData } from "./blocks/types";
 import DraggableBlock from "./DraggableBlock";
 import {
@@ -30,7 +29,6 @@ const Content = ({
 }: ContentProps) => {
   const [draggedBlock, setDraggedBlock] = useState<BlockData | null>(null);
   const [isNewBlockDialogOpen, setIsNewBlockDialogOpen] = useState(false);
-  const [isImageDialogOpen, setIsImageDialogOpen] = useState(false);
   const [selectionIndex, setSelectionIndex] = useState(0);
   const content: BlockData[] = JSON.parse(rawContent);
 
@@ -51,14 +49,7 @@ const Content = ({
             isDialogOpen={isNewBlockDialogOpen}
             setIsDialogOpen={setIsNewBlockDialogOpen}
           />
-          <ImageSelectionDialog
-            isDialogOpen={!isNewBlockDialogOpen && isImageDialogOpen}
-            setIsDialogOpen={setIsImageDialogOpen}
-            onSelect={(image) => {
-              console.log(image);
-              setIsImageDialogOpen(false);
-            }}
-          />
+
           <AddOrDropBlock
             isDraggingBlock={Boolean(draggedBlock)}
             onClick={() => {
@@ -74,9 +65,6 @@ const Content = ({
       )}
       {content.map((block, i) => {
         const props = {
-          onImageClick: () => {
-            setIsImageDialogOpen(true);
-          },
           isEditingEnabled,
           onChange: (updatedBlock?: BlockData) => {
             if (updatedBlock) handleChange(updateBlock(content, updatedBlock));

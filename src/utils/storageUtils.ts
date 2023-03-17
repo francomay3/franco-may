@@ -6,16 +6,12 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { IMAGES } from "./constants";
+import { ImageData } from "./types";
 
 export const uploadImage = async (file: File, title: string) => {
   await uploadBytes(ref(getStorage(), `${IMAGES}/${title}`), file);
   const url = await getDownloadURL(ref(getStorage(), `${IMAGES}/${title}`));
   return url;
-};
-
-export type ImageData = {
-  url: string;
-  name: string;
 };
 
 export const getImages = async () => {

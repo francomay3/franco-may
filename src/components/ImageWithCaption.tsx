@@ -36,14 +36,14 @@ const ImageWithCaption = ({
   caption = "Hmm. Can't find that image.",
   url = "/images/lostDuck.gif",
   isEditingEnabled,
-  onChange = () => null,
+  onCaptionChange = () => null,
   onImageClick,
 }: {
   imageName: string;
   caption?: string;
   url: string;
   isEditingEnabled?: boolean;
-  onChange?: (value: string) => any;
+  onCaptionChange?: (value: string) => any;
   onImageClick?: () => any;
 }) => {
   const theme = useTheme();
@@ -81,7 +81,7 @@ const ImageWithCaption = ({
         <h3
           contentEditable={isEditingEnabled}
           dangerouslySetInnerHTML={{ __html: caption }}
-          onBlur={(e) => onChange(e.target.innerHTML)}
+          onBlur={(e) => onCaptionChange(e.target.innerHTML)}
         />
       </figcaption>
     </Wrapper>

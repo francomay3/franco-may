@@ -1,22 +1,24 @@
 import { useState } from "react";
 import { ImageBlockData } from "../types";
 import ImageWithCaption from "@/components/ImageWithCaption";
+import ImageSelectionDialog from "../../ImageSelectionDialog";
+import { ImageData } from "@/utils/types";
 
 interface ImageBlockProps {
   block: ImageBlockData;
   isEditingEnabled?: boolean;
   onChange?: (block: ImageBlockData | undefined) => void | null;
-  onImageClick?: () => void;
 }
 
 function ImageBlock({
   block,
   isEditingEnabled = false,
   onChange = () => null,
-  onImageClick = () => null,
 }: ImageBlockProps) {
   const [blockState, setBlockState] = useState(block);
-  const updateBlock = (newCaption: string) => {
+  const [isImageDialogOpen, setIsImageDialogOpen] = useState(false);
+
+  const updateCaption = (newCaption: string) => {
     setBlockState((prev) => {
       const newBlock = { ...prev, caption: newCaption };
       if (newBlock.caption === prev.caption) return prev;
@@ -24,15 +26,34 @@ function ImageBlock({
       return newBlock;
     });
   };
+
+  const updateImage = (newImage: ImageData) => {
+    setBlockState((prev) => {
+      const newBlock = { ...prev, ...newImage };
+      onChange(newBlock);
+      return newBlock;
+    });
+    setIsImageDialogOpen(false);
+  };
+
   return (
-    <ImageWithCaption
-      caption={blockState.caption}
-      imageName={blockState.title}
-      isEditingEnabled={isEditingEnabled}
-      onChange={updateBlock}
-      onImageClick={onImageClick}
-      url={blockState.url}
-    />
+    <>
+      <ImageSelectionDialog
+        isDialogOpen={isImageDialogOpen}
+        setIsDialogOpen={setIsImageDialogOpen}
+        onSelect={(newImage: ImageData) => updateImage(newImage)}
+      />
+      <ImageWithCaption
+        caption={blockState.caption}
+        imageName={blockState.title}
+        isEditingEnabled={isEditingEnabled}
+        onCaptionChange={updateCaption}
+        onImageClick={() => {
+          setIsImageDialogOpen(true);
+        }}
+        url={blockState.url}
+      />
+    </>
   );
 }
 

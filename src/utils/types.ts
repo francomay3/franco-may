@@ -1,4 +1,5 @@
-import { POST_FIELDS ,
+import {
+  POST_FIELDS,
   AUTHOR,
   CONTENT,
   CREATED_AT,
@@ -27,3 +28,8 @@ export interface PostFields {
   [PUBLISHED]: boolean;
   id: string;
 }
+
+export type ImageData = {
+  url: string;
+  name: string;
+};
