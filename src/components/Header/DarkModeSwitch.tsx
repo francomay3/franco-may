@@ -24,7 +24,7 @@ const DarkModeSwitch = () => {
 
   return (
     <SwitchWrapper checked={enabled} onChange={setEnabled}>
-      {enabled ? <Icon id="moon" /> : <Icon id="sun" />}
+      {enabled ? <Icon id="sun" /> : <Icon id="moon" />}
     </SwitchWrapper>
   );
 };

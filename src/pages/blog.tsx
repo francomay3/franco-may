@@ -17,7 +17,7 @@ import {
 import { getDateAsString } from "@/utils/generalUtils";
 import Link from "@/components/design-system/Link";
 import Tag from "@/components/design-system/Tag";
-import Card from "@/components/Card";
+import Card from "@/components/design-system/Card";
 import { useAuth } from "@/providers/AuthProvider";
 import { PlusButton } from "@/components/design-system/ActionButtons";
 import Dialog from "@/components/design-system/Dialog";
@@ -113,6 +113,7 @@ const DialogContent = styled.div`
 `;
 
 const PublishedIconWrapper = styled.div<{ isPublished: boolean }>`
+  cursor: pointer;
   position: absolute;
   top: 1rem;
   right: 1rem;

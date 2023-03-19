@@ -7,7 +7,7 @@ import { getImages } from "@/utils/storageUtils";
 import Dialog from "@/components/design-system/Dialog";
 import { ImageData } from "@/utils/types";
 import Icon from "@/components/design-system/Icon";
-import Card from "@/components/Card";
+import Card from "@/components/design-system/Card";
 import { uploadImage } from "@/utils/storageUtils";
 
 const ImagesWrapper = styled.div`

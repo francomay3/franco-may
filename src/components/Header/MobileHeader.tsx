@@ -12,6 +12,7 @@ const Wrapper = styled.header`
   background-color: ${({ theme }) => theme.colors.darkGrey};
   padding-inline: ${({ theme }) => theme.spacing[4]};
   height: ${({ theme }) => theme.spacing.aLot};
+  z-index: 1;
 `;
 
 const Nav = styled.nav`
@@ -40,12 +41,12 @@ const Button = styled.button`
 `;
 
 const Items = styled.div`
-  width: 100vw;
   background-color: ${({ theme }) => theme.colors.darkGrey};
   display: flex;
   flex-direction: column;
   position: absolute;
   right: 0;
+  left: 0;
   top: ${({ theme }) => theme.spacing.aLot};
   padding: ${({ theme }) => theme.spacing[4]};
   padding-bottom: ${({ theme }) => theme.spacing[1]};
@@ -79,7 +80,6 @@ function MobileNav({
             <Menu.Button as={Button}>
               {open ? <Icon id="x" /> : <Icon id="menu" />}
             </Menu.Button>
-
             <Menu.Items as={Items}>
               {navLinks.map(({ href, pageName }) => (
                 <Menu.Item key={href}>
