@@ -24,6 +24,7 @@
     "@types/react-dom": "18.0.11",
     "eslint-config-next": "^13.2.4",
     "firebase": "^9.17.1",
+    "framer-motion": "^10.6.0",
     "lodash": "^4.17.21",
     "next": "13.1.6",
     "openai": "^3.2.1",

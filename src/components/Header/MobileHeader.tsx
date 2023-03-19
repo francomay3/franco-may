@@ -4,6 +4,9 @@ import Link from "next/link";
 import Logo from "./Logo";
 import DarkModeSwitch from "./DarkModeSwitch";
 import Icon from "@/components/design-system/Icon";
+import { AnimatePresence, motion } from "framer-motion";
+import { useTheme } from "@emotion/react";
+import { useState } from "react";
 
 const Wrapper = styled.header`
   display: flex;
@@ -12,7 +15,7 @@ const Wrapper = styled.header`
   background-color: ${({ theme }) => theme.colors.darkGrey};
   padding-inline: ${({ theme }) => theme.spacing[4]};
   height: ${({ theme }) => theme.spacing.aLot};
-  z-index: 1;
+  z-index: 2;
 `;
 
 const Nav = styled.nav`
@@ -44,15 +47,17 @@ const Items = styled.div`
   background-color: ${({ theme }) => theme.colors.darkGrey};
   display: flex;
   flex-direction: column;
-  position: absolute;
+  /* position: absolute;
   right: 0;
-  left: 0;
+  left: 0; */
+  width: 100%;
   top: ${({ theme }) => theme.spacing.aLot};
   padding: ${({ theme }) => theme.spacing[4]};
   padding-bottom: ${({ theme }) => theme.spacing[1]};
   &:focus {
     outline: none;
   }
+  z-index: 1;
 `;
 
 const Item = styled(Link)<{ active: boolean }>`
@@ -72,25 +77,53 @@ function MobileNav({
 }: {
   navLinks: { href: string; pageName: string }[];
 }) {
+  const theme = useTheme();
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Wrapper>
-      <Menu as={Nav}>
+      <Menu as={Nav} style={{ zIndex: 1 }}>
         {({ open }) => (
           <>
-            <Menu.Button as={Button}>
+            <Menu.Button
+              as={Button}
+              onClick={() => setIsOpen((prev) => !prev)}
+              style={{ width: "1rem" }}
+            >
               {open ? <Icon id="x" /> : <Icon id="menu" />}
             </Menu.Button>
-            <Menu.Items as={Items}>
-              {navLinks.map(({ href, pageName }) => (
-                <Menu.Item key={href}>
-                  {({ active }) => (
-                    <Item active={active} href={href}>
-                      {pageName}
-                    </Item>
-                  )}
-                </Menu.Item>
-              ))}
-            </Menu.Items>
+            <AnimatePresence mode="wait">
+              {open && (
+                <motion.div
+                  style={{
+                    position: "absolute",
+                    top: theme.spacing.aLot,
+                    left: 0,
+                    right: 0,
+                    zIndex: 1,
+                  }}
+                  // initial={{ y: "-100%" }}
+                  // animate={{ y: "-50%" }}
+                  // exit={{ y: "50%" }}
+                  initial={{ opacity: 0, y: "-10%" }}
+                  animate={{ opacity: 1, y: "0%" }}
+                  exit={{ opacity: 0, y: "10%" }}
+                  transition={{ duration: 0.1 }}
+                  key="mobile-nav"
+                >
+                  <Menu.Items as={Items}>
+                    {navLinks.map(({ href, pageName }) => (
+                      <Menu.Item key={href}>
+                        {({ active }) => (
+                          <Item active={active} href={href}>
+                            {pageName}
+                          </Item>
+                        )}
+                      </Menu.Item>
+                    ))}
+                  </Menu.Items>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </>
         )}
       </Menu>
