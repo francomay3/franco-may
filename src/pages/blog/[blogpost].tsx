@@ -13,16 +13,17 @@ export async function getServerSideProps(context: {
     ? {
         props: {
           ...post,
-          id,
         },
       }
     : { notFound: true };
 }
 
-const BlogPost = (props: PostFields) => (
-  <Layout contentStyles={{ alignItems: "center" }}>
-    <Post {...props} />
-  </Layout>
-);
+const BlogPost = (props: PostFields) => {
+  return (
+    <Layout contentStyles={{ alignItems: "center" }}>
+      <Post {...props} />
+    </Layout>
+  );
+};
 
 export default BlogPost;

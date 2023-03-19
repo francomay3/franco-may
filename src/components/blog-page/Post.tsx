@@ -17,10 +17,12 @@ import {
   TAGS,
   // IMAGE,
   PUBLISHED,
+  SLUG,
 } from "@/utils/constants";
 import { BlogField, PostFields } from "@/utils/types";
 import { useAuth } from "@/providers/AuthProvider";
 import { setPostField, updatePost } from "@/utils/postUtils";
+import { toast, Toast } from "../design-system/Toast";
 
 const Wrapper = styled.article<{ isEditingEnabled: boolean }>`
   width: 100%;
@@ -49,13 +51,16 @@ const AuthorAndDate = styled.p`
   color: ${({ theme }) => theme.colors.grey};
 `;
 
-const Post = ({ slug, ...props }: PostFields) => {
+const Post = ({ ...props }: PostFields) => {
   const { isAdmin } = useAuth();
   const [isEditingEnabled, setIsEditingEnabled] = useState(false);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [postState, setPostState] = useState(props);
 
-  const getUpdatedPostState = (field: BlogField, value: string | number) => {
+  const getUpdatedPostState = (
+    field: BlogField,
+    value: string | number | boolean
+  ) => {
     return { ...postState, [field]: value };
   };
 
@@ -65,17 +70,13 @@ const Post = ({ slug, ...props }: PostFields) => {
     }
   }, [isAdmin]);
 
-  const handleSave = () => {
-    // TODO: handle loading, error and success states
-    updatePost(slug, postState)
-      .then(() => {
-        setHasUnsavedChanges(false);
-        return true;
-      })
-      .catch(() => {
-        return false;
-      });
-    return setHasUnsavedChanges(false);
+  const handleSave = async () => {
+    await toast.promise(updatePost(props[SLUG], postState), {
+      pending: "Saving...",
+      success: "Saved!",
+      error: "Error saving post",
+    });
+    setHasUnsavedChanges(false);
   };
 
   const handleStateFieldChange = (field: BlogField, value: string | number) => {
@@ -89,20 +90,23 @@ const Post = ({ slug, ...props }: PostFields) => {
         {isEditingEnabled && (
           <Toolbar
             hasUnsavedChanges={hasUnsavedChanges}
-            onPublish={() => {
-              // TODO: handle loading, error and success states
-              setPostField(slug, PUBLISHED, !postState[PUBLISHED])
-                .then(() => {
-                  return setPostState(
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    getUpdatedPostState(PUBLISHED, !postState[PUBLISHED])
-                  );
-                })
-                .catch(() => {
-                  // eslint-disable-next-line no-console
-                  console.log("Error publishing post");
-                });
+            onPublish={async () => {
+              const settingToPublished = !postState[PUBLISHED];
+              await toast.promise(
+                setPostField(props[SLUG], PUBLISHED, !postState[PUBLISHED]),
+                {
+                  pending: settingToPublished
+                    ? "Publishing..."
+                    : "Unpublishing...",
+                  success: settingToPublished ? "Published!" : "Unpublished!",
+                  error: settingToPublished
+                    ? "Error publishing post"
+                    : "Error unpublishing post",
+                }
+              );
+              setPostState(
+                getUpdatedPostState(PUBLISHED, !postState[PUBLISHED])
+              );
             }}
             published={postState[PUBLISHED]}
             save={handleSave}

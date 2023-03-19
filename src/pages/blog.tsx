@@ -23,6 +23,7 @@ import { PlusButton } from "@/components/design-system/ActionButtons";
 import Dialog from "@/components/design-system/Dialog";
 import Button from "@/components/design-system/Button";
 import Icon from "@/components/design-system/Icon";
+import { toast } from "react-toastify";
 
 const AuthorAndDate = styled.p`
   color: ${({ theme }) => theme.colors.grey};
@@ -157,7 +158,6 @@ const getJustLetters = (str: string) =>
   str.replace(/[^a-zA-Z]/g, "").toLowerCase();
 
 const Blog = ({ posts }: { posts: Post[] }) => {
-  // getPosts().then((posts) => console.log(posts));
   const { isAdmin } = useAuth();
   const [isNewPostDialogOpen, setIsNewPostDialogOpen] = useState(false);
   const [newPostSlug, setNewPostSlug] = useState("");
@@ -188,22 +188,13 @@ const Blog = ({ posts }: { posts: Post[] }) => {
               value={newPostSlug}
             />
             <Button
-              onClick={() => {
-                // TODO: handle loading, error and success states
-                createPost(newPostSlug)
-                  .then((result) => {
-                    // eslint-disable-next-line promise/always-return
-                    if (result === true) {
-                      return Router.push(`/blog/${newPostSlug}`);
-                    } else {
-                      // eslint-disable-next-line no-console
-                      console.log("error");
-                    }
-                  })
-                  .catch((error) => {
-                    // eslint-disable-next-line no-console
-                    console.error(error);
-                  });
+              onClick={async () => {
+                await toast.promise(createPost(newPostSlug), {
+                  pending: "Creating post...",
+                  success: "Post created",
+                  error: "Error creating post",
+                });
+                Router.push(`/blog/${newPostSlug}`);
               }}
             >
               Create
@@ -254,16 +245,24 @@ const Blog = ({ posts }: { posts: Post[] }) => {
                 {isAdmin && (
                   <PublishedIconWrapper
                     isPublished={post[PUBLISHED]}
-                    onClick={() => {
-                      // TODO: handle loading, error and success states
-                      setPostField(post[SLUG], PUBLISHED, !post[PUBLISHED])
-                        .then(() => {
-                          return Router.reload();
-                        })
-                        .catch((error) => {
-                          // eslint-disable-next-line no-console
-                          console.error(error);
-                        });
+                    onClick={async () => {
+                      const settingToPublished = !post[PUBLISHED];
+                      await toast.promise(
+                        setPostField(post[SLUG], PUBLISHED, !post[PUBLISHED]),
+                        {
+                          pending: settingToPublished
+                            ? "Publishing"
+                            : "Unpublishing",
+                          success: settingToPublished
+                            ? "Published"
+                            : "Unpublished",
+                          error: settingToPublished
+                            ? "Failed to publish"
+                            : "Failed to unpublish",
+                        }
+                      );
+                      // TODO: handle state instead of reloading
+                      Router.reload();
                     }}
                   >
                     <Icon id={post[PUBLISHED] ? "visible" : "hidden"} />

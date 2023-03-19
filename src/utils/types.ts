@@ -10,6 +10,7 @@ import {
   TITLE,
   UPDATED_AT,
   PUBLISHED,
+  SLUG,
 } from "@/utils/constants";
 import { iconIds } from "@/components/design-system/Icon";
 
@@ -26,7 +27,7 @@ export interface PostFields {
   [TITLE]: string;
   [UPDATED_AT]: number;
   [PUBLISHED]: boolean;
-  slug: string;
+  [SLUG]: string;
 }
 
 export type ImageData = {

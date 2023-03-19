@@ -9,6 +9,7 @@ import { ImageData } from "@/utils/types";
 import Icon from "@/components/design-system/Icon";
 import Card from "@/components/design-system/Card";
 import { uploadImage } from "@/utils/storageUtils";
+import { toast } from "react-toastify";
 
 const ImagesWrapper = styled.div`
   display: flex;
@@ -165,14 +166,14 @@ const ImageSelectionDialog = ({
     setFileData(fileData);
   };
 
-  const handleOnUpload = () => {
+  const handleOnUpload = async () => {
     if (fileData) {
-      uploadImage(fileData, fileName || "image")
-        .then((image) => {
-          onSelect(image);
-          return setIsDialogOpen(false);
-        })
-        .catch(() => null);
+      await toast.promise(uploadImage(fileData, fileName || "image"), {
+        pending: "Uploading image...",
+        success: "Image uploaded",
+        error: "Error uploading image",
+      });
+      setIsDialogOpen(false);
     }
   };
 
@@ -198,7 +199,7 @@ const ImageSelectionDialog = ({
             <ImagesWrapper>
               {images.map(({ url, name }) => (
                 <Card key={url} onClick={() => onSelect({ url, name })}>
-                  <Image alt={name} src={url} />
+                  <img alt={name} src={url} />
                 </Card>
               ))}
             </ImagesWrapper>

@@ -57,7 +57,6 @@ export const getPostField = async (slug: string, postField: string) => {
 };
 
 export const createPost = async (slug: string) => {
-  // TODO: handle errors
   try {
     const postSlugs = await getPostSlugs();
     if (postSlugs.includes(slug)) {
