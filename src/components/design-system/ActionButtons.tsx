@@ -1,7 +1,7 @@
 import { CSSProperties } from "react";
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
-import Icon from "../Icon";
+import Icon from "./Icon";
 import { theme } from "@/providers/Theme";
 
 const Wrapper = styled.div`
@@ -75,7 +75,7 @@ export const EditButton = ({
   className?: string;
   style?: CSSProperties;
 }) => (
-  <Wrapper style={style} className={className} color={theme.colors.darkBlue}>
+  <Wrapper className={className} color={theme.colors.darkBlue} style={style}>
     <Icon id="edit" />
   </Wrapper>
 );

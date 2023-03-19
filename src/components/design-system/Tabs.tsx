@@ -1,5 +1,4 @@
 import { Tab as HeadlessTab } from "@headlessui/react";
-import styled from "@emotion/styled";
 
 const Tabs = () => {
   return (

@@ -11,12 +11,17 @@ import {
   TITLE,
   AUTHOR,
   IMAGE,
+  SLUG,
 } from "./constants";
 import { PostFields } from "./types";
 import { db } from "@/firebase";
+import {
+  ImageBlockDataDefault,
+  TextBlockDataDefault,
+} from "@/components/blog-page/connectedFields/content/blocks";
 
-export const getPost = async (id: string) => {
-  const dbRef = ref(db, `${POSTS}/${id}`);
+export const getPost = async (slug: string) => {
+  const dbRef = ref(db, `${POSTS}/${slug}`);
   const snapshot = await get(dbRef);
   return snapshot.val();
 };
@@ -24,51 +29,68 @@ export const getPost = async (id: string) => {
 export const getPosts = async () => {
   const dbRef = ref(db, POSTS);
   const snapshot = await get(dbRef);
-  return snapshot.val();
+  const rawPosts: PostFields[] = snapshot.val();
+  const values = Object.values(rawPosts);
+  return values.flatMap((post) => {
+    if (!post || typeof post !== "object") return [];
+    return [{ ...post }];
+  });
 };
 
-export const getPostIds = async () => {
+export const getPostSlugs = async () => {
   const posts = await getPosts();
   return Object.keys(posts);
 };
 
 export const setPostField = async (
-  postId: string,
+  slug: string,
   postField: string,
   value: any
 ) => {
-  set(ref(db, `${POSTS}/${postId}/${postField}`), value);
+  return set(ref(db, `${POSTS}/${slug}/${postField}`), value);
 };
 
-export const getPostField = async (postId: string, postField: string) => {
-  const dbRef = ref(db, `${POSTS}/${postId}/${postField}`);
+export const getPostField = async (slug: string, postField: string) => {
+  const dbRef = ref(db, `${POSTS}/${slug}/${postField}`);
   const snapshot = await get(dbRef);
   return snapshot.val();
 };
 
-export const createPost = async (id: any) => {
-  const postIds = await getPostIds();
-  if (postIds.includes(id)) {
-    return false;
-  }
-  const value: PostFields = {
-    [CONTENT]: "content",
-    [CREATED_AT]: 123123123,
-    [UPDATED_AT]: 123123123,
-    [DESCRIPTION]: "description",
-    [LOCATION]: "",
+export const createPost = async (slug: string) => {
+  // TODO: handle errors
+  try {
+    const postSlugs = await getPostSlugs();
+    if (postSlugs.includes(slug)) {
+      return { error: "Post already exists" };
+    }
+    // eslint-disable-next-line no-empty
+  } catch (e: any) {}
+  const startingValue: PostFields = {
+    [CONTENT]: JSON.stringify([
+      { ...TextBlockDataDefault, blockId: 1 },
+      { ...ImageBlockDataDefault, blockId: 2 },
+      { ...TextBlockDataDefault, blockId: 3 },
+    ]),
+    [CREATED_AT]: new Date().getTime(),
+    [UPDATED_AT]: new Date().getTime(),
+    [DESCRIPTION]: "Blog Description",
+    [LOCATION]: "Göteborg, Sverige",
     [PUBLISHED]: false,
-    [TAGS]: "",
-    [TITLE]: "",
-    [AUTHOR]: "",
-    id: id,
+    [TAGS]: JSON.stringify(["Tag1", "Tag2"]),
+    [TITLE]: slug,
+    [AUTHOR]: "Franco May",
+    [SLUG]: slug,
     [IMAGE]: "https://source.unsplash.com/random/800x600",
   };
 
-  set(ref(db, `${POSTS}/${id}`), value);
-  return true;
+  try {
+    await set(ref(db, `${POSTS}/${slug}`), startingValue);
+    return true;
+  } catch (e: any) {
+    return { error: e.message };
+  }
 };
 
-export const updatePost = async (id: string, value: any) => {
-  set(ref(db, `${POSTS}/${id}`), value);
+export const updatePost = async (slug: string, value: any) => {
+  set(ref(db, `${POSTS}/${slug}`), value);
 };

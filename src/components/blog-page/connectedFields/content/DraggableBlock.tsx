@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { ReactNode } from "react";
 import { useState } from "react";
-import { MinusButton, MoveButton } from "../../ActionButtons";
+import { MinusButton, MoveButton } from "../../../design-system/ActionButtons";
 import { BlockData } from "./blocks/types";
 
 const MoveButtonWrapper = styled.div`

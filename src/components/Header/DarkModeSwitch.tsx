@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Switch } from "@headlessui/react";
 import styled from "@emotion/styled";
-import Icon from "@/components/Icon";
+import Icon from "@/components/design-system/Icon";
 
 interface WrapperProps {
   checked: boolean;

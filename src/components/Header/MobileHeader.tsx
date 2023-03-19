@@ -3,7 +3,7 @@ import { Menu } from "@headlessui/react";
 import Link from "next/link";
 import Logo from "./Logo";
 import DarkModeSwitch from "./DarkModeSwitch";
-import Icon from "@/components/Icon";
+import Icon from "@/components/design-system/Icon";
 
 const Wrapper = styled.header`
   display: flex;

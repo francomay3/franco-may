@@ -1,7 +1,7 @@
 import { Dialog as HeadlessDialog } from "@headlessui/react";
 import styled from "@emotion/styled";
 import { ReactNode } from "react";
-import { MinusButton } from "./blog-page/ActionButtons";
+import { MinusButton } from "./ActionButtons";
 
 const BackDrop = styled.div`
   position: fixed;

@@ -33,6 +33,7 @@ declare module "@emotion/react" {
       violet: string;
       darkBlue: string;
       darkGreen: string;
+      lightRed: string;
       link: {
         text: string;
         underline: string;
@@ -88,6 +89,7 @@ export const theme = {
     tooltip: 1080,
   },
   colors: {
+    lightRed: "#fce1e1",
     black: "#0d1117",
     lightBlack: "#161b22",
     darkGrey: "#21262d",

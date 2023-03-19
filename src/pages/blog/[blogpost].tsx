@@ -20,7 +20,7 @@ export async function getServerSideProps(context: {
 }
 
 const BlogPost = (props: PostFields) => (
-  <Layout>
+  <Layout contentStyles={{ alignItems: "center" }}>
     <Post {...props} />
   </Layout>
 );

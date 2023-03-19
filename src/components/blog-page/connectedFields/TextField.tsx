@@ -69,6 +69,7 @@ const TextField = ({
       contentEditable={isEditingEnabled}
       dangerouslySetInnerHTML={{ __html: value }}
       onBlur={handleBlur}
+      suppressContentEditableWarning={true}
     />
   );
 };

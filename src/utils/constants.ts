@@ -14,6 +14,7 @@ export const PUBLISHED = "published";
 export const TAGS = "tags";
 export const TITLE = "title";
 export const UPDATED_AT = "updatedAt";
+export const SLUG = "slug";
 
 export const POST_FIELDS = [
   AUTHOR,

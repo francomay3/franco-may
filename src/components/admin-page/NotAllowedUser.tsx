@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled from "@emotion/styled";
 import Layout from "../Layout";
 // import { useAuth } from "@/providers/AuthProvider";
-import Link from "@/components/Link";
+import Link from "@/components/design-system/Link";
 
 const ContentWrapper = styled.div`
   display: flex;

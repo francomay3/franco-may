@@ -15,8 +15,6 @@ const Main = styled.main`
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
   flex: 1;
-  align-items: center;
-  justify-content: center;
   padding-block: ${({ theme }) => theme.spacing[6]};
   padding-inline: ${({ theme }) => theme.spacing.aWholeLot};
   ${({ theme }) => theme.tablet} {

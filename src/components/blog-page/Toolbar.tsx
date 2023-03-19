@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Icon from "@/components/Icon";
+import Icon from "@/components/design-system/Icon";
 import { IconId } from "@/utils/types";
 
 const Wrapper = styled.div`
@@ -45,13 +45,14 @@ const ButtonWrapper = styled.button`
 
 interface ButtonProps {
   iconId: IconId;
+  onClick?: () => void;
   onMouseDown?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   text?: string;
 }
 
-const Button = ({ iconId, onMouseDown, text }: ButtonProps) => {
+const Button = ({ iconId, onMouseDown, text, onClick }: ButtonProps) => {
   return (
-    <ButtonWrapper onMouseDown={onMouseDown}>
+    <ButtonWrapper onClick={onClick} onMouseDown={onMouseDown}>
       <Icon id={iconId} />
       {text}
     </ButtonWrapper>
@@ -69,6 +70,7 @@ interface ToolbarProps {
   hasUnsavedChanges: boolean;
   save: () => void;
   published: boolean;
+  onPublish: () => void;
 }
 
 const ToolbarButtons = [
@@ -78,7 +80,12 @@ const ToolbarButtons = [
   "strikeThrough",
 ] as const;
 
-const Toolbar = ({ hasUnsavedChanges, save, published }: ToolbarProps) => {
+const Toolbar = ({
+  onPublish,
+  hasUnsavedChanges,
+  save,
+  published,
+}: ToolbarProps) => {
   return (
     <Wrapper>
       <ButtonGroup>
@@ -97,11 +104,11 @@ const Toolbar = ({ hasUnsavedChanges, save, published }: ToolbarProps) => {
         {hasUnsavedChanges && (
           <Button iconId="save" onMouseDown={save} text="Save" />
         )}
-        {published ? (
-          <Button iconId="invisible" text="Unpublish" />
-        ) : (
-          <Button iconId="earth" text="Publish" />
-        )}
+        <Button
+          iconId={published ? "invisible" : "earth"}
+          onClick={onPublish}
+          text={published ? "Unpublish" : "Publish"}
+        />
       </ButtonGroup>
     </Wrapper>
   );

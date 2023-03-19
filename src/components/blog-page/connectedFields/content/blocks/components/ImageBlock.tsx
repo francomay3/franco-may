@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ImageBlockData } from "../types";
-import ImageWithCaption from "@/components/ImageWithCaption";
 import ImageSelectionDialog from "../../ImageSelectionDialog";
+import ImageWithCaption from "@/components/ImageWithCaption";
 import { ImageData } from "@/utils/types";
 
 interface ImageBlockProps {
@@ -40,8 +40,8 @@ function ImageBlock({
     <>
       <ImageSelectionDialog
         isDialogOpen={isImageDialogOpen}
-        setIsDialogOpen={setIsImageDialogOpen}
         onSelect={(newImage: ImageData) => updateImage(newImage)}
+        setIsDialogOpen={setIsImageDialogOpen}
       />
       <ImageWithCaption
         caption={blockState.caption}

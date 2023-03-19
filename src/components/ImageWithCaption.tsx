@@ -1,8 +1,8 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
-import { EditButton } from "./blog-page/ActionButtons";
 import { useState } from "react";
+import { EditButton } from "./design-system/ActionButtons";
 
 const Wrapper = styled.figure`
   display: flex;
@@ -52,16 +52,16 @@ const ImageWithCaption = ({
     <Wrapper>
       <ImageWrapper isEditingEnabled={isEditingEnabled}>
         <Image
-          onMouseEnter={() => {
-            setIsHoveringImage(true);
-          }}
-          onMouseLeave={() => setIsHoveringImage(false)}
           alt={imageName}
           draggable={!isEditingEnabled}
           fill
           loader={({ src }) => src}
           objectFit="cover"
           onClick={isEditingEnabled ? onImageClick : undefined}
+          onMouseEnter={() => {
+            setIsHoveringImage(true);
+          }}
+          onMouseLeave={() => setIsHoveringImage(false)}
           sizes="(max-width: 640px) 100vw, 320px"
           src={url || `/images/${imageName}`}
         />
@@ -82,6 +82,7 @@ const ImageWithCaption = ({
           contentEditable={isEditingEnabled}
           dangerouslySetInnerHTML={{ __html: caption }}
           onBlur={(e) => onCaptionChange(e.target.innerHTML)}
+          suppressContentEditableWarning={true}
         />
       </figcaption>
     </Wrapper>

@@ -11,7 +11,7 @@ import {
   UPDATED_AT,
   PUBLISHED,
 } from "@/utils/constants";
-import { iconIds } from "@/components/Icon";
+import { iconIds } from "@/components/design-system/Icon";
 
 export type BlogField = typeof POST_FIELDS[number];
 export type IconId = typeof iconIds[number];
@@ -26,7 +26,7 @@ export interface PostFields {
   [TITLE]: string;
   [UPDATED_AT]: number;
   [PUBLISHED]: boolean;
-  id: string;
+  slug: string;
 }
 
 export type ImageData = {

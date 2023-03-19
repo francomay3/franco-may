@@ -1,23 +1,10 @@
 import styled from "@emotion/styled";
-import { useTheme } from "@emotion/react";
 import { uniq } from "lodash";
-import { PlusButton, MinusButton } from "../ActionButtons";
+import { PlusButton } from "../../design-system/ActionButtons";
+import Tag from "../../design-system/Tag";
 import { BlogField } from "@/utils/types";
 
 const NEW_TAG = "new tag";
-
-const Tag = styled.div`
-  display: flex;
-  gap: ${({ theme }) => theme.spacing[2]};
-  flex-direction: row;
-  color: ${({ theme }) => theme.colors.white};
-  border-radius: ${({ theme }) => theme.borderRadius[4]};
-  padding-block: ${({ theme }) => theme.spacing[1]};
-  padding-inline: ${({ theme }) => theme.spacing[2]};
-  align-items: center;
-  justify-content: space-between;
-  background-color: ${({ color }) => color};
-`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -61,8 +48,7 @@ const Tags = ({
     onChange(field, formatTags([...parsedTags, NEW_TAG]));
   };
 
-  const handleBlur = (e: React.FocusEvent<HTMLDivElement>, oldTag: string) => {
-    const newTag = e.target.innerText;
+  const handleChange = (newTag: string, oldTag: string) => {
     if (newTag === NEW_TAG) {
       deleteTag(NEW_TAG);
       return;
@@ -74,27 +60,16 @@ const Tags = ({
     );
   };
 
-  const { colors } = useTheme();
-  const tagColors = [
-    colors["orange"],
-    colors["green"],
-    colors["lightBlue"],
-    colors["blue"],
-    colors["violet"],
-    colors["red"],
-  ];
   return (
     <Wrapper>
-      {parsedTags.map((tag, i) => (
-        <Tag color={tagColors[i]} key={tag}>
-          <div
-            contentEditable={isEditingEnabled}
-            onBlur={(e) => handleBlur(e, tag)}
-          >
-            {tag}
-          </div>
-          {isEditingEnabled && <MinusButton onClick={() => deleteTag(tag)} />}
-        </Tag>
+      {parsedTags.map((tag) => (
+        <Tag
+          isEditingEnabled={isEditingEnabled}
+          key={tag}
+          onChange={handleChange}
+          onDelete={deleteTag}
+          tag={tag}
+        />
       ))}
       {isEditingEnabled && <PlusButton onClick={addTag} />}
     </Wrapper>

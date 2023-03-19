@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Link from "@/components/Link";
+import Link from "@/components/design-system/Link";
 
 const Wrapper = styled.footer`
   align-items: center;
@@ -30,7 +30,7 @@ const Footer = () => {
         </Link>
         {` for this site on GitHub.`}
       </p>
-      <p>Also, feel free to steal my code 😊.</p>
+      <p>If you find anything shiny, feel free to steal it 😊.</p>
     </Wrapper>
   );
 };

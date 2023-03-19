@@ -10,12 +10,15 @@ import {
   faStrikethrough,
   faFloppyDisk,
   faEarthAmericas,
-  faEyeSlash,
   faXmark,
   faPlus,
   faMinus,
   faUpDownLeftRight,
   faPen,
+  faUpload,
+  faImage,
+  faEye,
+  faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Icon({ id }: { id: string }) {
@@ -50,6 +53,14 @@ function Icon({ id }: { id: string }) {
       return <FontAwesomeIcon icon={faUpDownLeftRight} />;
     case "edit":
       return <FontAwesomeIcon icon={faPen} />;
+    case "upload":
+      return <FontAwesomeIcon icon={faUpload} />;
+    case "image":
+      return <FontAwesomeIcon icon={faImage} />;
+    case "visible":
+      return <FontAwesomeIcon icon={faEye} />;
+    case "hidden":
+      return <FontAwesomeIcon icon={faEyeSlash} />;
     default:
       return <FontAwesomeIcon icon={faQuestion} />;
   }

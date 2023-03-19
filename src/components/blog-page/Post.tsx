@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
+import Card from "../Card";
 import Tags from "./connectedFields/Tags";
 import TextField from "./connectedFields/TextField";
 import DateField from "./connectedFields/Date";
@@ -19,7 +20,7 @@ import {
 } from "@/utils/constants";
 import { BlogField, PostFields } from "@/utils/types";
 import { useAuth } from "@/providers/AuthProvider";
-import { updatePost } from "@/utils/postUtils";
+import { setPostField, updatePost } from "@/utils/postUtils";
 
 const Wrapper = styled.article<{ isEditingEnabled: boolean }>`
   width: 100%;
@@ -48,8 +49,8 @@ const AuthorAndDate = styled.p`
   color: ${({ theme }) => theme.colors.grey};
 `;
 
-const Post = ({ id, ...props }: PostFields) => {
-  const { user, isAdmin } = useAuth();
+const Post = ({ slug, ...props }: PostFields) => {
+  const { isAdmin } = useAuth();
   const [isEditingEnabled, setIsEditingEnabled] = useState(false);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [postState, setPostState] = useState(props);
@@ -59,13 +60,14 @@ const Post = ({ id, ...props }: PostFields) => {
   };
 
   useEffect(() => {
-    if (user && isAdmin) {
+    if (isAdmin) {
       setIsEditingEnabled(true);
     }
-  }, [user, isAdmin]);
+  }, [isAdmin]);
 
   const handleSave = () => {
-    updatePost(id, postState)
+    // TODO: handle loading, error and success states
+    updatePost(slug, postState)
       .then(() => {
         setHasUnsavedChanges(false);
         return true;
@@ -82,51 +84,68 @@ const Post = ({ id, ...props }: PostFields) => {
   };
 
   return (
-    <Wrapper isEditingEnabled={isEditingEnabled}>
-      {isEditingEnabled && (
-        <Toolbar
-          hasUnsavedChanges={hasUnsavedChanges}
-          published={postState[PUBLISHED]}
-          save={handleSave}
+    <Card style={{ width: "100%" }}>
+      <Wrapper isEditingEnabled={isEditingEnabled}>
+        {isEditingEnabled && (
+          <Toolbar
+            hasUnsavedChanges={hasUnsavedChanges}
+            onPublish={() => {
+              // TODO: handle loading, error and success states
+              setPostField(slug, PUBLISHED, !postState[PUBLISHED])
+                .then(() => {
+                  return setPostState(
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    getUpdatedPostState(PUBLISHED, !postState[PUBLISHED])
+                  );
+                })
+                .catch(() => {
+                  // eslint-disable-next-line no-console
+                  console.log("Error publishing post");
+                });
+            }}
+            published={postState[PUBLISHED]}
+            save={handleSave}
+          />
+        )}
+        <Tags
+          field={TAGS}
+          isEditingEnabled={isEditingEnabled}
+          onChange={handleStateFieldChange}
+          tags={postState[TAGS]}
         />
-      )}
-      <Tags
-        field={TAGS}
-        isEditingEnabled={isEditingEnabled}
-        onChange={handleStateFieldChange}
-        tags={postState[TAGS]}
-      />
-      <AuthorAndDate>
+        <AuthorAndDate>
+          <TextField
+            as="span"
+            field={AUTHOR}
+            isEditingEnabled={isEditingEnabled}
+            onChange={handleStateFieldChange}
+            value={postState[AUTHOR]}
+          />
+          {" | "}
+          <DateField
+            date={postState[CREATED_AT]}
+            field={CREATED_AT}
+            isEditingEnabled={isEditingEnabled}
+            onChange={handleStateFieldChange}
+          />
+        </AuthorAndDate>
         <TextField
-          as="span"
-          field={AUTHOR}
+          as="h1"
+          field={TITLE}
           isEditingEnabled={isEditingEnabled}
           onChange={handleStateFieldChange}
-          value={postState[AUTHOR]}
+          value={postState[TITLE]}
         />
-        {" | "}
-        <DateField
-          date={postState[CREATED_AT]}
-          field={CREATED_AT}
-          isEditingEnabled={isEditingEnabled}
-          onChange={handleStateFieldChange}
-        />
-      </AuthorAndDate>
-      <TextField
-        as="h1"
-        field={TITLE}
-        isEditingEnabled={isEditingEnabled}
-        onChange={handleStateFieldChange}
-        value={postState[TITLE]}
-      />
 
-      <Content
-        content={postState[CONTENT]}
-        field={CONTENT}
-        isEditingEnabled={isEditingEnabled}
-        onChange={handleStateFieldChange}
-      />
-    </Wrapper>
+        <Content
+          content={postState[CONTENT]}
+          field={CONTENT}
+          isEditingEnabled={isEditingEnabled}
+          onChange={handleStateFieldChange}
+        />
+      </Wrapper>
+    </Card>
   );
 };
 
