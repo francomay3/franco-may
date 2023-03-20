@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { uniq } from "lodash";
-import { PlusButton } from "../../../design-system/ActionButtons";
+import { ActionPlusButton } from "../../../design-system/ActionButtons";
 import Tag from "../../../design-system/Tag";
 import { BlogField } from "@/utils/types";
 
@@ -71,7 +71,7 @@ const Tags = ({
           tag={tag}
         />
       ))}
-      {isEditingEnabled && <PlusButton onClick={addTag} />}
+      {isEditingEnabled && <ActionPlusButton onClick={addTag} />}
     </Wrapper>
   );
 };

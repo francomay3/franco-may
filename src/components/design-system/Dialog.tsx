@@ -1,7 +1,7 @@
 import { Dialog as HeadlessDialog } from "@headlessui/react";
 import styled from "@emotion/styled";
 import { ReactNode } from "react";
-import { MinusButton } from "./ActionButtons";
+import { ActionMinusButton } from "./ActionButtons";
 
 const BackDrop = styled.div`
   position: fixed;
@@ -19,7 +19,8 @@ const Panel = styled(HeadlessDialog.Panel)<{ children: ReactNode }>`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  max-width: 800px;
+  /* max-width: 800px; */
+  max-width: min(800px, 95vw);
   background-color: white;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -45,7 +46,7 @@ const Dialog = ({
         <HeadlessDialog.Title style={{ marginBottom: "1.5rem" }}>
           {title}
         </HeadlessDialog.Title>
-        <MinusButton
+        <ActionMinusButton
           onClick={() => setIsDialogOpen(false)}
           style={{
             position: "absolute",

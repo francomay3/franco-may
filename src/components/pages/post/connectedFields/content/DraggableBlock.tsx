@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 import { ReactNode } from "react";
 import { useState } from "react";
 import {
-  MinusButton,
-  MoveButton,
+  ActionMinusButton,
+  ActionMoveButton,
 } from "../../../../design-system/ActionButtons";
 import { BlockData } from "./blocks/types";
 
@@ -64,9 +64,9 @@ const DraggableBlock = ({
               transition: "opacity 0.2s",
             }}
           >
-            <MoveButton />
+            <ActionMoveButton />
           </MoveButtonWrapper>
-          <MinusButton
+          <ActionMinusButton
             onClick={onDelete}
             style={{
               opacity: isHovering ? 1 : 0,

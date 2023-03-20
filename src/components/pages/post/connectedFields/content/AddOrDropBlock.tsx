@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
-import { PlusButton } from "../../../../design-system/ActionButtons";
+import { ActionPlusButton } from "../../../../design-system/ActionButtons";
 
 const Wrapper = styled.div`
   height: 0;
@@ -50,7 +50,7 @@ function AddOrDropBlock({
           onDrop();
         }}
       />
-      <PlusButton onClick={onClick} />
+      <ActionPlusButton onClick={onClick} />
     </Wrapper>
   );
 }

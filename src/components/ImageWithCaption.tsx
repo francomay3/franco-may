@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 import { useState } from "react";
-import { EditButton } from "./design-system/ActionButtons";
+import { ActionEditButton } from "./design-system/ActionButtons";
 
 const Wrapper = styled.figure`
   display: flex;
@@ -66,7 +66,7 @@ const ImageWithCaption = ({
           src={url || `/images/${imageName}`}
         />
         {isHoveringImage && (
-          <EditButton
+          <ActionEditButton
             style={{
               position: "absolute",
               top: "0.8rem",

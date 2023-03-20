@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   height: 1.5rem;
   width: 1.5rem;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   background-color: ${({ color }) => color};
@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   }
 `;
 
-export const PlusButton = ({
+export const ActionPlusButton = ({
   onClick,
   className,
 }: {
@@ -43,7 +43,7 @@ export const PlusButton = ({
   );
 };
 
-export const MinusButton = ({
+export const ActionMinusButton = ({
   className,
   onClick,
   style,
@@ -62,13 +62,13 @@ export const MinusButton = ({
   </Wrapper>
 );
 
-export const MoveButton = ({ className }: { className?: string }) => (
+export const ActionMoveButton = ({ className }: { className?: string }) => (
   <Wrapper className={className} color={theme.colors.darkBlue}>
     <Icon id="move" />
   </Wrapper>
 );
 
-export const EditButton = ({
+export const ActionEditButton = ({
   className,
   style,
 }: {

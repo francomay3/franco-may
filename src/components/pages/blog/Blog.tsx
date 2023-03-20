@@ -19,7 +19,7 @@ import Link from "@/components/design-system/Link";
 import Tag from "@/components/design-system/Tag";
 import Card from "@/components/design-system/Card";
 import { useAuth } from "@/providers/AuthProvider";
-import { PlusButton } from "@/components/design-system/ActionButtons";
+import { ActionPlusButton } from "@/components/design-system/ActionButtons";
 
 import Icon from "@/components/design-system/Icon";
 import NewPostDialog from "@/components/NewPostDialog";
@@ -159,7 +159,7 @@ const Blog = ({ posts }: { posts: PostFields[] }) => {
             }}
           >
             Add Post
-            <PlusButton onClick={handleAddPost} />
+            <ActionPlusButton onClick={handleAddPost} />
           </Card>
         )}
         {posts?.map((post) => {

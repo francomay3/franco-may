@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
-import { MinusButton } from "./ActionButtons";
+import { ActionMinusButton } from "./ActionButtons";
 
 const Wrapper = styled.div`
-  display: flex;
+  display: inline-flex;
   gap: ${({ theme }) => theme.spacing[2]};
   flex-direction: row;
-  color: ${({ theme }) => theme.colors.white};
+  color: white;
   border-radius: ${({ theme }) => theme.borderRadius[4]};
   padding-block: ${({ theme }) => theme.spacing[1]};
   padding-inline: ${({ theme }) => theme.spacing[2]};
@@ -49,7 +49,7 @@ const Tag = ({
         {tag}
       </div>
       {isEditingEnabled && (
-        <MinusButton onClick={() => onDelete && onDelete(tag)} />
+        <ActionMinusButton onClick={() => onDelete && onDelete(tag)} />
       )}
     </Wrapper>
   );
