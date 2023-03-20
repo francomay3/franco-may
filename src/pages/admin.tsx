@@ -1,19 +1,12 @@
-import { useAuth } from "@/providers/AuthProvider";
-import LoggedIn from "@/components/admin-page/LoggedIn";
-import LoggedOut from "@/components/admin-page/LoggedOut";
-import NotAllowedUser from "@/components/admin-page/NotAllowedUser";
+import Layout from "@/components/Layout";
+import Admin from "@/components/pages/admin/Admin";
 
-const Admin = () => {
-  // eslint-disable-next-line
-  const { user, isAdmin, logIn, logOut } = useAuth();
-
+const AdminPage = () => {
   return (
-    <>
-      {!user && <LoggedOut />}
-      {user && !isAdmin && <NotAllowedUser />}
-      {user && isAdmin && <LoggedIn />}
-    </>
+    <Layout>
+      <Admin />
+    </Layout>
   );
 };
 
-export default Admin;
+export default AdminPage;

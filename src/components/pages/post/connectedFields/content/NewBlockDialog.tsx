@@ -1,6 +1,6 @@
 // import { Dialog } from "@headlessui/react";
 import styled from "@emotion/styled";
-import Dialog from "../../../design-system/Dialog";
+import Dialog from "../../../../design-system/Dialog";
 import { blocksExamples } from "./blocks";
 import { BlockData } from "./blocks/types";
 

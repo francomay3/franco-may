@@ -27,7 +27,7 @@ function TextBlock({ block, isEditingEnabled, onChange }: TextBlockProps) {
       style={{ display: "flex", justifyContent: "space-between", gap: "1rem" }}
     >
       <div
-      contentEditable={isEditingEnabled}
+        contentEditable={isEditingEnabled}
         dangerouslySetInnerHTML={{ __html: blockState.data }}
         onBlur={handleBlur}
         style={{ flexGrow: "1" }}

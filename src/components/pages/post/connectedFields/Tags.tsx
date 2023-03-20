@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { uniq } from "lodash";
-import { PlusButton } from "../../design-system/ActionButtons";
-import Tag from "../../design-system/Tag";
+import { PlusButton } from "../../../design-system/ActionButtons";
+import Tag from "../../../design-system/Tag";
 import { BlogField } from "@/utils/types";
 
 const NEW_TAG = "new tag";

@@ -3,15 +3,15 @@ import "react-toastify/dist/ReactToastify.css";
 const Toast = () => {
   return (
     <ToastContainer
-      position="top-right"
       autoClose={1000}
+      closeOnClick
+      draggable
       hideProgressBar
       newestOnTop={false}
-      closeOnClick
-      rtl={false}
       pauseOnFocusLoss={false}
-      draggable
       pauseOnHover
+      position="top-right"
+      rtl={false}
       theme="light"
       transition={Flip}
     />

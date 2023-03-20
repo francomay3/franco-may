@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { getPost } from "@/utils/postUtils";
-import Post from "@/components/blog-page/Post";
+import Post from "@/components/pages/post/Post";
 import { PostFields } from "@/utils/types";
 
 export async function getServerSideProps(context: {

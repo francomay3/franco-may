@@ -1,6 +1,5 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
-import Layout from "../Layout";
 import { useAuth } from "@/providers/AuthProvider";
 
 const ContentWrapper = styled.div`
@@ -17,7 +16,7 @@ const GoogleLogo = styled(Image)`
 function LoggedOut() {
   const { logIn } = useAuth();
   return (
-    <Layout>
+    <>
       <ContentWrapper>
         <h1>Hi man, welcome back</h1>
         <h3>click on the Google logo to log in</h3>
@@ -29,7 +28,7 @@ function LoggedOut() {
           width={100}
         />
       </ContentWrapper>
-    </Layout>
+    </>
   );
 }
 

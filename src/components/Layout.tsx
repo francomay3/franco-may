@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { CSSProperties } from "react";
-import Header from "./Header/Header";
+import Header from "./header/Header";
 import Footer from "./Footer";
 
 const Wrapper = styled.div`

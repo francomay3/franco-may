@@ -10,7 +10,7 @@ toast.promise(functionThatReturnPromise, {
   success: "Promise resolved 👌",
   error: "Promise rejected 🤯",
 });
-const temp = () => {
+const Temp = () => {
   const [isOpen, setIsOpen] = useState(true);
   return (
     <div>
@@ -21,11 +21,11 @@ const temp = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: "-10%" }}
             animate={{ opacity: 1, y: "0%" }}
             exit={{ opacity: 0, y: "10%" }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, y: "-10%" }}
             key="mobile-nav"
+            transition={{ duration: 0.2 }}
           >
             <h1>hello</h1>
           </motion.div>
@@ -35,4 +35,4 @@ const temp = () => {
   );
 };
 
-export default temp;
+export default Temp;

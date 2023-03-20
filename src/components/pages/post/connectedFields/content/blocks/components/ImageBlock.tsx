@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ImageBlockData } from "../types";
-import ImageSelectionDialog from "../../ImageSelectionDialog";
+import ImageSelectionDialog from "../../../../../../ImageSelectionDialog";
 import ImageWithCaption from "@/components/ImageWithCaption";
 import { ImageData } from "@/utils/types";
 

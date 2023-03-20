@@ -1,12 +1,11 @@
 import styled from "@emotion/styled";
 import { Menu } from "@headlessui/react";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
+import { useTheme } from "@emotion/react";
 import Logo from "./Logo";
 import DarkModeSwitch from "./DarkModeSwitch";
 import Icon from "@/components/design-system/Icon";
-import { AnimatePresence, motion } from "framer-motion";
-import { useTheme } from "@emotion/react";
-import { useState } from "react";
 
 const Wrapper = styled.header`
   display: flex;
@@ -78,22 +77,21 @@ function MobileNav({
   navLinks: { href: string; pageName: string }[];
 }) {
   const theme = useTheme();
-  const [isOpen, setIsOpen] = useState(false);
   return (
     <Wrapper>
       <Menu as={Nav} style={{ zIndex: 1 }}>
         {({ open }) => (
           <>
-            <Menu.Button
-              as={Button}
-              onClick={() => setIsOpen((prev) => !prev)}
-              style={{ width: "1rem" }}
-            >
+            <Menu.Button as={Button} style={{ width: "1rem" }}>
               {open ? <Icon id="x" /> : <Icon id="menu" />}
             </Menu.Button>
             <AnimatePresence mode="wait">
               {open && (
                 <motion.div
+                  animate={{ opacity: 1, y: "0%" }}
+                  exit={{ opacity: 0, y: "10%" }}
+                  initial={{ opacity: 0, y: "-10%" }}
+                  key="mobile-nav"
                   style={{
                     position: "absolute",
                     top: theme.spacing.aLot,
@@ -101,14 +99,7 @@ function MobileNav({
                     right: 0,
                     zIndex: 1,
                   }}
-                  // initial={{ y: "-100%" }}
-                  // animate={{ y: "-50%" }}
-                  // exit={{ y: "50%" }}
-                  initial={{ opacity: 0, y: "-10%" }}
-                  animate={{ opacity: 1, y: "0%" }}
-                  exit={{ opacity: 0, y: "10%" }}
                   transition={{ duration: 0.1 }}
-                  key="mobile-nav"
                 >
                   <Menu.Items as={Items}>
                     {navLinks.map(({ href, pageName }) => (

@@ -2,14 +2,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { Tab } from "@headlessui/react";
-import Image from "next/image";
+import { toast } from "react-toastify";
 import { getImages } from "@/utils/storageUtils";
 import Dialog from "@/components/design-system/Dialog";
 import { ImageData } from "@/utils/types";
 import Icon from "@/components/design-system/Icon";
 import Card from "@/components/design-system/Card";
 import { uploadImage } from "@/utils/storageUtils";
-import { toast } from "react-toastify";
 
 const ImagesWrapper = styled.div`
   display: flex;
@@ -199,6 +198,8 @@ const ImageSelectionDialog = ({
             <ImagesWrapper>
               {images.map(({ url, name }) => (
                 <Card key={url} onClick={() => onSelect({ url, name })}>
+                  {/* TODO: use next/image */}
+                  {/* eslint-disable-next-line */}
                   <img alt={name} src={url} />
                 </Card>
               ))}

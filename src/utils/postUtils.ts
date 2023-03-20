@@ -18,7 +18,7 @@ import { db } from "@/firebase";
 import {
   ImageBlockDataDefault,
   TextBlockDataDefault,
-} from "@/components/blog-page/connectedFields/content/blocks";
+} from "@/components/pages/post/connectedFields/content/blocks";
 
 export const getPost = async (slug: string) => {
   const dbRef = ref(db, `${POSTS}/${slug}`);

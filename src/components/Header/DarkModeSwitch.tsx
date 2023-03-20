@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
-import Icon from "@/components/design-system/Icon";
 import { AnimatePresence, motion } from "framer-motion";
+import Icon from "@/components/design-system/Icon";
 
 const SwitchWrapper = styled.div`
   display: flex;
@@ -21,22 +21,22 @@ const DarkModeSwitch = () => {
       <AnimatePresence mode="wait">
         {enabled && (
           <motion.div
-            initial={{ opacity: 0, x: "-20%" }}
             animate={{ opacity: 1, x: "0%" }}
             exit={{ opacity: 0, x: "20%" }}
-            transition={{ duration: 0.1 }}
+            initial={{ opacity: 0, x: "-20%" }}
             key="sun"
+            transition={{ duration: 0.1 }}
           >
             <Icon id="sun" />
           </motion.div>
         )}
         {!enabled && (
           <motion.div
-            initial={{ opacity: 0, x: "-20%" }}
             animate={{ opacity: 1, x: "0%" }}
             exit={{ opacity: 0, x: "20%" }}
-            transition={{ duration: 0.1 }}
+            initial={{ opacity: 0, x: "-20%" }}
             key="moon"
+            transition={{ duration: 0.1 }}
           >
             <Icon id="moon" />
           </motion.div>

@@ -1,7 +1,5 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
-import Layout from "../Layout";
-// import { useAuth } from "@/providers/AuthProvider";
 import Link from "@/components/design-system/Link";
 
 const ContentWrapper = styled.div`
@@ -22,7 +20,7 @@ const TrumpWrong = styled.div`
 function NotAllowedUser() {
   // const { logOut } = useAuth();
   return (
-    <Layout>
+    <>
       <ContentWrapper>
         <TrumpWrong>
           <Image
@@ -37,7 +35,7 @@ function NotAllowedUser() {
         </h1>
         <Link href="/">Go back to the home page</Link>
       </ContentWrapper>
-    </Layout>
+    </>
   );
 }
 
