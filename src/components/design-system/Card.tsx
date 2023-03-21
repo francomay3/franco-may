@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 
 const Title = styled.h3`
   font-weight: 600;
-  margin-bottom: ${({ theme }) => theme.spacing[2]};
+  margin-bottom: ${({ theme }) => theme.spacing[4]};
   display: block;
 `;
 
@@ -32,10 +32,8 @@ const Card = ({
 }) => {
   return (
     <Wrapper onClick={onClick} style={style}>
-      <Stack>
-        {title && <Title>{title}</Title>}
-        {children}
-      </Stack>
+      {title && <Title>{title}</Title>}
+      {children}
     </Wrapper>
   );
 };

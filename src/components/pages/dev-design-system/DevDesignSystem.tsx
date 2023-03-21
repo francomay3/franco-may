@@ -37,9 +37,7 @@ const DevDesignSystem = () => {
           </DesignSystem.Inline>
         </DesignSystem.Card>
 
-        <DesignSystem.Card title="Card">
-          <DesignSystem.Card>Card</DesignSystem.Card>
-        </DesignSystem.Card>
+        <DesignSystem.Card title="Card Title">Card content</DesignSystem.Card>
 
         <DesignSystem.Card title="Dialog">
           <DesignSystem.Button onClick={() => setIsDialogOpen((prev) => !prev)}>
