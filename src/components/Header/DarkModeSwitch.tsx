@@ -12,6 +12,7 @@ const SwitchWrapper = styled.div`
     color: ${({ theme }) => theme.colors.white};
     font-size: 1.3rem;
   }
+  cursor: pointer;
 `;
 const DarkModeSwitch = () => {
   const [enabled, setEnabled] = useState(false);

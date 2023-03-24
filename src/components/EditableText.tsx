@@ -62,6 +62,9 @@ const EditableText = ({
   };
   return (
     <Wrapper
+      style={{
+        cursor: isEditingEnabled ? "pointer" : "default",
+      }}
       contentEditable={isEditingEnabled}
       dangerouslySetInnerHTML={{ __html: value }}
       onBlur={handleBlur}

@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import { useRouter } from "next/router";
 import { useTheme } from "@emotion/react";
 import { toast } from "react-toastify";
 import { setPostField } from "@/utils/postUtils";
@@ -20,11 +19,11 @@ import Tag from "@/components/design-system/Tag";
 import Card from "@/components/design-system/Card";
 import { useAuth } from "@/providers/AuthProvider";
 import { ActionPlusButton } from "@/components/design-system/ActionButtons";
-import Image from "next/image";
 import Icon from "@/components/design-system/Icon";
 import NewPostDialog from "@/components/NewPostDialog";
-import { PostFields } from "@/utils/types";
+import { BlogField, PostFields } from "@/utils/types";
 import EditableImage from "@/components/EditableImage";
+import EditableText from "@/components/EditableText";
 
 const AuthorAndDate = styled.p`
   color: ${({ theme }) => theme.colors.grey};
@@ -72,13 +71,8 @@ const Intro = styled.div`
   }
 `;
 
-const IntroImg = styled.div`
-  background-image: url("/images/jim.png");
-  background-size: cover;
-  background-position: center;
-  width: 300px;
+const IntroImgWrapper = styled.div`
   aspect-ratio: 4/3;
-  object-fit: cover;
   border-radius: ${({ theme }) => theme.borderRadius[3]};
   position: relative;
   overflow: hidden;
@@ -122,15 +116,45 @@ const PublishedIconWrapper = styled.div<{ isPublished: boolean }>`
   color: white;
 `;
 
-const Blog = ({ posts }: { posts: PostFields[] }) => {
+const Blog = ({ posts: InitialPosts }: { posts: PostFields[] }) => {
   const { isAdmin } = useAuth();
+  const [posts, setPosts] = useState<PostFields[]>(InitialPosts);
   const [isNewPostDialogOpen, setIsNewPostDialogOpen] = useState(false);
-  const Router = useRouter();
   const theme = useTheme();
+
+  const updatePostField = (
+    slug: string,
+    field: string,
+    value: string | boolean
+  ) => {
+    const nextPosts = posts.map((post) => {
+      if (post[SLUG] === slug) {
+        return {
+          ...post,
+          [field]: value,
+        };
+      }
+      return post;
+    });
+    setPosts(nextPosts);
+  };
 
   const handleAddPost = () => {
     setIsNewPostDialogOpen(true);
   };
+
+  const handleOnFieldChange =
+    (slug: string, field: BlogField) => (nextValue: string | boolean) => {
+      toast
+        .promise(setPostField(slug, field, nextValue), {
+          pending: `Saving ${field}`,
+          success: `${field} saved!`,
+          error: `Failed to save ${field}`,
+        })
+        .then(() => {
+          updatePostField(slug, field, nextValue);
+        });
+    };
 
   return (
     <>
@@ -139,7 +163,9 @@ const Blog = ({ posts }: { posts: PostFields[] }) => {
         setIsDialogOpen={setIsNewPostDialogOpen}
       />
       <Intro>
-        <IntroImg />
+        <IntroImgWrapper>
+          <EditableImage src="/images/jim.png" name="JimCarrey" />
+        </IntroImgWrapper>
         <IntroText>
           <h1>
             <strong>Hej!</strong>
@@ -181,32 +207,18 @@ const Blog = ({ posts }: { posts: PostFields[] }) => {
                 {isAdmin && (
                   <PublishedIconWrapper
                     isPublished={post[PUBLISHED]}
-                    onClick={async () => {
-                      const settingToPublished = !post[PUBLISHED];
-                      await toast.promise(
-                        setPostField(post[SLUG], PUBLISHED, !post[PUBLISHED]),
-                        {
-                          pending: settingToPublished
-                            ? "Publishing"
-                            : "Unpublishing",
-                          success: settingToPublished
-                            ? "Published"
-                            : "Unpublished",
-                          error: settingToPublished
-                            ? "Failed to publish"
-                            : "Failed to unpublish",
-                        }
-                      );
-                      // TODO: handle state instead of reloading
-                      Router.reload();
-                    }}
+                    onClick={() =>
+                      handleOnFieldChange(
+                        post[SLUG],
+                        PUBLISHED
+                      )(!post[PUBLISHED])
+                    }
                   >
                     <Icon id={post[PUBLISHED] ? "visible" : "hidden"} />
                   </PublishedIconWrapper>
                 )}
                 <Post>
                   <ImageWrapper>
-                    {/* TODO: make a proper onselect function */}
                     <EditableImage
                       name={post[SLUG]}
                       src={
@@ -214,12 +226,19 @@ const Blog = ({ posts }: { posts: PostFields[] }) => {
                         "https://source.unsplash.com/random/200x200"
                       }
                       isEditingEnabled={isAdmin}
-                      onSelect={(image) => console.log(image)}
+                      onSelect={({ url }) =>
+                        handleOnFieldChange(post[SLUG], IMAGE)(url)
+                      }
                     />
                   </ImageWrapper>
                   <Meta>
                     <Link href={`/blog/${post[SLUG]}`}>
-                      <h1 dangerouslySetInnerHTML={{ __html: post[TITLE] }} />
+                      <EditableText
+                        value={post[TITLE]}
+                        isEditingEnabled={isAdmin}
+                        onChange={handleOnFieldChange(post[SLUG], TITLE)}
+                        as="h1"
+                      />
                     </Link>
                     <Tags>
                       {JSON.parse(post[TAGS]).map((tag: string) => (
@@ -231,8 +250,11 @@ const Blog = ({ posts }: { posts: PostFields[] }) => {
                     <AuthorAndDate>
                       {post[AUTHOR]} | {getDateAsString(post[CREATED_AT])}
                     </AuthorAndDate>
-                    <p
-                      dangerouslySetInnerHTML={{ __html: post[DESCRIPTION] }}
+                    <EditableText
+                      value={post[DESCRIPTION]}
+                      isEditingEnabled={isAdmin}
+                      onChange={handleOnFieldChange(post[SLUG], DESCRIPTION)}
+                      as="p"
                     />
                   </Meta>
                 </Post>
