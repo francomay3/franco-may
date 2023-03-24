@@ -1,6 +1,5 @@
 import { ReactNode, CSSProperties } from "react";
 import styled from "@emotion/styled";
-import { Stack } from "@/components/design-system";
 
 const Wrapper = styled.div`
   background-color: white;

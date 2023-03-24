@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useTheme } from "@emotion/react";
 import Card from "../../design-system/Card";
 import Tags from "./connectedFields/Tags";
 import TextField from "./connectedFields/TextField";
@@ -23,7 +24,6 @@ import {
 import { BlogField, PostFields } from "@/utils/types";
 import { useAuth } from "@/providers/AuthProvider";
 import { setPostField, updatePost } from "@/utils/postUtils";
-import { useTheme } from "@emotion/react";
 
 const Wrapper = styled.article<{ isEditingEnabled: boolean }>`
   width: 100%;

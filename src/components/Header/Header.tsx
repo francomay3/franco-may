@@ -9,11 +9,13 @@ const navLinks = [
   { href: "/contact", pageName: "Contact" },
 ];
 
-const Header = () =>
-  useIsMobile() ? (
+const Header = () => {
+  const isMobile = useIsMobile();
+  return isMobile ? (
     <MobileHeader navLinks={navLinks} />
   ) : (
     <DesktopHeader navLinks={navLinks} />
   );
+};
 
 export default Header;

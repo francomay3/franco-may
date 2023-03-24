@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { useState } from "react";
+import { useTheme } from "@emotion/react";
 import { ActionEditButton } from "./design-system/ActionButtons";
 import ImageSelectionDialog from "./ImageSelectionDialog";
 import { ImageData } from "@/utils/types";
-import { useTheme } from "@emotion/react";
 
 interface EditableImageProps {
   name: string;
@@ -26,13 +26,10 @@ const EditableImage = ({
     <>
       <ImageSelectionDialog
         isDialogOpen={isDialogOpen}
-        setIsDialogOpen={setIsDialogOpen}
         onSelect={onSelect}
+        setIsDialogOpen={setIsDialogOpen}
       />
       <Image
-        style={{
-          cursor: isEditingEnabled ? "pointer" : "default",
-        }}
         alt={name}
         draggable={!isEditingEnabled}
         fill
@@ -48,6 +45,9 @@ const EditableImage = ({
           25vw
         `}
         src={src || `/images/${name}`}
+        style={{
+          cursor: isEditingEnabled ? "pointer" : "default",
+        }}
       />
       {isHoveringImage && (
         <ActionEditButton

@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import React from "react";
+import Posts from "./Posts";
 import { PostFields } from "@/utils/types";
 import EditableImage from "@/components/EditableImage";
-import Posts from "./Posts";
 
 const Intro = styled.div`
   display: flex;
@@ -41,7 +41,7 @@ const Blog = ({ posts }: { posts: PostFields[] }) => {
     <>
       <Intro>
         <IntroImgWrapper>
-          <EditableImage src="/images/jim.png" name="JimCarrey" />
+          <EditableImage name="JimCarrey" src="/images/jim.png" />
         </IntroImgWrapper>
         <IntroText>
           <h1>

@@ -11,7 +11,7 @@ const getWhatsappHistorySample = () => {
 };
 
 export const getChatAnswer = async ({ history }) => {
-  let last15Messages = history.slice(-15);
+  const last15Messages = history.slice(-15);
 
   const stringHistory = last15Messages.map(({ user, message }) => {
     return `${user}: ${message}`;
@@ -47,7 +47,6 @@ export const getChatAnswer = async ({ history }) => {
     ...stringHistory,
     "franco: ",
   ].join("\n")}`;
-  console.log(prompt);
 
   try {
     const response = await fetch("/api/openAi", {

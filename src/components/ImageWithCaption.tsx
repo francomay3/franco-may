@@ -1,8 +1,5 @@
-import Image from "next/image";
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
-import { useState } from "react";
-import { ActionEditButton } from "./design-system/ActionButtons";
 import EditableImage from "./EditableImage";
 import { ImageData } from "@/utils/types";
 
@@ -53,8 +50,8 @@ const ImageWithCaption = ({
     <Wrapper>
       <ImageWrapper isEditingEnabled={isEditingEnabled}>
         <EditableImage
-          name={imageName}
           isEditingEnabled={isEditingEnabled}
+          name={imageName}
           onSelect={onSelect}
           src={url}
         />

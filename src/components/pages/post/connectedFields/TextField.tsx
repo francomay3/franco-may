@@ -18,10 +18,10 @@ const TextField = ({
   field,
 }: TextFieldProps) => (
   <EditableText
-    value={value}
+    as={as}
     isEditingEnabled={isEditingEnabled}
     onChange={(value) => onChange(field, value)}
-    as={as}
+    value={value}
   />
 );
 
