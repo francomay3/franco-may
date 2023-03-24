@@ -3,6 +3,8 @@ import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 import { useState } from "react";
 import { ActionEditButton } from "./design-system/ActionButtons";
+import EditableImage from "./EditableImage";
+import { ImageData } from "@/utils/types";
 
 const Wrapper = styled.figure`
   display: flex;
@@ -37,43 +39,25 @@ const ImageWithCaption = ({
   url = "/images/lostDuck.gif",
   isEditingEnabled,
   onCaptionChange = () => null,
-  onImageClick,
+  onSelect = () => null,
 }: {
   imageName: string;
   caption?: string;
   url: string;
   isEditingEnabled?: boolean;
-  onCaptionChange?: (value: string) => any;
-  onImageClick?: () => any;
+  onCaptionChange?: (value: string) => void;
+  onSelect?: (image: ImageData) => void;
 }) => {
   const theme = useTheme();
-  const [isHoveringImage, setIsHoveringImage] = useState(false);
   return (
     <Wrapper>
       <ImageWrapper isEditingEnabled={isEditingEnabled}>
-        <Image
-          alt={imageName}
-          draggable={!isEditingEnabled}
-          fill
-          loader={({ src }) => src}
-          objectFit="cover"
-          onClick={isEditingEnabled ? onImageClick : undefined}
-          onMouseEnter={() => {
-            setIsHoveringImage(true);
-          }}
-          onMouseLeave={() => setIsHoveringImage(false)}
-          sizes="(max-width: 640px) 100vw, 320px"
-          src={url || `/images/${imageName}`}
+        <EditableImage
+          name={imageName}
+          isEditingEnabled={isEditingEnabled}
+          onSelect={onSelect}
+          src={url}
         />
-        {isHoveringImage && (
-          <ActionEditButton
-            style={{
-              position: "absolute",
-              top: "0.8rem",
-              right: "0.8rem",
-            }}
-          />
-        )}
       </ImageWrapper>
       <figcaption
         style={{ flex: "1", color: theme.colors.grey, textAlign: "center" }}

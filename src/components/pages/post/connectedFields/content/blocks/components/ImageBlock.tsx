@@ -16,7 +16,6 @@ function ImageBlock({
   onChange = () => null,
 }: ImageBlockProps) {
   const [blockState, setBlockState] = useState(block);
-  const [isImageDialogOpen, setIsImageDialogOpen] = useState(false);
 
   const updateCaption = (newCaption: string) => {
     setBlockState((prev) => {
@@ -33,24 +32,16 @@ function ImageBlock({
       onChange(newBlock);
       return newBlock;
     });
-    setIsImageDialogOpen(false);
   };
 
   return (
     <>
-      <ImageSelectionDialog
-        isDialogOpen={isImageDialogOpen}
-        onSelect={(newImage: ImageData) => updateImage(newImage)}
-        setIsDialogOpen={setIsImageDialogOpen}
-      />
       <ImageWithCaption
         caption={blockState.caption}
         imageName={blockState.title}
         isEditingEnabled={isEditingEnabled}
         onCaptionChange={updateCaption}
-        onImageClick={() => {
-          setIsImageDialogOpen(true);
-        }}
+        onSelect={updateImage}
         url={blockState.url}
       />
     </>

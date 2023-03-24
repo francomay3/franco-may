@@ -20,10 +20,11 @@ import Tag from "@/components/design-system/Tag";
 import Card from "@/components/design-system/Card";
 import { useAuth } from "@/providers/AuthProvider";
 import { ActionPlusButton } from "@/components/design-system/ActionButtons";
-
+import Image from "next/image";
 import Icon from "@/components/design-system/Icon";
 import NewPostDialog from "@/components/NewPostDialog";
 import { PostFields } from "@/utils/types";
+import EditableImage from "@/components/EditableImage";
 
 const AuthorAndDate = styled.p`
   color: ${({ theme }) => theme.colors.grey};
@@ -48,12 +49,16 @@ const Post = styled.div`
   flex: 1;
   display: flex;
   gap: ${({ theme }) => theme.spacing[4]};
-  & img {
-    width: 150px;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    border-radius: ${({ theme }) => theme.borderRadius[3]};
-  }
+`;
+
+const ImageWrapper = styled.div`
+  width: 150px;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: ${({ theme }) => theme.borderRadius[3]};
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
 `;
 
 const Intro = styled.div`
@@ -200,14 +205,18 @@ const Blog = ({ posts }: { posts: PostFields[] }) => {
                   </PublishedIconWrapper>
                 )}
                 <Post>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    alt="post-image"
-                    src={
-                      post[IMAGE] ||
-                      "https://source.unsplash.com/random/200x200"
-                    }
-                  />
+                  <ImageWrapper>
+                    {/* TODO: make a proper onselect function */}
+                    <EditableImage
+                      name={post[SLUG]}
+                      src={
+                        post[IMAGE] ||
+                        "https://source.unsplash.com/random/200x200"
+                      }
+                      isEditingEnabled={isAdmin}
+                      onSelect={(image) => console.log(image)}
+                    />
+                  </ImageWrapper>
                   <Meta>
                     <Link href={`/blog/${post[SLUG]}`}>
                       <h1 dangerouslySetInnerHTML={{ __html: post[TITLE] }} />

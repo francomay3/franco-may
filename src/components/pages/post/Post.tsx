@@ -23,6 +23,7 @@ import {
 import { BlogField, PostFields } from "@/utils/types";
 import { useAuth } from "@/providers/AuthProvider";
 import { setPostField, updatePost } from "@/utils/postUtils";
+import { useTheme } from "@emotion/react";
 
 const Wrapper = styled.article<{ isEditingEnabled: boolean }>`
   width: 100%;
@@ -56,6 +57,7 @@ const Post = ({ ...props }: PostFields) => {
   const [isEditingEnabled, setIsEditingEnabled] = useState(false);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [postState, setPostState] = useState(props);
+  const theme = useTheme();
 
   const getUpdatedPostState = (
     field: BlogField,
@@ -85,7 +87,7 @@ const Post = ({ ...props }: PostFields) => {
   };
 
   return (
-    <Card style={{ width: "100%" }}>
+    <Card style={{ width: "100%", paddingTop: theme.spacing.aLot }}>
       <Wrapper isEditingEnabled={isEditingEnabled}>
         {isEditingEnabled && (
           <Toolbar

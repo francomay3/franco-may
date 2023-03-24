@@ -138,10 +138,12 @@ const ImageSelectionDialog = ({
   const [fileName, setFileName] = useState<string | null>(null);
 
   useEffect(() => {
-    getImages()
-      .then((images) => setImages(images))
-      .catch(() => null);
-  }, []);
+    if (isDialogOpen) {
+      getImages()
+        .then((images) => setImages(images))
+        .catch(() => null);
+    }
+  }, [isDialogOpen]);
 
   const selectImage = async () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -167,11 +169,15 @@ const ImageSelectionDialog = ({
 
   const handleOnUpload = async () => {
     if (fileData) {
-      await toast.promise(uploadImage(fileData, fileName || "image"), {
-        pending: "Uploading image...",
-        success: "Image uploaded",
-        error: "Error uploading image",
-      });
+      const res: ImageData = await toast.promise(
+        uploadImage(fileData, fileName || "image"),
+        {
+          pending: "Uploading image...",
+          success: "Image uploaded",
+          error: "Error uploading image",
+        }
+      );
+      onSelect(res);
       setIsDialogOpen(false);
     }
   };
@@ -197,7 +203,13 @@ const ImageSelectionDialog = ({
           <Tab.Panel>
             <ImagesWrapper>
               {images.map(({ url, name }) => (
-                <Card key={url} onClick={() => onSelect({ url, name })}>
+                <Card
+                  key={url}
+                  onClick={() => {
+                    onSelect({ url, name });
+                    setIsDialogOpen(false);
+                  }}
+                >
                   {/* TODO: use next/image */}
                   {/* eslint-disable-next-line */}
                   <img alt={name} src={url} />
