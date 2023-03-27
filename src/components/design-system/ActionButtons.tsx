@@ -2,7 +2,6 @@ import { CSSProperties } from "react";
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 import Icon from "./Icon";
-import { lightTheme } from "@/providers/Theme";
 
 const Wrapper = styled.div`
   flex-shrink: 0;
@@ -51,22 +50,29 @@ export const ActionMinusButton = ({
   className?: string;
   onClick: () => void;
   style?: CSSProperties;
-}) => (
-  <Wrapper
-    className={className}
-    color={lightTheme.colors.red}
-    onClick={onClick}
-    style={style}
-  >
-    <Icon id="minus" />
-  </Wrapper>
-);
+}) => {
+  const theme = useTheme();
 
-export const ActionMoveButton = ({ className }: { className?: string }) => (
-  <Wrapper className={className} color={lightTheme.colors.darkBlue}>
-    <Icon id="move" />
-  </Wrapper>
-);
+  return (
+    <Wrapper
+      className={className}
+      color={theme.colors.red}
+      onClick={onClick}
+      style={style}
+    >
+      <Icon id="minus" />
+    </Wrapper>
+  );
+};
+
+export const ActionMoveButton = ({ className }: { className?: string }) => {
+  const theme = useTheme();
+  return (
+    <Wrapper className={className} color={theme.colors.darkBlue}>
+      <Icon id="move" />
+    </Wrapper>
+  );
+};
 
 export const ActionEditButton = ({
   className,
@@ -74,12 +80,11 @@ export const ActionEditButton = ({
 }: {
   className?: string;
   style?: CSSProperties;
-}) => (
-  <Wrapper
-    className={className}
-    color={lightTheme.colors.darkBlue}
-    style={style}
-  >
-    <Icon id="edit" />
-  </Wrapper>
-);
+}) => {
+  const theme = useTheme();
+  return (
+    <Wrapper className={className} color={theme.colors.darkBlue} style={style}>
+      <Icon id="edit" />
+    </Wrapper>
+  );
+};

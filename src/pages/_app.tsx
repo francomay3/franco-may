@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import Theme from "@/providers/Theme";
+import Theme from "@/providers/theme/Theme";
 import { AuthProvider } from "@/providers/AuthProvider";
 import { Toast } from "@/components/design-system/Toast";
 

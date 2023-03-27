@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { AnimatePresence, motion } from "framer-motion";
 import Icon from "@/components/design-system/Icon";
-import { useDarkMode } from "@/providers/Theme";
+import { useDarkMode } from "@/providers/theme/Theme";
 
 const SwitchWrapper = styled.div`
   display: flex;
