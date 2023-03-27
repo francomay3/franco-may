@@ -1,7 +1,7 @@
-import { useState } from "react";
 import styled from "@emotion/styled";
 import { AnimatePresence, motion } from "framer-motion";
 import Icon from "@/components/design-system/Icon";
+import { useDarkMode } from "@/providers/Theme";
 
 const SwitchWrapper = styled.div`
   display: flex;
@@ -14,13 +14,14 @@ const SwitchWrapper = styled.div`
   }
   cursor: pointer;
 `;
+
 const DarkModeSwitch = () => {
-  const [enabled, setEnabled] = useState(false);
+  const { isDark, setIsDark } = useDarkMode();
 
   return (
-    <SwitchWrapper onClick={() => setEnabled((prev) => !prev)}>
+    <SwitchWrapper onClick={() => setIsDark(!isDark)}>
       <AnimatePresence mode="wait">
-        {enabled && (
+        {isDark && (
           <motion.div
             animate={{ opacity: 1, x: "0%" }}
             exit={{ opacity: 0, x: "20%" }}
@@ -31,7 +32,7 @@ const DarkModeSwitch = () => {
             <Icon id="sun" />
           </motion.div>
         )}
-        {!enabled && (
+        {!isDark && (
           <motion.div
             animate={{ opacity: 1, x: "0%" }}
             exit={{ opacity: 0, x: "20%" }}

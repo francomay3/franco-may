@@ -1,5 +1,11 @@
 import { ThemeProvider } from "@emotion/react";
-import { ReactNode } from "react";
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 declare module "@emotion/react" {
   export interface Theme {
@@ -69,6 +75,7 @@ declare module "@emotion/react" {
       3: string;
       4: string;
     };
+    setIsDark: (isDark: boolean) => void;
   }
 }
 
@@ -79,7 +86,7 @@ export const tablet = `(min-width: ${
   smallScreen + 1
 }px) and (max-width: ${mediumScreen}px)`;
 
-export const theme = {
+export const lightTheme = {
   aspectRatio: 1.4,
   shadows: {
     1: "1px 2px 4px rgb(0 0 0 / 40%)",
@@ -150,6 +157,67 @@ export const theme = {
   },
 };
 
-export default function Theme({ children }: { children: ReactNode }) {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+const darkColors = {
+  ...lightTheme.colors,
+  black: "#ecf2f8",
+  lightBlack: "#c6cdd5",
+  darkGrey: "#89929b",
+  grey: "#21262d",
+  lightGrey: "#161b22",
+  white: "#0d1117",
+  red: "#fa7970",
+  orange: "#faa356",
+  green: "#7ce38b",
+  lightBlue: "#a2d2fb",
+  blue: "#77bdfb",
+  violet: "#cea5fb",
+  darkBlue: "#459ae4",
+  darkGreen: "#53c563",
+  link: {
+    text: "#0969da",
+    underline: "rgba(0, 127, 255, 0.4)",
+    hover: "#0057b8",
+  },
+};
+
+const darkTheme = {
+  ...lightTheme,
+  colors: darkColors,
+};
+
+interface DarkModeContextProps {
+  isDark: boolean;
+  setIsDark: (isDark: boolean) => void;
 }
+
+const DarkModeContext = createContext<DarkModeContextProps>({
+  isDark: false,
+  setIsDark: () => {},
+});
+
+const DarkModeProvider = ({ children }: { children: ReactNode }) => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const isDark = localStorage.getItem("isDark");
+    if (isDark) {
+      setIsDark(JSON.parse(isDark));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("isDark", JSON.stringify(isDark));
+  }, [isDark]);
+
+  return (
+    <DarkModeContext.Provider value={{ isDark, setIsDark }}>
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+        {children}
+      </ThemeProvider>
+    </DarkModeContext.Provider>
+  );
+};
+
+export const useDarkMode = () => useContext(DarkModeContext);
+
+export default DarkModeProvider;

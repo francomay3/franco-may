@@ -2,7 +2,7 @@ import { CSSProperties } from "react";
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 import Icon from "./Icon";
-import { theme } from "@/providers/Theme";
+import { lightTheme } from "@/providers/Theme";
 
 const Wrapper = styled.div`
   flex-shrink: 0;
@@ -54,7 +54,7 @@ export const ActionMinusButton = ({
 }) => (
   <Wrapper
     className={className}
-    color={theme.colors.red}
+    color={lightTheme.colors.red}
     onClick={onClick}
     style={style}
   >
@@ -63,7 +63,7 @@ export const ActionMinusButton = ({
 );
 
 export const ActionMoveButton = ({ className }: { className?: string }) => (
-  <Wrapper className={className} color={theme.colors.darkBlue}>
+  <Wrapper className={className} color={lightTheme.colors.darkBlue}>
     <Icon id="move" />
   </Wrapper>
 );
@@ -75,7 +75,11 @@ export const ActionEditButton = ({
   className?: string;
   style?: CSSProperties;
 }) => (
-  <Wrapper className={className} color={theme.colors.darkBlue} style={style}>
+  <Wrapper
+    className={className}
+    color={lightTheme.colors.darkBlue}
+    style={style}
+  >
     <Icon id="edit" />
   </Wrapper>
 );
