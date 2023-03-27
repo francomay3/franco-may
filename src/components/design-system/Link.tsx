@@ -5,6 +5,7 @@ const Link = styled(NextLink)<{ light?: 1 | 0 }>`
   color: ${({ theme, light }) =>
     light ? theme.colors.lightBlue : theme.colors.link.text};
   text-decoration: none;
+  cursor: pointer;
   :hover {
     text-decoration: underline;
     text-decoration-color: ${({ theme, light }) =>

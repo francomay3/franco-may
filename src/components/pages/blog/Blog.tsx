@@ -10,18 +10,8 @@ const Intro = styled.div`
   margin-bottom: 5rem;
   margin-top: 2rem;
   align-items: center;
-  ${({ theme }) => theme.mobile} {
+  ${({ theme }) => theme.mediaQueries.mobile} {
     flex-direction: column;
-  }
-`;
-
-const IntroImgWrapper = styled.div`
-  aspect-ratio: 4/3;
-  border-radius: ${({ theme }) => theme.borderRadius[3]};
-  position: relative;
-  overflow: hidden;
-  ${({ theme }) => theme.tablet} {
-    flex: 1;
   }
 `;
 
@@ -31,7 +21,7 @@ const IntroText = styled.div`
   flex-direction: column;
   gap: 1rem;
   justify-content: center;
-  ${({ theme }) => theme.tablet} {
+  ${({ theme }) => theme.mediaQueries.tablet} {
     flex: 2;
   }
 `;
@@ -40,9 +30,7 @@ const Blog = ({ posts }: { posts: PostFields[] }) => {
   return (
     <>
       <Intro>
-        <IntroImgWrapper>
-          <EditableImage name="JimCarrey" src="/images/jim.png" />
-        </IntroImgWrapper>
+        <EditableImage name="JimCarrey" src="/images/jim.png" />
         <IntroText>
           <h1>
             <strong>Hej!</strong>

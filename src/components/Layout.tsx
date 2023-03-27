@@ -17,10 +17,10 @@ const Main = styled.main`
   flex: 1;
   padding-block: ${({ theme }) => theme.spacing[6]};
   padding-inline: ${({ theme }) => theme.spacing.aWholeLot};
-  ${({ theme }) => theme.tablet} {
+  ${({ theme }) => theme.mediaQueries.tablet} {
     padding-inline: ${({ theme }) => theme.spacing.aLot};
   }
-  ${({ theme }) => theme.mobile} {
+  ${({ theme }) => theme.mediaQueries.mobile} {
     padding-inline: ${({ theme }) => theme.spacing.aBit};
   }
 `;

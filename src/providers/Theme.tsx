@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 
 declare module "@emotion/react" {
   export interface Theme {
+    aspectRatio: number;
     shadows: {
       1: string;
       2: string;
@@ -54,8 +55,14 @@ declare module "@emotion/react" {
       aLot: string;
       aWholeLot: string;
     };
-    mobile: string;
-    tablet: string;
+    breakpoints: {
+      mobile: number;
+      tablet: number;
+    };
+    mediaQueries: {
+      mobile: string;
+      tablet: string;
+    };
     borderRadius: {
       1: string;
       2: string;
@@ -73,6 +80,7 @@ export const tablet = `(min-width: ${
 }px) and (max-width: ${mediumScreen}px)`;
 
 export const theme = {
+  aspectRatio: 1.4,
   shadows: {
     1: "1px 2px 4px rgb(0 0 0 / 40%)",
     2: "3px 4px 8px rgb(0 0 0 / 20%)",
@@ -124,10 +132,16 @@ export const theme = {
     aLot: "3rem",
     aWholeLot: "8rem",
   },
-  mobile: `@media only screen and (max-width: ${smallScreen}px)`,
-  tablet: `@media only screen and (min-width: ${
-    smallScreen + 1
-  }px) and (max-width: ${mediumScreen}px)`,
+  mediaQueries: {
+    mobile: `@media only screen and (max-width: ${smallScreen}px)`,
+    tablet: `@media only screen and (min-width: ${
+      smallScreen + 1
+    }px) and (max-width: ${mediumScreen}px)`,
+  },
+  breakpoints: {
+    mobile: smallScreen,
+    tablet: mediumScreen,
+  },
   borderRadius: {
     1: "0.125rem",
     2: "0.25rem",

@@ -22,8 +22,12 @@ import {
 
 export const getPost = async (slug: string) => {
   const dbRef = ref(db, `${POSTS}/${slug}`);
-  const snapshot = await get(dbRef);
-  return snapshot.val();
+  try {
+    const snapshot = await get(dbRef);
+    return snapshot.val();
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
 };
 
 export const getPosts = async () => {

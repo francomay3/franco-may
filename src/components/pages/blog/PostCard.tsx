@@ -31,16 +31,6 @@ const Tags = styled.div`
   }
 `;
 
-const ImageWrapper = styled.div`
-  width: 150px;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  border-radius: ${({ theme }) => theme.borderRadius[3]};
-  position: relative;
-  flex-shrink: 0;
-  overflow: hidden;
-`;
-
 const AuthorAndDate = styled.p`
   color: ${({ theme }) => theme.colors.grey};
 `;
@@ -120,14 +110,13 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
         </PublishedIconWrapper>
       )}
       <Post>
-        <ImageWrapper>
-          <EditableImage
-            isEditingEnabled={isAdmin}
-            name={post[SLUG]}
-            onSelect={({ url }) => handleOnFieldChange(post[SLUG], IMAGE)(url)}
-            src={post[IMAGE] || "https://source.unsplash.com/random/200x200"}
-          />
-        </ImageWrapper>
+        <EditableImage
+          isEditingEnabled={isAdmin}
+          name={post[SLUG]}
+          onSelect={({ url }) => handleOnFieldChange(post[SLUG], IMAGE)(url)}
+          size="small"
+          src={post[IMAGE] || "https://source.unsplash.com/random/200x200"}
+        />
         <Meta>
           <Link href={`/blog/${post[SLUG]}`}>
             <EditableText

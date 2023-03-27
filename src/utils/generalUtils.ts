@@ -28,3 +28,8 @@ export const anyOf = (obj: any) => {
 
 export const getTextFromHtml = (htmlString: string) =>
   new DOMParser().parseFromString(htmlString, "text/html").body.textContent;
+
+// eslint-disable-next-line
+export function pipe(...fns: Function[]) {
+  return (x: any) => fns.reduce((v, f) => f(v), x);
+}

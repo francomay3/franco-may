@@ -8,26 +8,10 @@ const Wrapper = styled.figure`
   justify-content: space-between;
   align-items: center;
   padding-block: ${({ theme }) => theme.spacing[4]};
-  ${({ theme }) => theme.mobile} {
+  ${({ theme }) => theme.mediaQueries.mobile} {
     flex-direction: column;
     gap: ${({ theme }) => theme.spacing[4]};
   }
-`;
-
-const ImageWrapper = styled.div<{ isEditingEnabled?: boolean }>`
-  width: 320px;
-  aspect-ratio: 1.6/1;
-  position: relative;
-  border-radius: ${({ theme }) => theme.borderRadius[4]};
-  overflow: hidden;
-  ${({ theme }) => theme.mobile} {
-    width: 100%;
-  }
-  ${({ theme }) => theme.tablet} {
-    width: 50%;
-  }
-  cursor: ${({ isEditingEnabled }) =>
-    isEditingEnabled ? "pointer" : "default"};
 `;
 
 const ImageWithCaption = ({
@@ -48,14 +32,12 @@ const ImageWithCaption = ({
   const theme = useTheme();
   return (
     <Wrapper>
-      <ImageWrapper isEditingEnabled={isEditingEnabled}>
-        <EditableImage
-          isEditingEnabled={isEditingEnabled}
-          name={imageName}
-          onSelect={onSelect}
-          src={url}
-        />
-      </ImageWrapper>
+      <EditableImage
+        isEditingEnabled={isEditingEnabled}
+        name={imageName}
+        onSelect={onSelect}
+        src={url}
+      />
       <figcaption
         style={{ flex: "1", color: theme.colors.grey, textAlign: "center" }}
       >

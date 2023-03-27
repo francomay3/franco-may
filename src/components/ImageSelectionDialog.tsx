@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { Tab } from "@headlessui/react";
 import { toast } from "react-toastify";
+import EditableImage from "./EditableImage";
 import { getImages } from "@/utils/storageUtils";
 import Dialog from "@/components/design-system/Dialog";
 import { ImageData } from "@/utils/types";
@@ -210,9 +211,14 @@ const ImageSelectionDialog = ({
                     setIsDialogOpen(false);
                   }}
                 >
-                  {/* TODO: use next/image */}
-                  {/* eslint-disable-next-line */}
-                  <img alt={name} src={url} />
+                  <EditableImage
+                    name={name}
+                    size="thumbnail"
+                    src={url}
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  />
                 </Card>
               ))}
             </ImagesWrapper>
