@@ -37,6 +37,9 @@ const ImageWithCaption = ({
         name={imageName}
         onSelect={onSelect}
         src={url}
+        wrapperStyles={{
+          flex: "1",
+        }}
       />
       <figcaption
         style={{ flex: "1", color: theme.colors.grey, textAlign: "center" }}

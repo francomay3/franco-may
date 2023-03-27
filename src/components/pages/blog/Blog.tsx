@@ -10,9 +10,8 @@ const Intro = styled.div`
   margin-bottom: 5rem;
   margin-top: 2rem;
   align-items: center;
-  ${({ theme }) => theme.mediaQueries.mobile} {
-    flex-direction: column;
-  }
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const IntroText = styled.div`
@@ -21,16 +20,23 @@ const IntroText = styled.div`
   flex-direction: column;
   gap: 1rem;
   justify-content: center;
-  ${({ theme }) => theme.mediaQueries.tablet} {
-    flex: 2;
-  }
+  min-width: 300px;
+  flex: 1;
 `;
 
 const Blog = ({ posts }: { posts: PostFields[] }) => {
   return (
     <>
       <Intro>
-        <EditableImage name="JimCarrey" src="/images/jim.png" />
+        <EditableImage
+          name="JimCarrey"
+          src="/images/jim.png"
+          wrapperStyles={{
+            flex: 1,
+            minWidth: "300px",
+            maxWidth: "300px",
+          }}
+        />
         <IntroText>
           <h1>
             <strong>Hej!</strong>

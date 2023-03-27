@@ -116,6 +116,9 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
           onSelect={({ url }) => handleOnFieldChange(post[SLUG], IMAGE)(url)}
           size="small"
           src={post[IMAGE] || "https://source.unsplash.com/random/200x200"}
+          wrapperStyles={{
+            width: "200px",
+          }}
         />
         <Meta>
           <Link href={`/blog/${post[SLUG]}`}>

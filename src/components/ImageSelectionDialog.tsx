@@ -218,6 +218,9 @@ const ImageSelectionDialog = ({
                     style={{
                       cursor: "pointer",
                     }}
+                    wrapperStyles={{
+                      width: "100px",
+                    }}
                   />
                 </Card>
               ))}

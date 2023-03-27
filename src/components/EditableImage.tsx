@@ -13,13 +13,15 @@ interface EditableImageProps {
   onSelect?: (image: ImageData) => void;
   size?: Size;
   style?: React.CSSProperties;
+  wrapperStyles?: React.CSSProperties;
 }
 
-const ImageWrapper: any = styled.div<{
+const ImageWrapper = styled.div<{
   isEditingEnabled?: boolean;
   size: number;
 }>`
-  width: ${({ size }) => size}px;
+  width: 100%;
+  max-width: 100vw;
   aspect-ratio: ${({ theme }) => theme.aspectRatio} / 1;
   position: relative;
   border-radius: ${({ theme }) => theme.borderRadius[4]};
@@ -37,6 +39,7 @@ const EditableImage = ({
   size = "medium",
   onSelect = () => null,
   style,
+  wrapperStyles,
 }: EditableImageProps) => {
   const [isHoveringImage, setIsHoveringImage] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -54,7 +57,11 @@ const EditableImage = ({
         onSelect={onSelect}
         setIsDialogOpen={setIsDialogOpen}
       />
-      <ImageWrapper isEditingEnabled={isEditingEnabled} size={sizes[size]}>
+      <ImageWrapper
+        isEditingEnabled={isEditingEnabled}
+        size={sizes[size]}
+        style={wrapperStyles}
+      >
         <Image
           alt={name}
           draggable={!isEditingEnabled}
