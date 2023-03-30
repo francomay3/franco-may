@@ -73,11 +73,7 @@ const Post = ({ ...props }: PostFields) => {
   }, [isAdmin]);
 
   const handleSave = async () => {
-    await toast.promise(updatePost(props[SLUG], postState), {
-      pending: "Saving...",
-      success: "Saved!",
-      error: "Error saving post",
-    });
+    await updatePost(props[SLUG], postState);
     setHasUnsavedChanges(false);
   };
 
@@ -93,19 +89,7 @@ const Post = ({ ...props }: PostFields) => {
           <Toolbar
             hasUnsavedChanges={hasUnsavedChanges}
             onPublish={async () => {
-              const settingToPublished = !postState[PUBLISHED];
-              await toast.promise(
-                setPostField(props[SLUG], PUBLISHED, !postState[PUBLISHED]),
-                {
-                  pending: settingToPublished
-                    ? "Publishing..."
-                    : "Unpublishing...",
-                  success: settingToPublished ? "Published!" : "Unpublished!",
-                  error: settingToPublished
-                    ? "Error publishing post"
-                    : "Error unpublishing post",
-                }
-              );
+              await setPostField(props[SLUG], PUBLISHED, !postState[PUBLISHED]);
               setPostState(
                 getUpdatedPostState(PUBLISHED, !postState[PUBLISHED])
               );

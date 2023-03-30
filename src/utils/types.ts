@@ -13,6 +13,7 @@ import {
   SLUG,
 } from "@/utils/constants";
 import { iconIds } from "@/components/design-system/Icon";
+import { ThemeType } from "@/providers/theme/types";
 
 export type BlogField = typeof POST_FIELDS[number];
 export type IconId = typeof iconIds[number];
@@ -44,3 +45,6 @@ export type HtmlElementTag =
   | "h6"
   | "p"
   | "span";
+
+export type Theme = ThemeType;
+export type Colors = keyof ThemeType["colors"];

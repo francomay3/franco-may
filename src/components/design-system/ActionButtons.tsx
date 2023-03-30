@@ -88,3 +88,37 @@ export const ActionEditButton = ({
     </Wrapper>
   );
 };
+
+export const ActionVisibleButton = ({
+  className,
+  onClick,
+}: {
+  className?: string;
+  onClick: () => void;
+}) => {
+  const theme = useTheme();
+  return (
+    <Wrapper
+      className={className}
+      color={theme.colors.darkBlue}
+      onClick={onClick}
+    >
+      <Icon id="visible" />
+    </Wrapper>
+  );
+};
+
+export const ActionHiddenButton = ({
+  className,
+  onClick,
+}: {
+  className?: string;
+  onClick: () => void;
+}) => {
+  const theme = useTheme();
+  return (
+    <Wrapper className={className} color={theme.colors.red} onClick={onClick}>
+      <Icon id="hidden" />
+    </Wrapper>
+  );
+};

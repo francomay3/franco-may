@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
 import styled from "@emotion/styled";
+import { Colors } from "@/utils/types";
 
-const Wrapper = styled.button`
-  background-color: ${({ theme }) => theme.colors.darkBlue};
+const Wrapper = styled.button<{ color?: Colors }>`
+  background-color: ${({ theme, color }) => theme.colors[color || "darkBlue"]};
   color: ${({ theme }) => theme.colors.white};
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius[3]};
@@ -18,10 +19,15 @@ const Wrapper = styled.button`
 export interface ButtonProps {
   children: ReactNode;
   onClick?: () => void;
+  color?: Colors;
 }
 
-const Button = ({ children, onClick }: ButtonProps) => {
-  return <Wrapper onClick={onClick}>{children}</Wrapper>;
+const Button = ({ children, onClick, color }: ButtonProps) => {
+  return (
+    <Wrapper onClick={onClick} color={color}>
+      {children}
+    </Wrapper>
+  );
 };
 
 export default Button;

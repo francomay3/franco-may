@@ -51,11 +51,7 @@ const NewPostDialog = ({
           />
           <Button
             onClick={async () => {
-              await toast.promise(createPost(newPostSlug), {
-                pending: "Creating post...",
-                success: "Post created",
-                error: "Error creating post",
-              });
+              await createPost(newPostSlug);
               Router.push(`/blog/${newPostSlug}`);
             }}
           >
