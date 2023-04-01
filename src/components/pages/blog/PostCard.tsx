@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import { useTheme } from "@emotion/react";
 import { toast } from "react-toastify";
+import DeleteModal from "./DeleteModal";
 import { deletePost, setPostField } from "@/utils/postUtils";
 import {
   AUTHOR,
@@ -18,7 +18,6 @@ import Link from "@/components/design-system/Link";
 import Tag from "@/components/design-system/Tag";
 import Card from "@/components/design-system/Card";
 import { useAuth } from "@/providers/AuthProvider";
-import Icon from "@/components/design-system/Icon";
 import { BlogField, PostFields } from "@/utils/types";
 import EditableImage from "@/components/EditableImage";
 import EditableText from "@/components/EditableText";
@@ -27,7 +26,6 @@ import {
   ActionHiddenButton,
   ActionMinusButton,
 } from "@/components/design-system";
-import DeleteModal from "./DeleteModal";
 
 const Tags = styled.div`
   display: flex;
@@ -75,7 +73,6 @@ interface PostCardProps {
 
 const PostCard = ({ post, updatePostField }: PostCardProps) => {
   const { isAdmin } = useAuth();
-  const theme = useTheme();
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const handleOnFieldChange =
@@ -97,22 +94,18 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
   const handlePublish = () =>
     handleOnFieldChange(post[SLUG], PUBLISHED)(!post[PUBLISHED]);
 
-  const handleDelete = () => {
-    console.log("delete");
-    // deletePost(post[SLUG]);
-  };
-
   return (
     <Card
       key={post[SLUG]}
       style={{
-        backgroundColor: post[PUBLISHED] ? "white" : theme.colors.lightRed,
+        opacity: post[PUBLISHED] ? "100%" : "60%",
+        borderStyle: post[PUBLISHED] ? "solid" : "dashed",
       }}
     >
       <DeleteModal
         isDialogOpen={isDeleteModalOpen}
+        onDelete={() => deletePost(post[SLUG])}
         setIsDialogOpen={setIsDeleteModalOpen}
-        onDelete={handleDelete}
       />
       {isAdmin && (
         <PublishedIconWrapper>

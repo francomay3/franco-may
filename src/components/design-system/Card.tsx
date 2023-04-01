@@ -2,36 +2,24 @@ import { ReactNode, CSSProperties } from "react";
 import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.lightbackground};
   border-radius: ${({ theme }) => theme.borderRadius[3]};
   padding: ${({ theme }) => theme.spacing[3]};
   box-shadow: ${({ theme }) => theme.shadows[3]};
-  justify-content: center;
-  position: relative;
-  display: inline-flex;
-  width: fit-content;
-`;
-
-const Title = styled.h3`
-  font-weight: 600;
-  margin-bottom: ${({ theme }) => theme.spacing[4]};
-  display: block;
+  border: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
 const Card = ({
   children,
   onClick,
   style,
-  title,
 }: {
   onClick?: () => void;
   children: ReactNode;
   style?: CSSProperties;
-  title?: string;
 }) => {
   return (
     <Wrapper onClick={onClick} style={style}>
-      {title && <Title>{title}</Title>}
       {children}
     </Wrapper>
   );

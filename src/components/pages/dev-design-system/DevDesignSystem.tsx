@@ -1,18 +1,40 @@
 import React from "react";
 import { useState } from "react";
+import { useTheme } from "@emotion/react";
 import * as DesignSystem from "@/components/design-system";
 
 const DevDesignSystem = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const { colors } = useTheme();
   return (
     <DesignSystem.Stack gap="8">
       <h1>Dev Design System</h1>
       <DesignSystem.Inline gap="8">
-        <DesignSystem.Card title="Button">
+        <DesignSystem.Card>
+          <DesignSystem.Stack>
+            {Object.entries(colors).map(([key, value]) => (
+              <DesignSystem.Inline key={key}>
+                <div
+                  key={key}
+                  style={{
+                    backgroundColor: value,
+                    borderRadius: "50%",
+                    width: "15px",
+                    height: "15px",
+                    border: "1px solid " + colors.grey,
+                  }}
+                ></div>
+                <p>{key}</p>
+                <p>{value}</p>
+              </DesignSystem.Inline>
+            ))}
+          </DesignSystem.Stack>
+        </DesignSystem.Card>
+        <DesignSystem.Card>
           <DesignSystem.Button>Button</DesignSystem.Button>
         </DesignSystem.Card>
 
-        <DesignSystem.Card title="Icons">
+        <DesignSystem.Card>
           <DesignSystem.Inline>
             <DesignSystem.Icon id="menu" />
             <DesignSystem.Icon id="x" />
@@ -37,9 +59,9 @@ const DevDesignSystem = () => {
           </DesignSystem.Inline>
         </DesignSystem.Card>
 
-        <DesignSystem.Card title="Card Title">Card content</DesignSystem.Card>
+        <DesignSystem.Card>Card content</DesignSystem.Card>
 
-        <DesignSystem.Card title="Dialog">
+        <DesignSystem.Card>
           <DesignSystem.Button onClick={() => setIsDialogOpen((prev) => !prev)}>
             Open Dialog
           </DesignSystem.Button>
@@ -52,15 +74,15 @@ const DevDesignSystem = () => {
           </DesignSystem.Dialog>
         </DesignSystem.Card>
 
-        <DesignSystem.Card title="Link">
+        <DesignSystem.Card>
           <DesignSystem.Link href="/dev-design-system">Link</DesignSystem.Link>
         </DesignSystem.Card>
 
-        <DesignSystem.Card title="Tag">
+        <DesignSystem.Card>
           <DesignSystem.Tag tag={"Philosophy"} />
         </DesignSystem.Card>
 
-        <DesignSystem.Card title="Action Buttons">
+        <DesignSystem.Card>
           <DesignSystem.Inline>
             <DesignSystem.ActionEditButton />
             <DesignSystem.ActionMinusButton onClick={() => null} />

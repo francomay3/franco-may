@@ -13,7 +13,7 @@ import {
   SLUG,
 } from "@/utils/constants";
 import { iconIds } from "@/components/design-system/Icon";
-import { ThemeType } from "@/providers/theme/types";
+import { ThemeType } from "@/providers/theme/themeValues";
 
 export type BlogField = typeof POST_FIELDS[number];
 export type IconId = typeof iconIds[number];

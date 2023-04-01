@@ -1,5 +1,5 @@
-import { Dialog, Button } from "@/components/design-system";
 import styled from "@emotion/styled";
+import { Dialog, Button } from "@/components/design-system";
 
 const ButtonsWrapper = styled.div`
   display: flex;
@@ -25,11 +25,11 @@ const DeleteModal = ({
       <p>Are you sure you want to delete this post?</p>
       <ButtonsWrapper>
         <Button
+          color="red"
           onClick={() => {
             setIsDialogOpen(false);
             onDelete();
           }}
-          color="red"
         >
           Yes, delete
         </Button>

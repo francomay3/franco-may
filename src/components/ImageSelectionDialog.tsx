@@ -34,7 +34,7 @@ const ImagesWrapper = styled.div`
 `;
 
 const TabOptions = styled(Tab.List)<{ children: React.ReactNode }>`
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.lightgrey};
   display: flex;
   gap: ${({ theme }) => theme.spacing[1]};
   padding: ${({ theme }) => theme.spacing[1]};
@@ -47,7 +47,7 @@ const TabPanels = styled(Tab.Panels)<{ children: React.ReactNode }>`
   overflow-y: scroll;
   padding: ${({ theme }) => theme.spacing[2]};
   border-radius: ${({ theme }) => theme.borderRadius[3]};
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.lightgrey};
   overflow: hidden;
 `;
 
@@ -77,7 +77,7 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   gap: ${({ theme }) => theme.spacing[2]};
-  background-color: ${({ theme }) => theme.colors.darkGreen};
+  background-color: ${({ theme }) => theme.colors.darkgreen};
   color: white;
   padding-block: ${({ theme }) => theme.spacing[2]};
   padding-inline: ${({ theme }) => theme.spacing[3]};
@@ -116,10 +116,10 @@ const Fields = styled.div`
   input {
     padding: ${({ theme }) => theme.spacing[2]};
     border-radius: ${({ theme }) => theme.borderRadius[3]};
-    border: 1px solid ${({ theme }) => theme.colors.lightGrey};
+    border: 1px solid ${({ theme }) => theme.colors.lightgrey};
     &:focus {
       outline: none;
-      border: 2px solid ${({ theme }) => theme.colors.darkGreen};
+      border: 2px solid ${({ theme }) => theme.colors.darkgreen};
     }
   }
 `;

@@ -6,8 +6,8 @@ import {
   useEffect,
   useState,
 } from "react";
-import { lightTheme, darkTheme } from "./themeValues";
-import { ThemeType } from "./types";
+import styled from "@emotion/styled";
+import { baseTheme, darkTheme, ThemeType } from "./themeValues";
 
 declare module "@emotion/react" {
   // eslint-disable-next-line
@@ -38,10 +38,22 @@ const DarkModeProvider = ({ children }: { children: ReactNode }) => {
     localStorage.setItem("isDark", JSON.stringify(isDark));
   }, [isDark]);
 
+  const Style = styled.div`
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: ${({ theme }) => theme.colors.text};
+    }
+  `;
+
   return (
     <DarkModeContext.Provider value={{ isDark, setIsDark }}>
-      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-        {children}
+      <ThemeProvider theme={isDark ? darkTheme : baseTheme}>
+        <Style>{children}</Style>
       </ThemeProvider>
     </DarkModeContext.Provider>
   );

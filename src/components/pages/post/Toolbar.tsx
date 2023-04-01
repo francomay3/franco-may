@@ -3,7 +3,7 @@ import Icon from "@/components/design-system/Icon";
 import { IconId } from "@/utils/types";
 
 const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.lightgrey};
   padding: 4px;
   border-radius: 4px;
   display: flex;
@@ -39,7 +39,7 @@ const ButtonWrapper = styled.button`
     border-end-start-radius: 4px;
   }
   &:hover {
-    background-color: ${({ theme }) => theme.colors.lightGrey};
+    background-color: ${({ theme }) => theme.colors.lightgrey};
   }
 `;
 

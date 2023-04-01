@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
 import { useTheme } from "@emotion/react";
 import Card from "../../design-system/Card";
 import Tags from "./connectedFields/Tags";
@@ -38,11 +37,11 @@ const Wrapper = styled.article<{ isEditingEnabled: boolean }>`
     outline: none;
     border-radius: ${({ theme }) => theme.borderRadius[3]};
     &:hover {
-      border: 2px solid ${({ theme }) => theme.colors.lightBlue};
+      border: 2px solid ${({ theme }) => theme.colors.lightblue};
       cursor: pointer;
     }
     &:focus {
-      border: 2px solid ${({ theme }) => theme.colors.darkBlue};
+      border: 2px solid ${({ theme }) => theme.colors.darkblue};
       cursor: text;
     }
   }

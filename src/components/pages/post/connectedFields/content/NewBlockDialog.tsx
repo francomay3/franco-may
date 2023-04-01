@@ -23,12 +23,12 @@ const Blocks = styled.div`
 `;
 
 const BlockSelectionWrapper = styled.div`
-  border: 2px solid ${({ theme }) => theme.colors.lightBlue};
+  border: 2px solid ${({ theme }) => theme.colors.lightblue};
   padding: 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
   &:hover {
-    border: 2px solid ${({ theme }) => theme.colors.darkBlue};
+    border: 2px solid ${({ theme }) => theme.colors.darkblue};
   }
 `;
 

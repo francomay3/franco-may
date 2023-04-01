@@ -11,7 +11,7 @@ const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.darkGrey};
+  background-color: ${({ theme }) => theme.colors.primary};
   padding-inline: ${({ theme }) => theme.spacing[4]};
   height: ${({ theme }) => theme.spacing.aLot};
   z-index: 2;
@@ -43,7 +43,7 @@ const Button = styled.button`
 `;
 
 const Items = styled.div`
-  background-color: ${({ theme }) => theme.colors.darkGrey};
+  background-color: ${({ theme }) => theme.colors.primary};
   display: flex;
   flex-direction: column;
   /* position: absolute;
@@ -66,9 +66,9 @@ const Item = styled(Link)<{ active: boolean }>`
   height: 100%;
   display: flex;
   align-items: center;
-  border-block-start: 1px solid ${({ theme }) => theme.colors.grey};
+  border-block-start: 1px solid ${({ theme }) => theme.colors.darkprimary};
   color: ${({ active, theme }) =>
-    active ? theme.colors.grey : theme.colors.white};
+    active ? theme.colors.darkprimary : theme.colors.white};
 `;
 
 function MobileNav({

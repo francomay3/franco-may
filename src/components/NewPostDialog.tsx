@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { toast } from "react-toastify";
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 import Dialog from "./design-system/Dialog";

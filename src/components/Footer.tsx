@@ -3,7 +3,7 @@ import Link from "@/components/design-system/Link";
 
 const Wrapper = styled.footer`
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.darkGrey};
+  background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.white};
   display: flex;
   justify-content: center;
@@ -12,7 +12,7 @@ const Wrapper = styled.footer`
   padding: ${({ theme }) => theme.spacing[4]};
   gap: ${({ theme }) => theme.spacing[2]};
   p {
-    text-align: center;
+    color: ${({ theme }) => theme.colors.white};
   }
 `;
 

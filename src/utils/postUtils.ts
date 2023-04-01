@@ -1,4 +1,5 @@
 import { ref, get, set, remove } from "firebase/database";
+import { toast } from "react-toastify";
 import {
   TAGS,
   POSTS,
@@ -19,7 +20,6 @@ import {
   ImageBlockDataDefault,
   TextBlockDataDefault,
 } from "@/components/pages/post/connectedFields/content/blocks";
-import { toast } from "react-toastify";
 
 export const getPost = async (slug: string) => {
   const dbRef = ref(db, `${POSTS}/${slug}`);

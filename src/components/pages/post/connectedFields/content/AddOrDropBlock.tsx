@@ -20,7 +20,7 @@ const DropZone = styled.div<{ isDraggingBlock: boolean }>`
 const Line = styled.div<{ blockHovering: boolean }>`
   border-top: 3px dashed
     ${({ blockHovering, theme }) =>
-      blockHovering ? theme.colors.darkBlue : "transparent"};
+      blockHovering ? theme.colors.darkblue : "transparent"};
   transition: border-top 0.1s linear;
   width: 85vw;
   position: absolute;

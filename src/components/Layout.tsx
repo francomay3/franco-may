@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { CSSProperties } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import { Card } from "./design-system";
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,11 +11,12 @@ const Wrapper = styled.div`
   min-height: 100vh;
 `;
 
-const Main = styled.main`
+const Container = styled.div`
   flex-direction: column;
-  background-color: ${({ theme }) => theme.colors.white};
-  display: flex;
   flex: 1;
+  display: flex;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.background};
   padding-block: ${({ theme }) => theme.spacing[6]};
   padding-inline: ${({ theme }) => theme.spacing.aWholeLot};
   ${({ theme }) => theme.mediaQueries.tablet} {
@@ -27,17 +29,17 @@ const Main = styled.main`
 
 const Layout = ({
   children,
-  contentStyles,
   WrapperStyles,
 }: {
   children: React.ReactNode;
-  contentStyles?: CSSProperties;
   WrapperStyles?: CSSProperties;
 }) => {
   return (
     <Wrapper style={WrapperStyles}>
       <Header />
-      <Main style={contentStyles}>{children}</Main>
+      <Container>
+        <Card>{children}</Card>
+      </Container>
       <Footer />
     </Wrapper>
   );

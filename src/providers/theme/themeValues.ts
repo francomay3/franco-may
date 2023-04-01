@@ -1,7 +1,34 @@
 const smallScreen = 550;
 const mediumScreen = 900;
 
-const lightTheme = {
+const white = "white";
+const black = "#0d111d";
+const transparent = "transparent";
+const verydarkGrey = "#222831";
+const darkGrey = "#32373f";
+const grey = "#59616e";
+const lightGrey = "#c1c7d1";
+const veryLightGrey = "#ecf2f8";
+const red = "#f7554a";
+const lightRed = "#fa7970";
+const darkRed = "#b2241a";
+const orange = "#f99345";
+const lightOrange = "#faa356";
+const darkOrange = "#bd611b";
+const yellow = "#f7dc4a";
+const lightYellow = "#fdec90";
+const darkYellow = "#c1a824";
+const green = "#8ad24e";
+const lightGreen = "#a8e773";
+const darkGreen = "#539b17";
+const blue = "#4a70f7";
+const lightBlue = "#7690ed";
+const darkBlue = "#1636a8";
+const violet = "#ca4af7";
+const lightViolet = "#d076f2";
+const darkViolet = "#851aad";
+
+const baseTheme = {
   aspectRatio: 1.4,
   shadows: {
     1: "1px 2px 4px rgb(0 0 0 / 40%)",
@@ -19,26 +46,52 @@ const lightTheme = {
     tooltip: 1080,
   },
   colors: {
-    lightRed: "#fce1e1",
-    black: "#0d1117",
-    lightBlack: "#161b22",
-    darkGrey: "#21262d",
-    grey: "#89929b",
-    lightGrey: "#c6cdd5",
-    white: "#ecf2f8",
-    red: "#fa7970",
-    orange: "#faa356",
-    green: "#7ce38b",
-    lightBlue: "#a2d2fb",
-    blue: "#77bdfb",
-    violet: "#cea5fb",
-    darkBlue: "#459ae4",
-    darkGreen: "#53c563",
-    link: {
-      text: "#0969da",
-      underline: "rgba(0, 127, 255, 0.4)",
-      hover: "#0057b8",
-    },
+    border: transparent,
+    text: verydarkGrey,
+    primary: blue,
+    lightprimary: lightBlue,
+    darkprimary: darkBlue,
+    secondary: grey,
+    lightsecondary: lightGrey,
+    darksecondary: verydarkGrey,
+    background: veryLightGrey,
+    lightbackground: white,
+    darkbackground: lightGrey,
+    success: green,
+    lightsuccess: lightGreen,
+    darksuccess: darkGreen,
+    info: blue,
+    lightinfo: lightBlue,
+    darkinfo: darkBlue,
+    warning: orange,
+    lightwarning: lightOrange,
+    darkwarning: darkOrange,
+    danger: red,
+    lightdanger: lightRed,
+    darkdanger: darkRed,
+    white,
+    black,
+    grey,
+    lightgrey: lightGrey,
+    darkgrey: verydarkGrey,
+    red,
+    lightred: lightRed,
+    darkred: darkRed,
+    orange,
+    lightorange: lightOrange,
+    darkorange: darkOrange,
+    yellow,
+    lightyellow: lightYellow,
+    darkyellow: darkYellow,
+    green,
+    lightgreen: lightGreen,
+    darkgreen: darkGreen,
+    blue,
+    lightblue: lightBlue,
+    darkblue: darkBlue,
+    violet,
+    lightviolet: lightViolet,
+    darkviolet: darkViolet,
   },
   spacing: {
     0: "0",
@@ -72,32 +125,29 @@ const lightTheme = {
   },
 };
 
-const darkColors = {
-  ...lightTheme.colors,
-  black: "#ecf2f8",
-  lightBlack: "#c6cdd5",
-  darkGrey: "#89929b",
-  grey: "#21262d",
-  lightGrey: "#161b22",
-  white: "#0d1117",
-  red: "#fa7970",
-  orange: "#faa356",
-  green: "#7ce38b",
-  lightBlue: "#a2d2fb",
-  blue: "#77bdfb",
-  violet: "#cea5fb",
-  darkBlue: "#459ae4",
-  darkGreen: "#53c563",
-  link: {
-    text: "#0969da",
-    underline: "rgba(0, 127, 255, 0.4)",
-    hover: "#0057b8",
+const darkTheme = {
+  ...baseTheme,
+  colors: {
+    ...baseTheme.colors,
+    primary: black,
+    text: white,
+    lightprimary: lightBlue,
+    darkprimary: blue,
+    border: darkGrey,
+    background: verydarkGrey,
+    lightbackground: verydarkGrey,
+    darkbackground: black,
+    success: darkGreen,
+    lightsuccess: lightGreen,
+    info: darkBlue,
+    lightinfo: lightBlue,
+    warning: darkOrange,
+    lightwarning: lightOrange,
+    danger: darkRed,
+    lightdanger: lightRed,
   },
 };
 
-const darkTheme = {
-  ...lightTheme,
-  colors: darkColors,
-};
+export type ThemeType = typeof baseTheme;
 
-export { lightTheme, darkTheme };
+export { baseTheme, darkTheme };

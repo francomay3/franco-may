@@ -15,6 +15,15 @@ const Wrapper = styled.div`
   background-color: ${({ color }) => color};
 `;
 
+function getIntegerFromString(str: string, max: number) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash << 5) - hash + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash) % max;
+}
+
 const Tag = ({
   tag,
   isEditingEnabled,
@@ -31,13 +40,13 @@ const Tag = ({
   const tagColors = [
     colors["orange"],
     colors["green"],
-    colors["lightBlue"],
+    colors["lightblue"],
     colors["blue"],
     colors["violet"],
     colors["red"],
   ];
 
-  const randomColor = tagColors[Math.floor(Math.random() * tagColors.length)];
+  const randomColor = tagColors[getIntegerFromString(tag, tagColors.length)];
 
   return (
     <Wrapper color={randomColor} key={tag}>

@@ -34,7 +34,7 @@ export const ActionPlusButton = ({
   return (
     <Wrapper
       className={className}
-      color={theme.colors.darkGreen}
+      color={theme.colors.success}
       onClick={onClick}
     >
       <Icon id="plus" />
@@ -68,7 +68,7 @@ export const ActionMinusButton = ({
 export const ActionMoveButton = ({ className }: { className?: string }) => {
   const theme = useTheme();
   return (
-    <Wrapper className={className} color={theme.colors.darkBlue}>
+    <Wrapper className={className} color={theme.colors.info}>
       <Icon id="move" />
     </Wrapper>
   );
@@ -83,7 +83,7 @@ export const ActionEditButton = ({
 }) => {
   const theme = useTheme();
   return (
-    <Wrapper className={className} color={theme.colors.darkBlue} style={style}>
+    <Wrapper className={className} color={theme.colors.info} style={style}>
       <Icon id="edit" />
     </Wrapper>
   );
@@ -98,11 +98,7 @@ export const ActionVisibleButton = ({
 }) => {
   const theme = useTheme();
   return (
-    <Wrapper
-      className={className}
-      color={theme.colors.darkBlue}
-      onClick={onClick}
-    >
+    <Wrapper className={className} color={theme.colors.info} onClick={onClick}>
       <Icon id="visible" />
     </Wrapper>
   );
@@ -117,7 +113,11 @@ export const ActionHiddenButton = ({
 }) => {
   const theme = useTheme();
   return (
-    <Wrapper className={className} color={theme.colors.red} onClick={onClick}>
+    <Wrapper
+      className={className}
+      color={theme.colors.warning}
+      onClick={onClick}
+    >
       <Icon id="hidden" />
     </Wrapper>
   );

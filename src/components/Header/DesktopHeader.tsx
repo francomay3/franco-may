@@ -8,7 +8,7 @@ const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.darkGrey};
+  background-color: ${({ theme }) => theme.colors.primary};
   padding-inline: ${({ theme }) => theme.spacing[4]};
   height: ${({ theme }) => theme.spacing.aLot};
 `;
@@ -27,7 +27,7 @@ const NavLink = styled(Link)<{ active: 0 | 1 }>`
   color: ${({ theme }) => theme.colors.white};
   text-decoration: none;
   &:hover {
-    color: ${({ theme }) => theme.colors.lightGrey};
+    color: ${({ theme }) => theme.colors.lightprimary};
   }
 `;
 
