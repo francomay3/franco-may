@@ -14,6 +14,13 @@ const Wrapper = styled.div`
   }
 `;
 
+const daysSince = (date: Date) => {
+  const now = new Date();
+  const diff = now.getTime() - date.getTime();
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  return days;
+};
+
 const WhyContent = () => (
   <p>
     It was a cold February night in Kungsbacka. I was sitting facing the
@@ -81,26 +88,25 @@ const HowContent = () => (
 
 const WhoContent = () => (
   <p>
-    My name is <strong>Franco May</strong>. I work in Gothenburg, Sweden as a
-    web developer specialized in Frontend.
-    <br />I moved from <strong>Argentina</strong> to Sweden x days ago, Men min
-    svenska är fortfarande inte så bra.
+    My name is Franco May. I work in Gothenburg, Sweden as a web developer
+    specialized in Frontend.
+    <br />I moved from Argentina to Sweden {daysSince(
+      new Date(2021, 7, 11)
+    )}{" "}
+    days ago, Men min svenska är fortfarande inte så bra 🤓
     <br />
     I have a lot of hobbies, but I usually pay a lot of attention to one for
     some months before skipping to the next one. <br />
-    Programming started like this. First I learned <strong>python</strong> and
-    started creating little scripts to do anything that came to my mind. I built
-    a web scraper and learned that you can get your IP blocked to enter a
-    website for making so many requests. That was <strong>cool</strong>.
+    Programming started like this. First I learned python and started creating
+    little scripts to do anything that came to my mind. I built a web scraper
+    and learned that you can get your IP blocked to enter a website for making
+    so many requests. That was cool.
     <br />
     Then I created a plugin for Sketchup using Ruby to subdivide and smooth
-    geometries. That was <strong>mind bending</strong>.
+    geometries. That was mind bending.
     <br />
-    Finally I got interested in web programming. I learned <strong>
-      PHP
-    </strong>, <strong>SQL</strong>, <strong>HTML</strong>,<strong>CSS</strong>{" "}
-    and my beloved <strong>JavaScript</strong>, which I now use for almost
-    everything.
+    Finally I got interested in web programming. I learned PHP , SQL, HTML,CSS{" "}
+    and my beloved JavaScript, which I now use for almost everything.
     <br />
   </p>
 );
