@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Head from "next/head";
 import Layout from "@/components/Layout";
 
 const Content = styled.div`
@@ -9,6 +10,9 @@ const Content = styled.div`
 const PageNotFound = () => {
   return (
     <Layout>
+      <Head>
+        <title>Franco May - Page Not Found :(</title>
+      </Head>
       <Content>
         <h1>Error 404</h1>
         <p>

@@ -9,6 +9,11 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
+  // change selection color
+  *::selection {
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.background};
+  }
 `;
 
 const Container = styled.div`

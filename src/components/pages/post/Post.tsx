@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
-import { useTheme } from "@emotion/react";
-import Card from "../../design-system/Card";
 import Tags from "./connectedFields/Tags";
 import TextField from "./connectedFields/TextField";
 import DateField from "./connectedFields/Date";
@@ -9,14 +7,10 @@ import Toolbar from "./Toolbar";
 import Content from "./connectedFields/content/Content";
 import {
   CREATED_AT,
-  // UPDATED_AT,
   CONTENT,
   TITLE,
   AUTHOR,
-  // DESCRIPTION,
-  // LOCATION,
   TAGS,
-  // IMAGE,
   PUBLISHED,
   SLUG,
 } from "@/utils/constants";
@@ -24,7 +18,12 @@ import { BlogField, PostFields } from "@/utils/types";
 import { useAuth } from "@/providers/AuthProvider";
 import { setPostField, updatePost } from "@/utils/postUtils";
 
-const Wrapper = styled.article<{ isEditingEnabled: boolean }>`
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const Article = styled.article<{ isEditingEnabled: boolean }>`
   width: 100%;
   max-width: 680px;
   gap: ${({ theme }) => theme.spacing[4]};
@@ -56,7 +55,6 @@ const Post = ({ ...props }: PostFields) => {
   const [isEditingEnabled, setIsEditingEnabled] = useState(false);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [postState, setPostState] = useState(props);
-  const theme = useTheme();
 
   const getUpdatedPostState = (
     field: BlogField,
@@ -82,8 +80,8 @@ const Post = ({ ...props }: PostFields) => {
   };
 
   return (
-    <Card style={{ width: "100%", paddingTop: theme.spacing.aLot }}>
-      <Wrapper isEditingEnabled={isEditingEnabled}>
+    <Wrapper>
+      <Article isEditingEnabled={isEditingEnabled}>
         {isEditingEnabled && (
           <Toolbar
             hasUnsavedChanges={hasUnsavedChanges}
@@ -133,8 +131,8 @@ const Post = ({ ...props }: PostFields) => {
           isEditingEnabled={isEditingEnabled}
           onChange={handleStateFieldChange}
         />
-      </Wrapper>
-    </Card>
+      </Article>
+    </Wrapper>
   );
 };
 

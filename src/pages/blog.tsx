@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Blog from "@/components/pages/blog/Blog";
 import Layout from "@/components/Layout";
 import { getPosts } from "@/utils/postUtils";
@@ -20,6 +21,9 @@ export async function getServerSideProps() {
 const BlogPage = ({ posts }: { posts: PostFields[] }) => {
   return (
     <Layout>
+      <Head>
+        <title>Franco May - Blog</title>
+      </Head>
       <Blog posts={posts} />
     </Layout>
   );

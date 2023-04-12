@@ -2,7 +2,7 @@ import { ReactNode, CSSProperties } from "react";
 import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.lightbackground};
+  background-color: ${({ theme }) => theme.colors.card};
   border-radius: ${({ theme }) => theme.borderRadius[3]};
   padding: ${({ theme }) => theme.spacing[3]};
   box-shadow: ${({ theme }) => theme.shadows[3]};

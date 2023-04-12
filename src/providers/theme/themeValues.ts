@@ -2,13 +2,16 @@ const smallScreen = 550;
 const mediumScreen = 900;
 
 const white = "white";
-const black = "#0d111d";
+// const black = "#0d111d";
+const black = "black";
 const transparent = "transparent";
-const verydarkGrey = "#222831";
-const darkGrey = "#32373f";
+const greyDarken4 = "#070910";
+const greyDarken3 = "#1b1f26";
+const greyDarken2 = "#222831";
+const greyDarken1 = "#32373f";
 const grey = "#59616e";
-const lightGrey = "#c1c7d1";
-const veryLightGrey = "#ecf2f8";
+const greyLighten1 = "#c1c7d1";
+const greyLighten2 = "#ecf2f8";
 const red = "#f7554a";
 const lightRed = "#fa7970";
 const darkRed = "#b2241a";
@@ -46,17 +49,18 @@ const baseTheme = {
     tooltip: 1080,
   },
   colors: {
+    card: white,
     border: transparent,
-    text: verydarkGrey,
+    text: greyDarken2,
     primary: blue,
     lightprimary: lightBlue,
     darkprimary: darkBlue,
     secondary: grey,
-    lightsecondary: lightGrey,
-    darksecondary: verydarkGrey,
-    background: veryLightGrey,
+    lightsecondary: greyLighten1,
+    darksecondary: greyDarken2,
+    background: greyLighten2,
     lightbackground: white,
-    darkbackground: lightGrey,
+    darkbackground: greyLighten1,
     success: green,
     lightsuccess: lightGreen,
     darksuccess: darkGreen,
@@ -72,8 +76,8 @@ const baseTheme = {
     white,
     black,
     grey,
-    lightgrey: lightGrey,
-    darkgrey: verydarkGrey,
+    lightgrey: greyLighten1,
+    darkgrey: greyDarken2,
     red,
     lightred: lightRed,
     darkred: darkRed,
@@ -129,13 +133,12 @@ const darkTheme = {
   ...baseTheme,
   colors: {
     ...baseTheme.colors,
-    primary: black,
+    primary: greyDarken4,
     text: white,
-    lightprimary: lightBlue,
-    darkprimary: blue,
-    border: darkGrey,
-    background: verydarkGrey,
-    lightbackground: verydarkGrey,
+    border: greyDarken1,
+    background: greyDarken3,
+    card: greyDarken2,
+    lightbackground: greyDarken2,
     darkbackground: black,
     success: darkGreen,
     lightsuccess: lightGreen,
