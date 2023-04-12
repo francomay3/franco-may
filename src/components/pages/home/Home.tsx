@@ -1,9 +1,5 @@
 import styled from "@emotion/styled";
-import { Tab } from "@headlessui/react";
-import { useTheme } from "@emotion/react";
-import { Fragment, useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { Emphasis } from "@/components/design-system";
+import { Emphasis, Tabs } from "@/components/design-system";
 
 const Wrapper = styled.div`
   h1 {
@@ -15,10 +11,9 @@ const Wrapper = styled.div`
 `;
 
 const daysSince = (date: Date) => {
-  const now = new Date();
-  const diff = now.getTime() - date.getTime();
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  return days;
+  const today = new Date();
+  const diff = Math.abs(today.getTime() - date.getTime());
+  return Math.ceil(diff / (1000 * 3600 * 24));
 };
 
 const WhyContent = () => (
@@ -111,38 +106,7 @@ const WhoContent = () => (
   </p>
 );
 
-const TabTitle = ({ active, children }: { active: boolean; children: any }) => {
-  const style = {
-    cursor: "pointer",
-  };
-  return (
-    <Tab as={Fragment}>
-      {active ? (
-        <Emphasis as="h2">{children}</Emphasis>
-      ) : (
-        <h2 style={style}>{children}</h2>
-      )}
-    </Tab>
-  );
-};
-
 const Home = () => {
-  const theme = useTheme();
-  const [selectedTab, setSelectedTab] = useState(0);
-  const [motionHeight, setMotionHeight] = useState(0);
-  const motionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (motionRef.current) {
-      const selected: HTMLDivElement | null = motionRef.current.querySelector(
-        "[data-headlessui-state='selected']"
-      );
-      if (selected) {
-        setMotionHeight(selected.offsetHeight);
-      }
-    }
-  }, [selectedTab]);
-
   return (
     <Wrapper>
       <h1>
@@ -150,40 +114,13 @@ const Home = () => {
         <br />
         Welcome to my website.
       </h1>
-      <Tab.Group onChange={(index) => setSelectedTab(index)}>
-        <Tab.List
-          style={{
-            display: "flex",
-            gap: theme.spacing[3],
-          }}
-        >
-          <TabTitle active={selectedTab === 0}>Why?</TabTitle>
-          <TabTitle active={selectedTab === 1}>How?</TabTitle>
-          <TabTitle active={selectedTab === 2}>Who?</TabTitle>
-        </Tab.List>
-        <Tab.Panels>
-          <motion.div
-            animate={{
-              height: motionHeight,
-            }}
-            ref={motionRef}
-            style={{
-              overflow: "hidden",
-            }}
-            transition={{ type: "spring", stiffness: 100, damping: 20 }}
-          >
-            <Tab.Panel>
-              <WhyContent />
-            </Tab.Panel>
-            <Tab.Panel>
-              <HowContent />
-            </Tab.Panel>
-            <Tab.Panel>
-              <WhoContent />
-            </Tab.Panel>
-          </motion.div>
-        </Tab.Panels>
-      </Tab.Group>
+      <Tabs
+        data={[
+          { title: "Why?", Content: WhyContent },
+          { title: "How?", Content: HowContent },
+          { title: "Who?", Content: WhoContent },
+        ]}
+      />
     </Wrapper>
   );
 };
