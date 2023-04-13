@@ -1,5 +1,4 @@
 import { ref, get, set, remove } from "firebase/database";
-import { toast } from "react-toastify";
 import {
   TAGS,
   POSTS,
@@ -15,6 +14,7 @@ import {
   SLUG,
 } from "./constants";
 import { PostFields } from "./types";
+import { toast } from "@/components/design-system";
 import { db } from "@/firebase";
 import {
   ImageBlockDataDefault,

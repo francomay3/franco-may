@@ -1,17 +1,20 @@
 import styled from "@emotion/styled";
-import Link from "@/components/design-system/Link";
+import { Link } from "@/components/design-system";
 
 const Wrapper = styled.footer`
+  border-top: 1px solid ${({ theme }) => theme.footer.borderColor};
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.primary};
+  text-align: center;
+  background-color: ${({ theme }) => theme.footer.backgroundColor};
   color: ${({ theme }) => theme.colors.white};
   display: flex;
   justify-content: center;
   min-height: 100px;
   flex-direction: column;
   padding: ${({ theme }) => theme.spacing[4]};
-  gap: ${({ theme }) => theme.spacing[2]};
+  gap: ${({ theme }) => theme.spacing[4]};
   p {
+    margin: 0;
     color: ${({ theme }) => theme.colors.white};
   }
 `;

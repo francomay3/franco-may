@@ -2,14 +2,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { Tab } from "@headlessui/react";
-import { toast } from "react-toastify";
-import EditableImage from "./EditableImage";
-import { getImages } from "@/utils/storageUtils";
-import Dialog from "@/components/design-system/Dialog";
 import { ImageData } from "@/utils/types";
-import Icon from "@/components/design-system/Icon";
-import Card from "@/components/design-system/Card";
-import { uploadImage } from "@/utils/storageUtils";
+import {
+  Card,
+  Dialog,
+  EditableImage,
+  Icon,
+  toast,
+} from "@/components/design-system";
+import { uploadImage, getImages } from "@/utils/storageUtils";
 
 const ImagesWrapper = styled.div`
   display: flex;

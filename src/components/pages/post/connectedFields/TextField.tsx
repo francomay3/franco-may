@@ -8,6 +8,7 @@ interface TextFieldProps {
   onChange: (field: BlogField, value: string) => void;
   as: HtmlElementTag;
   field: BlogField;
+  style?: React.CSSProperties;
 }
 
 const TextField = ({
@@ -16,11 +17,13 @@ const TextField = ({
   onChange,
   as,
   field,
+  style,
 }: TextFieldProps) => (
   <EditableText
     as={as}
     isEditingEnabled={isEditingEnabled}
     onChange={(value) => onChange(field, value)}
+    style={style}
     value={value}
   />
 );

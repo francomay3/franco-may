@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import { toast } from "react-toastify";
+import { useTheme } from "@emotion/react";
 import DeleteModal from "./DeleteModal";
+import { toast } from "@/components/design-system";
 import { deletePost, setPostField } from "@/utils/postUtils";
 import {
-  AUTHOR,
   CREATED_AT,
   DESCRIPTION,
   IMAGE,
@@ -14,13 +14,11 @@ import {
   TITLE,
 } from "@/utils/constants";
 import { getDateAsString } from "@/utils/generalUtils";
-import Link from "@/components/design-system/Link";
-import Tag from "@/components/design-system/Tag";
-import Card from "@/components/design-system/Card";
+import { Link, Tag, EditableImage } from "@/components/design-system";
 import { useAuth } from "@/providers/AuthProvider";
 import { BlogField, PostFields } from "@/utils/types";
-import EditableImage from "@/components/EditableImage";
 import EditableText from "@/components/EditableText";
+import { useIsMobile } from "@/hooks/useIsMobile";
 import {
   ActionVisibleButton,
   ActionHiddenButton,
@@ -36,7 +34,8 @@ const Tags = styled.div`
 `;
 
 const AuthorAndDate = styled.p`
-  color: ${({ theme }) => theme.colors.grey};
+  color: ${({ theme }) => theme.colors.grey} !important;
+  font-size: 1rem;
 `;
 
 const Meta = styled.article`
@@ -44,6 +43,9 @@ const Meta = styled.article`
   gap: ${({ theme }) => theme.spacing[1]};
   display: flex;
   flex-direction: column;
+  ${({ theme }) => theme.mediaQueries.mobile} {
+    width: 70%;
+  }
 `;
 
 const PublishedIconWrapper = styled.div`
@@ -62,6 +64,14 @@ const Post = styled.div`
   gap: ${({ theme }) => theme.spacing[4]};
 `;
 
+const Wrapper = styled.div<{ published: boolean }>`
+  opacity: ${({ published }) => (published ? "100%" : "60%")};
+  border-style: ${({ published }) => (published ? "initial" : "dashed")};
+  p {
+    margin: 0;
+  }
+`;
+
 interface PostCardProps {
   post: PostFields;
   updatePostField: (
@@ -74,6 +84,8 @@ interface PostCardProps {
 const PostCard = ({ post, updatePostField }: PostCardProps) => {
   const { isAdmin } = useAuth();
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const isMobile = useIsMobile();
+  const theme = useTheme();
 
   const handleOnFieldChange =
     (slug: string, field: BlogField) => (nextValue: string | boolean) => {
@@ -95,13 +107,7 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
     handleOnFieldChange(post[SLUG], PUBLISHED)(!post[PUBLISHED]);
 
   return (
-    <Card
-      key={post[SLUG]}
-      style={{
-        opacity: post[PUBLISHED] ? "100%" : "60%",
-        borderStyle: post[PUBLISHED] ? "solid" : "dashed",
-      }}
-    >
+    <Wrapper key={post[SLUG]} published={post[PUBLISHED]}>
       <DeleteModal
         isDialogOpen={isDeleteModalOpen}
         onDelete={() => deletePost(post[SLUG])}
@@ -118,22 +124,15 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
         </PublishedIconWrapper>
       )}
       <Post>
-        <EditableImage
-          isEditingEnabled={isAdmin}
-          name={post[SLUG]}
-          onSelect={({ url }) => handleOnFieldChange(post[SLUG], IMAGE)(url)}
-          size="small"
-          src={post[IMAGE] || "https://source.unsplash.com/random/200x200"}
-          wrapperStyles={{
-            width: "200px",
-          }}
-        />
         <Meta>
           <Link href={`/blog/${post[SLUG]}`}>
             <EditableText
               as="h1"
               isEditingEnabled={isAdmin}
               onChange={handleOnFieldChange(post[SLUG], TITLE)}
+              style={{
+                color: theme.colors.primary,
+              }}
               value={post[TITLE]}
             />
           </Link>
@@ -144,18 +143,35 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
               </Link>
             ))}
           </Tags>
-          <AuthorAndDate>
-            {post[AUTHOR]} | {getDateAsString(post[CREATED_AT])}
-          </AuthorAndDate>
           <EditableText
             as="p"
             isEditingEnabled={isAdmin}
             onChange={handleOnFieldChange(post[SLUG], DESCRIPTION)}
+            style={
+              isMobile
+                ? {
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }
+                : {}
+            }
             value={post[DESCRIPTION]}
           />
+          <AuthorAndDate>{getDateAsString(post[CREATED_AT])}</AuthorAndDate>
         </Meta>
+        <EditableImage
+          isEditingEnabled={isAdmin}
+          name={post[SLUG]}
+          onSelect={({ url }) => handleOnFieldChange(post[SLUG], IMAGE)(url)}
+          size="small"
+          src={post[IMAGE] || "https://source.unsplash.com/random/200x200"}
+          wrapperStyles={{
+            width: "200px",
+          }}
+        />
       </Post>
-    </Card>
+    </Wrapper>
   );
 };
 

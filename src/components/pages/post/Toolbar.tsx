@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Icon from "@/components/design-system/Icon";
+import { Icon } from "@/components/design-system";
 import { IconId } from "@/utils/types";
 
 const Wrapper = styled.div`

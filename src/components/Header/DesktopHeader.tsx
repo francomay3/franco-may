@@ -8,7 +8,7 @@ const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.header.backgroundColor};
   padding-inline: ${({ theme }) => theme.spacing[4]};
   height: ${({ theme }) => theme.spacing.aLot};
 `;

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
-import EditableImage from "./EditableImage";
+import { EditableImage } from "@/components/design-system";
 import { ImageData } from "@/utils/types";
 
 const Wrapper = styled.figure`

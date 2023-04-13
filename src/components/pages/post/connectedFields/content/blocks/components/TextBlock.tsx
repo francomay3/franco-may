@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styled from "@emotion/styled";
 import { TextBlockData } from "../types";
 
 interface TextBlockProps {
@@ -7,11 +8,24 @@ interface TextBlockProps {
   onChange?: (block: TextBlockData) => void;
 }
 
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing[4]};
+  font-size: 18px;
+  line-height: 1.75rem;
+  letter-spacing: -0.003em;
+  word-break: break-word;
+  color: ${({ theme }) => theme.colors.text};
+`;
+
 function TextBlock({ block, isEditingEnabled, onChange }: TextBlockProps) {
   const [blockState, setBlockState] = useState(block);
+
   useEffect(() => {
     setBlockState(block);
   }, [block]);
+
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     if (!isEditingEnabled || !onChange) return;
     setBlockState((prev) => {
@@ -23,17 +37,12 @@ function TextBlock({ block, isEditingEnabled, onChange }: TextBlockProps) {
   };
 
   return (
-    <div
-      style={{ display: "flex", justifyContent: "space-between", gap: "1rem" }}
-    >
-      <div
-        contentEditable={isEditingEnabled}
-        dangerouslySetInnerHTML={{ __html: blockState.data }}
-        onBlur={handleBlur}
-        style={{ flexGrow: "1" }}
-        suppressContentEditableWarning={true}
-      />
-    </div>
+    <TextContainer
+      contentEditable={isEditingEnabled}
+      dangerouslySetInnerHTML={{ __html: blockState.data }}
+      onBlur={handleBlur}
+      suppressContentEditableWarning={true}
+    />
   );
 }
 

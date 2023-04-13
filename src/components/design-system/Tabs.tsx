@@ -1,77 +1,94 @@
-import styled from "@emotion/styled";
-import { useTheme } from "@emotion/react";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import styled from "@emotion/styled";
 import { Emphasis } from "@/components/design-system";
-import { Tab } from "@headlessui/react";
 
-const TabTitle = ({ active, children }: { active: boolean; children: any }) => {
-  const style = {
-    cursor: "pointer",
-  };
+const TitlesWraper = styled.div`
+  display: flex;
+  gap: ${({ theme }) => theme.spacing[2]};
+`;
+
+const TabTitle = ({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: string;
+}) => {
   return (
-    <Tab as={Fragment}>
-      {active ? (
-        <Emphasis as="h2">{children}</Emphasis>
-      ) : (
-        <h2 style={style}>{children}</h2>
-      )}
-    </Tab>
+    <span onClick={onClick} style={{ cursor: "pointer" }}>
+      {
+        <Emphasis as="h2" onHover={active ? false : true}>
+          {children}
+        </Emphasis>
+      }
+    </span>
   );
 };
 
 const Tabs = ({
   data,
 }: {
-  data: { title: string; Content: () => JSX.Element }[];
+  data: { title: string; content: JSX.Element }[];
 }) => {
-  const theme = useTheme();
   const [selectedTab, setSelectedTab] = useState(0);
-  const [motionHeight, setMotionHeight] = useState(0);
-  const motionRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(300);
 
   useEffect(() => {
-    if (motionRef.current) {
-      const selected: HTMLDivElement | null = motionRef.current.querySelector(
-        "[data-headlessui-state='selected']"
-      );
-      if (selected) {
-        setMotionHeight(selected.offsetHeight);
-      }
+    const selectedTabElement = document.getElementById(`tab-${selectedTab}`);
+    if (selectedTabElement) {
+      setHeight(selectedTabElement.clientHeight);
     }
   }, [selectedTab]);
 
   return (
-    <Tab.Group onChange={(index) => setSelectedTab(index)}>
-      <Tab.List
-        style={{
-          display: "flex",
-          gap: theme.spacing[3],
-        }}
-      >
+    <div>
+      <TitlesWraper>
         {data.map(({ title }, index) => (
-          <TabTitle active={selectedTab === index}>{title}</TabTitle>
+          <TabTitle
+            active={selectedTab === index}
+            key={title}
+            onClick={() => setSelectedTab(index)}
+          >
+            {title}
+          </TabTitle>
         ))}
-      </Tab.List>
-      <Tab.Panels>
-        <motion.div
-          animate={{
-            height: motionHeight,
-          }}
-          ref={motionRef}
-          style={{
-            overflow: "hidden",
-          }}
-          transition={{ type: "spring", stiffness: 100, damping: 20 }}
-        >
-          {data.map(({ Content }) => (
-            <Tab.Panel>
-              <Content />
-            </Tab.Panel>
-          ))}
-        </motion.div>
-      </Tab.Panels>
-    </Tab.Group>
+      </TitlesWraper>
+      <motion.div
+        animate={{
+          height,
+        }}
+        style={{
+          overflow: "hidden",
+          height,
+        }}
+        transition={{ type: "easeInOut", duration: 0.3 }}
+      >
+        {data.map(({ title, content }, index) => (
+          <motion.div
+            animate={{
+              x: `${(selectedTab - index) * 100}%`,
+            }}
+            id={`tab-${index}`}
+            key={title}
+            style={{
+              position: "absolute",
+              x: `${(selectedTab - index) * 100}%`,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 15,
+              restSpeed: 0.01,
+            }}
+          >
+            {content}
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
   );
 };
 

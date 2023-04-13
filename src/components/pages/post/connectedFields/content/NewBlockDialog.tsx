@@ -51,7 +51,11 @@ const NewBlockDialog = ({
         {blocksExamples.map(({ title, Component, data }) => (
           <Block key={title}>
             <BlockTitle>{title}</BlockTitle>
-            <BlockSelectionWrapper onClick={() => addBlock(data)}>
+            <BlockSelectionWrapper
+              onClick={() =>
+                addBlock({ ...data, blockId: `${new Date().getTime()}` })
+              }
+            >
               <Component />
             </BlockSelectionWrapper>
           </Block>

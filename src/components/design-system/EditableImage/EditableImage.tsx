@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import styled from "@emotion/styled";
-import { ActionEditButton } from "./design-system/ActionButtons";
+import { ActionEditButton } from "../ActionButtons";
 import ImageSelectionDialog from "./ImageSelectionDialog";
 import { ImageData } from "@/utils/types";
 
@@ -72,7 +72,7 @@ const EditableImage = ({
             isEditingEnabled && setIsHoveringImage(true);
           }}
           onMouseLeave={() => setIsHoveringImage(false)}
-          sizes={sizes[size] + "px"}
+          sizes={`${sizes[size]}px`}
           src={src || `/images/${name}`}
           style={{
             left: "50%",

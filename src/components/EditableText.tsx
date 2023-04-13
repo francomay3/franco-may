@@ -4,6 +4,7 @@ interface TextFieldProps {
   value: string;
   isEditingEnabled: boolean;
   onChange: (value: string) => void;
+  style?: React.CSSProperties;
   as: HtmlElementTag;
 }
 
@@ -53,6 +54,7 @@ const EditableText = ({
   isEditingEnabled,
   onChange,
   as,
+  style,
 }: TextFieldProps) => {
   const Wrapper = getWrapper(as);
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -67,6 +69,7 @@ const EditableText = ({
       onBlur={handleBlur}
       style={{
         cursor: isEditingEnabled ? "pointer" : "default",
+        ...style,
       }}
       suppressContentEditableWarning={true}
     />

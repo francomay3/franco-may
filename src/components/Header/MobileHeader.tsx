@@ -1,17 +1,17 @@
 import styled from "@emotion/styled";
 import { Menu } from "@headlessui/react";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTheme } from "@emotion/react";
 import Logo from "./Logo";
 import DarkModeSwitch from "./DarkModeSwitch";
-import Icon from "@/components/design-system/Icon";
+import { Icon } from "@/components/design-system";
 
 const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.header.backgroundColor};
   padding-inline: ${({ theme }) => theme.spacing[4]};
   height: ${({ theme }) => theme.spacing.aLot};
   z-index: 2;
@@ -43,32 +43,24 @@ const Button = styled.button`
 `;
 
 const Items = styled.div`
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.header.backgroundColor};
   display: flex;
   flex-direction: column;
-  /* position: absolute;
-  right: 0;
-  left: 0; */
-  width: 100%;
-  top: ${({ theme }) => theme.spacing.aLot};
+  width: 100vw;
   padding: ${({ theme }) => theme.spacing[4]};
-  padding-bottom: ${({ theme }) => theme.spacing[1]};
+  padding-block-end: ${({ theme }) => theme.spacing[1]};
+  position: unset;
   &:focus {
     outline: none;
   }
   z-index: 1;
 `;
 
-const Item = styled(Link)<{ active: boolean }>`
+const Item = styled(Link)`
   padding-block: ${({ theme }) => theme.spacing[2]};
   text-decoration: none;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  border-block-start: 1px solid ${({ theme }) => theme.colors.darkprimary};
-  color: ${({ active, theme }) =>
-    active ? theme.colors.darkprimary : theme.colors.white};
+  border-block-start: 1px solid ${({ theme }) => theme.header.itemBorderColor};
+  color: ${({ theme }) => theme.header.activeColor};
 `;
 
 function MobileNav({
@@ -79,42 +71,38 @@ function MobileNav({
   const theme = useTheme();
   return (
     <Wrapper>
-      <Menu as={Nav} style={{ zIndex: 1 }}>
+      <Menu as={Nav} style={{ zIndex: 1, position: "unset" }}>
         {({ open }) => (
           <>
             <Menu.Button as={Button} style={{ width: "1rem" }}>
               {open ? <Icon id="x" /> : <Icon id="menu" />}
             </Menu.Button>
-            <AnimatePresence mode="wait">
-              {open && (
-                <motion.div
-                  animate={{ opacity: 1, y: "0%" }}
-                  exit={{ opacity: 0, y: "10%" }}
-                  initial={{ opacity: 0, y: "-10%" }}
-                  key="mobile-nav"
-                  style={{
-                    position: "absolute",
-                    top: theme.spacing.aLot,
-                    left: 0,
-                    right: 0,
-                    zIndex: 1,
-                  }}
-                  transition={{ duration: 0.1 }}
-                >
-                  <Menu.Items as={Items}>
-                    {navLinks.map(({ href, pageName }) => (
-                      <Menu.Item key={href}>
-                        {({ active }) => (
-                          <Item active={active} href={href}>
-                            {pageName}
-                          </Item>
-                        )}
-                      </Menu.Item>
-                    ))}
-                  </Menu.Items>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <motion.div
+              animate={{
+                height: open ? "8rem" : "1px",
+              }}
+              style={{
+                height: "1px",
+                position: "absolute",
+                top: theme.spacing.aLot,
+                left: 0,
+                right: 0,
+                zIndex: 1,
+                overflow: "hidden",
+                borderBottom: `1px solid ${theme.header.barBorderColor}`,
+              }}
+              transition={{
+                type: "linear",
+              }}
+            >
+              <Menu.Items as={Items} static>
+                {navLinks.map(({ href, pageName }) => (
+                  <Menu.Item key={href}>
+                    <Item href={href}>{pageName}</Item>
+                  </Menu.Item>
+                ))}
+              </Menu.Items>
+            </motion.div>
           </>
         )}
       </Menu>

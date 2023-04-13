@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
-import Link from "@/components/design-system/Link";
+import { Link } from "@/components/design-system";
 
 const ContentWrapper = styled.div`
   display: flex;

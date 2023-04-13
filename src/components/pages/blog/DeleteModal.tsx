@@ -25,7 +25,7 @@ const DeleteModal = ({
       <p>Are you sure you want to delete this post?</p>
       <ButtonsWrapper>
         <Button
-          color="red"
+          color="danger"
           onClick={() => {
             setIsDialogOpen(false);
             onDelete();

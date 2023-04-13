@@ -2,10 +2,9 @@ import styled from "@emotion/styled";
 import React, { useState } from "react";
 import PostCard from "./PostCard";
 import { PUBLISHED, SLUG } from "@/utils/constants";
-import Card from "@/components/design-system/Card";
+import { Card, ActionPlusButton } from "@/components/design-system";
 import { useAuth } from "@/providers/AuthProvider";
-import { ActionPlusButton } from "@/components/design-system/ActionButtons";
-import NewPostDialog from "@/components/NewPostDialog";
+import NewPostDialog from "@/components/pages/blog/NewPostDialog";
 import { PostFields } from "@/utils/types";
 
 const Wrapper = styled.div`

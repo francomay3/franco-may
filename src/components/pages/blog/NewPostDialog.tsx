@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
-import Dialog from "./design-system/Dialog";
-import Button from "./design-system/Button";
+import Dialog from "../../design-system/Dialog";
+import Button from "../../design-system/Button";
 import { createPost } from "@/utils/postUtils";
 import { SLUG } from "@/utils/constants";
 
@@ -19,7 +19,10 @@ const DialogContent = styled.div`
 `;
 
 const getJustLetters = (str: string) =>
-  str.replace(/[^a-zA-Z]/g, "").toLowerCase();
+  str
+    .replace(/\s/g, "-")
+    .replace(/[^a-zA-Z-]/g, "")
+    .toLowerCase();
 
 const NewPostDialog = ({
   isDialogOpen,

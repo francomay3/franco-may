@@ -3,23 +3,26 @@ import { CSSProperties } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Card } from "./design-system";
+import { useDarkMode } from "@/providers/theme/Theme";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-  // change selection color
   *::selection {
     background-color: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.background};
   }
 `;
 
-const Container = styled.div`
+const Container = styled.div<{ isDark: boolean }>`
+  align-items: center;
   flex-direction: column;
   flex: 1;
   display: flex;
+  align-items: ${({ isDark }) => (isDark ? "center" : "stretch")};
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.background};
   padding-block: ${({ theme }) => theme.spacing[6]};
@@ -28,7 +31,9 @@ const Container = styled.div`
     padding-inline: ${({ theme }) => theme.spacing.aLot};
   }
   ${({ theme }) => theme.mediaQueries.mobile} {
-    padding-inline: ${({ theme }) => theme.spacing.aBit};
+    ${({ isDark, theme }) =>
+      !isDark && `background-color: ${theme.colors.white}`};
+    padding-inline: ${({ theme }) => theme.spacing[4]};
   }
 `;
 
@@ -39,11 +44,27 @@ const Layout = ({
   children: React.ReactNode;
   WrapperStyles?: CSSProperties;
 }) => {
+  const { isDark } = useDarkMode();
+  const isMobile = useIsMobile();
+  const shouldRenderCard = !isMobile && !isDark;
+
   return (
     <Wrapper style={WrapperStyles}>
       <Header />
-      <Container>
-        <Card>{children}</Card>
+      <Container isDark={isDark}>
+        {!shouldRenderCard ? (
+          children
+        ) : (
+          <Card
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            {children}
+          </Card>
+        )}
       </Container>
       <Footer />
     </Wrapper>

@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import React from "react";
 import Posts from "./Posts";
 import { PostFields } from "@/utils/types";
-import EditableImage from "@/components/EditableImage";
+import { Container, EditableImage, Emphasis } from "@/components/design-system";
 
 const Intro = styled.div`
   display: flex;
@@ -26,7 +26,7 @@ const IntroText = styled.div`
 
 const Blog = ({ posts }: { posts: PostFields[] }) => {
   return (
-    <>
+    <Container>
       <Intro>
         <EditableImage
           name="JimCarrey"
@@ -39,18 +39,25 @@ const Blog = ({ posts }: { posts: PostFields[] }) => {
         />
         <IntroText>
           <h1>
-            <strong>Hej!</strong>
+            <b>
+              <Emphasis>Hej!</Emphasis>
+            </b>
             <br />
             Welcome to my blog.
           </h1>
           <h3>
-            This is where I write about anything. From technical stuff to
-            philosophy. It&apos;s just a place for me to get my ideas straight.
+            This is where I intend to write about anything. From technical stuff
+            to philosophy. It&apos;s just a place for me to get my ideas
+            straight.
           </h3>
+          <h5>
+            <strong>*disclaimer:</strong> I tend to write with overconfidence
+            about things I have no idea about.
+          </h5>
         </IntroText>
       </Intro>
       <Posts posts={posts} />
-    </>
+    </Container>
   );
 };
 

@@ -56,7 +56,7 @@ export const ActionMinusButton = ({
   return (
     <Wrapper
       className={className}
-      color={theme.colors.red}
+      color={theme.colors.danger}
       onClick={onClick}
       style={style}
     >
@@ -113,11 +113,7 @@ export const ActionHiddenButton = ({
 }) => {
   const theme = useTheme();
   return (
-    <Wrapper
-      className={className}
-      color={theme.colors.warning}
-      onClick={onClick}
-    >
+    <Wrapper className={className} color={theme.colors.grey} onClick={onClick}>
       <Icon id="hidden" />
     </Wrapper>
   );

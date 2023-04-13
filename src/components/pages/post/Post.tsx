@@ -17,19 +17,19 @@ import {
 import { BlogField, PostFields } from "@/utils/types";
 import { useAuth } from "@/providers/AuthProvider";
 import { setPostField, updatePost } from "@/utils/postUtils";
+import { Container } from "@/components/design-system";
 
-const Wrapper = styled.div`
+const Wrapper = styled(Container)`
   display: flex;
   justify-content: center;
 `;
 
 const Article = styled.article<{ isEditingEnabled: boolean }>`
   width: 100%;
-  max-width: 680px;
   gap: ${({ theme }) => theme.spacing[4]};
   display: flex;
   flex-direction: column;
-  margin-bottom: 3.5rem;
+  margin-block: 3.5rem;
   & [contenteditable="true"] {
     ${({ isEditingEnabled }) =>
       isEditingEnabled && "border: 2px solid transparent;"}
@@ -44,10 +44,17 @@ const Article = styled.article<{ isEditingEnabled: boolean }>`
       cursor: text;
     }
   }
+  ${({ theme }) => theme.mediaQueries.tablet} {
+    margin-block-start: 1rem;
+  }
+  ${({ theme }) => theme.mediaQueries.mobile} {
+    margin-block-start: 0rem;
+  }
 `;
 
 const AuthorAndDate = styled.p`
-  color: ${({ theme }) => theme.colors.grey};
+  color: ${({ theme }) => theme.colors.grey} !important;
+  text-align: end;
 `;
 
 const Post = ({ ...props }: PostFields) => {
@@ -122,6 +129,9 @@ const Post = ({ ...props }: PostFields) => {
           field={TITLE}
           isEditingEnabled={isEditingEnabled}
           onChange={handleStateFieldChange}
+          style={{
+            marginTop: "2rem",
+          }}
           value={postState[TITLE]}
         />
 

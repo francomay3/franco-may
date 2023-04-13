@@ -1,17 +1,19 @@
 const smallScreen = 550;
 const mediumScreen = 900;
 
-const white = "white";
-// const black = "#0d111d";
-const black = "black";
 const transparent = "transparent";
-const greyDarken4 = "#070910";
-const greyDarken3 = "#1b1f26";
-const greyDarken2 = "#222831";
-const greyDarken1 = "#32373f";
-const grey = "#59616e";
-const greyLighten1 = "#c1c7d1";
-const greyLighten2 = "#ecf2f8";
+const grey0 = "black";
+const grey1 = "#1b1b1d";
+const grey2 = "#242526";
+const grey3 = "#1c1e21";
+const grey4 = "#444950";
+const grey5 = "#606770";
+const grey6 = "#8d949e";
+const grey7 = "#ccd0d5";
+const grey8 = "#dadde1";
+const grey9 = "#ebedf0";
+const grey10 = "#f5f6f7";
+const grey11 = "white";
 const red = "#f7554a";
 const lightRed = "#fa7970";
 const darkRed = "#b2241a";
@@ -40,62 +42,86 @@ const baseTheme = {
   },
   zIndex: {
     dropdown: 1000,
-    sticky: 1020,
     fixed: 1030,
+    modal: 1060,
     modalBackdrop: 1040,
     offcanvas: 1050,
-    modal: 1060,
     popover: 1070,
+    sticky: 1020,
     tooltip: 1080,
   },
+  footer: {
+    backgroundColor: blue,
+    borderColor: transparent,
+  },
+  header: {
+    activeColor: grey11,
+    backgroundColor: blue,
+    itemBorderColor: darkBlue,
+    barBorderColor: transparent,
+  },
+  card: {
+    backgroundColor: grey11,
+    borderColor: transparent,
+  },
   colors: {
-    card: white,
-    border: transparent,
-    text: greyDarken2,
-    primary: blue,
-    lightprimary: lightBlue,
-    darkprimary: darkBlue,
-    secondary: grey,
-    lightsecondary: greyLighten1,
-    darksecondary: greyDarken2,
-    background: greyLighten2,
-    lightbackground: white,
-    darkbackground: greyLighten1,
-    success: green,
-    lightsuccess: lightGreen,
-    darksuccess: darkGreen,
-    info: blue,
-    lightinfo: lightBlue,
-    darkinfo: darkBlue,
-    warning: orange,
-    lightwarning: lightOrange,
-    darkwarning: darkOrange,
+    background: grey9,
+    black: "black",
+    blue,
     danger: red,
-    lightdanger: lightRed,
+    darkbackground: grey8,
+    darkblue: darkBlue,
     darkdanger: darkRed,
-    white,
-    black,
-    grey,
-    lightgrey: greyLighten1,
-    darkgrey: greyDarken2,
-    red,
-    lightred: lightRed,
-    darkred: darkRed,
-    orange,
-    lightorange: lightOrange,
+    darkgreen: darkGreen,
+    darkgrey: grey8,
+    darkinfo: darkBlue,
     darkorange: darkOrange,
-    yellow,
-    lightyellow: lightYellow,
+    darkprimary: darkBlue,
+    darkred: darkRed,
+    darksecondary: darkOrange,
+    darksuccess: darkGreen,
+    darkviolet: darkViolet,
+    darkwarning: darkOrange,
     darkyellow: darkYellow,
     green,
-    lightgreen: lightGreen,
-    darkgreen: darkGreen,
-    blue,
+    grey: grey6,
+    grey0,
+    grey1,
+    grey2,
+    grey3,
+    grey4,
+    grey5,
+    grey6,
+    grey7,
+    grey8,
+    grey9,
+    grey10,
+    grey11,
+    info: blue,
+    lightbackground: grey11,
     lightblue: lightBlue,
-    darkblue: darkBlue,
-    violet,
+    lightdanger: lightRed,
+    lightgreen: lightGreen,
+    lightgrey: grey3,
+    lightinfo: lightBlue,
+    lightorange: lightOrange,
+    lightprimary: lightBlue,
+    lightred: lightRed,
+    lightsecondary: lightOrange,
+    lightsuccess: lightGreen,
     lightviolet: lightViolet,
-    darkviolet: darkViolet,
+    lightwarning: lightOrange,
+    lightyellow: lightYellow,
+    orange,
+    primary: blue,
+    red,
+    secondary: orange,
+    success: green,
+    text: grey1,
+    violet,
+    warning: orange,
+    white: "white",
+    yellow,
   },
   spacing: {
     0: "0",
@@ -131,23 +157,36 @@ const baseTheme = {
 
 const darkTheme = {
   ...baseTheme,
+
+  card: {
+    backgroundColor: grey2,
+    borderColor: grey4,
+  },
   colors: {
     ...baseTheme.colors,
-    primary: greyDarken4,
-    text: white,
-    border: greyDarken1,
-    background: greyDarken3,
-    card: greyDarken2,
-    lightbackground: greyDarken2,
-    darkbackground: black,
-    success: darkGreen,
-    lightsuccess: lightGreen,
-    info: darkBlue,
-    lightinfo: lightBlue,
-    warning: darkOrange,
-    lightwarning: lightOrange,
+    background: grey1,
     danger: darkRed,
+    darkbackground: grey6,
+    grey: grey5,
+    info: darkBlue,
     lightdanger: lightRed,
+    lightinfo: lightBlue,
+    lightsuccess: lightGreen,
+    lightwarning: lightOrange,
+    primary: blue,
+    success: darkGreen,
+    text: grey10,
+    warning: darkOrange,
+  },
+  footer: {
+    backgroundColor: grey2,
+    borderColor: grey4,
+  },
+  header: {
+    activeColor: grey11,
+    backgroundColor: grey2,
+    barBorderColor: grey4,
+    itemBorderColor: grey4,
   },
 };
 

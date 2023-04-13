@@ -4,21 +4,28 @@ import { useTheme } from "@emotion/react";
 
 function Emphasis({
   as = "span",
+  onHover = false,
+  secondary = false,
   children,
   ...props
 }: {
+  secondary?: boolean;
+  onHover?: boolean;
   as?: keyof JSX.IntrinsicElements;
   children: React.ReactNode;
 }) {
-  const theme = useTheme();
+  const { colors } = useTheme();
   const Component = styled(as)`
+    ${onHover && "&:hover {"}
+
     background: linear-gradient(
-      126deg,
-      ${theme.colors.darkprimary},
-      ${theme.colors.lightprimary}
-    );
+        126deg,
+        ${secondary ? colors.darksecondary : colors.darkprimary},
+        ${secondary ? colors.lightsecondary : colors.lightprimary}
+      );
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    ${onHover && "}"}
   `;
 
   return <Component {...props}>{children}</Component>;

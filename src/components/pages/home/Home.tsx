@@ -1,12 +1,41 @@
 import styled from "@emotion/styled";
-import { Emphasis, Tabs } from "@/components/design-system";
+import Image from "next/image";
+import { Container, Emphasis, Tabs } from "@/components/design-system";
 
-const Wrapper = styled.div`
-  h1 {
-    margin: 2rem;
+const Wrapper = styled(Container)`
+  margin-block: ${({ theme }) => theme.spacing[8]};
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing[8]};
+  ${({ theme }) => theme.mediaQueries.mobile} {
+    margin-block-start: ${({ theme }) => theme.spacing[4]};
   }
-  h2 {
-    margin-block: 1rem;
+`;
+
+const ImageAndGreetings = styled.div`
+  display: flex;
+  gap: ${({ theme }) => theme.spacing[8]};
+  align-items: center;
+  img {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    max-width: 95vw;
+    max-height: 95vw;
+  }
+  ${({ theme }) => theme.mediaQueries.tablet} {
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  ${({ theme }) => theme.mediaQueries.mobile} {
+    flex-direction: column;
+    h1 {
+      order: -1;
+      flex: 1;
+    }
   }
 `;
 
@@ -100,7 +129,7 @@ const WhoContent = () => (
     Then I created a plugin for Sketchup using Ruby to subdivide and smooth
     geometries. That was mind bending.
     <br />
-    Finally I got interested in web programming. I learned PHP , SQL, HTML,CSS{" "}
+    Finally I got interested in web programming. I learned PHP , SQL, HTML, CSS{" "}
     and my beloved JavaScript, which I now use for almost everything.
     <br />
   </p>
@@ -109,16 +138,26 @@ const WhoContent = () => (
 const Home = () => {
   return (
     <Wrapper>
-      <h1>
-        <Emphasis>Hallå!</Emphasis>
-        <br />
-        Welcome to my website.
-      </h1>
+      <ImageAndGreetings>
+        <Image
+          alt="Natasha and Franco"
+          height={250}
+          src="/images/natafranco.png"
+          style={{ borderRadius: "50%" }}
+          width={250}
+        />
+        <h1>
+          <Emphasis>Hallå!</Emphasis>
+          <br />
+          Welcome to my website
+        </h1>
+      </ImageAndGreetings>
+      <h1>About</h1>
       <Tabs
         data={[
-          { title: "Why?", Content: WhyContent },
-          { title: "How?", Content: HowContent },
-          { title: "Who?", Content: WhoContent },
+          { title: "Who?", content: <WhoContent /> },
+          { title: "How?", content: <HowContent /> },
+          { title: "Why?", content: <WhyContent /> },
         ]}
       />
     </Wrapper>

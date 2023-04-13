@@ -32,11 +32,13 @@ const Tags = ({
   tags,
   isEditingEnabled,
   onChange,
+  style,
 }: {
   field: BlogField;
   tags: string;
   isEditingEnabled: boolean;
   onChange: OnChange;
+  style?: React.CSSProperties;
 }) => {
   const parsedTags: string[] = JSON.parse(tags);
 
@@ -61,7 +63,7 @@ const Tags = ({
   };
 
   return (
-    <Wrapper>
+    <Wrapper style={style}>
       {parsedTags.map((tag) => (
         <Tag
           isEditingEnabled={isEditingEnabled}
