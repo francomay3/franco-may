@@ -4,11 +4,11 @@ import styled from "@emotion/styled";
 import { ActionEditButton } from "../ActionButtons";
 import ImageSelectionDialog from "./ImageSelectionDialog";
 import { ImageData } from "@/utils/types";
+import { useAuth } from "@/providers/AuthProvider";
 
 type Size = "small" | "medium" | "large" | "thumbnail";
 interface EditableImageProps {
   name: string;
-  isEditingEnabled?: boolean;
   src?: string;
   onSelect?: (image: ImageData) => void;
   size?: Size;
@@ -17,7 +17,7 @@ interface EditableImageProps {
 }
 
 const ImageWrapper = styled.div<{
-  isEditingEnabled?: boolean;
+  isEditing?: boolean;
   size: number;
 }>`
   width: 100%;
@@ -28,19 +28,18 @@ const ImageWrapper = styled.div<{
   overflow: hidden;
   display: flex;
   justify-content: center;
-  cursor: ${({ isEditingEnabled }) =>
-    isEditingEnabled ? "pointer" : "default"};
+  cursor: ${({ isEditing }) => (isEditing ? "pointer" : "default")};
 `;
 
 const EditableImage = ({
   name,
-  isEditingEnabled = false,
   src,
   size = "medium",
   onSelect = () => null,
   style,
   wrapperStyles,
 }: EditableImageProps) => {
+  const { isEditing } = useAuth();
   const [isHoveringImage, setIsHoveringImage] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const sizes = {
@@ -58,18 +57,18 @@ const EditableImage = ({
         setIsDialogOpen={setIsDialogOpen}
       />
       <ImageWrapper
-        isEditingEnabled={isEditingEnabled}
+        isEditing={isEditing}
         size={sizes[size]}
         style={wrapperStyles}
       >
         <Image
           alt={name}
-          draggable={!isEditingEnabled}
+          draggable={!isEditing}
           fill
           objectFit="cover"
-          onClick={() => (isEditingEnabled ? setIsDialogOpen(true) : undefined)}
+          onClick={() => (isEditing ? setIsDialogOpen(true) : undefined)}
           onMouseEnter={() => {
-            isEditingEnabled && setIsHoveringImage(true);
+            isEditing && setIsHoveringImage(true);
           }}
           onMouseLeave={() => setIsHoveringImage(false)}
           sizes={`${sizes[size]}px`}

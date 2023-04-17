@@ -14,11 +14,15 @@ export const UserContext = createContext<{
   isAdmin: boolean;
   logIn: () => Promise<UserCredential | undefined>;
   logOut: () => Promise<boolean>;
+  setIsEditing: (isEditing: boolean) => void;
+  isEditing: boolean;
 }>({
   user: null,
   isAdmin: false,
   logIn: () => Promise.resolve(undefined),
   logOut: () => Promise.resolve(false),
+  setIsEditing: () => {},
+  isEditing: false,
 });
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
@@ -40,6 +44,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
   const [user] = useAuthState(auth);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+
   useEffect(() => {
     setIsAdmin(
       process.env.NEXT_PUBLIC_ADMIN_UIDS?.split(",").includes(
@@ -47,14 +53,25 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       ) || false
     );
   }, [user]);
+
   return (
-    <UserContext.Provider value={{ user, isAdmin, logIn, logOut }}>
+    <UserContext.Provider
+      value={{
+        user,
+        isAdmin,
+        logIn,
+        logOut,
+        setIsEditing: isAdmin ? setIsEditing : () => {},
+        isEditing,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );
 };
 
 export const useAuth = () => {
-  const { user, isAdmin, logIn, logOut } = useContext(UserContext);
-  return { user, isAdmin, logIn, logOut };
+  const { user, isAdmin, logIn, logOut, setIsEditing, isEditing } =
+    useContext(UserContext);
+  return { user, isAdmin, logIn, logOut, setIsEditing, isEditing };
 };

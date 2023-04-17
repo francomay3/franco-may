@@ -128,7 +128,6 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
           <Link href={`/blog/${post[SLUG]}`}>
             <EditableText
               as="h1"
-              isEditingEnabled={isAdmin}
               onChange={handleOnFieldChange(post[SLUG], TITLE)}
               style={{
                 color: theme.colors.primary,
@@ -145,7 +144,6 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
           </Tags>
           <EditableText
             as="p"
-            isEditingEnabled={isAdmin}
             onChange={handleOnFieldChange(post[SLUG], DESCRIPTION)}
             style={
               isMobile
@@ -161,7 +159,6 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
           <AuthorAndDate>{getDateAsString(post[CREATED_AT])}</AuthorAndDate>
         </Meta>
         <EditableImage
-          isEditingEnabled={isAdmin}
           name={post[SLUG]}
           onSelect={({ url }) => handleOnFieldChange(post[SLUG], IMAGE)(url)}
           size="small"

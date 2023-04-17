@@ -3,6 +3,7 @@ import { uniq } from "lodash";
 import { ActionPlusButton } from "../../../design-system/ActionButtons";
 import Tag from "../../../design-system/Tag";
 import { BlogField } from "@/utils/types";
+import { useAuth } from "@/providers/AuthProvider";
 
 const NEW_TAG = "new tag";
 
@@ -30,16 +31,15 @@ type OnChange = (field: BlogField, value: string) => void;
 const Tags = ({
   field,
   tags,
-  isEditingEnabled,
   onChange,
   style,
 }: {
   field: BlogField;
   tags: string;
-  isEditingEnabled: boolean;
   onChange: OnChange;
   style?: React.CSSProperties;
 }) => {
+  const { isEditing } = useAuth();
   const parsedTags: string[] = JSON.parse(tags);
 
   const deleteTag = (tag: string) => {
@@ -65,15 +65,9 @@ const Tags = ({
   return (
     <Wrapper style={style}>
       {parsedTags.map((tag) => (
-        <Tag
-          isEditingEnabled={isEditingEnabled}
-          key={tag}
-          onChange={handleChange}
-          onDelete={deleteTag}
-          tag={tag}
-        />
+        <Tag key={tag} onChange={handleChange} onDelete={deleteTag} tag={tag} />
       ))}
-      {isEditingEnabled && <ActionPlusButton onClick={addTag} />}
+      {isEditing && <ActionPlusButton onClick={addTag} />}
     </Wrapper>
   );
 };

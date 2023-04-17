@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { TextBlockData } from "../types";
+import { useAuth } from "@/providers/AuthProvider";
 
 interface TextBlockProps {
   block: TextBlockData;
-  isEditingEnabled?: boolean;
   onChange?: (block: TextBlockData) => void;
 }
 
@@ -19,7 +19,8 @@ const TextContainer = styled.div`
   color: ${({ theme }) => theme.colors.text};
 `;
 
-function TextBlock({ block, isEditingEnabled, onChange }: TextBlockProps) {
+function TextBlock({ block, onChange }: TextBlockProps) {
+  const { isEditing } = useAuth();
   const [blockState, setBlockState] = useState(block);
 
   useEffect(() => {
@@ -27,7 +28,7 @@ function TextBlock({ block, isEditingEnabled, onChange }: TextBlockProps) {
   }, [block]);
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    if (!isEditingEnabled || !onChange) return;
+    if (!isEditing || !onChange) return;
     setBlockState((prev) => {
       const newBlock = { ...prev, data: e.target.innerHTML };
       if (newBlock.data === prev.data) return prev;
@@ -38,7 +39,7 @@ function TextBlock({ block, isEditingEnabled, onChange }: TextBlockProps) {
 
   return (
     <TextContainer
-      contentEditable={isEditingEnabled}
+      contentEditable={isEditing}
       dangerouslySetInnerHTML={{ __html: blockState.data }}
       onBlur={handleBlur}
       suppressContentEditableWarning={true}

@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 import { ActionMinusButton } from "./ActionButtons";
+import { useAuth } from "@/providers/AuthProvider";
 
 const Wrapper = styled.div`
   display: inline-flex;
@@ -26,15 +27,14 @@ function getIntegerFromString(str: string, max: number) {
 
 const Tag = ({
   tag,
-  isEditingEnabled,
   onChange,
   onDelete,
 }: {
   tag: string;
-  isEditingEnabled?: boolean;
   onChange?: (value: string, oldValue: string) => void;
   onDelete?: (value: string) => void;
 }) => {
+  const { isEditing } = useAuth();
   const { colors } = useTheme();
 
   const tagColors = [
@@ -51,13 +51,13 @@ const Tag = ({
   return (
     <Wrapper color={randomColor} key={tag}>
       <div
-        contentEditable={isEditingEnabled}
+        contentEditable={isEditing}
         onBlur={(e) => onChange && onChange(e.target.innerText, tag)}
         suppressContentEditableWarning={true}
       >
         {tag}
       </div>
-      {isEditingEnabled && (
+      {isEditing && (
         <ActionMinusButton onClick={() => onDelete && onDelete(tag)} />
       )}
     </Wrapper>

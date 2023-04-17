@@ -5,15 +5,10 @@ import { ImageData } from "@/utils/types";
 
 interface ImageBlockProps {
   block: ImageBlockData;
-  isEditingEnabled?: boolean;
   onChange?: (block: ImageBlockData | undefined) => void | null;
 }
 
-function ImageBlock({
-  block,
-  isEditingEnabled = false,
-  onChange = () => null,
-}: ImageBlockProps) {
+function ImageBlock({ block, onChange = () => null }: ImageBlockProps) {
   const [blockState, setBlockState] = useState(block);
 
   const updateCaption = (newCaption: string) => {
@@ -38,7 +33,6 @@ function ImageBlock({
       <ImageWithCaption
         caption={blockState.caption}
         imageName={blockState.title}
-        isEditingEnabled={isEditingEnabled}
         onCaptionChange={updateCaption}
         onSelect={updateImage}
         url={blockState.url}

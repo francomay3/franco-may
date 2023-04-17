@@ -12,21 +12,17 @@ import {
   updateBlock,
 } from "./utils";
 import { BlogField } from "@/utils/types";
+import { useAuth } from "@/providers/AuthProvider";
 
 type OnChange = (field: BlogField, value: string) => void;
 interface ContentProps {
   content: string;
   field: BlogField;
-  isEditingEnabled: boolean;
   onChange: OnChange;
 }
 
-const Content = ({
-  content: rawContent,
-  field,
-  isEditingEnabled,
-  onChange,
-}: ContentProps) => {
+const Content = ({ content: rawContent, field, onChange }: ContentProps) => {
+  const { isEditing } = useAuth();
   const [draggedBlock, setDraggedBlock] = useState<BlockData | null>(null);
   const [isNewBlockDialogOpen, setIsNewBlockDialogOpen] = useState(false);
   const [selectionIndex, setSelectionIndex] = useState(0);
@@ -39,7 +35,7 @@ const Content = ({
 
   return (
     <>
-      {isEditingEnabled && (
+      {isEditing && (
         <>
           <NewBlockDialog
             addBlock={(newBlock) => {
@@ -65,7 +61,7 @@ const Content = ({
       )}
       {content.map((block, i) => {
         const props = {
-          isEditingEnabled,
+          isEditing,
           onChange: (updatedBlock?: BlockData) => {
             if (updatedBlock) handleChange(updateBlock(content, updatedBlock));
           },
@@ -74,7 +70,7 @@ const Content = ({
           <React.Fragment key={block.blockId}>
             <DraggableBlock
               block={block}
-              draggable={isEditingEnabled}
+              draggable={isEditing}
               onDelete={() => {
                 handleChange(deleteBlock(content, i));
               }}
@@ -85,7 +81,7 @@ const Content = ({
                 <ImageBlock {...props} block={block} />
               )}
             </DraggableBlock>
-            {isEditingEnabled && (
+            {isEditing && (
               <AddOrDropBlock
                 isDraggingBlock={Boolean(draggedBlock)}
                 onClick={() => {

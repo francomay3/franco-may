@@ -24,15 +24,14 @@ const Wrapper = styled(Container)`
   justify-content: center;
 `;
 
-const Article = styled.article<{ isEditingEnabled: boolean }>`
+const Article = styled.article<{ isEditing: boolean }>`
   width: 100%;
   gap: ${({ theme }) => theme.spacing[4]};
   display: flex;
   flex-direction: column;
   margin-block: 3.5rem;
   & [contenteditable="true"] {
-    ${({ isEditingEnabled }) =>
-      isEditingEnabled && "border: 2px solid transparent;"}
+    ${({ isEditing }) => isEditing && "border: 2px solid transparent;"}
     outline: none;
     border-radius: ${({ theme }) => theme.borderRadius[3]};
     &:hover {
@@ -58,8 +57,7 @@ const AuthorAndDate = styled.p`
 `;
 
 const Post = ({ ...props }: PostFields) => {
-  const { isAdmin } = useAuth();
-  const [isEditingEnabled, setIsEditingEnabled] = useState(false);
+  const { isEditing } = useAuth();
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [postState, setPostState] = useState(props);
 
@@ -69,12 +67,6 @@ const Post = ({ ...props }: PostFields) => {
   ) => {
     return { ...postState, [field]: value };
   };
-
-  useEffect(() => {
-    if (isAdmin) {
-      setIsEditingEnabled(true);
-    }
-  }, [isAdmin]);
 
   const handleSave = async () => {
     await updatePost(props[SLUG], postState);
@@ -88,8 +80,8 @@ const Post = ({ ...props }: PostFields) => {
 
   return (
     <Wrapper>
-      <Article isEditingEnabled={isEditingEnabled}>
-        {isEditingEnabled && (
+      <Article isEditing={isEditing}>
+        {isEditing && (
           <Toolbar
             hasUnsavedChanges={hasUnsavedChanges}
             onPublish={async () => {
@@ -104,7 +96,6 @@ const Post = ({ ...props }: PostFields) => {
         )}
         <Tags
           field={TAGS}
-          isEditingEnabled={isEditingEnabled}
           onChange={handleStateFieldChange}
           tags={postState[TAGS]}
         />
@@ -112,7 +103,6 @@ const Post = ({ ...props }: PostFields) => {
           <TextField
             as="span"
             field={AUTHOR}
-            isEditingEnabled={isEditingEnabled}
             onChange={handleStateFieldChange}
             value={postState[AUTHOR]}
           />
@@ -120,14 +110,12 @@ const Post = ({ ...props }: PostFields) => {
           <DateField
             date={postState[CREATED_AT]}
             field={CREATED_AT}
-            isEditingEnabled={isEditingEnabled}
             onChange={handleStateFieldChange}
           />
         </AuthorAndDate>
         <TextField
           as="h1"
           field={TITLE}
-          isEditingEnabled={isEditingEnabled}
           onChange={handleStateFieldChange}
           style={{
             marginTop: "2rem",
@@ -138,7 +126,6 @@ const Post = ({ ...props }: PostFields) => {
         <Content
           content={postState[CONTENT]}
           field={CONTENT}
-          isEditingEnabled={isEditingEnabled}
           onChange={handleStateFieldChange}
         />
       </Article>

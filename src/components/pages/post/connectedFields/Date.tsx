@@ -1,20 +1,16 @@
 import { useState } from "react";
 import { getDateAsString } from "@/utils/generalUtils";
 import { BlogField } from "@/utils/types";
+import { useAuth } from "@/providers/AuthProvider";
 
 interface DateFieldProps {
   date: number;
-  isEditingEnabled: boolean;
   onChange: (field: BlogField, value: number) => void;
   field: BlogField;
 }
 
-const DateField = ({
-  date,
-  isEditingEnabled,
-  onChange,
-  field,
-}: DateFieldProps) => {
+const DateField = ({ date, onChange, field }: DateFieldProps) => {
+  const { isEditing } = useAuth();
   const [isEditingDate, setIsEditingDate] = useState(false);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const time = new Date(e.target.value).getTime();
@@ -26,7 +22,7 @@ const DateField = ({
   ) : (
     <time
       onClick={() => {
-        if (isEditingEnabled) setIsEditingDate(true);
+        if (isEditing) setIsEditingDate(true);
       }}
     >
       {getDateAsString(date)}

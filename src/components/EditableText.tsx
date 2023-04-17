@@ -1,8 +1,8 @@
 import { HtmlElementTag } from "@/utils/types";
+import { useAuth } from "@/providers/AuthProvider";
 
 interface TextFieldProps {
   value: string;
-  isEditingEnabled: boolean;
   onChange: (value: string) => void;
   style?: React.CSSProperties;
   as: HtmlElementTag;
@@ -49,13 +49,8 @@ const getWrapper = (as: HtmlElementTag) => {
   }
 };
 
-const EditableText = ({
-  value,
-  isEditingEnabled,
-  onChange,
-  as,
-  style,
-}: TextFieldProps) => {
+const EditableText = ({ value, onChange, as, style }: TextFieldProps) => {
+  const { isEditing } = useAuth();
   const Wrapper = getWrapper(as);
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const newValue = e.target.innerHTML;
@@ -64,11 +59,11 @@ const EditableText = ({
   };
   return (
     <Wrapper
-      contentEditable={isEditingEnabled}
+      contentEditable={isEditing}
       dangerouslySetInnerHTML={{ __html: value }}
       onBlur={handleBlur}
       style={{
-        cursor: isEditingEnabled ? "pointer" : "default",
+        cursor: isEditing ? "pointer" : "default",
         ...style,
       }}
       suppressContentEditableWarning={true}

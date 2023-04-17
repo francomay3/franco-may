@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import DarkModeSwitch from "./DarkModeSwitch";
 import Logo from "./Logo";
+import { useAuth } from "@/providers/AuthProvider";
 
 const Wrapper = styled.header`
   display: flex;
@@ -20,14 +21,16 @@ const Nav = styled.nav`
     gap: ${({ theme }) => theme.spacing[4]};
     margin: 0;
     padding: 0;
-  }
-`;
-
-const NavLink = styled(Link)<{ active: 0 | 1 }>`
-  color: ${({ theme }) => theme.colors.white};
-  text-decoration: none;
-  &:hover {
-    color: ${({ theme }) => theme.colors.lightprimary};
+    align-items: center;
+    & a,
+    & p {
+      cursor: pointer;
+      color: ${({ theme }) => theme.colors.white};
+      text-decoration: none;
+      &:hover {
+        color: ${({ theme }) => theme.colors.lightprimary};
+      }
+    }
   }
 `;
 
@@ -36,7 +39,7 @@ function DesktopNav({
 }: {
   navLinks: { href: string; pageName: string }[];
 }) {
-  const { pathname } = useRouter();
+  const { isAdmin, setIsEditing, isEditing } = useAuth();
   return (
     <Wrapper>
       <Logo />
@@ -44,11 +47,16 @@ function DesktopNav({
         <ul>
           {navLinks.map(({ href, pageName }) => (
             <li key={href}>
-              <NavLink active={pathname === href ? 1 : 0} href={href}>
-                {pageName}
-              </NavLink>
+              <Link href={href}>{pageName}</Link>
             </li>
           ))}
+          {isAdmin && (
+            <li>
+              <p onClick={() => setIsEditing(!isEditing)}>
+                {isEditing ? "Don't edit" : "edit"}
+              </p>
+            </li>
+          )}
         </ul>
       </Nav>
       <DarkModeSwitch />

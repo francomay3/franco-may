@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 import { EditableImage } from "@/components/design-system";
 import { ImageData } from "@/utils/types";
+import { useAuth } from "@/providers/AuthProvider";
 
 const Wrapper = styled.figure`
   display: flex;
@@ -18,22 +19,20 @@ const ImageWithCaption = ({
   imageName,
   caption = "Hmm. Can't find that image.",
   url = "/images/lostDuck.gif",
-  isEditingEnabled,
   onCaptionChange = () => null,
   onSelect = () => null,
 }: {
   imageName: string;
   caption?: string;
   url: string;
-  isEditingEnabled?: boolean;
   onCaptionChange?: (value: string) => void;
   onSelect?: (image: ImageData) => void;
 }) => {
   const theme = useTheme();
+  const { isEditing } = useAuth();
   return (
     <Wrapper>
       <EditableImage
-        isEditingEnabled={isEditingEnabled}
         name={imageName}
         onSelect={onSelect}
         src={url}
@@ -45,7 +44,7 @@ const ImageWithCaption = ({
         style={{ flex: "1", color: theme.colors.grey, textAlign: "center" }}
       >
         <h3
-          contentEditable={isEditingEnabled}
+          contentEditable={isEditing}
           dangerouslySetInnerHTML={{ __html: caption }}
           onBlur={(e) => onCaptionChange(e.target.innerHTML)}
           suppressContentEditableWarning={true}
