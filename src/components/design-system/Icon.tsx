@@ -19,6 +19,7 @@ import {
   faImage,
   faEye,
   faEyeSlash,
+  faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Icon({ id }: { id: string }) {
@@ -61,6 +62,8 @@ function Icon({ id }: { id: string }) {
       return <FontAwesomeIcon icon={faEye} />;
     case "hidden":
       return <FontAwesomeIcon icon={faEyeSlash} />;
+    case "loading":
+      return <FontAwesomeIcon icon={faSpinner} />;
     default:
       return <FontAwesomeIcon icon={faQuestion} />;
   }

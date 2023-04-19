@@ -131,6 +131,7 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
               onChange={handleOnFieldChange(post[SLUG], TITLE)}
               style={{
                 color: theme.colors.primary,
+                cursor: "pointer",
               }}
               value={post[TITLE]}
             />

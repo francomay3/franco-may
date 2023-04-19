@@ -40,14 +40,15 @@ const ImageWithCaption = ({
           flex: "1",
         }}
       />
-      <figcaption
-        style={{ flex: "1", color: theme.colors.grey, textAlign: "center" }}
-      >
+      <figcaption style={{ flex: "1", textAlign: "center" }}>
         <h3
           contentEditable={isEditing}
           dangerouslySetInnerHTML={{ __html: caption }}
           onBlur={(e) => onCaptionChange(e.target.innerHTML)}
           suppressContentEditableWarning={true}
+          style={{
+            color: theme.colors.grey5,
+          }}
         />
       </figcaption>
     </Wrapper>

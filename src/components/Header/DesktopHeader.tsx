@@ -53,7 +53,7 @@ function DesktopNav({
           {isAdmin && (
             <li>
               <p onClick={() => setIsEditing(!isEditing)}>
-                {isEditing ? "Don't edit" : "edit"}
+                {isEditing ? "Stop editing" : "edit"}
               </p>
             </li>
           )}

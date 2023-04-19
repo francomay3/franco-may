@@ -34,6 +34,7 @@ const lightViolet = "#d076f2";
 const darkViolet = "#851aad";
 
 const baseTheme = {
+  isDark: false,
   aspectRatio: 1.4,
   shadows: {
     1: "1px 2px 4px rgb(0 0 0 / 40%)",
@@ -157,7 +158,7 @@ const baseTheme = {
 
 const darkTheme = {
   ...baseTheme,
-
+  isDark: true,
   card: {
     backgroundColor: grey2,
     borderColor: grey4,

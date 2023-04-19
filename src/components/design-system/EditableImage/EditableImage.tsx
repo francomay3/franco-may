@@ -3,6 +3,7 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 import { ActionEditButton } from "../ActionButtons";
 import ImageSelectionDialog from "./ImageSelectionDialog";
+import ImagePreviewDialog from "./ImagePreviewDialog";
 import { ImageData } from "@/utils/types";
 import { useAuth } from "@/providers/AuthProvider";
 
@@ -41,7 +42,9 @@ const EditableImage = ({
 }: EditableImageProps) => {
   const { isEditing } = useAuth();
   const [isHoveringImage, setIsHoveringImage] = useState(false);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isImageEditDialogOpen, setIsImageEditDialogOpen] = useState(false);
+  const [isImagePreviewDialogOpen, setIsImagePreviewDialogOpen] =
+    useState(false);
   const sizes = {
     thumbnail: 80,
     small: 160,
@@ -52,9 +55,14 @@ const EditableImage = ({
   return (
     <>
       <ImageSelectionDialog
-        isDialogOpen={isDialogOpen}
+        isDialogOpen={isImageEditDialogOpen}
         onSelect={onSelect}
-        setIsDialogOpen={setIsDialogOpen}
+        setIsDialogOpen={setIsImageEditDialogOpen}
+      />
+      <ImagePreviewDialog
+        isDialogOpen={isImagePreviewDialogOpen}
+        setIsDialogOpen={setIsImagePreviewDialogOpen}
+        src={src || `/images/${name}`}
       />
       <ImageWrapper
         isEditing={isEditing}
@@ -66,7 +74,11 @@ const EditableImage = ({
           draggable={!isEditing}
           fill
           objectFit="cover"
-          onClick={() => (isEditing ? setIsDialogOpen(true) : undefined)}
+          onClick={() =>
+            isEditing
+              ? setIsImageEditDialogOpen(true)
+              : setIsImagePreviewDialogOpen(true)
+          }
           onMouseEnter={() => {
             isEditing && setIsHoveringImage(true);
           }}
@@ -74,6 +86,7 @@ const EditableImage = ({
           sizes={`${sizes[size]}px`}
           src={src || `/images/${name}`}
           style={{
+            cursor: "pointer",
             left: "50%",
             top: "50%",
             transform: "translate(-50%, -50%)",

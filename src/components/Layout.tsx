@@ -17,12 +17,12 @@ const Wrapper = styled.div`
   }
 `;
 
-const Container = styled.div<{ isDark: boolean }>`
+const Container = styled.div`
   align-items: center;
   flex-direction: column;
   flex: 1;
   display: flex;
-  align-items: ${({ isDark }) => (isDark ? "center" : "stretch")};
+  align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.background};
   padding-block: ${({ theme }) => theme.spacing[6]};
@@ -31,8 +31,8 @@ const Container = styled.div<{ isDark: boolean }>`
     padding-inline: ${({ theme }) => theme.spacing.aLot};
   }
   ${({ theme }) => theme.mediaQueries.mobile} {
-    ${({ isDark, theme }) =>
-      !isDark && `background-color: ${theme.colors.white}`};
+    ${({ theme }) =>
+      !theme.isDark && `background-color: ${theme.colors.white}`};
     padding-inline: ${({ theme }) => theme.spacing[4]};
   }
 `;
@@ -51,7 +51,7 @@ const Layout = ({
   return (
     <Wrapper style={WrapperStyles}>
       <Header />
-      <Container isDark={isDark}>
+      <Container>
         {!shouldRenderCard ? (
           children
         ) : (
@@ -60,6 +60,8 @@ const Layout = ({
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              width: "100%",
+              maxWidth: "1000px",
             }}
           >
             {children}

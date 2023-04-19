@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 const Posts = ({ posts: InitialPosts }: { posts: PostFields[] }) => {
   const [posts, setPosts] = useState<PostFields[]>(InitialPosts);
   const [isNewPostDialogOpen, setIsNewPostDialogOpen] = useState(false);
-  const { isAdmin } = useAuth();
+  const { isEditing } = useAuth();
 
   const updatePostField = (
     slug: string,
@@ -46,7 +46,7 @@ const Posts = ({ posts: InitialPosts }: { posts: PostFields[] }) => {
         isDialogOpen={isNewPostDialogOpen}
         setIsDialogOpen={setIsNewPostDialogOpen}
       />
-      {isAdmin && (
+      {isEditing && (
         <Card
           onClick={handleAddPost}
           style={{
@@ -61,7 +61,7 @@ const Posts = ({ posts: InitialPosts }: { posts: PostFields[] }) => {
       )}
       {posts?.map((post) => {
         return (
-          (isAdmin || post[PUBLISHED]) && (
+          (isEditing || post[PUBLISHED]) && (
             <PostCard
               key={post[SLUG]}
               post={post}
