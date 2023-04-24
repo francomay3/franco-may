@@ -36,6 +36,13 @@ const darkViolet = "#851aad";
 const baseTheme = {
   isDark: false,
   aspectRatio: 1.4,
+  form: {
+    borderRadius: "0.5rem",
+    borderColor: grey7,
+    borderFocusColor: blue,
+    backgroundColor: grey10,
+    padding: "0.5rem",
+  },
   shadows: {
     1: "1px 2px 4px rgb(0 0 0 / 40%)",
     2: "3px 4px 8px rgb(0 0 0 / 20%)",
@@ -162,6 +169,12 @@ const darkTheme = {
   card: {
     backgroundColor: grey2,
     borderColor: grey4,
+  },
+  form: {
+    ...baseTheme.form,
+    borderColor: grey4,
+    borderFocusColor: blue,
+    backgroundColor: grey2,
   },
   colors: {
     ...baseTheme.colors,

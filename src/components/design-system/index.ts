@@ -4,12 +4,16 @@ import Card from "./Card";
 import Container from "./Container";
 import Dialog from "./Dialog";
 import EditableImage from "./EditableImage/EditableImage";
+import EmailInput from "./EmailInput";
 import Emphasis from "./Emphasis";
 import Icon from "./Icon";
 import ImageWithCaption from "./ImageWithCaption";
+import Label from "./Label";
 import Link from "./Link";
 import Tabs from "./Tabs";
 import Tag from "./Tag";
+import Textarea from "./Textarea";
+import TextInput from "./TextInput";
 
 export * from "./Layout";
 export * from "./ActionButtons";
@@ -19,12 +23,16 @@ export {
   Container,
   Dialog,
   EditableImage,
+  EmailInput,
   Emphasis,
   Icon,
   ImageWithCaption,
+  Label,
   Link,
   Tabs,
   Tag,
+  Textarea,
+  TextInput,
   toast,
   Toast,
 };

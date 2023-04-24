@@ -28,20 +28,31 @@ const Wrapper = styled.button<{ color: Colors }>`
 `;
 
 export interface ButtonProps {
-  children: ReactNode;
-  onClick?: () => void;
+  children?: ReactNode;
   color?: Colors;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   style?: CSSProperties;
+  type?: "button" | "submit" | "reset";
+  value?: string;
 }
 
 const Button = ({
   children,
-  onClick,
   color = "blue",
+  onClick,
   style = {},
+  type = "button",
+  value,
 }: ButtonProps) => {
   return (
-    <Wrapper color={color} onClick={onClick} style={style}>
+    <Wrapper
+      color={color}
+      onClick={onClick}
+      style={style}
+      type={type}
+      value={value}
+    >
+      {value && !children && value}
       {children}
     </Wrapper>
   );

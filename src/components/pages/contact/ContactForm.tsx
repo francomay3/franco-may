@@ -1,16 +1,44 @@
 import React from "react";
 import { useState } from "react";
+import styled from "@emotion/styled";
+import { useTheme } from "@emotion/react";
 import { sendMail } from "@/utils/mailUtils";
+import {
+  Button,
+  EmailInput,
+  Label,
+  Textarea,
+  TextInput,
+} from "@/components/design-system";
+
+const Form = styled.form`
+  display: grid;
+  grid-template-columns: auto 2fr;
+  grid-gap: 1rem;
+  width: 100%;
+  align-items: center;
+  ${(props) => props.theme.mediaQueries.mobile} {
+    grid-template-columns: 1fr;
+    label {
+      margin-bottom: -0.5rem;
+    }
+  }
+`;
+
+type FormStatus = "notSent" | "sent" | "serverError" | "validationError";
 
 const ContactForm = () => {
+  const theme = useTheme();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [serverStatus, setServerStatus] = useState("notSent");
-  const [log, setLog] = useState("");
+  const [formStatus, setFormStatus] = useState<FormStatus>("notSent");
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    if (!name || !email || !message) {
+      return setFormStatus("validationError");
+    }
     const data = {
       name,
       email,
@@ -19,64 +47,73 @@ const ContactForm = () => {
 
     sendMail(data)
       .then(() => {
-        setLog(log + " ----- " + data);
-        setServerStatus("sent");
+        setFormStatus("sent");
         return true;
       })
-      .catch((err) => {
-        setLog(log + " ----- " + err);
-        setServerStatus("error");
+      .catch(() => {
+        setFormStatus("serverError");
         return false;
       });
   };
 
   const form = (
-    <div>
-      <form>
-        <label htmlFor="name">Name</label>
-        <input
+    <>
+      {formStatus === "validationError" && (
+        <p>
+          Please fill the
+          <b
+            style={{
+              color: theme.colors.danger,
+            }}
+          >
+            {!name ? " name " : !email ? " email " : " message "}
+          </b>
+          field! 🙏
+        </p>
+      )}
+      <Form>
+        <Label htmlFor="name">Name:</Label>
+        <TextInput
           name="name"
           onChange={(e) => setName(e.target.value)}
-          type="text"
           value={name}
         />
-        <label htmlFor="email">Email</label>
-        <input
+        <Label htmlFor="email">Email:</Label>
+        <EmailInput
           name="email"
           onChange={(e) => setEmail(e.target.value)}
-          type="email"
           value={email}
         />
-        <label htmlFor="message">Message</label>
-        <input
+        <Label htmlFor="message">Message:</Label>
+        <Textarea
           name="message"
           onChange={(e) => setMessage(e.target.value)}
-          type="text"
+          style={{ height: "10rem" }}
           value={message}
         />
-        <input onClick={handleSubmit} type="submit" value="Submit" />
-      </form>
-    </div>
+        <Button
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleSubmit(e)}
+          type="submit"
+          value="Submit"
+        />
+      </Form>
+    </>
   );
 
-  const success = (
-    <div>
-      <p>Thanks for your message!</p>
-    </div>
-  );
+  const success = <p>Message delivered! I&apos;ll get back to you ASAP! 😘</p>;
 
   const error = (
-    <div>
-      <p>There was an error sending your message. Please try again later.</p>
-    </div>
+    <p>
+      Mmm... That&apos;s weird. 🤔 There seems to be an issue with the contact
+      form. Please try one of the alternatives methods. 🙏
+    </p>
   );
 
   return (
     <>
-      {serverStatus === "notSent" && form}
-      {serverStatus === "sent" && success}
-      {serverStatus === "error" && error}
-      <p>{log}</p>
+      {(formStatus === "notSent" || formStatus === "validationError") && form}
+      {formStatus === "sent" && success}
+      {formStatus === "serverError" && error}
     </>
   );
 };
