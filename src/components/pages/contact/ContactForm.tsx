@@ -14,7 +14,7 @@ import {
 const Form = styled.form`
   max-width: 750px;
   display: grid;
-  grid-template-columns: auto 2fr;
+  grid-template-columns: auto 1fr;
   grid-gap: 1rem;
   width: 100%;
   align-items: center;

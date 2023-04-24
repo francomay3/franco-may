@@ -3,6 +3,7 @@ import { useState } from "react";
 import Tags from "./connectedFields/Tags";
 import TextField from "./connectedFields/TextField";
 import DateField from "./connectedFields/Date";
+import Comments from "./connectedFields/Comments";
 import Toolbar from "./Toolbar";
 import Content from "./connectedFields/content/Content";
 import {
@@ -13,6 +14,7 @@ import {
   TAGS,
   PUBLISHED,
   SLUG,
+  COMMENTS,
 } from "@/utils/constants";
 import { BlogField, PostFields } from "@/utils/types";
 import { useAuth } from "@/providers/AuthProvider";
@@ -73,7 +75,7 @@ const Post = ({ ...props }: PostFields) => {
     setHasUnsavedChanges(false);
   };
 
-  const handleStateFieldChange = (field: BlogField, value: string | number) => {
+  const handleStateFieldChange = (field: BlogField, value: any) => {
     setPostState(getUpdatedPostState(field, value));
     setHasUnsavedChanges(true);
   };
@@ -94,11 +96,7 @@ const Post = ({ ...props }: PostFields) => {
             save={handleSave}
           />
         )}
-        <Tags
-          field={TAGS}
-          onChange={handleStateFieldChange}
-          tags={postState[TAGS]}
-        />
+        <Tags onChange={handleStateFieldChange} tags={postState[TAGS]} />
         <AuthorAndDate>
           <TextField
             as="span"
@@ -125,7 +123,10 @@ const Post = ({ ...props }: PostFields) => {
 
         <Content
           content={postState[CONTENT]}
-          field={CONTENT}
+          onChange={handleStateFieldChange}
+        />
+        <Comments
+          comments={postState[COMMENTS]}
           onChange={handleStateFieldChange}
         />
       </Article>

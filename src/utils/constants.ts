@@ -15,6 +15,7 @@ export const TAGS = "tags";
 export const TITLE = "title";
 export const UPDATED_AT = "updatedAt";
 export const SLUG = "slug";
+export const COMMENTS = "comments";
 
 export const POST_FIELDS = [
   AUTHOR,
@@ -27,6 +28,7 @@ export const POST_FIELDS = [
   TAGS,
   TITLE,
   UPDATED_AT,
+  COMMENTS,
 ] as const;
 
 export const DEFAULT_POST = {
@@ -42,6 +44,13 @@ export const DEFAULT_POST = {
       type: "text",
       blockId: "1",
       content: "This is a text block",
+    },
+  ],
+  comments: [
+    {
+      name: "Franco May",
+      date: new Date().getTime(),
+      content: "This is a comment",
     },
   ],
 };

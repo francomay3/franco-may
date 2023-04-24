@@ -11,26 +11,24 @@ import {
   moveBlock,
   updateBlock,
 } from "./utils";
-import { BlogField } from "@/utils/types";
 import { useAuth } from "@/providers/AuthProvider";
+import { CONTENT } from "@/utils/constants";
 
-type OnChange = (field: BlogField, value: string) => void;
+type OnChange = (field: typeof CONTENT, value: BlockData[]) => void;
 interface ContentProps {
-  content: string;
-  field: BlogField;
+  content: BlockData[];
   onChange: OnChange;
 }
 
-const Content = ({ content: rawContent, field, onChange }: ContentProps) => {
+const Content = ({ content, onChange }: ContentProps) => {
   const { isEditing } = useAuth();
   const [draggedBlock, setDraggedBlock] = useState<BlockData | null>(null);
   const [isNewBlockDialogOpen, setIsNewBlockDialogOpen] = useState(false);
   const [selectionIndex, setSelectionIndex] = useState(0);
-  const content: BlockData[] = JSON.parse(rawContent);
 
   const handleChange = (newContent: BlockData[]) => {
     const preparedContent = mergeTextBlocks(newContent);
-    onChange(field, JSON.stringify(preparedContent));
+    onChange(CONTENT, preparedContent);
   };
 
   return (

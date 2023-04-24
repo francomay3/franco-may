@@ -53,7 +53,7 @@ const NewBlockDialog = ({
             <BlockTitle>{title}</BlockTitle>
             <BlockSelectionWrapper
               onClick={() =>
-                addBlock({ ...data, blockId: `${new Date().getTime()}` })
+                addBlock({ ...data, blockId: new Date().getTime() })
               }
             >
               <Component />

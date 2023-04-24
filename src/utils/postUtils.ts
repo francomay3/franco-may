@@ -12,6 +12,7 @@ import {
   AUTHOR,
   IMAGE,
   SLUG,
+  COMMENTS,
 } from "./constants";
 import { PostFields } from "./types";
 import { toast } from "@/components/design-system";
@@ -82,21 +83,28 @@ export const createPost = async (slug: string) => {
       // eslint-disable-next-line no-empty
     } catch (e: any) {}
     const startingValue: PostFields = {
-      [CONTENT]: JSON.stringify([
+      [CONTENT]: [
         { ...TextBlockDataDefault, blockId: 1 },
         { ...ImageBlockDataDefault, blockId: 2 },
         { ...TextBlockDataDefault, blockId: 3 },
-      ]),
+      ],
       [CREATED_AT]: new Date().getTime(),
       [UPDATED_AT]: new Date().getTime(),
       [DESCRIPTION]: "Blog Description",
       [LOCATION]: "Göteborg, Sverige",
       [PUBLISHED]: false,
-      [TAGS]: JSON.stringify(["Tag1", "Tag2"]),
+      [TAGS]: ["Tag1", "Tag2"],
       [TITLE]: slug,
       [AUTHOR]: "Franco May",
       [SLUG]: slug,
       [IMAGE]: "https://source.unsplash.com/random/800x600",
+      [COMMENTS]: [
+        {
+          name: "Franco May",
+          date: new Date().getTime(),
+          content: "This is a comment",
+        },
+      ],
     };
 
     try {

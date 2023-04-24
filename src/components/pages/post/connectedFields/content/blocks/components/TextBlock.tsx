@@ -49,7 +49,7 @@ function TextBlock({ block, onChange }: TextBlockProps) {
 
 export const TextBlockDataDefault: TextBlockData = {
   type: "text",
-  blockId: `${new Date().getTime() - 1000}`,
+  blockId: new Date().getTime() - 1000,
   data: "As the sun began to rise over the horizon, the birds began to chirp their morning melodies. The world was waking up to a new day, full of possibilities and opportunities. For many people, mornings were a time of reflection and preparation for the day ahead. They would sip their coffee or tea, read the newspaper, or simply sit in silence and gather their thoughts.",
 };
 

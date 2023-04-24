@@ -151,7 +151,7 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
             />
           </Link>
           <Tags>
-            {JSON.parse(post[TAGS]).map((tag: string) => (
+            {post[TAGS].map((tag: string) => (
               <Tag key={tag} tag={tag} />
             ))}
           </Tags>

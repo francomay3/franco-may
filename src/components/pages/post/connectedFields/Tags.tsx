@@ -4,6 +4,7 @@ import { ActionPlusButton } from "../../../design-system/ActionButtons";
 import Tag from "../../../design-system/Tag";
 import { BlogField } from "@/utils/types";
 import { useAuth } from "@/providers/AuthProvider";
+import { TAGS } from "@/utils/constants";
 
 const NEW_TAG = "new tag";
 
@@ -14,40 +15,35 @@ const Wrapper = styled.div`
 `;
 
 const formatTags = (tags: string[]) =>
-  JSON.stringify(
-    uniq(
-      tags.sort((a, b) => {
-        if (a === NEW_TAG) return 1;
-        if (b === NEW_TAG) return -1;
-        if (a < b) return -1;
-        if (a > b) return 1;
-        return 0;
-      })
-    )
+  uniq(
+    tags.sort((a, b) => {
+      if (a === NEW_TAG) return 1;
+      if (b === NEW_TAG) return -1;
+      if (a < b) return -1;
+      if (a > b) return 1;
+      return 0;
+    })
   );
 
-type OnChange = (field: BlogField, value: string) => void;
+type OnChange = (field: BlogField, value: string[]) => void;
 
 const Tags = ({
-  field,
   tags,
   onChange,
   style,
 }: {
-  field: BlogField;
-  tags: string;
+  tags: string[];
   onChange: OnChange;
   style?: React.CSSProperties;
 }) => {
   const { isEditing } = useAuth();
-  const parsedTags: string[] = JSON.parse(tags);
 
   const deleteTag = (tag: string) => {
-    onChange(field, formatTags(parsedTags.filter((t) => t !== tag)));
+    onChange(TAGS, formatTags(tags.filter((t) => t !== tag)));
   };
 
   const addTag = () => {
-    onChange(field, formatTags([...parsedTags, NEW_TAG]));
+    onChange(TAGS, formatTags([...tags, NEW_TAG]));
   };
 
   const handleChange = (newTag: string, oldTag: string) => {
@@ -56,15 +52,12 @@ const Tags = ({
       return;
     }
     if (oldTag === newTag) return;
-    onChange(
-      field,
-      formatTags([...parsedTags.filter((t) => t !== oldTag), newTag])
-    );
+    onChange(TAGS, formatTags([...tags.filter((t) => t !== oldTag), newTag]));
   };
 
   return (
     <Wrapper style={style}>
-      {parsedTags.map((tag) => (
+      {tags.map((tag) => (
         <Tag key={tag} onChange={handleChange} onDelete={deleteTag} tag={tag} />
       ))}
       {isEditing && <ActionPlusButton onClick={addTag} />}

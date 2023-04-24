@@ -43,7 +43,7 @@ function ImageBlock({ block, onChange = () => null }: ImageBlockProps) {
 
 export const ImageBlockDataDefault: ImageBlockData = {
   type: "image",
-  blockId: `${new Date().getTime()}`,
+  blockId: new Date().getTime(),
   title: "Image Title",
   caption: "This is a beautiful image, isn't it?",
   url: "https://source.unsplash.com/random/600x400",

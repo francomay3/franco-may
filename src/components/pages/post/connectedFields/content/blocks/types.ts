@@ -2,13 +2,13 @@ export type ImageBlockData = {
   title: string;
   caption: string;
   url: string;
-  blockId: string;
+  blockId: number;
   type: "image";
 };
 
 export type TextBlockData = {
   data: string;
-  blockId: string;
+  blockId: number;
   type: "text";
 };
 
