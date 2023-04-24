@@ -7,6 +7,7 @@ const ContactForm = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [serverStatus, setServerStatus] = useState("notSent");
+  const [log, setLog] = useState("");
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -18,10 +19,12 @@ const ContactForm = () => {
 
     sendMail(data)
       .then(() => {
+        setLog(log + " ----- " + data);
         setServerStatus("sent");
         return true;
       })
-      .catch(() => {
+      .catch((err) => {
+        setLog(log + " ----- " + err);
         setServerStatus("error");
         return false;
       });
@@ -73,6 +76,7 @@ const ContactForm = () => {
       {serverStatus === "notSent" && form}
       {serverStatus === "sent" && success}
       {serverStatus === "error" && error}
+      <p>{log}</p>
     </>
   );
 };

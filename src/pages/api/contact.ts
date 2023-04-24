@@ -20,11 +20,12 @@ async function sendMail(req: any, res: any) {
     <p><b>message:</b></p>
     <p> ${req.body.message}</p>`,
   };
-
-  transporter.sendMail(mailData, function (err: any) {
-    if (err) res.status(500).json({ message: "error" });
-  });
-  res.status(200).json({ message: "success" });
+  try {
+    await transporter.sendMail(mailData);
+    res.status(200).json({ status: "success" });
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
 }
 
 export default sendMail;
