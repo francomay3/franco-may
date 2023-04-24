@@ -12,6 +12,7 @@ import {
 } from "@/components/design-system";
 
 const Form = styled.form`
+  max-width: 750px;
   display: grid;
   grid-template-columns: auto 2fr;
   grid-gap: 1rem;
@@ -25,7 +26,7 @@ const Form = styled.form`
   }
 `;
 
-type FormStatus = "notSent" | "sent" | "serverError" | "validationError";
+type FormStatus = "notSent" | "sent" | "serverError" | "validating";
 
 const ContactForm = () => {
   const theme = useTheme();
@@ -37,7 +38,7 @@ const ContactForm = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (!name || !email || !message) {
-      return setFormStatus("validationError");
+      return setFormStatus("validating");
     }
     const data = {
       name,
@@ -58,7 +59,7 @@ const ContactForm = () => {
 
   const form = (
     <>
-      {formStatus === "validationError" && (
+      {formStatus === "validating" && (!name || !email || !message) && (
         <p>
           Please fill the
           <b
@@ -111,7 +112,7 @@ const ContactForm = () => {
 
   return (
     <>
-      {(formStatus === "notSent" || formStatus === "validationError") && form}
+      {(formStatus === "notSent" || formStatus === "validating") && form}
       {formStatus === "sent" && success}
       {formStatus === "serverError" && error}
     </>
