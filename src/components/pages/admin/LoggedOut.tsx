@@ -1,6 +1,6 @@
-import Image from "next/image";
 import styled from "@emotion/styled";
 import { useAuth } from "@/providers/AuthProvider";
+import { Button } from "@/components/design-system";
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -9,26 +9,13 @@ const ContentWrapper = styled.div`
   align-items: center;
 `;
 
-const GoogleLogo = styled(Image)`
-  cursor: pointer;
-`;
-
 function LoggedOut() {
   const { logIn } = useAuth();
   return (
-    <>
-      <ContentWrapper>
-        <h1>Hi man, welcome back</h1>
-        <h3>click on the Google logo to log in</h3>
-        <GoogleLogo
-          alt="log in with google"
-          height={100}
-          onClick={() => logIn()}
-          src="/googleLogo.png"
-          width={100}
-        />
-      </ContentWrapper>
-    </>
+    <ContentWrapper>
+      <h1>Hi man, welcome back</h1>
+      <Button onClick={() => logIn()}>Log In</Button>
+    </ContentWrapper>
   );
 }
 

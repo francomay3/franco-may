@@ -45,10 +45,10 @@ const ImageWithCaption = ({
           contentEditable={isEditing}
           dangerouslySetInnerHTML={{ __html: caption }}
           onBlur={(e) => onCaptionChange(e.target.innerHTML)}
-          suppressContentEditableWarning={true}
           style={{
             color: theme.colors.grey5,
           }}
+          suppressContentEditableWarning={true}
         />
       </figcaption>
     </Wrapper>

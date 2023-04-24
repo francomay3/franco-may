@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
+import Link from "next/link";
 import { ActionMinusButton } from "./ActionButtons";
+import WrappIf from "./WrappIf";
 import { useAuth } from "@/providers/AuthProvider";
 
 const Wrapper = styled.div`
@@ -46,21 +48,27 @@ const Tag = ({
     colors["red"],
   ];
 
-  const randomColor = tagColors[getIntegerFromString(tag, tagColors.length)];
+  const tagColor = tagColors[getIntegerFromString(tag, tagColors.length)];
 
   return (
-    <Wrapper color={randomColor} key={tag}>
-      <div
-        contentEditable={isEditing}
-        onBlur={(e) => onChange && onChange(e.target.innerText, tag)}
-        suppressContentEditableWarning={true}
-      >
-        {tag}
-      </div>
-      {isEditing && (
-        <ActionMinusButton onClick={() => onDelete && onDelete(tag)} />
-      )}
-    </Wrapper>
+    <WrappIf
+      Wrapper={Link}
+      condition={!isEditing}
+      wrapperProps={{ href: `/blog/tags/${tag}` }}
+    >
+      <Wrapper color={tagColor} key={tag}>
+        <div
+          contentEditable={isEditing}
+          onBlur={(e) => onChange && onChange(e.target.innerText, tag)}
+          suppressContentEditableWarning={true}
+        >
+          {tag}
+        </div>
+        {isEditing && (
+          <ActionMinusButton onClick={() => onDelete && onDelete(tag)} />
+        )}
+      </Wrapper>
+    </WrappIf>
   );
 };
 

@@ -2,13 +2,30 @@ import styled from "@emotion/styled";
 import React from "react";
 import Posts from "./Posts";
 import { PostFields } from "@/utils/types";
-import { Container, EditableImage, Emphasis } from "@/components/design-system";
+import {
+  Container as DSContainer,
+  EditableImage,
+  Emphasis,
+} from "@/components/design-system";
+
+const Container = styled(DSContainer)`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.aLot};
+  margin-block: ${({ theme }) => theme.spacing.aLot};
+  ${({ theme }) => theme.mediaQueries.mobile} {
+    margin-block: ${({ theme }) => theme.spacing[4]};
+  }
+  ${({ theme }) => theme.mediaQueries.tablet} {
+    margin-block: ${({ theme }) => theme.spacing[6]};
+  }
+`;
 
 const Intro = styled.div`
   display: flex;
   gap: ${({ theme }) => theme.spacing[4]};
-  margin-bottom: 5rem;
-  margin-top: 2rem;
+  /* margin-bottom: 5rem;
+  margin-top: 2rem; */
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;

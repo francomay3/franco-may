@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
+import UserData from "./UserData";
 import { Link } from "@/components/design-system";
 
 const ContentWrapper = styled.div`
@@ -34,6 +35,7 @@ function NotAllowedUser() {
           You are not supposed to be here.
         </h1>
         <Link href="/">Go back to the home page</Link>
+        <UserData />
       </ContentWrapper>
     </>
   );

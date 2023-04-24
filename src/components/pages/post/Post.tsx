@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Tags from "./connectedFields/Tags";
 import TextField from "./connectedFields/TextField";
 import DateField from "./connectedFields/Date";

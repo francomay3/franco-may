@@ -1,8 +1,10 @@
-import { ReactNode } from "react";
+import { ReactNode, CSSProperties } from "react";
 import styled from "@emotion/styled";
 import { Colors } from "@/utils/types";
 
 const Wrapper = styled.button<{ color: Colors }>`
+  width: fit-content;
+  display: inline-block;
   background-color: ${({ theme, color }) => theme.colors[color]};
   color: ${({ theme }) => theme.colors.white};
   border: none;
@@ -29,11 +31,17 @@ export interface ButtonProps {
   children: ReactNode;
   onClick?: () => void;
   color?: Colors;
+  style?: CSSProperties;
 }
 
-const Button = ({ children, onClick, color = "blue" }: ButtonProps) => {
+const Button = ({
+  children,
+  onClick,
+  color = "blue",
+  style = {},
+}: ButtonProps) => {
   return (
-    <Wrapper color={color} onClick={onClick}>
+    <Wrapper color={color} onClick={onClick} style={style}>
       {children}
     </Wrapper>
   );

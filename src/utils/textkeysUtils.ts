@@ -1,4 +1,4 @@
-import { ref, get, set, remove } from "firebase/database";
+import { ref, get, set } from "firebase/database";
 import { toast } from "@/components/design-system";
 import { db } from "@/firebase";
 

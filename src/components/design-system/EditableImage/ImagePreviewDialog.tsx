@@ -1,13 +1,7 @@
-import {
-  Card,
-  Dialog,
-  EditableImage,
-  Icon,
-  toast,
-} from "@/components/design-system";
 import Image from "next/image";
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
+import { Dialog } from "@/components/design-system";
 
 const Container = styled.div`
   display: flex;
@@ -35,17 +29,17 @@ const ImagePreviewDialog = ({
     >
       <Container>
         <Image
-          src={src}
           alt="Image preview"
-          width={1000}
           height={1000 / theme.aspectRatio}
           objectFit="contain"
+          src={src}
           style={{
             width: "100%",
             height: "100%",
             objectFit: "contain",
             borderRadius: theme.borderRadius[4],
           }}
+          width={1000}
         />
       </Container>
     </Dialog>

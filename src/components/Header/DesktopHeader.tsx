@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import DarkModeSwitch from "./DarkModeSwitch";
 import Logo from "./Logo";
 import { useAuth } from "@/providers/AuthProvider";

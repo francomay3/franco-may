@@ -82,7 +82,7 @@ interface PostCardProps {
 }
 
 const PostCard = ({ post, updatePostField }: PostCardProps) => {
-  const { isAdmin } = useAuth();
+  const { isEditing } = useAuth();
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const isMobile = useIsMobile();
   const theme = useTheme();
@@ -107,13 +107,13 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
     handleOnFieldChange(post[SLUG], PUBLISHED)(!post[PUBLISHED]);
 
   return (
-    <Wrapper key={post[SLUG]} published={post[PUBLISHED]}>
+    <Wrapper published={post[PUBLISHED]}>
       <DeleteModal
         isDialogOpen={isDeleteModalOpen}
         onDelete={() => deletePost(post[SLUG])}
         setIsDialogOpen={setIsDeleteModalOpen}
       />
-      {isAdmin && (
+      {isEditing && (
         <PublishedIconWrapper>
           {post[PUBLISHED] ? (
             <ActionVisibleButton onClick={handlePublish} />
@@ -124,8 +124,22 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
         </PublishedIconWrapper>
       )}
       <Post>
+        <EditableImage
+          name={post[SLUG]}
+          onSelect={({ url }) => handleOnFieldChange(post[SLUG], IMAGE)(url)}
+          size="small"
+          src={post[IMAGE] || "https://source.unsplash.com/random/200x200"}
+          wrapperStyles={{
+            width: "200px",
+          }}
+        />
         <Meta>
-          <Link href={`/blog/${post[SLUG]}`}>
+          <Link
+            href={`/blog/${post[SLUG]}`}
+            style={{
+              width: "fit-content",
+            }}
+          >
             <EditableText
               as="h1"
               onChange={handleOnFieldChange(post[SLUG], TITLE)}
@@ -138,9 +152,7 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
           </Link>
           <Tags>
             {JSON.parse(post[TAGS]).map((tag: string) => (
-              <Link href={`/blog/tags/${tag}`} key={tag}>
-                <Tag tag={tag} />
-              </Link>
+              <Tag key={tag} tag={tag} />
             ))}
           </Tags>
           <EditableText
@@ -159,15 +171,6 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
           />
           <AuthorAndDate>{getDateAsString(post[CREATED_AT])}</AuthorAndDate>
         </Meta>
-        <EditableImage
-          name={post[SLUG]}
-          onSelect={({ url }) => handleOnFieldChange(post[SLUG], IMAGE)(url)}
-          size="small"
-          src={post[IMAGE] || "https://source.unsplash.com/random/200x200"}
-          wrapperStyles={{
-            width: "200px",
-          }}
-        />
       </Post>
     </Wrapper>
   );

@@ -21,7 +21,7 @@ export const UserContext = createContext<{
   isAdmin: false,
   logIn: () => Promise.resolve(undefined),
   logOut: () => Promise.resolve(false),
-  setIsEditing: () => {},
+  setIsEditing: () => false,
   isEditing: false,
 });
 
@@ -61,7 +61,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         isAdmin,
         logIn,
         logOut,
-        setIsEditing: isAdmin ? setIsEditing : () => {},
+        setIsEditing: isAdmin ? setIsEditing : () => false,
         isEditing,
       }}
     >
