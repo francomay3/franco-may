@@ -1,18 +1,27 @@
-import { ref, get, set, remove } from "firebase/database";
 import {
-  TAGS,
-  POSTS,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  setDoc,
+  where,
+} from "firebase/firestore";
+import {
+  AUTHOR,
+  COMMENTS,
   CONTENT,
   CREATED_AT,
-  UPDATED_AT,
   DESCRIPTION,
-  LOCATION,
-  PUBLISHED,
-  TITLE,
-  AUTHOR,
   IMAGE,
+  LOCATION,
+  POSTS,
+  PUBLISHED,
   SLUG,
-  COMMENTS,
+  TAGS,
+  TITLE,
+  UPDATED_AT,
 } from "./constants";
 import { PostFields } from "./types";
 import { toast } from "@/components/design-system";
@@ -22,66 +31,49 @@ import {
   TextBlockDataDefault,
 } from "@/components/pages/post/connectedFields/content/blocks";
 
-export const getPost = async (slug: string) => {
-  const dbRef = ref(db, `${POSTS}/${slug}`);
-  try {
-    const snapshot = await get(dbRef);
-    return snapshot.val();
-  } catch (e: any) {
-    throw new Error(e.message);
-  }
-};
+// READ
 
 export const getPosts = async () => {
-  const dbRef = ref(db, POSTS);
-  const snapshot = await get(dbRef);
-  const rawPosts: PostFields[] = snapshot.val();
-  const values = Object.values(rawPosts);
-  return values.flatMap((post) => {
-    if (!post || typeof post !== "object") return [];
-    return [{ ...post }];
-  });
+  const postsCol = collection(db, POSTS);
+  const postsSnapshot = await getDocs(postsCol);
+  const posts = postsSnapshot.docs.map((doc) => doc.data());
+  return posts;
+};
+
+export const getPost = async (slug: string) => {
+  const postDoc = doc(db, POSTS, slug);
+  const postSnapshot = await getDoc(postDoc);
+  const post = postSnapshot.data();
+  return post;
 };
 
 export const getPostSlugs = async () => {
-  const posts = await getPosts();
-  return Object.keys(posts);
+  const postsCol = collection(db, POSTS);
+  const postsSnapshot = await getDocs(postsCol);
+  const postSlugs = postsSnapshot.docs.map((doc) => doc.id);
+  return postSlugs;
 };
 
-export const setPostField = async (
-  slug: string,
-  postField: string,
-  value: any
-) => {
-  return toast.promise(set(ref(db, `${POSTS}/${slug}/${postField}`), value), {
-    pending: "updating Post...",
-    success: "Post updated",
-    error: "Error updating Post",
-  });
+export const getPostsByTag = async (tag: string) => {
+  const postsCol = collection(db, POSTS);
+  const q = query(postsCol, where(TAGS, "array-contains", tag));
+  const postsSnapshot = await getDocs(q);
+  const posts = postsSnapshot.docs.map((doc) => doc.data());
+  return posts;
 };
 
-export const getPostField = async (slug: string, postField: string) => {
-  const logic = async () => {
-    const dbRef = ref(db, `${POSTS}/${slug}/${postField}`);
-    const snapshot = await get(dbRef);
-    return snapshot.val();
-  };
-  return toast.promise(logic(), {
-    pending: "getting Post...",
-    success: "Post retrieved",
-    error: "Error getting Post",
-  });
-};
+// WRITE
 
 export const createPost = async (slug: string) => {
+  try {
+    const postSlugs = await getPostSlugs();
+    if (postSlugs.includes(slug)) {
+      toast.error("Post already exists");
+      return false;
+    }
+    // eslint-disable-next-line no-empty
+  } catch (e: any) {}
   const logic = async () => {
-    try {
-      const postSlugs = await getPostSlugs();
-      if (postSlugs.includes(slug)) {
-        return { error: "Post already exists" };
-      }
-      // eslint-disable-next-line no-empty
-    } catch (e: any) {}
     const startingValue: PostFields = {
       [CONTENT]: [
         { ...TextBlockDataDefault, blockId: 1 },
@@ -102,16 +94,17 @@ export const createPost = async (slug: string) => {
         {
           name: "Franco May",
           date: new Date().getTime(),
-          content: "This is a comment",
+          content: "It feels kinda lonely here... Could you leave a comment?",
         },
       ],
     };
 
     try {
-      await set(ref(db, `${POSTS}/${slug}`), startingValue);
+      const postDoc = doc(db, POSTS, slug);
+      await setDoc(postDoc, startingValue);
       return true;
-    } catch (e: any) {
-      return { error: e.message };
+    } catch (error: any) {
+      return { error };
     }
   };
   return toast.promise(logic(), {
@@ -121,18 +114,53 @@ export const createPost = async (slug: string) => {
   });
 };
 
-export const updatePost = async (slug: string, value: any) => {
-  return toast.promise(set(ref(db, `${POSTS}/${slug}`), value), {
-    pending: "updating Post...",
-    success: "Post updated",
-    error: "Error updating Post",
-  });
-};
-
 export const deletePost = async (slug: string) => {
-  return toast.promise(remove(ref(db, `${POSTS}/${slug}`)), {
+  const logic = async () => {
+    try {
+      const postDoc = doc(db, POSTS, slug);
+      await deleteDoc(postDoc);
+      return true;
+    } catch (error: any) {
+      return { error };
+    }
+  };
+  return toast.promise(logic(), {
     pending: "deleting Post...",
     success: "Post deleted",
     error: "Error deleting Post",
+  });
+};
+
+export const setPostField = async (slug: string, field: string, value: any) => {
+  const logic = async () => {
+    try {
+      const postDoc = doc(db, POSTS, slug);
+      await setDoc(postDoc, { [field]: value }, { merge: true });
+      return true;
+    } catch (error: any) {
+      return { error };
+    }
+  };
+  return toast.promise(logic(), {
+    pending: `updating ${field}...`,
+    success: `${field} updated!`,
+    error: `Error updating ${field}`,
+  });
+};
+
+export const updatePost = async (slug: string, data: any) => {
+  const logic = async () => {
+    try {
+      const postDoc = doc(db, POSTS, slug);
+      await setDoc(postDoc, data);
+      return true;
+    } catch (error: any) {
+      return { error };
+    }
+  };
+  return toast.promise(logic(), {
+    pending: "Saving changes...",
+    success: "Post updated!",
+    error: "Error updating Post",
   });
 };

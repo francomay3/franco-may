@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import React, { useState } from "react";
 import { useTheme } from "@emotion/react";
 import DeleteModal from "./DeleteModal";
-import { toast } from "@/components/design-system";
 import { deletePost, setPostField } from "@/utils/postUtils";
 import {
   CREATED_AT,
@@ -50,6 +49,7 @@ const Meta = styled.article`
 
 const PublishedIconWrapper = styled.div`
   position: absolute;
+  z-index: 1;
   top: 1rem;
   right: 1rem;
   display: flex;
@@ -89,12 +89,7 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
 
   const handleOnFieldChange =
     (slug: string, field: BlogField) => (nextValue: string | boolean) => {
-      toast
-        .promise(setPostField(slug, field, nextValue), {
-          pending: `Saving ${field}`,
-          success: `${field} saved!`,
-          error: `Failed to save ${field}`,
-        })
+      setPostField(slug, field, nextValue)
         .then(() => {
           return updatePostField(slug, field, nextValue);
         })
@@ -110,8 +105,15 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
     <Wrapper published={post[PUBLISHED]}>
       <DeleteModal
         isDialogOpen={isDeleteModalOpen}
-        onDelete={() => deletePost(post[SLUG])}
+        onDelete={async () => {
+          const result = await deletePost(post[SLUG]);
+          if (result) {
+            // handle delete state change
+          }
+        }}
         setIsDialogOpen={setIsDeleteModalOpen}
+        slug={post[SLUG]}
+        title={post[TITLE]}
       />
       {isEditing && (
         <PublishedIconWrapper>

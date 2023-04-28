@@ -53,8 +53,10 @@ const NewPostDialog = ({
           />
           <Button
             onClick={async () => {
-              await createPost(newPostSlug);
-              Router.push(`/blog/${newPostSlug}`);
+              const success = await createPost(newPostSlug);
+              if (success) {
+                Router.push(`/blog/${newPostSlug}`);
+              }
             }}
           >
             Create
