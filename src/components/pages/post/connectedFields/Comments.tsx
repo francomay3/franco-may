@@ -6,10 +6,12 @@ import { useAuth } from "@/providers/AuthProvider";
 import { getDateAsString } from "@/utils/generalUtils";
 import { Button, Label, Textarea, TextInput } from "@/components/design-system";
 import { COMMENTS } from "@/utils/constants";
+import { deleteComment, createComment } from "@/utils/postUtils";
 
 interface CommentsProps {
   comments: Comment[];
   onChange: (field: typeof COMMENTS, value: Comment[]) => void;
+  slug: string;
 }
 
 const Wrapper = styled.div`
@@ -35,23 +37,27 @@ const Form = styled.form`
   }
 `;
 
-const Comments = ({ comments = [], onChange }: CommentsProps) => {
+const Comments = ({ comments = [], onChange, slug }: CommentsProps) => {
   const { isEditing } = useAuth();
   const [name, setName] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const [validationError, setValidationError] = useState<string>("");
 
-  const deleteComment = (date: number) => () => {
-    onChange(
-      COMMENTS,
-      comments.filter((c) => c.date !== date)
-    );
+  const handleDeleteComment = (date: number) => () => {
+    deleteComment(slug, date)
+      .then(() => {
+        return onChange(
+          COMMENTS,
+          comments.filter((c) => c.date !== date)
+        );
+      })
+      .catch((err) => err);
   };
 
-  const addComment = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleCreateComment = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!name || !content) {
-      setValidationError("Please fill out the content of the comment!");
+      setValidationError("Please fill all the fields!");
       return;
     }
     const newComment: Comment = {
@@ -59,7 +65,14 @@ const Comments = ({ comments = [], onChange }: CommentsProps) => {
       date: Date.now(),
       content: content,
     };
-    onChange(COMMENTS, [newComment, ...comments]);
+    createComment(slug, newComment)
+      .then(() => {
+        onChange(COMMENTS, [...comments, newComment]);
+        setName("");
+        setContent("");
+        return setValidationError("");
+      })
+      .catch((err) => err);
   };
 
   return (
@@ -82,12 +95,14 @@ const Comments = ({ comments = [], onChange }: CommentsProps) => {
           }}
           value={content}
         />
-        <Button onClick={addComment} type="submit" value="Submit" />
+        <Button onClick={handleCreateComment} type="submit" value="Submit" />
       </Form>
       {comments.map(({ name, date, content }: Comment) => {
         return (
           <Comment key={date}>
-            {isEditing && <ActionMinusButton onClick={deleteComment(date)} />}
+            {isEditing && (
+              <ActionMinusButton onClick={handleDeleteComment(date)} />
+            )}
             <div>{name}</div>
             <div>{getDateAsString(date)}</div>
             <div>{content}</div>

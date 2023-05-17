@@ -128,6 +128,7 @@ const Post = ({ ...props }: PostFields) => {
         <Comments
           comments={postState[COMMENTS]}
           onChange={handleStateFieldChange}
+          slug={postState[SLUG]}
         />
       </Article>
     </Wrapper>

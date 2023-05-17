@@ -7,6 +7,7 @@ import {
   query,
   setDoc,
   where,
+  addDoc,
 } from "firebase/firestore";
 import {
   AUTHOR,
@@ -43,7 +44,10 @@ export const getPosts = async () => {
 export const getPost = async (slug: string) => {
   const postDoc = doc(db, POSTS, slug);
   const postSnapshot = await getDoc(postDoc);
-  const post = postSnapshot.data();
+  const commentsRef = collection(postDoc, COMMENTS);
+  const commentsSnapshot = await getDocs(commentsRef);
+  const comments = commentsSnapshot.docs.map((doc) => doc.data());
+  const post = { ...postSnapshot.data(), comments };
   return post;
 };
 
@@ -74,7 +78,7 @@ export const createPost = async (slug: string) => {
     // eslint-disable-next-line no-empty
   } catch (e: any) {}
   const logic = async () => {
-    const startingValue: PostFields = {
+    const startingValue: Omit<PostFields, typeof COMMENTS> = {
       [CONTENT]: [
         { ...TextBlockDataDefault, blockId: 1 },
         { ...ImageBlockDataDefault, blockId: 2 },
@@ -90,18 +94,21 @@ export const createPost = async (slug: string) => {
       [AUTHOR]: "Franco May",
       [SLUG]: slug,
       [IMAGE]: "https://source.unsplash.com/random/800x600",
-      [COMMENTS]: [
-        {
-          name: "Franco May",
-          date: new Date().getTime(),
-          content: "It feels kinda lonely here... Could you leave a comment?",
-        },
-      ],
+    };
+
+    const initialComment = {
+      name: "Franco May",
+      date: new Date().getTime(),
+      content: "It feels kinda lonely here... Could you leave a comment?",
     };
 
     try {
       const postDoc = doc(db, POSTS, slug);
       await setDoc(postDoc, startingValue);
+
+      const commentsRef = collection(postDoc, COMMENTS);
+      await addDoc(commentsRef, initialComment);
+
       return true;
     } catch (error: any) {
       return { error };
@@ -162,5 +169,48 @@ export const updatePost = async (slug: string, data: any) => {
     pending: "Saving changes...",
     success: "Post updated!",
     error: "Error updating Post",
+  });
+};
+
+export const createComment = async (slug: string, comment: any) => {
+  const logic = async () => {
+    try {
+      const postDoc = doc(db, POSTS, slug);
+      const commentsRef = collection(postDoc, COMMENTS);
+      await addDoc(commentsRef, comment);
+      return true;
+    } catch (error: any) {
+      return { error };
+    }
+  };
+  return toast.promise(logic(), {
+    pending: "Saving comment...",
+    // success: "Thank you for your comment! 😃",
+    success: {
+      render: "Thank you for your comment! 😃",
+      autoClose: 3000,
+    },
+    error: "Error saving comment 🤔",
+  });
+};
+
+export const deleteComment = async (slug: string, date: number) => {
+  const logic = async () => {
+    try {
+      const postDoc = doc(db, POSTS, slug);
+      const commentsRef = collection(postDoc, COMMENTS);
+      const q = query(commentsRef, where("date", "==", date));
+      const commentsSnapshot = await getDocs(q);
+      const commentId = commentsSnapshot.docs[0].id;
+      await deleteDoc(doc(commentsRef, commentId));
+      return true;
+    } catch (error: any) {
+      return { error };
+    }
+  };
+  return toast.promise(logic(), {
+    pending: "Deleting comment...",
+    success: "Comment deleted!",
+    error: "Error deleting comment",
   });
 };
