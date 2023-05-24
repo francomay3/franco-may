@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 import Links from "./Links";
 import ContactForm from "./ContactForm";
+import { Section } from "@/components/design-system";
 
-const Wrapper = styled.div`
+const Wrapper = styled(Section)`
   display: flex;
   flex-direction: column;
   align-items: center;

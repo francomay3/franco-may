@@ -14,6 +14,7 @@ import Tabs from "./Tabs";
 import Tag from "./Tag";
 import Textarea from "./Textarea";
 import TextInput from "./TextInput";
+import Section from "./Section";
 
 export * from "./Layout";
 export * from "./ActionButtons";
@@ -29,6 +30,7 @@ export {
   ImageWithCaption,
   Label,
   Link,
+  Section,
   Tabs,
   Tag,
   Textarea,

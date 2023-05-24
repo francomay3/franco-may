@@ -2,9 +2,6 @@ import styled from "@emotion/styled";
 import { CSSProperties } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { Card } from "./design-system";
-import { useDarkMode } from "@/providers/theme/Theme";
-import { useIsMobile } from "@/hooks/useIsMobile";
 
 const Wrapper = styled.div`
   display: flex;
@@ -44,30 +41,10 @@ const Layout = ({
   children: React.ReactNode;
   WrapperStyles?: CSSProperties;
 }) => {
-  const { isDark } = useDarkMode();
-  const isMobile = useIsMobile();
-  const shouldRenderCard = !isMobile && !isDark;
-
   return (
     <Wrapper style={WrapperStyles}>
       <Header />
-      <Container>
-        {!shouldRenderCard ? (
-          children
-        ) : (
-          <Card
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              width: "100%",
-              maxWidth: "1000px",
-            }}
-          >
-            {children}
-          </Card>
-        )}
-      </Container>
+      <Container>{children}</Container>
       <Footer />
     </Wrapper>
   );

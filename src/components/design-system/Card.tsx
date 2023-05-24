@@ -9,17 +9,16 @@ const Wrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.card.borderColor};
 `;
 
-const Card = ({
-  children,
-  onClick,
-  style,
-}: {
+interface CardProps {
   onClick?: () => void;
   children: ReactNode;
   style?: CSSProperties;
-}) => {
+  className?: string;
+}
+
+const Card = ({ children, onClick, style, className }: CardProps) => {
   return (
-    <Wrapper onClick={onClick} style={style}>
+    <Wrapper className={className} onClick={onClick} style={style}>
       {children}
     </Wrapper>
   );

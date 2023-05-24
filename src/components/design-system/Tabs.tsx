@@ -44,7 +44,7 @@ const Tabs = ({
   }, [selectedTab]);
 
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <TitlesWraper>
         {data.map(({ title }, index) => (
           <TabTitle

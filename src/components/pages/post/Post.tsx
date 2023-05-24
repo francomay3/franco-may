@@ -19,12 +19,7 @@ import {
 import { BlogField, PostFields } from "@/utils/types";
 import { useAuth } from "@/providers/AuthProvider";
 import { setPostField, updatePost } from "@/utils/postUtils";
-import { Container } from "@/components/design-system";
-
-const Wrapper = styled(Container)`
-  display: flex;
-  justify-content: center;
-`;
+import { Section } from "@/components/design-system";
 
 const Article = styled.article<{ isEditing: boolean }>`
   width: 100%;
@@ -80,58 +75,75 @@ const Post = ({ ...props }: PostFields) => {
     setHasUnsavedChanges(true);
   };
 
-  return (
-    <Wrapper>
-      <Article isEditing={isEditing}>
-        {isEditing && (
-          <Toolbar
-            hasUnsavedChanges={hasUnsavedChanges}
-            onPublish={async () => {
-              await setPostField(props[SLUG], PUBLISHED, !postState[PUBLISHED]);
-              setPostState(
-                getUpdatedPostState(PUBLISHED, !postState[PUBLISHED])
-              );
-            }}
-            published={postState[PUBLISHED]}
-            save={handleSave}
-          />
-        )}
-        <Tags onChange={handleStateFieldChange} tags={postState[TAGS]} />
-        <AuthorAndDate>
-          <TextField
-            as="span"
-            field={AUTHOR}
-            onChange={handleStateFieldChange}
-            value={postState[AUTHOR]}
-          />
-          {" | "}
-          <DateField
-            date={postState[CREATED_AT]}
-            field={CREATED_AT}
-            onChange={handleStateFieldChange}
-          />
-        </AuthorAndDate>
-        <TextField
-          as="h1"
-          field={TITLE}
-          onChange={handleStateFieldChange}
-          style={{
-            marginTop: "2rem",
-          }}
-          value={postState[TITLE]}
-        />
+  const Sections = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: ${({ theme }) => theme.spacing[8]};
+  `;
 
-        <Content
-          content={postState[CONTENT]}
-          onChange={handleStateFieldChange}
-        />
+  return (
+    <Sections>
+      <Section>
+        <Article isEditing={isEditing}>
+          {isEditing && (
+            <Toolbar
+              hasUnsavedChanges={hasUnsavedChanges}
+              onPublish={async () => {
+                await setPostField(
+                  props[SLUG],
+                  PUBLISHED,
+                  !postState[PUBLISHED]
+                );
+                setPostState(
+                  getUpdatedPostState(PUBLISHED, !postState[PUBLISHED])
+                );
+              }}
+              published={postState[PUBLISHED]}
+              save={handleSave}
+            />
+          )}
+          <Tags onChange={handleStateFieldChange} tags={postState[TAGS]} />
+          <AuthorAndDate>
+            <TextField
+              as="span"
+              field={AUTHOR}
+              onChange={handleStateFieldChange}
+              value={postState[AUTHOR]}
+            />
+            {" | "}
+            <DateField
+              date={postState[CREATED_AT]}
+              field={CREATED_AT}
+              onChange={handleStateFieldChange}
+            />
+          </AuthorAndDate>
+          <TextField
+            as="h1"
+            field={TITLE}
+            onChange={handleStateFieldChange}
+            style={{
+              marginTop: "2rem",
+            }}
+            value={postState[TITLE]}
+          />
+
+          <Content
+            content={postState[CONTENT]}
+            onChange={handleStateFieldChange}
+          />
+        </Article>
+      </Section>
+      <Section>
         <Comments
           comments={postState[COMMENTS]}
           onChange={handleStateFieldChange}
           slug={postState[SLUG]}
         />
-      </Article>
-    </Wrapper>
+      </Section>
+    </Sections>
   );
 };
 

@@ -143,7 +143,7 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
             }}
           >
             <EditableText
-              as="h1"
+              as="h2"
               onChange={handleOnFieldChange(post[SLUG], TITLE)}
               style={{
                 color: theme.colors.primary,

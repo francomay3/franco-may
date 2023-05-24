@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import Image from "next/image";
-import { Container, Emphasis, Tabs } from "@/components/design-system";
+import { Emphasis, Section, Tabs } from "@/components/design-system";
 
-const Wrapper = styled(Container)`
+const Wrapper = styled(Section)`
   margin-block: ${({ theme }) => theme.spacing[8]};
   display: flex;
   flex-direction: column;
