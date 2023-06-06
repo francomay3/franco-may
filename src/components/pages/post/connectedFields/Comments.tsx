@@ -15,11 +15,9 @@ interface CommentsProps {
 }
 
 const Wrapper = styled.div`
-  border: 1px solid red;
-`;
-
-const Comment = styled.div`
-  border: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
 const Form = styled.form`
@@ -35,6 +33,18 @@ const Form = styled.form`
       margin-bottom: -0.5rem;
     }
   }
+`;
+
+const ImageNameAndDate = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+`;
+
+const Comment = styled.div`
+  border-left: 1px solid ${({ theme }) => theme.colors.grey6};
+  padding-inline-start: 1rem;
+  padding-top: 1rem;
 `;
 
 const Comments = ({ comments = [], onChange, slug }: CommentsProps) => {
@@ -103,9 +113,21 @@ const Comments = ({ comments = [], onChange, slug }: CommentsProps) => {
             {isEditing && (
               <ActionMinusButton onClick={handleDeleteComment(date)} />
             )}
-            <div>{name}</div>
-            <div>{getDateAsString(date)}</div>
-            <div>{content}</div>
+            <ImageNameAndDate>
+              <p
+                style={{
+                  marginBlock: "auto",
+                  fontSize: "2rem",
+                }}
+              >
+                👤
+              </p>
+              <div>
+                <div style={{ marginBottom: "0.25rem" }}>{name}</div>
+                <div style={{ color: "grey" }}>{getDateAsString(date)}</div>
+              </div>
+            </ImageNameAndDate>
+            <p>{content}</p>
           </Comment>
         );
       })}
