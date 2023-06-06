@@ -17,7 +17,7 @@ const Logo = () => {
           color: theme.colors.white,
         }}
       >
-        Franco May
+        👨‍💻 Franco May
       </h1>
     </Wrapper>
   );
