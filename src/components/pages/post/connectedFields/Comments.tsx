@@ -29,7 +29,7 @@ const Form = styled.form`
   grid-gap: 1rem;
   width: 100%;
   align-items: center;
-  ${(props) => props.theme.mediaQueries.mobile} {
+  ${(props) => props.theme.mediaQueries.onlyMobile} {
     grid-template-columns: 1fr;
     label {
       margin-bottom: -0.5rem;

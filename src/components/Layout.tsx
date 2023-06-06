@@ -24,10 +24,10 @@ const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
   padding-block: ${({ theme }) => theme.spacing[6]};
   padding-inline: ${({ theme }) => theme.spacing.aWholeLot};
-  ${({ theme }) => theme.mediaQueries.tablet} {
+  ${({ theme }) => theme.mediaQueries.onlyTablet} {
     padding-inline: ${({ theme }) => theme.spacing.aLot};
   }
-  ${({ theme }) => theme.mediaQueries.mobile} {
+  ${({ theme }) => theme.mediaQueries.onlyMobile} {
     ${({ theme }) =>
       !theme.isDark && `background-color: ${theme.colors.white}`};
     padding-inline: ${({ theme }) => theme.spacing[4]};

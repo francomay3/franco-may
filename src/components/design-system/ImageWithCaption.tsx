@@ -9,7 +9,7 @@ const Wrapper = styled.figure`
   justify-content: space-between;
   align-items: center;
   padding-block: ${({ theme }) => theme.spacing[4]};
-  ${({ theme }) => theme.mediaQueries.mobile} {
+  ${({ theme }) => theme.mediaQueries.onlyMobile} {
     flex-direction: column;
     gap: ${({ theme }) => theme.spacing[4]};
   }

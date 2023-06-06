@@ -19,7 +19,7 @@ const Wrapper = styled.header`
 
 const Nav = styled.nav`
   display: none;
-  ${({ theme }) => theme.mediaQueries.mobile} {
+  ${({ theme }) => theme.mediaQueries.onlyMobile} {
     display: initial;
   }
 `;

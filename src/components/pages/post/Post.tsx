@@ -40,10 +40,10 @@ const Article = styled.article<{ isEditing: boolean }>`
       cursor: text;
     }
   }
-  ${({ theme }) => theme.mediaQueries.tablet} {
+  ${({ theme }) => theme.mediaQueries.onlyTablet} {
     margin-block-start: 1rem;
   }
-  ${({ theme }) => theme.mediaQueries.mobile} {
+  ${({ theme }) => theme.mediaQueries.onlyMobile} {
     margin-block-start: 0rem;
   }
 `;

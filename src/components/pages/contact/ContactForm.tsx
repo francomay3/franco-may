@@ -18,7 +18,7 @@ const Form = styled.form`
   grid-gap: 1rem;
   width: 100%;
   align-items: center;
-  ${(props) => props.theme.mediaQueries.mobile} {
+  ${(props) => props.theme.mediaQueries.onlyMobile} {
     grid-template-columns: 1fr;
     label {
       margin-bottom: -0.5rem;
@@ -58,7 +58,15 @@ const ContactForm = () => {
   };
 
   const form = (
-    <>
+    <div>
+      <h2
+        style={{
+          textAlign: "center",
+          marginBottom: "1rem",
+        }}
+      >
+        Or fill the form...
+      </h2>
       {formStatus === "validating" && (!name || !email || !message) && (
         <p>
           Please fill the
@@ -98,7 +106,7 @@ const ContactForm = () => {
           value="Submit"
         />
       </Form>
-    </>
+    </div>
   );
 
   const success = <p>Message delivered! I&apos;ll get back to you ASAP! 😘</p>;

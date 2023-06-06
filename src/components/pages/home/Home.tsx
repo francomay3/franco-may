@@ -7,7 +7,7 @@ const Wrapper = styled(Section)`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing[8]};
-  ${({ theme }) => theme.mediaQueries.mobile} {
+  ${({ theme }) => theme.mediaQueries.onlyMobile} {
     margin-block-start: ${({ theme }) => theme.spacing[4]};
   }
 `;
@@ -23,14 +23,14 @@ const ImageAndGreetings = styled.div`
     max-width: 95vw;
     max-height: 95vw;
   }
-  ${({ theme }) => theme.mediaQueries.tablet} {
+  ${({ theme }) => theme.mediaQueries.onlyTablet} {
     img {
       width: 200px;
       height: 200px;
     }
   }
 
-  ${({ theme }) => theme.mediaQueries.mobile} {
+  ${({ theme }) => theme.mediaQueries.onlyMobile} {
     flex-direction: column;
     h1 {
       order: -1;

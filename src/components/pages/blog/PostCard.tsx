@@ -42,7 +42,7 @@ const Meta = styled.article`
   gap: ${({ theme }) => theme.spacing[1]};
   display: flex;
   flex-direction: column;
-  ${({ theme }) => theme.mediaQueries.mobile} {
+  ${({ theme }) => theme.mediaQueries.onlyMobile} {
     width: 70%;
   }
 `;

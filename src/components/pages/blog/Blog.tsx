@@ -11,10 +11,10 @@ const containerStyles = (theme: Theme) => css`
   flex-direction: column;
   gap: ${theme.spacing.aLot};
   margin-block: ${theme.spacing.aLot};
-  ${theme.mediaQueries.mobile} {
+  ${theme.mediaQueries.onlyMobile} {
     margin-block: ${theme.spacing[4]};
   }
-  ${theme.mediaQueries.tablet} {
+  ${theme.mediaQueries.onlyTablet} {
     margin-block: ${theme.spacing[6]};
   }
 `;

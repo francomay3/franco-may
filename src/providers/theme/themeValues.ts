@@ -146,10 +146,11 @@ const baseTheme = {
     aWholeLot: "8rem",
   },
   mediaQueries: {
-    mobile: `@media only screen and (max-width: ${smallScreen}px)`,
-    tablet: `@media only screen and (min-width: ${
+    onlyMobile: `@media only screen and (max-width: ${smallScreen}px)`,
+    onlyTablet: `@media only screen and (min-width: ${
       smallScreen + 1
     }px) and (max-width: ${mediumScreen}px)`,
+    mobileAndTablet: `@media only screen and (max-width: ${mediumScreen}px)`,
   },
   breakpoints: {
     mobile: smallScreen,
