@@ -5,22 +5,22 @@ import Logo from "./Logo";
 import { useAuth } from "@/providers/AuthProvider";
 
 const Wrapper = styled.header`
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   background-color: ${({ theme }) => theme.header.backgroundColor};
+  display: flex;
+  height: ${({ theme }) => theme.header.width};
+  justify-content: space-between;
   padding-inline: ${({ theme }) => theme.spacing[4]};
-  height: ${({ theme }) => theme.spacing.aLot};
 `;
 
 const Nav = styled.nav`
   & > ul {
+    align-items: center;
     display: flex;
-    list-style: none;
     gap: ${({ theme }) => theme.spacing[4]};
+    list-style: none;
     margin: 0;
     padding: 0;
-    align-items: center;
     & a,
     & p {
       cursor: pointer;

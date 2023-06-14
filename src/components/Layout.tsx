@@ -15,6 +15,7 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
+  margin-top: ${({ theme }) => theme.header.width};
   align-items: center;
   flex-direction: column;
   flex: 1;
@@ -34,6 +35,13 @@ const Container = styled.div`
   }
 `;
 
+const Sticky = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+`;
+
 const Layout = ({
   children,
   WrapperStyles,
@@ -43,7 +51,9 @@ const Layout = ({
 }) => {
   return (
     <Wrapper style={WrapperStyles}>
-      <Header />
+      <Sticky>
+        <Header />
+      </Sticky>
       <Container>{children}</Container>
       <Footer />
     </Wrapper>

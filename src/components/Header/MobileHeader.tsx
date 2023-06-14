@@ -8,12 +8,12 @@ import DarkModeSwitch from "./DarkModeSwitch";
 import { Icon } from "@/components/design-system";
 
 const Wrapper = styled.header`
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   background-color: ${({ theme }) => theme.header.backgroundColor};
+  display: flex;
+  height: ${({ theme }) => theme.header.width};
+  justify-content: space-between;
   padding-inline: ${({ theme }) => theme.spacing[4]};
-  height: ${({ theme }) => theme.spacing.aLot};
   z-index: 2;
 `;
 
@@ -25,17 +25,17 @@ const Nav = styled.nav`
 `;
 
 const Button = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
   display: flex;
+  margin: 0;
+  outline: none;
+  padding: 0;
   & > svg {
     color: ${({ theme }) => theme.colors.white};
     font-size: 1.8rem;
   }
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  outline: none;
   &:focus {
     outline: none;
   }
@@ -46,10 +46,10 @@ const Items = styled.div`
   background-color: ${({ theme }) => theme.header.backgroundColor};
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  padding: ${({ theme }) => theme.spacing[4]};
   padding-block-end: ${({ theme }) => theme.spacing[1]};
+  padding: ${({ theme }) => theme.spacing[4]};
   position: unset;
+  width: 100vw;
   &:focus {
     outline: none;
   }
@@ -57,10 +57,10 @@ const Items = styled.div`
 `;
 
 const Item = styled(Link)`
-  padding-block: ${({ theme }) => theme.spacing[2]};
-  text-decoration: none;
   border-block-start: 1px solid ${({ theme }) => theme.header.itemBorderColor};
   color: ${({ theme }) => theme.header.activeColor};
+  padding-block: ${({ theme }) => theme.spacing[2]};
+  text-decoration: none;
 `;
 
 function MobileNav({

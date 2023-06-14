@@ -63,6 +63,7 @@ const baseTheme = {
     borderColor: transparent,
   },
   header: {
+    width: "3rem",
     activeColor: grey11,
     backgroundColor: blue,
     itemBorderColor: darkBlue,
