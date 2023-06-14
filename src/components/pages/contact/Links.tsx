@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import styled from "@emotion/styled";
 import Link from "@/components/design-system/Link";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const data = [
   {
@@ -27,29 +28,32 @@ const data = [
 ];
 
 const Wrapper = styled.div`
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-evenly;
   max-width: 400px;
   padding-inline: 1rem;
-  flex-wrap: wrap;
+  width: 100%;
 `;
 
 const Links = () => {
+  const isMobile = useIsMobile();
+  const iconSize = isMobile ? "30" : "40";
+
   return (
     <Wrapper>
       {data.map(({ href, logo, filter }) => (
         <Link href={href} key={logo} target={"_blank"}>
           <Image
             alt={`${logo}-logo`}
-            height="50"
+            height={iconSize}
             src={`/logos-pictograms/${logo}.png`}
             style={{
               filter,
             }}
-            width="50"
+            width={iconSize}
           />
         </Link>
       ))}

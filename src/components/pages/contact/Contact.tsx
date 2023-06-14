@@ -71,10 +71,22 @@ const Contact = () => {
             }}
           />
           <Data>
-            <b>name:</b> <p>Franco May</p>
-            <b>email:</b> <p>francomay3@gmail.com</p>
-            <b>phone:</b> <p>+64 722 839 861</p>
-            <b>location:</b> <p>Gothenburg, Sweden 🇸🇪</p>
+            <p>
+              <b>name:</b>
+            </p>
+            <p>Franco May</p>
+            <p>
+              <b>email:</b>
+            </p>
+            <p>francomay3@gmail.com</p>
+            <p>
+              <b>phone:</b>
+            </p>
+            <p>+64 722 839 861</p>
+            <p>
+              <b>location:</b>
+            </p>
+            <p>Gothenburg, Sweden 🇸🇪</p>
           </Data>
         </ImageAndData>
         <Separator />
