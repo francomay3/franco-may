@@ -169,6 +169,7 @@ const darkTheme = {
   ...baseTheme,
   isDark: true,
   card: {
+    ...baseTheme.card,
     backgroundColor: grey2,
     borderColor: grey4,
   },
@@ -195,10 +196,12 @@ const darkTheme = {
     warning: darkOrange,
   },
   footer: {
+    ...baseTheme.footer,
     backgroundColor: grey2,
     borderColor: grey4,
   },
   header: {
+    ...baseTheme.header,
     activeColor: grey11,
     backgroundColor: grey2,
     barBorderColor: grey4,

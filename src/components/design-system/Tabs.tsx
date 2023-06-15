@@ -48,7 +48,7 @@ const Tabs = ({
   data: { title: string; content: JSX.Element }[];
 }) => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const debouncedScroll = useRef(
+  const throttledOnScroll = useRef(
     throttle((e) => {
       const totalWidth = e.target.scrollWidth;
       const scrollLeft = e.target.scrollLeft;
@@ -81,7 +81,7 @@ const Tabs = ({
         ))}
       </TitlesWraper>
 
-      <Texts onScroll={(e) => debouncedScroll.current(e)}>
+      <Texts onScroll={(e) => throttledOnScroll.current(e)}>
         {data.map(({ title, content }, index) => (
           <ContentItem id={`tab-${index}`} key={title}>
             {content}
