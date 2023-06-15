@@ -72,6 +72,8 @@ const Tabs = ({
               if (selectedTabElement) {
                 selectedTabElement.scrollIntoView({
                   behavior: "smooth",
+                  block: "nearest",
+                  inline: "start",
                 });
               }
             }}

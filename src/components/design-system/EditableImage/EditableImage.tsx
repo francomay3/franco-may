@@ -15,6 +15,7 @@ interface EditableImageProps {
   size?: Size;
   style?: React.CSSProperties;
   wrapperStyles?: React.CSSProperties;
+  onClick?: () => void;
 }
 
 const ImageWrapper = styled.div<{
@@ -39,6 +40,7 @@ const EditableImage = ({
   onSelect = () => null,
   style,
   wrapperStyles,
+  onClick,
 }: EditableImageProps) => {
   const { isEditing } = useAuth();
   const [isHoveringImage, setIsHoveringImage] = useState(false);
@@ -74,11 +76,15 @@ const EditableImage = ({
           draggable={!isEditing}
           fill
           objectFit="cover"
-          onClick={() =>
-            isEditing
-              ? setIsImageEditDialogOpen(true)
-              : setIsImagePreviewDialogOpen(true)
-          }
+          onClick={() => {
+            if (isEditing) {
+              return setIsImageEditDialogOpen(true);
+            }
+            if (onClick) {
+              return onClick();
+            }
+            setIsImagePreviewDialogOpen(true);
+          }}
           onMouseEnter={() => {
             isEditing && setIsHoveringImage(true);
           }}

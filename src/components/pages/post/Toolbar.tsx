@@ -3,13 +3,15 @@ import { Icon } from "@/components/design-system";
 import { IconId } from "@/utils/types";
 
 const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.lightgrey};
+  background-color: ${({ theme }) => theme.colors.background};
   padding: 4px;
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 4rem;
+  width: 100vw;
+  left: 0;
   z-index: ${({ theme }) => theme.zIndex.sticky};
 `;
 
@@ -39,7 +41,7 @@ const ButtonWrapper = styled.button`
     border-end-start-radius: 4px;
   }
   &:hover {
-    background-color: ${({ theme }) => theme.colors.lightgrey};
+    background-color: ${({ theme }) => theme.colors.background};
   }
 `;
 

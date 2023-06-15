@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
 import { useTheme } from "@emotion/react";
+import { useRouter } from "next/router";
 import DeleteModal from "./DeleteModal";
 import { deletePost, setPostField } from "@/utils/postUtils";
 import {
@@ -86,6 +87,7 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const isMobile = useIsMobile();
   const theme = useTheme();
+  const router = useRouter();
 
   const handleOnFieldChange =
     (slug: string, field: BlogField) => (nextValue: string | boolean) => {
@@ -128,6 +130,7 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
       <Post>
         <EditableImage
           name={post[SLUG]}
+          onClick={() => router.push(`/blog/${post[SLUG]}`)}
           onSelect={({ url }) => handleOnFieldChange(post[SLUG], IMAGE)(url)}
           size="small"
           src={post[IMAGE] || "https://source.unsplash.com/random/200x200"}
