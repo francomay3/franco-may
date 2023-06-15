@@ -1,11 +1,24 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
 import styled from "@emotion/styled";
 import { Emphasis } from "@/components/design-system";
 
 const TitlesWraper = styled.div`
   display: flex;
   gap: ${({ theme }) => theme.spacing[2]};
+`;
+
+const Texts = styled.div`
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  gap: 2rem;
+  scroll-snap-type: x mandatory;
+`;
+
+const ContentItem = styled.div`
+  min-width: 100%;
+  max-width: 100%;
+  scroll-snap-align: center;
 `;
 
 const TabTitle = ({
@@ -34,14 +47,6 @@ const Tabs = ({
   data: { title: string; content: JSX.Element }[];
 }) => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const [height, setHeight] = useState(300);
-
-  useEffect(() => {
-    const selectedTabElement = document.getElementById(`tab-${selectedTab}`);
-    if (selectedTabElement) {
-      setHeight(selectedTabElement.clientHeight);
-    }
-  }, [selectedTab]);
 
   return (
     <div style={{ width: "100%" }}>
@@ -50,44 +55,39 @@ const Tabs = ({
           <TabTitle
             active={selectedTab === index}
             key={title}
-            onClick={() => setSelectedTab(index)}
+            onClick={() => {
+              const selectedTabElement = document.getElementById(
+                `tab-${index}`
+              );
+              if (selectedTabElement) {
+                selectedTabElement.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }
+            }}
           >
             {title}
           </TabTitle>
         ))}
       </TitlesWraper>
-      <motion.div
-        animate={{
-          height,
+
+      <Texts
+        // refactor so that the next function is debounced
+        onScroll={(e) => {
+          const totalWidth = e.currentTarget.scrollWidth;
+          const scrollLeft = e.currentTarget.scrollLeft;
+          const numberOfTabs = data.length;
+          const tabWidth = totalWidth / numberOfTabs;
+          const selectedTab = Math.round(scrollLeft / tabWidth);
+          setSelectedTab(selectedTab);
         }}
-        style={{
-          overflow: "hidden",
-          height,
-        }}
-        transition={{ type: "easeInOut", duration: 0.3 }}
       >
         {data.map(({ title, content }, index) => (
-          <motion.div
-            animate={{
-              x: `${(selectedTab - index) * 100}%`,
-            }}
-            id={`tab-${index}`}
-            key={title}
-            style={{
-              position: "absolute",
-              x: `${(selectedTab - index) * 100}%`,
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 15,
-              restSpeed: 0.01,
-            }}
-          >
+          <ContentItem id={`tab-${index}`} key={title}>
             {content}
-          </motion.div>
+          </ContentItem>
         ))}
-      </motion.div>
+      </Texts>
     </div>
   );
 };
