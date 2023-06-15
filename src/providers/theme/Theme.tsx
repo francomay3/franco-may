@@ -25,7 +25,15 @@ const DarkModeContext = createContext<DarkModeContextProps>({
 });
 
 const DarkModeProvider = ({ children }: { children: ReactNode }) => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDarkState] = useState(false);
+  const setIsDark = (value: boolean) => {
+    setIsDarkState(value);
+    if (value) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
 
   useEffect(() => {
     const isDark = localStorage.getItem("isDark");

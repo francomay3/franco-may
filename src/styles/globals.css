@@ -22,6 +22,10 @@ html, body {
   background-color: #ebedf0;
 }
 
+.dark body {
+  background-color: #1b1b1d;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -50,7 +54,7 @@ button {
 
 /* Make clicks pass-through */
 #nprogress {
-  /* pointer-events: none; */
+  pointer-events: none;
 }
 
 #nprogress .bar {

@@ -39,6 +39,15 @@ const ImageNameAndDate = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    p {
+      margin: 0;
+    }
+  }
 `;
 
 const Comment = styled.div`
@@ -114,17 +123,19 @@ const Comments = ({ comments = [], onChange, slug }: CommentsProps) => {
               <ActionMinusButton onClick={handleDeleteComment(date)} />
             )}
             <ImageNameAndDate>
-              <p
+              <span
                 style={{
                   marginBlock: "auto",
                   fontSize: "2rem",
                 }}
               >
                 👤
-              </p>
+              </span>
               <div>
-                <div style={{ marginBottom: "0.25rem" }}>{name}</div>
-                <div style={{ color: "grey" }}>{getDateAsString(date)}</div>
+                <p style={{ margin: 0 }}>{name}</p>
+                <p style={{ color: "grey", margin: 0 }}>
+                  {getDateAsString(date)}
+                </p>
               </div>
             </ImageNameAndDate>
             <p>{content}</p>
