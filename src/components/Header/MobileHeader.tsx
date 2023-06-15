@@ -6,6 +6,7 @@ import { useTheme } from "@emotion/react";
 import Logo from "./Logo";
 import DarkModeSwitch from "./DarkModeSwitch";
 import { Icon } from "@/components/design-system";
+import { useAuth } from "@/providers/AuthProvider";
 
 const Wrapper = styled.header`
   align-items: center;
@@ -69,6 +70,8 @@ function MobileNav({
   navLinks: { href: string; pageName: string }[];
 }) {
   const theme = useTheme();
+  const { isAdmin, setIsEditing, isEditing } = useAuth();
+
   return (
     <Wrapper>
       <Menu as={Nav} style={{ zIndex: 1, position: "unset" }}>
@@ -79,7 +82,7 @@ function MobileNav({
             </Menu.Button>
             <motion.div
               animate={{
-                height: open ? "8rem" : "1px",
+                height: open ? "auto" : "1px",
               }}
               style={{
                 height: "1px",
@@ -101,6 +104,19 @@ function MobileNav({
                     <Item href={href}>{pageName}</Item>
                   </Menu.Item>
                 ))}
+                {isAdmin && (
+                  <Menu.Item>
+                    <Item
+                      href={"/"}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setIsEditing(!isEditing);
+                      }}
+                    >
+                      {isEditing ? "Stop editing" : "edit"}
+                    </Item>
+                  </Menu.Item>
+                )}
               </Menu.Items>
             </motion.div>
           </>
