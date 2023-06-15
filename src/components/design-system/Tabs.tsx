@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styled from "@emotion/styled";
+import { throttle } from "lodash";
 import { Emphasis } from "@/components/design-system";
 
 const TitlesWraper = styled.div`
@@ -47,7 +48,16 @@ const Tabs = ({
   data: { title: string; content: JSX.Element }[];
 }) => {
   const [selectedTab, setSelectedTab] = useState(0);
-
+  const debouncedScroll = useRef(
+    throttle((e) => {
+      const totalWidth = e.target.scrollWidth;
+      const scrollLeft = e.target.scrollLeft;
+      const numberOfTabs = data.length;
+      const tabWidth = totalWidth / numberOfTabs;
+      const selectedTab = Math.round(scrollLeft / tabWidth);
+      setSelectedTab(selectedTab);
+    }, 200)
+  );
   return (
     <div style={{ width: "100%" }}>
       <TitlesWraper>
@@ -71,17 +81,7 @@ const Tabs = ({
         ))}
       </TitlesWraper>
 
-      <Texts
-        // refactor so that the next function is debounced
-        onScroll={(e) => {
-          const totalWidth = e.currentTarget.scrollWidth;
-          const scrollLeft = e.currentTarget.scrollLeft;
-          const numberOfTabs = data.length;
-          const tabWidth = totalWidth / numberOfTabs;
-          const selectedTab = Math.round(scrollLeft / tabWidth);
-          setSelectedTab(selectedTab);
-        }}
-      >
+      <Texts onScroll={(e) => debouncedScroll.current(e)}>
         {data.map(({ title, content }, index) => (
           <ContentItem id={`tab-${index}`} key={title}>
             {content}
