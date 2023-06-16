@@ -9,8 +9,8 @@ const Wrapper = styled.button<{ color: Colors }>`
   color: ${({ theme }) => theme.colors.white};
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius[3]};
-  padding-block: ${({ theme }) => theme.spacing[2]};
-  padding-inline: ${({ theme }) => theme.spacing[3]};
+  padding-block: 0.5rem;
+  padding-inline: 0.75rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   &:hover {

@@ -16,12 +16,12 @@ function Emphasis({
 }) {
   const { colors } = useTheme();
   const Component = styled(as)`
+    color: ${({ theme }) => theme.colors.text};
     ${onHover && "&:hover {"}
-
     background: linear-gradient(
-        126deg,
-        ${secondary ? colors.darksecondary : colors.darkprimary},
-        ${secondary ? colors.lightsecondary : colors.lightprimary}
+      126deg,
+      ${secondary ? colors.darksecondary : colors.darkprimary},
+      ${secondary ? colors.lightsecondary : colors.lightprimary}
       );
     background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -3,24 +3,19 @@ import styled from "@emotion/styled";
 export const Stack = styled.div<{ gap?: string }>`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme, gap }) =>
-    gap ? theme.spacing[gap as keyof typeof theme.spacing] : theme.spacing[2]};
+  gap: ${({ gap }) => gap || "0.5rem"};
 `;
 
 export const Inline = styled.div<{ gap?: string }>`
   display: flex;
   flex-direction: row;
-  gap: ${({ theme, gap }) =>
-    gap ? theme.spacing[gap as keyof typeof theme.spacing] : theme.spacing[2]};
   flex-wrap: wrap;
+  gap: ${({ gap }) => gap || "0.5rem"};
 `;
 
 export const Center = styled.div<{ padding?: string }>`
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
-  ${({ theme, padding }) =>
-    padding
-      ? `padding: ${theme.spacing[padding as keyof typeof theme.spacing]}`
-      : ""};
+  ${({ padding }) => (padding ? `padding: ${padding}` : "")};
 `;

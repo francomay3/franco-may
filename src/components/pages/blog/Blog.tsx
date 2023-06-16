@@ -9,19 +9,19 @@ import { EditableImage, Emphasis, Section } from "@/components/design-system";
 const containerStyles = (theme: Theme) => css`
   display: flex;
   flex-direction: column;
-  gap: ${theme.spacing.aLot};
-  margin-block: ${theme.spacing.aLot};
+  gap: 3rem;
+  margin-block: 3rem;
   ${theme.mediaQueries.onlyMobile} {
-    margin-block: ${theme.spacing[4]};
+    margin-block: 1rem;
   }
   ${theme.mediaQueries.onlyTablet} {
-    margin-block: ${theme.spacing[6]};
+    margin-block: 1.5rem;
   }
 `;
 
 const Intro = styled.div`
   display: flex;
-  gap: ${({ theme }) => theme.spacing[4]};
+  gap: 1rem;
   /* margin-bottom: 5rem;
   margin-top: 2rem; */
   align-items: center;

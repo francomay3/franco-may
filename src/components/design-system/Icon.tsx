@@ -22,7 +22,7 @@ import {
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Icon({ id }: { id: string }) {
+function Icon({ id }: { id: (typeof iconIds)[number] }) {
   switch (id) {
     case "menu":
       return <FontAwesomeIcon icon={faBars} />;
@@ -82,6 +82,14 @@ export const iconIds = [
   "earth",
   "invisible",
   "plus",
+  "minus",
+  "move",
+  "edit",
+  "upload",
+  "image",
+  "visible",
+  "hidden",
+  "loading",
 ] as const;
 
 export default Icon;

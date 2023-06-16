@@ -14,7 +14,7 @@ const Wrapper = styled.header`
   display: flex;
   height: ${({ theme }) => theme.header.width};
   justify-content: space-between;
-  padding-inline: ${({ theme }) => theme.spacing[4]};
+  padding-inline: 1rem;
   z-index: 2;
 `;
 
@@ -47,8 +47,8 @@ const Items = styled.div`
   background-color: ${({ theme }) => theme.header.backgroundColor};
   display: flex;
   flex-direction: column;
-  padding-block-end: ${({ theme }) => theme.spacing[1]};
-  padding: ${({ theme }) => theme.spacing[4]};
+  padding-block-end: 0.25rem;
+  padding: 1rem;
   position: unset;
   width: 100vw;
   &:focus {
@@ -60,7 +60,7 @@ const Items = styled.div`
 const Item = styled(Link)`
   border-block-start: 1px solid ${({ theme }) => theme.header.itemBorderColor};
   color: ${({ theme }) => theme.header.activeColor};
-  padding-block: ${({ theme }) => theme.spacing[2]};
+  padding-block: 0.5rem;
   text-decoration: none;
 `;
 
@@ -87,7 +87,7 @@ function MobileNav({
               style={{
                 height: "1px",
                 position: "absolute",
-                top: theme.spacing.aLot,
+                top: "3rem",
                 left: 0,
                 right: 0,
                 zIndex: 1,

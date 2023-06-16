@@ -36,6 +36,11 @@ const darkViolet = "#851aad";
 const baseTheme = {
   isDark: false,
   aspectRatio: 1.4,
+  dialog: {
+    backgroundColor: grey11,
+    borderColor: transparent,
+    backdropIntensity: 0.3,
+  },
   form: {
     borderRadius: "0.5rem",
     borderColor: grey7,
@@ -132,20 +137,6 @@ const baseTheme = {
     white: "white",
     yellow,
   },
-  spacing: {
-    0: "0",
-    1: "0.25rem",
-    2: "0.5rem",
-    3: "0.75rem",
-    4: "1rem",
-    5: "1.25rem",
-    6: "1.5rem",
-    7: "1.75rem",
-    8: "2rem",
-    aBit: "0.5rem",
-    aLot: "3rem",
-    aWholeLot: "8rem",
-  },
   mediaQueries: {
     onlyMobile: `@media only screen and (max-width: ${smallScreen}px)`,
     onlyTablet: `@media only screen and (min-width: ${
@@ -206,6 +197,12 @@ const darkTheme = {
     backgroundColor: grey2,
     barBorderColor: grey4,
     itemBorderColor: grey4,
+  },
+  dialog: {
+    ...baseTheme.dialog,
+    backgroundColor: grey1,
+    borderColor: grey4,
+    backdropIntensity: 0.6,
   },
 };
 

@@ -22,12 +22,12 @@ const ButtonGroup = styled.div`
 const ButtonWrapper = styled.button`
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
-  gap: ${({ theme }) => theme.spacing[1]};
+  gap: 0.25rem;
   align-items: center;
   justify-content: center;
-  min-width: ${({ theme }) => theme.spacing[5]};
+  min-width: 1.25rem;
   height: 1.875rem;
-  padding-inline: ${({ theme }) => theme.spacing[2]};
+  padding-inline: 0.5rem;
   border: 1px solid ${({ theme }) => theme.colors.grey};
   &:not(:last-child) {
     border-right: none;

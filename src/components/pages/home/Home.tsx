@@ -3,18 +3,18 @@ import Image from "next/image";
 import { Emphasis, Section, Tabs } from "@/components/design-system";
 
 const Wrapper = styled(Section)`
-  margin-block: ${({ theme }) => theme.spacing[8]};
+  margin-block: 2rem;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing[8]};
+  gap: 2rem;
   ${({ theme }) => theme.mediaQueries.onlyMobile} {
-    margin-block-start: ${({ theme }) => theme.spacing[4]};
+    margin-block-start: 1rem;
   }
 `;
 
 const ImageAndGreetings = styled.div`
   display: flex;
-  gap: ${({ theme }) => theme.spacing[8]};
+  gap: 2rem;
   align-items: center;
   img {
     border-radius: 50%;

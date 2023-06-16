@@ -5,7 +5,7 @@ import { Button } from "@/components/design-system";
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing[4]};
+  gap: 1rem;
   align-items: center;
 `;
 

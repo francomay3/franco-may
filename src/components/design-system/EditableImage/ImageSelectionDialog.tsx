@@ -1,143 +1,92 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import { Tab } from "@headlessui/react";
+import Image from "next/image";
 import { ImageData } from "@/utils/types";
 import {
+  Button,
   Card,
   Dialog,
-  EditableImage,
   Icon,
+  Tabs,
   toast,
 } from "@/components/design-system";
 import { uploadImage, getImages } from "@/utils/storageUtils";
 
 const ImagesWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   align-content: center;
-  gap: ${({ theme }) => theme.spacing[2]};
-  & > * {
-    &:hover {
-      opacity: 0.8;
-    }
-    & img {
-      object-fit: cover;
-      flex: 1;
-      height: 100px;
-      min-width: 100px;
-      max-width: 150px;
-    }
-    cursor: pointer;
-  }
-`;
-
-const TabOptions = styled(Tab.List)<{ children: React.ReactNode }>`
-  background-color: ${({ theme }) => theme.colors.lightgrey};
-  display: flex;
-  gap: ${({ theme }) => theme.spacing[1]};
-  padding: ${({ theme }) => theme.spacing[1]};
-  width: fit-content;
-  border-radius: ${({ theme }) => theme.borderRadius[3]};
-`;
-
-const TabPanels = styled(Tab.Panels)<{ children: React.ReactNode }>`
-  height: 50vh;
+  align-items: center;
+  display: grid;
+  gap: 3px;
+  grid-template-columns: repeat(auto-fill, 100px);
+  justify-content: center;
+  justify-items: center;
   overflow-y: scroll;
-  padding: ${({ theme }) => theme.spacing[2]};
-  border-radius: ${({ theme }) => theme.borderRadius[3]};
-  background-color: ${({ theme }) => theme.colors.lightgrey};
-  overflow: hidden;
 `;
 
-const TabOption = styled(Tab)<{ children: React.ReactNode }>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: ${({ theme }) => theme.spacing[1]};
-  height: 100%;
-  padding: ${({ theme }) => theme.spacing[2]};
-  border-radius: ${({ theme }) => theme.borderRadius[3]};
+const Thumbnail = styled(Image)`
+  border-radius: 4px;
   cursor: pointer;
-  &[data-headlessui-state="selected"] {
-    background-color: white;
-    color: ${({ theme }) => theme.colors.black};
-  }
-`;
-
-const TabGroup = styled(Tab.Group)<{ as: string; children: React.ReactNode }>`
-  display: flex;
-  flex-direction: column;
-  gap: ${({ theme }) => theme.spacing[2]};
-`;
-
-const Button = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: ${({ theme }) => theme.spacing[2]};
-  background-color: ${({ theme }) => theme.colors.darkgreen};
-  color: white;
-  padding-block: ${({ theme }) => theme.spacing[2]};
-  padding-inline: ${({ theme }) => theme.spacing[3]};
-  border-radius: ${({ theme }) => theme.borderRadius[3]};
   flex: 1;
-  cursor: pointer;
+  height: 100px;
+  max-width: 150px;
+  min-width: 100px;
+  object-fit: cover;
+
   &:hover {
     opacity: 0.8;
   }
-  overflow: hidden;
 `;
 
 const ImagePreview = styled.div`
-  background-size: cover;
   background-position: center;
+  background-size: cover;
+  border-radius: ${({ theme }) => theme.borderRadius[3]};
   height: 100%;
   width: 100%;
-  border-radius: ${({ theme }) => theme.borderRadius[3]};
 `;
 
 const FileUpload = styled.div`
-  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: ${({ theme }) => theme.spacing[5]};
-  height: 100%;
   align-items: stretch;
+  display: flex;
+  gap: 1.25rem;
+  height: 100%;
+  justify-content: center;
 `;
 
 const Fields = styled.div`
+  align-self: center;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing[2]};
+  gap: 0.5rem;
   height: fit-content;
-  align-self: center;
+
   input {
-    padding: ${({ theme }) => theme.spacing[2]};
     border-radius: ${({ theme }) => theme.borderRadius[3]};
     border: 1px solid ${({ theme }) => theme.colors.lightgrey};
+    padding: 0.5rem;
+
     &:focus {
-      outline: none;
       border: 2px solid ${({ theme }) => theme.colors.darkgreen};
+      outline: none;
     }
   }
 `;
 
 const ImageSelectionDialog = ({
   isDialogOpen,
-  setIsDialogOpen,
   onSelect,
+  setIsDialogOpen,
 }: {
   isDialogOpen: boolean;
-  setIsDialogOpen: (value: boolean) => void;
   onSelect: (image: ImageData) => any;
+  setIsDialogOpen: (value: boolean) => void;
 }) => {
-  const [images, setImages] = useState<ImageData[]>([]);
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [fileData, setFileData] = useState<File | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [images, setImages] = useState<ImageData[]>([]);
 
   useEffect(() => {
     if (isDialogOpen) {
@@ -190,79 +139,68 @@ const ImageSelectionDialog = ({
       setIsDialogOpen={setIsDialogOpen}
       title="Select or upload image"
     >
-      <TabGroup as="div">
-        <TabOptions>
-          <TabOption>
-            <Icon id="image" />
-            Gallery
-          </TabOption>
-          <TabOption>
-            <Icon id="upload" />
-            Upload
-          </TabOption>
-        </TabOptions>
-        <TabPanels>
-          <Tab.Panel>
-            <ImagesWrapper>
-              {images.map(({ url, name }) => (
-                <Card
-                  key={url}
-                  onClick={() => {
-                    onSelect({ url, name });
-                    setIsDialogOpen(false);
-                  }}
-                >
-                  <EditableImage
-                    name={name}
-                    size="thumbnail"
+      <Tabs
+        data={[
+          {
+            title: "Gallery",
+            content: (
+              <ImagesWrapper>
+                {images.map(({ url, name }) => (
+                  <Thumbnail
+                    alt={name}
+                    height={100}
+                    key={url}
+                    objectFit="cover"
+                    onClick={() => {
+                      onSelect({ url, name });
+                      setIsDialogOpen(false);
+                    }}
                     src={url}
-                    style={{
-                      cursor: "pointer",
-                    }}
-                    wrapperStyles={{
-                      width: "100px",
-                    }}
+                    width={100}
                   />
-                </Card>
-              ))}
-            </ImagesWrapper>
-          </Tab.Panel>
-          <Tab.Panel style={{ height: "100%" }}>
-            <FileUpload>
-              <Fields>
-                <Button onClick={selectImage}>
-                  Browse Image <Icon id="image" />
-                </Button>
-                {imagePreview && (
-                  <>
-                    <input
-                      onChange={(e) => {
-                        setFileName(e.target.value);
-                      }}
-                      placeholder="Image Name"
-                      type="text"
-                      value={fileName || ""}
-                    />
+                ))}
+              </ImagesWrapper>
+            ),
+          },
+          {
+            title: "Upload",
+            content: (
+              <FileUpload>
+                <Fields>
+                  <Button onClick={selectImage}>
+                    Browse Image <Icon id="image" />
+                  </Button>
+                  {imagePreview && (
+                    <>
+                      <input
+                        onChange={(e) => {
+                          setFileName(e.target.value);
+                        }}
+                        placeholder="Image Name"
+                        type="text"
+                        value={fileName || ""}
+                      />
 
-                    <Button onClick={handleOnUpload}>
-                      <strong>UPLOAD</strong> <Icon id="upload" />
-                    </Button>
-                  </>
-                )}
-              </Fields>
-              <Card style={{ flex: 4 }}>
-                {imagePreview && (
-                  <ImagePreview
-                    style={{
-                      backgroundImage: `url(${imagePreview})`,
-                    }}
-                  />
-                )}
-              </Card>
-            </FileUpload>
-          </Tab.Panel>
-        </TabPanels>
-      </TabGroup>
+                      <Button onClick={handleOnUpload}>
+                        <strong>UPLOAD</strong> <Icon id="upload" />
+                      </Button>
+                    </>
+                  )}
+                </Fields>
+                <Card style={{ flex: 4 }}>
+                  {imagePreview && (
+                    <ImagePreview
+                      style={{
+                        backgroundImage: `url(${imagePreview})`,
+                      }}
+                    />
+                  )}
+                </Card>
+              </FileUpload>
+            ),
+          },
+        ]}
+      />
     </Dialog>
   );
 };

@@ -27,7 +27,7 @@ import {
 
 const Tags = styled.div`
   display: flex;
-  gap: ${({ theme }) => theme.spacing[1]};
+  gap: 0.25rem;
   a:hover {
     text-decoration: none;
   }
@@ -40,7 +40,7 @@ const AuthorAndDate = styled.p`
 
 const Meta = styled.article`
   width: 100%;
-  gap: ${({ theme }) => theme.spacing[1]};
+  gap: 0.25rem;
   display: flex;
   flex-direction: column;
   ${({ theme }) => theme.mediaQueries.onlyMobile} {
@@ -56,13 +56,13 @@ const PublishedIconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: ${({ theme }) => theme.spacing[1]};
+  gap: 0.25rem;
 `;
 
 const Post = styled.div`
   flex: 1;
   display: flex;
-  gap: ${({ theme }) => theme.spacing[4]};
+  gap: 1rem;
 `;
 
 const Wrapper = styled.div<{ published: boolean }>`

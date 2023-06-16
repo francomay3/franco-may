@@ -10,14 +10,15 @@ const Wrapper = styled.header`
   display: flex;
   height: ${({ theme }) => theme.header.width};
   justify-content: space-between;
-  padding-inline: ${({ theme }) => theme.spacing[4]};
+  padding-inline: 1rem;
+  border-bottom: 1px solid ${({ theme }) => theme.header.barBorderColor};
 `;
 
 const Nav = styled.nav`
   & > ul {
     align-items: center;
     display: flex;
-    gap: ${({ theme }) => theme.spacing[4]};
+    gap: 1rem;
     list-style: none;
     margin: 0;
     padding: 0;

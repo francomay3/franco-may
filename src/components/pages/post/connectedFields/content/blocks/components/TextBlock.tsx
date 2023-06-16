@@ -11,7 +11,7 @@ interface TextBlockProps {
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing[4]};
+  gap: 1rem;
   font-size: 18px;
   line-height: 1.75rem;
   letter-spacing: -0.003em;

@@ -8,10 +8,10 @@ const Wrapper = styled.figure`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-block: ${({ theme }) => theme.spacing[4]};
+  padding-block: 1rem;
   ${({ theme }) => theme.mediaQueries.onlyMobile} {
     flex-direction: column;
-    gap: ${({ theme }) => theme.spacing[4]};
+    gap: 1rem;
   }
 `;
 

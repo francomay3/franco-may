@@ -3,7 +3,7 @@ import { Dialog, Button } from "@/components/design-system";
 
 const ButtonsWrapper = styled.div`
   display: flex;
-  gap: ${({ theme }) => theme.spacing[1]};
+  gap: 0.25rem;
   justify-content: flex-end;
 `;
 

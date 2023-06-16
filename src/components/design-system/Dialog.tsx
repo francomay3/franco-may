@@ -1,6 +1,7 @@
 import { Dialog as HeadlessDialog } from "@headlessui/react";
 import styled from "@emotion/styled";
 import { ReactNode } from "react";
+import { useTheme } from "@emotion/react";
 import { ActionMinusButton } from "./ActionButtons";
 
 const BackDrop = styled.div`
@@ -9,11 +10,17 @@ const BackDrop = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(
+    0,
+    0,
+    0,
+    ${({ theme }) => theme.dialog.backdropIntensity}
+  );
   z-index: ${({ theme }) => theme.zIndex.modalBackdrop};
 `;
 
 const Panel = styled(HeadlessDialog.Panel)<{ children: ReactNode }>`
+  border: 1px solid ${({ theme }) => theme.dialog.borderColor};
   position: fixed;
   top: 50%;
   left: 50%;
@@ -21,7 +28,7 @@ const Panel = styled(HeadlessDialog.Panel)<{ children: ReactNode }>`
   width: 100%;
   /* max-width: 800px; */
   max-width: min(800px, 95vw);
-  background-color: white;
+  background-color: ${({ theme }) => theme.dialog.backgroundColor};
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -39,11 +46,14 @@ const Dialog = ({
   title: string;
   children: ReactNode;
 }) => {
+  const theme = useTheme();
   return (
     <HeadlessDialog onClose={() => setIsDialogOpen(false)} open={isDialogOpen}>
       <BackDrop aria-hidden="true" />
       <Panel>
-        <HeadlessDialog.Title style={{ marginBottom: "1.5rem" }}>
+        <HeadlessDialog.Title
+          style={{ marginBottom: "1.5rem", color: theme.colors.text }}
+        >
           {title}
         </HeadlessDialog.Title>
         <ActionMinusButton

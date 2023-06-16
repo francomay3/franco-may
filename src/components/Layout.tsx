@@ -23,15 +23,15 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.background};
-  padding-block: ${({ theme }) => theme.spacing[6]};
-  padding-inline: ${({ theme }) => theme.spacing.aWholeLot};
+  padding-block: 1.5rem;
+  padding-inline: 8rem;
   ${({ theme }) => theme.mediaQueries.onlyTablet} {
-    padding-inline: ${({ theme }) => theme.spacing.aLot};
+    padding-inline: 3rem;
   }
   ${({ theme }) => theme.mediaQueries.onlyMobile} {
     ${({ theme }) =>
       !theme.isDark && `background-color: ${theme.colors.white}`};
-    padding-inline: ${({ theme }) => theme.spacing[4]};
+    padding-inline: 1rem;
   }
 `;
 

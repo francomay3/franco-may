@@ -7,12 +7,12 @@ import { useAuth } from "@/providers/AuthProvider";
 
 const Wrapper = styled.div`
   display: inline-flex;
-  gap: ${({ theme }) => theme.spacing[2]};
+  gap: 0.5rem;
   flex-direction: row;
   color: white;
   border-radius: ${({ theme }) => theme.borderRadius[4]};
-  padding-block: ${({ theme }) => theme.spacing[1]};
-  padding-inline: ${({ theme }) => theme.spacing[2]};
+  padding-block: 0.25rem;
+  padding-inline: 0.5rem;
   align-items: center;
   justify-content: space-between;
   background-color: ${({ color }) => color};

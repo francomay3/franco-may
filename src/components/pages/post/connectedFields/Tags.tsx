@@ -10,7 +10,7 @@ const NEW_TAG = "new tag";
 
 const Wrapper = styled.div`
   display: flex;
-  gap: ${({ theme }) => theme.spacing[2]};
+  gap: 0.5rem;
   align-items: center;
 `;
 

@@ -5,7 +5,7 @@ import { Emphasis } from "@/components/design-system";
 
 const TitlesWraper = styled.div`
   display: flex;
-  gap: ${({ theme }) => theme.spacing[2]};
+  gap: 0.5rem;
 `;
 
 const Texts = styled.div`
@@ -33,11 +33,9 @@ const TabTitle = ({
 }) => {
   return (
     <span onClick={onClick} style={{ cursor: "pointer" }}>
-      {
-        <Emphasis as="h2" onHover={active ? false : true}>
-          {children}
-        </Emphasis>
-      }
+      <Emphasis as="h2" onHover={active ? false : true}>
+        {children}
+      </Emphasis>
     </span>
   );
 };

@@ -23,7 +23,7 @@ import { Section } from "@/components/design-system";
 
 const Article = styled.article<{ isEditing: boolean }>`
   width: 100%;
-  gap: ${({ theme }) => theme.spacing[4]};
+  gap: 1rem;
   display: flex;
   flex-direction: column;
   margin-block: 3.5rem;
@@ -81,7 +81,7 @@ const Post = ({ ...props }: PostFields) => {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: ${({ theme }) => theme.spacing[8]};
+    gap: 2rem;
   `;
 
   return (

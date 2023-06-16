@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import React, { useState } from "react";
 import PostCard from "./PostCard";
 import { PUBLISHED, SLUG } from "@/utils/constants";
-import { Card, ActionPlusButton } from "@/components/design-system";
+import { Button, Icon } from "@/components/design-system";
 import { useAuth } from "@/providers/AuthProvider";
 import NewPostDialog from "@/components/pages/blog/NewPostDialog";
 import { PostFields } from "@/utils/types";
@@ -10,7 +10,7 @@ import { PostFields } from "@/utils/types";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing[8]};
+  gap: 2rem;
   gap: 2rem;
   width: 100%;
 `;
@@ -21,8 +21,8 @@ const Posts = ({ posts: InitialPosts }: { posts: PostFields[] }) => {
   const { isEditing } = useAuth();
 
   const updatePostField = (
-    slug: string,
     field: string,
+    slug: string,
     value: string | boolean
   ) => {
     const nextPosts = posts.map((post) => {
@@ -47,17 +47,9 @@ const Posts = ({ posts: InitialPosts }: { posts: PostFields[] }) => {
         setIsDialogOpen={setIsNewPostDialogOpen}
       />
       {isEditing && (
-        <Card
-          onClick={handleAddPost}
-          style={{
-            alignItems: "center",
-            gap: "0.5rem",
-            cursor: "pointer",
-          }}
-        >
-          Add Post
-          <ActionPlusButton onClick={handleAddPost} />
-        </Card>
+        <Button onClick={handleAddPost}>
+          <Icon id="plus" /> Create Post
+        </Button>
       )}
       {posts?.map((post) => {
         return (

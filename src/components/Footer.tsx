@@ -11,8 +11,8 @@ const Wrapper = styled.footer`
   justify-content: center;
   min-height: 100px;
   flex-direction: column;
-  padding: ${({ theme }) => theme.spacing[4]};
-  gap: ${({ theme }) => theme.spacing[4]};
+  padding: 1rem;
+  gap: 1rem;
   p {
     margin: 0;
     color: ${({ theme }) => theme.colors.white};

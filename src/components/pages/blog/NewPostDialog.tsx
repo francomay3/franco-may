@@ -8,14 +8,14 @@ import { SLUG } from "@/utils/constants";
 
 const InputWrapper = styled.div`
   display: flex;
-  gap: ${({ theme }) => theme.spacing[2]};
+  gap: 0.5rem;
   align-items: center;
 `;
 
 const DialogContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing[2]};
+  gap: 0.5rem;
 `;
 
 const getJustLetters = (str: string) =>
