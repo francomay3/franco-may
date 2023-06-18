@@ -1,18 +1,12 @@
-import styled from "@emotion/styled";
 import { uniq } from "lodash";
 import { ActionPlusButton } from "../../../design-system/ActionButtons";
 import Tag from "../../../design-system/Tag";
 import { BlogField } from "@/utils/types";
 import { useAuth } from "@/providers/AuthProvider";
 import { TAGS } from "@/utils/constants";
+import { Inline } from "@/components/design-system";
 
 const NEW_TAG = "new tag";
-
-const Wrapper = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-`;
 
 const formatTags = (tags: string[]) =>
   uniq(
@@ -56,12 +50,12 @@ const Tags = ({
   };
 
   return (
-    <Wrapper style={style}>
+    <Inline style={style}>
       {tags.map((tag) => (
         <Tag key={tag} onChange={handleChange} onDelete={deleteTag} tag={tag} />
       ))}
       {isEditing && <ActionPlusButton onClick={addTag} />}
-    </Wrapper>
+    </Inline>
   );
 };
 

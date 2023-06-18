@@ -1,8 +1,7 @@
-// import { Dialog } from "@headlessui/react";
 import styled from "@emotion/styled";
-import Dialog from "../../../../design-system/Dialog";
 import { blocksExamples } from "./blocks";
 import { BlockData } from "./blocks/types";
+import { Stack, Dialog } from "@/components/design-system";
 
 const Block = styled.div`
   padding: 0;
@@ -14,12 +13,6 @@ const Block = styled.div`
 const BlockTitle = styled.h3`
   margin-bottom: 0.5rem;
   margin-inline-start: 0.5rem;
-`;
-
-const Blocks = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 `;
 
 const BlockSelectionWrapper = styled.div`
@@ -47,7 +40,7 @@ const NewBlockDialog = ({
       setIsDialogOpen={setIsDialogOpen}
       title="Add new block"
     >
-      <Blocks>
+      <Stack gap="1rem">
         {blocksExamples.map(({ title, Component, data }) => (
           <Block key={title}>
             <BlockTitle>{title}</BlockTitle>
@@ -60,7 +53,7 @@ const NewBlockDialog = ({
             </BlockSelectionWrapper>
           </Block>
         ))}
-      </Blocks>
+      </Stack>
     </Dialog>
   );
 };

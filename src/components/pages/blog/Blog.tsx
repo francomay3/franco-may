@@ -22,8 +22,6 @@ const containerStyles = (theme: Theme) => css`
 const Intro = styled.div`
   display: flex;
   gap: 1rem;
-  /* margin-bottom: 5rem;
-  margin-top: 2rem; */
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;

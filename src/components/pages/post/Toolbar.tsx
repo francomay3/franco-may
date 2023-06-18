@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Icon } from "@/components/design-system";
+import { Icon, Inline } from "@/components/design-system";
 import { IconId } from "@/utils/types";
 
 const Wrapper = styled.div`
@@ -13,10 +13,6 @@ const Wrapper = styled.div`
   width: 100vw;
   left: 0;
   z-index: ${({ theme }) => theme.zIndex.sticky};
-`;
-
-const ButtonGroup = styled.div`
-  display: flex;
 `;
 
 const ButtonWrapper = styled.button`
@@ -90,7 +86,7 @@ const Toolbar = ({
 }: ToolbarProps) => {
   return (
     <Wrapper>
-      <ButtonGroup>
+      <Inline gap="0">
         {ToolbarButtons.map((id: IconId) => (
           <Button
             iconId={id}
@@ -101,8 +97,8 @@ const Toolbar = ({
             }}
           />
         ))}
-      </ButtonGroup>
-      <ButtonGroup>
+      </Inline>
+      <Inline gap="0">
         {hasUnsavedChanges && (
           <Button iconId="save" onMouseDown={save} text="Save" />
         )}
@@ -111,7 +107,7 @@ const Toolbar = ({
           onClick={onPublish}
           text={published ? "Unpublish" : "Publish"}
         />
-      </ButtonGroup>
+      </Inline>
     </Wrapper>
   );
 };

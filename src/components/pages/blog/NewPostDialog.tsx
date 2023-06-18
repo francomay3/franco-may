@@ -1,22 +1,10 @@
 import React, { useState } from "react";
-import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 import Dialog from "../../design-system/Dialog";
 import Button from "../../design-system/Button";
 import { createPost } from "@/utils/postUtils";
 import { SLUG } from "@/utils/constants";
-
-const InputWrapper = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-`;
-
-const DialogContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-`;
+import { Inline, Stack } from "@/components/design-system";
 
 const getJustLetters = (str: string) =>
   str
@@ -39,11 +27,11 @@ const NewPostDialog = ({
       setIsDialogOpen={setIsDialogOpen}
       title="Add new Post"
     >
-      <DialogContent>
+      <Stack gap="0.5rem">
         <h3>
           <strong>Beware:</strong> the slug can not be modified in the future.
         </h3>
-        <InputWrapper>
+        <Inline gap="0.5rem" style={{ alignItems: "center" }}>
           <label htmlFor={SLUG}>Slug:</label>
           <input
             id={SLUG}
@@ -61,8 +49,8 @@ const NewPostDialog = ({
           >
             Create
           </Button>
-        </InputWrapper>
-      </DialogContent>
+        </Inline>
+      </Stack>
     </Dialog>
   );
 };

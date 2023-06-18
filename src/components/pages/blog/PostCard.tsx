@@ -110,7 +110,7 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
         onDelete={async () => {
           const result = await deletePost(post[SLUG]);
           if (result) {
-            // handle delete state change
+            //TODO: handle delete state change
           }
         }}
         setIsDialogOpen={setIsDeleteModalOpen}

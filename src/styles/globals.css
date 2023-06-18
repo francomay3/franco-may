@@ -57,14 +57,11 @@ button {
 
 /* nprogress loading bar */
 
-/* Make clicks pass-through */
 #nprogress {
   pointer-events: none;
 }
 
 #nprogress .bar {
-  /* background: #f99345; */
-  /* make background a gradient */
   background: linear-gradient(to right, #f99345, #faa356);
 
   position: fixed;
@@ -76,7 +73,6 @@ button {
   height: 2px;
 }
 
-/* Remove these to get rid of the spinner */
 #nprogress .spinner {
   display: block;
   position: fixed;

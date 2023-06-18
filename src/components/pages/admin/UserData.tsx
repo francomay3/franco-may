@@ -1,12 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { useAuth } from "@/providers/AuthProvider";
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
+import { Stack } from "@/components/design-system";
 
 const Table = styled.div`
   display: grid;
@@ -29,7 +24,7 @@ const UserData = () => {
   const { displayName: Name, email: Email, uid: UID } = user || {};
 
   return (
-    <Wrapper>
+    <Stack gap="1rem">
       <h2>User Data:</h2>
       <Table>
         {Object.entries({ Name, Email, UID }).map((item, index) => (
@@ -53,7 +48,7 @@ const UserData = () => {
           </React.Fragment>
         ))}
       </Table>
-    </Wrapper>
+    </Stack>
   );
 };
 

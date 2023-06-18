@@ -1,12 +1,7 @@
 import { useState, useRef } from "react";
 import styled from "@emotion/styled";
 import { throttle } from "lodash";
-import { Emphasis } from "@/components/design-system";
-
-const TitlesWraper = styled.div`
-  display: flex;
-  gap: 0.5rem;
-`;
+import { Emphasis, Inline } from "@/components/design-system";
 
 const Texts = styled.div`
   display: flex;
@@ -58,7 +53,7 @@ const Tabs = ({
   );
   return (
     <div style={{ width: "100%" }}>
-      <TitlesWraper>
+      <Inline gap="0.5rem">
         {data.map(({ title }, index) => (
           <TabTitle
             active={selectedTab === index}
@@ -79,7 +74,7 @@ const Tabs = ({
             {title}
           </TabTitle>
         ))}
-      </TitlesWraper>
+      </Inline>
 
       <Texts onScroll={(e) => throttledOnScroll.current(e)}>
         {data.map(({ title, content }, index) => (

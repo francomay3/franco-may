@@ -1,21 +1,13 @@
-import styled from "@emotion/styled";
 import { useAuth } from "@/providers/AuthProvider";
-import { Button } from "@/components/design-system";
-
-const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-`;
+import { Button, Stack } from "@/components/design-system";
 
 function LoggedOut() {
   const { logIn } = useAuth();
   return (
-    <ContentWrapper>
+    <Stack gap="1rem" style={{ alignItems: "center" }}>
       <h1>Hi man, welcome back</h1>
       <Button onClick={() => logIn()}>Log In</Button>
-    </ContentWrapper>
+    </Stack>
   );
 }
 

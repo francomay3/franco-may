@@ -1,13 +1,6 @@
 import Image from "next/image";
-import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
-import { Dialog } from "@/components/design-system";
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+import { Dialog, Stack } from "@/components/design-system";
 
 interface ImagePreviewDialogProps {
   isDialogOpen: boolean;
@@ -27,7 +20,7 @@ const ImagePreviewDialog = ({
       setIsDialogOpen={setIsDialogOpen}
       title="Image preview"
     >
-      <Container>
+      <Stack gap="0" style={{ alignItems: "center" }}>
         <Image
           alt="Image preview"
           height={1000 / theme.aspectRatio}
@@ -41,7 +34,7 @@ const ImagePreviewDialog = ({
           }}
           width={1000}
         />
-      </Container>
+      </Stack>
     </Dialog>
   );
 };

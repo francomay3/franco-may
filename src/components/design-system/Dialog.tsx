@@ -26,7 +26,6 @@ const Panel = styled(HeadlessDialog.Panel)<{ children: ReactNode }>`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  /* max-width: 800px; */
   max-width: min(800px, 95vw);
   background-color: ${({ theme }) => theme.dialog.backgroundColor};
   padding: 1rem;

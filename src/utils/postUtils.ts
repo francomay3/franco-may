@@ -185,7 +185,6 @@ export const createComment = async (slug: string, comment: any) => {
   };
   return toast.promise(logic(), {
     pending: "Saving comment...",
-    // success: "Thank you for your comment! 😃",
     success: {
       render: "Thank you for your comment! 😃",
       autoClose: 3000,

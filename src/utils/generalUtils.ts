@@ -16,7 +16,6 @@ export const getDateAsString = (date: number) => {
   const year = JsDate.getFullYear();
   const month = JsDate.getMonth();
   const day = JsDate.getDate();
-  // return `${days[day - 1]} of ${months[month]}, ${year}`;
   return `${months[month]} ${day}, ${year}`;
 };
 
