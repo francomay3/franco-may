@@ -63,11 +63,15 @@ const Tabs = ({
                 `tab-${index}`
               );
               if (selectedTabElement) {
-                selectedTabElement.scrollIntoView({
-                  behavior: "smooth",
-                  block: "nearest",
-                  inline: "start",
-                });
+                const scrollContainer = selectedTabElement.parentElement;
+                const xPosition = selectedTabElement.offsetLeft;
+
+                if (scrollContainer) {
+                  scrollContainer.scrollTo({
+                    left: xPosition,
+                    behavior: "smooth",
+                  });
+                }
               }
             }}
           >
