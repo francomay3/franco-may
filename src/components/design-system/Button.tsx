@@ -2,19 +2,21 @@ import { ReactNode, CSSProperties } from "react";
 import styled from "@emotion/styled";
 import { Colors } from "@/utils/types";
 
-const Wrapper = styled.button<{ color: Colors }>`
+const Wrapper = styled.button<{ color: Colors; disabled: boolean }>`
+  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
   width: fit-content;
   display: inline-block;
-  background-color: ${({ theme, color }) => theme.colors[color]};
+  background-color: ${({ theme, color, disabled }) =>
+    !disabled ? theme.colors[color] : theme.button.disabledColor};
   color: ${({ theme }) => theme.colors.white};
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius[3]};
   padding-block: 0.5rem;
   padding-inline: 0.75rem;
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
   &:hover {
-    background-color: ${({ theme, color }) => {
+    background-color: ${({ theme, color, disabled }) => {
+      if (disabled) return theme.button.disabledColor;
       const availableColors = Object.keys(theme.colors);
       const lightColor = `light${color}`;
       if (availableColors.includes(lightColor)) {
@@ -34,6 +36,7 @@ export interface ButtonProps {
   style?: CSSProperties;
   type?: "button" | "submit" | "reset";
   value?: string;
+  disabled?: boolean;
 }
 
 const Button = ({
@@ -43,11 +46,13 @@ const Button = ({
   style = {},
   type = "button",
   value,
+  disabled = false,
 }: ButtonProps) => {
   return (
     <Wrapper
       color={color}
-      onClick={onClick}
+      disabled={disabled}
+      onClick={!disabled ? onClick : undefined}
       style={style}
       type={type}
       value={value}

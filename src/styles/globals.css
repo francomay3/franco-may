@@ -30,6 +30,11 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Baloo Chettan 2",cursive;
   font-weight: 400;

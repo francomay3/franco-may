@@ -6,18 +6,18 @@ import Dialog from "./Dialog";
 import EditableImage from "./EditableImage/EditableImage";
 import EmailInput from "./EmailInput";
 import Emphasis from "./Emphasis";
+import Form from "./Form/Form";
 import Icon from "./Icon";
 import ImageWithCaption from "./ImageWithCaption";
-import Label from "./Label";
 import Link from "./Link";
+import Section from "./Section";
 import Tabs from "./Tabs";
 import Tag from "./Tag";
-import Textarea from "./Textarea";
-import TextInput from "./TextInput";
-import Section from "./Section";
+import TextInput from "./Form/TextInput";
 
 export * from "./Layout";
 export * from "./ActionButtons";
+
 export {
   Button,
   Card,
@@ -26,14 +26,13 @@ export {
   EditableImage,
   EmailInput,
   Emphasis,
+  Form,
   Icon,
   ImageWithCaption,
-  Label,
   Link,
   Section,
   Tabs,
   Tag,
-  Textarea,
   TextInput,
   toast,
   Toast,

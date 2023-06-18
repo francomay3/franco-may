@@ -34,6 +34,9 @@ const lightViolet = "#d076f2";
 const darkViolet = "#851aad";
 
 const baseTheme = {
+  button: {
+    disabledColor: grey6,
+  },
   isDark: false,
   aspectRatio: 1.4,
   dialog: {

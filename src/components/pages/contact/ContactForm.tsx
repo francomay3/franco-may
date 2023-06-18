@@ -1,52 +1,19 @@
 import React from "react";
 import { useState } from "react";
-import styled from "@emotion/styled";
-import { useTheme } from "@emotion/react";
 import { sendMail } from "@/utils/mailUtils";
-import {
-  Button,
-  EmailInput,
-  Label,
-  Textarea,
-  TextInput,
-} from "@/components/design-system";
-
-const Form = styled.form`
-  max-width: 750px;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-gap: 1rem;
-  width: 100%;
-  align-items: center;
-  ${(props) => props.theme.mediaQueries.onlyMobile} {
-    grid-template-columns: 1fr;
-    label {
-      margin-bottom: -0.5rem;
-    }
-  }
-`;
+import { Form } from "@/components/design-system";
 
 type FormStatus = "notSent" | "sent" | "serverError" | "validating";
 
 const ContactForm = () => {
-  const theme = useTheme();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
   const [formStatus, setFormStatus] = useState<FormStatus>("notSent");
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    if (!name || !email || !message) {
-      return setFormStatus("validating");
-    }
-    const data = {
-      name,
-      email,
-      message,
-    };
-
-    sendMail(data)
+  const handleSubmit = (formData: {
+    email: string;
+    message: string;
+    name: string;
+  }) => {
+    sendMail(formData)
       .then(() => {
         setFormStatus("sent");
         return true;
@@ -57,72 +24,49 @@ const ContactForm = () => {
       });
   };
 
-  const form = (
-    <div>
-      <h2
-        style={{
-          textAlign: "center",
-          marginBottom: "1rem",
-        }}
-      >
-        Or fill the form...
-      </h2>
-      {formStatus === "validating" && (!name || !email || !message) && (
-        <p>
-          Please fill the
-          <b
-            style={{
-              color: theme.colors.danger,
-            }}
-          >
-            {!name ? " name " : !email ? " email " : " message "}
-          </b>
-          field! 🙏
-        </p>
-      )}
-      <Form>
-        <Label htmlFor="name">Name:</Label>
-        <TextInput
-          name="name"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-        />
-        <Label htmlFor="email">Email:</Label>
-        <EmailInput
-          name="email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
-        <Label htmlFor="message">Message:</Label>
-        <Textarea
-          name="message"
-          onChange={(e) => setMessage(e.target.value)}
-          style={{ height: "10rem" }}
-          value={message}
-        />
-        <Button
-          onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleSubmit(e)}
-          type="submit"
-          value="Submit"
-        />
-      </Form>
-    </div>
-  );
-
-  const success = <p>Message delivered! I&apos;ll get back to you ASAP! 😘</p>;
-
-  const error = (
-    <p>
-      Mmm... That&apos;s weird. 🤔 There seems to be an issue with the contact
-      form. Please try one of the alternatives methods. 🙏
-    </p>
-  );
+  const emailRegexValidation =
+    // eslint-disable-next-line no-control-regex
+    /(?:[a-z0-9+!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/i;
 
   return (
     <>
-      {(formStatus === "notSent" || formStatus === "validating") && form}
-      {formStatus === "sent" && success}
-      {formStatus === "serverError" && error}
+      {(formStatus === "notSent" || formStatus === "validating") && (
+        <Form
+          fields={[
+            {
+              label: "Your Name",
+              name: "name",
+              placeholder: "John Doe",
+              required: true,
+            },
+            {
+              label: "E-Mail",
+              name: "email",
+              placeholder: "johndoe@gmail.com",
+              required: true,
+              ruleExplanation: "Please enter a valid email address",
+              validationRule: emailRegexValidation,
+            },
+            {
+              label: "Message",
+              name: "message",
+              placeholder: "Your message",
+              required: true,
+              type: "textarea",
+            },
+          ]}
+          onSubmit={handleSubmit}
+        />
+      )}
+      {formStatus === "sent" && (
+        <p>Message delivered! I&apos;ll get back to you ASAP! 😘</p>
+      )}
+      {formStatus === "serverError" && (
+        <p>
+          Mmm... That&apos;s weird. 🤔 There seems to be an issue with the
+          contact form. Please try one of the alternatives methods. 🙏
+        </p>
+      )}
     </>
   );
 };
