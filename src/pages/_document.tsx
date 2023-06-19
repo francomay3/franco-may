@@ -9,12 +9,12 @@ export default function Document() {
           rel="icon"
         />
         <meta
-          content="cyan"
+          content="#4a70f7"
           media="(prefers-color-scheme: light)"
           name="theme-color"
         />
         <meta
-          content="black"
+          content="#242526"
           media="(prefers-color-scheme: dark)"
           name="theme-color"
         />

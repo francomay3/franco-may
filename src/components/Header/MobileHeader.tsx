@@ -8,16 +8,6 @@ import DarkModeSwitch from "./DarkModeSwitch";
 import { Icon } from "@/components/design-system";
 import { useAuth } from "@/providers/AuthProvider";
 
-const Wrapper = styled.header`
-  align-items: center;
-  background-color: ${({ theme }) => theme.header.backgroundColor};
-  display: flex;
-  height: ${({ theme }) => theme.header.width};
-  justify-content: space-between;
-  padding-inline: 1rem;
-  z-index: 2;
-`;
-
 const Nav = styled.nav`
   display: none;
   ${({ theme }) => theme.mediaQueries.onlyMobile} {
@@ -73,7 +63,7 @@ function MobileNav({
   const { isAdmin, setIsEditing, isEditing } = useAuth();
 
   return (
-    <Wrapper>
+    <>
       <Menu as={Nav} style={{ zIndex: 1, position: "unset" }}>
         {({ open }) => (
           <>
@@ -124,7 +114,7 @@ function MobileNav({
       </Menu>
       <Logo />
       <DarkModeSwitch />
-    </Wrapper>
+    </>
   );
 }
 

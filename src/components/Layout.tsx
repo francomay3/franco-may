@@ -1,9 +1,11 @@
 import styled from "@emotion/styled";
 import { CSSProperties } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Header from "./Header";
 import Footer from "./Footer";
+import { useDarkMode } from "@/providers/theme/Theme";
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -49,14 +51,25 @@ const Layout = ({
   children: React.ReactNode;
   WrapperStyles?: CSSProperties;
 }) => {
+  const { isDark } = useDarkMode();
   return (
-    <Wrapper style={WrapperStyles}>
+    <>
       <Sticky>
         <Header />
       </Sticky>
-      <Container>{children}</Container>
-      <Footer />
-    </Wrapper>
+      <AnimatePresence mode="wait">
+        <Wrapper
+          animate={{ filter: "blur(0px)", opacity: 1 }}
+          initial={{ filter: "blur(2px)", opacity: 0 }}
+          key={isDark ? "dark" : "light"}
+          style={WrapperStyles}
+          transition={{ duration: 0.3 }}
+        >
+          <Container>{children}</Container>
+          <Footer />
+        </Wrapper>
+      </AnimatePresence>
+    </>
   );
 };
 

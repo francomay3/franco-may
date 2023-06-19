@@ -57,8 +57,8 @@ const Tag = ({
 
   return (
     <WrappIf
-      condition={!isEditing}
       Wrapper={Link}
+      condition={!isEditing}
       wrapperProps={{
         href: `/blog/tag/${tag}`,
         className: css`

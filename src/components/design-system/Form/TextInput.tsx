@@ -118,8 +118,9 @@ const TextInput = ({
           opacity: hasError ? 1 : 0,
           y: hasError ? 0 : -10,
           height: hasError ? "auto" : 0,
+          marginTop: hasError ? "0.5rem" : 0,
         }}
-        style={{ color: theme.colors.danger, marginTop: "0.5rem" }}
+        style={{ color: theme.colors.danger }}
       >
         {errorText}
       </motion.span>

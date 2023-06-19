@@ -4,16 +4,6 @@ import DarkModeSwitch from "./DarkModeSwitch";
 import Logo from "./Logo";
 import { useAuth } from "@/providers/AuthProvider";
 
-const Wrapper = styled.header`
-  align-items: center;
-  background-color: ${({ theme }) => theme.header.backgroundColor};
-  display: flex;
-  height: ${({ theme }) => theme.header.width};
-  justify-content: space-between;
-  padding-inline: 1rem;
-  border-bottom: 1px solid ${({ theme }) => theme.header.barBorderColor};
-`;
-
 const Nav = styled.nav`
   & > ul {
     align-items: center;
@@ -41,7 +31,7 @@ function DesktopNav({
 }) {
   const { isAdmin, setIsEditing, isEditing } = useAuth();
   return (
-    <Wrapper>
+    <>
       <Logo />
       <Nav>
         <ul>
@@ -60,7 +50,7 @@ function DesktopNav({
         </ul>
       </Nav>
       <DarkModeSwitch />
-    </Wrapper>
+    </>
   );
 }
 

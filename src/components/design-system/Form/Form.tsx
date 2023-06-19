@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { css } from "@emotion/css";
 import styled from "@emotion/styled";
-import { useTheme } from "@emotion/react";
 import { Button, TextInput } from "@/components/design-system";
 
 const Wrapper = styled.form`
@@ -13,9 +11,37 @@ const Wrapper = styled.form`
   align-items: center;
   ${(props) => props.theme.mediaQueries.onlyMobile} {
     grid-template-columns: 1fr;
-    label {
-      margin-bottom: -0.5rem;
-    }
+    gap: 0.75rem;
+  }
+`;
+
+const InputWrapper = styled.div<{ index: number }>`
+  grid-column: 2;
+  grid-row: ${({ index }) => index + 1};
+  ${(props) => props.theme.mediaQueries.onlyMobile} {
+    grid-column: 1;
+    grid-row: auto;
+  }
+`;
+
+const Label = styled.label<{ index: number }>`
+  grid-column: 1;
+  grid-row: ${({ index }) => index + 1};
+  ${(props) => props.theme.mediaQueries.onlyMobile} {
+    grid-column: 1;
+    grid-row: auto;
+    margin-bottom: -0.5rem;
+    margin-inline-start: 0.5rem;
+  }
+`;
+
+const ButtonWrapper = styled.div<{ fields: Field[] }>`
+  grid-column: 2;
+  grid-row: ${({ fields }) => fields.length + 1};
+  justify-self: end;
+  ${(props) => props.theme.mediaQueries.onlyMobile} {
+    grid-column: 1;
+    grid-row: auto;
   }
 `;
 
@@ -40,7 +66,6 @@ const Form = ({
   fields: Field[];
   onSubmit: (formData: any) => void;
 }) => {
-  const theme = useTheme();
   const [errors, setErrors] = useState<{ name: string; hasError: boolean }[]>(
     fields.map(({ name }) => ({ name: name, hasError: false }))
   );
@@ -74,35 +99,21 @@ const Form = ({
             (error) => error.name === name
           )?.hasError;
           const labelComp = (
-            <label
-              className={css`
-                grid-column: 1;
-                grid-row: ${index + 1};
-                &:after {
-                  content: "${required ? " *" : ""}";
-                  color: ${theme.colors.text};
-                }
-              `}
-              htmlFor={label}
-            >
+            <Label htmlFor={label} index={index}>
               <h3
+                dangerouslySetInnerHTML={{
+                  __html: `${label}${required ? "&nbsp;*" : ""}`,
+                }}
                 style={{
                   display: "inline",
                 }}
-              >
-                {label}
-              </h3>
-            </label>
+              />
+            </Label>
           );
           return (
             <>
               {labelComp}
-              <div
-                className={css`
-                  grid-column: 2;
-                  grid-row: ${index + 1};
-                `}
-              >
+              <InputWrapper index={index}>
                 <TextInput
                   handleChange={handleChange}
                   hasError={hasError}
@@ -114,18 +125,12 @@ const Form = ({
                   validationRule={validationRule}
                   value={formData[name]}
                 />
-              </div>
+              </InputWrapper>
             </>
           );
         }
       )}
-      <div
-        className={css`
-          grid-column: 2;
-          grid-row: ${fields.length + 1};
-          justify-self: end;
-        `}
-      >
+      <ButtonWrapper fields={fields}>
         <Button
           disabled={isSubmitDisabled}
           onClick={(e) => {
@@ -135,7 +140,7 @@ const Form = ({
           type="submit"
           value="Submit"
         />
-      </div>
+      </ButtonWrapper>
     </Wrapper>
   );
 };

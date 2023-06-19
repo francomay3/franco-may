@@ -30,8 +30,8 @@ const Section = ({ children, style, className }: SectionProps) => {
   const isMobile = useIsMobile();
   return (
     <WrappIf
-      condition={!isMobile && !isDark}
       Wrapper={Card}
+      condition={!isMobile && !isDark}
       wrapperProps={{ className: cx(cardStyles) }}
     >
       <section className={cx(contentStyles, className)} style={style}>
