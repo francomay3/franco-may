@@ -57,12 +57,12 @@ const ImageAndData = styled.div`
 const Contact = () => {
   return (
     <Wrapper>
-      <h1>Let&apos;s get in touch!</h1>
+      <h1>Let&apos;s get in touch</h1>
       <DataAndForm>
         <ImageAndData>
           <EditableImage
             name="franco's face"
-            src="/images/face.jpeg"
+            src="/images/coffee.jpg"
             wrapperStyles={{
               width: "200px",
               aspectRatio: "1 / 1",
