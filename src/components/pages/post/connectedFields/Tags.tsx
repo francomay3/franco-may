@@ -1,10 +1,9 @@
 import { uniq } from "lodash";
 import { ActionPlusButton } from "../../../design-system/ActionButtons";
-import Tag from "../../../design-system/Tag";
 import { BlogField } from "@/utils/types";
 import { useAuth } from "@/providers/AuthProvider";
 import { TAGS } from "@/utils/constants";
-import { Inline } from "@/components/design-system";
+import { Inline, Tag } from "@/components/design-system";
 
 const NEW_TAG = "new tag";
 

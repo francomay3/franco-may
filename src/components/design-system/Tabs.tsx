@@ -1,7 +1,9 @@
 import { useState, useRef } from "react";
 import styled from "@emotion/styled";
 import { throttle } from "lodash";
+import WrappIf from "./WrappIf";
 import { Emphasis, Inline } from "@/components/design-system";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const Texts = styled.div`
   display: flex;
@@ -26,11 +28,17 @@ const TabTitle = ({
   onClick: () => void;
   children: string;
 }) => {
+  const isMobile = useIsMobile();
   return (
     <span onClick={onClick} style={{ cursor: "pointer" }}>
-      <Emphasis as="h2" onHover={active ? false : true}>
+      <WrappIf
+        Wrapper={Emphasis}
+        condition={active || !isMobile}
+        elseWrapper={({ children }) => <h2>{children}</h2>}
+        wrapperProps={{ as: "h2", onHover: active ? false : true }}
+      >
         {children}
-      </Emphasis>
+      </WrappIf>
     </span>
   );
 };
@@ -49,7 +57,7 @@ const Tabs = ({
       const tabWidth = totalWidth / numberOfTabs;
       const selectedTab = Math.round(scrollLeft / tabWidth);
       setSelectedTab(selectedTab);
-    }, 200)
+    }, 100)
   );
   return (
     <div style={{ width: "100%" }}>

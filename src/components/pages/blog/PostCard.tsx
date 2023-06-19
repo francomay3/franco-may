@@ -14,7 +14,7 @@ import {
   TITLE,
 } from "@/utils/constants";
 import { getDateAsString } from "@/utils/generalUtils";
-import { Link, Tag, EditableImage } from "@/components/design-system";
+import { Link, Tag, EditableImage, Inline } from "@/components/design-system";
 import { useAuth } from "@/providers/AuthProvider";
 import { BlogField, PostFields } from "@/utils/types";
 import EditableText from "@/components/EditableText";
@@ -24,14 +24,6 @@ import {
   ActionHiddenButton,
   ActionMinusButton,
 } from "@/components/design-system";
-
-const Tags = styled.div`
-  display: flex;
-  gap: 0.25rem;
-  a:hover {
-    text-decoration: none;
-  }
-`;
 
 const AuthorAndDate = styled.p`
   color: ${({ theme }) => theme.colors.grey} !important;
@@ -155,11 +147,11 @@ const PostCard = ({ post, updatePostField }: PostCardProps) => {
               value={post[TITLE]}
             />
           </Link>
-          <Tags>
+          <Inline gap="0.25rem">
             {post[TAGS].map((tag: string) => (
               <Tag key={tag} tag={tag} />
             ))}
-          </Tags>
+          </Inline>
           <EditableText
             as="p"
             onChange={handleOnFieldChange(post[SLUG], DESCRIPTION)}

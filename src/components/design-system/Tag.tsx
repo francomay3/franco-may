@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 import Link from "next/link";
+import { css } from "@emotion/css";
 import { ActionMinusButton } from "./ActionButtons";
 import WrappIf from "./WrappIf";
 import { useAuth } from "@/providers/AuthProvider";
@@ -16,6 +17,10 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: ${({ color }) => color};
+  // select all descendants
+  * {
+    text-decoration: none;
+  }
 `;
 
 function getIntegerFromString(str: string, max: number) {
@@ -52,18 +57,23 @@ const Tag = ({
 
   return (
     <WrappIf
-      Wrapper={Link}
       condition={!isEditing}
-      wrapperProps={{ href: `/blog/tag/${tag}` }}
+      Wrapper={Link}
+      wrapperProps={{
+        href: `/blog/tag/${tag}`,
+        className: css`
+          text-decoration: none;
+        `,
+      }}
     >
-      <Wrapper color={tagColor} key={tag}>
-        <div
-          contentEditable={isEditing}
-          onBlur={(e) => onChange && onChange(e.target.innerText, tag)}
-          suppressContentEditableWarning={true}
-        >
-          {tag}
-        </div>
+      <Wrapper
+        color={tagColor}
+        contentEditable={isEditing}
+        key={tag}
+        onBlur={(e) => onChange && onChange(e.target.innerText, tag)}
+        suppressContentEditableWarning={true}
+      >
+        {tag}
         {isEditing && (
           <ActionMinusButton onClick={() => onDelete && onDelete(tag)} />
         )}
