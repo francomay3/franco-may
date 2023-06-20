@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import Head from "next/head";
-import Layout from "@/components/Layout";
 
 const Content = styled.div`
   margin-block: auto;
@@ -9,7 +8,7 @@ const Content = styled.div`
 
 const PageNotFound = () => {
   return (
-    <Layout>
+    <>
       <Head>
         <title>Franco May - Page Not Found :(</title>
       </Head>
@@ -20,7 +19,7 @@ const PageNotFound = () => {
           and try again.
         </p>
       </Content>
-    </Layout>
+    </>
   );
 };
 

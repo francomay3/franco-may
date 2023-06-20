@@ -1,6 +1,8 @@
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDarkMode } from "@/providers/theme/Theme";
 const Toast = () => {
+  const { isDark } = useDarkMode();
   return (
     <ToastContainer
       autoClose={1000}
@@ -12,7 +14,7 @@ const Toast = () => {
       pauseOnHover
       position="top-right"
       rtl={false}
-      theme="light"
+      theme={isDark ? "dark" : "light"}
       transition={Flip}
     />
   );
