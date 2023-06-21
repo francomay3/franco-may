@@ -30,7 +30,7 @@ const Article = styled.article<{ isEditing: boolean }>`
   & [contenteditable="true"] {
     ${({ isEditing }) => isEditing && "border: 2px solid transparent;"}
     outline: none;
-    border-radius: ${({ theme }) => theme.borderRadius[3]};
+    border-radius: ${({ theme }) => theme.borderRadius};
     &:hover {
       border: 2px solid ${({ theme }) => theme.colors.lightblue};
       cursor: pointer;

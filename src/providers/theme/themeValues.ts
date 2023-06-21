@@ -45,7 +45,6 @@ const baseTheme = {
     backdropIntensity: 0.3,
   },
   form: {
-    borderRadius: "0.5rem",
     borderColor: grey7,
     borderFocusColor: blue,
     backgroundColor: grey10,
@@ -151,12 +150,7 @@ const baseTheme = {
     mobile: smallScreen,
     tablet: mediumScreen,
   },
-  borderRadius: {
-    1: "0.125rem",
-    2: "0.25rem",
-    3: "0.5rem",
-    4: "1rem",
-  },
+  borderRadius: "0.25rem",
 };
 
 const darkTheme = {

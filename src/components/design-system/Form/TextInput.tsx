@@ -25,7 +25,7 @@ const getBorderColor = (theme: Theme, hasError: boolean, touched: boolean) => {
 
 const inputStyles = ({ theme, hasError, touched }: any) => css`
   background-color: ${theme.form.backgroundColor};
-  border-radius: ${theme.form.borderRadius};
+  border-radius: ${theme.borderRadius};
   border: 1px solid ${getBorderColor(theme, hasError, touched)};
   color: ${theme.colors.text};
   padding: ${theme.form.padding};

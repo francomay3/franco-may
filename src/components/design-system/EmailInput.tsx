@@ -9,7 +9,7 @@ interface EmailInputProps {
 
 const StyledEmailInput = styled.input`
   border: 1px solid ${(props) => props.theme.form.borderColor};
-  border-radius: ${(props) => props.theme.form.borderRadius};
+  border-radius: ${(props) => props.theme.borderRadius};
   background-color: ${(props) => props.theme.form.backgroundColor};
   color: ${(props) => props.theme.colors.text};
   padding: ${(props) => props.theme.form.padding};

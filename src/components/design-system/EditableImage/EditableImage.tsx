@@ -26,7 +26,7 @@ const ImageWrapper = styled.div<{
   max-width: 100vw;
   aspect-ratio: ${({ theme }) => theme.aspectRatio} / 1;
   position: relative;
-  border-radius: ${({ theme }) => theme.borderRadius[4]};
+  border-radius: ${({ theme }) => theme.borderRadius};
   overflow: hidden;
   display: flex;
   justify-content: center;

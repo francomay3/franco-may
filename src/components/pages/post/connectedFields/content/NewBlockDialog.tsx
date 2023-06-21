@@ -6,7 +6,7 @@ import { Stack, Dialog } from "@/components/design-system";
 const Block = styled.div`
   padding: 0;
   background-color: ${({ theme }) => theme.colors.white};
-  border-radius: 0.5rem;
+  border-radius: ${({ theme }) => theme.borderRadius};
   padding: 0.5rem;
 `;
 
@@ -18,7 +18,7 @@ const BlockTitle = styled.h3`
 const BlockSelectionWrapper = styled.div`
   border: 2px solid ${({ theme }) => theme.colors.lightblue};
   padding: 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: ${({ theme }) => theme.borderRadius};
   cursor: pointer;
   &:hover {
     border: 2px solid ${({ theme }) => theme.colors.darkblue};

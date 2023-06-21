@@ -30,7 +30,7 @@ const ImagePreviewDialog = ({
             width: "100%",
             height: "100%",
             objectFit: "contain",
-            borderRadius: theme.borderRadius[4],
+            borderRadius: theme.borderRadius,
           }}
           width={1000}
         />

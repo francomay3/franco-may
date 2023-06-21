@@ -7,7 +7,7 @@ const TrumpWrong = styled.div`
   width: 320px;
   aspect-ratio: 1.6/1;
   position: relative;
-  border-radius: ${({ theme }) => theme.borderRadius[4]};
+  border-radius: ${({ theme }) => theme.borderRadius};
   overflow: hidden;
 `;
 

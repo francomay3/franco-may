@@ -25,7 +25,7 @@ const ImagesWrapper = styled.div`
 `;
 
 const Thumbnail = styled(Image)`
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   cursor: pointer;
   flex: 1;
   height: 100px;
@@ -41,7 +41,7 @@ const Thumbnail = styled(Image)`
 const ImagePreview = styled.div`
   background-position: center;
   background-size: cover;
-  border-radius: ${({ theme }) => theme.borderRadius[3]};
+  border-radius: ${({ theme }) => theme.borderRadius};
   height: 100%;
   width: 100%;
 `;
@@ -63,7 +63,7 @@ const Fields = styled.div`
   height: fit-content;
 
   input {
-    border-radius: ${({ theme }) => theme.borderRadius[3]};
+    border-radius: ${({ theme }) => theme.borderRadius};
     border: 1px solid ${({ theme }) => theme.colors.lightgrey};
     padding: 0.5rem;
 

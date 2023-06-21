@@ -29,7 +29,7 @@ const Panel = styled(HeadlessDialog.Panel)<{ children: ReactNode }>`
   max-width: min(800px, 95vw);
   background-color: ${({ theme }) => theme.dialog.backgroundColor};
   padding: 1rem;
-  border-radius: 0.5rem;
+  border-radius: ${({ theme }) => theme.borderRadius};
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: ${({ theme }) => theme.zIndex.modal};
 `;

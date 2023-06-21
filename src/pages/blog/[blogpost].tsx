@@ -4,10 +4,12 @@ import Post from "@/components/pages/post/Post";
 import { PostFields } from "@/utils/types";
 import { TITLE } from "@/utils/constants";
 
-export async function getServerSideProps(context: {
+export async function getServerSideProps({
+  params,
+}: {
   params: { blogpost: any };
 }) {
-  const id = context.params.blogpost;
+  const id = params.blogpost;
   const post = await getPost(id);
 
   return post
@@ -15,6 +17,7 @@ export async function getServerSideProps(context: {
         props: {
           ...post,
         },
+        revalidate: 86400,
       }
     : { notFound: true };
 }

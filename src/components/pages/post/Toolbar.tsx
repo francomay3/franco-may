@@ -5,7 +5,7 @@ import { IconId } from "@/utils/types";
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
   padding: 4px;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   display: flex;
   justify-content: space-between;
   position: fixed;

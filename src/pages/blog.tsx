@@ -3,7 +3,7 @@ import Blog from "@/components/pages/blog/Blog";
 import { getPosts } from "@/utils/postUtils";
 import { PostFields } from "@/utils/types";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
     const posts = await getPosts();
 
@@ -11,9 +11,10 @@ export async function getServerSideProps() {
       props: {
         posts,
       },
+      revalidate: 86400,
     };
   } catch (error) {
-    return { props: {} };
+    return { notFound: true };
   }
 }
 

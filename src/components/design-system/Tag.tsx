@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   gap: 0.5rem;
   flex-direction: row;
   color: white;
-  border-radius: ${({ theme }) => theme.borderRadius[4]};
+  border-radius: ${({ theme }) => theme.borderRadius};
   padding-block: 0.25rem;
   padding-inline: 0.5rem;
   align-items: center;

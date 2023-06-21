@@ -10,7 +10,7 @@ const Wrapper = styled.button<{ color: Colors; disabled: boolean }>`
     !disabled ? theme.colors[color] : theme.button.disabledColor};
   color: ${({ theme }) => theme.colors.white};
   border: none;
-  border-radius: ${({ theme }) => theme.borderRadius[3]};
+  border-radius: ${({ theme }) => theme.borderRadius};
   padding-block: 0.5rem;
   padding-inline: 0.75rem;
   transition: all 0.2s ease-in-out;
