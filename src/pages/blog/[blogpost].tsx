@@ -17,7 +17,6 @@ export async function getServerSideProps({
         props: {
           ...post,
         },
-        revalidate: 86400,
       }
     : { notFound: true };
 }
