@@ -34,10 +34,10 @@ import {
 
 // READ
 
-export const getPosts = async () => {
+export const getPosts = async (): Promise<PostFields[]> => {
   const postsCol = collection(db, POSTS);
   const postsSnapshot = await getDocs(postsCol);
-  const posts = postsSnapshot.docs.map((doc) => doc.data());
+  const posts: any = postsSnapshot.docs.map((doc) => doc.data());
   return posts;
 };
 

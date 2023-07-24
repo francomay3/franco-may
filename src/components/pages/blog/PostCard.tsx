@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
 import { useTheme } from "@emotion/react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import DeleteModal from "./DeleteModal";
 import { deletePost, setPostField } from "@/utils/postUtils";
 import {

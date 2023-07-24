@@ -15,10 +15,11 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-const Posts = ({ posts: InitialPosts }: { posts: PostFields[] }) => {
-  const [posts, setPosts] = useState<PostFields[]>(InitialPosts);
+const Posts = ({ posts: initialPosts }: { posts: PostFields[] }) => {
+  const [posts, setPosts] = useState<PostFields[]>(initialPosts);
   const [isNewPostDialogOpen, setIsNewPostDialogOpen] = useState(false);
   const { isEditing } = useAuth();
+  console.log({ initialPosts });
 
   const updatePostField = (
     field: string,

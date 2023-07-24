@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Dialog from "../../design-system/Dialog";
 import Button from "../../design-system/Button";
 import { createPost } from "@/utils/postUtils";
