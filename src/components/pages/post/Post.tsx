@@ -22,11 +22,15 @@ import { setPostField, updatePost } from "@/utils/postUtils";
 import { Section } from "@/components/design-system";
 
 const Article = styled.article<{ isEditing: boolean }>`
-  width: 100%;
   gap: 1rem;
   display: flex;
   flex-direction: column;
-  margin-block: 3.5rem;
+  margin: 2rem;
+
+  ${({ theme }) => theme.mediaQueries.onlyMobile} {
+    margin: 0;
+  }
+
   & [contenteditable="true"] {
     ${({ isEditing }) => isEditing && "border: 2px solid transparent;"}
     outline: none;

@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import styled from "@emotion/styled";
 import MobileHeader from "./MobileHeader";
 import DesktopHeader from "./DesktopHeader";
@@ -10,7 +10,12 @@ const navLinks = [
   { href: "/contact", pageName: "Contact" },
 ];
 
-const Wrapper = styled(motion.div)`
+const Wrapper = styled(motion.header)`
+    grid-area: header;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    
   align-items: center;
   background-color: ${({ theme }) => theme.header.backgroundColor};
   display: flex;
@@ -23,8 +28,7 @@ const Wrapper = styled(motion.div)`
 const Header = () => {
   const isMobile = useIsMobile();
   return (
-    <AnimatePresence>
-      {isMobile ? (
+      isMobile ? (
         <Wrapper animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
           <MobileHeader navLinks={navLinks} />
         </Wrapper>
@@ -32,8 +36,7 @@ const Header = () => {
         <Wrapper animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
           <DesktopHeader navLinks={navLinks} />
         </Wrapper>
-      )}
-    </AnimatePresence>
+      )
   );
 };
 
