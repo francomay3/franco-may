@@ -22,6 +22,12 @@ html, body {
   background-color: #ebedf0;
 }
 
+@media only screen and (max-width: 550px) {
+  body {
+    background-color: #fff;
+  }
+}
+
 .dark body {
   background-color: #1b1b1d;
 }

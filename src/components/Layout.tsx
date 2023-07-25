@@ -1,75 +1,80 @@
 import styled from "@emotion/styled";
-import { CSSProperties } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useDarkMode } from "@/providers/theme/Theme";
 
 const Wrapper = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "left-bar main right-bar"
+    "footer footer footer";
+  grid-template-columns:
+    1fr minmax(${({ theme }) => theme.breakpoints.tablet}px, 3fr)
+    1fr;
+  grid-template-rows: 3rem 1fr auto;
   min-height: 100vh;
-  *::selection {
-    background-color: ${({ theme }) => theme.colors.primary};
-    color: ${({ theme }) => theme.colors.background};
-  }
-`;
+  width: 100vw;
 
-const Container = styled.div`
-  margin-top: ${({ theme }) => theme.header.width};
-  align-items: center;
-  flex-direction: column;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.colors.background};
-  padding-block: 1.5rem;
-  padding-inline: 8rem;
-  ${({ theme }) => theme.mediaQueries.onlyTablet} {
-    padding-inline: 3rem;
-  }
   ${({ theme }) => theme.mediaQueries.onlyMobile} {
-    ${({ theme }) =>
-      !theme.isDark && `background-color: ${theme.colors.white}`};
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    grid-area: header;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+  }
+
+  main {
+    grid-area: main;
+    margin-block: 3rem;
+    padding-block: 3rem;
     padding-inline: 1rem;
+    ${({ theme }) => theme.mediaQueries.mobileAndTablet} {
+      width: 100vw;
+    }
+    ${({ theme }) => theme.mediaQueries.onlyMobile} {
+      padding-block: 1rem;
+    }
+    ${({ theme }) => theme.mediaQueries.onlyTablet} {
+      padding-block: 1.5rem;
+    }
+  }
+
+  footer {
+    width: 100vw;
+    grid-area: footer;
   }
 `;
 
-const Sticky = styled.div`
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-`;
-
-const Layout = ({
-  children,
-  WrapperStyles,
-}: {
-  children: React.ReactNode;
-  WrapperStyles?: CSSProperties;
-}) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   const { isDark } = useDarkMode();
+
   return (
-    <>
-      <Sticky>
-        <Header />
-      </Sticky>
-      <AnimatePresence mode="wait">
-        <Wrapper
-          animate={{ filter: "blur(0px)", opacity: 1 }}
-          initial={{ filter: "blur(2px)", opacity: 0 }}
-          key={isDark ? "dark" : "light"}
-          style={WrapperStyles}
-          transition={{ duration: 0.3 }}
-        >
-          <Container>{children}</Container>
+    <AnimatePresence mode="wait">
+      <Wrapper
+        animate={{ filter: "blur(0px)", opacity: 1 }}
+        initial={{ filter: "blur(2px)", opacity: 0 }}
+        key={isDark ? "dark" : "light"}
+        transition={{ duration: 0.3 }}
+      >
+        <header>
+          <Header />
+        </header>
+        <main>{children}</main>
+        <footer>
           <Footer />
-        </Wrapper>
-      </AnimatePresence>
-    </>
+        </footer>
+      </Wrapper>
+    </AnimatePresence>
   );
 };
 

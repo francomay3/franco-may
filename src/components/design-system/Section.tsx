@@ -11,14 +11,8 @@ interface SectionProps {
   className?: string;
 }
 
-const contentStyles = css`
-  width: 100%;
-  max-width: 680px;
-`;
-
 const cardStyles = css`
   width: 100%;
-  max-width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +28,7 @@ const Section = ({ children, style, className }: SectionProps) => {
       condition={!isMobile && !isDark}
       wrapperProps={{ className: cx(cardStyles) }}
     >
-      <section className={cx(contentStyles, className)} style={style}>
+      <section className={className} style={style}>
         {children}
       </section>
     </WrappIf>

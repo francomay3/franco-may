@@ -1,22 +1,14 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/css";
 import React from "react";
-import { useTheme } from "@emotion/react";
 import Posts from "./Posts";
-import { PostFields, Theme } from "@/utils/types";
+import { PostFields } from "@/utils/types";
 import { EditableImage, Emphasis, Section } from "@/components/design-system";
 
-const containerStyles = (theme: Theme) => css`
+const containerStyles = css`
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  margin-block: 3rem;
-  ${theme.mediaQueries.onlyMobile} {
-    margin-block: 1rem;
-  }
-  ${theme.mediaQueries.onlyTablet} {
-    margin-block: 1.5rem;
-  }
 `;
 
 const Intro = styled.div`
@@ -38,9 +30,8 @@ const IntroText = styled.div`
 `;
 
 const Blog = ({ posts }: { posts: PostFields[] }) => {
-  const theme = useTheme();
   return (
-    <Section className={containerStyles(theme)}>
+    <Section className={containerStyles}>
       <Intro>
         <EditableImage
           name="JimCarrey"

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Link } from "@/components/design-system";
 
-const Wrapper = styled.footer`
+const Wrapper = styled.div`
   border-top: 1px solid ${({ theme }) => theme.footer.borderColor};
   align-items: center;
   text-align: center;
