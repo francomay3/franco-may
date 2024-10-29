@@ -45,7 +45,24 @@ export default async function handler(
     // Verify the Firebase token
     const decodedToken = await admin.auth().verifyIdToken(token);
 
-    return res.status(200).json({ decodedToken });
+    const path = req.query.path as string[];
+
+    // Route based on the path
+    switch (path[0]) {
+      case "temp":
+        return res.status(200).json({ decodedToken });
+
+      case "suggest":
+        // Handle name suggestions
+        return res.status(200).json({ message: "Suggestions endpoint" });
+
+      case "vote":
+        // Handle voting
+        return res.status(200).json({ message: "Voting endpoint" });
+
+      default:
+        return res.status(404).json({ error: "Endpoint not found" });
+    }
 
     // Your authenticated API logic here
   } catch (error) {
