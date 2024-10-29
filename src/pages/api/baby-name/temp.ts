@@ -6,7 +6,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    let token = req.headers.authorization?.split("Bearer ")[1];
+    const token = req.headers.authorization?.split("Bearer ")[1];
 
     if (!token) {
       return res.status(401).json({ error: "No token provided" });
@@ -15,11 +15,10 @@ export default async function handler(
     // Verify the Firebase token
     const decodedToken = await admin.auth().verifyIdToken(token);
 
-    console.log(decodedToken);
+    return res.status(200).json({ decodedToken });
 
     // Your authenticated API logic here
   } catch (error) {
-    console.error("Error:", error);
-    res.status(500).json({ error: "Internal server error" });
+    return res.status(500).json({ error: "Internal server error" });
   }
 }
