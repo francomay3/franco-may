@@ -73,7 +73,7 @@ export default async function handler(
 
       case "get-poll-details":
         try {
-          const poll = await database.getPollDetails(req.body.id);
+          const poll = await database.getPollDetails(req.body.pollId);
           return res.status(200).json(poll);
         } catch (error) {
           return res.status(500).json(error);
@@ -81,7 +81,7 @@ export default async function handler(
 
       case "get-user":
         try {
-          const user = await database.getUser(req.body.id);
+          const user = await database.getUser(req.body.uid);
           return res.status(200).json(user);
         } catch (error) {
           return res.status(500).json(error);
@@ -97,7 +97,10 @@ export default async function handler(
 
       case "update-profile":
         try {
-          const userUpdate = await database.updateProfile(req.body);
+          const userUpdate = await database.updateProfile({
+            uid: decodedToken.uid,
+            ...req.body,
+          });
           return res.status(200).json(userUpdate);
         } catch (error) {
           return res.status(500).json(error);
