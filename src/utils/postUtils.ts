@@ -26,7 +26,7 @@ import {
 } from "./constants";
 import { PostFields } from "./types";
 import { toast } from "@/components/design-system";
-import { db } from "@/firebase";
+import { db } from "@/config/firebase-client";
 import {
   ImageBlockDataDefault,
   TextBlockDataDefault,

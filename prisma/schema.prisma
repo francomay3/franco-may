@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("BABY_NAME_DB_URL")
+}
+
+model Friendship {
+  userId                         String
+  friendId                       String
+  createdAt                      DateTime @default(now())
+  User_Friendship_friendIdToUser User     @relation("Friendship_friendIdToUser", fields: [friendId], references: [id])
+  User_Friendship_userIdToUser   User     @relation("Friendship_userIdToUser", fields: [userId], references: [id])
+
+  @@id([userId, friendId])
+}
+
+model Poll {
+  id        Int        @id @default(autoincrement())
+  title     String
+  ownerId   String
+  avatar    String
+  open      Boolean    @default(true)
+  createdAt DateTime   @default(now())
+  User      User       @relation(fields: [ownerId], references: [id])
+  UserPoll  UserPoll[]
+}
+
+model User {
+  id                                   String       @id
+  name                                 String
+  avatar                               String
+  email                                String
+  subtitle                             String
+  createdAt                            DateTime     @default(now())
+  Friendship_Friendship_friendIdToUser Friendship[] @relation("Friendship_friendIdToUser")
+  Friendship_Friendship_userIdToUser   Friendship[] @relation("Friendship_userIdToUser")
+  Poll                                 Poll[]
+  UserPoll                             UserPoll[]
+}
+
+model UserPoll {
+  userId String
+  pollId Int
+  Poll   Poll   @relation(fields: [pollId], references: [id])
+  User   User   @relation(fields: [userId], references: [id])
+
+  @@id([userId, pollId])
+}

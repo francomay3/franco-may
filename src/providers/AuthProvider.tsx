@@ -7,7 +7,7 @@ import {
 } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signInWithPopup, User, UserCredential } from "firebase/auth";
-import { auth, provider } from "@/firebase";
+import { auth, provider } from "@/config/firebase-client";
 
 export const UserContext = createContext<{
   user: User | null | undefined;

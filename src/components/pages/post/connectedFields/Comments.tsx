@@ -1,14 +1,14 @@
 import styled from "@emotion/styled";
 import { ActionMinusButton } from "../../../design-system/ActionButtons";
-import { Comment } from "@/utils/types";
+import { Comment as CommentType } from "@/utils/types";
 import { useAuth } from "@/providers/AuthProvider";
 import { getDateAsString } from "@/utils/generalUtils";
 import { Form, Inline, Stack } from "@/components/design-system";
 import { COMMENTS } from "@/utils/constants";
 import { deleteComment, createComment } from "@/utils/postUtils";
 interface CommentsProps {
-  comments: Comment[];
-  onChange: (field: typeof COMMENTS, value: Comment[]) => void;
+  comments: CommentType[];
+  onChange: (field: typeof COMMENTS, value: CommentType[]) => void;
   slug: string;
 }
 
@@ -39,7 +39,7 @@ const Comments = ({ comments = [], onChange, slug }: CommentsProps) => {
     name: string;
     content: string;
   }) => {
-    const newComment: Comment = {
+    const newComment: CommentType = {
       name: name,
       date: Date.now(),
       content: content,
@@ -73,7 +73,7 @@ const Comments = ({ comments = [], onChange, slug }: CommentsProps) => {
         ]}
         onSubmit={handleCreateComment}
       />
-      {comments.map(({ name, date, content }: Comment) => {
+      {comments.map(({ name, date, content }: CommentType) => {
         return (
           <Comment key={date}>
             {isEditing && (
