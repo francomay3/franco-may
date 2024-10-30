@@ -164,12 +164,19 @@ export default async function handler(
         })(req, res);
       }
 
+      // case "reset-database": {
+      //   return compose(
+      //     withAuth({
+      //       adminOnly: true,
+      //     })
+      //   )(async (req, res) => {
+      //     await database.resetDatabase();
+      //     return res.status(201).json({ success: true });
+      //   })(req, res);
+      // }
+
       case "reset-database": {
-        return compose(
-          withAuth({
-            adminOnly: true,
-          })
-        )(async (req, res) => {
+        return compose()(async (req, res) => {
           await database.resetDatabase();
           return res.status(201).json({ success: true });
         })(req, res);
