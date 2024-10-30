@@ -98,8 +98,6 @@ export default async function handler(
       }
 
       case "create-user": {
-        // eslint-disable-next-line no-console
-        console.log("create-user route...");
         const { uid, name, avatar, email, subtitle } = req.body;
         await database.createUser({
           uid,
@@ -108,8 +106,6 @@ export default async function handler(
           email,
           subtitle,
         });
-        // eslint-disable-next-line no-console
-        console.log("create-user success");
         return res.status(201).json({ success: true });
       }
 
@@ -170,17 +166,7 @@ export default async function handler(
         })(req, res);
       }
 
-      // case "reset-database": {
-      //   return compose(
-      //     withAuth({
-      //       adminOnly: true,
-      //     })
-      //   )(async (req, res) => {
-      //     await database.resetDatabase();
-      //     return res.status(201).json({ success: true });
-      //   })(req, res);
-      // }
-
+      // TODO: add admin only again
       case "reset-database": {
         return compose()(async (req, res) => {
           await database.resetDatabase();
