@@ -70,6 +70,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  // eslint-disable-next-line no-console
+  console.log("handler...");
   if (req.method === "OPTIONS") {
     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
     res.setHeader(
@@ -96,6 +98,8 @@ export default async function handler(
       }
 
       case "create-user": {
+        // eslint-disable-next-line no-console
+        console.log("create-user route...");
         const { uid, name, avatar, email, subtitle } = req.body;
         await database.createUser({
           uid,
@@ -104,6 +108,8 @@ export default async function handler(
           email,
           subtitle,
         });
+        // eslint-disable-next-line no-console
+        console.log("create-user success");
         return res.status(201).json({ success: true });
       }
 

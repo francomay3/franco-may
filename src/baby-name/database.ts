@@ -1,5 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { PrismaClient } from "@prisma/client";
+import admin from "@/config/firebase-admin";
 
 const prisma = new PrismaClient();
 
@@ -108,12 +109,27 @@ export const deleteUser = async ({ uid }: { uid: string }): Promise<void> => {
     where: { id: uid },
   });
 };
-
 export const resetDatabase = async () => {
+  // eslint-disable-next-line no-console
+  console.log("resetDatabase...");
+  // eslint-disable-next-line no-console
+  console.log("getting uids...");
+  const uids = await prisma.user.findMany();
+  // eslint-disable-next-line no-console
+  console.log(`uids: ${JSON.stringify(uids, null, 2)}`);
+  // eslint-disable-next-line no-console
+  console.log("deleting tables data...");
   await prisma.$transaction([
     prisma.userPoll.deleteMany(),
     prisma.friendship.deleteMany(),
     prisma.poll.deleteMany(),
     prisma.user.deleteMany(),
   ]);
+  // eslint-disable-next-line no-console
+  console.log("tables data deleted");
+  // eslint-disable-next-line no-console
+  console.log("deleting users...");
+  const result = await admin.auth().deleteUsers(uids.map((user) => user.id));
+  // eslint-disable-next-line no-console
+  console.log(`users deleted: ${JSON.stringify(result, null, 2)}`);
 };
