@@ -4,11 +4,15 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 // FUNCTIONS CREATE
-export const createPoll = async (
-  uid: string,
-  title: string,
-  avatar?: string
-): Promise<void> => {
+export const createPoll = async ({
+  uid,
+  title,
+  avatar,
+}: {
+  uid: string;
+  title: string;
+  avatar?: string;
+}): Promise<void> => {
   await prisma.poll.create({
     data: {
       title,
@@ -19,13 +23,13 @@ export const createPoll = async (
 };
 
 export const createUser = async ({
-  id,
+  uid,
   name,
   avatar,
   email,
   subtitle,
 }: {
-  id: string;
+  uid: string;
   name?: string;
   avatar?: string;
   email: string;
@@ -33,7 +37,7 @@ export const createUser = async ({
 }): Promise<void> => {
   await prisma.user.create({
     data: {
-      id,
+      id: uid,
       name: name || faker.person.fullName(),
       avatar: avatar || faker.image.avatar(),
       email,
@@ -43,14 +47,14 @@ export const createUser = async ({
 };
 
 // FUNCTIONS READ
-export const getPollDetails = async (id: number) => {
+export const getPollDetails = async ({ pollId }: { pollId: number }) => {
   return prisma.poll.findUnique({
-    where: { id },
+    where: { id: pollId },
   });
 };
 export type Poll = Awaited<ReturnType<typeof getPollDetails>>;
 
-export const getUser = async (uid: string) => {
+export const getUser = async ({ uid }: { uid: string }) => {
   return prisma.user.findUnique({
     where: { id: uid },
     include: {
@@ -63,9 +67,9 @@ export const getUser = async (uid: string) => {
 };
 export type User = Awaited<ReturnType<typeof getUser>>;
 
-export const getUsers = async (ids: string[]) => {
+export const getUsers = async ({ uids }: { uids: string[] }) => {
   return prisma.user.findMany({
-    where: { id: { in: ids } },
+    where: { id: { in: uids } },
     include: {
       polls: true,
       participatedPolls: true,
@@ -99,8 +103,17 @@ export const updateProfile = async ({
 };
 
 // FUNCTIONS DELETE
-export const deleteUser = async (uid: string): Promise<void> => {
+export const deleteUser = async ({ uid }: { uid: string }): Promise<void> => {
   await prisma.user.delete({
     where: { id: uid },
   });
+};
+
+export const resetDatabase = async () => {
+  await prisma.$transaction([
+    prisma.userPoll.deleteMany(),
+    prisma.friendship.deleteMany(),
+    prisma.poll.deleteMany(),
+    prisma.user.deleteMany(),
+  ]);
 };
