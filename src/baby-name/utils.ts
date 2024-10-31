@@ -84,9 +84,11 @@ export const getStatus = (
 };
 
 export type Route = {
-  method: "GET" | "POST";
+  method: Method;
   handler: NextApiHandler;
   middlewares?: MiddlewareFunction[];
 };
 
 export type Routes = Record<string, Route>;
+
+export type Method = "GET" | "POST" | "PATCH" | "DELETE";

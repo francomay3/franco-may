@@ -8,4 +8,4 @@ export const subtitle = z.string().min(1);
 export const pollId = z.number();
 export const title = z.string().min(1);
 export const uids = z.array(uid);
-export const query = z.string().min(1);
+export const searchUserQuery = z.string().min(1);

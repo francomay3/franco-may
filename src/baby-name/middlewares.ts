@@ -1,6 +1,6 @@
 import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
 import z from "zod";
-import { getStatus } from "./utils";
+import { getStatus, Method } from "./utils";
 import admin from "@/config/firebase-admin";
 
 export const compose = (...middlewares: MiddlewareFunction[]) => {
@@ -69,8 +69,8 @@ export const withAuth: WithAuth = (options = {}) => {
 type ValidateBody = (schema: z.ZodSchema) => MiddlewareFunction;
 
 export const validateBody: ValidateBody = (schema) => {
-  return (handler: NextApiHandler) => {
-    return async (req: NextApiRequest, res: NextApiResponse) => {
+  return (handler) => {
+    return async (req, res) => {
       try {
         const result = schema.safeParse(req.body);
         if (!result.success) {
@@ -81,6 +81,52 @@ export const validateBody: ValidateBody = (schema) => {
       } catch (error) {
         return getStatus("INTERNAL_SERVER_ERROR", res);
       }
+    };
+  };
+};
+
+type ValidateQuery = (schema: z.ZodSchema) => MiddlewareFunction;
+
+export const validateQuery: ValidateQuery = (schema) => {
+  return (handler) => {
+    return async (req, res) => {
+      try {
+        const result = schema.safeParse(req.query);
+        if (!result.success) {
+          return getStatus("VALIDATION_ERROR", res, result.error.message);
+        }
+
+        return handler(req, res);
+      } catch (error) {
+        return getStatus("INTERNAL_SERVER_ERROR", res);
+      }
+    };
+  };
+};
+
+type ValidateMethod = (allowedMethods: Method | Method[]) => MiddlewareFunction;
+
+export const validateMethod: ValidateMethod = (allowedMethods) => {
+  const methods = Array.isArray(allowedMethods)
+    ? allowedMethods
+    : [allowedMethods];
+
+  return (handler) => {
+    return async (req, res) => {
+      if (req.method === "OPTIONS") {
+        res.setHeader("Access-Control-Allow-Methods", methods.join(", "));
+        res.setHeader(
+          "Access-Control-Allow-Headers",
+          "Authorization, Content-Type"
+        );
+        return res.status(200).end();
+      }
+
+      if (!methods.includes((req.method ?? "") as Method)) {
+        return getStatus("METHOD_NOT_ALLOWED", res);
+      }
+
+      return handler(req, res);
     };
   };
 };
