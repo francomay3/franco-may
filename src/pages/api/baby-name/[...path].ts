@@ -1,184 +1,132 @@
-import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
-import admin from "@/config/firebase-admin";
+import z from "zod";
 import * as database from "@/baby-name/database";
+import { getStatus, Routes } from "@/baby-name/utils";
+import { withAuth, validateBody } from "@/baby-name/middlewares";
+import handler from "@/baby-name/handler";
+import * as zt from "@/baby-name/zodSchemas";
 
-type MiddlewareFunction = (handler: NextApiHandler) => NextApiHandler;
+const routes: Routes = {
+  "create-poll": {
+    method: "POST",
+    handler: async (req, res) => {
+      const { title, avatar, uid } = req.body;
+      await database.createPoll({ uid, title, avatar });
+      return getStatus("CREATED", res);
+    },
+    middlewares: [
+      withAuth({ withSelfOnly: true }),
+      validateBody(
+        z.object({ title: zt.title, avatar: zt.avatar, uid: zt.uid })
+      ),
+    ],
+  },
 
-const compose = (...middlewares: MiddlewareFunction[]) => {
-  return (handler: NextApiHandler): NextApiHandler => {
-    return middlewares.reduceRight((acc, middleware) => {
-      return middleware(acc);
-    }, handler);
-  };
+  "create-user": {
+    method: "POST",
+    handler: async (req, res) => {
+      const { uid, name, avatar, email, subtitle } = req.body;
+      await database.createUser({ uid, name, avatar, email, subtitle });
+      return getStatus("CREATED", res);
+    },
+    middlewares: [
+      validateBody(
+        z.object({
+          uid: zt.uid,
+          name: zt.name,
+          avatar: zt.avatar,
+          email: zt.email,
+          subtitle: zt.subtitle,
+        })
+      ),
+    ],
+  },
+
+  "get-poll-details": {
+    method: "POST",
+    handler: async (req, res) => {
+      const { pollId } = req.body;
+      const data = await database.getPollDetails({ pollId });
+      return getStatus("READ", res, data);
+    },
+    middlewares: [withAuth(), validateBody(z.object({ pollId: zt.pollId }))],
+  },
+
+  "get-user": {
+    method: "POST",
+    handler: async (req, res) => {
+      const { uid } = req.body;
+      const data = await database.getUser({ uid });
+      data?.friendsTo;
+      return getStatus("READ", res, data);
+    },
+    middlewares: [validateBody(z.object({ uid: zt.uid }))],
+  },
+
+  "get-users": {
+    method: "POST",
+    handler: async (req, res) => {
+      const { uids } = req.body;
+      const data = await database.getUsers({ uids });
+      return getStatus("READ", res, data);
+    },
+    middlewares: [
+      withAuth({ withSelfOnly: false, adminOnly: false }),
+      validateBody(z.object({ uids: zt.uids })),
+    ],
+  },
+
+  "update-profile": {
+    method: "POST",
+    handler: async (req, res) => {
+      const { uid, name, subtitle, avatar } = req.body;
+      await database.updateProfile({ uid, name, subtitle, avatar });
+      return getStatus("UPDATED", res);
+    },
+    middlewares: [
+      withAuth({ withSelfOnly: true }),
+      validateBody(
+        z.object({
+          uid: zt.uid,
+          name: zt.name.optional(),
+          subtitle: zt.subtitle.optional(),
+          avatar: zt.avatar.optional(),
+        })
+      ),
+    ],
+  },
+
+  "delete-user": {
+    method: "POST",
+    handler: async (req, res) => {
+      const { uid } = req.body;
+      await database.deleteUser({ uid });
+      return getStatus("DELETED", res);
+    },
+    middlewares: [
+      withAuth({ withSelfOnly: true }),
+      validateBody(z.object({ uid: zt.uid })),
+    ],
+  },
+
+  "reset-database": {
+    method: "POST",
+    handler: async (req, res) => {
+      await database.resetDatabase();
+      return getStatus("DELETED", res);
+    },
+    // TODO: add admin middleware again
+    // middlewares: [withAuth({ adminOnly: true })],
+  },
+
+  "search-users": {
+    method: "POST",
+    handler: async (req, res) => {
+      const { query } = req.body;
+      const data = await database.searchUsers({ query });
+      return getStatus("READ", res, data);
+    },
+    middlewares: [validateBody(z.object({ query: zt.query }))],
+  },
 };
 
-type WithAuthOptions = {
-  withSelfOnly?: boolean;
-  adminOnly?: boolean;
-};
-
-const withAuth: (options?: WithAuthOptions) => MiddlewareFunction = (
-  options = {}
-) => {
-  const { withSelfOnly, adminOnly } = options || {};
-
-  return (handler) => {
-    return async (req, res) => {
-      const token = req.headers.authorization?.split("Bearer ")[1];
-
-      if (!token) {
-        return res.status(401).json({ error: "no token provided" });
-      }
-
-      try {
-        const decodedToken = await admin.auth().verifyIdToken(token);
-
-        if (!decodedToken) {
-          return res.status(401).json({ error: "invalid token" });
-        }
-
-        // Add the decoded token to the request object so handlers can access it
-        const email = decodedToken.email || "";
-        const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS;
-        const isAdmin = adminEmails?.includes(email) || false;
-
-        if (adminOnly && !isAdmin) {
-          return res
-            .status(403)
-            .json({ error: "only admins can perform this action" });
-        }
-
-        const decodedUid = decodedToken.uid;
-        const requestedUid = req.body.uid;
-        const isActingOnOwnData = decodedUid === requestedUid;
-
-        if (!isAdmin && withSelfOnly && !isActingOnOwnData) {
-          return res
-            .status(403)
-            .json({ error: "you can only modify your own data" });
-        }
-
-        return handler(req, res);
-      } catch (error) {
-        return res.status(401).json({ error: "invalid token" });
-      }
-    };
-  };
-};
-
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  // eslint-disable-next-line no-console
-  console.log("handler...");
-  if (req.method === "OPTIONS") {
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST");
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Authorization, Content-Type"
-    );
-    return res.status(200).end();
-  }
-
-  const path = req.query.path as string[];
-
-  try {
-    switch (path[0]) {
-      case "create-poll": {
-        return compose(
-          withAuth({
-            withSelfOnly: true,
-          })
-        )(async (req, res) => {
-          const { title, avatar, uid } = req.body;
-          await database.createPoll({ uid, title, avatar });
-          return res.status(201).json({ success: true });
-        })(req, res);
-      }
-
-      case "create-user": {
-        const { uid, name, avatar, email, subtitle } = req.body;
-        await database.createUser({
-          uid,
-          name,
-          avatar,
-          email,
-          subtitle,
-        });
-        return res.status(201).json({ success: true });
-      }
-
-      case "get-poll-details": {
-        return compose(withAuth())(async (req, res) => {
-          const { pollId } = req.body;
-          const response = await database.getPollDetails({ pollId });
-          return res.status(201).json(response);
-        })(req, res);
-      }
-
-      case "get-user": {
-        const { uid } = req.body;
-        const response = await database.getUser({ uid });
-        return res.status(200).json(response);
-      }
-
-      case "get-users": {
-        return compose(
-          withAuth({
-            withSelfOnly: false,
-            adminOnly: false,
-          })
-        )(async (req, res) => {
-          const { uids } = req.body;
-          const response = await database.getUsers({ uids });
-          return res.status(201).json(response);
-        })(req, res);
-      }
-
-      case "update-profile": {
-        return compose(
-          withAuth({
-            withSelfOnly: true,
-          })
-        )(async (req, res) => {
-          const { uid, name, subtitle, avatar } = req.body;
-          await database.updateProfile({
-            uid,
-            name,
-            subtitle,
-            avatar,
-          });
-          return res.status(201).json({ success: true });
-        })(req, res);
-      }
-
-      case "delete-user": {
-        return compose(
-          withAuth({
-            withSelfOnly: true,
-            adminOnly: true,
-          })
-        )(async (req, res) => {
-          const { uid } = req.body;
-          await database.deleteUser({ uid });
-          return res.status(201).json({ success: true });
-        })(req, res);
-      }
-
-      // TODO: add admin only again
-      case "reset-database": {
-        return compose()(async (req, res) => {
-          await database.resetDatabase();
-          return res.status(201).json({ success: true });
-        })(req, res);
-      }
-
-      default: {
-        return res.status(404).json({ error: "Endpoint not found" });
-      }
-    }
-  } catch (error) {
-    return res.status(500).json(error);
-  }
-}
+export default handler(routes);

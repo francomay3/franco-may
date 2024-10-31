@@ -53,7 +53,6 @@ export const getPollDetails = async ({ pollId }: { pollId: number }) => {
     where: { id: pollId },
   });
 };
-export type Poll = Awaited<ReturnType<typeof getPollDetails>>;
 
 export const getUser = async ({ uid }: { uid: string }) => {
   return prisma.user.findUnique({
@@ -66,7 +65,6 @@ export const getUser = async ({ uid }: { uid: string }) => {
     },
   });
 };
-export type User = Awaited<ReturnType<typeof getUser>>;
 
 export const getUsers = async ({ uids }: { uids: string[] }) => {
   return prisma.user.findMany({
@@ -79,7 +77,24 @@ export const getUsers = async ({ uids }: { uids: string[] }) => {
     },
   });
 };
-export type Users = Awaited<ReturnType<typeof getUsers>>;
+
+export const searchUsers = async ({ query }: { query: string }) => {
+  return prisma.user.findMany({
+    where: {
+      OR: [
+        { name: { contains: query, mode: "insensitive" } },
+        { email: { contains: query, mode: "insensitive" } },
+      ],
+    },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      avatar: true,
+    },
+    take: 10,
+  });
+};
 
 // FUNCTIONS UPDATE
 export const updateProfile = async ({
@@ -117,5 +132,5 @@ export const resetDatabase = async () => {
     prisma.poll.deleteMany(),
     prisma.user.deleteMany(),
   ]);
-  const result = await admin.auth().deleteUsers(uids.map((user) => user.id));
+  await admin.auth().deleteUsers(uids.map((user) => user.id));
 };
