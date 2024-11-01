@@ -125,8 +125,8 @@ const routes: Routes = {
   "search-users": {
     method: "GET",
     handler: async (req, res) => {
-      const { query } = req.body;
-      const data = await database.searchUsers({ query });
+      const { query } = req.query;
+      const data = await database.searchUsers({ query: String(query) });
       return getStatus("READ", res, data);
     },
     middlewares: [
