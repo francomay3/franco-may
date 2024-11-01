@@ -1,4 +1,4 @@
-import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
+import { NextApiHandler } from "next";
 import z from "zod";
 import { getStatus, Method } from "./utils";
 import admin from "@/config/firebase-admin";
