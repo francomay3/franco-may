@@ -55,7 +55,7 @@ export const getPollDetails = async ({ pollId }: { pollId: number }) => {
 };
 
 export const getUser = async ({ uid }: { uid: string }) => {
-  return prisma.user.findUnique({
+  const user = await prisma.user.findUnique({
     where: { id: uid },
     include: {
       polls: true,
@@ -64,6 +64,24 @@ export const getUser = async ({ uid }: { uid: string }) => {
       friendsFrom: true,
     },
   });
+
+  const dbUserVerified = user?.verified;
+
+  if (!dbUserVerified) {
+    const googleUser = await admin.auth().getUser(uid);
+    const googleUserVerified = googleUser.emailVerified;
+
+    if (googleUserVerified) {
+      await prisma.user.update({
+        where: { id: uid },
+        data: { verified: true },
+      });
+
+      return { ...user, verified: true };
+    }
+  }
+
+  return user;
 };
 
 export const getUsers = async ({ uids }: { uids: string[] }) => {

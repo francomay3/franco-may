@@ -11,6 +11,7 @@ generator client {
 datasource db {
   provider = "postgresql"
   url = env("BABY_NAME_DB_URL")
+  directUrl = env("BABY_NAME_DB_URL_NON_POOLING")
 }
 
 model User {
@@ -20,6 +21,8 @@ model User {
   email String
   subtitle String
   createdAt DateTime @default(now())
+  verified Boolean @default(false)
+  darkMode Boolean?
 
   // Relations
   polls Poll[] // User's owned polls
