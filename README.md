@@ -17,13 +17,16 @@ This template comes with the following features:
 - Responsive AppShell layout with navigation components
 - Dark/Light mode toggle with smooth transitions
 - Custom CSS animations
+- Blog system with dynamic routing and breadcrumb navigation
+- Enhanced typography with custom CSS modules
 
 ## Pages
 
 The application includes the following pages:
 
 - **Home** (`/`) - Main landing page
-- **Blog** (`/blog`) - Blog page placeholder
+- **Blog** (`/blog`) - Blog listing page with article links
+- **Blog Articles** (`/blog/[slug]`) - Individual blog articles (e.g., `/blog/ai`)
 - **Contact** (`/contact`) - Contact page placeholder
 
 ## npm scripts
@@ -65,6 +68,8 @@ The project includes a responsive AppShell layout with:
 - **ColorSchemeIcon**: Replaces the old ColorSchemeToggle with a more integrated icon-based toggle
 - **Header**: Contains the app title, mobile menu toggle, and color scheme icon
 - **Navbar**: Side navigation that collapses on mobile devices
+- **Breadcrumbs**: Dynamic navigation component that shows current page hierarchy
+- **BlogLayout**: Dedicated layout for blog pages with breadcrumb navigation
 
 ## Development Setup
 

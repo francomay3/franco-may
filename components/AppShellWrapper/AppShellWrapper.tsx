@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { AppShell } from '@mantine/core';
+import { AppShell, Container } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Navbar from './Navbar';
 import Header from './Header';
@@ -31,7 +31,9 @@ export function AppShellWrapper({ children }: AppShellWrapperProps) {
         <Navbar />
       </AppShell.Navbar>
 
-      <AppShell.Main>{children}</AppShell.Main>
+      <AppShell.Main>
+        <Container>{children}</Container>
+      </AppShell.Main>
     </AppShell>
   );
 }

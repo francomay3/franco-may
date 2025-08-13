@@ -1,10 +1,10 @@
-import { Box, Text, Title } from '@mantine/core';
+import { Anchor, Box, Title } from '@mantine/core';
 
 export default function BlogPage() {
   return (
     <Box>
       <Title>Blog</Title>
-      <Text>Blog page placeholder</Text>
+      <Anchor href="/blog/ai">La IA y el mito del deseo artificial</Anchor>
     </Box>
   );
 }
