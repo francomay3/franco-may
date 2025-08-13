@@ -1,22 +1,37 @@
-## Hi! This is the source code for my personal website, [https://www.franco-may.com](https://www.franco-may.com)
+# Mantine Next.js template
 
-The website is built with [Next.js](https://nextjs.org/), a React framework.
+This is a template for [Next.js](https://nextjs.org/) app router + [Mantine](https://mantine.dev/).
+If you want to use pages router instead, see [next-pages-template](https://github.com/mantinedev/next-pages-template).
 
-## List of technologies used
+## Features
 
-- [Next.js](https://nextjs.org/)
-- [React](https://reactjs.org/)
+This template comes with the following features:
+
+- [PostCSS](https://postcss.org/) with [mantine-postcss-preset](https://mantine.dev/styles/postcss-preset)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Styled Components](https://styled-components.com/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [Font Awesome](https://fontawesome.com/)
-- [Google Fonts](https://fonts.google.com/)
-- [Firebase Realtime Database](https://firebase.google.com/products/realtime-database)
-- [Firebase Authentication](https://firebase.google.com/products/auth)
-- [Headless UI](https://headlessui.dev/)
-- [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
+- [Storybook](https://storybook.js.org/)
+- [Jest](https://jestjs.io/) setup with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
+- ESLint setup with [eslint-config-mantine](https://github.com/mantinedev/eslint-config-mantine)
 
-## Some Features that I'm proud of
+## npm scripts
 
-- **Custom Design System** </br> I built a custom design system using [Headless UI](https://headlessui.dev/) and [Styled Components](https://styled-components.com/). This allows me to have a consistent design across the entire website, and ensures that the website is accessible.
-- **Custom Blog** </br> I built a custom blog using [Next.js](https://nextjs.org/) and [Firebase Realtime Database](https://firebase.google.com/products/realtime-database). This allows me to have a fast and responsive blog, and to easily add new blogposts from within the website, without any need to push to the repository.
+### Build and dev scripts
+
+- `dev` – start dev server
+- `build` – bundle application for production
+- `analyze` – analyzes application bundle with [@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)
+
+### Testing scripts
+
+- `typecheck` – checks TypeScript types
+- `lint` – runs ESLint
+- `prettier:check` – checks files with Prettier
+- `jest` – runs jest tests
+- `jest:watch` – starts jest watch
+- `test` – runs `jest`, `prettier:check`, `lint` and `typecheck` scripts
+
+### Other scripts
+
+- `storybook` – starts storybook dev server
+- `storybook:build` – build production storybook bundle to `storybook-static`
+- `prettier:write` – formats all files with Prettier
