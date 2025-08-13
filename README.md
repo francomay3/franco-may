@@ -13,6 +13,8 @@ This template comes with the following features:
 - [Jest](https://jestjs.io/) setup with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
 - ESLint setup with [eslint-config-mantine](https://github.com/mantinedev/eslint-config-mantine)
 - [Yarn](https://yarnpkg.com/) package manager with node_modules linker
+- [Prettier](https://prettier.io/) code formatting with auto-format on save
+- Responsive AppShell layout with navigation components
 
 ## npm scripts
 
@@ -36,3 +38,16 @@ This template comes with the following features:
 - `storybook` – starts storybook dev server
 - `storybook:build` – build production storybook bundle to `storybook-static`
 - `prettier:write` – formats all files with Prettier
+
+## Project Structure
+
+The project includes a responsive AppShell layout with:
+
+- `AppShellWrapper` - Main layout component with responsive navigation
+- `Header` - Top navigation bar with burger menu for mobile
+- `Navbar` - Side navigation with navigation links
+- Navigation constants in `app/utils/constants.ts`
+
+## Development Setup
+
+This project includes VS Code settings for automatic code formatting on save. Make sure to install the Prettier extension for the best development experience.
