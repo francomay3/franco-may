@@ -15,6 +15,16 @@ This template comes with the following features:
 - [Yarn](https://yarnpkg.com/) package manager with node_modules linker
 - [Prettier](https://prettier.io/) code formatting with auto-format on save
 - Responsive AppShell layout with navigation components
+- Dark/Light mode toggle with smooth transitions
+- Custom CSS animations
+
+## Pages
+
+The application includes the following pages:
+
+- **Home** (`/`) - Main landing page
+- **Blog** (`/blog`) - Blog page placeholder
+- **Contact** (`/contact`) - Contact page placeholder
 
 ## npm scripts
 
@@ -44,9 +54,17 @@ This template comes with the following features:
 The project includes a responsive AppShell layout with:
 
 - `AppShellWrapper` - Main layout component with responsive navigation
-- `Header` - Top navigation bar with burger menu for mobile
+- `Header` - Top navigation bar with burger menu for mobile and color scheme toggle
 - `Navbar` - Side navigation with navigation links
+- `ColorSchemeIcon` - Dark/Light mode toggle component with loading state
 - Navigation constants in `app/utils/constants.ts`
+
+### Key Components
+
+- **AppShellWrapper**: Provides the main layout structure with header and sidebar
+- **ColorSchemeIcon**: Replaces the old ColorSchemeToggle with a more integrated icon-based toggle
+- **Header**: Contains the app title, mobile menu toggle, and color scheme icon
+- **Navbar**: Side navigation that collapses on mobile devices
 
 ## Development Setup
 

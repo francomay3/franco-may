@@ -1,4 +1,7 @@
+'use client';
+
 import { Burger, Flex, Text } from '@mantine/core';
+import { ColorSchemeIcon } from './ColorSchemeIcon';
 
 const Header = ({
   navbarOpened,
@@ -16,6 +19,7 @@ const Header = ({
         size="sm"
       />
       <Text>Franco May</Text>
+      <ColorSchemeIcon />
     </Flex>
   );
 };
