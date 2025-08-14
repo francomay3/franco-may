@@ -17,7 +17,8 @@ This project comes with the following features:
 - Blog system with dynamic routing, centralized post management, and breadcrumb navigation
 - Mantine Typography component integration for consistent text styling
 - Reusable UI components: Image, Link, and PageTitle
-- Enhanced navigation with active states and improved layout
+- Enhanced navigation with floating indicators, blend modes, and active states
+- Glass component for glassmorphism effects with blur and transparency
 - Contact form with email submission via SMTP (nodemailer)
 - Form validation using Zod schemas and react-hook-form
 - Rate limiting protection for the contact API endpoint
@@ -75,6 +76,7 @@ The project includes a responsive AppShell layout with:
 - **Image**: Reusable image component with Next.js Image optimization and flexible sizing options
 - **Link**: Smart link component that handles both internal and external links automatically
 - **PageTitle**: Consistent page title component with centered styling
+- **Glass**: Glassmorphism component with blur effects and transparent backgrounds
 - **BlogLayout**: Dedicated layout for blog pages with breadcrumb navigation
 - **Posts System**: Centralized post management with TypeScript types and dynamic content rendering
 

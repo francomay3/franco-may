@@ -2,6 +2,7 @@ import { Flex, NavLink } from '@mantine/core';
 import { usePathname } from 'next/navigation';
 import { NAV_LINKS } from '@/utils/constants';
 import Link from 'next/link';
+import Glass from '../Glass';
 
 const NavLinkItem = ({
   href,
@@ -31,17 +32,19 @@ const NavLinkItem = ({
 
 const Navbar = ({ onClose }: { onClose: () => void }) => {
   return (
-    <Flex direction="column">
-      {Object.values(NAV_LINKS).map(link => (
-        <NavLinkItem
-          key={link.href}
-          href={link.href}
-          label={link.label}
-          icon={link.icon}
-          onSelect={onClose}
-        />
-      ))}
-    </Flex>
+    <Glass>
+      <Flex direction="column">
+        {Object.values(NAV_LINKS).map(link => (
+          <NavLinkItem
+            key={link.href}
+            href={link.href}
+            label={link.label}
+            icon={link.icon}
+            onSelect={onClose}
+          />
+        ))}
+      </Flex>
+    </Glass>
   );
 };
 

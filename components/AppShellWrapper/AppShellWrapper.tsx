@@ -17,7 +17,15 @@ export function AppShellWrapper({ children }: AppShellWrapperProps) {
   return (
     <AppShell
       padding="md"
-      header={{ height: 60 }}
+      styles={{
+        header: {
+          backgroundColor: 'transparent',
+        },
+        navbar: {
+          backgroundColor: 'transparent',
+        },
+      }}
+      header={{ height: 60, offset: true }}
       navbar={{
         width: 300,
         breakpoint: 'sm',
