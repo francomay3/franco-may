@@ -80,6 +80,12 @@ The project includes a responsive AppShell layout with:
 - **BlogLayout**: Dedicated layout for blog pages with breadcrumb navigation
 - **Posts System**: Centralized post management with TypeScript types and dynamic content rendering
 
+## Next.js Compatibility
+
+This project is compatible with Next.js 15. Key compatibility notes:
+
+- **Dynamic Route Parameters**: In Next.js 15, route parameters (`params`) are now Promises that must be awaited. See `app/blog/[slug]/page.tsx` for an example implementation.
+
 ## Environment Setup
 
 ### Contact Form Configuration
