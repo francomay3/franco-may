@@ -1,25 +1,38 @@
-import { NAV_LINKS } from '@/app/utils/constants';
 import { Flex, NavLink } from '@mantine/core';
-import { IconHome2, IconBook, IconMail } from '@tabler/icons-react';
+import { usePathname } from 'next/navigation';
+import { NAV_LINKS } from '@/utils/constants';
+
+const NavLinkItem = ({
+  href,
+  label,
+  icon,
+}: {
+  href: string;
+  label: string;
+  icon: React.ReactNode;
+}) => {
+  const pathName = usePathname();
+  return (
+    <NavLink
+      href={href}
+      label={label}
+      leftSection={icon}
+      active={pathName === href}
+    />
+  );
+};
 
 const Navbar = () => {
   return (
     <Flex direction="column">
-      <NavLink
-        href={NAV_LINKS.home.href}
-        label={NAV_LINKS.home.label}
-        leftSection={<IconHome2 size={16} stroke={1.5} />}
-      />
-      <NavLink
-        href={NAV_LINKS.blog.href}
-        label={NAV_LINKS.blog.label}
-        leftSection={<IconBook size={16} stroke={1.5} />}
-      />
-      <NavLink
-        href={NAV_LINKS.contact.href}
-        label={NAV_LINKS.contact.label}
-        leftSection={<IconMail size={16} stroke={1.5} />}
-      />
+      {Object.values(NAV_LINKS).map(link => (
+        <NavLinkItem
+          key={link.href}
+          href={link.href}
+          label={link.label}
+          icon={link.icon}
+        />
+      ))}
     </Flex>
   );
 };

@@ -1,8 +1,9 @@
 'use client';
 
-import { Breadcrumbs as MantineBreadcrumbs, Anchor, Text } from '@mantine/core';
+import { Breadcrumbs as MantineBreadcrumbs, Text } from '@mantine/core';
 import { usePathname } from 'next/navigation';
 import React from 'react';
+import Link from './Link';
 
 interface BreadcrumbItem {
   title: string;
@@ -20,13 +21,11 @@ const Breadcrumbs: React.FC = () => {
     pathSegments.forEach((segment, index) => {
       currentPath += `/${segment}`;
 
-      // Convertir el segmento a un título legible
       const title = segment
         .split('-')
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
 
-      // El último item no tiene href (es la página actual)
       const href = index === pathSegments.length - 1 ? undefined : currentPath;
 
       breadcrumbs.push({ title, href });
@@ -42,7 +41,7 @@ const Breadcrumbs: React.FC = () => {
       {breadcrumbItems.map((item, index) => (
         <React.Fragment key={index}>
           {item.href ? (
-            <Anchor href={item.href}>{item.title}</Anchor>
+            <Link href={item.href}>{item.title}</Link>
           ) : (
             <Text c="dimmed">{item.title}</Text>
           )}

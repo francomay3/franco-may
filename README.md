@@ -19,14 +19,16 @@ This template comes with the following features:
 - Custom CSS animations
 - Blog system with dynamic routing, centralized post management, and breadcrumb navigation
 - Mantine Typography component integration for consistent text styling
+- Reusable UI components: Image, Link, and PageTitle
+- Enhanced navigation with active states and improved layout
 
 ## Pages
 
 The application includes the following pages:
 
-- **Home** (`/`) - Main landing page
-- **Blog** (`/blog`) - Blog listing page with article links
-- **Blog Articles** (`/blog/[slug]`) - Individual blog articles with dynamic routing (e.g., `/blog/ia-goals`)
+- **Home** (`/`) - Main landing page with personal introduction and image
+- **Blog** (`/blog`) - Blog listing page with article links and descriptions
+- **Blog Articles** (`/blog/[slug]`) - Individual blog articles with dynamic routing (e.g., `/blog/ai-and-the-myth-of-artificial-desire`)
 - **Contact** (`/contact`) - Contact page placeholder
 
 ## npm scripts
@@ -57,18 +59,21 @@ The application includes the following pages:
 The project includes a responsive AppShell layout with:
 
 - `AppShellWrapper` - Main layout component with responsive navigation
-- `Header` - Top navigation bar with burger menu for mobile and color scheme toggle
-- `Navbar` - Side navigation with navigation links
+- `Header` - Top navigation bar with burger menu for mobile, navigation links, and color scheme toggle
+- `Navbar` - Side navigation with navigation links and active states
 - `ColorSchemeIcon` - Dark/Light mode toggle component with loading state
-- Navigation constants in `app/utils/constants.ts`
+- Navigation constants in `utils/constants.tsx`
 
 ### Key Components
 
 - **AppShellWrapper**: Provides the main layout structure with header and sidebar
 - **ColorSchemeIcon**: Replaces the old ColorSchemeToggle with a more integrated icon-based toggle
-- **Header**: Contains the app title, mobile menu toggle, and color scheme icon
-- **Navbar**: Side navigation that collapses on mobile devices
+- **Header**: Contains navigation links, app title, mobile menu toggle, and color scheme icon
+- **Navbar**: Side navigation that collapses on mobile devices with active state indicators
 - **Breadcrumbs**: Dynamic navigation component that shows current page hierarchy
+- **Image**: Reusable image component with Next.js Image optimization and flexible sizing options
+- **Link**: Smart link component that handles both internal and external links automatically
+- **PageTitle**: Consistent page title component with centered styling
 - **BlogLayout**: Dedicated layout for blog pages with breadcrumb navigation
 - **Posts System**: Centralized post management with TypeScript types and dynamic content rendering
 

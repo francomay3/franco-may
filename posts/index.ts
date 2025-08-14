@@ -11,7 +11,7 @@ export type Post = {
 const posts: Post[] = [
   {
     title: 'AI and the Myth of Artificial Desire',
-    slug: 'ia-goals',
+    slug: 'ai-and-the-myth-of-artificial-desire',
     Content: aigoals,
     date: new Date('2025-08-14'),
   },

@@ -1,32 +1,35 @@
-import { Anchor, Box, Flex, Text, Title } from '@mantine/core';
+import { Box, Flex, Text } from '@mantine/core';
 import posts, { Post } from '@/posts';
+import Link from '@/components/Link';
+import PageTitle from '@/components/PageTitle';
 
 const Item = ({ post }: { post: Post }) => {
   return (
-    <Flex gap="md" align="center" component="li">
-      {/* TODO: bullet point should be a dynamic color depending on the dark or light mode */}
-      <Box w="8px" h="8px" bg="dark" bdrs="50%" />
-      <Anchor href={`/blog/${post.slug}`} key={post.slug}>
+    <Link href={`/blog/${post.slug}`} key={post.slug}>
+      <Flex gap="md" align="center" component="li">
+        <Text c="dimmed">
+          {post.date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </Text>
         {post.title}
-      </Anchor>
-
-      <Text c="dimmed" size="sm">
-        {post.date.toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        })}
-      </Text>
-    </Flex>
+      </Flex>
+    </Link>
   );
 };
 
 export default function BlogPage() {
   return (
     <Box>
-      <Title mb="60" ta="center">
-        Blog
-      </Title>
+      <PageTitle>Blog</PageTitle>
+
+      <Text>
+        This is where I collect thoughts. Probably not much code, but more ideas
+        and the occasional ramble that I felt was worth writing down.
+      </Text>
+
       <ul>
         {posts.map(post => (
           <Item post={post} key={post.slug} />

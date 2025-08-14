@@ -1,9 +1,10 @@
-import { Box, Text, Title } from '@mantine/core';
+import PageTitle from '@/components/PageTitle';
+import { Box, Text } from '@mantine/core';
 
 export default function ContactPage() {
   return (
     <Box>
-      <Title>Contact</Title>
+      <PageTitle>Contact</PageTitle>
       <Text>Contact page placeholder</Text>
     </Box>
   );

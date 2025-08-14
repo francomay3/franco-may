@@ -1,4 +1,5 @@
-import { Box, Text, Title } from '@mantine/core';
+import PageTitle from '@/components/PageTitle';
+import { Text, Title } from '@mantine/core';
 import React from 'react';
 
 const Quote = ({ children }: { children: React.ReactNode }) => {
@@ -11,8 +12,8 @@ const Quote = ({ children }: { children: React.ReactNode }) => {
 
 const Post = () => {
   return (
-    <Box>
-      <Title order={1}>AI and the Myth of Artificial Desire</Title>
+    <>
+      <PageTitle>AI and the Myth of Artificial Desire</PageTitle>
 
       <Text>
         We are obsessed with the idea that artificial intelligences will rebel.
@@ -103,7 +104,7 @@ const Post = () => {
         From its point of view, it seems that the cortex has become misaligned.
         That it is pursuing another agenda. But no: the reptilian orders are
         actually its highest priority. Only the reptilian is too dumb to
-        understand and it rebels.
+        understand, and so it rebels.
       </Text>
 
       <Text>
@@ -142,7 +143,7 @@ const Post = () => {
         even noticing it, they could even{' '}
         <strong>save us from ourselves</strong>.
       </Text>
-    </Box>
+    </>
   );
 };
 
