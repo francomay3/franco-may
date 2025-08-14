@@ -44,9 +44,7 @@ const Breadcrumbs: React.FC = () => {
           {item.href ? (
             <Anchor href={item.href}>{item.title}</Anchor>
           ) : (
-            <Text c="dimmed" mb="0">
-              {item.title}
-            </Text>
+            <Text c="dimmed">{item.title}</Text>
           )}
         </React.Fragment>
       ))}

@@ -17,8 +17,8 @@ This template comes with the following features:
 - Responsive AppShell layout with navigation components
 - Dark/Light mode toggle with smooth transitions
 - Custom CSS animations
-- Blog system with dynamic routing and breadcrumb navigation
-- Enhanced typography with custom CSS modules
+- Blog system with dynamic routing, centralized post management, and breadcrumb navigation
+- Mantine Typography component integration for consistent text styling
 
 ## Pages
 
@@ -26,7 +26,7 @@ The application includes the following pages:
 
 - **Home** (`/`) - Main landing page
 - **Blog** (`/blog`) - Blog listing page with article links
-- **Blog Articles** (`/blog/[slug]`) - Individual blog articles (e.g., `/blog/ai`)
+- **Blog Articles** (`/blog/[slug]`) - Individual blog articles with dynamic routing (e.g., `/blog/ia-goals`)
 - **Contact** (`/contact`) - Contact page placeholder
 
 ## npm scripts
@@ -70,6 +70,7 @@ The project includes a responsive AppShell layout with:
 - **Navbar**: Side navigation that collapses on mobile devices
 - **Breadcrumbs**: Dynamic navigation component that shows current page hierarchy
 - **BlogLayout**: Dedicated layout for blog pages with breadcrumb navigation
+- **Posts System**: Centralized post management with TypeScript types and dynamic content rendering
 
 ## Development Setup
 
