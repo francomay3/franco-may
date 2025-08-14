@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import aigoals from './ai-goals';
+import leibniz from './leibniz';
 
 export type Post = {
   title: string;
@@ -13,6 +14,12 @@ const posts: Post[] = [
     title: 'AI and the Myth of Artificial Desire',
     slug: 'ai-and-the-myth-of-artificial-desire',
     Content: aigoals,
+    date: new Date('2025-08-13'),
+  },
+  {
+    title: 'Why Is There Something Rather Than Nothing?',
+    slug: 'why-is-there-something-rather-than-nothing',
+    Content: leibniz,
     date: new Date('2025-08-14'),
   },
 ];

@@ -11,18 +11,10 @@ This project comes with the following features:
 - ESLint setup with [eslint-config-mantine](https://github.com/mantinedev/eslint-config-mantine)
 - [Yarn](https://yarnpkg.com/) package manager with node_modules linker
 - [Prettier](https://prettier.io/) code formatting with auto-format on save
-- Responsive AppShell layout with navigation components
 - Dark/Light mode toggle with smooth transitions
-- Custom CSS animations
 - Blog system with dynamic routing, centralized post management, and breadcrumb navigation
-- Mantine Typography component integration for consistent text styling
-- Reusable UI components: Image, Link, and PageTitle
-- Enhanced navigation with floating indicators, blend modes, and active states
-- Glass component for glassmorphism effects with blur and transparency
 - Contact form with email submission via SMTP (nodemailer)
 - Form validation using Zod schemas and react-hook-form
-- Rate limiting protection for the contact API endpoint
-- Environment-based SMTP configuration
 
 ## Pages
 
@@ -30,7 +22,7 @@ The application includes the following pages:
 
 - **Home** (`/`) - Main landing page with personal introduction and image
 - **Blog** (`/blog`) - Blog listing page with article links and descriptions
-- **Blog Articles** (`/blog/[slug]`) - Individual blog articles with dynamic routing (e.g., `/blog/ai-and-the-myth-of-artificial-desire`)
+- **Blog Articles** (`/blog/[slug]`) - Individual blog articles with dynamic routing (e.g., `/blog/ai-and-the-myth-of-artificial-desire`, `/blog/why-is-there-something-rather-than-nothing`)
 - **Contact** (`/contact`) - Functional contact form with email submission, form validation, and rate limiting
 
 ## npm scripts
@@ -55,16 +47,6 @@ The application includes the following pages:
 - `storybook` – starts storybook dev server
 - `storybook:build` – build production storybook bundle to `storybook-static`
 - `prettier:write` – formats all files with Prettier
-
-## Project Structure
-
-The project includes a responsive AppShell layout with:
-
-- `AppShellWrapper` - Main layout component with responsive navigation
-- `Header` - Top navigation bar with burger menu for mobile, navigation links, and color scheme toggle
-- `Navbar` - Side navigation with navigation links and active states
-- `ColorSchemeIcon` - Dark/Light mode toggle component with loading state
-- Navigation constants in `utils/constants.tsx`
 
 ### Key Components
 
