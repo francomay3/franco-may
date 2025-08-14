@@ -21,6 +21,10 @@ This template comes with the following features:
 - Mantine Typography component integration for consistent text styling
 - Reusable UI components: Image, Link, and PageTitle
 - Enhanced navigation with active states and improved layout
+- Contact form with email submission via SMTP (nodemailer)
+- Form validation using Zod schemas and react-hook-form
+- Rate limiting protection for the contact API endpoint
+- Environment-based SMTP configuration
 
 ## Pages
 
@@ -29,7 +33,7 @@ The application includes the following pages:
 - **Home** (`/`) - Main landing page with personal introduction and image
 - **Blog** (`/blog`) - Blog listing page with article links and descriptions
 - **Blog Articles** (`/blog/[slug]`) - Individual blog articles with dynamic routing (e.g., `/blog/ai-and-the-myth-of-artificial-desire`)
-- **Contact** (`/contact`) - Contact page placeholder
+- **Contact** (`/contact`) - Functional contact form with email submission, form validation, and rate limiting
 
 ## npm scripts
 
@@ -76,6 +80,21 @@ The project includes a responsive AppShell layout with:
 - **PageTitle**: Consistent page title component with centered styling
 - **BlogLayout**: Dedicated layout for blog pages with breadcrumb navigation
 - **Posts System**: Centralized post management with TypeScript types and dynamic content rendering
+
+## Environment Setup
+
+### Contact Form Configuration
+
+To enable the contact form functionality, you'll need to set up SMTP credentials. Copy the `.env.example` file to `.env.local` and configure your email settings:
+
+```bash
+cp .env.example .env.local
+```
+
+For Gmail users:
+1. Enable 2-factor authentication on your Google account
+2. Generate an App Password (not your regular password)
+3. Use that App Password as `SMTP_PASS` in your `.env.local` file
 
 ## Development Setup
 
