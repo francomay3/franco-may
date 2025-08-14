@@ -1,5 +1,13 @@
 'use client';
 
-import { createTheme } from '@mantine/core';
+import { Anchor, createTheme } from '@mantine/core';
 
-export const theme = createTheme({});
+export const theme = createTheme({
+  components: {
+    Anchor: Anchor.extend({
+      defaultProps: {
+        underline: 'never',
+      },
+    }),
+  },
+});

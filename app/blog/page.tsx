@@ -29,7 +29,7 @@ export default function BlogPage() {
         This is where I collect thoughts. Probably not much code, but more ideas
         and the occasional ramble that I felt was worth writing down.
       </Text>
-      <Box component="ul" mt="35">
+      <Box component="ul" mt="35" pl="0">
         {posts.map(post => (
           <Item post={post} key={post.slug} />
         ))}

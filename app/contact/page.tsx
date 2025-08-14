@@ -132,7 +132,7 @@ const ContactPage = () => {
           id="message"
           rows={6}
           {...register('message')}
-          placeholder="Tell us more about your inquiry..."
+          placeholder="for example: You are awesome! let's be friends 🍺"
           error={Boolean(errors.message?.message)}
         />
 

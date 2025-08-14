@@ -11,7 +11,8 @@ interface AppShellWrapperProps {
 }
 
 export function AppShellWrapper({ children }: AppShellWrapperProps) {
-  const [navbarOpened, { toggle: toggleNavbar }] = useDisclosure(false);
+  const [navbarOpened, { toggle: toggleNavbar, close: closeNavbar }] =
+    useDisclosure(false);
 
   return (
     <AppShell
@@ -28,7 +29,7 @@ export function AppShellWrapper({ children }: AppShellWrapperProps) {
       </AppShell.Header>
 
       <AppShell.Navbar>
-        <Navbar />
+        <Navbar onClose={closeNavbar} />
       </AppShell.Navbar>
 
       <AppShell.Main>

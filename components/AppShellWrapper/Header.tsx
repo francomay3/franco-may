@@ -35,18 +35,20 @@ const Header = ({
         size="sm"
       />
       <NavLinks visibleFrom="sm" />
-      <Title
-        order={5}
-        ta="center"
-        pos="absolute"
-        top="50%"
-        left="50%"
-        style={{
-          transform: 'translate(-50%, -50%)',
-        }}
-      >
-        Franco May
-      </Title>
+      <Link href="/" c="inherit">
+        <Title
+          order={5}
+          ta="center"
+          pos="absolute"
+          top="50%"
+          left="50%"
+          style={{
+            transform: 'translate(-50%, -50%)',
+          }}
+        >
+          Franco May
+        </Title>
+      </Link>
       <ColorSchemeIcon />
     </Flex>
   );
