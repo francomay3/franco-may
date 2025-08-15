@@ -61,6 +61,7 @@ The application includes the following pages:
 - **Glass**: Glassmorphism component with blur effects and transparent backgrounds
 - **BlogLayout**: Dedicated layout for blog pages with breadcrumb navigation
 - **Posts System**: Centralized post management with TypeScript types and dynamic content rendering
+- **Math Expressions**: Blog posts use Mantine's `Code` component for mathematical expressions (e.g., `<Code>y = x + 1</Code>`) instead of LaTeX syntax
 
 ## Next.js Compatibility
 
