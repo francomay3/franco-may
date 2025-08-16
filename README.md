@@ -21,7 +21,7 @@ This project comes with the following features:
 The application includes the following pages:
 
 - **Home** (`/`) - Main landing page with personal introduction and image
-- **Blog** (`/blog`) - Blog listing page with article links and descriptions
+- **Blog** (`/blog`) - Blog listing page with articles organized by year, sorted chronologically with newest posts first
 - **Blog Articles** (`/blog/[slug]`) - Individual blog articles with dynamic routing (e.g., `/blog/ai-and-the-myth-of-artificial-desire`, `/blog/why-is-there-something-rather-than-nothing`)
 - **Contact** (`/contact`) - Functional contact form with email submission, form validation, and rate limiting
 
@@ -60,7 +60,7 @@ The application includes the following pages:
 - **PageTitle**: Consistent page title component with centered styling
 - **Glass**: Glassmorphism component with blur effects and transparent backgrounds
 - **BlogLayout**: Dedicated layout for blog pages with breadcrumb navigation
-- **Posts System**: Centralized post management with TypeScript types and dynamic content rendering
+- **Posts System**: Centralized post management with TypeScript types, dynamic content rendering, and year-based organization with chronological sorting
 - **Math Expressions**: Blog posts use Mantine's `Code` component for mathematical expressions (e.g., `<Code>y = x + 1</Code>`) instead of LaTeX syntax
 
 ## Next.js Compatibility
