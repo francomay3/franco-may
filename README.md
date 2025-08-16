@@ -50,7 +50,7 @@ The application includes the following pages:
 
 ### Key Components
 
-- **AppShellWrapper**: Provides the main layout structure with header and sidebar
+- **AppShellWrapper**: Provides the main layout structure with header and sidebar, with padding configured via Container component defaults
 - **ColorSchemeIcon**: Replaces the old ColorSchemeToggle with a more integrated icon-based toggle
 - **Header**: Contains navigation links, app title, mobile menu toggle, and color scheme icon
 - **Navbar**: Side navigation that collapses on mobile devices with active state indicators

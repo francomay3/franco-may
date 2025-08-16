@@ -16,7 +16,6 @@ export function AppShellWrapper({ children }: AppShellWrapperProps) {
 
   return (
     <AppShell
-      padding="md"
       styles={{
         header: {
           backgroundColor: 'transparent',
