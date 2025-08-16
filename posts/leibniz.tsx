@@ -7,7 +7,7 @@ const Post = () => {
     <>
       <PageTitle>Why Is There Something Rather Than Nothing?</PageTitle>
 
-      <Title>Thought Experiment</Title>
+      <Title order={2}>Thought Experiment</Title>
       <Text>
         Imagine the following: a perfect simulation of a world is running on a
         supercomputer. Inside that world lives a person. Not a game character,
@@ -26,46 +26,46 @@ const Post = () => {
         No waiting, no pause. His life continued as if it had been an instant.
       </Text>
       <Text>
-        This small thought experiment leaves us with an unsettling idea: the
-        consciousness of that being appears to depend on the electrical impulses
-        of the machine that runs it. But what if the computer is just a window
-        into something that exists in another way?
+        This small thought experiment leaves us with the following intuition:
+        the reality of a simulated world appears to depend on the electrical
+        impulses of the machine that runs it.
       </Text>
 
-      <Title>Intuition Bomb</Title>
+      <Title order={2}>Intuition Bomb</Title>
       <Text>
-        So far, everything seems intuitive. The simulation lives on the computer
-        and dies when the computer is turned off. But let's think a bit further.
+        So far, intuition does not seem problematic. The simulation lives on the
+        computer and dies when the computer is turned off. But let's think a bit
+        further.
       </Text>
       <Text>
-        Suppose the same simulation isn't run on a processor, but with pen and
-        paper. A person—patient and obsessive—performs every step manually,
-        following the program's rules. Every calculation the computer would
-        perform in nanoseconds is written carefully in a notebook. And at the
-        end, after hours of work, the result appears: the output of the
-        simulation. Say the notebook reads <em>"happy"</em>, because in that
-        moment the simulated person was happy.
+        Suppose the same simulation isn't run on a digital processor, but with
+        pen and paper. A patient and obsessive person performs every step
+        manually, following the program's rules. Every calculation the computer
+        would perform in nanoseconds is written carefully in a notebook. And at
+        the end, after an impossible amount of hours, the result appears: the
+        output of the simulation. Say the notebook reads <em>"happy"</em>,
+        because in that moment the simulated person was happy.
       </Text>
       <Text>
         So where is the consciousness in this case? There are no transistors or
-        electrical signals. Just a notebook filled with operations. Is the
+        electrical signals. Just a notebook filled with pencil marks. Is the
         consciousness inside the paper? In the pencil graphite? Does it shut off
-        when we close the notebook? That conclusion feels absurd.
+        when we close the notebook? Doesn't all of this feel absurd?
       </Text>
       <Text>
-        The same applies if we use vacuum tubes, an abacus, or even a group of
-        people manually executing each algorithmic step. The “simulated person”
-        doesn't depend on the specific technology we use to represent it. The
-        simulation can always be transferred to another medium.
+        The same would apply if we use vacuum tubes, an abacus, or even a group
+        of people manually executing each algorithmic step. The “simulated
+        person” doesn't depend on the specific technology we use to represent
+        it. The simulation can always be transferred to another medium.
       </Text>
       <Text>
         And that’s when the intuition breaks: perhaps the consciousness of that
         being doesn't depend on any machine at all. Maybe the computer (or
-        notebook, or abacus) is simply a window into something that already
-        exists.
+        notebook, or abacus) is simply a tool for us to represent the state of a
+        another world at a specific moment.
       </Text>
 
-      <Title>A Mathematical Analogy</Title>
+      <Title order={2}>A Mathematical Analogy</Title>
       <Text>
         To ground this intuition, let’s consider something simpler: a
         mathematical function.
@@ -89,21 +89,21 @@ const Post = () => {
         we’re not looking at it.
       </Text>
       <Text>
-        The common intuition is that mathematical functions “are there,”
+        The common intuition is that mathematical functions “are there”,
         independent of our representations. When we draw them on paper or on a
-        screen, we’re not creating them—we’re observing a piece of something
+        screen, we’re not creating them, we’re observing a piece of something
         that already exists.
       </Text>
       <Text>
         Mathematical analysis, in this sense, is like opening a window. We don’t
-        manufacture functions—we investigate them.
+        manufacture functions, we investigate them.
       </Text>
 
-      <Title>Every Simulated World Is Just a Complex Function</Title>
+      <Title order={2}>Every Simulated World Is Just a Complex Function</Title>
       <Text>
         If we easily accept that a simple function like <Code>y = x + 1</Code>{' '}
-        exists beyond our representation of it, why not apply the same logic to
-        more complex systems?
+        exists (at least in some abstract sense) beyond our representation of
+        it, why not apply the same logic to more complex systems?
       </Text>
       <Text>
         A simulated world is, in essence, just a highly intricate function: a
@@ -115,17 +115,17 @@ const Post = () => {
       <Text>
         Just as a linear function exists even if no one draws it, a simulated
         world exists even if no one runs it. When we turn on the machine, we
-        don’t create the world—we simply generate a representation of it. A
+        don’t create the world. We simply generate a representation of it. A
         window. The world itself does not live or die with the hardware.
       </Text>
       <Text>
         And if this holds true for simulated worlds... why not for our own?
       </Text>
 
-      <Title>Infinite Worlds</Title>
+      <Title order={2}>Infinite Worlds</Title>
       <Text>
         If a simulated world doesn’t stop existing when we shut down the
-        machine, but instead exists by virtue of its logical structure, a huge
+        machine, but instead exists by virtue of its logical soundness, a huge
         consequence follows: there isn’t just one possible world. There are
         many. Probably infinitely many.
       </Text>
@@ -137,25 +137,25 @@ const Post = () => {
       <Text>
         This, of course, is counterintuitive. We’re used to thinking of{' '}
         <em>this</em> world as the only real one, and everything else as
-        fiction—possibilities that “could have been,” but weren’t. But from this
-        perspective, those possibilities aren’t floating in some hypothetical
-        limbo: they exist too. Not as imagined futures or potential outcomes,
-        but as fully real worlds, just like ours.
+        fiction. Possibilities that “could have been,” but weren’t. But from
+        this perspective, those possibilities aren’t floating in some
+        hypothetical limbo: they exist too. Not as imagined futures or potential
+        outcomes, but as fully real worlds, just like ours.
       </Text>
       <Text>
         If that’s the case, then the multiplicity of worlds isn’t some
-        imaginative excess—it’s the natural outcome of logic. Any attempt to say
-        “only some worlds exist, not all” would be arbitrary. A human-centered
-        intuition, not a universal rule.
+        imaginative excess. It’s the natural outcome of logic. Any attempt to
+        say “only some worlds exist, not all” would be arbitrary. A
+        human-centered intuition, not a universal rule.
       </Text>
       <Text>
-        The universe we inhabit isn’t <em>the</em> real one—it’s just{' '}
+        The universe we inhabit isn’t <em>the</em> real one. It’s just{' '}
         <em>our</em> real one. We experience it as unique, like a room feels
         unique to the person inside it. But that doesn’t mean the other rooms
         don’t exist. They’re simply separate, inaccessible, self-contained.
       </Text>
 
-      <Title>Concrete and Abstract Are Just Perspectives</Title>
+      <Title order={2}>Concrete and Abstract Are Just Perspectives</Title>
       <Text>
         At this point, a central question arises: if infinite worlds exist, what
         makes our world feel different? Why does it feel so concrete, while the
@@ -164,25 +164,27 @@ const Post = () => {
       <Text>The simplest answer is: we confuse perspective with essence.</Text>
       <Text>
         From our point of view, this world is physical, immediate, solid. We can
-        touch it, measure it, bump into it. The others, being out of reach, we
-        call “abstract.”
+        touch it, measure it, bump into it. The other worlds, being out of
+        reach, we call “abstract”.
       </Text>
       <Text>
         But let’s flip the perspective. Imagine again the simulated being. For
         him, his world is physical and concrete. His objects have weight,
-        texture, color. His sky is as real as ours. Our universe—the one
-        containing the computer or the notebook—would be totally inaccessible to
-        him. From his point of view, <em>we</em> are the abstract ones.
+        texture, color. His sky is as real to him as ours is to us. Our
+        universe, the one containing the computer or the notebook, would be
+        totally inaccessible to him. From his point of view, <em>we</em> are the
+        abstract ones.
       </Text>
       <Text>
         This reveals something important: <strong>abstract</strong> and{' '}
-        <strong>concrete</strong> aren’t two different kinds of being. They’re
-        just two ways of talking about position. What is concrete to someone
-        inside a system appears abstract to someone outside of it.
+        <strong>concrete</strong> aren’t two different ways of being. They only
+        refer to the perspective of the observer. What is concrete to someone
+        inside a system appears abstract to someone outside of it and vice
+        versa.
       </Text>
       <Text>
         In this light, “physical existence” just means being inside a system.
-        But ultimately, every world—ours included—shares the same ontological
+        But ultimately, every world, ours included, shares the same ontological
         status: a consistent logical structure.
       </Text>
       <Text>
@@ -191,20 +193,20 @@ const Post = () => {
         another. Both are just aspects of the same thing.
       </Text>
 
-      <Title>Where Are These Other Worlds?</Title>
+      <Title order={2}>Where Are These Other Worlds?</Title>
       <Text>
         When we hear that infinite worlds exist, our first impulse is to imagine
-        some enormous space containing them all—like bubbles floating in a
+        some enormous space containing them all, like bubbles floating in a
         cosmic sea. But that image is misleading. It comes from our physical
         intuition: in <em>this</em> world, things exist in space and relate to
         each other within it.
       </Text>
       <Text>
-        Other worlds don’t work like that. They are not “in” any place, because
-        space itself is an internal property of each world. Our universe has its
-        own spacetime, with its dimensions and laws. Another possible universe
-        might have its own, with entirely different rules. But there is no
-        shared space that holds them all together.
+        Other worlds are not “in” any place, because space itself is an internal
+        property of each world. Our universe has its own spacetime, with its
+        dimensions and laws. Another possible universe might have its own, with
+        entirely different rules. But there is no shared space that holds them
+        all together.
       </Text>
       <Text>
         That means these worlds can’t collide or overlap. They are logically
@@ -212,19 +214,21 @@ const Post = () => {
         independence.
       </Text>
       <Text>
-        Think of it like an infinite library. Each book contains its own
-        narrative, its own setting, its own internal laws. From inside the
-        story, characters have no way of looking into another book. Not because
-        someone prevents it, but because “being beside another book” doesn’t
-        even make sense within the story.
+        Think of all the fictional stories that have ever been told. Each story
+        contains its own narrative, its own setting, its own internal laws. From
+        inside the story, characters have no way of stepping into another story.
+        Not because someone prevents it, but because “being beside another
+        story” doesn’t even make sense within the story.
       </Text>
       <Text>
         The same applies to worlds: each is complete in itself, self-contained
-        under its own rules. And our universe is just one more volume in that
-        infinite library.
+        under its own rules. And our universe is just one more story in that
+        great set of stories.
       </Text>
 
-      <Title>Conclusion: Why Is There Something Rather Than Nothing?</Title>
+      <Title order={2}>
+        Conclusion: Why Is There Something Rather Than Nothing?
+      </Title>
       <Text>
         We finally arrive at Leibniz’s question:{' '}
         <em>Why is there something rather than nothing?</em>
@@ -233,7 +237,7 @@ const Post = () => {
         The traditional answer seeks a first cause: a creator God, a prime
         mover, a necessary being that explains the leap from emptiness to
         existence. But that leap is only a problem if we think of existence as
-        something rare—something that needs special permission to happen.
+        something rare. Something that needs special permission to happen.
       </Text>
       <Text>
         What we’ve seen throughout this exploration points in the opposite
@@ -251,14 +255,13 @@ const Post = () => {
       <Text>
         Existence isn’t a privilege reserved for <em>this</em> universe. It’s
         the general condition of anything that is logically possible. And
-        “nothing,” understood as the absence of any possible thing, isn’t even a
-        coherent alternative.
+        “nothing”, if even possible, would only be one of the possible worlds.
       </Text>
       <Text>
         From inside a world, we call “concrete” what we can touch and measure.
         From outside, that same world looks abstract. But ultimately, those
         differences are just a matter of angle. Ontologically, our world and any
-        other share the same status: they are something, not nothing.
+        other share the same status.
       </Text>
       <Text>
         That’s why we’re here. Not because a god decreed it. Not because a
