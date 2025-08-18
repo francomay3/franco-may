@@ -11,7 +11,7 @@ import { ColorSchemeIcon } from './ColorSchemeIcon';
 import { NAV_LINKS } from '@/utils/constants';
 import Link from '../Link';
 import Glass from '../Glass';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 const NavLinks = (
@@ -30,6 +30,16 @@ const NavLinks = (
   );
 
   const [rootRef, setRootRef] = useState<HTMLDivElement | null>(null);
+
+  // Update active state when pathname changes
+  useEffect(() => {
+    const newActiveIndex = Object.values(NAV_LINKS).findIndex(
+      link => link.href === pathName
+    );
+    if (newActiveIndex !== -1) {
+      setActive(newActiveIndex);
+    }
+  }, [pathName]);
 
   const setControlRef = (index: number) => (node: HTMLAnchorElement) => {
     controlsRefs[index] = node;
