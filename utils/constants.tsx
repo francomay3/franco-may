@@ -23,3 +23,13 @@ export const NAV_LINKS: Record<string, NavLink> = {
     icon: <IconMail size={16} stroke={1.5} />,
   },
 };
+
+// Site configuration
+export const SITE_CONFIG = {
+  name: 'Franco May',
+  url: 'https://franco-may.com',
+  description: 'Thoughts on technology, philosophy and everything else',
+  author: 'Franco May',
+  language: 'en',
+  rssUrl: 'https://franco-may.com/rss.xml',
+} as const;

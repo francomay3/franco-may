@@ -9,6 +9,7 @@ import {
 } from '@mantine/core';
 import { theme } from '../theme';
 import { AppShellWrapper } from '../components/AppShellWrapper/AppShellWrapper';
+import { SITE_CONFIG } from '@/utils/constants';
 
 export const metadata = {
   title: 'Franco May - Personal Website',
@@ -27,6 +28,12 @@ export default function RootLayout({ children }: { children: any }) {
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={SITE_CONFIG.name}
+          href={SITE_CONFIG.rssUrl}
         />
       </head>
       <body>

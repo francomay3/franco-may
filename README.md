@@ -13,6 +13,7 @@ This project comes with the following features:
 - [Prettier](https://prettier.io/) code formatting with auto-format on save
 - Dark/Light mode toggle with smooth transitions
 - Blog system with dynamic routing, centralized post management, and breadcrumb navigation
+- RSS feed generation at `/rss.xml` with automatic post metadata
 - Contact form with email submission via SMTP (nodemailer)
 - Form validation using Zod schemas and react-hook-form
 
