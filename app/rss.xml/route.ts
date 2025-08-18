@@ -27,6 +27,9 @@ export async function GET() {
       <url>https://picsum.photos/200</url>
       <title>${SITE_CONFIG.name}</title>
       <link>${SITE_CONFIG.url}</link>
+      <description>${SITE_CONFIG.description}</description>
+      <height>200</height>
+      <width>200</width>
     </image>
     
     <generator>Franco May Blog</generator>

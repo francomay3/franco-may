@@ -10,6 +10,19 @@ import {
 import { theme } from '../theme';
 import { AppShellWrapper } from '../components/AppShellWrapper/AppShellWrapper';
 import { SITE_CONFIG } from '@/utils/constants';
+import { Poppins, Source_Serif_4 } from 'next/font/google';
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400'],
+});
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const sourceSerif = Source_Serif_4({
+  subsets: ['latin'],
+  weight: ['400'],
+});
 
 export const metadata = {
   title: 'Franco May - Personal Website',
@@ -18,7 +31,11 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: any }) {
   return (
-    <html lang="en" {...mantineHtmlProps}>
+    <html
+      lang="en"
+      {...mantineHtmlProps}
+      // className={`${poppins.className} ${sourceSerif.className}`}
+    >
       <head>
         <link
           rel="icon"

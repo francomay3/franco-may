@@ -35,7 +35,6 @@ const ContactPage = () => {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    console.log('onSubmit', data);
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
@@ -132,7 +131,7 @@ const ContactPage = () => {
           id="message"
           rows={6}
           {...register('message')}
-          placeholder="for example: You are awesome! let's be friends 🍺"
+          placeholder="You are awesome! Let's be friends 🍺"
           error={Boolean(errors.message?.message)}
         />
 

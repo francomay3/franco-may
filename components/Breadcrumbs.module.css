@@ -1,0 +1,16 @@
+.breadcrumbs {
+  flex-wrap: nowrap;
+}
+
+.separator {
+  flex-shrink: 0;
+}
+
+.breadcrumb {
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.breadcrumb:last-child {
+  flex-shrink: 1;
+}

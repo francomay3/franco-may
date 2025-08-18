@@ -4,6 +4,7 @@ import { Breadcrumbs as MantineBreadcrumbs, Text } from '@mantine/core';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import Link from './Link';
+import styles from './Breadcrumbs.module.css';
 
 interface BreadcrumbItem {
   title: string;
@@ -15,7 +16,7 @@ const Breadcrumbs: React.FC = () => {
 
   const generateBreadcrumbs = (): BreadcrumbItem[] => {
     const pathSegments = pathname.split('/').filter(Boolean);
-    const breadcrumbs: BreadcrumbItem[] = [{ title: 'Inicio', href: '/' }];
+    const breadcrumbs: BreadcrumbItem[] = [];
 
     let currentPath = '';
     pathSegments.forEach((segment, index) => {
@@ -37,13 +38,23 @@ const Breadcrumbs: React.FC = () => {
   const breadcrumbItems = generateBreadcrumbs();
 
   return (
-    <MantineBreadcrumbs>
+    <MantineBreadcrumbs
+      classNames={{
+        root: styles.breadcrumbs,
+        separator: styles.separator,
+        breadcrumb: styles.breadcrumb,
+      }}
+    >
       {breadcrumbItems.map((item, index) => (
         <React.Fragment key={index}>
           {item.href ? (
-            <Link href={item.href}>{item.title}</Link>
+            <Link ff="var(--mantine-font-family-headings)" href={item.href}>
+              {item.title}
+            </Link>
           ) : (
-            <Text c="dimmed">{item.title}</Text>
+            <Text c="dimmed" truncate>
+              {item.title}
+            </Text>
           )}
         </React.Fragment>
       ))}

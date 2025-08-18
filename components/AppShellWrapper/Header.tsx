@@ -46,6 +46,7 @@ const NavLinks = (
             onClick={() => setActive(index)}
             px="10"
             py="2"
+            ff="var(--mantine-font-family-headings)"
           >
             {link.label}
           </Link>

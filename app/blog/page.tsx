@@ -13,7 +13,7 @@ const Item = ({ post }: { post: Post }) => {
         })}
       </Text>
       <Link href={`/blog/${post.slug}`}>
-        <Text>{post.title}</Text>
+        <Text ff="var(--mantine-font-family-headings)">{post.title}</Text>
       </Link>
     </>
   );
