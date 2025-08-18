@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { Stack, Text, Typography } from '@mantine/core';
+import { Box, Text, Title, Typography } from '@mantine/core';
 import posts from '@/posts';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
@@ -17,22 +17,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  const PostContent = post.Content;
-
   return (
     <>
-      <Stack gap="lg" mb="lg">
-        <Breadcrumbs />
-        <Text c="dimmed" size="sm" mt="xs">
+      <Breadcrumbs />
+      <Typography component="article" mt="xl">
+        <Title>{post.title}</Title>
+        <Text c="dimmed" size="sm" mt="0">
           {post.date.toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
           })}
         </Text>
-      </Stack>
-      <Typography>
-        <PostContent />
+        <Box dangerouslySetInnerHTML={{ __html: post.html }} />
       </Typography>
     </>
   );

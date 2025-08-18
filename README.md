@@ -10,7 +10,7 @@ The live version of this code is running at: **https://franco-may.com**
 
 Feel free to fork this repository and customize it to your liking! You can:
 
-- Add your own blog posts in the `posts/` directory
+- Add your own blog posts in the `posts/` directory (posts use HTML strings with metadata)
 - Modify the site configuration in `utils/constants.tsx`
 - Update the theme and styling to match your preferences
 - Add new features and components as needed
@@ -27,7 +27,7 @@ This project comes with the following features:
 - [Yarn](https://yarnpkg.com/) package manager with node_modules linker
 - [Prettier](https://prettier.io/) code formatting with auto-format on save
 - Dark/Light mode toggle with smooth transitions
-- Blog system with dynamic routing, centralized post management, and breadcrumb navigation
+- Blog system with dynamic routing, centralized post management, breadcrumb navigation, and HTML-based content rendering
 - Enhanced RSS feed generation at `/rss.xml` with Dublin Core metadata, Media RSS support, Atom timestamps, and featured images
 - Contact form with email submission via SMTP (nodemailer)
 - Form validation using Zod schemas and react-hook-form
