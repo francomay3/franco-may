@@ -24,7 +24,6 @@ export const NAV_LINKS: Record<string, NavLink> = {
   },
 };
 
-// Site configuration
 export const SITE_CONFIG = {
   name: 'Franco May',
   url: 'https://franco-may.com',

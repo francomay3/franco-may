@@ -1,5 +1,20 @@
 # franco-may.com Source Code
 
+This is the source code for [franco-may.com](https://franco-may.com), a personal blog and portfolio website built with Next.js and Mantine.
+
+## Live Site
+
+The live version of this code is running at: **https://franco-may.com**
+
+## Customization
+
+Feel free to fork this repository and customize it to your liking! You can:
+
+- Add your own blog posts in the `posts/` directory
+- Modify the site configuration in `utils/constants.tsx`
+- Update the theme and styling to match your preferences
+- Add new features and components as needed
+
 ## Features
 
 This project comes with the following features:
@@ -13,7 +28,7 @@ This project comes with the following features:
 - [Prettier](https://prettier.io/) code formatting with auto-format on save
 - Dark/Light mode toggle with smooth transitions
 - Blog system with dynamic routing, centralized post management, and breadcrumb navigation
-- RSS feed generation at `/rss.xml` with automatic post metadata
+- Enhanced RSS feed generation at `/rss.xml` with Dublin Core metadata, Media RSS support, Atom timestamps, and featured images
 - Contact form with email submission via SMTP (nodemailer)
 - Form validation using Zod schemas and react-hook-form
 
@@ -48,21 +63,6 @@ The application includes the following pages:
 - `storybook` – starts storybook dev server
 - `storybook:build` – build production storybook bundle to `storybook-static`
 - `prettier:write` – formats all files with Prettier
-
-### Key Components
-
-- **AppShellWrapper**: Provides the main layout structure with header and sidebar, with padding configured via Container component defaults
-- **ColorSchemeIcon**: Replaces the old ColorSchemeToggle with a more integrated icon-based toggle
-- **Header**: Contains navigation links, app title, mobile menu toggle, and color scheme icon
-- **Navbar**: Side navigation that collapses on mobile devices with active state indicators
-- **Breadcrumbs**: Dynamic navigation component that shows current page hierarchy
-- **Image**: Reusable image component with Next.js Image optimization and flexible sizing options
-- **Link**: Smart link component that handles both internal and external links automatically
-- **PageTitle**: Consistent page title component with centered styling
-- **Glass**: Glassmorphism component with blur effects and transparent backgrounds
-- **BlogLayout**: Dedicated layout for blog pages with breadcrumb navigation
-- **Posts System**: Centralized post management with TypeScript types, dynamic content rendering, and year-based organization with chronological sorting
-- **Math Expressions**: Blog posts use Mantine's `Code` component for mathematical expressions (e.g., `<Code>y = x + 1</Code>`) instead of LaTeX syntax
 
 ## Next.js Compatibility
 
