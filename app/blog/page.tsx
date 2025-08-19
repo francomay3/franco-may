@@ -1,7 +1,8 @@
 import { Box, Text } from '@mantine/core';
-import posts, { Post } from '@/posts';
 import Link from '@/components/Link';
 import PageTitle from '@/components/PageTitle';
+import posts from '@/posts';
+import { Post } from '@/posts/types';
 
 const Item = ({ post }: { post: Post }) => {
   return (
