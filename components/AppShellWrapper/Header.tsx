@@ -105,7 +105,7 @@ const Header = ({
               transform: 'translate(-50%, -50%)',
             }}
           >
-            Franco May
+            🪐 Franco May
           </Title>
         </Link>
         <ColorSchemeIcon />

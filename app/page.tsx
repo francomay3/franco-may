@@ -12,6 +12,8 @@ import {
 import Image from '@/components/Image';
 import Link from '@/components/Link';
 
+//TODO: check all todos from: https://github.com/thedaviddias/Front-End-Checklist
+
 export default function HomePage() {
   return (
     <Typography>

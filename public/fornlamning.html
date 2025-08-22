@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+    <style>
+    .leaflet-popup-content {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .leaflet-popup-content h3 {
+        font-size: 16px !important;
+        line-height: 1.2;
+    }
+    .leaflet-popup-content p {
+        margin: 4px 0;
+    }
+    .leaflet-popup-content a {
+        display: inline-block;
+        padding: 8px 12px;
+        background-color: #007bff;
+        color: white !important;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 8px;
+    }
+    .leaflet-popup-content a:hover {
+        background-color: #0056b3;
+    }
+    .user-location-marker {
+        background: transparent;
+        border: none;
+    }
+    .location-controls button:hover {
+        opacity: 0.8;
+    }
+    .location-controls button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+    @media (max-width: 768px) {
+        .leaflet-popup-content {
+            width: 300px !important;
+            max-width: 90vw !important;
+        }
+        .location-controls {
+            margin: 5px !important;
+        }
+        .location-controls button {
+            font-size: 12px !important;
+            padding: 6px 10px !important;
+        }
+    }
+    </style>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2267cc816cba6bb08832790dfa39f3cb {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <script>
+    // Global variables
+    var userMarker = null;
+    var userCircle = null;
+    var isTracking = false;
+    var watchId = null;
+    
+    // Function to get the map instance
+    function getMap() {
+        return window.map_2267cc816cba6bb08832790dfa39f3cb;
+    }
+    
+    // Function to get user location
+    function getCurrentLocation() {
+        if (navigator.geolocation) {
+            // Show loading state
+            document.getElementById('locationBtn').innerHTML = '📍 Locating...';
+            document.getElementById('locationBtn').disabled = true;
+            
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    showUserLocation(position);
+                    document.getElementById('locationBtn').innerHTML = '📍 My Location';
+                    document.getElementById('locationBtn').disabled = false;
+                },
+                function(error) {
+                    handleLocationError(error);
+                    document.getElementById('locationBtn').innerHTML = '📍 My Location';
+                    document.getElementById('locationBtn').disabled = false;
+                },
+                {
+                    enableHighAccuracy: true,
+                    timeout: 10000,
+                    maximumAge: 300000 // 5 minutes
+                }
+            );
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+    
+    // Function to show user location
+    function showUserLocation(position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+        var accuracy = position.coords.accuracy;
+        
+        // Get the map instance
+        var map = getMap();
+        if (!map) {
+            console.error('Map not available');
+            return;
+        }
+        
+        // Remove existing user marker if any
+        if (userMarker) {
+            map.removeLayer(userMarker);
+        }
+        if (userCircle) {
+            map.removeLayer(userCircle);
+        }
+        
+        // Create user location marker (blue dot)
+        userMarker = L.marker([lat, lon], {
+            icon: L.divIcon({
+                className: 'user-location-marker',
+                html: '<div style="background-color: #007bff; width: 16px; height: 16px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 8px rgba(0,0,0,0.3);"></div>',
+                iconSize: [16, 16],
+                iconAnchor: [8, 8]
+            })
+        }).addTo(map);
+        
+        // Create accuracy circle
+        userCircle = L.circle([lat, lon], {
+            color: '#007bff',
+            fillColor: '#007bff',
+            fillOpacity: 0.1,
+            radius: accuracy
+        }).addTo(map);
+        
+        // Add popup with location info
+        var popupContent = '<div style="text-align: center;"><b>📍 Your Location</b><br>' +
+                          'Lat: ' + lat.toFixed(6) + '<br>' +
+                          'Lon: ' + lon.toFixed(6) + '<br>' +
+                          'Accuracy: ±' + Math.round(accuracy) + 'm</div>';
+        userMarker.bindPopup(popupContent);
+        
+        // Center map on user location
+        map.setView([lat, lon], 14);
+        
+        // Show success message
+        showNotification('Location found! You are now at the center of the map.', 'success');
+    }
+    
+    // Function to handle location errors
+    function handleLocationError(error) {
+        var errorMessage = '';
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                errorMessage = "Location access denied. Please allow location access in your browser settings.";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                errorMessage = "Location information is unavailable. Please check your GPS/network connection.";
+                break;
+            case error.TIMEOUT:
+                errorMessage = "Location request timed out. Please try again.";
+                break;
+            default:
+                errorMessage = "An unknown error occurred while getting your location.";
+                break;
+        }
+        showNotification(errorMessage, 'error');
+    }
+    
+    // Function to start location tracking
+    function startLocationTracking() {
+        if (navigator.geolocation && !isTracking) {
+            watchId = navigator.geolocation.watchPosition(
+                function(position) {
+                    showUserLocation(position);
+                },
+                function(error) {
+                    handleLocationError(error);
+                    stopLocationTracking();
+                },
+                {
+                    enableHighAccuracy: true,
+                    timeout: 10000,
+                    maximumAge: 30000 // 30 seconds
+                }
+            );
+            isTracking = true;
+            document.getElementById('trackBtn').innerHTML = '⏹️ Stop Tracking';
+            showNotification('Location tracking started!', 'success');
+        }
+    }
+    
+    // Function to stop location tracking
+    function stopLocationTracking() {
+        if (watchId) {
+            navigator.geolocation.clearWatch(watchId);
+            watchId = null;
+        }
+        isTracking = false;
+        document.getElementById('trackBtn').innerHTML = '🔄 Start Tracking';
+        showNotification('Location tracking stopped.', 'info');
+    }
+    
+    // Function to show notifications
+    function showNotification(message, type) {
+        var notification = document.createElement('div');
+        notification.className = 'notification ' + type;
+        notification.innerHTML = message;
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 16px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            z-index: 10000;
+            max-width: 300px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        `;
+        
+        if (type === 'success') {
+            notification.style.backgroundColor = '#28a745';
+        } else if (type === 'error') {
+            notification.style.backgroundColor = '#dc3545';
+        } else {
+            notification.style.backgroundColor = '#17a2b8';
+        }
+        
+        document.body.appendChild(notification);
+        
+        // Remove notification after 5 seconds
+        setTimeout(function() {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 5000);
+    }
+    
+    // Function to add location controls
+    function addLocationControls() {
+        // Get the map instance
+        var map = getMap();
+        if (!map) {
+            console.log('Map not ready, retrying...');
+            setTimeout(addLocationControls, 500);
+            return;
+        }
+        
+        // Create control container
+        var locationControl = L.control({position: 'topleft'});
+        
+        locationControl.onAdd = function (map) {
+            var div = L.DomUtil.create('div', 'location-controls');
+            div.style.cssText = `
+                background: white;
+                padding: 8px;
+                border-radius: 5px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+                margin: 10px;
+            `;
+            
+            div.innerHTML = `
+                <button id="locationBtn" onclick="getCurrentLocation()" style="
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    padding: 8px 12px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    margin-bottom: 5px;
+                    width: 100%;
+                    display: block;
+                ">📍 My Location</button>
+                <button id="trackBtn" onclick="startLocationTracking()" style="
+                    background-color: #28a745;
+                    color: white;
+                    border: none;
+                    padding: 8px 12px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    width: 100%;
+                    display: block;
+                ">🔄 Start Tracking</button>
+            `;
+            
+            return div;
+        };
+        
+        locationControl.addTo(map);
+    }
+    
+    // Initialize when map is ready
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(addLocationControls, 1000);
+    });
+    </script>
+    
+    
+            <div class="folium-map" id="map_2267cc816cba6bb08832790dfa39f3cb" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2267cc816cba6bb08832790dfa39f3cb = L.map(
+                "map_2267cc816cba6bb08832790dfa39f3cb",
+                {
+                    center: [57.49072768443457, 12.116112840707089],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": true,
+  "scrollWheelZoom": true,
+  "dragging": true,
+  "touchZoom": true,
+  "doubleClickZoom": true,
+  "boxZoom": true,
+  "keyboard": true,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_2fffd1bae36766e8f561bf4fc95d0044 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_2fffd1bae36766e8f561bf4fc95d0044.addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var marker_acd8339f010c50075a262a0c612fc317 = L.marker(
+                [57.44096968816737, 12.183383285155232],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_8535ed0d6fb9e4ed3255cd9119926369 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_67ec5e987e2acfb9617a214dbabd833a = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_8abab970013b8bba8ebe5a08cff07049 = $(`<div id="html_8abab970013b8bba8ebe5a08cff07049" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Frodestenen</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Fjärås 81:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 6.8 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Gravfält</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Large Viking Age burial field with around 160 monuments, including mounds, round and ship-shaped stone settings, and 125 standing stones. One of the tallest, Frodestenen, stands at 4.7 meters high. Excavations revealed Viking-era graves and artifacts.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/eddd2aa1-d050-4317-b549-98793f1b3802" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_67ec5e987e2acfb9617a214dbabd833a.setContent(html_8abab970013b8bba8ebe5a08cff07049);
+            
+        
+
+        marker_acd8339f010c50075a262a0c612fc317.bindPopup(popup_67ec5e987e2acfb9617a214dbabd833a)
+        ;
+
+        
+    
+    
+            marker_acd8339f010c50075a262a0c612fc317.bindTooltip(
+                `<div>
+                     Frodestenen (6.8 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_acd8339f010c50075a262a0c612fc317.setIcon(icon_8535ed0d6fb9e4ed3255cd9119926369);
+            
+    
+            var marker_624521b1f6465a105488f382fee0c2c5 = L.marker(
+                [57.43317506612899, 12.204864018287624],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_d7f52fa6be531e4949cb5e4329128726 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_65c42086c182a92dd6a1d6ef2258a973 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_27975eb2ce96946b702bc44f71a5694b = $(`<div id="html_27975eb2ce96946b702bc44f71a5694b" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Limmahögarna</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Fjärås 98:2</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 8.3 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Hög</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     A significant burial field featuring multiple large mounds, the biggest being 23 meters across and 3 meters high. Excavations uncovered Viking cremations and pottery.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/30931a26-666a-4a26-971d-c84c5d219093" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_65c42086c182a92dd6a1d6ef2258a973.setContent(html_27975eb2ce96946b702bc44f71a5694b);
+            
+        
+
+        marker_624521b1f6465a105488f382fee0c2c5.bindPopup(popup_65c42086c182a92dd6a1d6ef2258a973)
+        ;
+
+        
+    
+    
+            marker_624521b1f6465a105488f382fee0c2c5.bindTooltip(
+                `<div>
+                     Limmahögarna (8.3 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_624521b1f6465a105488f382fee0c2c5.setIcon(icon_d7f52fa6be531e4949cb5e4329128726);
+            
+    
+            var marker_64de20a23b79bb12e3e7df33f5f7b22c = L.marker(
+                [57.45401502881827, 12.136172741172217],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_a3e44f2c27fc2b481e599dc5e9ec7ec2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2168161495f579e1ab2f794dba4dba0b = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_a0402708c3705bfb4e879e93c77a8769 = $(`<div id="html_a0402708c3705bfb4e879e93c77a8769" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Tingskullen</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Hanhals 50:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 4.2 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Stensättning</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     An ancient assembly mound, possibly used for legal or ceremonial gatherings. Once connected to a legendary 'Judge’s Stone' and a stone-paved road, it reflects significant cultural activity.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/31cc18d4-a000-4d53-b1e7-88c9797a6598" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_2168161495f579e1ab2f794dba4dba0b.setContent(html_a0402708c3705bfb4e879e93c77a8769);
+            
+        
+
+        marker_64de20a23b79bb12e3e7df33f5f7b22c.bindPopup(popup_2168161495f579e1ab2f794dba4dba0b)
+        ;
+
+        
+    
+    
+            marker_64de20a23b79bb12e3e7df33f5f7b22c.bindTooltip(
+                `<div>
+                     Tingskullen (4.2 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_64de20a23b79bb12e3e7df33f5f7b22c.setIcon(icon_a3e44f2c27fc2b481e599dc5e9ec7ec2);
+            
+    
+            var marker_9343c978665a4205ee365e3244f33814 = L.marker(
+                [57.20393703939511, 12.502878462943412],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_c8f295e411646a61a9b074555acabc63 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d83b7540c7c1672c91e9a0bd8a2adb12 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_79b5509373a5d76bd32430465e6551c0 = $(`<div id="html_79b5509373a5d76bd32430465e6551c0" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Kungsröset</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Släp 74:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 39.3 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Röse</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Varberg, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Impressive burial cairn, 18–19 meters in diameter, featuring inner stone walls and a possible chamber tomb. A significant Bronze or Iron Age site with traces of complex funerary practices.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/fb456676-b9b0-4863-8590-3cdf7e7cd10b" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_d83b7540c7c1672c91e9a0bd8a2adb12.setContent(html_79b5509373a5d76bd32430465e6551c0);
+            
+        
+
+        marker_9343c978665a4205ee365e3244f33814.bindPopup(popup_d83b7540c7c1672c91e9a0bd8a2adb12)
+        ;
+
+        
+    
+    
+            marker_9343c978665a4205ee365e3244f33814.bindTooltip(
+                `<div>
+                     Kungsröset (39.3 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9343c978665a4205ee365e3244f33814.setIcon(icon_c8f295e411646a61a9b074555acabc63);
+            
+    
+            var marker_789be55ed705570c4024c2eb7ad79888 = L.marker(
+                [57.49072768443457, 12.116112840707089],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_a8d65d51c33196fe35659f23a7bd3edc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_99f02bf4c75b0dd266efbfd605c456b8 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_ca8cda6dd4e2f67c62b3aa8cbd57d699 = $(`<div id="html_ca8cda6dd4e2f67c62b3aa8cbd57d699" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Kungahögen</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Tölö 115:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 0.0 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Unknown</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Unknown, Unknown</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     A large burial mound thought to have royal associations. Its shape suggests extensive historical modifications, possibly linked to elite Iron Age burials.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/5d941adf-a62e-4150-8019-b5e6eee4bb8c" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_99f02bf4c75b0dd266efbfd605c456b8.setContent(html_ca8cda6dd4e2f67c62b3aa8cbd57d699);
+            
+        
+
+        marker_789be55ed705570c4024c2eb7ad79888.bindPopup(popup_99f02bf4c75b0dd266efbfd605c456b8)
+        ;
+
+        
+    
+    
+            marker_789be55ed705570c4024c2eb7ad79888.bindTooltip(
+                `<div>
+                     Kungahögen (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_789be55ed705570c4024c2eb7ad79888.setIcon(icon_a8d65d51c33196fe35659f23a7bd3edc);
+            
+    
+            var marker_b58bf6ce46376e8fa14a11f9d5bd269e = L.marker(
+                [57.45434994598596, 12.027754903882784],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_b945775f8fa2da819f8153d7d4f5f373 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_44ef3a7b6f6c9702b919232213dbc6eb = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_79343e6e4253ac1f13788fdf1156df27 = $(`<div id="html_79343e6e4253ac1f13788fdf1156df27" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Döns hägne</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Vallda 16:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 6.6 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Offerkast</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Sacred offering cairn along an ancient forest path. Local tradition says travelers placed stones here to avoid misfortune. The name means 'The Enclosure of Death'.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/99abc934-6eeb-4449-8dab-21474f8addcb" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_44ef3a7b6f6c9702b919232213dbc6eb.setContent(html_79343e6e4253ac1f13788fdf1156df27);
+            
+        
+
+        marker_b58bf6ce46376e8fa14a11f9d5bd269e.bindPopup(popup_44ef3a7b6f6c9702b919232213dbc6eb)
+        ;
+
+        
+    
+    
+            marker_b58bf6ce46376e8fa14a11f9d5bd269e.bindTooltip(
+                `<div>
+                     Döns hägne (6.6 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b58bf6ce46376e8fa14a11f9d5bd269e.setIcon(icon_b945775f8fa2da819f8153d7d4f5f373);
+            
+    
+            var marker_7b9d17bfa3ddf88846cdd37058e09651 = L.marker(
+                [57.471519127948206, 12.030337440607159],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_4d06dad26f76a690bef8723e71ce42bc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_27d10f66334bb7eda716d7f6443e5957 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_b85f22919c82fd76ef76abe85c9c452e = $(`<div id="html_b85f22919c82fd76ef76abe85c9c452e" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Lunna rös</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Vallda 13:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 5.5 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Röse</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     One of the largest burial cairns in the area, 18 meters wide and 1.8 meters tall, positioned on a high hill with a panoramic view of cultivated landscapes.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/031378e3-9b92-4508-8075-23653e2d9b35" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_27d10f66334bb7eda716d7f6443e5957.setContent(html_b85f22919c82fd76ef76abe85c9c452e);
+            
+        
+
+        marker_7b9d17bfa3ddf88846cdd37058e09651.bindPopup(popup_27d10f66334bb7eda716d7f6443e5957)
+        ;
+
+        
+    
+    
+            marker_7b9d17bfa3ddf88846cdd37058e09651.bindTooltip(
+                `<div>
+                     Lunna rös (5.5 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7b9d17bfa3ddf88846cdd37058e09651.setIcon(icon_4d06dad26f76a690bef8723e71ce42bc);
+            
+    
+            var marker_c569f9acae61ca0b7b44946fe3b08aad = L.marker(
+                [57.51580694597031, 12.254576196355263],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_495c6843cbf95b15f2684655b935e03c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f95742bc2d5835c0920cb83311b40503 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_39db4007950fe19dd7da574a484ffbd6 = $(`<div id="html_39db4007950fe19dd7da574a484ffbd6" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Bökedalskällan</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Fjärås 171:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 8.7 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Källa med tradition</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Sacred offering spring, known for ochre-rich deposits. Traditionally associated with fertility rituals and connected to pre-Christian spiritual practices.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/a3a35401-6241-4460-9cf2-1b51efded5b5" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_f95742bc2d5835c0920cb83311b40503.setContent(html_39db4007950fe19dd7da574a484ffbd6);
+            
+        
+
+        marker_c569f9acae61ca0b7b44946fe3b08aad.bindPopup(popup_f95742bc2d5835c0920cb83311b40503)
+        ;
+
+        
+    
+    
+            marker_c569f9acae61ca0b7b44946fe3b08aad.bindTooltip(
+                `<div>
+                     Bökedalskällan (8.7 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c569f9acae61ca0b7b44946fe3b08aad.setIcon(icon_495c6843cbf95b15f2684655b935e03c);
+            
+    
+            var marker_e76c38c8ef0264c3ff8ee61fd9ec5e90 = L.marker(
+                [57.504107518582934, 12.027963722812549],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_76d3dc7acfdf7a565a5c6f982f22cfba = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_72755bb1232d0efbf95acdb37da3746d = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_f5bb91caff6e907e5098025cf3ca38ab = $(`<div id="html_f5bb91caff6e907e5098025cf3ca38ab" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Kungaröset</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Tölö 74:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 5.5 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Offerkast</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     An offering cairn tied to the legend of a Danish king who supposedly fell in battle here. Nearby paths and stone structures suggest ceremonial significance.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/0fdb5c9f-8a35-44d6-aecc-a11390fb8fa4" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_72755bb1232d0efbf95acdb37da3746d.setContent(html_f5bb91caff6e907e5098025cf3ca38ab);
+            
+        
+
+        marker_e76c38c8ef0264c3ff8ee61fd9ec5e90.bindPopup(popup_72755bb1232d0efbf95acdb37da3746d)
+        ;
+
+        
+    
+    
+            marker_e76c38c8ef0264c3ff8ee61fd9ec5e90.bindTooltip(
+                `<div>
+                     Kungaröset (5.5 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e76c38c8ef0264c3ff8ee61fd9ec5e90.setIcon(icon_76d3dc7acfdf7a565a5c6f982f22cfba);
+            
+    
+            var marker_80d7d9bf5c37cc562c1610886f9676f4 = L.marker(
+                [57.440048700284045, 12.116390747035586],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_c2c36ed70983d2e434a5e18ca848f186 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_439a02589d2e98e1530601e88afd66b0 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_7bba9f08afd3af41d5df06df6b468e0d = $(`<div id="html_7bba9f08afd3af41d5df06df6b468e0d" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Vålaröset</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Hanhals 7:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 5.6 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Röse</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Large stone cairn, historically used as a sea mark for navigation. The site offers sweeping views of the coastline and is associated with ritual traditions.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/0c468157-39d6-4ed7-978c-e23f84504f4b" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_439a02589d2e98e1530601e88afd66b0.setContent(html_7bba9f08afd3af41d5df06df6b468e0d);
+            
+        
+
+        marker_80d7d9bf5c37cc562c1610886f9676f4.bindPopup(popup_439a02589d2e98e1530601e88afd66b0)
+        ;
+
+        
+    
+    
+            marker_80d7d9bf5c37cc562c1610886f9676f4.bindTooltip(
+                `<div>
+                     Vålaröset (5.6 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_80d7d9bf5c37cc562c1610886f9676f4.setIcon(icon_c2c36ed70983d2e434a5e18ca848f186);
+            
+    
+            var marker_8d220c186d9aac6fc6a0292bf11f1929 = L.marker(
+                [57.46423708981977, 11.968356173773403],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_6da1e9fd4f4d2f369a7d605992563498 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_896b3440f91823097e7899d8775146af = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_fd640c418c371621142d3ba312c60bce = $(`<div id="html_fd640c418c371621142d3ba312c60bce" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Altardalen</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Vallda 24:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 9.3 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Offerkast</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     A ritual offering site located near an old church path. Connected to local legends, including tales of a priest or rider who supposedly died here. Stones were placed on a flat altar rock as offerings.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/a8ebab64-3eb4-4d4f-8cf9-40e8c27da8aa" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_896b3440f91823097e7899d8775146af.setContent(html_fd640c418c371621142d3ba312c60bce);
+            
+        
+
+        marker_8d220c186d9aac6fc6a0292bf11f1929.bindPopup(popup_896b3440f91823097e7899d8775146af)
+        ;
+
+        
+    
+    
+            marker_8d220c186d9aac6fc6a0292bf11f1929.bindTooltip(
+                `<div>
+                     Altardalen (9.3 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8d220c186d9aac6fc6a0292bf11f1929.setIcon(icon_6da1e9fd4f4d2f369a7d605992563498);
+            
+    
+            var marker_e5abcda652b990960f0e2cf2c1fc5c29 = L.marker(
+                [57.520185522260505, 11.977289974401687],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_b2b01f3423bbef1e0168aa4822c82ea7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cd455f725fb3af4cb63558ebc60e01b3 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_b65d64659c5ec201d4c22d00dc52bd96 = $(`<div id="html_b65d64659c5ec201d4c22d00dc52bd96" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Tjuvaklöven</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Släp 71:2</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 8.9 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Röse</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Twin burial cairns near a cave called 'Tjyvhålan' (Thieves' Cave). Archaeological findings suggest ceremonial use, and folklore claims treasures were once hidden in the cave.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/3fc707ce-77df-4a7e-b399-b2abead3072f" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_cd455f725fb3af4cb63558ebc60e01b3.setContent(html_b65d64659c5ec201d4c22d00dc52bd96);
+            
+        
+
+        marker_e5abcda652b990960f0e2cf2c1fc5c29.bindPopup(popup_cd455f725fb3af4cb63558ebc60e01b3)
+        ;
+
+        
+    
+    
+            marker_e5abcda652b990960f0e2cf2c1fc5c29.bindTooltip(
+                `<div>
+                     Tjuvaklöven (8.9 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e5abcda652b990960f0e2cf2c1fc5c29.setIcon(icon_b2b01f3423bbef1e0168aa4822c82ea7);
+            
+    
+            var marker_b19a4f97fba74e19835a7e5283e42f21 = L.marker(
+                [57.47565888837366, 11.99790749873173],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_b2aebcadcc17e7bcb64d0129dc3f705f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e6cbc9405dd3759e339cdf13e89dd463 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_a692cad6851bf9a0956605a6b18c3b0c = $(`<div id="html_a692cad6851bf9a0956605a6b18c3b0c" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Albasterös</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Vallda 23:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 7.2 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Hög</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Burial mound containing traces of a prehistoric forge. Archaeological findings indicate early ironworking and ritual activities at this site.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/fe240b70-efa7-4e7e-ac1a-5972d09cfc70" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_e6cbc9405dd3759e339cdf13e89dd463.setContent(html_a692cad6851bf9a0956605a6b18c3b0c);
+            
+        
+
+        marker_b19a4f97fba74e19835a7e5283e42f21.bindPopup(popup_e6cbc9405dd3759e339cdf13e89dd463)
+        ;
+
+        
+    
+    
+            marker_b19a4f97fba74e19835a7e5283e42f21.bindTooltip(
+                `<div>
+                     Albasterös (7.2 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b19a4f97fba74e19835a7e5283e42f21.setIcon(icon_b2aebcadcc17e7bcb64d0129dc3f705f);
+            
+    
+            var marker_f696bbc4db97f098a6e2443a855ff3f6 = L.marker(
+                [57.4635100550442, 12.154229348009032],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_3fa462bd7c561aa8682e52ddd2878373 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7b95a101c944dbfa10c1a6c7ad654d5b = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_f3c66da92b576ce44e197100bf1ec31d = $(`<div id="html_f3c66da92b576ce44e197100bf1ec31d" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Sveaborg</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Fjärås 44:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 3.8 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Röse</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     An ancient stone cairn with evidence of inner stonework and unusual construction techniques. Scattered large stones nearby suggest complex ceremonial practices.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/e6b0855f-5265-418a-9fc5-d9112fcfa3e7" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_7b95a101c944dbfa10c1a6c7ad654d5b.setContent(html_f3c66da92b576ce44e197100bf1ec31d);
+            
+        
+
+        marker_f696bbc4db97f098a6e2443a855ff3f6.bindPopup(popup_7b95a101c944dbfa10c1a6c7ad654d5b)
+        ;
+
+        
+    
+    
+            marker_f696bbc4db97f098a6e2443a855ff3f6.bindTooltip(
+                `<div>
+                     Sveaborg (3.8 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f696bbc4db97f098a6e2443a855ff3f6.setIcon(icon_3fa462bd7c561aa8682e52ddd2878373);
+            
+    
+            var marker_d8c2daacf5e131f04bca77862fdcf75e = L.marker(
+                [57.46300391711979, 11.978041796144376],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_1729a2e7f58de9dec847843dd64be088 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7db57c9fa0b076975454e334a5298a82 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_0cb8deb40a40a2b5e03c8ae10ce6095b = $(`<div id="html_0cb8deb40a40a2b5e03c8ae10ce6095b" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Smedaröset</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Vallda 27:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 8.8 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Röse</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     'The Smith's Cairn' — believed to be the grave of an Iron Age blacksmith. The mound shows signs of repeated use and possibly secondary burials.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/02e241ee-956b-4c82-8f3b-6b85836f5e35" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_7db57c9fa0b076975454e334a5298a82.setContent(html_0cb8deb40a40a2b5e03c8ae10ce6095b);
+            
+        
+
+        marker_d8c2daacf5e131f04bca77862fdcf75e.bindPopup(popup_7db57c9fa0b076975454e334a5298a82)
+        ;
+
+        
+    
+    
+            marker_d8c2daacf5e131f04bca77862fdcf75e.bindTooltip(
+                `<div>
+                     Smedaröset (8.8 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d8c2daacf5e131f04bca77862fdcf75e.setIcon(icon_1729a2e7f58de9dec847843dd64be088);
+            
+    
+            var marker_a9efda424c341efddc2754daac6fb9ac = L.marker(
+                [57.45689248860003, 12.010374877654188],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_c4acbac9013033ec13258fa798ab64ad = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8fbd27010be5fa096b236f57216c0dbe = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_9425fe81064d1f58663b5bfcc844f456 = $(`<div id="html_9425fe81064d1f58663b5bfcc844f456" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Hylterös</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Vallda 17:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 7.3 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Röse</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     A distinctive hexagonal burial cairn featuring sections of collapsed stone walls and ritual deposits. A rare architectural feature for the region.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/1a1b591f-9214-49e4-bb75-44b471cdb59d" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_8fbd27010be5fa096b236f57216c0dbe.setContent(html_9425fe81064d1f58663b5bfcc844f456);
+            
+        
+
+        marker_a9efda424c341efddc2754daac6fb9ac.bindPopup(popup_8fbd27010be5fa096b236f57216c0dbe)
+        ;
+
+        
+    
+    
+            marker_a9efda424c341efddc2754daac6fb9ac.bindTooltip(
+                `<div>
+                     Hylterös (7.3 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a9efda424c341efddc2754daac6fb9ac.setIcon(icon_c4acbac9013033ec13258fa798ab64ad);
+            
+    
+            var marker_eedb1c652e709e26937b1396d271d8b3 = L.marker(
+                [57.51030928123575, 11.964891774582867],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_39f9b68e5a3d55044a1e38807e1e1451 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_25bd5b8e2c8fc82ee62d7657371df653 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_adbe24b005f8ab54398d7bca09b94f5c = $(`<div id="html_adbe24b005f8ab54398d7bca09b94f5c" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Alguserös</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Släp 52:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 9.3 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Röse</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     A burial cairn with a 19th-century rock inscription: 'ALMA & IVAR 2/12 1899'. Combines prehistoric funerary activity with modern traces of memory.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/d1e1b450-22b6-413c-af8b-b46a87e0f377" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_25bd5b8e2c8fc82ee62d7657371df653.setContent(html_adbe24b005f8ab54398d7bca09b94f5c);
+            
+        
+
+        marker_eedb1c652e709e26937b1396d271d8b3.bindPopup(popup_25bd5b8e2c8fc82ee62d7657371df653)
+        ;
+
+        
+    
+    
+            marker_eedb1c652e709e26937b1396d271d8b3.bindTooltip(
+                `<div>
+                     Alguserös (9.3 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_eedb1c652e709e26937b1396d271d8b3.setIcon(icon_39f9b68e5a3d55044a1e38807e1e1451);
+            
+    
+            var marker_cd20c7e0f600d9c4347757fd6f8a5c4e = L.marker(
+                [57.45230084179012, 12.159689249517289],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_573d0f50de04393c5af953eee5ea1c46 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b598359cf99fdea6ca3e2cabdbbd125a = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_978d37c190d1274a39e33e9a0c14672d = $(`<div id="html_978d37c190d1274a39e33e9a0c14672d" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Höga sten</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Fjärås 216:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 5.0 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Stensättning</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Sacred boulder linked to folklore about a giant from Sätila who tried to destroy Fjärås Church by throwing this massive stone — but missed.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/dfd54216-45d4-498d-8731-284343ea1086" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_b598359cf99fdea6ca3e2cabdbbd125a.setContent(html_978d37c190d1274a39e33e9a0c14672d);
+            
+        
+
+        marker_cd20c7e0f600d9c4347757fd6f8a5c4e.bindPopup(popup_b598359cf99fdea6ca3e2cabdbbd125a)
+        ;
+
+        
+    
+    
+            marker_cd20c7e0f600d9c4347757fd6f8a5c4e.bindTooltip(
+                `<div>
+                     Höga sten (5.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cd20c7e0f600d9c4347757fd6f8a5c4e.setIcon(icon_573d0f50de04393c5af953eee5ea1c46);
+            
+    
+            var marker_af6dac61dc384909f5b3cf92d313bd18 = L.marker(
+                [57.44137992190334, 12.190364720149617],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_dc240d9bf9822bd7c567b04b2214a7ba = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3d97e11f985f9e7212ec337aa1922231 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_51792556ac63cc7aacde0600acad2aac = $(`<div id="html_51792556ac63cc7aacde0600acad2aac" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Svalhögen</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Fjärås 84:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 7.0 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Stensättning</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     A mysterious cairn with evidence of ritual burning. Soil analysis shows high phosphate levels, suggesting offerings or cremation practices took place here.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/42be1d77-e4fc-4429-8c9e-cd7afd231c40" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_3d97e11f985f9e7212ec337aa1922231.setContent(html_51792556ac63cc7aacde0600acad2aac);
+            
+        
+
+        marker_af6dac61dc384909f5b3cf92d313bd18.bindPopup(popup_3d97e11f985f9e7212ec337aa1922231)
+        ;
+
+        
+    
+    
+            marker_af6dac61dc384909f5b3cf92d313bd18.bindTooltip(
+                `<div>
+                     Svalhögen (7.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_af6dac61dc384909f5b3cf92d313bd18.setIcon(icon_dc240d9bf9822bd7c567b04b2214a7ba);
+            
+    
+            var marker_3d91511ae22fb6e208dcb1125eec2309 = L.marker(
+                [57.56261117317121, 12.117390971453096],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_db13d20b656243a591e60c2767cfa3dc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3ef0307e98069267c8b76e5677668a32 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_f3b8d3a2e5233eca45ceff0758d76c04 = $(`<div id="html_f3b8d3a2e5233eca45ceff0758d76c04" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Surkekällan</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Lindome 25:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 8.0 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Källa med tradition</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Mölndal, Västra Götaland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Sacred 'Sour Spring' used in healing traditions and possibly connected to prehistoric water rituals. The site has been visited for centuries.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/aaeffb70-126e-4ba5-9f6b-310baac90c21" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_3ef0307e98069267c8b76e5677668a32.setContent(html_f3b8d3a2e5233eca45ceff0758d76c04);
+            
+        
+
+        marker_3d91511ae22fb6e208dcb1125eec2309.bindPopup(popup_3ef0307e98069267c8b76e5677668a32)
+        ;
+
+        
+    
+    
+            marker_3d91511ae22fb6e208dcb1125eec2309.bindTooltip(
+                `<div>
+                     Surkekällan (8.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3d91511ae22fb6e208dcb1125eec2309.setIcon(icon_db13d20b656243a591e60c2767cfa3dc);
+            
+    
+            var marker_5f1f5f30fa11f8958264aa7e3ac7b737 = L.marker(
+                [57.49072768443457, 12.116112840707089],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_61fcfab35112c5a5e5caec44a3d4b164 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3f89e2f1a20d5b19a4cee3dcbbd27467 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_a045a589421e8a1eb257ef47a03cce45 = $(`<div id="html_a045a589421e8a1eb257ef47a03cce45" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #2E8B57; margin: 0 0 10px 0; font-size: 16px;">🎯 Gamle man</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Tölö 2:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 0.0 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Stensättning</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Two ancient stone settings placed on a rocky hilltop with panoramic views of the surroundings. A striking location for prehistoric burials.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/a28d7e5a-fb26-4901-8242-67407c672949" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_3f89e2f1a20d5b19a4cee3dcbbd27467.setContent(html_a045a589421e8a1eb257ef47a03cce45);
+            
+        
+
+        marker_5f1f5f30fa11f8958264aa7e3ac7b737.bindPopup(popup_3f89e2f1a20d5b19a4cee3dcbbd27467)
+        ;
+
+        
+    
+    
+            marker_5f1f5f30fa11f8958264aa7e3ac7b737.bindTooltip(
+                `<div>
+                     Gamle man (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5f1f5f30fa11f8958264aa7e3ac7b737.setIcon(icon_61fcfab35112c5a5e5caec44a3d4b164);
+            
+    
+            var marker_7f5f16169be5327109869ee1e0b11c39 = L.marker(
+                [57.51140412458735, 12.109660516412127],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_fb9d7f1d532e4cac5ab1198fcddc1bea = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7e33602cf0a840be4ccd10ea1c8433bd = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_0b9bebf5308c1666f16da682d6360e28 = $(`<div id="html_0b9bebf5308c1666f16da682d6360e28" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Store våle</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Tölö 34:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 2.3 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Stensättning</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Large rocky cairn, partly collapsed, surrounded by lush forest and moss. Known locally for its scenic location and abundance of wild chanterelles.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/98bf5f6c-383f-4c3f-a1b5-ed79364d9c4f" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_7e33602cf0a840be4ccd10ea1c8433bd.setContent(html_0b9bebf5308c1666f16da682d6360e28);
+            
+        
+
+        marker_7f5f16169be5327109869ee1e0b11c39.bindPopup(popup_7e33602cf0a840be4ccd10ea1c8433bd)
+        ;
+
+        
+    
+    
+            marker_7f5f16169be5327109869ee1e0b11c39.bindTooltip(
+                `<div>
+                     Store våle (2.3 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7f5f16169be5327109869ee1e0b11c39.setIcon(icon_fb9d7f1d532e4cac5ab1198fcddc1bea);
+            
+    
+            var marker_c7a9562fa31f0785d078b2d28d5bbc2a = L.marker(
+                [57.51511328698202, 12.097114003398165],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_cb951d8851975ff50769f3b49919122f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ae49e32f92c665d8da3bdf97a5488e2c = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_f70d5662b089d799470e0d1d97b87a53 = $(`<div id="html_f70d5662b089d799470e0d1d97b87a53" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Lille Våle</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Tölö 35:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 2.9 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Stensättning</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Kungsbacka, Halland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Companion site to Store Våle, with additional stone structures possibly used as ancient boundary markers or secondary burials.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/c44df1ee-6e34-4b42-9aa6-ccf18f105cf5" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_ae49e32f92c665d8da3bdf97a5488e2c.setContent(html_f70d5662b089d799470e0d1d97b87a53);
+            
+        
+
+        marker_c7a9562fa31f0785d078b2d28d5bbc2a.bindPopup(popup_ae49e32f92c665d8da3bdf97a5488e2c)
+        ;
+
+        
+    
+    
+            marker_c7a9562fa31f0785d078b2d28d5bbc2a.bindTooltip(
+                `<div>
+                     Lille Våle (2.9 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c7a9562fa31f0785d078b2d28d5bbc2a.setIcon(icon_cb951d8851975ff50769f3b49919122f);
+            
+    
+            var marker_fe09d7a30c4a017879d79c688f58161d = L.marker(
+                [57.566664949811305, 12.003422316318387],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_69b790a5b08bbfb9d71866f3d1df5fae = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cd972df8e975770572994cb0f304fb90 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_026f25ce1159b6a96a0a3a67f4524f5b = $(`<div id="html_026f25ce1159b6a96a0a3a67f4524f5b" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Slättehall</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Lindome 229:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 10.8 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Gränsmärke</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Mölndal, Västra Götaland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Ancient boundary marker believed to have separated tribal or territorial lands. Its location suggests historical significance in land division.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/1867dbe3-65e6-49c3-96b5-d8557837c872" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_cd972df8e975770572994cb0f304fb90.setContent(html_026f25ce1159b6a96a0a3a67f4524f5b);
+            
+        
+
+        marker_fe09d7a30c4a017879d79c688f58161d.bindPopup(popup_cd972df8e975770572994cb0f304fb90)
+        ;
+
+        
+    
+    
+            marker_fe09d7a30c4a017879d79c688f58161d.bindTooltip(
+                `<div>
+                     Slättehall (10.8 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fe09d7a30c4a017879d79c688f58161d.setIcon(icon_69b790a5b08bbfb9d71866f3d1df5fae);
+            
+    
+            var marker_f8f657c4729a4cfb0c9b2637b56fca4b = L.marker(
+                [57.57976327294291, 12.102316413209026],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_9f1e044b49cd37543411d41cf533cf79 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e0e3eaf0e064dc15d00d50f1bc11b65b = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_43095b74f5139cfa5994c7f21e388f17 = $(`<div id="html_43095b74f5139cfa5994c7f21e388f17" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Drottehög</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> Lindome 16:1</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 9.9 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Hög</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Mölndal, Västra Götaland</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     A prominent burial mound thought to be associated with local Iron Age chieftains. Its scale and positioning suggest a marker of high social status.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="https://kulturarvsdata.se/raa/lamning/bd03c432-4b85-467b-a824-e75fe25dd8c0" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_e0e3eaf0e064dc15d00d50f1bc11b65b.setContent(html_43095b74f5139cfa5994c7f21e388f17);
+            
+        
+
+        marker_f8f657c4729a4cfb0c9b2637b56fca4b.bindPopup(popup_e0e3eaf0e064dc15d00d50f1bc11b65b)
+        ;
+
+        
+    
+    
+            marker_f8f657c4729a4cfb0c9b2637b56fca4b.bindTooltip(
+                `<div>
+                     Drottehög (9.9 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f8f657c4729a4cfb0c9b2637b56fca4b.setIcon(icon_9f1e044b49cd37543411d41cf533cf79);
+            
+    
+            var marker_fa9a71cdc4cf43541566eeacdbad9a5c = L.marker(
+                [57.48, 12.08],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_ed2847c857aab5c673d98cb5a2384817 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bd1789fc66399ff918b6d7f45363836e = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_20fda2242c7b962aa66aadb6d1c26c70 = $(`<div id="html_20fda2242c7b962aa66aadb6d1c26c70" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Kungsbacka gravfält</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> N/A</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 0.0 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Unknown</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Unknown, Unknown</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Cluster of small Iron Age graves, including stone circles and low mounds, located near Kungsbacka. Ideal for studying settlement patterns.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="#" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_bd1789fc66399ff918b6d7f45363836e.setContent(html_20fda2242c7b962aa66aadb6d1c26c70);
+            
+        
+
+        marker_fa9a71cdc4cf43541566eeacdbad9a5c.bindPopup(popup_bd1789fc66399ff918b6d7f45363836e)
+        ;
+
+        
+    
+    
+            marker_fa9a71cdc4cf43541566eeacdbad9a5c.bindTooltip(
+                `<div>
+                     Kungsbacka gravfält (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fa9a71cdc4cf43541566eeacdbad9a5c.setIcon(icon_ed2847c857aab5c673d98cb5a2384817);
+            
+    
+            var marker_69786a2bff8cf50a4d2c7b56ed16f850 = L.marker(
+                [57.47, 12.09],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_5e0901dea50b6a5f31f38aa3839bd01a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2ec07babecec0c948e43f8b01b477c42 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_a190d0723e189ab3a97dc7a71d29b975 = $(`<div id="html_a190d0723e189ab3a97dc7a71d29b975" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Västraberget</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> N/A</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 0.0 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Unknown</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Unknown, Unknown</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Hilltop burial cairn with expansive views over the Kungsbacka fjord. A likely Bronze Age ritual site, offering both scenic beauty and archaeological value.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="#" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_2ec07babecec0c948e43f8b01b477c42.setContent(html_a190d0723e189ab3a97dc7a71d29b975);
+            
+        
+
+        marker_69786a2bff8cf50a4d2c7b56ed16f850.bindPopup(popup_2ec07babecec0c948e43f8b01b477c42)
+        ;
+
+        
+    
+    
+            marker_69786a2bff8cf50a4d2c7b56ed16f850.bindTooltip(
+                `<div>
+                     Västraberget (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_69786a2bff8cf50a4d2c7b56ed16f850.setIcon(icon_5e0901dea50b6a5f31f38aa3839bd01a);
+            
+    
+            var marker_4de7d52829f10003100932b094ce79c0 = L.marker(
+                [57.46, 12.1],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_b9c5cecc5bdff78c689094427cce533f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7ef9edf0f98bf8f0dbc2cf27e996e50b = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_ad593bb0f9d78cfa8c5c3f37476eca2e = $(`<div id="html_ad593bb0f9d78cfa8c5c3f37476eca2e" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Källtorpskullen</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> N/A</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 0.0 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Unknown</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Unknown, Unknown</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Believed to be an ancient sacrificial mound, possibly dating back to the Bronze Age. Its elevated position adds to its ritual significance.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="#" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_7ef9edf0f98bf8f0dbc2cf27e996e50b.setContent(html_ad593bb0f9d78cfa8c5c3f37476eca2e);
+            
+        
+
+        marker_4de7d52829f10003100932b094ce79c0.bindPopup(popup_7ef9edf0f98bf8f0dbc2cf27e996e50b)
+        ;
+
+        
+    
+    
+            marker_4de7d52829f10003100932b094ce79c0.bindTooltip(
+                `<div>
+                     Källtorpskullen (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4de7d52829f10003100932b094ce79c0.setIcon(icon_b9c5cecc5bdff78c689094427cce533f);
+            
+    
+            var marker_d624c99be7e23d941ee461bdcd7bb0c3 = L.marker(
+                [57.45, 12.11],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_de212cf2bb2890570265dcf45632fb40 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d74e47ca874f843a51c7e29c804c2c91 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_e47e5ecfd95965f986f158bd865943f0 = $(`<div id="html_e47e5ecfd95965f986f158bd865943f0" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Bjäred</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> N/A</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 0.0 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Unknown</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Unknown, Unknown</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Archaeological cluster where destroyed cairns revealed artifacts from the Bronze and Iron Ages. A key site for understanding cultural transitions.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="#" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_d74e47ca874f843a51c7e29c804c2c91.setContent(html_e47e5ecfd95965f986f158bd865943f0);
+            
+        
+
+        marker_d624c99be7e23d941ee461bdcd7bb0c3.bindPopup(popup_d74e47ca874f843a51c7e29c804c2c91)
+        ;
+
+        
+    
+    
+            marker_d624c99be7e23d941ee461bdcd7bb0c3.bindTooltip(
+                `<div>
+                     Bjäred (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d624c99be7e23d941ee461bdcd7bb0c3.setIcon(icon_de212cf2bb2890570265dcf45632fb40);
+            
+    
+            var marker_19a9f63d1412531376c2553469c07c62 = L.marker(
+                [57.44, 12.12],
+                {
+}
+            ).addTo(map_2267cc816cba6bb08832790dfa39f3cb);
+        
+    
+            var icon_0a2ebe80c8d87fe002eaf7eea6a35685 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_281b05546990cfec61f44a36d05b1ebf = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_7b33e04a9c57ff5af710e51afdd1fa4c = $(`<div id="html_7b33e04a9c57ff5af710e51afdd1fa4c" style="width: 100.0%; height: 100.0%;">         <div style="width: 350px; max-width: 90vw;">             <h3 style="color: #d63384; margin: 0 0 10px 0; font-size: 16px;">🏛️ Sandsjö högarna</h3>             <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; margin-bottom: 10px; font-size: 12px;">                 <p style="margin: 2px 0;"><strong>RAÄ:</strong> N/A</p>                 <p style="margin: 2px 0;"><strong>Distance:</strong> 0.0 km</p>                 <p style="margin: 2px 0;"><strong>Type:</strong> Unknown</p>                 <p style="margin: 2px 0;"><strong>Location:</strong> Unknown, Unknown</p>             </div>                          <div style="margin-bottom: 10px;">                 <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>                 <div style="max-height: 200px; overflow-y: auto; font-size: 13px; background-color: #ffffff; padding: 8px; border: 1px solid #dee2e6; border-radius: 3px; line-height: 1.4;">                     Group of Viking Age burial mounds located in a scenic clearing by nearby wetlands. Ideal for landscape and ritual studies.                 </div>             </div>                          <div style="text-align: center; margin-top: 10px;">                 <a href="#" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold; padding: 8px 12px; background-color: #f8f9fa; border-radius: 5px; display: inline-block;">                     🔗 View on RAA Website                 </a>             </div>         </div>         </div>`)[0];
+                popup_281b05546990cfec61f44a36d05b1ebf.setContent(html_7b33e04a9c57ff5af710e51afdd1fa4c);
+            
+        
+
+        marker_19a9f63d1412531376c2553469c07c62.bindPopup(popup_281b05546990cfec61f44a36d05b1ebf)
+        ;
+
+        
+    
+    
+            marker_19a9f63d1412531376c2553469c07c62.bindTooltip(
+                `<div>
+                     Sandsjö högarna (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_19a9f63d1412531376c2553469c07c62.setIcon(icon_0a2ebe80c8d87fe002eaf7eea6a35685);
+            
+</script>
+</html>

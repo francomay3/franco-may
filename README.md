@@ -31,6 +31,7 @@ This project comes with the following features:
 - Enhanced RSS feed generation at `/rss.xml` with Dublin Core metadata, Media RSS support, Atom timestamps, and featured images
 - Contact form with email submission via SMTP (nodemailer)
 - Form validation using Zod schemas and react-hook-form
+- Interactive archaeological map with Leaflet integration, location tracking, and detailed site information
 
 ## Pages
 
@@ -40,6 +41,7 @@ The application includes the following pages:
 - **Blog** (`/blog`) - Blog listing page with articles organized by year, sorted chronologically with newest posts first
 - **Blog Articles** (`/blog/[slug]`) - Individual blog articles with dynamic routing (e.g., `/blog/ai-and-the-myth-of-artificial-desire`, `/blog/why-is-there-something-rather-than-nothing`)
 - **Contact** (`/contact`) - Functional contact form with email submission, form validation, and rate limiting
+- **Archaeological Map** (`/fornlamning`) - Interactive map showcasing archaeological sites in Sweden with location tracking and detailed site information
 
 ## npm scripts
 
