@@ -52,10 +52,12 @@ const ContactPage = () => {
         reset();
       } else {
         const errorData = await response.json();
+        // eslint-disable-next-line no-console
         console.error('Contact form error:', errorData);
         setSubmitStatus('error');
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('Contact form submission error:', error);
       setSubmitStatus('error');
     } finally {

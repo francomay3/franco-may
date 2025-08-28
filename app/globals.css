@@ -10,3 +10,29 @@
 .animate-spin {
   animation: spin 1s linear infinite;
 }
+
+[data-testid='map'] {
+  [role='dialog'] {
+    background: var(--mantine-color-body) !important;
+    .gm-style-iw-chr {
+      display: none !important;
+    }
+  }
+
+  .gm-style-iw-d {
+    overflow: auto !important;
+    background: var(--mantine-color-body) !important;
+    color: var(--mantine-color-text) !important;
+    scrollbar-width: thin;
+    scrollbar-color: var(--mantine-color-text) var(--mantine-color-body);
+    padding-right: 12px;
+  }
+
+  .gm-style .gm-style-iw-tc::after {
+    background: var(--mantine-color-body) !important;
+  }
+
+  .advanced-marker.selected {
+    z-index: 1;
+  }
+}

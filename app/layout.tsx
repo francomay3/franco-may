@@ -11,6 +11,7 @@ import { theme } from '../theme';
 import { AppShellWrapper } from '../components/AppShellWrapper/AppShellWrapper';
 import { SITE_CONFIG } from '@/utils/constants';
 import { Poppins, Source_Serif_4 } from 'next/font/google';
+import { QueryProvider } from '@/components/QueryProvider';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const poppins = Poppins({
@@ -55,7 +56,9 @@ export default function RootLayout({ children }: { children: any }) {
       </head>
       <body>
         <MantineProvider theme={theme} defaultColorScheme="auto">
-          <AppShellWrapper>{children}</AppShellWrapper>
+          <QueryProvider>
+            <AppShellWrapper>{children}</AppShellWrapper>
+          </QueryProvider>
         </MantineProvider>
       </body>
     </html>

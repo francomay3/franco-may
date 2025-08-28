@@ -31,7 +31,7 @@ This project comes with the following features:
 - Enhanced RSS feed generation at `/rss.xml` with Dublin Core metadata, Media RSS support, Atom timestamps, and featured images
 - Contact form with email submission via SMTP (nodemailer)
 - Form validation using Zod schemas and react-hook-form
-- Interactive archaeological map with Leaflet integration, location tracking, and detailed site information
+- Interactive archaeological sites map with Google Maps integration, real-time location tracking, SQLite database queries, and detailed site information with custom icons
 
 ## Pages
 
@@ -41,7 +41,7 @@ The application includes the following pages:
 - **Blog** (`/blog`) - Blog listing page with articles organized by year, sorted chronologically with newest posts first
 - **Blog Articles** (`/blog/[slug]`) - Individual blog articles with dynamic routing (e.g., `/blog/ai-and-the-myth-of-artificial-desire`, `/blog/why-is-there-something-rather-than-nothing`)
 - **Contact** (`/contact`) - Functional contact form with email submission, form validation, and rate limiting
-- **Archaeological Map** (`/fornlamning`) - Interactive map showcasing archaeological sites in Sweden with location tracking and detailed site information
+- **Archaeological Sites** (`/fornlamningar`) - Interactive map showcasing archaeological sites in Sweden with Google Maps integration, location tracking, and detailed site information
 
 ## npm scripts
 
@@ -87,6 +87,18 @@ For Gmail users:
 1. Enable 2-factor authentication on your Google account
 2. Generate an App Password (not your regular password)
 3. Use that App Password as `SMTP_PASS` in your `.env.local` file
+
+### Google Maps Configuration
+
+To enable the archaeological sites map functionality, you'll need to set up a Google Maps API key:
+
+1. Create a Google Cloud Project and enable the Maps JavaScript API
+2. Generate an API key with appropriate restrictions
+3. Add the API key to your `.env.local` file:
+
+```bash
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_api_key_here
+```
 
 ## Development Setup
 

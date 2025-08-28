@@ -15,6 +15,7 @@ export async function GET() {
       },
     });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Error reading fornlamning.html:', error);
     return new NextResponse('File not found', { status: 404 });
   }
