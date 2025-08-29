@@ -1,162 +1,106 @@
 'use client';
 
-import PageTitle from '@/components/PageTitle';
-import { Text, LoadingOverlay, useComputedColorScheme } from '@mantine/core';
-import {
-  APIProvider,
-  Map,
-  MapCameraChangedEvent,
-} from '@vis.gl/react-google-maps';
-import React, { useEffect, useState } from 'react';
-import getFornlamningar from '@/app/actions/getFornlamningar';
-import { MarkerWithInfoWindow } from './MarkerWithInfoWindow';
-import { useDebouncedCallback, useDisclosure } from '@mantine/hooks';
-import { Fornlamning } from './dbSchema';
-import { useQuery } from '@tanstack/react-query';
-import { Bounds } from '../models';
 import { useLocation } from '@/hooks/useLocation';
-import UserLocationMarker from './UserLocationMarker';
+import { useEffect, useRef, useState } from 'react';
+import { Map } from 'maplibre-gl';
+import 'maplibre-gl/dist/maplibre-gl.css';
+import { Box } from '@mantine/core';
 
-const Fornlamningar = () => {
-  const [selectedSite, setSelectedSite] = useState<Fornlamning | null>(null);
-  const [currentBounds, setCurrentBounds] = useState<Bounds | null>(null);
-  const [infoWindowOpen, { open: openInfoWindow, close: closeInfoWindow }] =
-    useDisclosure(false);
-  const {
-    latitude,
-    longitude,
-    accuracy,
-    // error,
-    // loading,
-    // startWatching,
-    // stopWatching,
-  } = useLocation();
+const FORN_LAYER_ID = 'fornlamningar-layer';
 
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-  if (!apiKey) {
-    throw new Error('NEXT_PUBLIC_GOOGLE_MAPS_API_KEY is not set');
-  }
-
-  const {
-    data: fornlamningar,
-    isLoading,
-    isError,
-    refetch,
-  } = useQuery<Fornlamning[], Error>({
-    queryKey: ['fornlamningar'],
-    queryFn: () => getFornlamningar(currentBounds),
-  });
-
-  const computedColorScheme = useComputedColorScheme();
+export default function Fornlamningar() {
+  const { latitude, longitude, accuracy, permission } = useLocation();
+  const mapRef = useRef<Map | null>(null);
+  const [mapLoaded, setMapLoaded] = useState(false);
 
   useEffect(() => {
-    refetch();
-  }, [currentBounds, refetch]);
-
-  const handleCameraChanged = useDebouncedCallback(
-    (event: MapCameraChangedEvent) => {
-      const { map } = event;
-
-      const bounds = map.getBounds();
-
-      if (bounds) {
-        const boundsData = {
-          northeast: {
-            lat: bounds.getNorthEast().lat(),
-            lng: bounds.getNorthEast().lng(),
-          },
-          southwest: {
-            lat: bounds.getSouthWest().lat(),
-            lng: bounds.getSouthWest().lng(),
-          },
-        };
-
-        setCurrentBounds(boundsData);
-      }
-    },
-    100
-  );
-
-  if (isLoading) {
-    return <LoadingOverlay visible={isLoading} />;
-  }
-
-  if (isError) {
-    return <Text>Error fetching fornlamningar</Text>;
-  }
-
-  if (!fornlamningar) {
-    return <Text>No fornlamningar found</Text>;
-  }
-
-  const center = {
-    lat:
-      fornlamningar.reduce((sum, site) => {
-        return sum + site.latitude;
-      }, 0) / fornlamningar.length,
-    lng:
-      fornlamningar.reduce((sum, site) => {
-        return sum + site.longitude;
-      }, 0) / fornlamningar.length,
-  };
-
-  const handleMapClick = () => {
-    if (infoWindowOpen) {
-      closeInfoWindow();
-    } else {
-      setSelectedSite(null);
+    if (!mapRef.current || !latitude || !longitude || !mapLoaded) {
+      return;
     }
-  };
 
-  return (
-    <>
-      <PageTitle>Förnlamningar</PageTitle>
-      <Text mb="md">selection: {selectedSite?.name || 'none'}</Text>
+    console.log(latitude, longitude, accuracy, permission);
+  }, [latitude, longitude, mapLoaded, permission]);
 
-      <div style={{ position: 'relative', width: '100%', height: '600px' }}>
-        <APIProvider apiKey={apiKey}>
-          <Map
-            colorScheme={computedColorScheme === 'dark' ? 'DARK' : 'LIGHT'}
-            mapId="fornlamningar-map"
-            style={{ width: '100%', height: '100%' }}
-            defaultCenter={center}
-            defaultZoom={8}
-            gestureHandling="greedy"
-            onClick={handleMapClick}
-            onCameraChanged={handleCameraChanged}
-          >
-            <UserLocationMarker
-              lat={latitude}
-              lng={longitude}
-              accuracy={accuracy}
-            />
-            {fornlamningar.map(site => (
-              <MarkerWithInfoWindow
-                key={site.uuid}
-                position={{ lat: site.latitude, lng: site.longitude }}
-                site={site}
-                onOpen={() => {
-                  setSelectedSite(site);
-                  openInfoWindow();
-                }}
-                onClose={closeInfoWindow}
-                opened={infoWindowOpen && selectedSite?.uuid === site.uuid}
-                selected={selectedSite?.uuid === site.uuid}
-              />
-            ))}
-          </Map>
-        </APIProvider>
-      </div>
+  useEffect(() => {
+    mapRef.current = new Map({
+      container: 'map',
+      style: {
+        version: 8,
+        sources: {
+          osm: {
+            type: 'raster',
+            tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+            tileSize: 256,
+            attribution: '© OpenStreetMap contributors',
+          },
+          fornlamningar: {
+            type: 'vector',
+            tiles: [
+              `${process.env.NEXT_PUBLIC_DOMAIN}/api/fornlamningar/tiles/{z}/{x}/{y}.pbf`,
+            ],
+            minzoom: 0,
+            maxzoom: 13,
+          },
+        },
+        layers: [
+          {
+            id: 'osm-tiles',
+            type: 'raster',
+            source: 'osm',
+            minzoom: 0,
+            maxzoom: 22,
+          },
+          {
+            id: FORN_LAYER_ID,
+            type: 'circle',
+            source: 'fornlamningar',
+            'source-layer': 'archaeological_sites',
+            paint: {
+              'circle-radius': [
+                'case',
+                ['<=', ['get', 'relevance'], 1],
+                4,
+                ['<=', ['get', 'relevance'], 3],
+                6,
+                ['>=', ['get', 'relevance'], 4],
+                10,
+                12,
+              ],
+              'circle-color': '#32a80e',
+              'circle-stroke-width': 1,
+              'circle-stroke-color': '#ffffff',
+              'circle-stroke-opacity': 0.8,
+            },
+          },
+        ],
+      },
+      center: [12.1, 57.5],
+      zoom: 8,
+      // sweden bounds
+      // maxBounds: [
+      //   8.867567633656762, 54.3415942138422, 26.25054001383762, 69.703179281806,
+      // ],
+    });
 
-      {fornlamningar.length > 0 && (
-        <div style={{ marginTop: '1rem' }}>
-          <Text size="sm" color="dimmed">
-            Showing {fornlamningar.length} archaeological sites
-          </Text>
-        </div>
-      )}
-    </>
-  );
-};
+    mapRef.current.on('style.load', () => {
+      setMapLoaded(true);
 
-export default Fornlamningar;
+      mapRef.current?.setProjection({
+        type: 'globe',
+      });
+    });
+
+    mapRef.current.on('mouseenter', FORN_LAYER_ID, () => {
+      mapRef.current?.getCanvas().style.setProperty('cursor', 'pointer');
+    });
+    mapRef.current.on('mouseleave', FORN_LAYER_ID, () => {
+      mapRef.current?.getCanvas().style.setProperty('cursor', 'default');
+    });
+
+    mapRef.current.on('click', FORN_LAYER_ID, e => {
+      console.log(e.features?.[0]?.properties);
+    });
+  }, []);
+
+  return <Box id="map" w="100%" h="500px" />;
+}

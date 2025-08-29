@@ -6,6 +6,7 @@ interface LocationState {
   accuracy: number | null;
   error: string | null;
   loading: boolean;
+  permission?: PermissionState; // 'granted' | 'denied' | 'prompt'
 }
 
 export const useLocation = () => {
@@ -18,60 +19,58 @@ export const useLocation = () => {
   });
 
   const watchIdRef = useRef<number | null>(null);
+  const mounted = useRef(true);
 
-  const handleSuccess = useCallback((position: GeolocationPosition) => {
-    setLocation({
-      latitude: position.coords.latitude,
-      longitude: position.coords.longitude,
-      accuracy: position.coords.accuracy,
-      error: null,
-      loading: false,
-    });
-  }, []);
-
-  const handleError = useCallback((error: GeolocationPositionError) => {
-    let errorMessage = '';
-    switch (error.code) {
-      case error.PERMISSION_DENIED:
-        errorMessage =
-          'Location access denied. Please allow location access in your browser settings.';
-        break;
-      case error.POSITION_UNAVAILABLE:
-        errorMessage =
-          'Location information is unavailable. Please check your GPS/network connection.';
-        break;
-      case error.TIMEOUT:
-        errorMessage = 'Location request timed out. Please try again.';
-        break;
-      default:
-        errorMessage = 'An unknown error occurred while getting your location.';
-        break;
+  const handleSuccess = useCallback((pos: GeolocationPosition) => {
+    if (!mounted.current) {
+      return;
     }
-
     setLocation(prev => ({
       ...prev,
-      error: errorMessage,
+      latitude: pos.coords.latitude,
+      longitude: pos.coords.longitude,
+      accuracy: pos.coords.accuracy,
+      error: null,
       loading: false,
     }));
   }, []);
 
+  const handleError = useCallback((err: GeolocationPositionError | any) => {
+    if (!mounted.current) {
+      return;
+    }
+    const code = typeof err?.code === 'number' ? err.code : -1;
+    const msg =
+      code === 1
+        ? 'Location access denied.'
+        : code === 2
+          ? 'Location unavailable.'
+          : code === 3
+            ? 'Location request timed out.'
+            : (err?.message ?? 'Unknown geolocation error.');
+    setLocation(prev => ({ ...prev, error: msg, loading: false }));
+  }, []);
+
   const startWatching = useCallback(() => {
-    if (!navigator.geolocation) {
+    if (typeof window === 'undefined' || !('geolocation' in navigator)) {
       setLocation(prev => ({
         ...prev,
-        error: 'Geolocation is not supported by this browser.',
+        error: 'Geolocation not supported.',
         loading: false,
       }));
       return;
     }
-
     setLocation(prev => ({ ...prev, loading: true, error: null }));
-
-    const id = navigator.geolocation.watchPosition(handleSuccess, handleError, {
-      enableHighAccuracy: true,
-    });
-
-    watchIdRef.current = id;
+    try {
+      const id = navigator.geolocation.watchPosition(
+        handleSuccess,
+        handleError,
+        { enableHighAccuracy: true, maximumAge: 15_000, timeout: 10_000 }
+      );
+      watchIdRef.current = id;
+    } catch (e) {
+      handleError(e);
+    }
   }, [handleSuccess, handleError]);
 
   const stopWatching = useCallback(() => {
@@ -79,32 +78,33 @@ export const useLocation = () => {
       navigator.geolocation.clearWatch(watchIdRef.current);
       watchIdRef.current = null;
     }
-
-    // Clear location when stopping
-    setLocation({
-      latitude: null,
-      longitude: null,
-      accuracy: null,
-      error: null,
-      loading: false,
-    });
+    // keep last known position; just mark not loading
+    setLocation(prev => ({ ...prev, loading: false }));
   }, []);
 
-  // Start watching on mount
   useEffect(() => {
-    startWatching();
+    mounted.current = true;
 
-    // Cleanup on unmount
+    // reflect permission state (helps debug “it doesn’t work”)
+    if ('permissions' in navigator && (navigator as any).permissions?.query) {
+      (navigator as any).permissions
+        .query({ name: 'geolocation' as PermissionName })
+        .then((p: PermissionStatus) => {
+          setLocation(prev => ({ ...prev, permission: p.state }));
+          p.onchange = () =>
+            setLocation(prev => ({ ...prev, permission: p.state }));
+        })
+        .catch(() => {});
+    }
+
+    startWatching();
     return () => {
+      mounted.current = false;
       if (watchIdRef.current !== null) {
         navigator.geolocation.clearWatch(watchIdRef.current);
       }
     };
-  }, []); // Empty dependency array - only run on mount
+  }, [startWatching]);
 
-  return {
-    ...location,
-    startWatching,
-    stopWatching,
-  };
+  return { ...location, startWatching, stopWatching };
 };

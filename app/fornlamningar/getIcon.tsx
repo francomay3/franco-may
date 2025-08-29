@@ -1,5 +1,4 @@
 import {
-  Icon123,
   IconHome,
   IconFlame,
   IconHammer,
@@ -29,8 +28,8 @@ import {
   IconRoad,
   IconDroplet,
   IconTractor,
+  IconQuestionMark,
 } from '@tabler/icons-react';
-import { Fornlamning } from './dbSchema';
 
 const iconMap = {
   'Settlement site': IconHome,
@@ -71,8 +70,8 @@ const iconMap = {
   'Small industry area': IconTractor,
 };
 
-const getIcon = (siteClass: Fornlamning['class'], selected: boolean) => {
-  const defaultIcon = Icon123;
+const getIcon = (siteClass: string, selected: boolean) => {
+  const defaultIcon = IconQuestionMark;
   const Icon = iconMap[siteClass as keyof typeof iconMap] || defaultIcon;
   const color = selected ? 'grape' : 'blue';
   return (

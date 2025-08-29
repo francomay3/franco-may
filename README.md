@@ -31,7 +31,7 @@ This project comes with the following features:
 - Enhanced RSS feed generation at `/rss.xml` with Dublin Core metadata, Media RSS support, Atom timestamps, and featured images
 - Contact form with email submission via SMTP (nodemailer)
 - Form validation using Zod schemas and react-hook-form
-- Interactive archaeological sites map with Google Maps integration, real-time location tracking, SQLite database queries, and detailed site information with custom icons
+- Interactive archaeological sites map with MapLibre GL integration, vector tile serving, real-time location tracking, and detailed site information with custom icons
 
 ## Pages
 
@@ -41,7 +41,7 @@ The application includes the following pages:
 - **Blog** (`/blog`) - Blog listing page with articles organized by year, sorted chronologically with newest posts first
 - **Blog Articles** (`/blog/[slug]`) - Individual blog articles with dynamic routing (e.g., `/blog/ai-and-the-myth-of-artificial-desire`, `/blog/why-is-there-something-rather-than-nothing`)
 - **Contact** (`/contact`) - Functional contact form with email submission, form validation, and rate limiting
-- **Archaeological Sites** (`/fornlamningar`) - Interactive map showcasing archaeological sites in Sweden with Google Maps integration, location tracking, and detailed site information
+- **Archaeological Sites** (`/fornlamningar`) - Interactive map showcasing archaeological sites in Sweden with MapLibre GL integration, vector tile serving, location tracking, and detailed site information
 
 ## npm scripts
 
@@ -88,17 +88,14 @@ For Gmail users:
 2. Generate an App Password (not your regular password)
 3. Use that App Password as `SMTP_PASS` in your `.env.local` file
 
-### Google Maps Configuration
+### Map Configuration
 
-To enable the archaeological sites map functionality, you'll need to set up a Google Maps API key:
+The archaeological sites map uses MapLibre GL with vector tiles. The map tiles are served from the application's API routes and don't require external API keys. The map includes:
 
-1. Create a Google Cloud Project and enable the Maps JavaScript API
-2. Generate an API key with appropriate restrictions
-3. Add the API key to your `.env.local` file:
-
-```bash
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_api_key_here
-```
+- Vector tile serving via Next.js API routes (`/api/fornlamningar/tiles/{z}/{x}/{y}.pbf`)
+- OpenStreetMap base tiles
+- Archaeological sites data with clustering and relevance-based styling
+- Real-time location tracking with permission handling
 
 ## Development Setup
 
