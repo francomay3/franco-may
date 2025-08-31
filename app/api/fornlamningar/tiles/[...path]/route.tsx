@@ -39,45 +39,25 @@ export async function GET(
     );
 
     // Check if the file exists
-    let tileData: Buffer;
     if (!existsSync(tilePath)) {
-      // Return empty PBF file if tile not found
-      const emptyPbfPath = join(
-        process.cwd(),
-        'app',
-        'api',
-        'fornlamningar',
-        'tiles',
-        'empty.pbf'
-      );
-      const emptyRawData = await readFile(emptyPbfPath);
+      // Return 404 for missing tiles
+      return new NextResponse('Tile not found', { status: 404 });
+    }
 
-      // Check if the empty file is gzipped (shouldn't be, but for consistency)
-      const isEmptyGzipped =
-        emptyRawData.length >= 2 &&
-        emptyRawData[0] === 0x1f &&
-        emptyRawData[1] === 0x8b;
+    // Read the requested PBF file
+    const rawData = await readFile(tilePath);
 
-      if (isEmptyGzipped) {
-        tileData = await gunzipAsync(emptyRawData);
-      } else {
-        tileData = emptyRawData;
-      }
+    // Check if the file is gzipped by looking at the magic bytes
+    const isGzipped =
+      rawData.length >= 2 && rawData[0] === 0x1f && rawData[1] === 0x8b;
+
+    let tileData: Buffer;
+    if (isGzipped) {
+      // Decompress gzipped data
+      tileData = await gunzipAsync(rawData);
     } else {
-      // Read the requested PBF file
-      const rawData = await readFile(tilePath);
-
-      // Check if the file is gzipped by looking at the magic bytes
-      const isGzipped =
-        rawData.length >= 2 && rawData[0] === 0x1f && rawData[1] === 0x8b;
-
-      if (isGzipped) {
-        // Decompress gzipped data
-        tileData = await gunzipAsync(rawData);
-      } else {
-        // Use raw data if not gzipped
-        tileData = rawData;
-      }
+      // Use raw data if not gzipped
+      tileData = rawData;
     }
 
     // Create response with appropriate headers for PBF tiles

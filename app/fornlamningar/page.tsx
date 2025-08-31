@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Map } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { Box } from '@mantine/core';
+import metadata from '../api/fornlamningar/(tiles)/metadata.json';
 
 const FORN_LAYER_ID = 'fornlamningar-layer';
 
@@ -13,17 +14,15 @@ export default function Fornlamningar() {
   const mapRef = useRef<Map | null>(null);
   const [mapLoaded, setMapLoaded] = useState(false);
 
-  useEffect(() => {
-    if (!mapRef.current || !latitude || !longitude || !mapLoaded) {
-      return;
-    }
-
-    console.log(latitude, longitude, accuracy, permission);
-  }, [latitude, longitude, mapLoaded, permission]);
+  const minzoom = Number(metadata.minzoom);
+  const sourceMaxZoom = Number(metadata.maxzoom);
 
   useEffect(() => {
-    mapRef.current = new Map({
+    // init map
+    const map = new Map({
       container: 'map',
+      minZoom: 6,
+      maxZoom: 22, // view zoom cap (independent of source tiles)
       style: {
         version: 8,
         sources: {
@@ -38,8 +37,9 @@ export default function Fornlamningar() {
             tiles: [
               `${process.env.NEXT_PUBLIC_DOMAIN}/api/fornlamningar/tiles/{z}/{x}/{y}.pbf`,
             ],
-            minzoom: 0,
-            maxzoom: 13,
+            minzoom, // e.g. 0
+            maxzoom: sourceMaxZoom, // e.g. 11 — tells MapLibre when to start overzooming
+            attribution: '© You / RAÄ data',
           },
         },
         layers: [
@@ -47,24 +47,27 @@ export default function Fornlamningar() {
             id: 'osm-tiles',
             type: 'raster',
             source: 'osm',
-            minzoom: 0,
-            maxzoom: 22,
           },
           {
             id: FORN_LAYER_ID,
             type: 'circle',
             source: 'fornlamningar',
             'source-layer': 'archaeological_sites',
+            // allow rendering far past the source maxzoom so we see overzoomed vectors
+            minzoom,
+            maxzoom: 24,
             paint: {
+              // keep growing after the last *tile* zoom so points stay readable
               'circle-radius': [
-                'case',
-                ['<=', ['get', 'relevance'], 1],
-                4,
-                ['<=', ['get', 'relevance'], 3],
-                6,
-                ['>=', ['get', 'relevance'], 4],
-                10,
-                12,
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                5,
+                2,
+                sourceMaxZoom,
+                4, // last real tile zoom
+                24,
+                10, // keep scaling while overzoomed
               ],
               'circle-color': '#32a80e',
               'circle-stroke-width': 1,
@@ -76,31 +79,39 @@ export default function Fornlamningar() {
       },
       center: [12.1, 57.5],
       zoom: 8,
-      // sweden bounds
-      // maxBounds: [
-      //   8.867567633656762, 54.3415942138422, 26.25054001383762, 69.703179281806,
-      // ],
     });
 
-    mapRef.current.on('style.load', () => {
-      setMapLoaded(true);
+    mapRef.current = map;
 
-      mapRef.current?.setProjection({
-        type: 'globe',
-      });
+    map.on('style.load', () => setMapLoaded(true));
+
+    map.on('mouseenter', FORN_LAYER_ID, () => {
+      map.getCanvas().style.setProperty('cursor', 'pointer');
+    });
+    map.on('mouseleave', FORN_LAYER_ID, () => {
+      map.getCanvas().style.setProperty('cursor', 'default');
+    });
+    map.on('click', FORN_LAYER_ID, e => {
+      console.log(e.features?.[0].properties);
     });
 
-    mapRef.current.on('mouseenter', FORN_LAYER_ID, () => {
-      mapRef.current?.getCanvas().style.setProperty('cursor', 'pointer');
-    });
-    mapRef.current.on('mouseleave', FORN_LAYER_ID, () => {
-      mapRef.current?.getCanvas().style.setProperty('cursor', 'default');
-    });
+    return () => {
+      map.remove();
+      mapRef.current = null;
+    };
+  }, [minzoom, sourceMaxZoom]);
 
-    mapRef.current.on('click', FORN_LAYER_ID, e => {
-      console.log(e.features?.[0]?.properties);
-    });
-  }, []);
+  useEffect(() => {
+    if (
+      !mapRef.current ||
+      latitude == null ||
+      longitude == null ||
+      !mapLoaded
+    ) {
+      return;
+    }
+    console.log({ latitude, longitude, accuracy, permission });
+  }, [latitude, longitude, accuracy, permission, mapLoaded]);
 
-  return <Box id="map" w="100%" h="500px" />;
+  return <Box id="map" w="100%" h="500px" data-testid="map" />;
 }
