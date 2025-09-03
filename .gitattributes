@@ -1,1 +1,1 @@
-*.pbf filter=lfs diff=lfs merge=lfs -text
+*.pbf -filter -diff -merge -text
