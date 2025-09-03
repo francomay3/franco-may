@@ -1,3 +1,4 @@
+// next.config.js
 import bundleAnalyzer from '@next/bundle-analyzer';
 
 const withBundleAnalyzer = bundleAnalyzer({
@@ -6,41 +7,34 @@ const withBundleAnalyzer = bundleAnalyzer({
 
 export default withBundleAnalyzer({
   reactStrictMode: false,
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  experimental: {
-    optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
-  },
+  eslint: { ignoreDuringBuilds: true },
+  experimental: { optimizePackageImports: ['@mantine/core', '@mantine/hooks'] },
+
   async headers() {
     return [
       {
-        source: '/tiles/:z/:x/:y.pbf',
+        // be flexible: allow all nested paths under /tiles
+        source: '/tiles/:path*',
         headers: [
-          {
-            key: 'Content-Type',
-            value: 'application/vnd.mapbox-vector-tile',
-          },
-          {
-            key: 'Content-Encoding',
-            value: 'gzip',
-          },
+          // let the platform decide on compression; do NOT set Content-Encoding
+          { key: 'Content-Type', value: 'application/vnd.mapbox-vector-tile' },
           {
             key: 'Cache-Control',
-            value: 'public, immutable, max-age=31536000',
+            value: 'public, max-age=31536000, immutable',
           },
-          {
-            key: 'Access-Control-Allow-Origin',
-            value: '*',
-          },
-          {
-            key: 'Access-Control-Allow-Methods',
-            value: 'GET',
-          },
+
+          // CORS
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+          { key: 'Access-Control-Allow-Methods', value: 'GET, OPTIONS' },
           {
             key: 'Access-Control-Allow-Headers',
-            value: 'Content-Type',
+            value: 'Origin, Range, Content-Type, Accept, Accept-Encoding',
           },
+
+          // ensure correct variant caching when brotli/gzip is applied by the host
+          { key: 'Vary', value: 'Accept-Encoding' },
+          // optional but sometimes helpful with strict COOP/CORP setups
+          // { key: 'Cross-Origin-Resource-Policy', value: 'cross-origin' },
         ],
       },
     ];
