@@ -1,3 +1,996 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:82225ae9df760cfa91115e00a8b2565c40ecbc2b0ae32a7aa65c55f658a3a518
-size 51222
+’x
+archaeological_sites(€ uuidlabel	relevance	clusteredpoint_countsqrt_point_countpoint_count_abbreviated"
+2"
+3"
+4"
+5"
+6"
+7"
+9"
+10"
+13"
+BlÃ¤stplats"
+HyttlÃ¤mning"
+Hammare/smedja"
+Raggkvarn, Kvarn"
+Bytomt/gÃ¥rdstomt"
+VÃ¥rdkasen, RÃ¶se"
+JÃ¤ttgraven, RÃ¶se"
+Ã–kna kvarn, Kvarn"
+LÃ¤genhetsbebyggelse"
+Ã„ttehÃ¶garna, RÃ¶se"
+Klovstenen, Offerkast"
+GammelsÃ¤ttern, FÃ¤bod"
+Husgrund, historisk tid"
+Torp, Bytomt/gÃ¥rdstomt"
+Ullshyttan, HyttlÃ¤mning"
+Ã…ngsÃ¥gen, TrÃ¤industri"
+Hag, LÃ¤genhetsbebyggelse"
+Mon, LÃ¤genhetsbebyggelse"
+Ron, LÃ¤genhetsbebyggelse"
+Edet, LÃ¤genhetsbebyggelse"
+HÃ¶jden, Bytomt/gÃ¥rdstomt"
+Sand, LÃ¤genhetsbebyggelse"
+Backa, LÃ¤genhetsbebyggelse"
+Borra tullmjÃ¶lkvarn, Kvarn"
+Dalen, LÃ¤genhetsbebyggelse"
+Erklo, LÃ¤genhetsbebyggelse"
+Hacka, LÃ¤genhetsbebyggelse"
+Hagen, LÃ¤genhetsbebyggelse"
+Haget, LÃ¤genhetsbebyggelse"
+JÃ¤tterÃ¶sen, StensÃ¤ttning"
+Kongo, LÃ¤genhetsbebyggelse"
+Myran, LÃ¤genhetsbebyggelse"
+Myren, LÃ¤genhetsbebyggelse"
+Ripen, LÃ¤genhetsbebyggelse"
+Udden, LÃ¤genhetsbebyggelse"
+Vanstorp, Bytomt/gÃ¥rdstomt"
+Ã…sen, LÃ¤genhetsbebyggelse"
+Backen, LÃ¤genhetsbebyggelse"
+Bergen, LÃ¤genhetsbebyggelse"
+Berget, LÃ¤genhetsbebyggelse"
+Botorp, LÃ¤genhetsbebyggelse"
+Dammen, LÃ¤genhetsbebyggelse"
+Fallet, LÃ¤genhetsbebyggelse"
+Fillby, LÃ¤genhetsbebyggelse"
+Forsen, LÃ¤genhetsbebyggelse"
+Gruvan, LÃ¤genhetsbebyggelse"
+Hallen, LÃ¤genhetsbebyggelse"
+Hultet, LÃ¤genhetsbebyggelse"
+HÃ¥lan, LÃ¤genhetsbebyggelse"
+Jantes, LÃ¤genhetsbebyggelse"
+Jeriko, LÃ¤genhetsbebyggelse"
+Knutstorp, Bytomt/gÃ¥rdstomt"
+Kullen, LÃ¤genhetsbebyggelse"
+Lerdal, LÃ¤genhetsbebyggelse"
+Lissbo, LÃ¤genhetsbebyggelse"
+Lyckan, LÃ¤genhetsbebyggelse"
+Mossen, LÃ¤genhetsbebyggelse"
+Nytorp, LÃ¤genhetsbebyggelse"
+Rammel, LÃ¤genhetsbebyggelse"
+Rosenberg, Bytomt/gÃ¥rdstomt"
+Staken, LÃ¤genhetsbebyggelse"
+SÃ¤ter, LÃ¤genhetsbebyggelse"
+SÃ¥gen, LÃ¤genhetsbebyggelse"
+Tallen, LÃ¤genhetsbebyggelse"
+Ã„ngen, LÃ¤genhetsbebyggelse"
+Ã–torp, LÃ¤genhetsbebyggelse"
+BrÃ¥ten, LÃ¤genhetsbebyggelse"
+BrÃ¶tan, LÃ¤genhetsbebyggelse"
+BÃ¤cken, LÃ¤genhetsbebyggelse"
+DÃ¤r Ã¶ste, Bytomt/gÃ¥rdstomt"
+England, LÃ¤genhetsbebyggelse"
+Fensbol, LÃ¤genhetsbebyggelse"
+Gotland, LÃ¤genhetsbebyggelse"
+Gretbyn, LÃ¤genhetsbebyggelse"
+Hackhem, LÃ¤genhetsbebyggelse"
+Hagtorp, LÃ¤genhetsbebyggelse"
+Jonsbol, LÃ¤genhetsbebyggelse"
+Klammen, LÃ¤genhetsbebyggelse"
+Knorten, LÃ¤genhetsbebyggelse"
+KÃ¤rren, LÃ¤genhetsbebyggelse"
+Limtorp, LÃ¤genhetsbebyggelse"
+Loftaso, LÃ¤genhetsbebyggelse"
+Nilsbyn, LÃ¤genhetsbebyggelse"
+Nyskoga, LÃ¤genhetsbebyggelse"
+Oxhagen, LÃ¤genhetsbebyggelse"
+RÃ¥berg, LÃ¤genhetsbebyggelse"
+Stampen, LÃ¤genhetsbebyggelse"
+Tranhem, LÃ¤genhetsbebyggelse"
+TÃ¤ppan, LÃ¤genhetsbebyggelse"
+Uddarna, LÃ¤genhetsbebyggelse"
+Ã…storp, LÃ¤genhetsbebyggelse" 
+Backarna, LÃ¤genhetsbebyggelse" 
+Bagraven, LÃ¤genhetsbebyggelse" 
+Betlehem, LÃ¤genhetsbebyggelse" 
+Bondtorp, LÃ¤genhetsbebyggelse" 
+Brohagen, LÃ¤genhetsbebyggelse" 
+BrÃ¤nnan, LÃ¤genhetsbebyggelse" 
+Bubacken, LÃ¤genhetsbebyggelse" 
+Buskarna, LÃ¤genhetsbebyggelse" 
+Hagalund, LÃ¤genhetsbebyggelse" 
+Hallarna, LÃ¤genhetsbebyggelse" 
+Karlsdal, LÃ¤genhetsbebyggelse" 
+Klafsrya, LÃ¤genhetsbebyggelse" 
+Krakerud, LÃ¤genhetsbebyggelse" 
+Lamossen, LÃ¤genhetsbebyggelse" 
+Lobacken, LÃ¤genhetsbebyggelse" 
+Losudden, LÃ¤genhetsbebyggelse" 
+LustnÃ¤s, LÃ¤genhetsbebyggelse" 
+Mosstorp, LÃ¤genhetsbebyggelse" 
+MyrÃ¥sen, LÃ¤genhetsbebyggelse" 
+MÃ¥ltorp, LÃ¤genhetsbebyggelse" 
+Nolaberg, LÃ¤genhetsbebyggelse" 
+Nytomten, LÃ¤genhetsbebyggelse" 
+Panktorp, LÃ¤genhetsbebyggelse" 
+Pek-Olas, LÃ¤genhetsbebyggelse" 
+Rosendal, LÃ¤genhetsbebyggelse" 
+RÃ¶sberg, LÃ¤genhetsbebyggelse" 
+Storaven, LÃ¤genhetsbebyggelse" 
+Storberg, LÃ¤genhetsbebyggelse" 
+Stranden, LÃ¤genhetsbebyggelse" 
+Torphaga, LÃ¤genhetsbebyggelse" 
+Torsberg, LÃ¤genhetsbebyggelse" 
+VrÃ¥ngan, LÃ¤genhetsbebyggelse" 
+Ã„ngarna, LÃ¤genhetsbebyggelse"!
+Agvattnet, LÃ¤genhetsbebyggelse"!
+Baggetorp, LÃ¤genhetsbebyggelse"!
+BergÃ¥sen, LÃ¤genhetsbebyggelse"!
+Brolyckan, LÃ¤genhetsbebyggelse"!
+Bromserud, LÃ¤genhetsbebyggelse"!
+BurÃ¤ngen, LÃ¤genhetsbebyggelse"!
+BÃ¤ckelid, LÃ¤genhetsbebyggelse"!
+Daltomten, LÃ¤genhetsbebyggelse"!
+Eriksberg, LÃ¤genhetsbebyggelse"!
+Eriksfall, LÃ¤genhetsbebyggelse"!
+Gravdalen, LÃ¤genhetsbebyggelse"!
+Gruvberga, LÃ¤genhetsbebyggelse"!
+GrÃ¤storp, LÃ¤genhetsbebyggelse"!
+Hagtorpet, LÃ¤genhetsbebyggelse"!
+Harberget, LÃ¤genhetsbebyggelse"!
+Harfallet, LÃ¤genhetsbebyggelse"!
+Hedtorpet, LÃ¤genhetsbebyggelse"!
+HedÃ¤ngen, LÃ¤genhetsbebyggelse"!
+HjÃ¤rtebo, LÃ¤genhetsbebyggelse"!
+HultÃ¥sen, LÃ¤genhetsbebyggelse"!
+HÃ¶glunda, LÃ¤genhetsbebyggelse"!
+HÃ¶jderna, LÃ¤genhetsbebyggelse"!
+Kattheden, LÃ¤genhetsbebyggelse"!
+KittÃ¥sen, LÃ¤genhetsbebyggelse"!
+Knappberg, LÃ¤genhetsbebyggelse"!
+Kullyckan, LÃ¤genhetsbebyggelse"!
+LillÃ¥sen, LÃ¤genhetsbebyggelse"!
+LÃ¶vÃ¥sen, LÃ¤genhetsbebyggelse"!
+Mantorpet, LÃ¤genhetsbebyggelse"!
+Marieberg, LÃ¤genhetsbebyggelse"!
+MobrÃ¥ten, LÃ¤genhetsbebyggelse"!
+Mosshaget, LÃ¤genhetsbebyggelse"!
+Myrlyckan, LÃ¤genhetsbebyggelse"!
+MÃ¥nstorp, LÃ¤genhetsbebyggelse"!
+Niklasdal, LÃ¤genhetsbebyggelse"!
+NolsÃ¥gen, LÃ¤genhetsbebyggelse"!
+NÃ¤r Jens, LÃ¤genhetsbebyggelse"!
+Orrtorpet, LÃ¤genhetsbebyggelse"!
+Ramstugan, LÃ¤genhetsbebyggelse"!
+Rosenlund, LÃ¤genhetsbebyggelse"!
+Rotstugan, LÃ¤genhetsbebyggelse"!
+RÃ¶berget, LÃ¤genhetsbebyggelse"!
+SjÃ¶boden, LÃ¤genhetsbebyggelse"!
+SjÃ¶haget, LÃ¤genhetsbebyggelse"!
+SjÃ¶Ã¥sen, LÃ¤genhetsbebyggelse"!
+SkavÃ¥sen, LÃ¤genhetsbebyggelse"!
+SkÃ¥rtorp, LÃ¤genhetsbebyggelse"!
+Sparktorp, LÃ¤genhetsbebyggelse"!
+StenskÃ¤r, LÃ¤genhetsbebyggelse"!
+StenÃ¥sen, LÃ¤genhetsbebyggelse"!
+Stormyren, LÃ¤genhetsbebyggelse"!
+Svenmyren, LÃ¤genhetsbebyggelse"!
+Svenserud, LÃ¤genhetsbebyggelse"!
+SÃ¥gviken, LÃ¤genhetsbebyggelse"!
+TallÃ¥sen, LÃ¤genhetsbebyggelse"!
+Tassmyren, LÃ¤genhetsbebyggelse"!
+Ulriksdal, LÃ¤genhetsbebyggelse"!
+Vitteberg, LÃ¤genhetsbebyggelse"!
+Ã„lgÃ¥sen, LÃ¤genhetsbebyggelse"!
+Ã„nghaget, LÃ¤genhetsbebyggelse"!
+Ã…sberget, LÃ¤genhetsbebyggelse""
+ Abborrtorp, LÃ¤genhetsbebyggelse""
+ Anderstorp, LÃ¤genhetsbebyggelse""
+ ArvidsÃ¤ng, LÃ¤genhetsbebyggelse""
+ Bagg-Annas, LÃ¤genhetsbebyggelse""
+ Baggtorpet, LÃ¤genhetsbebyggelse""
+ Bergkleven, LÃ¤genhetsbebyggelse""
+ BjÃ¶rnberg, LÃ¤genhetsbebyggelse""
+ Bliaberget, LÃ¤genhetsbebyggelse""
+ FallÃ¤ngen, LÃ¤genhetsbebyggelse""
+ Flytlyckan, LÃ¤genhetsbebyggelse""
+ Gillestorp, LÃ¤genhetsbebyggelse""
+ GlÃ¤tterud, LÃ¤genhetsbebyggelse""
+ Granskogen, LÃ¤genhetsbebyggelse""
+ Graverhult, LÃ¤genhetsbebyggelse""
+ Gryttorpet, LÃ¤genhetsbebyggelse""
+ Gubbfallet, LÃ¤genhetsbebyggelse""
+ Gubblyckan, LÃ¤genhetsbebyggelse""
+ Hiransberg, LÃ¤genhetsbebyggelse""
+ HÃ¤ggmyren, LÃ¤genhetsbebyggelse""
+ HÃ¤sthaget, LÃ¤genhetsbebyggelse""
+ HÃ¶gfallet, LÃ¤genhetsbebyggelse""
+ HÃ¶jdÃ¥sen, LÃ¤genhetsbebyggelse""
+ Jonstorpet, LÃ¤genhetsbebyggelse""
+ JÃ¶nshagen, LÃ¤genhetsbebyggelse""
+ Kapuria, Husgrund, historisk tid""
+ Kolbottnen, LÃ¤genhetsbebyggelse""
+ KolbrÃ¥ten, LÃ¤genhetsbebyggelse""
+ Kulltorpet, LÃ¤genhetsbebyggelse""
+ KvarnÃ¥sen, LÃ¤genhetsbebyggelse""
+ KÃ¤llmyran, LÃ¤genhetsbebyggelse""
+ LanhÃ¶jden, LÃ¤genhetsbebyggelse""
+ Larstorpet, LÃ¤genhetsbebyggelse""
+ Lillstugan, LÃ¤genhetsbebyggelse""
+ LillÃ¤ngen, LÃ¤genhetsbebyggelse""
+ Linntorpet, LÃ¤genhetsbebyggelse""
+ Lojdtorpet, LÃ¤genhetsbebyggelse""
+ LÃ¥ngmyren, LÃ¤genhetsbebyggelse""
+ LÃ¥ngudden, LÃ¤genhetsbebyggelse""
+ LÃ¶vfallet, LÃ¤genhetsbebyggelse""
+ Molltorpet, LÃ¤genhetsbebyggelse""
+ Muddbacken, LÃ¤genhetsbebyggelse""
+ Nordfallet, LÃ¤genhetsbebyggelse""
+ NÃ¶tberget, LÃ¤genhetsbebyggelse""
+ Ristning, medeltid/historisk tid""
+ RÃ¤nndalen, LÃ¤genhetsbebyggelse""
+ RÃ¥bÃ¤cken, LÃ¤genhetsbebyggelse""
+ RÃ¶nningen, LÃ¤genhetsbebyggelse""
+ RÃ¶sberget, LÃ¤genhetsbebyggelse""
+ Sandbacken, LÃ¤genhetsbebyggelse""
+ SjÃ¶dammen, LÃ¤genhetsbebyggelse""
+ SjÃ¶fallet, LÃ¤genhetsbebyggelse""
+ SjÃ¶Ã¤ndan, LÃ¤genhetsbebyggelse""
+ SkÃ¶nstorp, LÃ¤genhetsbebyggelse""
+ SotbrÃ¥ten, LÃ¤genhetsbebyggelse""
+ Stampetorp, LÃ¤genhetsbebyggelse""
+ Stinastorp, LÃ¤genhetsbebyggelse""
+ StorÃ¤ngen, LÃ¤genhetsbebyggelse""
+ TosbrÃ¥ten, LÃ¤genhetsbebyggelse""
+ TÃ¤llÃ¥sen, LÃ¤genhetsbebyggelse""
+ Utsyningen, LÃ¤genhetsbebyggelse""
+ Vikerstorp, LÃ¤genhetsbebyggelse""
+ Vilarhallen, Plats med tradition""
+ Vinterstad, LÃ¤genhetsbebyggelse""
+ Ã„ngberget, LÃ¤genhetsbebyggelse""
+ Ã„rtkurras, LÃ¤genhetsbebyggelse"#
+!Bergatorpet, LÃ¤genhetsbebyggelse"#
+!BergbrÃ¥ten, LÃ¤genhetsbebyggelse"#
+!BlÃ¥sberget, LÃ¤genhetsbebyggelse"#
+!BÃ¤ckfallet, LÃ¤genhetsbebyggelse"#
+!BÃ¶ckelskog, LÃ¤genhetsbebyggelse"#
+!DÃ¤r VÃ¤ste, LÃ¤genhetsbebyggelse"#
+!FÃ¤backberg, LÃ¤genhetsbebyggelse"#
+!GrankÃ¤rret, LÃ¤genhetsbebyggelse"#
+!Granlidberg, LÃ¤genhetsbebyggelse"#
+!Hansabacken, LÃ¤genhetsbebyggelse"#
+!HultsÃ¤tter, LÃ¤genhetsbebyggelse"#
+!HÃ¶jdemyren, LÃ¤genhetsbebyggelse"#
+!HÃ¶jdÃ¤ngen, LÃ¤genhetsbebyggelse"#
+!KnallÃ¤ngen, LÃ¤genhetsbebyggelse"#
+!Knekttorpet, LÃ¤genhetsbebyggelse"#
+!Kockolaberg, LÃ¤genhetsbebyggelse"#
+!Kvarntorpet, LÃ¤genhetsbebyggelse"#
+!KvarnÃ¤ngen, LÃ¤genhetsbebyggelse"#
+!LÃ¥ngÃ¤ngen, LÃ¤genhetsbebyggelse"#
+!LÃ¶vbrÃ¥ten, LÃ¤genhetsbebyggelse"#
+!MusÃ¥berget, LÃ¤genhetsbebyggelse"#
+!MÃ¥nslyckan, LÃ¤genhetsbebyggelse"#
+!NorrtÃ¤ppan, LÃ¤genhetsbebyggelse"#
+!Nybondstorp, LÃ¤genhetsbebyggelse"#
+!Samuelstorp, LÃ¤genhetsbebyggelse"#
+!SandmÃ¥l, Husgrund, historisk tid"#
+!SjÃ¶brÃ¥ten, LÃ¤genhetsbebyggelse"#
+!Skallvallen, LÃ¤genhetsbebyggelse"#
+!StackÃ¤ngen, LÃ¤genhetsbebyggelse"#
+!StenbrÃ¥ten, LÃ¤genhetsbebyggelse"#
+!Stockberget, LÃ¤genhetsbebyggelse"#
+!Stora Ã…sen, LÃ¤genhetsbebyggelse"#
+!Svarthultet, LÃ¤genhetsbebyggelse"#
+!SÃ¶dra NÃ¤s, LÃ¤genhetsbebyggelse"#
+!TjurhÃ¶jden, LÃ¤genhetsbebyggelse"#
+!TjÃ¤rnÃ¥sen, LÃ¤genhetsbebyggelse"#
+!VackerÃ¥sen, LÃ¤genhetsbebyggelse"#
+!Ã„ngbrÃ¥ten, LÃ¤genhetsbebyggelse"$
+"BjÃ¶rnÃ¤ngen, LÃ¤genhetsbebyggelse"$
+"BosjÃ¶backen, LÃ¤genhetsbebyggelse"$
+"BrÃ¶ttningen, LÃ¤genhetsbebyggelse"$
+"FÃ¤rnstrÃ¶ms, LÃ¤genhetsbebyggelse"$
+"FÃ¶lsjÃ¶torp, LÃ¤genhetsbebyggelse"$
+"Hallestomten, LÃ¤genhetsbebyggelse"$
+"HorssjÃ¶sÃ¤tern, Bytomt/gÃ¥rdstomt"$
+"HumlebrÃ¥ten, LÃ¤genhetsbebyggelse"$
+"HÃ¤llstrÃ¶ms, LÃ¤genhetsbebyggelse"$
+"HÃ¶jdbrÃ¥ten, LÃ¤genhetsbebyggelse"$
+"HÃ¶jdetorpet, LÃ¤genhetsbebyggelse"$
+"Koppartorpet, LÃ¤genhetsbebyggelse"$
+"Kvarngrinden, LÃ¤genhetsbebyggelse"$
+"KvarnhÃ¶jden, LÃ¤genhetsbebyggelse"$
+"KÃ¤llestugan, LÃ¤genhetsbebyggelse"$
+"Lennartstorp, LÃ¤genhetsbebyggelse"$
+"LerbrÃ¥tarna, LÃ¤genhetsbebyggelse"$
+"LingesfjÃ¤ll, LÃ¤genhetsbebyggelse"$
+"LundsdrÃ¥gen, LÃ¤genhetsbebyggelse"$
+"Mellantomten, LÃ¤genhetsbebyggelse"$
+"MellbyÃ¤ngen, LÃ¤genhetsbebyggelse"$
+"MobÃ¤ckheden, LÃ¤genhetsbebyggelse"$
+"PrÃ¤stfallet, LÃ¤genhetsbebyggelse"$
+"PrÃ¤stÃ¤ngen, LÃ¤genhetsbebyggelse"$
+"SkvalbÃ¤cken, LÃ¤genhetsbebyggelse"$
+"Soldattorpet, LÃ¤genhetsbebyggelse"$
+"StackbrÃ¥ten, LÃ¤genhetsbebyggelse"$
+"SvensbrÃ¥ten, LÃ¤genhetsbebyggelse"$
+"SÃ¤tertorpet, LÃ¤genhetsbebyggelse"$
+"Taxerudstorp, LÃ¤genhetsbebyggelse"$
+"TjÃ¤rnberget, LÃ¤genhetsbebyggelse"$
+"TjÃ¤rntorpet, LÃ¤genhetsbebyggelse"$
+"TorrtjÃ¤rnet, LÃ¤genhetsbebyggelse"$
+"VÃ¥lbergsÃ¤ngen, Bytomt/gÃ¥rdstomt"$
+"Ã–vre Pavila, LÃ¤genhetsbebyggelse"$
+"Ã–vre Rajske, LÃ¤genhetsbebyggelse"%
+#AllmÃ¤nningen, LÃ¤genhetsbebyggelse"%
+#BackmansÃ¥sen, LÃ¤genhetsbebyggelse"%
+#Backskogstorp, LÃ¤genhetsbebyggelse"%
+#BergbrÃ¥tarna, LÃ¤genhetsbebyggelse"%
+#BjursjÃ¶heden, LÃ¤genhetsbebyggelse"%
+#Bondstafallet, LÃ¤genhetsbebyggelse"%
+#Bredvistviken, LÃ¤genhetsbebyggelse"%
+#BrÃ¥tsÃ¤ttern, LÃ¤genhetsbebyggelse"%
+#BÃ¤ckebrÃ¥ten, LÃ¤genhetsbebyggelse"%
+#GransjÃ¶liden, LÃ¤genhetsbebyggelse"%
+#Hackrasberget, LÃ¤genhetsbebyggelse"%
+#HÃ¤llsjÃ¶torp, LÃ¤genhetsbebyggelse"%
+#KolaresÃ¤tter, LÃ¤genhetsbebyggelse"%
+#KyrkvÃ¤rdstomten, Bytomt/gÃ¥rdstomt"%
+#KÃ¤llarshaget, LÃ¤genhetsbebyggelse"%
+#MellangÃ¥rden, LÃ¤genhetsbebyggelse"%
+#Nolby gamla tomt, Bytomt/gÃ¥rdstomt"%
+#NÃ¤r RÃ¤ttarn, LÃ¤genhetsbebyggelse"%
+#PrÃ¤stbrÃ¥ten, LÃ¤genhetsbebyggelse"%
+#SandÃ¥sfallet, LÃ¤genhetsbebyggelse"%
+#SkrÃ¤ddarbron, LÃ¤genhetsbebyggelse"%
+#Stamparlyckan, LÃ¤genhetsbebyggelse"%
+#Stora Nyhaget, LÃ¤genhetsbebyggelse"%
+#SÃ¤tterfallet, LÃ¤genhetsbebyggelse"%
+#UlvsbybrÃ¥ten, LÃ¤genhetsbebyggelse"%
+#VikersÃ¤ttern, LÃ¤genhetsbebyggelse"%
+#VÃ¤stra tegen, LÃ¤genhetsbebyggelse"%
+#Wallinstorpet, LÃ¤genhetsbebyggelse"%
+#Ã–stra Jonastorp, Bytomt/gÃ¥rdstomt"%
+#Ã–verstÃ¤ngen, LÃ¤genhetsbebyggelse"&
+$001aedea-8a28-4f73-90d4-4153c2702975"&
+$0116f9fd-bd5a-460e-9c81-88607449299e"&
+$0144dc19-db0a-4b6f-9b23-8bbe5f7c4ef4"&
+$01cbf3c9-3fec-4228-98ec-5cc863f1d168"&
+$021131c5-52fd-4a15-b74b-f193afee3d60"&
+$04c0be38-8891-47a7-aeaf-0a0f1c4e4a81"&
+$055440d3-a635-4c55-907b-baa2980ca176"&
+$07024873-9855-40b0-b3e3-f5a00f0747a6"&
+$077ef86b-af99-4359-a429-274ec8990c37"&
+$078313b0-2952-4f29-9cb6-cf8debe3d127"&
+$07c46e85-d180-463e-a2b7-3561777cb6d0"&
+$081e48a2-4207-4c5d-9010-18d29b1bcce6"&
+$08a66dde-c8b1-439f-8ba7-3f41c2f6490b"&
+$08c31b17-682d-44b2-bfae-75a4dc37aa5b"&
+$091bb9cf-9355-4bdc-8e61-23d44abd98cd"&
+$09990de1-7a15-40c7-9d6b-577c7e90197c"&
+$09dbe039-4926-4ccd-bf1e-c8cae3382609"&
+$09fe4275-123c-498a-ba15-7d1419de1910"&
+$0a4a9470-e16f-4bb0-8caf-52ca7246da17"&
+$0ac77533-cd1d-468a-9202-7569e9dcd241"&
+$0b76b001-e8e2-41d7-afa7-0fc05be49bdb"&
+$0cafdb9b-c13c-4d16-ad30-38e5cc5caefb"&
+$0cc8ced4-bc11-42e4-9db8-d7719ac16c83"&
+$0d7f60e2-3052-4a8d-b4e6-e65f31c16eb2"&
+$0fae56c0-5af5-482f-8e54-432dd2b1bdf8"&
+$102ba1d1-7106-4389-bdf7-74de35c19857"&
+$1086ee14-5679-4dba-a765-976ce32ae150"&
+$1095a052-5e7e-4c18-bb62-608b33fb1408"&
+$11d73d4e-4a91-4044-add7-9c2da0efb18e"&
+$121e891a-bd64-4537-b4c2-20bfeddf89fe"&
+$12374992-7d61-40f9-bfaf-5c3684b114a7"&
+$13018822-2bc8-40fb-936f-3fad7d0ea92c"&
+$136ecb52-2ad8-4c9d-9c4e-85da3010c8d5"&
+$13988e20-00d1-4e5f-8b35-7a6bcbcd94fd"&
+$1403125f-55ef-496a-acc9-7e1738cfbf5e"&
+$143cb013-a0eb-45ee-bd5a-bfcb934bcab6"&
+$1566493f-e812-46b9-9d88-2c567583b28b"&
+$1575daef-2049-4455-b93e-2c424cc65e27"&
+$15c1c8d6-f6c9-486a-abad-312c77fe04b4"&
+$160cd2ce-f61e-42b6-a4c7-625a6d3c81a7"&
+$1745df24-4e22-4b09-a2b8-55111f16b329"&
+$175d78ba-f8a7-46f7-beca-a5fb5f66315b"&
+$17bc2c30-c87e-47f4-9eb3-f379baeef36a"&
+$17d198c5-79c8-413e-abc4-18743762eae3"&
+$1812aaf9-60ab-45de-91ee-34d7099b5631"&
+$186c28e0-9f9c-48cf-b4e9-078bd1a96a35"&
+$1887cace-0310-48f2-a0bd-d65e5dbc9918"&
+$18ca7b96-2a36-4617-a0cc-1d92ff786958"&
+$191c2909-f25d-4dc4-bebf-a834a63baa1a"&
+$19a8be4b-89d8-4b06-aad6-f3c02c5309cd"&
+$1a28a656-b72a-409e-8404-47bc97c47b40"&
+$1a547212-b18f-4587-8641-dc4d318951a5"&
+$1ae8bfb1-5d3b-4f1f-a7b9-d5f8034bfa66"&
+$1b22c960-d636-4613-93e5-85c234ab9c7a"&
+$1b325e34-36fa-438e-a0fc-a8c21871a2d9"&
+$1b450504-0cc9-4c91-bf0a-242185f39d1d"&
+$1b56fc89-42d9-46c0-8df0-8879e36685e2"&
+$1c32e59c-54e6-4ec5-b565-31dd0f77b101"&
+$1cce7a65-37fc-4c99-af72-ddd43113dd65"&
+$1d1e8a8d-9e87-4ca4-a39a-4cf0e829c4f5"&
+$1daab871-523d-43be-a1d9-ad01ac231db0"&
+$1ecc499f-92dc-476f-8bea-c42e96c433f2"&
+$1ef5c434-5e9a-458c-9f70-a052b40378d6"&
+$1fe9f820-f0d6-4cae-b9ad-a6d0b361520d"&
+$2037913c-aa4e-4346-9cc8-87d64f4ffeae"&
+$20e8950d-d3e7-4ab9-89d5-43dab401ef34"&
+$21265999-9754-463b-87df-166359971b25"&
+$21543549-5ae6-47e2-a3c0-f80ef92df2ac"&
+$21ad7cb1-04d8-4aed-88b1-763620c5eb96"&
+$2214bf13-9690-47d0-9c65-aebc4439c298"&
+$23585e63-8eec-47bd-893f-1b08f6e2d107"&
+$236869f8-883d-4c99-9ef6-27893836f48c"&
+$23ba6fbb-26e2-420b-984b-541f0d8770e3"&
+$23e5d17c-f8ae-4cbc-8d64-c86f0dcc5da4"&
+$23f9b67e-381b-4cca-8695-0a7080126595"&
+$2497348c-160a-4284-ab25-4ee39545fae3"&
+$24d7bbb8-7872-407f-bccc-409a71b3390a"&
+$252ca691-5299-4798-9ac1-990cce2215c3"&
+$26012c93-8076-4c01-95e0-7197d55aa454"&
+$2663f5a3-2abc-4cfd-b2d7-aa7c79cebd70"&
+$26dfad51-1ab0-46b8-a69d-88dc8a9b89b2"&
+$27a755f7-4fca-4972-898c-54b5086b567f"&
+$27ae528f-0e91-4305-928f-fc7b84094611"&
+$27f640d4-e96f-4970-854b-f44fa830159b"&
+$2808fb7f-5bfc-4ed6-ab43-90b29367c54c"&
+$28156666-d70a-4180-a91e-85ba35166b1c"&
+$281d738e-667d-4b22-8e13-1752d2d7aa74"&
+$2880a4d2-35b9-4af9-b4a5-2f1099e295df"&
+$288ad4ef-9f65-4ef1-a149-3a2326db15c6"&
+$289f549a-9bd8-4b7c-b2b8-08eed32d771c"&
+$28d13fbc-b70f-4e30-aeab-e5a75b68e7c6"&
+$2a9c510e-024d-4c71-9ee6-645520b6b5d7"&
+$2b0025a3-68b4-43a1-afb4-62bf97d3d4ba"&
+$2ccc45de-0c1c-4aed-a80e-592a7564c476"&
+$2ceef05e-91ff-4a15-b195-d9230dbb5707"&
+$2d4dd5f6-5c17-49c8-a569-cac73e63d785"&
+$2da2e373-3d4f-4bee-8d68-f9069a64cb49"&
+$2f2a54c5-6646-4327-8d5b-2c29400fb377"&
+$30303cdc-72fc-4ad3-85c9-0dd497e82421"&
+$30c1ad2b-f584-4a5a-8d6a-99593e709554"&
+$3107b9f2-35c0-4d72-8a13-ead2364fb08c"&
+$311aef1a-2992-4238-893b-4ecce904bdfc"&
+$315e5dca-03b6-4e13-a300-226e5300c8ab"&
+$3469c4e5-4271-49bb-8bbb-6cad9fca66d6"&
+$346ced4d-7ea2-4770-99a9-c1c14e575190"&
+$34a04e4b-5194-4d53-b06c-2a17537c2508"&
+$358e1b41-6d7c-4956-abca-e921e7c8f5e2"&
+$35f076a0-4f45-4403-87fb-67dca8cb1381"&
+$36fa5392-da0c-46f5-8054-e865e02f3818"&
+$3711fab1-46b1-44e1-bf55-e2f80699c8d3"&
+$378149df-c8ed-44a3-ab83-eb1d2447c63c"&
+$378671cf-771b-4bc5-a479-65e07bc607e2"&
+$37991194-ed36-4f30-9da7-5528a0d8eb3f"&
+$38d7529d-7a77-4fc8-b497-98c84fe7cb51"&
+$390f4115-53ff-4860-9d07-2250fe7c7c74"&
+$397788a6-44f0-46ba-bda0-e554cea6376f"&
+$398f5d76-a654-481e-8085-8f287f294160"&
+$39d2f215-70bc-415c-aa91-973f7a4b9126"&
+$3a32b0d9-07c8-4b7c-9477-86b607c200cc"&
+$3a7fb715-67c5-4c19-90fe-67723e9ecfa3"&
+$3ba3af35-b3f0-45a5-855d-f72a48faab9c"&
+$3cfb83d1-aaff-4c39-9271-04d4420c77fd"&
+$3d044d68-2ca6-4173-99fb-8d3872a529ee"&
+$3d93a322-1afa-41a3-8bc3-6b510a31c75a"&
+$3dfd8320-87bd-4404-92ce-f779299b3c4f"&
+$3e0198bc-027c-4922-b9c9-529447be04a3"&
+$3eadced9-4ac8-481d-8fd8-5ea4c06d2a71"&
+$3eb2402e-a9f4-4dcb-a4bc-2d7c30dc660c"&
+$3ebc50f6-3ffa-459e-a8ca-bbc6fb0efde5"&
+$3eef077e-8109-4560-9b4f-f7a6f4f6f765"&
+$3f684858-a910-46f1-a312-d74affe95631"&
+$3f7d1b85-cb8b-42fd-9154-d29520518894"&
+$3f807874-b381-421f-b239-a82227d28d20"&
+$3fb164ac-48fd-48b0-9dab-1a3e7f11e2cb"&
+$3ff5b58e-e97b-4bc7-a73e-eee95e7f57c7"&
+$4015ad47-1ea0-400d-9136-e9efa3875474"&
+$40672f9d-b42c-4a4c-943f-580e7f38ceb2"&
+$40f2e92d-637d-45d3-87df-69516dab8547"&
+$41051640-ee35-4571-bf4f-6e314e88c844"&
+$414f27e7-666a-4760-85e2-8735dbafe5d4"&
+$41f705c3-7a49-42a8-9735-846cb0e42de6"&
+$425cf9ff-5335-48ad-8d1a-cd397f760d35"&
+$43011c97-6520-4de0-9f55-b026d8d34c91"&
+$432c4f39-7e83-44d4-b678-1de61db5fc49"&
+$432ea1c7-07de-4e9c-8614-875117cd5165"&
+$43486141-bca5-4da1-a9c1-0ed607ed01da"&
+$444ffc9b-c569-4745-bf2f-aed03b44bee7"&
+$44c1e60f-e5c9-4ac8-9ca2-c1c8aea42289"&
+$4580e6b9-c71b-4908-8840-b974619e3fbb"&
+$45cd50d3-dfb2-4986-9514-b2c7cff9c09f"&
+$47dbf5a7-a9d6-4dd6-ab1e-ac2abb4cdfb6"&
+$47deba36-2305-4d54-81d0-ee6c4e09bb84"&
+$483d2a12-4d53-41bf-9544-3caffe64e93b"&
+$485665ed-5558-4251-a361-ced092b6f26f"&
+$4909da0a-ee36-41cf-9fbd-d4eba70b3f52"&
+$49de8a69-5194-4a83-ad8c-3b1b20a86e3c"&
+$4a9c2951-5744-4513-9bf5-7c7ed8197e16"&
+$4ac0fcef-eaaf-453c-a7db-c7005015bee7"&
+$4c7c51b3-55a0-4f52-875f-3632d1889506"&
+$4eb4f950-f3bc-4452-828b-fd815877e593"&
+$4f1c1e38-b3f9-4599-9901-9515808e1f68"&
+$51f34888-9eff-4202-89d8-e78018a11129"&
+$530d2b7c-759b-48c6-9328-15fb44125f61"&
+$531062b5-4581-4a09-8467-25f4952a9764"&
+$532f44d9-281b-448b-a55c-6baeeb6af58e"&
+$5354cd71-f7ae-45e5-b8ec-abbc6ee353b6"&
+$538d6722-3230-475c-9e57-ef2c2b927f1d"&
+$546a803b-4708-4b34-93b2-c9c312e19ef6"&
+$54717455-7f9e-4001-ad32-a8b490a7c8a8"&
+$54b8a120-5d7c-41c4-8b96-b7209e1041db"&
+$54bed46d-2752-4622-841c-ef768e8ac3c4"&
+$551a6818-415b-410a-b24b-ca940d045018"&
+$55a0fc9b-dcf4-4b02-8bed-06a942def17f"&
+$55a74598-06f4-4896-b685-c075241caf29"&
+$565a6af2-8fc3-46e6-9cd2-22dfab9eeeee"&
+$56746638-d6e9-4bb8-8676-1061feaebc39"&
+$56974f7d-c640-4768-93b8-0d96806c7d45"&
+$56eb9689-72da-4927-95fa-b509f38c6478"&
+$57148bbe-4e61-46df-b376-d8ec1d1a982e"&
+$57bd99af-97bc-4d65-82b0-2b6786646b47"&
+$5816e068-7032-4767-b680-792a66c718f8"&
+$5821bc23-a1ed-412c-9ab6-b9712b49332c"&
+$58b47942-4c0f-4679-b1f4-b1d57cd22fd9"&
+$58ea7fd1-f81c-433a-9cef-8062520e8f80"&
+$58f61206-520f-43e9-a181-194447713b26"&
+$5939e5a6-714e-4960-a91d-362244545116"&
+$5ae0c154-df64-4710-866c-7a40105f7499"&
+$5b5feb2a-943c-40ee-828f-fc9039d57848"&
+$5ce372ef-9f67-40e3-94dc-536af8e32e42"&
+$5d654445-8aca-491c-a809-c5a64805c745"&
+$5d78a51d-7ee9-454d-9c0f-0f60b2bdb361"&
+$5d90e42f-8158-4134-8361-86a1e65e2a1f"&
+$5dca97df-8e82-48cf-b87b-02ce16543f0b"&
+$5de58ce9-38f3-4e0f-af01-3c06b588205c"&
+$5e34ce3f-62fc-4617-b644-7254b439ffc3"&
+$5fd1bb91-3c1b-4dae-946e-f252be26679b"&
+$60251e71-0122-4f98-9057-8045f71a26e2"&
+$6132fcf0-277c-4927-b9c6-f8f836cb5179"&
+$62213d2f-c43f-47a5-9740-3c0cc6caca1b"&
+$624391d3-3d86-469d-83e8-f0bdb11220aa"&
+$62a82d08-2cb2-4448-be9a-1074cea6b0e6"&
+$62bbfeb1-ebbc-486e-9fdf-b055a3266500"&
+$63e3911a-111b-48f8-99e6-45977df65ea6"&
+$6499426d-d1b0-435e-a145-37335bb9a49e"&
+$64fffe19-9325-4168-bda0-e316fd870a7a"&
+$65c61187-ed43-4db3-9d0f-01f98af35b1d"&
+$66088732-4861-40fc-bb8d-2f221b404172"&
+$66227f36-b54a-4d76-84b4-a18683cfd718"&
+$66ab83fe-420b-46fe-af60-7cb72ba9fa4f"&
+$677413ba-2a66-4153-8ef4-44d9297e86cf"&
+$6855aac2-6f0c-4898-afc6-baaae310773e"&
+$688aa977-ec3b-41c3-8aca-a4872e82e129"&
+$68a899e1-166b-491a-b508-e6d39d1e2480"&
+$69499b10-6427-43bd-afc2-9832d482f4c8"&
+$695e42e3-c2b0-48dd-a7d8-d71d5122637e"&
+$69770285-b6bf-45d7-a581-2d00f30f706e"&
+$69c226c4-d4b3-42b1-8f31-c333d15d9799"&
+$6a0bf2d2-5a72-47f3-bbe3-b712ac76f778"&
+$6a1dc8a8-c317-4915-b2ea-7ddad3ef5aef"&
+$6a3dfaa1-58e2-4a64-9065-97bc6ef2bd55"&
+$6a936bef-acd4-4398-9522-b59353440abc"&
+$6ac2b89b-8a54-4f5a-bd77-5059e83f2c05"&
+$6c21ac73-cfe2-444d-a574-6226dd6b5068"&
+$6cfd93a4-8185-4e68-a313-26210a2fe282"&
+$6d7371a3-06f2-4fbb-b6c2-bde81958373e"&
+$6de9bfea-8483-42d9-a39f-3c4f2226748b"&
+$6f3c1c1b-ff02-4994-a501-cea3dcbbcc72"&
+$6f910bd8-676a-426a-bd98-b6f4635f29df"&
+$6f9cb77d-fb54-4075-9ac4-e85180d8452e"&
+$6fd54d7c-67f2-486f-9780-70799d7faa90"&
+$70acf759-c363-44fa-b81c-d5a59827a561"&
+$71193174-0b30-46be-9add-7361f0ad1ef0"&
+$712000e3-2050-44f7-b2bb-259da597601e"&
+$7157278f-a5a7-4d51-ba20-abffc602aea0"&
+$72226c1a-3d84-40dd-898b-1fc7acc9b4c1"&
+$72238b3b-ad7e-4528-80b0-88f83e531078"&
+$7229d494-c5d0-48f8-8bba-4213ee674301"&
+$7262fbb4-850b-466f-a971-2c48f35666a2"&
+$72ea3814-5c35-45ee-9518-a194c2b7638b"&
+$730182e6-6d27-41f4-acb3-c122854ac7ca"&
+$737be6bb-5351-4ac0-a4e4-3ee039076a0a"&
+$741de423-350f-40d4-9f65-83182628c7c7"&
+$74b1e7f8-db74-4f23-b73b-25f135f536b9"&
+$7508ea95-5eae-47fd-a813-d725f5dab941"&
+$750a454a-c78e-4642-8a30-7eef23a696a3"&
+$76008e93-fab9-4db2-9f4f-cb0bc01e6916"&
+$766206c9-b1c7-4865-a73a-23ff0056d608"&
+$778567ec-5981-4d5f-970a-5bc20f904ca6"&
+$77dacd01-9820-44f0-84a0-9233f7d1edb4"&
+$799760fa-4f68-4d32-966d-7d046e6f4b25"&
+$79d0dd68-f42e-47ba-9d0c-e392fd661431"&
+$79e4500c-cdc3-434c-800f-5e0978009143"&
+$7a3f3221-7152-40f1-bbb0-a98a5b87498e"&
+$7b4420b1-dfdd-4195-b568-ce0206c62ba4"&
+$7b973862-050c-4f8b-b5d0-c5790a61d203"&
+$7c6ba875-1be0-47ca-812d-2b63870a438c"&
+$7cfb238d-c1f8-4211-9d7c-a93c3acca1b0"&
+$7e3f943f-b504-405f-87bb-cf08475dd749"&
+$7e860186-8a8b-45fc-882b-b8d834576f3b"&
+$7f623cd0-38b1-4713-bb3d-93b4a8385b11"&
+$804048df-db74-4d9d-9cda-8f04265bf47d"&
+$8042c9d4-5b0a-4cb8-a358-7c224436af92"&
+$814d5587-ed25-43c7-adaf-f021f905592f"&
+$818f9c28-c541-4300-ba3e-0fc7e8546ea0"&
+$82dee0b7-e65f-4fee-b7f6-76b051908658"&
+$82f89f9b-2935-4be4-924b-aae4f1729a73"&
+$84ed2565-1be0-4d06-8d55-a816a8a4f510"&
+$84f14ef4-7c28-42a1-a8c3-c06dc25c3a16"&
+$865ec7b1-c8d2-4a29-9d6c-efe6ea903668"&
+$86cac865-0182-4ad9-a10c-0e039e33f15d"&
+$8845c661-de97-4ff0-bbd7-238afbc153a7"&
+$885648cf-2f0c-4b14-ae64-c354dc7a0b22"&
+$8864ca54-49e2-492a-937d-c947695da37d"&
+$88cb0366-56ce-4522-9da2-12fd9c05318d"&
+$89836e4c-a0e4-4022-9ba2-abdb3e35065a"&
+$898b9c2a-8c7c-4548-8884-07e9639502ac"&
+$89fbb3a5-e515-4468-b92c-d3e27f6cddd9"&
+$8ab01b13-e39d-4cd9-b651-bc37921cd3c1"&
+$8b089836-e1a7-4e69-aa9c-67964d01736f"&
+$8b427a99-d5db-4b36-ae9e-218583d486bc"&
+$8bc793b4-ac63-4fc7-a730-8a7cce23d185"&
+$8cd60267-6611-4eee-8789-b05881823734"&
+$8d53595c-8f28-47d7-8a17-868bbe49df79"&
+$90411923-36fe-4f9f-9545-23786f565a23"&
+$90711c3c-b420-42ab-8198-3bc930d7b03a"&
+$90ebfd31-f605-453f-a412-0fe6c299fb68"&
+$92229848-308f-4011-ae78-a9297a4fe59e"&
+$92de9e5f-4721-4cf3-a6ec-5e50d79862e3"&
+$933ed746-97d9-4752-b100-bb7d6533f586"&
+$93c8a3d7-4a96-4af0-94df-486c42b772f0"&
+$94ab0c22-fcd0-4a1f-b77d-817e85bdde88"&
+$94e3bd61-39cf-4b1d-bceb-80a735f13697"&
+$95e70b4d-1711-43b8-9667-fe5a52ea8290"&
+$960e1964-a394-4004-9385-726c7c3030c1"&
+$9702d695-eb8c-4123-b809-2327623faeb3"&
+$979262e2-bc16-4cab-925d-f17b40d6834e"&
+$97eeeacd-2309-4fd5-88a3-cb204e9fd078"&
+$98d0511a-1a33-4c57-aa6b-0af9caac2def"&
+$997691e9-ff3e-4d39-b8fa-ddceea892c92"&
+$999e3c35-1006-4ea8-9c58-43ad62956d8a"&
+$99d43b71-aabd-4243-afca-ea057308251d"&
+$99e39491-dfcd-49ff-b456-6592053b9f28"&
+$9a0af5f2-f838-48fd-8969-2ae65aa6dcde"&
+$9a5091b5-1cc7-4024-8136-0a33703dc3aa"&
+$9b29d259-ed70-4777-be32-e7da6e453a8e"&
+$9bc74b53-8f3a-4fee-ab17-62f21eb44e8a"&
+$9d8b96ed-7730-4f60-9e88-d94ff184c66f"&
+$9dbb5db5-a3af-424e-ba6a-4f5ea7610f69"&
+$9dbe3b8f-b3c1-4772-a73f-813e95209948"&
+$9e2d6434-3eca-4741-8a82-e0a5950f2304"&
+$9e96e2f7-4e60-4803-977d-6c2ced4577c3"&
+$9f06c936-d148-4b67-a0ee-902a99a24fc7"&
+$9fade09d-e6a3-4793-a340-5e38fc5621d0"&
+$9fdd3358-96f5-4b46-bc4b-a57f143b3213"&
+$Abrahamslyckan, LÃ¤genhetsbebyggelse"&
+$Askerudsberget, LÃ¤genhetsbebyggelse"&
+$BergebysÃ¤tern, LÃ¤genhetsbebyggelse"&
+$BjÃ¶rktjÃ¤rnen, LÃ¤genhetsbebyggelse"&
+$Gullbrandstorp, LÃ¤genhetsbebyggelse"&
+$HarbergsÃ¤ngen, LÃ¤genhetsbebyggelse"&
+$KallkÃ¤llstorp, LÃ¤genhetsbebyggelse"&
+$KilnÃ¤ssÃ¤tern, LÃ¤genhetsbebyggelse"&
+$KolfallsÃ¤ngen, LÃ¤genhetsbebyggelse"&
+$LomtjÃ¤rnstorp, LÃ¤genhetsbebyggelse"&
+$RankelshÃ¶jden, LÃ¤genhetsbebyggelse"&
+$Skomakarlyckan, LÃ¤genhetsbebyggelse"&
+$Skomakartorpet, LÃ¤genhetsbebyggelse"&
+$SÃ¤tterbrÃ¥ten, LÃ¤genhetsbebyggelse"&
+$UlvsbysÃ¤ttern, LÃ¤genhetsbebyggelse"&
+$a02ba02c-25ef-4e7a-8b2a-b947f019f7c3"&
+$a0ad3213-3c39-4cf9-ac7f-d33f1b981048"&
+$a12d3401-2dbd-4dcb-9e90-0d5c70d91ca3"&
+$a1507f6c-fb22-4c49-a26f-add428ec731e"&
+$a2218730-b17d-4518-9e8c-4cf84fef3363"&
+$a2a709ec-712e-495c-8373-3a5dc46058b4"&
+$a3185f25-9849-41bd-b36c-a1631344c804"&
+$a35730c3-9e30-4ae4-9fd7-f411891b2649"&
+$a36b14b9-9b58-485a-8eec-b763209499bb"&
+$a408c130-f829-42a7-b96e-ce0e6145a7d8"&
+$a4338fdc-19e9-428a-96b8-9cdfc72a3795"&
+$a4c2761c-55de-439b-a663-1b4fa0527ed3"&
+$a52099ce-0c42-4508-9ac0-caf95af95f20"&
+$a5ce86b6-554c-44a3-b820-cfe4646ffde5"&
+$a682e0ac-82c8-4eca-afbc-183b353cf52b"&
+$a71e028a-fb83-46c5-ae79-94d5b24e4d9a"&
+$a76c4e6b-5ef8-44c6-bc8d-9852741220ad"&
+$a85a2faa-2ac9-4b79-bb5d-fabfd36460ec"&
+$a8b12859-6809-4489-a320-0dddfa2d664a"&
+$a8cb7ba4-51cd-4efd-a32a-c7a19c960b3f"&
+$a8e4d7d9-ecb1-47af-9d51-8064a9c2a0cd"&
+$a8faaa72-f99c-4cb6-a0f7-6cb1b8eeb234"&
+$a913c07a-0a20-4548-815b-863d8b85a2ca"&
+$a9589ddb-37ad-4e46-9cbc-345eb72e61b0"&
+$a9a4a48d-96d0-4cc1-a9f9-a587d0bfb150"&
+$aa00fe29-4f7a-4078-992e-d3d38f404668"&
+$aae5ccd8-871e-4481-a979-e998b65709d0"&
+$ab57e999-6971-4aed-a355-5ac5bb03d1b5"&
+$abf84b16-dc27-4e2c-aca6-54d3dde8ff04"&
+$aca8dbe4-6f4b-4aae-b818-dbbccfb6b3e1"&
+$acf6c39e-d86a-446b-b5a6-99497c687923"&
+$ad352e9c-1a51-4bcf-bd25-5b5949512dbf"&
+$adcb64c2-56d5-46c4-acff-92da8400d9bd"&
+$ae4373fe-5229-472a-9a85-dffb600d3c06"&
+$af78b8be-6e92-4367-ac1f-d804a2dc3bbe"&
+$b009ba3e-06d4-4b84-9ae7-06b930d77c76"&
+$b04e1a64-e84f-48e4-a8b3-d73739cef9a4"&
+$b12b0bae-0eab-4193-928f-6d7a004d1e16"&
+$b1581641-4fa6-4239-a366-1a8dc16338a1"&
+$b20e1efc-bee7-4b2a-a6c5-ac2afdfd20c9"&
+$b238e0ef-b193-460e-b519-ad7e34e057c9"&
+$b3460228-f3d4-42b3-9204-2cbe6dfc7814"&
+$b37d2e68-d249-4e2d-89ae-6b85561ed898"&
+$b521377f-6edc-4a59-87ad-99de09e41b00"&
+$b53fb89c-9bbe-4e4a-8838-274ab3ca3af3"&
+$b56f8c7d-97f5-45d5-b1a8-11195e387d72"&
+$b641fc34-25bc-41f4-8e21-eb1d79e838d2"&
+$b69822a0-33f1-4e7a-9ee1-43ebb8253a42"&
+$b7555817-fe11-404d-aee8-d9740c9c59e8"&
+$b8d8da64-d3e5-4089-b799-ea6f425c3835"&
+$b8f39716-89d5-43a4-868e-edacb35fc1cc"&
+$b8f98e85-14d7-4df0-ae62-da9d4ae19c37"&
+$ba011bf9-c21c-4239-81fe-5d8809abc474"&
+$bb38d9f6-6486-4b77-a390-4d947c5ee5e0"&
+$bbb0d172-06a5-4179-9c1a-421a6e6afdd8"&
+$bbeb48e6-46d3-4db3-9fec-c47021ce17d5"&
+$bc0afc91-0441-42ca-90bf-d5c1ea2294b6"&
+$bc4d385b-f405-48f9-ae60-0d747aaf9144"&
+$bc935f3f-191d-40b7-9e69-c37c44468abc"&
+$bcae29f2-830b-48d5-89f0-3fa9e9865dfb"&
+$bce23989-a0fc-497a-867b-27c967f9e2d6"&
+$be581428-c750-454b-af9e-6a05e2634ad4"&
+$bedcb668-0b35-45f8-b69f-5ab453092d11"&
+$bf07447e-e4e0-472c-a1b4-a72d18977d01"&
+$bf2df8a4-e773-42fc-b4f6-5fa0c65fd334"&
+$bfab6679-7e3f-436c-840f-3f1eb9db63ce"&
+$c02e23aa-8ec9-483b-9849-731e95821cbd"&
+$c073f85a-eb58-41c0-bebc-3e25d36b906e"&
+$c0ab3520-33ee-433d-adbe-39f40a377860"&
+$c1620e4a-dc56-46a7-9fb0-6130fd8679e3"&
+$c1888d99-11f6-43fa-a8e3-59c69630ef7b"&
+$c267239c-a144-46e0-86e8-c63134a439ad"&
+$c437d6db-833a-4b09-a7cc-bfe1a2711fa8"&
+$c506dd4a-f172-4c7e-8b7d-4968eeae0e1c"&
+$c531bd21-d593-49da-acd3-c28c8299f907"&
+$c597fb74-e20a-4df4-934a-dd8c4cfc46c7"&
+$c61f11ed-bee4-4159-9449-592d5de7d220"&
+$c78f9055-b718-467f-a168-343c4580b470"&
+$c80962e5-99ee-4710-8ae9-7cb3782acb32"&
+$c9fa873d-19ed-4a79-a7e0-7a72d449753e"&
+$cae2601f-2cc7-429e-b2dd-2c370bec1024"&
+$cb6db7ad-f537-4737-9c36-a8604c46c540"&
+$cbf78a03-5daa-4002-a831-b392990642f7"&
+$cc707e8f-97e9-43f1-8058-0d6d1cadd1fa"&
+$cc80f20d-d083-45ba-a0d1-5009785037f0"&
+$cd29390d-86ba-416b-9666-bf01b4848964"&
+$cd374110-2e9a-429a-b2c5-30b824f39e9e"&
+$ce7da029-fd57-4a75-bcc2-419ea120820f"&
+$ceaccb8d-aa2c-4821-b9c4-6c236b2b29f6"&
+$cec81c88-2357-40cf-bca4-32240c8e2a80"&
+$cf90753e-c254-4f0b-85df-eaef87809a87"&
+$cfdb2fed-834a-4b7f-a826-fbb04c7167fb"&
+$cfdc329e-6937-4858-9dae-796c38340b55"&
+$d03412f3-7329-4e22-bdc3-a923d6f35882"&
+$d09b9a48-5ca7-4c42-8f2b-36e91abbd12d"&
+$d0d82d4e-06d4-4bce-a4c6-4b89fc3c5ea0"&
+$d143e610-c854-418d-91b1-d31bd47f6591"&
+$d1ab9a25-7d81-436d-b34c-7260cac73b29"&
+$d22a6cab-275a-44c3-8d52-339d09fbbadd"&
+$d248bad3-ab84-4cef-bd9c-fcbc12f2218e"&
+$d2798faa-86e6-4338-9ab6-670cb9bc4e22"&
+$d280f1d8-a750-4c5e-9bb3-7b4cf25eff44"&
+$d2c8649d-3e66-455d-8715-52e247550f98"&
+$d399ca41-aac3-4f68-a144-1fad5912ca44"&
+$d428dd95-09dd-4c70-b1af-21d3e8d190bc"&
+$d517fc49-ab01-4772-95fe-c91530c379bf"&
+$d527edb2-8094-4a8f-b838-eddf09f9b626"&
+$d584920b-c7d9-445f-8ed9-66a639cdd5a3"&
+$d5b4bd66-c9da-4605-b349-cf33737c7e5b"&
+$d5b6e468-ecf4-46d0-84ec-bf0aa7db5780"&
+$d5e75594-47b3-4e30-ac62-65afdcac6c0e"&
+$d61ac665-5485-4d65-98e4-a6c34eafaa2c"&
+$d6c4bee5-f329-4a5e-a39d-010feab092b1"&
+$d6db9c86-57b5-4cd6-9d8f-a38f403ff8ba"&
+$d6de0dcf-5dd1-41ed-a4e6-ca8d59fea1b9"&
+$d6de55c0-0ba3-4cf8-82a8-4f5b019d42b3"&
+$d7cae0cb-1d4d-4b15-b1b7-aa720a81616a"&
+$d8909384-3cb5-4650-84ed-c9e92c064aa8"&
+$da757ab5-e239-4d27-9581-d0a628f4a3c4"&
+$da85d54e-d4fd-458d-9f24-8c18a9a253e0"&
+$dabaaaed-fe8b-474f-81cc-e255502647d9"&
+$dcd3ecc2-8df2-4cf5-b4cb-39546de590a4"&
+$dd04282a-a4fe-4659-bd12-d7b3fe0ff781"&
+$dd3549a8-fd2d-4e93-8112-a835ae77242d"&
+$dd72cb90-026c-49b2-bb33-6a83f6ac0241"&
+$ddc1d21d-2ce7-4120-a260-ed2bf65496b7"&
+$de4d0ef4-00b7-4ece-96ea-4353fd49fac2"&
+$deafde60-832d-411b-b10d-1218f2a9ed30"&
+$dff24339-3725-4961-9303-9f023e718a98"&
+$e126606c-0b10-4698-87b0-908497901d6b"&
+$e131d7c2-234b-4b65-9a6b-6298aa8a793b"&
+$e17ce0d9-dc99-4d86-ada5-fc00cb7ae853"&
+$e1b5ba3d-e839-4ff9-ae31-f660853d96e6"&
+$e3b6e059-dc45-4b89-b4bd-295191cc1554"&
+$e41d8694-8ab0-42a3-b6e0-01fa0a836b17"&
+$e427e07e-cd32-422b-b4ff-ec562d82a3e9"&
+$e4513699-8153-4013-9b7e-559d38cf2fd9"&
+$e45fe18b-50db-4718-8baf-c84b4c5f3be6"&
+$e4ad5c26-eb77-4736-bb9e-dc769fd1aaaa"&
+$e4c37366-9987-441f-b612-6ebdb1a02d73"&
+$e4e58991-017e-4072-af01-4157d329aa2e"&
+$e5004b13-c23b-4fc1-a022-1fc08cb743c2"&
+$e50460a9-3e2b-4d57-9add-4dc07103f255"&
+$e5906afd-6d18-4444-a978-568e7a0a75d6"&
+$e5fc9f24-c2f0-4244-ac68-98de0629b581"&
+$e62bbcc5-5d87-4c2a-9c61-b208b93df424"&
+$e6433f80-acec-476f-a8db-f4e4aa610184"&
+$e773dd96-35df-493f-9ff9-1a780dd39de5"&
+$e8916402-25c6-4065-a5ad-e8486a8ecd78"&
+$e8e150ab-8400-4f14-a0e4-4e29658f4205"&
+$e8e3e6cd-6f46-44a7-ac77-7a7237366f84"&
+$e9f2eecc-b7fe-4571-9d15-0d01fc26453c"&
+$e9f593c5-3a31-4a94-b3da-fa98bceded85"&
+$ea7bb8e4-f76f-4c4e-8db4-71527d465098"&
+$ebb2765f-85f6-4e08-8ba3-d0729bab2757"&
+$ebbd93f8-fd48-4c46-a929-ca4e80f3c7a5"&
+$ec079fc3-415a-4445-bf9c-ba2694d3eb1e"&
+$ec90971d-b8ed-4add-aa58-58a4ce73696b"&
+$ee0f0cc0-336e-48ad-8ada-757126ec4a74"&
+$eff50c1e-d0d9-481a-96c6-37dc91439690"&
+$f028f60d-b385-4a33-8916-1cdb801ade04"&
+$f066ff76-1fe6-4ae2-a1e9-0ef9e90d04c1"&
+$f16c0e0d-74c7-4f65-9f8c-d52f7d2a318e"&
+$f185d30f-086b-458e-b640-5f04a205c5f1"&
+$f1a8cffd-a7e6-4583-9750-59e2d15aed19"&
+$f23a0a81-7887-4bfc-8b24-9584c498024b"&
+$f2649032-c880-4714-ad3d-9e31f75463ea"&
+$f26a47c4-5159-43c1-ae23-c18fec28fef2"&
+$f293a32c-d307-4099-9048-0449a0f368d1"&
+$f2c11920-17ec-441b-a56b-718e5e20a8ad"&
+$f3fde3de-faad-45b6-9737-3bcf5f8fa0e0"&
+$f41a2be2-be7f-449e-9cc8-72bcd36b1bef"&
+$f493b67e-73ab-4151-a9b8-d157baef15be"&
+$f495e7ed-8b4b-4a99-903a-0de26c6c0feb"&
+$f551b435-64da-4779-895e-0c131b407277"&
+$f57d5a3e-7596-4c23-a123-da7df886b5b8"&
+$f5a4ad49-6cda-44bd-958e-07c69995b755"&
+$f6169268-4cbf-4a29-802b-bb438508248c"&
+$f692c837-8e39-4850-8a7b-8ccce99ee73e"&
+$f6cca7bf-3e07-47ac-aeb3-bfc92fcf9c72"&
+$f762ee30-d709-43ce-a0a8-a783c3829df0"&
+$f794622a-0f53-4d68-9c26-2fa5cf8bd8b7"&
+$f796f928-68d4-4091-93cc-335ad380ddf8"&
+$f837a91b-5018-4d90-8043-8aacce8fed02"&
+$f89f9998-4da1-470e-8f28-ba6a7f05ac0c"&
+$f9467b52-0e25-4d76-8a31-90b0521b4dba"&
+$f9deea2e-a9e7-40b7-b1ad-bece05d356f1"&
+$fa2f4151-d664-491f-b5b2-7b0950f86e5d"&
+$fad4d8e0-ab41-4850-8e1e-75e8eb76c40b"&
+$fbac5f68-c432-4089-b9b5-ba064c27f66e"&
+$fc31e112-f167-4aad-8739-637cb68b9f03"&
+$fc4b8ae1-a54f-4c3b-8451-3e0849690792"&
+$fd4f2d20-d834-4273-9780-ed9f492d4947"&
+$fd79d474-2d49-46fb-8b46-c2b44bdc6471"&
+$fd903031-80e4-4e7a-b86e-6584e0e1f896"&
+$fdc1ec9d-6561-446e-8458-a73992f328ef"&
+$fe685269-e1fe-4ecd-b9a3-a2ca5f7161d1"&
+$ff235367-fc22-44a5-a623-da5761b5f021"&
+$ff38c886-cc76-41f3-b8dd-31e3f741934c"&
+$ff90dce9-6239-484d-8614-7ceeee385a6e"&
+$ffa9c61d-d365-4a7d-911a-eac124883df3"&
+$Ã–stra BrÃ¥ten, LÃ¤genhetsbebyggelse"&
+$Ã–stra HÃ¶jden, LÃ¤genhetsbebyggelse"&
+$Ã–vre Pyntarna, LÃ¤genhetsbebyggelse"'
+%BotjÃ¤rnstorpet, LÃ¤genhetsbebyggelse"'
+%Gammeltomten, Husgrund, historisk tid"'
+%JordbÃ¤rsÃ¤ngen, LÃ¤genhetsbebyggelse"'
+%KallkÃ¤lltorpet, LÃ¤genhetsbebyggelse"'
+%Kristofferstorp, LÃ¤genhetsbebyggelse"'
+%LerbÃ¤cksfallet, LÃ¤genhetsbebyggelse"'
+%LidbÃ¤ckstorpet, LÃ¤genhetsbebyggelse"'
+%LungÃ¤lvsÃ¤ngen, LÃ¤genhetsbebyggelse"'
+%LÃ¥ngmyrstorpet, LÃ¤genhetsbebyggelse"'
+%Nedre Karlsborg, LÃ¤genhetsbebyggelse"'
+%Nedre NÃ¤shaget, LÃ¤genhetsbebyggelse"'
+%Nedre PÃ¥lstorp, LÃ¤genhetsbebyggelse"'
+%Norra Honkamack, LÃ¤genhetsbebyggelse"'
+%Pundlandslyckan, LÃ¤genhetsbebyggelse"'
+%RidstigsbrÃ¥ten, LÃ¤genhetsbebyggelse"'
+%SandviksbrÃ¥ten, LÃ¤genhetsbebyggelse"'
+%SnickarsÃ¤ttern, LÃ¤genhetsbebyggelse"'
+%SÃ¶derlunds grav, Plats med tradition"'
+%VÃ¤lssÃ¤tern, Husgrund, historisk tid"'
+%VÃ¤stra Asptorp, LÃ¤genhetsbebyggelse"'
+%VÃ¤stra BrÃ¥ten, LÃ¤genhetsbebyggelse"'
+%VÃ¤stra BrÃ¶tan, LÃ¤genhetsbebyggelse"'
+%VÃ¤stra Haltola, LÃ¤genhetsbebyggelse"'
+%VÃ¤stra Jonsbol, LÃ¤genhetsbebyggelse"'
+%VÃ¤stra KÃ¤rret, LÃ¤genhetsbebyggelse"'
+%VÃ¥lberga brunn, KÃ¤lla med tradition"'
+%Ã„ngtjÃ¤rnstorp, LÃ¤genhetsbebyggelse"'
+%Ã–stra OxtjÃ¤rn, LÃ¤genhetsbebyggelse"(
+&AbrahamsstÃ¤llet, LÃ¤genhetsbebyggelse"(
+&BartjÃ¤rnstorpet, LÃ¤genhetsbebyggelse"(
+&Erlandssons koja, LÃ¤genhetsbebyggelse"(
+&GettjÃ¤rnstorpet, LÃ¤genhetsbebyggelse"(
+&HagstrÃ¶mstorpet, LÃ¤genhetsbebyggelse"(
+&KviddtjÃ¤rnstorp, LÃ¤genhetsbebyggelse"(
+&MetbÃ¤ckshÃ¶jden, LÃ¤genhetsbebyggelse"(
+&Nedre Bastfallet, LÃ¤genhetsbebyggelse"(
+&Norra KrokÃ¤ngen, LÃ¤genhetsbebyggelse"(
+&Norra Mossberget, LÃ¤genhetsbebyggelse"(
+&Norra RantÃ¤ppan, LÃ¤genhetsbebyggelse"(
+&SkÃ¥ltjÃ¤rnstorp, LÃ¤genhetsbebyggelse"(
+&SunnansjÃ¶torpet, LÃ¤genhetsbebyggelse"(
+&VassbergshÃ¶jden, LÃ¤genhetsbebyggelse"(
+&VÃ¤stra OxtjÃ¤rn, LÃ¤genhetsbebyggelse")
+'AbborrsjÃ¶hÃ¶jden, LÃ¤genhetsbebyggelse")
+'Fattigstugebacken, LÃ¤genhetsbebyggelse")
+'FinntjÃ¤rnstorpet, LÃ¤genhetsbebyggelse")
+'KlarstrÃ¶mstomten, LÃ¤genhetsbebyggelse")
+'Nordre RissÃ¤tter, LÃ¤genhetsbebyggelse")
+'Norra TimmerÃ¥sen, LÃ¤genhetsbebyggelse")
+'SpiktjÃ¤rnsfallet, LÃ¤genhetsbebyggelse")
+'SÃ¶dra LÃ¥ngÃ¥sen, LÃ¤genhetsbebyggelse")
+'SÃ¶dra RantÃ¤ppan, LÃ¤genhetsbebyggelse")
+'TornerudssÃ¤ttern, LÃ¤genhetsbebyggelse")
+'TorpsÃ¤tterfallet, LÃ¤genhetsbebyggelse")
+'VÃ¤stra Bredmyren, LÃ¤genhetsbebyggelse")
+'VÃ¤stra LÃ¶vÃ¥sen, LÃ¤genhetsbebyggelse")
+'Ã–vre Slomvattnet, LÃ¤genhetsbebyggelse"*
+(AbborrtjÃ¤rnsÃ¥sen, LÃ¤genhetsbebyggelse"*
+(GÃ¤ddtjÃ¤rnskullen, LÃ¤genhetsbebyggelse"*
+(KnutstorpssÃ¤ttern, LÃ¤genhetsbebyggelse"*
+(Lill-Kajsas stugan, LÃ¤genhetsbebyggelse"*
+(Norra KvarnhÃ¶jden, LÃ¤genhetsbebyggelse"*
+(Norra Ã…motsnÃ¤set, LÃ¤genhetsbebyggelse"*
+(SÃ¶dra LÃ¥ngtjÃ¤rn, LÃ¤genhetsbebyggelse"+
+)Hammartorps gamla tomt, Bytomt/gÃ¥rdstomt"+
+)Norra Granbergstorp, LÃ¤genhetsbebyggelse"+
+)SillegÃ¥rdssÃ¤ttern, LÃ¤genhetsbebyggelse"+
+)VÃ¤stra KalvhÃ¶jden, LÃ¤genhetsbebyggelse",
+*AbborrtjÃ¤rnshÃ¶jden, LÃ¤genhetsbebyggelse",
+*Norra Glebergstorpet, LÃ¤genhetsbebyggelse",
+*Norra MÃ¶gsjÃ¶torpet, LÃ¤genhetsbebyggelse",
+*SÃ¶dra KÃ¤ringbacken, LÃ¤genhetsbebyggelse".
+,SÃ¶dra GrÃ¤skÃ¤rrÃ¥sen, LÃ¤genhetsbebyggelse".
+,VÃ¤stra GammelsÃ¤ttern, LÃ¤genhetsbebyggelse"/
+-StÃ¤vlingstorps gamla tomt, Bytomt/gÃ¥rdstomt"0
+.VÃ¤stra TrehÃ¶rningstorp, LÃ¤genhetsbebyggelse"E
+CHundkyrkan, NaturfÃ¶remÃ¥l/-bildning med bruk, tradition eller namn"F
+DTomtestenen, NaturfÃ¶remÃ¥l/-bildning med bruk, tradition eller namn"	333333@"	Ház®G	@"	Âõ(\ö?"	š™™™™™@"	®Gáz®û?"	áz®Gá@"	ìQ¸…ë@" " " " " " " " 	" 
+" " "8 ùÆÞàÙÑ"	°+â. ŒeÞà×Õ"	ž è Þ"	ª 	 í‹Þ"	ØÌ âÞà×Õ"	,¸	 ú‹Þ"	ô,ì
+	 ˆ×Þ"	‚>´	 ‚–Þ"	þ;À1 ½—ÞàÕÐ "	ˆ=Ú'	 ÃÌÞ"	¢à	 íšÞ"	’€'	  ‘Þ"	¢a	 ˜’Þ"	ü	 Ô¡Þ"	 @¬6 çXÞ"	Êö	 „àÞ"	ô9Ð	 ú‡Þ"	’Aö8 É¤ÞàÖÒ"	ø*†2 Å[ÞàÕÐ "	 $€8 Ï¦ÞàÖÒ"	Ì´ ¡ÀÞàÕÐ "	°=¬3	 òàÞ"	à@Œ4	 åóÞ"	¸?¦ è³ÞàÕÐ "	Mš	 ÷²Þ"	ª4˜ ÛÞ"	È4€	 £ÿÞ"	²° ®™ÞàÕÐ "	–ä	 šÊÞ"	â ’«ÝàÚÎ"	1ˆ îÄÝàÖÒ"	®Æ&	 –œÝ"	¤4Œ+	 öÄÝ"	ôÚ9 ªÅÝàßÓ"	-¦-	 ù†Ý"	¾-ò2	 Ë§Ý"	ÊÂ	 œÇÝ"	–â2	 ¡ÑÝ"	æ6ð"	 èªÝ"	@Š,	 ü€Ý"	¼3 •«ÝàÕÐ "	â-	 ïŠÝ"	Ú-°+ –MÝàÕÐ "	„1ˆA é!Ý"	Ê=¨6 §ÝàÕÐ "	 |	 §ŽÝ"	¢	Ì
+ 3ÝàÕÐ "	Æ8ò%	 û¬Ý"	Ô@œ3 µPÝ"	ì Æ4Ý"	¨î ŒÝàÕÐ "	À
+Ê!	 ºÌÝ"	Š8Þ"	 æŠÝ"	–$º"	 ½Ý"	ô-ü< ¡‘ÝàÖÒ"	Ðè ¸©ÝàÖÒ"	Ò4Ä7 ´#ÝàÕÐ "	Â'´/	 —ÀÝ"	À)Þ6	 ˜ªÝ"	€(®0	 ‘ÓÝ"	º	 ñ¯Ý"	ð2Ü. ê8Ý"	âÂ	 Œ°Ý"	ä¤ ‘ÔÝàÕÐ "	¢2Ð= ¾ØÝàÖÒ"	¸„ Î±ÝàÕÐ "	Ì6Ô/	 úŽÝ"	”¦: &ÝàÕÐ "	’9¾0 Ý"	ìÈ& ŽÙÝàØÔ"	¤-Ô-	 ØƒÝ"	Æ;Œ2 ·Ý"	ˆ&ö á<Ý"	Òª.	 ÷ÙÝ"	Ø–	 ×„Ý"	%+	 èßÝ"	†œ? öqÝ"	ú=Ê'	 ›¹Ý"	‚+ð/	 £…Ý"	†"¬9 ã†ÝàÕÐ "	ö8€. ÚYÝ"	Àö ú?ÝàÖÒ"	ž/¨/ ZÝ"	àà' øåÝàÖÒ"	ä3ò4 ¨tÝàÕÐ "	¶'ˆ: êÝàÖÒ"	mš	 ›—Ý"	ˆ- Ò£ÝàÖÒ"	È´% ÁÝÝàÕÐ "	¶+–; ËëÝàÕÐ "	–/ íÅÝàÕÐ "	È!¼+	 ‘¤Ý"	ð‚ šÝàÕÐ "	/T	 ÅìÝ"	úì êzÝ"	Ò¦ ä{ÝàÕÐ "	êÒ ÕßÝàÕÐ "	¦*–7 …ÝàÕÐ "	Ü	º! õ^ÝàÕÐ "	ÈÂ	 ¨ïÝ"	àÔ%	 ”ðÝ"	†@æ= ´}Ý"	Ô)ì ÈñÝàÖÒ"	È+ä7	 ƒ¯Ý"	ê9Œ7 ŸžÝàÕÐ "	þÞ »±Ýà×Õ"	‚+„1 æ§ÝàÕÐ "	Þ>Ú(	 µöÝ"	u€	 ÷ÃÝ"	Š%’? ˆŸÝàÖÒ"	Ì*º0 ùâÝàÖÒ"	¢ê	 ßøÝ"	ø8æ* ùãÝàÕÐ "	à:º1	 æ¢Ý"	Úü ì~Ý"	ö	 ËÊÝ"	æ(¤6	 Ÿ¸Ý"	Ìž	 ÀÅÝ"	´ô Œ‘ÝàØÔ"	ÂÔ( ÔÇÝàÕÐ "	Ü2	 ö¤Ý"	¨¨	 Ñ³Ý"	¸Œ	 ²¼Ý"	ØU «ÆÝà×Õ"	šè1 ûÝàÕÐ "	Â¤	 öÝ"	”¢9 ÐÉÝàÖÒ"	Oì +Ý"	ä$¨< ÿ½ÝàÕÐ "	œÔ: Ü³ÝàÕÐ "	²¬ ¥§ÝàÕÐ "	ò*Ô, „,Ý"	èþ	 ý€Ý"	¤.Ä+	 Ã¾Ý"	º?ú>	 Í“Ý"	à¼	 Ç¶Ý"	ô–+	 ßªÝ"	ö¨	 òÝ"	Ú¦6	 ì¿Ý"	%š" ¡IÝ"	ŒÖ
+	 šÝ"	ŠŒ šÝ"	È#æ? ÖÝ"	È:Ú7 ·ÝàÕÐ "	<¦@ ìþÝàØÔ"	¢+¾- ”›ÝàÕÐ "	ª¾		 ¤ÂÜ"	þ
+& ²¥ÜàÖÒ"	®Ú!	 ·…Ü"	Ø¦0	 ÒÃÜ"	è* 9 ­dÜàÖÒ"	®â	 ˜.ÜàÕÐ "	À õ.ÜàÕÐ "	ÒÔ	 ‰ÏÜ"	î
+¢ ðÜàÕÐ "	Úú"	 ÚÐÜ"	º¼ „ÜàÕÐ "	ô
+Ô ý/Ü"	Œª Ó0Ü"	‚?î*	 Ò¨Ü"	Þ<æ+ Þ…Üà×Õ"	Ä¤'	 ­ÒÜ"	¸€;  gÜ"	òø	 õÓÜ"	ìô ÝiÜàÕÐ "	¢à
+ íKÜà×Õ"	æÂ ½KÜàÕÐ "	%Ô6 ÚKÜàÕÐ "	¼´; ­ÔÜàÕÐ "	Úž ÞjÜà×Õ"	’Š% ¤‡ÜàÕÐ "	Ì5â3 §2ÜàÕÐ "	Œ¢ ëNÜà×Õ"	Ü	Ü' ÄÜ"	” »"ÜàÖÒ"	”š ÛžÜàØÔ"	’®1 Ô3Ü"	þ,ø8 Ç3ÜàÕÐ "	Ž5´. ¸3Üà×Õ"	Òþ	 äÊÜ"	´Ê ËÜàÚÎ"	ÐŒ' ï‰ÜàÕÐ "	k¾ à­ÜàÖÒ"	äà1	 ÕŸÜ"	Øˆ*	 ÝÏÜ"	²ò& ôRÜàÕÐ "	â Î6Ü"	Ú$È% ßÜàÖÒ"	Þ¬ ©ÐÜàØÔ"	˜	â,	 æÑÜ"	ä.È8 ûSÜ"	ð.´0 âlÜ"	Üª$ »$Ü"	„è Ã%ÜàÙÑ"	Ò8®? Ö%Ü"	¢„, øTÜàÕÐ "	Üº ’7Üà×Õ"	P- Ø®ÜàÖÒ"	 œ ¤ŒÜàÖÒ"	Æ! ¥•ÜàÕÐ "	èæ ŽÜàÕÐ "	²	ô	 çÕÜ"	Î¾ ì9Ü"	´‚8 žÖÜàÖÒ"	¼?Ê Í²ÜàÕÐ "	¨š3 ŠÜàÕÐ "	¾Ø- ý³ÜàØÔ"	˜Œ*	 Ã×Ü"	„î ž;Ü"	Î.ô; ×UÜ"	¨Î	 Ê‚Ü"	üê	 ó«Ü"	Ø#ü' ÑÚÜàÖÒ"	Úæ ÆnÜ"	–<Ê: ¹›ÜàÕÐ "	Â&î	 å¬Ü"	”	 ÌœÜàÕÐ "	K¾ êoÜ"	Ü’9	 ª®Ü"	î/ö4	 ¼Ü"	ÂÐ	 ÂÜ"	Æe	 µ»Ü"	èÐ+ áÛÜàØÔ"	Üž	 å­Ü"	º9€@ û'Üà×Õ"	’Ö épÜàÕÐ "	LÞ- Ê=Ü"	„° ÝµÜàÖÒ"	´Ž/ ÿ¶ÜàÖÒ"	Ž	¼%	 ù“Ü"	–ô, ŠÞÜàÖÒ"	¼Š	 þÚÜ"	ªÞ* ¨ÛÜàÖÒ"	ÄÜ$ ˆ¸ÜàÖÒ"	ê"º/ ˆ¹Üà×Õ"	Ð¨1 •>Ü"	Ð5Ò;	 ò¼Ü"	Þ¾,	 ñºÜ"	¶ž ürÜàÖÒ"	¬ô1 ´®ÜàÕÐ "	–† ésÜ"	ø	¤)	 ¦»Ü"	 : ‹@ÜàÕÐ "	 º= †ÜàÕÐ "	HÄ ÈæÜàÕÐ "	Æ1ö> çÜàÜÖ"	´ð& ä•ÜàÕÐ "	öö0	 Î–Ü"	Øü+ °èÜàÖÒ"	Ä‚# ÜÜàÖÒ"	Âº ‚½ÜàÖÒ"	¶9Î? ó£ÜàÖÒ"	êö0	 ñ¾Ü"	¨%Î ™éÜàÖÒ"	¶
+”) €uÜ"	€=à< (Ü"	ØÂ7 Ó)ÜàÕÐ "	ú ±)Ü"	¨'è	 ”¦Ü"	–„ ‚‰ÜàÖÒ"	G‚) çŠÜàÚÎ"	ø–/ é‹ÜàÙÑ"	¢Ü% ²xÜàÕÐ "	â% …¨ÜàÕÐ "	i”4	 ƒ¯Ü"	„	Ö#	 °ÁÜ"	Üˆ ‡ŒÜà×Õ"	Þ ™½ÜàÕÐ "	ˆ
+”$ ‚¥ÜàÕÐ "	††	 ‡ÆÜ"	Ø?È-	 Ü°Ü"	ì!Ð! œ¾ÜàÕÐ "	¨ˆ+	 Ï™Ü"	ì ô\ÜàÕÐ "	¬Ö ã©ÜàÖÒ"	ŒÄ Ð«ÜàÕÐ "	\¬ ¬*ÜàÕÐ "	ò®- ›Ü"	ò² ŠDÜ"	À)´;	 ö¬Ü"	¤/Â1	 Ø®Ü"	Îº%	 âðÜ"	’+Ø@	 ððÜ"	ò'¢5 ð›ÜàØÔ"	Kˆ „ÜàÕÐ "	¤Ä	 €òÜ"	ž¦8 ìœÜàÖÒ"	ªÐ	 ±ôÜ"	º(ê(	 šõÜ"	”7¾#	 °±Ü"	º$–1 ¹²ÜàÕÐ "	†#Š- È°Üà×Õ"	ô
+œ †áÜàÖÒ"	ÐÔ"	 ‹ÁÜ"	Š ú6	 ÿ÷Ü"	ö¶' ü´Üà×Õ"	Þ[	 Þ±Ü"	ŽA„+ †EÜ"	à$h ÜµÜàÕÐ "	ŒÎ Û¶ÜàÕÐ "	ô$Ò4 ½ùÜàÖÒ"	ÜÌ(	 ¶¡Ü"	ž	¢1 õÜ"	Æä	 ÷€Ü"	æÌ0	 Ö£Ü"	Ö$’@ ª¹ÜàÖÒ"	˜– ¾²ÜàÕÐ "	ÐØ ÌºÜàÖÒ"	Þ’" ¸ÈÜàÕÐ "	Ð+B ¢¿ÜàÕÐ "	!ú	 ë¥Ü"	ò7Þ6 áÇÜàÕÐ "	æ†	 ÍÜ"	Ê;† ¿´ÜàÖÒ"	ú
+¨) ¢ûÜà×Õ"	Òä ‰aÜàÕÐ "	–à	 âýÜ"	Ò–# Å©ÜàÖÒ"	¼Ü “þÜàÚÎ"	ÊÚ	 ôæÜ"	¼Ò ¶’ÜàÖÒ"	ÎØ Ï•ÜàÖÒ"	È„!	 ŽÉÜ"	Ž
+†" ¼—Üà×Õ"	ê	Ø* ÓÃÜàÕÐ "	úž ƒ˜ÜàØÔ"	Øš%	 ÙËÜ"	ðÌ! ¶çÜà×Õ"	°æ,	 ü„Ü"	ˆ<þ9 ÁÜàÕÐ "	„Ð ºIÜ"	Ì¤	 çÀÜ"	ä	ô/ ‰‚ÜàÕÐ "	ª-Ô7	 œÁÜ"	ª&Ø1	 ÝéÜ"	Ô¶" óJÜàÚÎ"	ÚŠ' ¦ËÜàÕÐ "	è ïÿÜàÕÐ "	_€ »ÌÜàÙÑ"	²¨'	 þÍÛ"	œ$Þ'	 Ê¦Û"	š¼  ¿dÛ"	Ð¦
+ ÑƒÛàÙÑ"	Þš+ ¹0Û"	¤´3 ƒ0Û"	Ü
+Ð Ù‡ÛàÕÐ "	Àâ& ‹ÈÛàÕÐ "	æ˜ ð©ÛàÕÐ "	Ú;¶/	 ×ÉÛ"	Â(ð& ñ1ÛàØÔ"	Ø† žˆÛàÖÒ"	Â*ˆ=	 ˜‰Û"	Iž1 ¯iÛ"	œ'r ÀiÛ"	ì&( ©KÛàÕÐ "	žÎ3 ÀKÛàÙÑ"	Öœ1 ÕKÛàÖÒ"	ø„ ÛKÛ"	Â%è+ ÐLÛàÕÐ "	pÄ& ÚÛ"	Ä(ð, …MÛ"	Ú
+ž	 ñ†Û"	¼Ê"	 £ˆÛ"	¾Ê3 ðˆÛàÕÐ "	Ü †OÛ"	Ì)œ< Ä3ÛàÙÑ"	Ì	Ô ‹3ÛàÕÐ "	?¬' ±3ÛàÕÐ "	Sô" ­ÛàÖÒ"	Èú £5Ûà×Õ"	¢ˆ' “ÍÛàÖÒ"	?¤! ¬QÛ"	’- ; “Û"	°à óÛàÕÐ "	þÀ $ÛàÕÐ "	’ä- Ä%Û"	’$œ? •%Ûà×Õ"	ªž/  ÛàÕÐ "	ê¦	 Ç’Û"	Üœ! ´’Ûà×Õ"	°¢/	 Ç”Û"	Ô‚' º8ÛàÖÒ"	4ä2	 ³˜Û"	„* þ9ÛàÖÒ"	šì Î™ÛàÖÒ"		! ÁÛàÕÐ "	º´=	 îØÛ"	Æ.þ7 ãVÛ"	â	k	 ïÜÛ"	ð&®2 ÿ=Û"	Ð,ì:	 Ð·Û"	èÆ	 ßâÛ"	àÐ	 êãÛ"	Î'Ø) …ŸÛà×Õ"	€Œ3 òÛ"	ô_ ×Û"	ä ºˆÛàØÔ"	º”& ë ÛàÕÐ "	˜ú	 Ö¡Û"	Ø#Ø+	 ®¢Û"	Î#œ/ ÀAÛàÖÒ"	”=ª> ýuÛ"	”	æ	 Ÿ¥Û"	ðœ0 vÛ"	þ°# ¬yÛ"	šÆ ûBÛ"	¢Ø üBÛ"	À%°; •BÛ"	âê- þÞÛà×Õ"	+’ ÙªÛàÕÐ "	†;È- Â]Û"	‚6Š6 Ÿ¿ÛàÕÐ "	Ì(Ö. ‘¯ÛàÖÒ"	öº&	 ÈŽÛ"	’Ž á|ÛàÕÐ "	Þä îðÛàÕÐ "	Àª  ÛàÕÐ "	ÆÔ9 –ÂÛàÕÐ "	ìŠ5 ÏÛàØÔ"	Âø#	 ’°Û"	ò.ì, ÂÛàÕÐ "	¦Ê ØÂÛà×Õ"	Ð
+ª ó_ÛàÕÐ "	Ì¾$	 — Û"	Îú	 ¹¶Û"	Š$Ä)	 ÉúÛ"	D$ ø¨ÛàÙÑ"	ò ëÄÛàÕÐ "	8¾" ÊFÛ"	‚´ –GÛà×Õ"	Œ"Œ% ËHÛà×Õ"	ÊØ" ¦»ÛàÕÐ "	À:º?	 ”ÈÛ"	˜à4	 œ¦Û"	€ ŽµÛà×Õ"	ìˆ	 µ‚Û"	€ž Õ`ÛàÕÐ "	æ"Ä' ÅüÛàÕÐ "	°˜2 ¶bÛ"	™® åÛàÖÒ"	º¸	 ¼”Û"	J¢. ¾·ÛàÖÒ"	îŽ#	 Í¨Û"	˜6¬@ ôIÛ"	È8’= ’IÛàÕÐ "	Òà( —IÛàÖÒ"	œ"ä2 ¼cÛà×Õ"	¸Ê àýÛàÝÏ"	®Š' ‡êÛàÕÐ "	Ò!š) ô¸ÛàÕÐ "	 Þ/	 ‰¹Ú"	¨Þ ÓÚ"	²&Ú-	 àÎÚ"	Ì€ ëLÚà×Õ"	Ôð ¾kÚà×Õ"	Ä¶(	 ©ÕÚ"	Ì”	 «ÖÚ"	Â–	 ÄÎÚ"	ø!¨? ¢ÒÚà×Õ"	ªÎ ¢ºÚàÕÐ "	È¬ ÆÚ"	ºˆ ÆmÚàÕÐ "	Ü$Ü3	 ø“Ú"	Ü%¢- ®:Ú"	À;¾@ €WÚàØÔ"	‚˜	 î´Ú"	þ!è$ «ÝÚàÚÎ"	¨þ ¿žÚàÕÐ "	ìÈ Þ”ÚàÕÐ "	À†	 ïáÚ"	¾	è ‡Úà×Õ"	¨ ¸ÚàÕÐ "	\Ü  “ÚàÕÐ "	è‚ íÚ"	Èò* ž¼Úà×Õ"	¤Ì à¢Úà×Õ"	®² šÚà×Õ"	=€3 ³wÚ"	ìÄ Ô˜ÚàÖÒ"	¬è ¤BÚ"	$® øÚàÙÑ"	æ¼ ÌCÚàÕÐ "	¦þ ¿­ÚàÖÒ"	¸ €îÚàÖÒ"	P´	 Ò·Ú"	ü¦	 îäÚ"	úì	 „ƒÚ"	ŒÞ; Š–Úà×Õ"	Ää	 ¯èÚ"	°;Ü?  -ÚàÕÐ "	¢Ø òfÙàÕÐ "	ÎÒ 	Ù"	ü)Ö ÌhÙàÖÒ"	Ø:†A ¯ŒÙàØÔ"	Yî	 ™¬Ù"	Ú?Â6 ãÙ"	„/°> õ8ÙàÖÒ"	¢Ž ÑÙ"	Š'ê ÙÙ"	¤Æ	 ·
+Ù"	‚2ê2	 ÉäÙ"	Ú@È8 —Ù"	†ä1 úÙàÕÐ "	Ô<Ä1 ›ÙàÕÐ "	ªž	 äÙàÕÐ "	™î ™Ùà×Õ"	¬  ³ÙàÖÒ"	Àž ÉÙàÖÒ"	râ åÙ"	¬”% ÂÙ"	Êð! ¥Ù"	Ê9„  ÷Ù"	”$Æ	 Á§Ù"	 º>	 ÍíÙ"	²#È
+ Ü¨Ùà×Õ"	† 
