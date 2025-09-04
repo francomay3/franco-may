@@ -142,7 +142,7 @@ export default function Fornlamningar() {
         },
         fornlamningar: {
           type: 'vector' as const,
-          tiles: [`${process.env.NEXT_PUBLIC_DOMAIN}/tiles/{z}/{x}/{y}.pbf`],
+          tiles: [`${process.env.NEXT_PUBLIC_DOMAIN}/tiles/{z}/{x}/{y}.pbf?v=6`],
           minzoom: sourceMinZoom,
           maxzoom: sourceMaxZoom,
           attribution: '© Franco May / RAÄ data',

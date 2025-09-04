@@ -55,7 +55,7 @@ const PointPopup = ({
     <Popup
       longitude={longitude}
       latitude={latitude}
-      offset={5}
+      offset={10}
       onClose={onClose}
       onOpen={handlePopupOpen}
       maxWidth="400px"
