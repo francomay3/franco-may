@@ -1,4 +1,9 @@
-import { IconBook, IconHome2, IconMail } from '@tabler/icons-react';
+import {
+  IconBook,
+  IconBuilding,
+  IconHome2,
+  IconMail,
+} from '@tabler/icons-react';
 
 type NavLink = {
   label: string;
@@ -21,6 +26,11 @@ export const NAV_LINKS: Record<string, NavLink> = {
     label: 'Contact',
     href: '/contact',
     icon: <IconMail size={16} stroke={1.5} />,
+  },
+  fornlamningar: {
+    label: 'Fornlamningar',
+    href: '/fornlamningar',
+    icon: <IconBuilding size={16} stroke={1.5} />,
   },
 };
 

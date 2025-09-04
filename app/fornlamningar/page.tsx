@@ -16,16 +16,22 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import {
   Box,
   Button,
+  Card,
   Checkbox,
+  CloseButton,
   LoadingOverlay,
-  Modal,
+  Overlay,
   Stack,
 } from '@mantine/core';
 import metadata from '../../public/tiles/metadata.json';
 import { isPointFeature, isTileMetadata, PointFeature } from './models';
 import PointPopup from './PointPopup';
 import { FORNLAMNINGAR_LAYER } from './constants';
-import { useDisclosure, useLocalStorage } from '@mantine/hooks';
+import {
+  useClickOutside,
+  useDisclosure,
+  useLocalStorage,
+} from '@mantine/hooks';
 import { IconFilter } from '@tabler/icons-react';
 
 const availableFilters = [
@@ -48,7 +54,28 @@ const availableFilters = [
   'Gravfält',
   'Fångstgrop',
   'Runristning',
+  'Other',
 ];
+
+export function buildFilter(selected: string[]) {
+  const wantOther = selected.includes('Other');
+  const selectedKnown = selected.filter(c => c !== 'Other');
+
+  const any: any[] = ['any'];
+
+  if (selectedKnown.length) {
+    any.push(['in', ['get', 'class'], ['literal', selectedKnown]]);
+  }
+
+  if (wantOther) {
+    any.push([
+      '!',
+      ['in', ['coalesce', ['get', 'class'], ''], ['literal', availableFilters]],
+    ]);
+  }
+
+  return any.length > 1 ? any : ['in', ['get', 'class'], ['literal', []]];
+}
 
 export default function Fornlamningar() {
   const [selectedFeature, setSelectedFeature] = useState<PointFeature | null>(
@@ -62,6 +89,7 @@ export default function Fornlamningar() {
     isFiltersModalOpen,
     { close: closeFiltersModal, toggle: toggleFiltersModal },
   ] = useDisclosure(false);
+  const filterModalRef = useClickOutside(() => closeFiltersModal());
 
   const [isPopupOpen, { open: openPopup, close: closePopup }] =
     useDisclosure(false);
@@ -129,10 +157,7 @@ export default function Fornlamningar() {
           'source-layer': 'archaeological_sites',
           minzoom: 0,
           maxzoom: 24,
-          filter: [
-            'all',
-            ['in', ['get','class'], ['literal', filters]],
-          ],
+          filter: buildFilter(filters),
           layout: {
             'symbol-sort-key': ['-', ['coalesce', ['get', 'relevance'], 0]],
             'icon-allow-overlap': false,
@@ -257,31 +282,44 @@ export default function Fornlamningar() {
           >
             Filters
           </Button>
+          {isFiltersModalOpen && (
+            <Overlay pt="lg" blur={2}>
+              <Box pos="relative" w="fit-content" mx="auto" my="auto">
+                <Card
+                  maw={400}
+                  mah={500}
+                  title="Filters"
+                  style={{ overflow: 'auto' }}
+                  ref={filterModalRef}
+                >
+                  <Stack>
+                    {availableFilters.map(filter => (
+                      <Checkbox
+                        key={filter}
+                        label={filter}
+                        checked={filters.includes(filter)}
+                        onChange={() =>
+                          setFilters(
+                            filters.includes(filter)
+                              ? filters.filter(f => f !== filter)
+                              : [...filters, filter]
+                          )
+                        }
+                      />
+                    ))}
+                  </Stack>
+                </Card>
+                <CloseButton
+                  onClick={closeFiltersModal}
+                  pos="absolute"
+                  top="8px"
+                  right="12px"
+                />
+              </Box>
+            </Overlay>
+          )}
         </Map>
       </Box>
-
-      <Modal
-        opened={isFiltersModalOpen}
-        onClose={closeFiltersModal}
-        title="Filters"
-      >
-        <Stack>
-          {availableFilters.map(filter => (
-            <Checkbox
-              key={filter}
-              label={filter}
-              checked={filters.includes(filter)}
-              onChange={() =>
-                setFilters(
-                  filters.includes(filter)
-                    ? filters.filter(f => f !== filter)
-                    : [...filters, filter]
-                )
-              }
-            />
-          ))}
-        </Stack>
-      </Modal>
     </>
   );
 }
