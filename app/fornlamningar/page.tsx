@@ -57,7 +57,7 @@ const availableFilters = [
   'Other',
 ];
 
-export function buildFilter(selected: string[]) {
+const buildFilter = (selected: string[]) => {
   const wantOther = selected.includes('Other');
   const selectedKnown = selected.filter(c => c !== 'Other');
 
@@ -75,7 +75,7 @@ export function buildFilter(selected: string[]) {
   }
 
   return any.length > 1 ? any : ['in', ['get', 'class'], ['literal', []]];
-}
+};
 
 export default function Fornlamningar() {
   const [selectedFeature, setSelectedFeature] = useState<PointFeature | null>(
