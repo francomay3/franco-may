@@ -50,7 +50,7 @@ export function AppShellWrapper({ children }: AppShellWrapperProps) {
           },
         }}
       >
-        <Container mb="30" w="100%">
+        <Container pb="46" w="100%" flex="1" pos="relative">
           {children}
         </Container>
         <Footer />

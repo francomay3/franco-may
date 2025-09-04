@@ -1,0 +1,93 @@
+{
+  "anvil": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 0,
+    "y": 0
+  },
+  "bones": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 64,
+    "y": 0
+  },
+  "building": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 128,
+    "y": 0
+  },
+  "cave-painting": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 192,
+    "y": 0
+  },
+  "drakkar": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 0,
+    "y": 64
+  },
+  "greek-temple": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 0,
+    "y": 128
+  },
+  "hut": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 0,
+    "y": 192
+  },
+  "maya": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 64,
+    "y": 64
+  },
+  "moai": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 128,
+    "y": 64
+  },
+  "question-mark": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 192,
+    "y": 64
+  },
+  "shield": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 64,
+    "y": 128
+  },
+  "stonehenge": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 64,
+    "y": 192
+  },
+  "weapon": {
+    "height": 64,
+    "pixelRatio": 1,
+    "width": 64,
+    "x": 128,
+    "y": 128
+  }
+}

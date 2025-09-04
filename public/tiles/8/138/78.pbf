@@ -1,18 +1,26 @@
-þ³x
-archaeological_sites(€ uuidlabel	relevance	clusteredpoint_countsqrt_point_countpoint_count_abbreviated"
+ÿž	x
+archaeological_sites(€ uuiddescriptionlabel	relevanceclass	clusteredpoint_countsqrt_point_countpoint_count_abbreviated"
 2"
 3"
 4"
 5"
 6"
 HÃ¶g"
-RÃ¶se"
+RÃ¶se"
+	Offerkast"
+
+VÃ¤gmÃ¤rke"
+FÃ¥ngstgrop"
 Runristning"
+Fossil Ã¥ker"
 GrÃ¤nsmÃ¤rke"
 Kyrka/kapell"
+MinnesmÃ¤rke"
+TorplÃ¤mning"
 TrÃ¤industri"
 HÃ¤llristning"
-StensÃ¤ttning"
+StensÃ¤ttning"
+TorplÃ¤mning."
 Stenkammargrav"
 Textilindustri"
 Kemisk industri"
@@ -27,6 +35,7 @@
 Guldbacken, RÃ¶se"
 HÃ¥llerÃ¶r, RÃ¶se"
 NycklarÃ¶r, RÃ¶se"
+Stenkrets/stenrad"
 Stora rÃ¶r, RÃ¶se"
 Ã–rnaknÃ¶s, RÃ¶se"
 Biskopseken, RÃ¶se"
@@ -245,6 +254,7 @@
  Norrekulle, LÃ¤genhetsbebyggelse""
  OxafÃ¤llan, LÃ¤genhetsbebyggelse""
  Pigestugan, LÃ¤genhetsbebyggelse""
+ Ristning, medeltid/historisk tid""
  RÃ¶ret vid Korsaliden, Offerkast""
  SjÃ¶backen, LÃ¤genhetsbebyggelse""
  SjÃ¶holmen, LÃ¤genhetsbebyggelse""
@@ -765,27 +775,588 @@ $ffdf72d3-db45-406f-86c2-04f912ed9292"'
 )Ã„ngagÃ¤rdeskÃ¤llan, KÃ¤lla med tradition",
 *All vÃ¤rldens kÃ¤lla, KÃ¤lla med tradition"0
 .Predikstolen, Ristning, medeltid/historisk tid"1
-/Kung SkÃ¤gges sten, Grav markerad av sten/block"C
+/Kung SkÃ¤gges sten, Grav markerad av sten/block"8
+6RÃ¶se, 17 m diam och 2 m h. Stenarna Ã¤r 0,2-0,4 m st."9
+7NaturfÃ¶remÃ¥l/-bildning med bruk, tradition eller namn"C
 AKammaren, NaturfÃ¶remÃ¥l/-bildning med bruk, tradition eller namn"D
 BDopstenen, NaturfÃ¶remÃ¥l/-bildning med bruk, tradition eller namn"D
-BTumstenen, NaturfÃ¶remÃ¥l/-bildning med bruk, tradition eller namn"G
+BTumstenen, NaturfÃ¶remÃ¥l/-bildning med bruk, tradition eller namn"F
+DHusgrund efter byskola, 4x4 m (?) och 0.5 m h.
+
+Platsen Ã¤r skyltad."G
 ETingskÃ¤llan, NaturfÃ¶remÃ¥l/-bildning med bruk, tradition eller namn"H
 FGalgahallarna, NaturfÃ¶remÃ¥l/-bildning med bruk, tradition eller namn"H
-FTegnÃ©rstenen, NaturfÃ¶remÃ¥l/-bildning med bruk, tradition eller namn"	Âõ(\ö?"	š™™™™™@"	®Gáz®û?"	ìQ¸…ë@" " " " " " " " 	" 
-" " "8 ®‚’“ˆ„ "	ôæ ª’“‰†"	¸6®	 ³î’"	Ä-® ‹ñ’“Šˆ"	²7æ	 ÙÚ’"	²9š Ø{‘"	¢4ˆ §ž‘“ˆ„ "	Ž5 +	 Úÿ‘"	€È= ¯‘“ˆ„ "	¼M Ö“‘“ˆ„ "	„Ø> ÞR‘“‰†"	â4Œ ÙB‘"	Þà9	 æì‘"	ü-à' é¤‘“Šˆ"	„*Ö4 ×‘“ˆ„ "	Ä¶ ÿ‹‘“ˆ„ "	˜0ì	 “«‘"	ò-Œ èË‘“‰†"	¸5†	 ÉŽ‘"	Ü.ò& ›I‘"	¬Ü3	 âé‘"	Œì( ±ê‘“ˆ„ "	œþ.	 ¡÷‘"	ž:ð	 €½‘"	þ¤ š%‘"	ŠÂ ¦Ü‘“ˆ„ "	æ1š	 ü‰"	°Ä éß“ˆ„ "	ìæ& Â8"	Î5® ¶*"	¨°! ò;“ˆ„ "	ºª Œ"	ˆÂ ­š“‰†"	º:º ãe"	¤4° 	 éå"	È$º$	 œŽ"	š®
-	 •Ÿ"	’6ˆ	 ô¤"	¬® êh"	è¼/ ñö“ˆ„ "	Æ"°1	 à‰"	È€	 ¨ó"	Š¤7 £("	¬( ¶<"	Ú(–, ÌE"	¼) & Ö!"	ÔÀ á¹“‰†"	¨â&	 ºÌ"	êÜ) ì""	š"Ð* ‘“ˆ„ "	Šè- ”s"	ô= Ó#"	˜#À	 ÷÷"	À0Ò Ò—“ˆ„ "	Öü à²“Šˆ"	ž3¸	 Ïú"	œ0â	 ÁÒ"	ìê ñ“ˆ„ "	Îö	 ç"	¬¸	 œñ"	°.  –M“ˆ„ "	¾Æ ö‚“‰†"	â5¦	 ‘ì"	Æ= 0	 º²"	Ì<	 âÈ"	ú$ð	 ¸à"	®‰ ‘"	Ê¬ ´œ“ˆ„ "	ÈÚ&	 Òž"	¤´ „„“‰†"	Ôü
- ÇQ“ˆ„ "	Ê$ò	 üÁ"	´Ö7	 …¸"	”'ü&	 Œþ"	¾ 	 ¢¢"	ºÜ £"	ª¼, ˜Š“‹‡"	â¬ ·í“ˆ„ "	‚=¸/ ="	†Ø+ ù©“‰†"	¶˜*	 ¿ª"	à„	 ·ï"	ü¬ Ø,"	ˆú ´o"	Ô0–) ‡o“ˆ„ "	Â0Ü ˆ“Šˆ"	¨ö		 ŠË"	¾‚"	 Ð©"	ª= “ˆ„ "	¶"š/ ¦-"	ÐÈ Â‘“Šˆ"	¸F …Z“ˆ„ "	°=	 Òº"	ˆšA ´K"	Ê'3 Ôû“‰†"	à–	 çÑ"	²´	 àC"	øÎ& ƒ€“ˆ„ "	Ê9 …u"	š ƒ)“ˆ„ "	ÆÎ –."	‚Š	 Ÿ”"	Ê
-Ô5	 ••"	æ Ê	 Ò±"	Ê1Ì 	 Ïí"	–@ê2	 Ç‡"	Ì%ò! ¨Ý“ˆ„ "	¸Œ	 Âˆ“‰†"	‚² ¤aŽ"	Š-–, ™‰Ž“ˆ„ "	Žâ
- –2Ž"	ä>Þ+ ¼™Ž“‰†"	¤è âŽ"	¬ Ú Ã¡Ž“ˆ„ "	úà	 æŽ"	ø” Ñ½Ž“‹‡"	”´	  éŽ"	žÚ	 ê‡Ž"	ŽÐ-	 Ê Ž"	ðÂ
- »£Ž“ˆ„ "	ÌÈ ÷	Ž"	U¶( —+Ž"	¸ä%	 ‹íŽ"	Ø?	 ç¥Ž"	ˆð	 ÀÈŽ"	¶¨	 ¥¬Ž"	¤%„- åXŽ"	ØÜ3 rŽ"	Ì²		 „üŽ"	à#ž@ Ä$Ž"	à„4	 °®Ž"	ª&þ)	 ÚÐŽ"	ì,î ³’Ž“‹‡"	ž: ÆŽ"	 $¦	 ÕŽ"	ÌÚ ëØŽ“‹‡"	°r ÌµŽ“Šˆ"	ÔÀ â^Ž"	²è ÄyŽ"	‚È	 è—Ž"	è ä"	–à Š"	 €' Î"	´3  ¢ë“ˆ„ "	Â U	 ˆí"	-¦  ‰k"	bŽ ó,"	œ0ú' †,“‰†"	´Ð «,"	ê!’* ì,"	Ö!ª0 ê,“ˆ„ "	ž!°/ €,"	Œâ& Ïö“ˆ„ "	À®/ »`Œ"	Ðü ¾ûŒ“ˆ„ "	š+ž% þzŒ"	´0š	 ÍÞŒ"	¶*‚ ¸Œ“‰†"	Ü6ü ÎbŒ"	Œ
-	 ÚõŒ"	¾&´8	 ¹Œ"	; ×Œ"	ü– Å³Œ“‰†"	ä3¤ ¯´Œ“ˆ„ "	†ö	 íãŒ"	îÆ ¹ŸŒ“ˆ„ "	Ò1¬ ÃŒ"	”!È —9Œ“ˆ„ "	Šð óNŒ“ˆ„ "	ž	î ÀŠŒ“‰†"	ê‚ úŒ“‰†"	ä / ª|Œ"	¬-W	 áŒ"	È8Ú ÝŒ“ˆ„ "	ª¸; œŒ"	ˆ"ò ôŒ"	‚Ð0 ÜŒ“ˆ„ "	°6’	 ÃâŒ"	ˆ´	 ÀôŒ"	†1Æ7 Ð}Œ“ˆ„ "	˜þ	 ÕºŒ"	°ä" Ž~Œ“ˆ„ "	Ä	ô š:Œ"	¼š$ Ê/Œ"	ü!ü"	 ß Œ"	ÚÖ Ë›Œ“ˆ„ "	ø4r ¬cŒ“‰†"	¢;¦ öŒ“ˆ„ "	’¬	 Æ»Œ"	Ä%Â ¿‹Œ“‰†"	À8Ì §€Œ“Šˆ"	Ð1ä ™Œ“ˆ„ "	 7Ô ÁdŒ“ˆ„ "	ö	Þ		 äŒ"	¦!è ª0Œ"	š#è ˜µŒ“‰†"	†/¸	 ŒŒ"	¬"ú	 •¼Œ"	Äî ‰ãŒ“ˆ„ "	žì
-	 Ü‚Œ"	ª
-ˆ> ã¶Œ“ˆ„ "	¶Ü	 äŒ"	þº  ðOŒ"	´
-ü	 ÿåŒ"	Î-”
-	 Ä·Œ"	ºÞ ñ¢Œ“ˆ„ "	Ê' ±PŒ"	¸,® ðPŒ"	¬&ü/	 ¹æŒ"	¼+ä	 ƒƒŒ"	¶2 ÞŒ"	š<ò. ðÉŒ“‰†"	Ô¢5	 åçŒ"	ÐÖ àŒ"	ÆÂ2 î5Œ"	Ì9î &Œ"	€/® È¾Œ“ˆ„ "	¶;Š ýfŒ“ˆ„ "	ê ø	 õ…Œ"	–?9	 ©¿Œ"	ø(	 Û£Œ"	ä,d ÏèŒ“‰†"	¸9è ¾Œ“Œ…"	þ:¬ ¶gŒ"	ž&â  DŒ"	Œî ìŒ“ˆ„ "	¼,  û6Œ"	Ô<ú< Ó6Œ"	¢	È “Œ"	ž%¤4 ØŒ“ˆ„ "	úä žŒ“ˆ„ "	–Þ ¤Œ“ˆ„ "	ºè( —Œ“‰†"	¾` ¿ÀŒ“‹‡"	Ä!à	 ®êŒ"	Ž$- û†Œ“‰†"	º´ å‘Œ“ˆ„ "	ú  ÓˆŒ“ˆ„ "	þ)º €ÂŒ“ˆ„ "	†-Î ©AŒ"	ÆÖ ­'Œ"	¤¶  ÆiŒ"	š”3	 ’¡Œ"	œÀ	 ÅÃŒ"	Ö ˆ ’Œ“‰†"	Â*´ áŒ"	Ð9¤	 ãÄŒ"	Ð9 ò3Œ“‰†"	zÄ	 „ÅŒ"	ê	¢" Ê4Œ"	¾3 ¼ Œ"	¦ ´	 ¡ÆŒ"	–<Î ò1Œ“ˆ„ "	ð‚	 ºýŒ"	ÚÒ0 Ù7Œ"	 ª ”SŒ"	æ9þ ÔTŒ“‹‡"	¾&Ì	 ü¥Œ"	ô,ì ÍFŒ"	îº £+Œ"	”Ð Æ+Œ"	Œ-€ Ü+Œ“‰†"	ÆÂ	 ÇŒ"	ÒÖ øŒ"	“°	 ø¦Œ"	¨ 	 ÓÊŒ"	ìª ‚ËŒ“ˆ„ "	RÜ	 ï§Œ"	ì
-	 ÛæŒ"	‚18 Ô”Œ“ˆ„ "	”/¶	 ¬÷Œ"	Ô'‚ µjŒ"	°7Ö:	 ý•Œ"	ò*œ	 °¨Œ"	òØ ÝîŒ“‰†"	Æ® ‚kŒ“ˆ„ "	Â&g ŸUŒ"	2è óGŒ"	þ=  ›,Œ“ˆ„ "	Æ/þ& ›,Œ“‰†"	â7’ Õ,Œ“ˆ„ "	Æ5à& Â,Œ"	¦¼? ,Œ"	ŽØ ×,Œ"	4Æ ß,Œ"	Ú8Ð ×,Œ"	Â7® í,Œ“ˆ„ "	ÒŠ+ §,Œ"	¼È5 Ë,Œ"	¦ö" Î,Œ"	àÀ0 ¾,Œ“‰†"	ú.°# ’,Œ"	”,¨* Ú,Œ"	À Á,Œ"	Ø+Ä Ã,Œ"	Ê  ù,Œ"	¼9ü ž,Œ“‰†"	ÌÌ'	 ’øŒ"	Š2„ îÉŒ“‰†"	°"a ¿lŒ“Šˆ"	ö%¦ †ðŒ“ˆ„ "	˜)˜ í¦Œ“‰†"	ÒŒ ¹VŒ“‰†"	¶æ ®mŒ"	ÞÚ û–Œ“ˆ„ "	Þ$ˆ ÛnŒ“ˆ„ "	ª0Ì
- ßWŒ“ˆ„ "	Î¼	 šÊŒ"	¼	Ì	 ‡ŒŒ"	_€ õHŒ“ˆ„ "	šœ ¼pŒ“ˆ„ "	â2f	 ”§Œ"	°'ð «¨Œ“ˆ„ "	€'Ö	 ÇòŒ"	Ön áŒ“ˆ„ "	Ü(‚ ŸqŒ“‰†"	–&º)	 ëÌŒ"	†-¾	 øªŒ"	Š	 ŠóŒ"	¦Ò
- µôŒ“‰†"	ê+†	 Á«Œ"	Œ¦	 ²ÍŒ"	”-ô úYŒ"	€	–!	 ÈçŒ"	¶1œ.	 ÍèŒ"	öÔ2	 ¬Œ"	¸
+FTegnÃ©rstenen, NaturfÃ¶remÃ¥l/-bildning med bruk, tradition eller namn"N
+LFÃ¶r beskrivning av lÃ¤mningen se Inventeringsbok under Dokument och bilder."e
+cTorplÃ¤mning, bestÃ¥ende av en jordkÃ¤llare, 8x6 m (Ã–-V) och 1.2 m h med kallmurade sidor av sten."m
+kTorplÃ¤mning, bestÃ¥ende av 1 boningshusgrund, otydlig utstrÃ¤ckning. SpismursrÃ¶se, ca 3 m st och 1,2 m h."n
+lGrotta med namn och tradition. Grottan Ã¤r ca 5x2,5 m (N-S) och intill 1,3 m h. Bildad under ett Ã¶verhÃ¤ng."x
+vTorplÃ¤mning, bestÃ¥ende av 1 boningshusgrund, 8x5,5 m (N-S) och 0,2 m h. SpismursrÃ¶se i Ã–, ca 1,5 m st och 0,1 m h."{
+yBeskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ƒ
+€TorplÃ¤mning, bestÃ¥ende av 1 boningshusgrund. Endast spisrÃ¶se synligt, 3 m st och 1,2 m h, mestadels av kantiga huggna stenar."„
+RÃ¶se, ca 14 m i diam och 1-1,2  m h, av 0,2-0,4 m st stenar. KrÃ¶net relativt oskadat och svagt vÃ¤lvt. I Ã–-SÃ– Ã¤r rÃ¶set omplockat intill 0,2- 0,3 m dj. I SÃ– kanten har man 1995 pÃ¥fÃ¶rt rÃ¶jningssten, 0,1-0,4 m st, inom ett 2-3x1,5 m (N-S) st omrÃ¥de."…
+‚TorplÃ¤mning, bestÃ¥ende av 1 boningshusgrund, 9x6 m (NNV-SSÃ–) och 0,4 m h. SpisrÃ¶se centralt vid Ã– lÃ¥ngsidan, ca 4 m st och 0,8 m h. VÃ¤ggpartiet i Ã– otydligt. 
+Omedelbart utanfÃ¶r NÃ– hÃ¶rnet finns en till synes stensatt grop, 1,5 m diam och 0,7 m dj."…
+‚TorplÃ¤mning, inom ett omrÃ¥de av 55x40 m (NNV-SSÃ–), bestÃ¥ende av enhusgrund med spismursrest, brunn, rÃ¶jningsrÃ¶sen och rÃ¶dja ytor. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."‡
+„TorplÃ¤mning, bestÃ¥ende av 1 grund efter boningshus, 6x6 m och 0,2 m h. Central i lÃ¤mningen Ã¤r spismursrÃ¶se, 2 m st och 0,3 m h."‡
+„TorplÃ¤mning, inom ett ca 70x50 m st omrÃ¥de (NÃ–-SV) Ã¤r en husgrundmed spismursrest, en ladugÃ¥rdsgrund, rÃ¶jningsrÃ¶sen och rÃ¶jdaytor. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."‡
+„OfferkÃ¤lla. Ã„gare vid registrering: Baron Koskull, Ã„ngaholm. Namn: DopparkÃ¤llan. TerrÃ¤ng: KÃ¤rrmark. OfferkÃ¤llan Ã¤r 3,5 x 3m st. 1,5 m dj, fylld till 1 m med dyblandat vatten. Kanterna Ã¤ro upplÃ¶sta och rasade. Runt kÃ¤llan vÃ¤xer grÃ¤s, starr samt mindre buskar. Vid undersÃ¶kning har ett antal mynt hittats. En del av dem fÃ¶rvaras av Ã¤garen; mynten Ã¤ro frÃ¥n 1700-, 1800-talen. Tidigare uppteckningar: Berggren, Fasta fornlÃ¤mningar i Hjortsberga socken, i N. Allbo hembygdsfÃ¶rening Ã¥rsbok 1936, 8.24."‡
+„TorplÃ¤mning, ca 50x20 m (N-S), bestÃ¥ende av 1 husgrund, 1 ladugÃ¥rdsgrund, 1 jordkÃ¤llaregrund och 1 brunn. Husgrunden Ã¤r 7x5 m (NV-SÃ–) och med tydlig grund och stenfot, intill 0,3 m h, av 0,3-0,5 m st stenar. I SÃ– delen Ã¤r ett spismursrÃ¶se, 3-3,5 m i diam och 1,3 m h, av 0,2-0,3 m st stenar. Grunden Ã¤r delvis stenbelamrad. 35 m SSV om husgrunden Ã¤r ladugÃ¥rdsgrunden, 10x6 m (NÃ–-SV). VÃ¤ggarna Ã¤r 0,2-0,5 m h, delvis av betong. 2 m SÃ– om ladugÃ¥rdsgrunden Ã¤r en jordkÃ¤llaregrund, 6x5 m (NÃ–-SV). VÃ¤ggarna Ã¤r intill 2,0 m h, och bestÃ¥r av 0,25-0,6 m st stenar. IngÃ¥ng i SV, 0,6 m br. Mycket vÃ¤lbevarad. 10 m N om ladugÃ¥rdsgrunden Ã¤r en brunn, 1 m i diam och 0,2 m dj, stenfylld. Torpet anlades troligen 1819 och upphÃ¶rde pÃ¥ 1930-talet. Jordbruksmarken som tillhÃ¶rde torpet, se RAÃ„ NottebÃ¤ck . PÃ¥trÃ¤ffad vid utredning steg 1 utan KML-beslut 2010. (RAÃ„ dnr 326-1604-2010)"‰
+†TorplÃ¤mning Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Š
+‡1) SjÃ¶stugan Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Š
+‡TorplÃ¤mning, ca 60x20-40 m (Ã–-V), bestÃ¥ende av 1 boningshusgrund, 2 ekonomibyggnadsgrunder och 2 rotfruktsgropar.
+Boningshusgrundens utstrÃ¤ckning Ã¤r otydlig, ev ca 6x4 m (NNV-SSÃ–) och 0,2 m h. I NNÃ– hÃ¶rnet ett spisrÃ¶se, 2x2 m och 0,4 m h, av 0,3-0,6 m st stenar. 
+25 m N om Ã¤r en ladugrund, 7x5 m (N-S) och 1-1,5 m h med kallmurade vÃ¤ggar av 0,3-1 m st stenar. Ã–ppning i S. Den V delen ingrÃ¤vd i Ã– sluttning.
+50 m NV om boningshusgrunden Ã¤r den andra ladugrunden, 11x7 m (Ã–NÃ–-VSV), ingrÃ¤vd i kulle. Den VSV delen Ã¤r 7x6 m med kallmurade vÃ¤ggar, 1 m br och intill 2,2 m h, av 0,4-1 m st stenar. IngÃ¥ng i VSV. Den Ã–NÃ– delen Ã¤r i nivÃ¥ med stenvÃ¤ggarna, fÃ¶rmodad loftdel.
+Rotfruktsgroparna ligger pÃ¥ hÃ¶jden NV om boningshusgrunden och Ã¤r 2 m diam och 0,5 m dj. OmgÃ¤rdas stÃ¤llvis av vall, 1,5 m br och intill 0,3 m h.
+
+Skyltad: 175 / RYD PASSAGÃ…RD / SOLDATTORP NR 84 / BACKEN"‹
+ˆ1) ToplÃ¤mning Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."‹
+ˆ1) TorlÃ¤mning Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."‹
+ˆTorplÃ¤mning, bestÃ¥ende av en boningshusgrund med otydlig utstrÃ¤ckning, uppskattningsvis 5x5 m (NNV-SSÃ–). SpisrÃ¶se i S, ca 2 m diam."‹
+ˆOfferkÃ¤lla, oval, 0.8x0.6 m (NÃ¶-SV) och 0.3 m dj. Delvis stensatt.Utlopp Ã¥t SÃ–. KÃ¤llan rinner Ã¥ret om. Anvisad av Paul Svensson,SÃ¶ndra. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."‹
+ˆTorplÃ¤mning, bestÃ¥ende av en husgrund med spismursrester, rÃ¶jdaytor samt rÃ¶jningsrÃ¶sen. I husgrunden Ã¤r en ekskylt med texten:LINDÃ…SEN. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Œ
+‰1) TorplÃ¤ming. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Œ
+‰1) TorplÃ¤mning Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Œ
+‰RÃ¶se, 21 m i diam och 2,5 m h, av 0,3-0,6 m st stenar, enstaka utmed kanten Ã¤r 0,6-1 m st. SÃ– om mitten Ã¤r en grop, 4 m i diam och0,3 m dj. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Œ
+‰RÃ¶se, 17 m diam, 1,5 m h. Stenarna Ã¤r 0,2-0,4 m st. RÃ¶set Ã¤r skadat i SV, SÃ–, V och NÃ–. 
+I SV Ã¤r en grop, 3x2 m, 0,7 m dj. I SÃ– Ã¤r en grop, 4x3 m, 0,7 m dj. I V Ã¤r en grop, 4x2 m, 0,2-0,5 m dj. I NÃ– Ã¤r en grop, 2x2 m, 0,8 m dj.  
+
+FrÃ¥n rÃ¶sets sydÃ¶stra kant till dess mitt Ã¤r upplagd en stenkedja, 0.6 m h och 0.6 m br. Stenkedjan kan ha samband med tidigare fastighetsgrÃ¤nser."Œ
+
+‰
+TorplÃ¤mning, ca 110x50 m (Ã–-V), bestÃ¥ende av 1 boningshusgrund, 1 kÃ¤llargrund, 2 uthusgrunder, 1 kÃ¤lla, rÃ¶jningsrÃ¶sen och murar av rÃ¶jningssten.
+Boningshusgrunden Ã¤r 8x6 m (NNV-SSÃ–), med en 0,2 m h stenfot. Centralt placerat spismursrÃ¶se, 4 m diam och 1,2 m h, med inslag av tegelstensbitar.
+KÃ¤llargrunden, 13 m NÃ– om boningshusgrunden, Ã¤r 6x4 m st och 0,4-1 m dj, innermÃ¥tt 2,5x2 m st, med 2 m l och 0,8 m br gÃ¥ng mot Ã¶ppning i SÃ–. Kallmurade vÃ¤ggar, 1-1,3 m h. IngrÃ¤vd mellan rÃ¶jningsrÃ¶se och -mur.
+En grund, 33 m VSV om boningshusgrunden, Ã¤r 5x5 m st, med 0,2-0,4 m h stenfot, skadad i V delen.
+Den andra grunden, 23 m V om boningshusgrunden, Ã¤r 13x5 m (Ã–-V), med i V delen tÃ¤tt lagd stenfot, 0,2 m h och i Ã– glest lagda grundstenar, intill 0,1 m h. Avdelad i 3 "rum". Intill Ã– kanten Ã¤r en grop, 5x3 m st och 0,3 m dj, vars S del Ã¤r stensatt. Grunden kan Ã¤ven vara 2 byggnader med ett smalt portlider emellan.
+KÃ¤llan, ca 30 m Ã– om boningshusgrunden och intill en stenmur, Ã¤r oval, 2x1,5 m (NÃ–-SV) och 0,5 m dj, upprensad och med stenar upplagda lÃ¤ngs SÃ– kanten.
+Inom omrÃ¥det Ã¤r rÃ¶jningsrÃ¶sen och -murar, Ã¤ven i nÃ¤romrÃ¥det.
+Torpet Stenshult Ã¤r med pÃ¥ laga skifteskarta frÃ¥n 1834.
+I omrÃ¥dets V del Ã¤r en raststuga och grillplats uppfÃ¶rd."
+Š1)  TorplÃ¤mning Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."
+Š1) TorplÃ¤mning. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."
+ŠTorplÃ¤mning, 125x35-90 m (NNV-SSÃ–), bestÃ¥ende av 1 husgrund, 1 grund efter jordkÃ¤llare, 1 brunn och 1 befintligt uthus.
+Husgrunden, 8x6 m (VNV-Ã–SÃ–), och 0,2 m h, av 0,3-0,5 m st naturstenar. SpismursrÃ¶se i VNV, nÃ¤rmast kvadratiskt, 2x2 m (NNÃ–-SSV) och 1,3 m h, av naturstenar, 0,3-0,4 m st. Helt Ã¶vermossat.
+JordkÃ¤llaren, kvadratisk, 8x8 m (N-S) och 0,2-1,4 m h, hÃ¶gst pÃ¥ gavlarna i N och S, och 1,5 m dj. Inre yta, kvadratisk, 3x3 m (N-S), med kallmurade vÃ¤ggar av 0,1-1 m st naturstenar. IngÃ¥ng i S.
+Brunn, rund, 1 m diam och 2 m dj till vattenytan. Kallmurade vÃ¤ggar av naturstenar, 0,3-0,4 m st. Ovan mark Ã¤r en cementring, 1 m diam och 0,6 m h, tÃ¤ckt med en bit korrugerad takplÃ¥t.
+StengÃ¤rdesgÃ¥rdarna Ã¤r 1,5-2 m br och 1-1,2 m h, av 0,3-1 m st stenar. AvgrÃ¤nsar stÃ¤llvis inÃ¤gomarken. PÃ¥trÃ¤ffad vid arkeologisk utredning Ã¥r 2014, utan KML-beslut. (RAÃ„ dnr 3.4.2-3159-2014)."Ž
+‹RÃ¶se, rest av, 14 m diam, 0.3 m h. RÃ¶set bestÃ¥r av 0.2-0.4 m ststenar. RÃ¶set nu mycket fÃ¶rstÃ¶rt. PÃ¥ och runt rÃ¶set vÃ¤xer ekaroch lindar. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ž
+‹TorplÃ¤mning, 20x10 m (VNV-Ã–SÃ–), bestÃ¥ende av 1 husgrund och 1 jordkÃ¤llaregrund.
+Husgrunden Ã¤r 9x5 m (N-S). Mitt i husgrunden Ã¤r ett spisrÃ¶se, 3-3,5 m i diam och 1,2 m h, av 0,3-0,4 m st stenar. 4 m Ã–SÃ– om husgrunden Ã¤r en jordkÃ¤llaregrund, 5x3,5 m (NNV-SSÃ–), ingrÃ¤vd i backen mot SSÃ–. Grundens inre Ã¤r 1,0 m dj. I NNV Ã¤r en stenkant vid/kring Ã¶ppningen av 0,25-0,4 m st stenar."	
+Œ	TorplÃ¤mning, 160x70 m (NÃ–-SV), bestÃ¥ende av 1 grund efter boningshus, 1 grund efter ekonomibyggnad, 1 brunn, 2 fÃ¥llor, 1 kÃ¤llargrund samt fossil Ã¥ker.
+
+I omrÃ¥dets mitt Ã¤r:
+
+1) Grund efter boningshus, 8x6 m (N-S) och intill 0,4 m h. I NÃ– Ã¤r spismursrÃ¶se, 3 m st och 0,9 m h. I S Ã¤r trappsten(?).
+
+Ca 60 m NÃ– om 1) Ã¤r:
+
+2) Grund efter ekonomibyggnad, 5x3 m (NV-SÃ–) och intill 0,5 m h. Golvytan nÃ¥got fÃ¶rsÃ¤nkt. I NV-SV diffus avgrÃ¤nsning. BelÃ¤gen i fÃ¶rlÃ¤ngning av stenmur.
+
+Ca 10 m SSV om 1) Ã¤r:
+
+3) Brunn, rund, 0,8 m diam och intill 0,2 m dj. Kallmurade sidor, av 0,2-0,4 m st stenar. Cementring och cementlock pÃ¥lagt.
+
+Ca 25 m Ã– om 1) Ã¤r:
+
+4) FÃ¥lla, 6x4 m (NV-SÃ–) och intill 1,2 m h vÃ¤ggpartier. I SV Ã¤r en bred Ã¶ppning.
+
+Ca 20 m Ã– om 1) Ã¤r:
+
+5 FÃ¥lla, 3x3 m med 0,4-0,9 m h vÃ¤ggpartier. VÃ¤ggen utgÃ¶rs av en stenmur.
+
+Ca 40 m NV om 1) Ã¤r:
+
+KÃ¤llargrund, 4,5x4 m (Ã–-V), med 1,7 m h vÃ¤ggpartier. I V Ã¤r ingÃ¥ng.
+
+Inom omrÃ¥det finns fossil Ã¥ker, bestÃ¥ende av ett 50-tal rÃ¶jningsrÃ¶sen. Dessa Ã¤r 2-5 m diam och 0,2-1 m h. Ett 20-tal rÃ¶jningsrÃ¶sen Ã¤r upplagda pÃ¥ stÃ¶rre block. I omrÃ¥det finns ocksÃ¥ ett par stenmurar."
+TorplÃ¤mning, 50x30 m (NNV-SSÃ–), bestÃ¥ende av rester efter 1 bostadshus och 1 grund efter jordkÃ¤llare.
+Bostadshuset Ã¤r 5x5 m st, med delvis nedfallna timmervÃ¤ggar och spisrÃ¶se. 20 m S om bostadshuset Ã¤r grund efter jordkÃ¤llare, 3,5x2 m st och 1,5 m h, med stenfundament. Kring lÃ¤mningarna Ã¤r rester av en trÃ¤dgÃ¥rd, som Ã¤r igenvÃ¤xt och bestÃ¥r av gamla frukttrÃ¤d, lupiner och granar."
+TorplÃ¤mning(?), 90x75 m (NV-SÃ–), bestÃ¥ende av 1 boningshusgrund, 5 rÃ¶jningsrÃ¶sen och rest av gÃ¤rdesgÃ¥rd. Boningshusgrunden Ã¤r 8x6 m (NNV-SSÃ–), med i SÃ– hÃ¶rnet spismursrest, 3x3 m och 0,7 m h, och N dÃ¤rom en kÃ¤llargrop, 2x1,5 m (Ã–-V), med kallmurade, 0,7 m h vÃ¤ggar.RÃ¶jningsrÃ¶sena Ã¤r 3-4 m diam och 0,5 m h, av 0,2-0,4 m st stenar. GÃ¤rdesgÃ¥rd lÃ¤ngs omrÃ¥dets SV sida. Kallas TÃ¤cka stÃ¤llet pÃ¥ 1949 Ã¥rs ek karta. DÃ¥ obebyggt. Bebyggt vid generalstabskartans utgivning Ã¥r 1871. (RAÃ„ dnr 326-1452-2009)"
+OfferkÃ¤lla, bestÃ¥ende av en tresidig, naturlig skreva dÃ¤r den nedre, vattenfyllda delen Ã¤r 0,7x0,4 m (NNV-SSÃ–) och 0,3 m dj. KÃ¤llankan bli nÃ¥got stÃ¶rre och hÃ¶gst 0,4 m dj, innan vattnet rinner Ã¶ver kanten i SÃ–. Djupast i V hÃ¶rnet. I kÃ¤llan har hittats mynt.MarkÃ¤garen Torsten Niklasson, KrumsÃ¥s, rengÃ¶r kÃ¤llan en gÃ¥ng om Ã¥ret, denna gÃ¥ng med inventeraren 5.8, varvid hittades 12 koppar- och silvermynt frÃ¥n 1964-81. Fram till 2-3 Ã¥r sedan fanns ett par 5-Ã¶ringar frÃ¥n 1800-talet kvar. Mynten lades tillbaka. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."‘
+ŽTorplÃ¤mning, ca 100x30-40 m (Ã–-V), bestÃ¥ende av 1 boningshusgrund, 1 grund efter ekonomibyggnad och 1 kÃ¤llargrund.
+Boningshusgrunden Ã¤r ca 9x5 m (N-S) och intill 0.3 m h, med centralt placerat spisrÃ¶se, ca 4 m diam och 1.3 m h. TvÃ¥ trappstenar vÃ¤lbevarade pÃ¥ Ã– sidan. Ca 36 m Ã– om boningshusgrunden Ã¤r grund efter ekonomibyggnad, ca 15x7 m (N-S) och 0.1-0.4 m h. Indelad i sektioner. Ca 36 m NNV om boningshusgrunden Ã¤r kÃ¤llargrund, ca 8x8 m (Ã–-V) och intill 1.8 m h. VÃ¤ggar av kallmurad sten, utan tak. I Ã– Ã¤r ingÃ¥ng, 4 m l, intill 0.9 m br och 0.4-0.6 m h. KÃ¤llaren ligger i SV hÃ¶rnet av en stenhÃ¤gnad, 28x21 m st, nÃ¥got raserad."‘
+ŽNy beskrivning:
+HÃ¤llkista i rÃ¶se.
+RÃ¶set Ã¤r  nÃ¤rmast runt, 10 m diam och 0,6 m h av 0,2-0,6 m st stenar .
+HÃ¤llkistan i anlÃ¤ggningens mittparti Ã¤r ca 2,5x1 m (N-S) och intill 0,4 m dj. Den bestÃ¥r av 1 gavelhÃ¤ll i vardera kortsidan  och 2 sidohÃ¤llar i vardera lÃ¥ngsidan .
+GavelhÃ¤llarna Ã¤r 0,6- 1 m l (Ã–-V), 0,1- 0,2 m tj och 0,4- 0,6 m h (synlig hÃ¶jd). GavelhÃ¤llen i S lutar kraftigt Ã¥t S.
+SidohÃ¤llarna Ã¤r 0,3-1,1 m l (N-S), 0,1-0,2 m tj och Ã¤r 0,2-0,5 m h (synlig hÃ¶jd). En sidohÃ¤ll i V lÃ¥ngsidan lutar Ã¥t Ã–.
+
+
+Ã„ldre beskrivning:
+HÃ¤llkista i rÃ¶se, nÃ¤rmast ovalt, 12x10 m st, 0.75 m h, bestÃ¥endeav 0.2-0.5 m st stenar. I NV delen grop, 1.5 m diam och 0.4 mdj. RÃ¶set Ã¶vervuxet med mossa och bevuxet med granar ochbjÃ¶rkar. I rÃ¶sets mitt Ã¤r en hÃ¤llkista (NÃ–-SV).HÃ¤llkistan bestÃ¥r av en gavelhÃ¤ll i N och S samt tvÃ¥ sidohÃ¤llar ivardera sidan. Kistan Ã¤r 0.5 m dj. HÃ¤llarna Ã¤r 0.5-1 m l, 0.2 mtj och 0.5-0.6 m h. Stenfylld och Ã¶vertorvad.I kistan vÃ¤xer en bjÃ¶rk.Se skiss i inventeringshandlingarna."“
+TorplÃ¤mning, ca 110x50 m (VNV-Ã–SÃ–), bestÃ¥ende av 1 boningshusgrund och 1 jordkÃ¤llargrund.
+Boningshusgrunden Ã¤r 7x5 m (N-S), med intill 0,4 m h stenfot. Centralt placerat i Ã– Ã¤r spisrÃ¶set, 3 m st och 1 m h. Ca 40 m SÃ– om boningshusgrunden Ã¤r jordkÃ¤llargrunden, 6x4 m (NNÃ–-SSV), innermÃ¥tt 2x2 m st, med kallmurade vÃ¤ggar, 1,2-1,5 m h. IngrÃ¤vd intill 1 m dj i Ã–NÃ–-sluttning. I NNÃ– Ã¤r ingÃ¥ng, 3 m l och 0,5-1 m br, omgiven av 0,2-1 m h vallar. TorplÃ¤mningen omges delvis av stenmur och enstaka rÃ¶jningsrÃ¶sen."•
+’OfferkÃ¤lla (NV-SÃ–), 3.20 m l och ca 2.7 m br, kantad av liggandeflata stenar, 0.4-0.7 m l, 0.25-0.4 m br och 0.1-0.2 m tj.KÃ¤llans botten bestÃ¥r av grovt grus. Vattnet Ã¤r mycket klart ochanvÃ¤nds i hushÃ¥ll. Vatten hÃ¶jden konstant Ã¥ret om (ca 0.8 m).Vattnet kommer frÃ¥n Ã¥der i kÃ¤llans NV del, avloppet rinner iN-S. Mynt frÃ¥n senare tid ligger Ã¤nnu kvar (moderna mynt Ã¥r1999)..Skyltad: Sagobygden. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."–
+“Ristning i rest stenblock, 1,35 m h, 0,9 m br och 0,7 m tj.  PÃ¥ stenens toppyta, jÃ¤mn och lutande ca 40g Ã¥t SSÃ–, Ã¤r ett 15-tal kors inristade."–
+“GÃ¥rdstomt, 80x35 m (NÃ–-SV), bestÃ¥ende av 1 husgrund och 1 ladugÃ¥rdsgrund,
+Husgrunden Ã¤r 11x10 m (Ã–-V), med en kÃ¤llargrop i SV delen. Ca 30 m NNÃ– om husgrunden Ã¤r en ladugÃ¥rdsgrund, 20x10 m (Ã–-V). PÃ¥trÃ¤ffad vid utredning utan KML-beslut. (RAÃ„ dnr. 326-2353-2011)"–
+“TorplÃ¤mning, sentida, bestÃ¥ende av en husgrund med spismursrester(ev ytterligare en husgrund), terrasskanter, rÃ¶jda ytor,rÃ¶jningsrÃ¶sen samt en vÃ¤g. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."–
+“TorplÃ¤mning, sentida. BestÃ¥ende av en husgrund med spismursrest,stensatt jordkÃ¤llare, rÃ¶jningsrÃ¶se och brukningsvÃ¤g. Torpskylt:PLYMENS, nr: 10.5 D. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."–
+“TorplÃ¤mningar, inom ett ca 100x50 m st omrÃ¥de (VNV-Ã–SÃ–) Ã¤r enhusgrund med spismursrest, en jordkÃ¤llare, en stenmur,rÃ¶jningsrÃ¶sen och rÃ¶jda ytor. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."—
+”TorplÃ¤mning, bestÃ¥ende av 1 husgrund med spismursrÃ¶se och 1jordkÃ¤llare. I omrÃ¥det finns tillhÃ¶rande odlingslÃ¤mningar samt lÃ¤ngst iSV en kolbotten. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."—
+”TorplÃ¤mning, bestÃ¥ende av husgrund med spismursrÃ¶se, som Ã¤r 4 m idiam och 1.1 m h. TorplÃ¤mningenomges av rÃ¶jningsrÃ¶sen och granplanterad Ã¥kermark. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."—
+”TorplÃ¤mning, 75x45 m (NV-SÃ–), bestÃ¥ende av en husgrund med spisrÃ¶se och en jordkÃ¤llare. 
+Husgrunden Ã¤r  rektangulÃ¤r, 11x6 m (NNV-SSÃ–) och 0,3-0,5 m h. I mittpartiet ett spisrÃ¶se, nÃ¤rmast runt, 3-4 m diam och 1 m h, av natursten och tegel. PÃ¥ N lÃ¥ngsidans mitt Ã¤r en trappsten. 
+10 m N om husgrunden och i omrÃ¥dets NV del Ã¤r:
+JordkÃ¤llare, 10x8 m (Ã–-V) och 2,5 m h, av natursten. Valvet intakt. IngÃ¥ng i S.
+I Ã–-SÃ– delen av omrÃ¥det Ã¤r 4-5 odlingsrÃ¶sen av torparkaraktÃ¤r, runda och ovala, 4-6 m st och 0,8-1 m h."—
+”1/StensÃ¤ttning, rund, 12 m i diam och 0.3 m h. Ã–vertorvad med i ytan talrika 0.2-0.5 m st stenar. I SV kanten en kantstÃ¤lld hÃ¤ll,0.4 m h, ca 1 m l och 0.3 m tj. Ã–ver an lÃ¤ggningens S kant gÃ¥ren stenmur (Ã¤go- sockengrÃ¤ns) (Ã–NÃ–-VSV). BevÃ¤xt med nÃ¥graenbuskar samt lÃ¶vsly. Anl Ã¤ggningen finns markerad och beskrivenpÃ¥ ett par Ã¤ldre lantmÃ¤teriakter. "HanehÃ¶g bestÃ¥ende av 22 ststenar mest jordfaste i en ring lagde" Antagligen har gravenvarit omgiven av 22 st kantstÃ¤llda hÃ¤llar, v arav endast 1Ã¥terstÃ¥r 1993. 1 m NÃ– om nr 1 Ã¤r 2/Rest sten, kullfallen, 3.5 ml (Ã–NÃ–-VSV), 1 m br och 0.2-0.3 m t j. NÃ¥got osÃ¤ker, har docksannolikt varit rest. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."˜
+•OfferkÃ¤lla, 10 m l (Ã–-V), 1-4 m br. FrÃ¥n kÃ¤llan gÃ¥r i Ã– riktningett numera igenslammat dike som leder till den Ã¤ven igenslammadeÃ¶stligaste kÃ¤llan. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."˜
+•TorplÃ¤mning, 35x20 m ((N-S), bestÃ¥ende av 1 husgrund, 1 jordkÃ¤llaregrund och 1 ladugÃ¥rdsgrund.
+Husgrunden Ã¤r 9x6 m (N-S). Synlig stenfot, intill 0,25 m h, av 0,3-0,5 m st stenar. N om centrum Ã¤r ett spisrÃ¶se, 2,5-3 m i diam och 1,0 m h, av 0,2-0,3 m st stenar. I V kraftig entrÃ©trappa. I SÃ– en liten utbyggnad. 15 m S om husgrunden Ã¤r en jordkÃ¤llaregrund, 4x3 m (Ã–-V), ingrÃ¤vd i backen mot Ã–. Kallmurade vÃ¤ggar, 0,8-1,6 m h, av 0,2-0,4 m st stenar (enstaka intill 0,8 m st). IngÃ¥ng i V, 0,7 m br.  9 m SSÃ– om jordkÃ¤llaregrunden Ã¤r en ladugÃ¥rdsgrund, 10x6 m (Ã–-V), delvis ingrÃ¤vd i backen mot N. Kraftiga kallmurade vÃ¤ggar, 0,5-1,5 m h och 0,5-1,0 m br, av 0,3-0,8 m st stenar. TvÃ¥ ingÃ¥ngar i S, 1,0-1,2 m br. I omrÃ¥det finns enstaka stenmurar och rÃ¶jningsrÃ¶sen."˜
+•1) RÃ¶se, 25 m diam och 2 m h, av i allmÃ¤nhet 0.3-0.4 m st stenar.I mitten grop, 2 m diam, 1 m dj. I SÃ– delen liknande grop.I kanten bevuxen med en bjÃ¶rk och flera barrtrÃ¤d. Mittgropendelvis fylld med plÃ¥t- och glasskorot.Omedelbart SSÃ– om nr 1 Ã¤r:2) StensÃ¤ttning, rund, 15 m diam, fylld, 0.5 m h. fyllning av iallmÃ¤nhet 0.2-0.4 m st stenar. I mitten en 5x3x0.6 m st sten.10 m SSÃ– om nr 2 Ã¤r:3) StensÃ¤ttning, rund, 20 m diam, fylld, 0.5 m h. Fyllning av iallmÃ¤nhet 0.3-0.5 m st stenar.Bevuxen med smÃ¥ lÃ¶vtrÃ¤d.45 m S om nr 3 Ã¤r:4) RÃ¶se, 15 m diam, 0.75 m h, av i allmÃ¤nhet 0.2-0.4 m ststenar.3 m N om nr 1 Ã¤r:5) StensÃ¤ttning, 14 m diam ocn 0.2 m h. Fyllning av 0.2-0.4 m ststenar. I mitten ett block 1.5x1.5 m st och 0.4 m h.Ã–vermossad.I skogen NÃ– om rÃ¶sena odlingsrÃ¶sen. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."›
+˜TorplÃ¤mning, bestÃ¥ende av 1 jordkÃ¤llare, 7x5 m (Ã–-V) och 1-2 m h. IngÃ¥ng i Ã–.
+I anslutning till grunden finns "torpÃ¥krar" som fortfarande brukas."œ
+™RÃ¶se, 15 m diam, 1 m h, bestÃ¥ende av synnerligen blandatstenmaterial, 0.1-1 m st stenar. RÃ¶set raserades svÃ¥rt dÃ¥ stentogs ur rÃ¶set och krossades till vÃ¤gbelÃ¤ggning vid vÃ¤gbygget pÃ¥1920-talet.BevÃ¤xt med en mÃ¤ngd smÃ¥trÃ¤d frÃ¤mst bjÃ¶rk.  PÃ¥ rÃ¶set ligger ganskamycket ris . Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."œ
+™RÃ¶se, 17-18 m i diam och 0,3-0,6 m h, av i allmÃ¤nhet 0,2-0,3 m ststenar. PÃ¥ rÃ¶set ligger nÃ¥gra stÃ¶rre stenar, 0,6-1 m l, 0,4-0,9 mbr och 0,2-0,3 m tj. PÃ¥ rÃ¶sets kant Ã¤r en stenmur, 0,6-1,4 m h och 1,5 m br. Troligen Ã¤r stenarna tagna frÃ¥n rÃ¶set. De runt om rÃ¶sets kant utlagda stenarna bildar nu ett plan, lÃ¤mpad fÃ¶r kvarngrund. Kvarnen har fÃ¶r minst 60-70 Ã¥r sedan borttagits att dÃ¶ma av trÃ¤den. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."œ
+™RÃ¶se, ca 20 m i diam och 1,75 m h, av i allmÃ¤nhet 0,2-0,4 m st stenar. RÃ¶set Ã¤r mycket skadat. I mitten och Ã– om mitten Ã¤r en grop,8-10 m i diam och ned till bottenskiktet. I N delen Ã¤r en grop, 6-7 m l (NÃ–- SV), 3 m br och ned mot bottenskiktet. I V kanten Ã¤r en mÃ¤ngd odlingssten pÃ¥lagd, en del av denna sten och troligen en ringa del av rÃ¶sestenen senare borttagen. UndersÃ¶kt av K KjellmarkÃ¥r 1928. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ž
+›TorplÃ¤mning ThorsÃ¤nketorpet, 260x35-140 m (NV-SO) bestÃ¥ende av 2 husgrunder, 28 stenmurar, 26 rÃ¶jningsrÃ¶sen och ett flertal plana odlingsytor. Den S husgrunden Ã¤r ca 7x5  m (NV-SO) och 0,1-0,2 m h. I husgrunden Ã¤r spismursrÃ¶se ca 3 m i diam och 1 m h av 0,2-0,5 m st stenar. Ca 50 m N om denna Ã¤r den andra husgrunden 10x5 m (NO-SV) bestÃ¥ende av en syllstensrad 0,3 m h. I grunden Ã¤r ett spismursrÃ¶se 2x2 m st och 1,2 m h. I grunden Ã¤r Ã¤ven fÃ¶rsÃ¤nkningar , troligen rester efter kÃ¤llargropar. Stenmurarna Ã¤r 3-42 m l 1-4 m br samt 0,3-1,4 m h. Stenmurarna Ã¤r omvÃ¤xlande vÃ¤llagda med kallmurade kanter men Ã¤ven mer slarvigt tillkomna finns. RÃ¶jningsrÃ¶sena Ã¤r 1,5-8 m i diam och 0,2-1,4 m h. Mellan rÃ¶jningsrÃ¶sen och stenmurar Ã¤r plana ytor, troligen Ã¥kerytor vilka Ã¤r svÃ¥ra att avgrÃ¤nsa och uppskatta storlek pÃ¥. Delar av torpet finns medtaget pÃ¥ laga skifteskarta frÃ¥n Ã¥r 1862 (07-lej-65). PÃ¥ denna karta var ytterligare husgrunder markerade varav tvÃ¥ lÃ¥g i nuvarande vÃ¤gstrÃ¤ckning och troligen schaktats bort."Ÿ
+œHÃ¤llristningsomrÃ¥de, ca 15x5 m (N-S), bestÃ¥ende av 2 hÃ¤llristningsytor.
+HÃ¤llristning (1), 4,4x1,5 m  (N-S), bestÃ¥ende av 4 fotsulor, 1 ringfigur, 3 obestÃ¤mbara figurer, 1 fragment, 14 rÃ¤nnor och 359 skÃ¥lgropar.
+Fotsulorna Ã¤r 22-25 cm l och 11 cm br, samtliga konturhuggna varav 2 parstÃ¤llda och med sandalband.
+Ringfiguren Ã¤r 10 cm i diam och bestÃ¥r av ett ekerhjul med 8 ekrar.
+De obestÃ¤mbara figurerna Ã¤r 12-20 cm l och  4-10 cm br.
+Fragmentet Ã¤r 10 cm l.
+RÃ¤nnorna Ã¤r 2-11 cm l, varav 11 parvis sammanbinder 22 skÃ¥lgropar och 3 utgÃ¥r ifrÃ¥n skÃ¥lgropar.
+Av skÃ¥lgroparna Ã¤r 356 runda och 2-9 cm i diam och 0,5-5 cm dj; 4 Ã¤r avlÃ¥nga, 5-10 cm l och  3-4 cm br och 0,5-1 cm dj. 17 skÃ¥lgropar Ã¤r huggna i sprickor.
+BelÃ¤gen pÃ¥ Ã¶stsluttande, delvis brandskadad hÃ¤ll.
+Ca 4 m NNÃ– om hÃ¤llristning (1) Ã¤r:
+HÃ¤llristning (2), 5,9x3,2 m (N-S) bestÃ¥ende av 3 djur, 1 mÃ¤nniskofigur, 32 fotsulor, 3 spiraler, 2 ormvindlingar, 1 ankarliknande figur, 1 "halvcirkelformad" figur, 1 ringfigur med mittpunkt, 10 obestÃ¤mbara figurer, 63 fragment och 27 skÃ¥lgropar samt ett antal lÃ¶sa huggmÃ¤rken. 
+Djuren Ã¤r 17-24 cm l, av strecktyp och fyrbenta. 2 av dem har lÃ¥ng svans.
+MÃ¤nniskofiguren Ã¤r 27 cm l, phallisk och med tretungad huvudbonad?
+Fotsulorna Ã¤r 18-27 cm l, 8-16 cm br, samtliga Ã¤r konturhuggna varav 9 fragmentariska. 5 har sandalband; 1 har dubbelt sandalband och Ã¤r parstÃ¤lld; 2 har tÃ¥r och Ã¤r parstÃ¤llda; de 11 Ã¶vriga Ã¤r parstÃ¤llda.
+Spiralerna som har "skaft" Ã¤r 11-18 cm l och 5-8 cm br. 
+Ormvindlingarna Ã¤r 9-27 cm l och 12-20 cm br.
+Den ankarliknande figuren Ã¤r 11x18 cm.
+Den halvcirkelformade" figuren Ã¤r 31x26 cm. De bÃ¥da Ã¤ndarna avslutas med "knoppar". 
+Ringfiguren med mittpunkt Ã¤r 34x21 cm och Ã¤r fÃ¶rsedd med 2 armar och "mast".
+De obestÃ¤mbara figurerna Ã¤r 11-44 cm l och 6-32 cm br.
+Fragmenten Ã¤r 3-42 cm l.
+SkÃ¥lgroparna Ã¤r 2-5 cm i diam och 0,5-1,5 cm dj.
+BelÃ¤gen pÃ¥ Ã¶stsluttande, delvis brandskadad hÃ¤ll.
+(RaÃ¤ dnr: 321-866-2009) - - 
+
+Ã„ldre beskrivning: HÃ¤llristning, bestÃ¥ende av ca 100 Ã¤lvkvarnar, 2-9 cm i diam, 0,5-3 cm djupa. Vidare finns 2 fotsulor och ett par solhjul. Figurerna Ã¤r mycket otydliga. HÃ¤llristningen Ã¤r anbragt pÃ¥ en mot Ã– svagt sluttande berghÃ¤ll. 
+Revideringsinventering 1993: Det vÃ¤xer mossa pÃ¥ en stor delav hÃ¤llen, vilket gÃ¶r att endast ca 50 skÃ¥lgropar Ã¤r synliga. Enligt K. Kjellmark ca 350-400 skÃ¥lgropar (Kronobergsboken 1923).
+Dnr 6159/93:" 
+TorplÃ¤mning, bestÃ¥ende av 1 boningshusgrund, 10x5 m (Ã–-V) och 0,2 m h. Centralat placerat spisrÃ¶se, ca 3 m st och 0,8 m h, med natursten och tegelstenar."¡
+žTorplÃ¤mning, inom ett omrÃ¥de av ca 100x60 m (N-S) Ã¤r en husgrundmed spismursrest, rÃ¶jningsrÃ¶sen och rÃ¶jda ytor. Ett skjul stÃ¥rfortfarande kvar inom omrÃ¥det. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."¡
+žTorplÃ¤mning, 170x70 m (NNÃ–-SSV), bestÃ¥ende av 1 grund efter boningshus, 1 brunn samt fossil Ã¥ker.
+
+1) Grund efter boningshus, 9x4 m (NNÃ–-SSV) och intill 0,2 m h. Diffus. Central Ã¤r spismursrÃ¶se, ca 4 m st och intill 0,6 m h.
+
+Ca 10 m SSV om 1) Ã¤r:
+
+2) Brunn, rund, 2 m diam och ca 1,6 m dj. Kallmurade vÃ¤ggar, av 0,1-0,6 m st stenar.
+
+I omrÃ¥det finns dessutom fossil Ã¥ker, bestÃ¥ende av ett rÃ¶jningsrÃ¶seomrÃ¥de med ett 10-tal rÃ¶jningsrÃ¶sen. Dessa Ã¤r ca 5 m st och 0,6 m h. OmrÃ¥det begrÃ¤nsas i Ã–, V och S av en lÃ¥g stenmur."¡
+ž1) StensÃ¤ttning, rund, 20 m i diam och 0,7 m h. Ã–vertorvad med iytanenstaka 0,2-0,3 m st stenar. I S synlig kantkedja, 0,2-0,4 m h, av0,4-1m l stenar. I mitten Ã¤r en uppbyggd bersÃ¥, 8x5 m (Ã–NÃ–-VSV) och 0,6m h,av 0,2-0,5 m st stenar. I S delen stÃ¥r en grindstolpe.Omedelbart V om nr 1 Ã¤r2) StensÃ¤ttning, rund, 11 m i diam och 0,4 m h. Ã–vertorvad med i ytanenstaka 0,2-0,3 m st stenar.PÃ¥ nr 1 ligger3) DrÃ¤ngalyft, grÃ¥sten, 0,5 m i diam och 0,4 m tj.Intill nr 3 Ã¤r4) DrÃ¤ngalyft, grÃ¥sten, 0,5 m i diam och 0,3 m tjOmnÃ¤mns av Kjellmark. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."¡
+ž1) Rest sten, granit, 2,3 m h, 0,6-0,7 m br (Ã–NÃ–-VSV) och 0,4 m tj. NÃ¤rmast rektangulÃ¤r genomskÃ¤rning, bredast pÃ¥ mitten.17 m SSÃ– om nr 1, 4 m Ã– om Ã¥kerkant och 14 m SSV om Ã¥kerkant Ã¤r2) StensÃ¤ttning, oval, 6x5 m (N-S), bestÃ¥ende av klumpstenar, 0,6-0,8 m st och 0,3-0,4 m h. I N och S stÃ¶rre stenar, 0,8-1x0,5 m stoch 0,5-0,6 m h. StensÃ¤ttningens inre Ã¤r i nivÃ¥ med markytan.Omedelbart intill och N om nr 2 och invid och Ã– om Ã¥kerkant Ã¤r3) StensÃ¤ttning, oval, ca 6x5 m (N-S), bestÃ¥ende av 0,4-0,6 m st och 0,2- 0,3 m h stenar i kanten, inre fyllning? i nivÃ¥ med markytan.PÃ¥ hela Ã¥kerholmen ligger odlingssten och ris, mÃ¶jligen dÃ¶ljs ytterligare nÃ¥gon stensÃ¤ttning.Omedelbart intill och SV om nr 2 Ã¤r en kÃ¤llare, ca 7x6 m st och 0,7 m h, till stor del fylld av odlingssten. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."¢
+ŸTorplÃ¤mning, ca 130x70 m (NNÃ–-SSV), bestÃ¥ende av 1 boningshusgrund, 1 ekonomibyggnadsgrund, 1 fÃ¥lla och ett omrÃ¥de med fossil Ã¥ker.
+Boningshusgrunden, belÃ¤gen i omrÃ¥dets centrala del, Ã¤r 8x6 m (N-S) och intill 0,3 m h, uppbyggd pÃ¥ en mindre platÃ¥. SpisrÃ¶se, centralt belÃ¤get, 3x3 m och 0,6 m h, jordinblandat.
+Ekonomibyggnadsgrunden, belÃ¤gen 20 m NNV om boningshusgrunden, Ã¤r ca 6x5 m (VNV-Ã–SÃ–), bestÃ¥ende av en enkel syllstensrad.
+FÃ¥llan, belÃ¤gen invid en stenmur i omrÃ¥dets SV del, Ã¤r ca 2 m l (NNV-SSÃ–), 1,5 m br och 0,3 m h, bestÃ¥ende av en enkel syllstensrad. Berg i dagen lÃ¤ngs fÃ¥llans Ã–NÃ– kant.
+Inom omrÃ¥det finns dessutom fossil Ã¥ker med ett fÃ¥tal rÃ¶jningsrÃ¶sen. Dessa Ã¤r runda, 2-4 m diam och 0,3-0,5 m h. OmrÃ¥det begrÃ¤nsas till stora delar av stenmurar."¤
+¡TorplÃ¤mning bestÃ¥ende av en husgrund.
+Husgrunden Ã¤r rektangulÃ¤r, 8x7 m (NÃ–-SV) och 0,2-0,3 m h. I S hÃ¶rnet ett spisrÃ¶se, rektangulÃ¤rt, 4x3 m (NÃ–-SV) och 1 m h. Omedelbart NÃ– om spisrÃ¶set Ã¤r en kÃ¤llargrop, nÃ¤rmast kvadratisk, 3x3 m (NÃ–-SV) och 0,8 m dj. 
+Skyltad Lagratorpet."¤
+¡TorplÃ¤mning, bestÃ¥ende av en husgrund med spismursrest, spriddagrundstenar, en kÃ¤llargrop, rÃ¶jningsrÃ¶sen, rÃ¶jda ytor ochbrukningsvÃ¤g. Torpskylt: RIKET, nr: 3 B. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."¤
+¡TorplÃ¤mning, bestÃ¥ende av en husgrund, 10x10 m (NNV-SSÃ–). PÃ¥ grunden har placerats en gammal eka och ett jÃ¤rnankare. Invid trÃ¶skelstenen pÃ¥ Ã– sidan av grunden Ã¤r en rund metallskylt med texten: FISKARESTUGANTJÃ„NSTEBOSTAD O.TORP U.OBY1949Stugan hade lÃ¥gt sadeltak och revs ca Ã¥r 1991. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."¥
+¢TorplÃ¤mning, idag synlig som en otydlig grund, ca 5x4 m (Ã–-V). I N delvis synlig stenfot, intill 0,15 m h. I SV Ã¤r en stenansamling, 2 m i diam och 0,3 m h, av 0,2-0,4 m st stenar - troligen ej ett spisrÃ¶se. Grunden utgÃ¶r troligen inte bostadshuset pÃ¥ torpet. Torpet var bebott 1850-1866.
+Omedelbart N hÃ¤rom Ã¤r i skogen rester av torpets Ã¥kermark i form av rÃ¶jda ytor avgrÃ¤nsade av vallar med rÃ¶jningssten."¥
+¢Ã„ldre kyrkogrund under nuvarande kyrkobyggnad.
+
+Grundmur, oklar omfattning och utbredning â€“ beskrivs som â€en oregelbunden och ofullstÃ¤ndig grund eller stenlÃ¤ggningâ€,  Ã¥r 1958 av landsantikvarie J.E. AnderbjÃ¶rk, efter att formationen observerats i samband med restaureringsarbeten under sommaren och hÃ¶sten 1957. I samband med restaureringsarbetena pÃ¥trÃ¤ffades Ã¤ven tvÃ¥ ca 1,8 m lÃ¥nga kistor liggandes i Ã–-V riktning i mittgÃ¥ngens och lÃ¥nghusets mittparti, kistorna flyttades enbart fÃ¶r att ge plats Ã¥t blivande golvunderlag och undersÃ¶ktes inte nÃ¤rmare. Vid samma tillfÃ¤lle pÃ¥trÃ¤ffades Ã¤ven skelettrester i korets mitt. Invid Ã¶stra korvÃ¤ggen pÃ¥trÃ¤ffades en â€vÃ¤l lagd stenlÃ¤ggningâ€, uppbyggd av 0,2-1,0 m stora stenar, delvis i kallmur, vars bredd uppgick till 2-3 m och tjockleken 0,4-0,5 m. Invid sÃ¶dra vÃ¤ggen kunde aska och brÃ¤nda stenar konstateras, dessa stenar lÃ¥g invid den sÃ¶dra igensatta kordÃ¶rren och ingÃ¥ngen till sakristian lÃ¥g i ett skikt utan synligt murbruk, en del av stenarna var skÃ¶rbrÃ¤nda och spÃ¥r av aska kunde konstateras.
+
+J.E AnderbjÃ¶rk drog fÃ¶ljande slutsatser; LÃ¥nghuset har haft en sydingÃ¥ng belÃ¤gen ca 2 m Ã¶ster om kyrkans sydvÃ¤stra hÃ¶rn. DÃ¶rren har haft en hÃ¶jd om 2 m och bredd om 1,2 m. OvanfÃ¶r denna dÃ¶rr och lÃ¤ktaren har pÃ¥ sÃ¶dra lÃ¥nghusvÃ¤ggen funnits ett fÃ¶nster som varit 1 m brett och 0,9 m hÃ¶gt. PÃ¥ respektive lÃ¥nghusvÃ¤gg har det ursprungligen suttit fÃ¶nster som varit 2 meter hÃ¶ga och 1,5 m breda. Ã„ven koret har haft en sydingÃ¥ng med en bredd om 1,2 m. HÃ¶jden kunde inte bestÃ¤mmas pÃ¥ denna ingÃ¥ng med anledning av det i sen tid upptagna sÃ¶dra korfÃ¶nstret. 
+
+Tutaryds kyrka omnÃ¤mns fÃ¶rsta gÃ¥ngen Ã¥r 1406 i skriftliga kÃ¤llor som â€j Tutarydsh soknâ€. Nuvarande kyrka stod fÃ¤rdig 1694, byggd i timmer med ett rektangulÃ¤rt lÃ¥nghus, ett lÃ¤gre och smalare kor Ã¤n fÃ¶regÃ¥ende kyrkor, enligt kyrkoplatsens karakterisering i bebyggelseregistret. Nuvarande efterreformatoriska trÃ¤kyrka i Tutaryd ska vara den tredje trÃ¤kyrkan pÃ¥ samma plats (enligt uppgifter frÃ¥n Digitalt Museum, Kulturparken SmÃ¥land, ID JEAK03763-JEAK03769).
+
+KyrkogÃ¥rden har ett medeltida ursprung. PÃ¥ 1670-talet tillkom kyrkogÃ¥rdsmuren som dÃ¥ var fÃ¶rsedd med en stiglucka som inte finns kvar idag. KyrkogÃ¥rden utvidgades tvÃ¥ gÃ¥nger under 1900-talet; Ã¥r 1908 Ã¥r norr, och 1981 fÃ¶rlÃ¤ngdes kyrkogÃ¥rden vÃ¤sterut.
+
+Vid 1908-Ã¥rs utvidgning pÃ¥trÃ¤ffade man 12 flata stenhÃ¤llar vid markarbetena. PÃ¥ en av de stÃ¶rre hÃ¤llarna fanns en skÃ¥lgrop/Ã¤lvkvarn (3 cm i diam, 2 cm djup). Dessa hÃ¤llar anges i beskrivningen till L1953:3323 att numera mÃ¶jligen ligga i kyrkogÃ¥rdsmuren. Vid samma tillfÃ¤lle hittades Ã¤ven stenen L1953:3182, en ytterligare hÃ¤ll fÃ¶rsedd med en skÃ¥lgrop/Ã¤lvkvarn, som sedermera anvÃ¤nds som â€brudstenâ€, liggandes ca 70 NÃ– om kyrkan idag.
+
+Tutaryds kyrka Ã¤r tidigt kÃ¤nd som en offerkyrka i historisk tid. Enligt traditioner ska en tidigare offerkÃ¤lla ha funnits vid kyrkan. Enligt S-G Sundberg omnÃ¤mns kÃ¤llan i ett brev till domkapitlet Ã¥r 1726, vari det berÃ¤ttas om en drÃ¶m som en kvinna haft om en kÃ¤lla pÃ¥ platsen dÃ¤r kyrkan ligger; kvinnan ska ha druckit frÃ¥n kÃ¤llan och blivit frisk, i samma brev skrivs att ingen kÃ¤lla finns pÃ¥ platsen (Ã¥r 1726). Sundberg har belagt att Tutarydskyrka omnÃ¤mns som offerkyrka frÃ¥n 1638. Kyrkan tycks varit en sÃ¤rskilt framgÃ¥ngsrik offerkyrka som mottagit lÃ¥ngvÃ¤ga, ibland internationella, donationer och besÃ¶k â€“ sÃ¥ framgÃ¥ngsrik att Tutaryds kyrka stÃ¥tt fÃ¶r en rad donationer och lÃ¥n till andra kyrkor i lÃ¤net dÃ¤ribland VÃ¤xjÃ¶ domkyrka, det finns Ã¤ven uppgifter om donationer frÃ¥n Tutaryds kyrka till upprustningen av armÃ©n Ã¥r 1701."¦
+£Domarring, rest av, ursprungligen 9 m i diam, bestÃ¥ende av tre resta stenar. Stenarna kallas i folkmun fÃ¶r Unaman, Sunaman och Vinaman.25 m NÃ– om domarringen Ã¤r en i grustaget nedrasad sten, ca 1,5 m st. I grustaget ligger ytterligare tvÃ¥ stenar som sannolikt tillhÃ¶rt domarringen.Intill och SÃ– om domarringen Ã¤r nÃ¥gra pÃ¥ marken liggande, flata stenar, som mÃ¶jligen tillhÃ¶r eller har tillhÃ¶rt annan fornlÃ¤mning. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."¦
+£TorplÃ¤mning, ca 30x15 m (N-S), bestÃ¥ende av 1 husgrund och 1 jordkÃ¤llaregrund. Husgrunden Ã¤r 8x5 m (Ã–NÃ–-VSV) och med tydlig stenfot, 0,2-0,4 m h, av 0,35-0,6 m st stenar. I N delen Ã¤r ett spismursrÃ¶se, 4 m i diam och 1,2 m h, av 0,2-0,5 m st stenar. 15 m S om husgrunden Ã¤r en jordkÃ¤llaregrund, 5x4 m (NÃ–-SV), ingrÃ¤vd i backen mot NÃ–. VÃ¤ggarna Ã¤r 1-1,5 m br och intill 1,5 m h, och bestÃ¥r av 0,2-0,5 m st stenar. Ã„kta takvalv. IngÃ¥ng i SV, 0,6 m br. PÃ¥trÃ¤ffad vid utredning steg 1 utan KML-beslut 2010. (RAÃ„ dnr 326-1604-2010)"§
+¤Flyttblock, 2,5x2 m (NÃ–-SV) och 0,8 m h. Mitt pÃ¥ blocket en naturlig urgrÃ¶pning, 2x1,5 m (NÃ–-SV) och 0,5 m dj. Vattenfylld.  Skyltad av hembygdsfÃ¶reningen.
+FÃ¶rstudie infÃ¶r planerad nationalpark.
+FÃ¶r Ã¤ldre beskrivning se inventeringsboksuppslaget, skannat bokuppslag under Referenser."§
+¤Ny beskrivning:
+Bytomt, okÃ¤nd utstrÃ¤ckning. PÃ¥ platsen finns en husgrund, 15x5 m (N-S) och 0,5 m h. Platsen benÃ¤mns gamla Agunnaryd pÃ¥ storskifteskartan frÃ¥n 1792.
+
+Ã„ldre beskrivning:
+Husgrundsterrass(?), 15x5 m (N-S) och 0,5 m h. VNV lÃ¥ngsidan harstenskoning, 0,2-0,3 m h, av 0,3-0,6 m st stenar, och begrÃ¤nsas iNNV avett block, 1,3x0,6 m st (NNV-SSÃ–) och 0,3 m h. Gavlarna Ã¤r otydliga ochsaknar stenskoning."¨
+¥TorplÃ¤mning, sentida. BestÃ¥ende av en husgrund med spismursrÃ¶se,rÃ¶jningsrÃ¶sen, stengÃ¤rdsgÃ¥rdar, brukningsvÃ¤g och krusbÃ¤rsbuskar.Torpskylt: KÃ„LLEHULT, nr: 28.1 B. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ª
+§TorplÃ¤mning, bestÃ¥ende av 1 boningshusgrund, 10 x 5 m (VNV-Ã–SÃ–) och 0,5 m h. I mitten Ã¤r ett spismursrÃ¶se, 2 x 2 m st och 0,4 m h, av kallmurade stenar. I den VNV Ã¤nden Ã¤r en kÃ¤llargrop, 2,5 x 2 m st(VNV-Ã–SÃ–) och 0,3 - 0,5 m dj, fylld med rÃ¶jningssten. I S kanten av spismursrÃ¶set stÃ¥r en trÃ¤stolpe med plÃ¥tbleck och texten: "TORP FLYHOLMEN NO. 249". BenÃ¤mnd Lindellatorpet pÃ¥ den gamla ekonomiska kartan."«
+¨TorplÃ¤mning efter torpet Lunden. Torpet var i bruk sÃ¥ sent som ca 1950. Grunder efter bostadshus och ekonomibyggnader samt Ã¤ldre hÃ¤vdvÃ¤xter finns i omrÃ¥det. Ny beskrivning i samband med arkeologisk utredning Ã¥r 2016. (RaÃ¤ dnr: 3.4.2-300-2017)
+FÃ¶r Ã¤ldre beskrivning, se skannat dokument."«
+¨TorplÃ¤mning, sentida, bestÃ¥ende av en husgrund med spismursrester,en kÃ¤llargrund, rÃ¶jda ytor samt rÃ¶jningsrÃ¶sen. I husgrunden Ã¤r enekskylt med inskriptionen: NORRELID. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."¬
+©TorplÃ¤mning, 120x45 m (NÃ–-SV), bestÃ¥ende av 1 husgrund, 2 uthusgrunder och 1 jordkÃ¤llargrund, efter torpet Duvelund.
+Husgrunden, 9x4,5-8 m (N-S) och 0,2-0,5 m h, av tuktade naturstenar, 0,1-1,3 m l. KÃ¤llare i S delen, rektangulÃ¤r, 3x2 m (Ã–-V) och 0,5 m dj. SpismursrÃ¶se i Ã– delen, nÃ¤rmast runt, 4 m diam och 1,2 m h. Helt Ã¶vermossat.
+LadugÃ¥rdsgrunden, 13x6,5-8 m (N-S), i N delen pÃ¥ stenfot, i S delen med glest placerade syllstenar, 0,5-0,7 m st.
+Uthusgrunden, rektangulÃ¤r, 4x3,5 m (VNV-Ã–SÃ–) och 0,5 m h. Stenfot i tvÃ¥ skift av naturstenar, 0,2-0,7 m st.
+JordkÃ¤llargrunden, rektangulÃ¤r, 6x5 m (NV-SÃ–) och 0,8 m dj, nedgrÃ¤vd i NV-sluttning. Kallmurade innervÃ¤ggar, av naturstenar, 0,2-0,6 m st. PÃ¥trÃ¤ffad vid arkeologisk utredning Ã¥r 2014, utan KML-beslut. (RAÃ„ dnr 3.4.2-3159-2014)."­
+ªTorplÃ¤mning, ca 150x50-75 m (NÃ–-SV), bestÃ¥ende av 1 boningshusgrund, 1 grund efter ekonomibyggnad och 1 brunn.
+Boningshusgrunden Ã¤r 10x7 m (N-S) med spisrÃ¶se, 2x2 m st och 0.9 m h. Grunden uppfÃ¶rd pÃ¥ en terrass, 22x16 m. I husgrunden Ã¤r 2 kÃ¤llargropar samt 2 kÃ¤llare, 2.5x1.5 m st och 1.6 m dj respektive 3.5x3 m st och 2 m dj, varav den sistnÃ¤mnda med ingÃ¥ngstrappa frÃ¥n utsidan. Kallmurade vÃ¤ggar med jordfyllning samt jordgolv. Grunden till ekonomibyggnaden Ã¤r 8x7 m (N-S) och intill 3 m h, av kallmurade vÃ¤ggar. I anslutning finns grunden till en vinkelbyggnad, 7x4 m (Ã–-V), med Ã¶ppningar indelad i flera avdelningar. I de bevarade vÃ¤ggpartierna finns 2 portÃ¶ppningar och 2 fÃ¶nsterÃ¶ppningar. Ca 12 m Ã– om ekonomibyggnadsgrunden Ã¤r 1 brunn med kallmurade sidor.
+
+Platsen Ã¤r skyltad."¯
+¬TorplÃ¤mning, sentida, bestÃ¥ende av tvÃ¥ husgrunder, en kÃ¤llargrund,en brunn, rÃ¶jda ytor samt rÃ¶jningsrÃ¶sen. I boningshusets grund Ã¤ren ekstolpe med inskriptionen: KÃ„LARP. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."¯
+¬TjÃ¤rdal, rund, 10 m diam och 0,5 m h. I mitten en grop, oval, 4 x 3 m (Ã–-V) och 1 m dj. Kring kanten en vall, 1,5-2 m br och 0,5 m h. Omges stÃ¤llvis av gropar, 2-3 m st och 0,3-0,5 m dj. AvtappningsrÃ¤nna i V, 3 m l (Ã–-V), 1 m br och 0,5-0,6 m dj. 2 m N om tjÃ¤rdalen Ã¤r en kojgrund (?) ingrÃ¤vd i slÃ¤nten, rund, 3 m diam och 0,2-1,3 m dj. Kring kanten stÃ¤llÂ­vis en vall, 0,5-1 m br och 0,3 m h. (RAÃ„ dnr 326-3048-2008)"¯
+¬1) HÃ¶g, 4.5 m diam och 0.3 m h. I ytan enstaka stenar, 0.2 - 0.3 mst. I hÃ¶gens SSÃ– kant Ã¤r en sentida rest sten, 1.1 m h, 1 m br,och 0.3 m tj (NÃ–-SV), pÃ¥ SSÃ– sidan av den resta stenen ligger ensten, 1 m l, 0.5 m br och 0.2 m tj. PÃ¥ ovansidan av hÃ¶gen haranlagts en blomsterrabatt, omgiven av kanstÃ¤llda stenar, 0.1 -0.2 m st. Bevuxen med en ek och tvÃ¥ enbuskar. I nÃ¤rheten av nr 1Ã¤r: 2) Fyndplats fÃ¶r spÃ¤nnbuckla, enligt uppgift, oval, 11 cm loch 7 sm br, med 5 koniska "hornliknande" upphÃ¶jningar, riktornamenterad pÃ¥ ovansidan. Delvis vittrad. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."¯
+¬HÃ¤llkista i rÃ¶se. RÃ¶set Ã¤r nÃ¤rmast runt, 10-12 m i diam och 1,2 mh, av 0,2-0,4 m st stenar. En hel del smÃ¥sten och intill meterstora block har pÃ¥fÃ¶rts rÃ¶set i sen tid. HÃ¤llkistan, belÃ¤gen i rÃ¶setsmitt, Ã¤r rektangulÃ¤rt, 5x1,5 m (NNÃ–-SSV). I S Ã¤nden Ã¤r tre takhÃ¤llar, 1,6-2,1 m l, 0,6-1 m br och 0,2-0,4 m tj. I N Ã¤nden Ã¤r en gavelhÃ¤ll, 0,45 m h, 1,4 m l och 0,15 m tj. Sex synliga sidohÃ¤llar Ã¤r0,3-0,4 m h, 0,6-1 m l och 0,1-0,2 m tj. Skiss i gamla inventeringsboken.Enligt "Rannsakningarna" skall det finnas ytterligare en hÃ¤llkistai byn. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."°
+­GrÃ¤nsmÃ¤rke, bestÃ¥ende av tvÃ¥ block ovanpÃ¥ varandra. Det Ã¶vre blocketÃ¤r 2x1,7 m (N-S) och 1,1 m h, liggande pÃ¥ ett block, 2,5x2 m (N-S)och0,5 m h. Blocken bildar en avsats, 1,6x0,5 m st (Ã–-V) som lÃ¤r ha anvÃ¤ntssom predikstol.Andra namn Ã¤r "Brudhalla sten" och "Altarhallen", enligt inv. Ã¥r 1950. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."±
+®Rest sten, granit, 1.3 m h, 0.35 m br (NV-SÃ–) och 0.2 m tj.GenomskÃ¤rningsytan har formen av en parallelltrapets. Stenensmalnar av uppÃ¥t. Stenen lutar i 20 graders vinkel mot NV. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."±
+®RÃ¶se, 17 m i diam och 2 m h av 0,25-0,35 m st lÃ¤tt Ã¶vermossade stenar. I rÃ¶set Ã¤r 1 block, 8 m l och 0,3-1 h Ã¶ver rÃ¶seytan. Invid och V om detta Ã¤r 1 grop, 5x3 m st (N-S) och intill 1 m dj. Ã– om blocket Ã¤r ytterligare 1 grop, ca 2,5 m i diam och 0,5 m dj. Ytan Ã¤r i Ã¶vrigt nÃ¥got omplockad."±
+®TorplÃ¤mning, bestÃ¥ende av 1 husgrund  och 1 uthusgrund.
+Husgrunden Ã¤r 7x5 m (N-S). I S tydlig stenfot, intill 0,3 m hÃ¶g, av Ã¶vermossade stenar. I NV hÃ¶rnet Ã¤r ett spisrÃ¶se, 2 m i diameter och 0,6 m hÃ¶gt, av 0,2-0,4 m stora stenar. En stenrad utgÃ¥r frÃ¥n grundens NÃ– hÃ¶rn. 25 m Ã– om husgrunden Ã¤r en uthusgrund, 8x4 m (Ã–-V). Tendens till stenfot, intill 0,2 m hÃ¶g. I Ã– Ã¤r en grop, 2,5 m i diameter och 0,4 m djup."±
+®RÃ¶se, ca 15 m diam, 0.4-0.6 m h. RÃ¶set bestÃ¥r av i allmÃ¤nhet rundade stenar, 0.2-0.5 m st. RÃ¶set Ã¤r starkt skadat vid stentÃ¤kt. Numera Ã¥terstÃ¥r rÃ¶sebottnen, ett ca 0.6 m hÃ¶gt parti av rÃ¶sets N del samt kantpartiet, som framtrÃ¤der i form av enrunt om lÃ¶pande vall, ca 0.4 m h. I brandlager har Dr Kjellmark funnit 2 spjutspetsar av jÃ¤rn, 2 knivblad av jÃ¤rn, 1 skÃ¶ldbuckla av jÃ¤rn, 1 klinga av svÃ¤rd, lerskÃ¤rvor samt 1 knacksten. Ca 5 m S om rÃ¶set Ã¤r en rÃ¶seliknande lÃ¤mning, ca 17x12 m, intill 0.8 m h, som sannolikt utgÃ¶res av odlingssten. MÃ¶jligt Ã¤r att odlingsstenen lagts upp pÃ¥ en rÃ¶sebotten. I lÃ¤mningen har Dr Kjellmark funnit 1 facetterad knacksten."³
+°OfferkÃ¤lla, nÃ¤rmast rund, 4 m diam och 0,1-0,4 m dj till vattenytan. Vid utredning 2009 konstaterades att kÃ¤llan var felaktigt inprickad. Positionen korrigerades. (RAÃ„ dnr 326-1718-2009)
+
+Ã„ldre ej kvalitetssÃ¤krad beskrivning:
+OfferkÃ¤lla, rund, ca 5 m diam och ca 0.4 m h vattenstÃ¥nd.Vattenytan ca 0.75 m under markytan. I kanten av kÃ¤llan finnsspridda stenar, 0.4 m st.Vattenytan Ã¶verdragen med vattenvÃ¤xter.Avlopp Ã¥t N."³
+°1) RÃ¶se, ca 23 m diam och 1.5 - 1.6 m h av stenar, 0.2 - 0.4 m st.I mitten Ã¤r en grop, 4 m diam och 0.6 - 0.7 m dj.  I SV, V och NVÃ¤r rÃ¶set omplockat i kanten och sten bortfÃ¶rd vid stentÃ¤kt. Igropens mitt vÃ¤xer ett tiotal bjÃ¶rkar. 12 m Ã– om nr Ã¤r: 2)StensÃ¤ttning, rund, 5 - 6 m diam och ca 0.5 m h. Fyllning av 0.2- 0.5 m st stenar. StensÃ¤ttningen Ã¤r omplockad och delvis raseradi N delen.  Bevuxen med lÃ¶vbuskar och granar. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."´
+±TorplÃ¤mning, sentida, bestÃ¥ende av en husgrund (belamrad medrÃ¶jningssten), rÃ¶jda ytor, rÃ¶jningsrÃ¶sen samt en vÃ¤g (N-S). Ihusgrunden Ã¤r en ekskylt med inskriptionen: GRÃ–NELID. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."´
+±GÃ¥rdstomt, rest av, bestÃ¥ende av 1 kÃ¤llargrund?, oregelbunden, ca 2,5 m st och 0,7 m dj. IngrÃ¤vd i V-sluttning. Delvis kallmurade vÃ¤ggar. I V delen ett block, ca 2 m st och 0,7 m h. IngÃ¥ng i V. har sannolikt hÃ¶rt till hemmanet Sutarkullens tomt. PÃ¥ karta frÃ¥n 1698 skrivs fÃ¶ljande: "... visar en plats ben. Sutarkullen vilken Ã¤r belÃ¤gen i PeppanÃ¤s hage, bestÃ¥r av en hÃ¶g stor rÃ¶rig backe, och Ã¤r nu ingen som minns el. hÃ¶rt omtalat nÃ¤r hÃ¤r varit nÃ¥got hemman bebyggt, med Ã¥ker eller Ã¤ng, var till ej heller den ringaste ruder syns, och Ã¤r denna backe till ingen ting dugligt, kan ej heller fÃ¶rbÃ¤ttras." PÃ¥ kartan anges att Sutarekullen har varit 1/4 kronohemman."µ
+²1) Jordkula 3,25x3,25 m (VNV-Ã–SÃ–) och 0,75 m dj. I SSV en ingÃ¥ng0,5 m br. I NV finns ocksÃ¥ en upphÃ¶jning 1,5x1,5x0,3 m, v arenligt uppgift fÃ¶r 120 Ã¥r sedan fÃ¶rsedd med jordtak. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."µ
+²TorplÃ¤mning, ca 50x20 m (N-S), bestÃ¥ende av 1 boningshusgrund och 1 kÃ¤llargrund.
+Boningshusgrunden Ã¤r ca 7x5 m (Ã–-V), med i V delen ett spisrÃ¶se, ca 4 m diam och 1 m h.
+KÃ¤llargrunden, belÃ¤gen ca 37 m N om boningshusgrunden, Ã¤r 6x5,5 m (Ã–-V), med 1 m h vÃ¤ggpartier av kallmurad sten. IngÃ¥ng i V."µ
+²1) StensÃ¤ttning, rund, 15 m i diam och 0,5 m h. Fyllning av 0,2-0,5 mst stenar. Stenkedja, 6 m i diam, av 0,5-0,8 m l och 0,3-0,4 m h stenar.Omedelbart S om nr 1 Ã¤r2) Rest sten, 1,33 m h, 1 m br (N-S) vid basen och 0,2-0,3 m tj.Avsmalnande uppÃ¥t. Lutar mot NÃ–. Troligen stÃ¥r stenen i en litenstensÃ¤ttning.5 m SSV om nr 2 Ã¤r3) StensÃ¤ttning?, rund, 4 m i diam och 0,3 m h. Ã–vertorvad med i ytanenstaka stenar, 0,2-0,3 m st. OsÃ¤ker fornlÃ¤mning.15 m SÃ– om nr 1 Ã¤r4) StensÃ¤ttning, rund, 22 m i diam och 0,3-0,5 m h. Delvis Ã¶vertorvadfyllning av 0,2-0,35 m st stenar. Kantvall, 2-3 m br och 0,2-0,3 mh. Endel odlingssten har pÃ¥fÃ¶rts i centrum och V.OmrÃ¥det har en hÃ¶g markvegetation. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."·
+´1) RÃ¶se, 16 m diam och 1.7 m h, bestÃ¥ende av 0.2-0.5 m st stenar.I hÃ¶gens mitt skÃ¥lformig fÃ¶rdjupning, 4 m diam och 1 m dj. HÃ¶genkantas av grÃ¤svall. S delen gropig.BevÃ¤xt med lÃ¶vtrÃ¤d kring kanten.1 m N om nr 1 Ã¤r:2) RÃ¶se, 10 m diam och 0.8 m h, bestÃ¥ende av 0.2-0.4 m ststenar.Bevuxet med lind och ek. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."·
+´Husgrund efter del av mÃ¶belfabrik, rektangulÃ¤r, ca 15Ã—6 m st (Ã–-V) och ca 1 m h ovan nuvarande vattennivÃ¥, bestÃ¥ende av tuktade stenar, 0,2-1 m st. FrÃ¥n bron leder en stenramp ut pÃ¥ grunden. Rampen Ã¤r ca 5 m l och 3 m br och har en lutning pÃ¥ ca 20 grader. Grund Ã¤r en fÃ¶rbÃ¤ttrad grund av en tidigare mjÃ¶lkvarn i samband med mÃ¶belfabrikens pÃ¥byggnad. PÃ¥trÃ¤ffad vid specialinventrering Ã¥r 2010. (RAÃ„ dnr 326-530-2011)"·
+´TorplÃ¤mning, ca 170x80 m (NV-SÃ–), bestÃ¥ende av 1 boningshusgrund och 1 ekonomibyggnadsgrund.
+Boningshusgrunden Ã¤r 9x8 m (N-S) och intill 0,6 m h. SpisrÃ¶set Ã¤r 3 m diam och 1 m h. InvÃ¤ndig kÃ¤llargrop, inrasad.
+Ekonomibyggnadsgrunden, belÃ¤gen ca 35 m NNV om boningshusgrunden, Ã¤r 5x5 m st och intill 0,4 m h.
+I NV och NÃ– omgÃ¤rdas lokalen delvis av stenmurar. I omrÃ¥det finns ett 15-tal torprÃ¶sen, runda-ovala, intill 4 m st."¸
+µGrÃ¤nsmÃ¤rke, bestÃ¥ende av 1 hjÃ¤rtsten  i ett rÃ¶se. Den resta hjÃ¤rtstenen Ã¤r 0,5 m h, 0,3 m br och 0,15 m tj. RÃ¶set Ã¤r 0,6 m st och 0,3 m h av 0,2-0,4 m st stenar. GrÃ¤nsmÃ¤rket utgjorde grÃ¤ns mellan Bodaskog norra och sÃ¶dra gÃ¥rd enligt 1949 Ã¥rs ekonomiska karta. (RAÃ„ dnr 326-3304-2008)
+
+Ã„ldre beskrivning:
+GrÃ¤nsrÃ¶se 0,6 x 0,5 (V-S) med en 0,3 m br 0,4 m h rest sten i mitten. RÃ¶set Ã¤r kallmurat av 0,2-0,6 m st stenar."¹
+¶BackstugulÃ¤mning, 85x20-35 m (Ã–-V), bestÃ¥ende av en husgrund, enstaka rÃ¶jningsrÃ¶sen samt inhÃ¤gnad inÃ¤gomark.
+Husgrunden Ã¤r rektangulÃ¤r, 9 x 6 m (NV-SÃ–) och 0,3 m h. I NV delen ett spisrÃ¶se, kvadratiskt, 3 x 3 m (NV-SÃ–) och 1,2 m h. Omedelbart SÃ– om spisrÃ¶set Ã¤r en kÃ¤llargrop, rektangulÃ¤r, 4 x 3 m (NÃ–-SV) och 0,4 m dj. 
+En stengÃ¤rdesgÃ¥rd avgrÃ¤nsar omrÃ¥det, 1-15 m br, 0,3-0,5 m h.
+Skyltad: Backstuga, soldat Lindor."º
+·TorplÃ¤mning, bestÃ¥ende av 1 husgrund, 11x7 m (Ã–-V), med delvis synlig stenfot, intill 0,3 m h, av 0,3-0,5 m st stenar. LÃ¤mningen kan bestÃ¥ av tvÃ¥ tÃ¤tt intilliggande byggnader. 6 m SV om husgrunden Ã¤r ett brunnskar i cement. Enstaka rÃ¶jningsrÃ¶sen finns i omrÃ¥det.
+Torpet Ã¤r bebott 1807 (Riksarkivet)."º
+·TorplÃ¤mning, ca 130x50-80 m (N-S), bestÃ¥ende av 1 kÃ¤llargrund samt fossil Ã¥ker.
+
+I omrÃ¥dets V del Ã¤r:
+
+KÃ¤llargrund, 4x3 m (NV-SÃ–). Kallmurade vÃ¤ggpartier, intill 1,5 m h, av 0,3-0,6 m st stenar. Delvis ingrÃ¤vd i V-sluttning. I NV Ã¤r ingÃ¥ng.
+
+I omrÃ¥det finns dessutom fossil Ã¥ker med 40-tal rÃ¶jningsrÃ¶sen. Dessa Ã¤r oregelbundna och av torparkaraktÃ¤r, 2-10 m st (vanligen 3-6 m st) och 0,5-1,5 m h, av 0,3-0,6 m st stenar. Flertalet av rÃ¶jningsrÃ¶sena Ã¤r upplagda pÃ¥ eller mot jordfasta block. I S och Ã– avgrÃ¤nsas omrÃ¥det stÃ¤llvis av stenmurar."»
+¸HÃ¤llkista i stensÃ¤ttning. StensÃ¤ttningen Ã¤r oregelbunden, ca 8 m st och 0,3 m h. Kraftigt Ã¶vermossad fyllning av 0,2-0,6 m st stenar. Inga synliga spÃ¥r av hÃ¤llkistan, stora delar av anlÃ¤ggningen Ã¤r dock tÃ¤ckt av en stor vedhÃ¶g. 
+I T Berggrens inventering frÃ¥n 1934 omtalas att hÃ¤llkistan ligger 20-30 m SV om manbyggnaden. Den bestod dÃ¥ av ett lÃ¥gt grÃ¤sbevuxet rÃ¶se , 15-20 m diam. Av hÃ¤llkistan fanns S gavelhÃ¤llen kvar."»
+¸RÃ¶se, 17 diam och 1.2 m h av stenar, 0.1 - 1 m st. I mitten Ã¤r engrop, 5 m diam och 0.5 m dj, delvis fylld av sprÃ¤ngsten. KringrÃ¶sets kanter har pÃ¥fÃ¶rts odlingssten, 1 - 2 m st. FrÃ¥n rÃ¶sets NÃ–kant och intill mitten ligger en 3 m br och 1.3 m h strÃ¤ng medstÃ¶rre sten. Bevuxen med bl.a. en oxel och en bjÃ¶rk. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."¼
+¹TorplÃ¤mning, 40x35 m (NNÃ–-SSV), bestÃ¥ende av 1 husgrund. Husgrunden Ã¤r 10x10 m (N-S) med ett spismursrÃ¶se. PÃ¥trÃ¤ffad vid utredning utan KML-beslut 2011. (RAÃ„ dnr. 326-2353-2011)"½
+ºHÃ¤llkista i rÃ¶se, rest av. RÃ¶set Ã¤r troligen ca 15 m i diam ochnumera intill 1 m h, av 0,1-0,7 m st stenar, enstaka i kanten Ã¤r intill1 m st, delvis lÃ¤tt Ã¶vermossade. Vad som Ã¤r fyllning och vad som Ã¤rpÃ¥fÃ¶rd odlingssten gÃ¥r ej att avgÃ¶ra. HÃ¤llkistan Ã¤r belÃ¤gen i enurplockad fÃ¶rdjupning i rÃ¶sets mitt, 6x5 m (NNV-SSÃ–) och intill 0,7 m djunder nuvarande yta. FÃ¶rdjupningen fortsÃ¤tter mot NÃ– till rÃ¶sets kant,som en rÃ¤nna, 1,5 m br och 0,5 m dj. HÃ¤llkistan, som Ã¤r mycket skadad,Ã¤r ca 4 m l och med okÃ¤nd br. I VSV lÃ¥ngsidan Ã¤r 4 hÃ¤llar, i Ã–NÃ– Ã¤r 1hÃ¤ll, i NNV Ã¤r 1 gavelhÃ¤ll, i kistans VSV, mellersta del Ã¤r 1 tvÃ¤rstÃ¤lldhÃ¤ll och utanfÃ¶r kistans Ã–NÃ– sida Ã¤r 2 liggande hÃ¤llar. SidohÃ¤llarna Ã¤r0,3-0,7 m h, 0,5-1,5 m br och 0,15-0,3 m tj. GavelhÃ¤llarna Ã¤r 0,4m h,1,2 m br och 0,2 m tj. De liggande hÃ¤llarna Ã¤r ca 1-1,5 m st. RÃ¶set Ã¤romplockat och gropigt.Skyltat av hembygdsfÃ¶reningen.Skiss i inv.handlingarna. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."À
+½TorplÃ¤mning, bestÃ¥ende av 1 backstuga?, 10x6 m (N-S), utgrÃ¤vd i backe. 
+Rester av vÃ¤gg i S. Ã–ppen i V. 
+Backstuga som till stora delar fÃ¶rstÃ¶rts av tÃ¤ktverksamhet?
+
+Revs fÃ¶re 1864."À
+½TorplÃ¤mning, bestÃ¥ende av 1 husgrund, 6x6 m. I V Ã¤r ingÃ¥ng. OsÃ¤ker avgrÃ¤nsning i S. I V Ã¤r trappsten.
+15 m S om husgrunden Ã¤r en osÃ¤ker stensatt brunn, ca 1 m diam. Helt igenfylld."À
+½RÃ¶se, 18 m diam, 0.75 m h, av i allmÃ¤nhet 0.2-0.3 m st stenar. IS en oregelbunden grop, ca 2 m diam. Fotkedja (?) synlig i SÃ–,0.7-0.9 m l stenar. I Ã– Ã¤r en vall av odlingssten uppkastad pÃ¥rÃ¶set. I gropen ligger konservburkar.I N vÃ¤xer ett tiotal smÃ¤rre rÃ¶nnar samt ett par oxeltrÃ¤d. Igropen en rÃ¶nn och en oxel. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Á
+¾TorplÃ¤mning, bastÃ¥ende av 1 husgrund, otydlig utstrÃ¤ckning, ca 15x5 m (Ã–-V), indelad i sektioner. I grunden Ã¤r en kÃ¤llargrop, ca 2x2 m (Ã–-V) och 1,5 m dj, med sidor av kallmurad sten."Â
+
+¿
+KÃ¤lla, nu bestÃ¥ende av en i vinkel byggd mur av huggnagranitstenar fogade med cement. Muren Ã¤r 1.2 m h, 2.5 m l(NNV-SSÃ–) och 2 m l (Ã–NÃ–-VSV). Utlopp mot Ã–. En trappa leder nedtill kÃ¤llan. PÃ¥ muren och utmed kanten Ã¤r ett delvis skadatjÃ¤rnrÃ¤cke. Ytterligare en trappa leder upp till en nyligenavplanad och rÃ¶jd yta, 18x10 m (NV-SÃ–). Runt den Ã¶ppna, planaplatsen har Ã¤ven avverkning Ã¤gt rum. FrÃ¥n kÃ¤llan och upp tillvÃ¤gen leder en grusgÃ¥ng.11 m V om kÃ¤llan Ã¤r ett i sluttningen uppbyggt kallmurat parti,1.1 m h och 10 m l (NNV-SSÃ–), bestÃ¥ende av vanligen klumpformigastenar.De fÃ¶rsta uppgifterna om brunnsdrickning vid Grennaforssa hÃ¤rrÃ¶rfrÃ¥n mitten av 1700-talet. KÃ¤llan utnyttjades huvudsakligen imedicinskt syfte. Brunnens glansperiod infÃ¶ll fÃ¶rst under tiden1887-1920 dÃ¥ ett stort antal byggnader fÃ¶r olikabrunnsfunktioner uppfÃ¶rdes i Grennaforssa.OfficerskÃ¤llan fick sannolikt sitt namn av att den springer frampÃ¥ den mark kronan fÃ¶rvÃ¤rvat fÃ¶r Kronobergs regementesÃ¶vningsÃ¤ndamÃ¥l.NÃ¤r regementet flyttade in i kasern 2 VÃ¤xjÃ¶ 1919 avtogbrunnslivet snabbt fÃ¶r att helt fÃ¶rsvinna 1926.OfficerskÃ¤llan vÃ¥rdas genom Kronobergs regementes fÃ¶rsorg.Platsen kulturminnesskyddad. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ä
+ÁTorplÃ¤mning, ca 90x50 m (NNV-SSÃ–), bestÃ¥ende av 1 husgrund, 1 ladugrund och 1 jordkÃ¤llare.Husgrunden, i S, Ã¤r 11x8 m (Ã–-V) och har ett kraftigt spismursrÃ¶seav tegel. Huset Ã¤r rivet i sen tid. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ä
+ÁOfferkÃ¤lla, nÃ¤rmast oval, 6.5x2 m (SSÃ–-NNV) och 0.2 m dj. KÃ¤llanhar tvÃ¥ "skÃ¥lar", i N 4x2 m och i S nÃ¤rmast rund, 2 m diam.Utlopp Ã¥t S. KÃ¤llans botten Ã¤r rostbrun av jÃ¤rnfÃ¤llningar. Vid"klart vatten" skall man kunna se en kopparkittel i kÃ¤llan. Ingenhar dock sett kitteln. KÃ¤llan har i alla tider inte varit torr. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ä
+Á1) RÃ¶se (troligen med brÃ¤tte, 4 m br), 45 m i diam och 4,5 m h, av0,3-0,5 m st stenar. I toppen avplanat inom ca 14 m i diam. I mitten Ã¤ren grop, 7-8 m i diam och 2 m dj, frÃ¥n vilken en grop eller insÃ¤nkning,12-13 m l, 4-5 m br och 1-1,5 m dj, utgÃ¥r mot V. 2 m S om och parallelltmed denna Ã¤r en lÃ¤ngsgÃ¥ende grop, 11 m l, 2-2,5 m br och 0,5-0,75m dj,troligen upptagen i sen tid. NÃ¤ra SSÃ– kanten Ã¤r en grop, 8 m l (V-Ã–), 2,5m br och 1 m dj. Vid NNÃ– kanten ligger en likartad grop, 7 m l (NV-SÃ–),1,5m br och 0,5-0,75 m dj. Ytan i Ã¶vrigt pÃ¥ spridda stÃ¤llen gropig.Omedelbart NÃ– om nr 1 Ã¤r2) StensÃ¤ttning, rund, 3 m i diam och 0,15 m h. Till stor del Ã¶vertorvadfyllning av 0,1-0,2 m st stenar. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ä
+Á1) StensÃ¤ttning, hÃ¶gliknande, rund, 13 m i diam och 1 m h. Ã–vertorvad med i ytan enstaka 0,2-0,3 m st stenar. I mitten Ã¤r ett block, 0,8 m st och 0,1 m h. Till stor del synlig kantkedja, utom i N,0,2-0,3 m h, av 0,4-0,8 m l stenar och block. I NNÃ– Ã¤r en skada, 10x3 m (VNV-Ã–SÃ–).5 m V om nr 1 Ã¤r2) Domarring, 7 m i diam, bestÃ¥ende av 7 resta stenar, 0,3-0,6 m h, 0,6-1 m br och 0,25-0,5 m tj. InbÃ¶rdes avstÃ¥nd Ã¤r 1,6-2,3 m.3 m N om nr 1 Ã¤r3) Domarring, nÃ¤rmast rund, 8 m i diam, bestÃ¥ende av 7 klumpformiga stenar, varav en kantstÃ¤lld, 0,15-0,5 m h, 0,55-1 m br och 0,4-0,65 m tj. InbÃ¶rdes avstÃ¥nd Ã¤r 1,8-3 m. OjÃ¤mn markyta. I mitten skall fÃ¶rr (fÃ¶re inv. Ã¥r 1950) ha stÃ¥tt en rest sten. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Å
+ÂTorplÃ¤mning, bestÃ¥ende av 1 boningshusgrund, 7x5 m (Ã–-V) och intill 0,5 m h, med nÃ¥got osÃ¤ker utstrÃ¤ckning. Grunden Ã¤r av huggna stenar. Centralt placerat spisrÃ¶se, 2,5 m st och 0,8 m h."Å
+ÂRest sten, 2,2 m h, 1 m br och 0,5 m tj. Stenen stÃ¥r i en kulle,3 m i diam och 0,7 m h.Enligt inv. Ã¥r 1949 stod stenen i en oregelbunden fÃ¶rhÃ¶jning, 3x3m och ca 0,3 m h. GrustÃ¤kt har fÃ¶rekommit pÃ¥ platsen.Enligt Wallman har det varit en oval stensÃ¤ttning, 20 fot i lÃ¤ngd,och dÃ¤r den resta stenen kallas fÃ¶r "polsten". Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Å
+ÂLÃ¤genhetsbebyggelse, bestÃ¥ende av en husgrund om 12 x 6 m (Ã–-V). Grunden utgÃ¶rs av rektangulÃ¤ra tuktade eller huggna stenblock, troligen av granit. I mitten av grunden Ã¤r ett postament-liknande spismursrÃ¶se, med skylt "Strands", 1,5 m hÃ¶g med jÃ¤rnskrot tillhÃ¶rande spisen uppepÃ¥. I insidan av grundens sydÃ¶stra hÃ¶rn Ã¤r en nÃ¤stintill kvadratisk stenformation uppbyggd av liknande stenar som grunden. Ytterligare rektangulÃ¤ra block utmed tomtkanten mot vÃ¤g i S. TvÃ¥ smala granitstolpar med jÃ¤rnfÃ¤sten fÃ¶r grindar i tomtkantens S mitt, mittemot spismursrÃ¶set."Æ
+ÃTorplÃ¤mning, 100x40 m (NNV-SSÃ–), bestÃ¥ende av 1 boningshusgrund, 1 ekonomibyggnadsgrund och 1 jordkÃ¤llare.
+Boningshusgrunden Ã¤r 10x6 m (N-S), bestÃ¥ende av huggen natursten, 1-1,5 m l, 0,6 m h och 0,4 m br. SpisrÃ¶set, centralt placerat, Ã¤r 5 m diam och 1,6 m h. Trappa i V, i betong, med platÃ¥, 2x2 m st, och 4 trappsteg. I Ã– Ã¤r en trappsten i betong, 1x0,6 m st. HuvudingÃ¥ng?
+Ekonomibyggnadsgrunden, belÃ¤gen ca 50 m NNV om boningshusgrunden, Ã¤r 16x7 m (Ã–-V) och 0,3 m h, av naturliga och huggna stenar.
+JordkÃ¤llare, rest av, belÃ¤genm ca 70 m NNV om boningshusgrunden, Ã¤r 5x4 m (Ã–NÃ–-VSV).
+I omrÃ¥det Ã¤r odlingsrÃ¶sen och odlingsytor, vilka finns med pÃ¥ ekonomisk karta frÃ¥n 1950-talet."Æ
+
+Ã
+TorplÃ¤mning, 180x140 m (N-S), bestÃ¥ende av 3 husgrunder, 1 rest av jordkÃ¤llare, 1 brunn samt ett 25-tal rÃ¶jningsrÃ¶sen. Centralt i omrÃ¥det, SV om skogsbilvÃ¤g, Ã¤r boningshusgrunden, 15x8 m (NÃ–-SV), bestÃ¥ende av ett 15-tal syllstenar, 0,3-0,6 m st, flertalet av tuktad sten. Ingen spismursrest kunde Ã¥terfinnas, men husgrunden Ã¤r utmÃ¤rkt som boningshusgrund pÃ¥ Ekonomiska kartan (Ã¥r 1950). JordkÃ¤llaren Ã¤r belÃ¤gen 1 m SV dÃ¤rom. Den Ã¤r 5x4 m (Ã–NÃ–-VSV) och 1,5 m h. IngÃ¥ng i VSV, 0,8 m br, delvis inrasad, med trÃ¤rester frÃ¥n karm och dÃ¶rr. Den andra husgrunden, belÃ¤gen 3 m VSV om skogsbilvÃ¤g, Ã¤r 4x3 m (NNV-SSÃ–) och 0,4 m h. Spismursrest 2 m st och 1 m h. 
+
+Den tredje husgrunden, belÃ¤gen 15 m Ã–NÃ– om skogsbilvÃ¤g, Ã¤r 8x5 m (NV-SÃ–) och intill 0,2 m h. Brunnen Ã¤r belÃ¤gen i  omrÃ¥dets SV del. Den bestÃ¥r av en cementring, 9 m diam och 0,5 m h, med 1,3 m dj till vattenytan. Flertalet av rÃ¶jningsrÃ¶sena Ã¤r stÃ¶rre och oregelbundna, upp till 12 m l, 4 m br och 1,5 m h. Ett fÃ¥tal, belÃ¤gna i omrÃ¥dets NÃ– del, Ã¤r runda, 3-4 m diam och intill 0,8 m h. PÃ¥ platsen fÃ¶r den forna gÃ¥rdsplanen, strax SV om skogsbilvÃ¤gen, Ã¤r idag en jaktstuga uppfÃ¶rd, hÃ¤r finns ocksÃ¥ en grillplats och en vagn uppstÃ¤lld. Strax NÃ– om vÃ¤gen stÃ¥r ett utedass, som kan ha tillhÃ¶rt det forna torpet. (RAÃ„ dnr 326-2756-2008)"Ç
+ÄTorp- eller backstugulÃ¤mning, Ã„spefall, ca 300x240 (NV-SÃ–), bestÃ¥ende av 1 bostadshusgrund, ca 15 rÃ¶jningsrÃ¶sen och i Ã– och V delen avgrÃ¤nsande stengÃ¤rdesgÃ¥rd, som i V delen fÃ¶ljer fastighetsgrÃ¤ns (NNÃ–-SSV). 
+
+Boningshusgrunden, belÃ¤gen mitt i omrÃ¥dets S del, Ã¤r 7,5x4-5 m (Ã–-V), med en 0,2 m h delvis kÃ¤nnbar stenfot, synlig endast i Ã–. I Ã– delen Ã¤r en ojÃ¤mn jord- och stenfylld spismursrest, 0,3 m h. I grundens V del Ã¤r en nedgrÃ¤vning, 3x1,5 m (N-S) och intill 0,1 m dj. Skyltad.
+
+RÃ¶jningsrÃ¶sena Ã¤r 2-4 m diam och 0,4-0,6 m h, nÃ¥gra inom ytan och nÃ¥gra i dess ytterkant.
+
+StengÃ¤rdesgÃ¥rden Ã¤r 1,5-2 m br och 0,5 m h.
+
+En vÃ¤g (NV-SÃ–) korsar omrÃ¥dets S del.
+
+Enligt litteraturkÃ¤lla var backstugan Espefall pÃ¥ 1860-talet bebodd av en drÃ¤ng, Johannes Johansson. Platsen utsatt pÃ¥ generalstabskarta frÃ¥n 1876. (RAÃ„ dnr 321-3628-2009)
+
+Ã„ldre beskrivning:
+Nr tillagt vid digitalisering 2003-08-29, Ã¶verfÃ¶rd frÃ¥n RAÃ„-nr 100."È
+ÅRÃ¶se, 20 m diam, 2 m h, bestÃ¥ende av i allmÃ¤nhet 0.2-0.5 m ststenar. I mitten tvÃ¥ gropar, 1.5 m diam och 0.5 m dj. Runt rÃ¶seten 1 m h vall av odlingssten.Runt rÃ¶set vÃ¤xer ekar, rÃ¶nnar, hÃ¤gg m m. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ê
+Ç1) BebyggelselÃ¤mningar, sentida, bestÃ¥ende av 3 husgrunder, varav1 med skorstensstock och halvcirkelformat kÃ¤llarutrymme, rÃ¶jdaytor, stenmurar och vÃ¤g. BevÃ¤xt med tÃ¤t granplantering och bl alupiner. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ê
+ÇRest sten, 2 m h (idag 1,2 m h p.g.a. pÃ¥fÃ¶rda jordmassor), 0,3x0,4 m br och tj, upptill 0,55x0,3 m, nedfallen i grustaget (upptagen nÃ¤r jÃ¤rnvÃ¤gen anlades) och dÃ¤refter rest, troligen nÃ¤ra invid den plats, dÃ¤r den ursprungligen stÃ¥tt. Rest i grustag. MÃ¶jligen fyndplats fÃ¶r gravurna och br. ben. Se SmÃ¥lands museum M 3948. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ë
+ÈTorplÃ¤mning, 70x60 m (NV-SÃ–), bestÃ¥ende av en kÃ¤llargrund samtrÃ¶jda ytor. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ë
+ÈOfferkÃ¤lla, ca 1.2 m diam, ca 1 m dj och 0.2 m h vattenstÃ¥nd.Delvis Ã¶verdragen med vattenvÃ¤xter. Runt kÃ¤llan stark vegetationav frÃ¤kenvÃ¤xter.Enligt J. A. GÃ¶th en offerkÃ¤lla. Eljest obekant i orten. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ë
+ÈTorplÃ¤mning, bestÃ¥ende av 1 boningshusgrund. 
+Boningshusgrunden Ã¤r 7x5 m (NV-SÃ–) och intill 0,2 m h, med otydlig utstrÃ¤ckning i SÃ–. SpisrÃ¶se utmed NÃ– lÃ¥ngsidan, ca 2 m st och ca 1 m h, med huggna, kantiga stenar. 
+Omedelbart NÃ– om boningshusgrunden Ã¤r en grop, 5x3 m (NV-SÃ–) och intill 0,5 m dj, nÃ¥got oregelbunden."Ë
+ÈBackstuga, 6x4 m (NNÃ–-SSV), bestÃ¥ende av tre kallmurade sidor ingrÃ¤vda i backsluttningen. Mot SSV och vÃ¤gen Ã¤r gaveln till stÃ¶rstadelen av liggande timmer. I densamma Ã¤r en dÃ¶rr, 1,4x0,8 m st samtett fÃ¶nster, 0,8x0,6 m st. Omedelbart och VNV innanfÃ¶r ingÃ¥ngen Ã¤r en murad spis med rÃ¶kgÃ¥ng genom tak. Ã„ven inre gaveln Ã¤r ovanfÃ¶rtakfoten utfÃ¶rd i liggande timmer med litet fÃ¶nster, 0,4x0,35 m st. SjÃ¤lva taket Ã¤r av tÃ¤tlagda granstÃ¶rar som vilar pÃ¥ tre stockarsamt takfot. Ovan granstÃ¶rarna Ã¤r torv. Mot SSV och vÃ¤gen Ã¤r de kallmurade lÃ¥ngsidorna ca 1 m utanfÃ¶r ingÃ¥ngsgaveln.Hela stugan renoverades under 1940-talet av Gunnar Engnell, DÃ¤nningelanda samt vÃ¥rdas nu av VederslÃ¶v hembygdsfÃ¶rening."Singlastugan" benÃ¤mns efter Signhild Erika Pettersdotter som bodde hÃ¤r i 26 Ã¥r till sin dÃ¶d, 80 Ã¥r gammal, 1914. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ì
+ÉTorplÃ¤mning, Hermanstorp 200x17-110 m (NV-SO) bestÃ¥ende av 1 spismursrÃ¶se, fossil Ã¥ker, rÃ¶jningsrÃ¶sen, stenmur och terrasskant.  SpismursrÃ¶se, 2 m N om vÃ¤g, Ã¤r ca 4 m i diam och 1,2 m h av 0,3-0,5 m st stenar. Stenmuren, S om vÃ¤gen, Ã¤r 19 m l och 1-2,5 m br och 0,3-0,8 m h av 0,1-0,5 m st stenar. RÃ¶jningsrÃ¶sena Ã¤r 3-7 m i diam, 0,3-1 m h av 0,1-0,6 m st stenar. I S avgrÃ¤nsas omrÃ¥det av en terrasskant 0,2-0,4 m h. (RAÃ„ dnr 321-1252-2012)"Í
+ÊRÃ¶se, 16 m diam och 1.7 m h. rÃ¶set bestÃ¥r av 0.4-0.8 m st stenar.I rÃ¶sets mitt Ã¤r en upplagd, grÃ¤sbevuxen stenlÃ¤ggning, 8x3 m, pÃ¥vilken en transformator Ã¤r uppfÃ¶rd.PÃ¥fÃ¶rd odlingssten utmed kanten. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Í
+ÊTorplÃ¤mning, ca 130x100 m (NV-SÃ–), bestÃ¥ende av 1 boningshusgrund och fossil Ã¥ker.
+Boningshusgrunden, belÃ¤gen i omrÃ¥dets NV del, Ã¤r 6x5 m (NNV-SSÃ–) och intill 0,4 m h. SpisrÃ¶se, ca 4 m st och intill 2 m h.
+I omrÃ¥det finns Ã¤ven fossil Ã¥ker bestÃ¥ende av ett rÃ¶jningsrÃ¶seomrÃ¥det med ca 40 rÃ¶jningsrÃ¶sen. Dessa Ã¤r vanligen oregelbundna, 1-7 m st och intill 1,5 m h av 0,1-1 m st stenar. En del rÃ¶jningsrÃ¶sen Ã¤r upplagda pÃ¥ jordfasta block."Î
+ËTorplÃ¤mning, HÃ¶gelid, ca 30x15 m bestÃ¥ende av 2 husgrunder varav den V Ã¤r  6x5 m n-s, 0,3-0,7 m hÃ¶g, av syllstensrader av 0,3-0,5 m stora stenar, i NV hÃ¶rnet Ã¤r spisrÃ¶se, 3 m i diameter, 1 m hÃ¶gt av tegelsten. Torpet var bebott pÃ¥ 1820-talet. Siste boende var torparen Jonsson med hustrun samt barnen Hjalmar, Georg, Martin, Gulli och Hildur. Jonsson flyttade frÃ¥n torpet 1924. LadugÃ¥rden stod kvar fram till omkring 1950. (RAÃ„ dnr 321-1252-2012)"Î
+Ë1) RÃ¶se, runt, 20 m i diam och 1,5 m h, av delvis Ã¶vermossade 0,2-0,4 m st stenar. I rÃ¶sets mitt Ã¤r en grop, 2x4 m (N-S) och 0,2 mdj. RÃ¶sets yta Ã¤r gropig och ojÃ¤mn.9 mÃ–NÃ– om nr 1 Ã¤r2) Rest sten, 1,6 m h, 1,2 m br och 0,2 m tj.2 m Ã–SÃ– om nr 2 Ã¤r3) Rest sten, liggande, Ã¶vermossad, 1,7 m l och 0,5 m br.Omedelbart S om nr 2 Ã¤r4) StensÃ¤ttning, rund, 6 m i diam och 0,3 m h. Fyllning utmed kanten av 0,4-0,7 m st stenar. I mitten Ã¤r en grop, 3x2 m (N-S) och 0,3 m dj.I boken Tegnaby-Tofta med Skogstorp Ã¥r 1980 omtalas en lÃ¤ngre sÃ¤gen som utspelas i anslutning till KnivarÃ¶r. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ï
+ÌStensÃ¤ttning med mittrÃ¶se och kantvall, rund, 21 m diam och 0,1-0,6  m h. Kraftigt Ã¶vermossad fyllning av vanligen 0,3-0,5 m st stenar.
+MittrÃ¶set Ã¤r runt, 8 m diam och intill 0,4 m h . I dess N kant Ã¤r en kantstÃ¤lld, hÃ¤llformig sten, ca 1 m st, kraftigt lutande Ã¥t N , grÃ¤nssten ?
+Kantvallen Ã¤r,ca 3 m br och 0,2-0,3 m h."Ð
+ÍTorplÃ¤mningar efter torpet Lunden bestÃ¥ende av 1 spisrÃ¶se och 1 kÃ¤llare. FÃ¶re 1840-talet hette torpet Didrikslund och kan fÃ¶ljas ned till 1700-talet genom husfÃ¶rslÃ¤ngden (RAÃ„ dnr 3.4.2-1481-2014)."Ð
+ÍTorplÃ¤mning, inom ett ca 110x70 m st omrÃ¥de (Ã–-V), bestÃ¥ende av enhusgrund med spismursrest, 7x5 m (SSÃ–-NNV), spridda grundstenar,igenstenad brunn, stenmur, rÃ¶jda ytor och brukningsvÃ¤g. Bevuxenmed granar. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ð
+ÍTorplÃ¤mning, ca 130x80 m (Ã–SÃ–-VNV), bestÃ¥ende av 1 grund efter boningshus, 1 kÃ¤llargrund samt rÃ¶jningsrÃ¶sen och murar.
+Grunden efter boningshuset, tÃ¤mligen mitt i omrÃ¥det, Ã¤r ca 7x5 m (Ã–NÃ–-VSV), oklar begrÃ¤nsning, med intill 0,2 m h stenfot, synligast i Ã–NÃ–. Centralt och mot NNV vÃ¤ggen Ã¤r ett spismursrÃ¶se, 2,5 m diam och 1,3 m h, med enstaka gula och rÃ¶da tegelstensbitar.
+Grunden efter jordkÃ¤llaren, belÃ¤gen ca 20 m Ã–SÃ– om grunden efter boningshuset, Ã¤r 7x6 m (Ã–-V) och intill 0,5 m dj, innermÃ¥tt 3x2 m med 1-1,5 m h kallmurade vÃ¤ggar och en 1 m l och 0,7 m br ingÃ¥ng i Ã–. Den bakre V yttersidan har slÃ¤t kallmurning (N-S) med i N Ã¤nden en 0,5 m h och ca 0,5 m st utstickare med flat ovansida.
+OmrÃ¥det begrÃ¤nsas av rÃ¶jningsten och murar, vilket ocksÃ¥ finns inom omrÃ¥det som Ã¤r kraftigt skadat efter storm."Ò
+ÏRÃ¶se, ca 13 m diam och 1 m h. Stenarna Ã¤r 0.2 - 0-4 m st, lÃ¤ttÃ¶vermossade lÃ¤ngs kanten. I mitten Ã¤r en svacka, 4 m diam och 0.2m dj. Kring kanterna Ã¤r stÃ¤llvis rÃ¶jningsstenar upplagda, bl.a.nÃ¥gra stÃ¶rre, 0.5 - 1 m st. NÃ¥got ojÃ¤mn och omplockad yta.Talrika rÃ¶jningsrÃ¶sen finn i den omgivande terrÃ¤ngen som tidigarevarit odlad. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ô
+ÑBackstugulÃ¤mning, bestÃ¥ende av 1 husgrund, 7x5 m (N-S) och 0,2 m h, av natursten och huggna stenar. Centralt placerat spisrÃ¶se, 2 m st och 0,7 m h. Enstaka enklare stenmurar och rÃ¶jningssten i omgivningen."Ô
+ÑTorplÃ¤mning, ca 30x20 m (N-S), bestÃ¥ende av 1 boningshusgrund, 1 jordkÃ¤llare och 1 eventuell brunn.
+Boningshusgrunden Ã¤r 9x8 m (NV-SÃ–). SpisrÃ¶se i NNÃ–, ca 3,5 m st och 1,5 m h.
+JordkÃ¤llaren, belÃ¤gen 6 m S om boningshusgrunden, Ã¤r 7,5x6 m (VNV-Ã–SÃ–) och 1,6 m h. IngÃ¥ng i VNV.
+Ev. brunn, belÃ¤gen 85 m NV om boningshusgrunden."Ô
+ÑRÃ¶se, ca 18-19 m diam och ca 1,6 m h. Fyllning av 0,3-1 m st stenar, i allmÃ¤nhet 0,4-0,6 m st, lÃ¤tt Ã¶vermossat. RÃ¶set har en nÃ¥got skev profil med sin stÃ¶rsta hÃ¶jd i NÃ– sidan. PÃ¥fallande mÃ¥nga meterstora stenar finns i rÃ¶sets N-NÃ–-Ã–SÃ– sida. Stenmaterialet ligger hÃ¤r ocksÃ¥ betydligt mer "oordnat" Ã¤n i Ã¶vrigt. I mitten Ã¤r en grop, 2 m diam och 0,3 m dj. I Ã¶vrigt ojÃ¤mn och smÃ¥gropig yta. RÃ¶set har tidigare varit helt kringgÃ¤rdad av odling."Õ
+ÒTorplÃ¤mning, bestÃ¥ende av 1 husgrund, 5x5 m (Ã–-V) av 0,4-0,6 m st syllstenar, 0,5 m h stenfot i V sidan. I grunden Ã¤r ett spismursrÃ¶se, 2x2 m, bestÃ¥ende av 0,1-0,5 m st stenar, varav nÃ¥gra flata. Ã– dÃ¤rom Ã¤r en ev utbyggd byggnadsdel, 5x5 m med en 0,9 m br och 0,4 m h kraftigt Ã¶vertorvad stensyll. I spisrÃ¶set Ã¤r en skylt uppsatt av hembygdsfÃ¶reningen med texten FREPPAS. I torpet har en skomakare vid namn Fredrik, kallad "Freppas" ha bott och haft sin verkstad enligt uppgift frÃ¥n lokalboende. En byggnad pÃ¥ motsvarande plats finns inprickad pÃ¥ karta laga skifte 1875 (1873)."Ö
+ÓTorplÃ¤mning, inom ett omrÃ¥de, ca 120x55 m (Ã–-V), bestÃ¥ende av enhusgrund med spismursrest, spridda grundstenar, en kÃ¤llare,rÃ¶jningsrÃ¶sen, stenmurar och rÃ¶jda ytor.  Bevuxen medspireabuskar. Torpskylt: Sneppen. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ö
+ÓOfferkÃ¤lla, nÃ¤rmast rund, ca 4 m diam. Ca 0.3 m h vattenstÃ¥nd.Vattenytan ca 0.5 m under markytan. I kanten av kÃ¤llan finnsspridda stenar, 0.3-0.6 m st.Vattenytan bevuxen med vattenvÃ¤xter. I kanten av kÃ¤llan vÃ¤xer ettpar stÃ¶rre alar.Invid och N om kÃ¤llan rest sten, 0.75 m h. Ej fornlÃ¤mning.FÃ¶r ca 150 Ã¥r sedan genomsÃ¶ktes kÃ¤llan av en prÃ¤st frÃ¥nNottebÃ¤ck. Denne fann en hel mÃ¤ngd mynt, som han lade beslag pÃ¥.KÃ¤llan har ocksÃ¥ fungerat som grÃ¤nsmÃ¤rke. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ö
+ÓTorplÃ¤mning, 200x40 m (Ã–-V), bestÃ¥ende av 1 boningshusgrund, 2 ekonomibyggnadsgrunder, 1 jordkÃ¤llare, 1 grund till Ã¤ngslada, rest av, och 1 grund efter smedja/linbastu?
+Boningshusgrunden Ã¤r 9,5x5,5 m (NNÃ–-SSV) och intill 0,5 m h, kallmurad. SpisrÃ¶se i NNV, 3 m diam och 0,9 m h.
+Den ena ekonomibyggnadsgrunden, belÃ¤gen 36 m VNV om boningshusgrunden, Ã¤r 17x8 m (N-S). RÃ¤nna i S kanten, 7x0,7 m, bestÃ¥ende av betong, delvis sÃ¶nderfallen.
+Den andra ekonomibyggnadsgrunden, belÃ¤gen 40 m Ã–SÃ– om boningshusgrunden, Ã¤r 6x4 m (N-S). NedgrÃ¤vd, 0,8 m dj.
+JordkÃ¤llaren, belÃ¤gen 45 m V om boningshusgrunden, Ã¤r 6x6 m och 1,6 m h, av kallmurad sten. IngÃ¥ng i Ã–.
+Ã„ngsladan, rest av, belÃ¤gen 125 m Ã–SÃ– om boningshusgrunden, Ã¤r 4x4 m. Grundstenar av natursten och rester av timmervÃ¤ggar.
+Grunden efter smedjan/linbastun, belÃ¤gen ca 130 m Ã–SÃ– om boningshusgrunden, Ã¤r 5x5 m och 1,5 m h. VÃ¤ggpartier, ca 1 m br. SpisrÃ¶se i Ã–, 1,5 m st och 0,5 m h. IngÃ¥ng i Ã–."Ö	
+Ó	TorplÃ¤mning, Skogsryd, 90-175x60-140 m (NV-SÃ–), bestÃ¥ende av 1 husgrund, 1 urgrÃ¤vd vattenkÃ¤lla och minst 30 rÃ¶jningsrÃ¶sen och enstaka stenvallar. 
+OmrÃ¥det avgrÃ¤nsas stÃ¤llvis av stenvall, tydligast i V, N och NÃ–, enstaka rÃ¶jningsrÃ¶sen, ansamlingar av rÃ¶jningssten och i S av Ã¤ldre vÃ¤g.
+
+Husgrunden, belÃ¤gen i omrÃ¥dets NV del, Ã¤r rektangulÃ¤r, 8x6 m (Ã–NÃ–-VSV), med 0,1-0,4 m h Ã¶vermossad stenfot. Mot NÃ– vÃ¤ggen Ã¤r en oregelbunden spismursrest, 3 m diam och 1,5 m h, ursprungligen 2x2 m, Ã¶vermossad med i ytan 0,2-0,4 m st stenar. Intill NV kanten Ã¤r en delvis fÃ¶rmultnad bearbetad timmerstock.  
+
+Den urgrÃ¤vda vattenkÃ¤llan, belÃ¤gen ca 75 m SSÃ– om husgrunden, Ã¤r 1,5x1,5 m och 1,2 m dj till grusbotten, 0,7 m dj till vattenytan. OjÃ¤mnt stenfodrade sidor. UtanfÃ¶r Ã– sidan Ã¤r en 0,3 m h vall.
+
+RÃ¶jningsrÃ¶sena Ã¤r 3-6 m diam och 0,5-1,5 m h, vanligen 1-1,3 m h, nÃ¥got lÃ¤gre i omrÃ¥dets SSÃ– del. Ett Ã¤r 8 m diam och 1,4 m h.
+
+Stenvallarna Ã¤r 5-10 m l och ca 1 m h. 
+
+Enligt litteraturkÃ¤lla beboddes torpet mellan 1822 och 1877 av en inbyggare, Johan Dolk (kallad "Dolken") med familj. Torpet medtaget pÃ¥ generalstabskartan frÃ¥n 1876. (RAÃ„ dnr 321-3628-2009)
+
+Ã„ldre beskrivning:
+1) TorplÃ¤mning"Ù
+ÖGrÃ¤nsmÃ¤rke, femstenarÃ¶r, med hjÃ¤rtsten, 0,6 m h, 0,3 m br (Ã–-V) och 0,15 m tj. I VNV och N resta visarstenar, 0,5-0,6 m h, 0,3-0,4 m br och 0,1 m tj. Stenarna Ã¤r resta i en stenpackning, 2 m diam och 0,5 m h."Ù
+ÖLinbastu, rest av, ca 4x4 m (Ã–-V) och 0.2 m h. Eldstad, ca 1.2x1 m (Ã–-V) och 1.1 m h med Ã¶ppning i N intill stenmur. Av kallmurad sten, vÃ¤lbevarad, delvis tÃ¤ckt med mossa och delvis belamrad med rÃ¶jningssten."Ù
+ÖRÃ¶se, 15 m diam och 1.1 m h av 0.1-0.4 m st stenar. I mittengrop, 10 m diam och 1 m dj. PÃ¥ rÃ¶sets kant och intill rÃ¶setligga stora anhopningar av odlingssten.BevÃ¤xt med flera smÃ¥ ekar, lindar, bjÃ¶rkar och rÃ¶nnar. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Ù
+ÖNy beskrivning:
+By-gÃ¥rdstomt , bestÃ¥ende av 1 husgrund, rektangulÃ¤r , 12x9 m (N-S) och 1 m h. Vallformade vÃ¤ggrester , 1 m h ,  2,5 m br av jord och 0,2-0,8 m st stenar. Lilla Lerikes tomt enligt geometrisk avmÃ¤tning frÃ¥n 1708. Tomten Ã¶vergiven.
+
+Ã„ldre beskrivning:
+RÃ¶se, 12 m diam och 1.5 m h, av i allmÃ¤nhet 0.4-0.5 m st stenar.I mitten Ã¤r en grop, 5 m diam och 0.5 m dj.Bevuxet med flera bokar, ekar, bjÃ¶rkar och lindar. Hela rÃ¶set Ã¤rstarkt Ã¶vertorvat."Ù
+ÖTorplÃ¤mning, 180x100 m (Ã–-V), bestÃ¥ende av 1 boningshusgrund, 1 ekonomibyggnadsgrund, 1 jordkÃ¤llare och ett omrÃ¥de med fossil Ã¥ker.
+Boningshusgrunden, belÃ¤gen i SV delen av omrÃ¥det, Ã¤r 11x6 m (Ã–-V) och 0,4-0,8 m h, kallmurad grund. SpisrÃ¶se centralt i N delen, 4 m st och 1,5 m h. En ev. kÃ¤llargrop i S kanten, ca 2x2 m och intill 0,3 m dj. Nerrasad sten i gropen. Kanten verkar stensatt, men ej tydligt kallmurad.
+Ekonomibyggnadsgrunden, belÃ¤gen 15 m S om boningshusgrunden, Ã¤r 12x6 m (N-S) och intill 0,6 m h. Indelad i 2 sektioner. N delen har kraftig grund och den S delen har en enkel syllstensrad.
+JordkÃ¤llaren, belÃ¤gen 35 m Ã– om boningshusgrunden, invid vÃ¤gen, Ã¤r 7x5 m (NNV-SSÃ–) och 1,5 m h, med kallmurade vÃ¤ggar. IngÃ¥ng i SÃ–.
+OmrÃ¥det med fossil Ã¥ker bestÃ¥r av ca 35 rÃ¶jningsrÃ¶sen. Dessa Ã¤r 1-5 m st och 0,2-1,5 m h."Û
+ØOfferkÃ¤lla, ca 3x1 m (NÃ–-SV). I S kanten en 3x0,3 m st sten. I SV kanten en flat sten, 0,6x0,6 m. NÃ– om kÃ¤llan Ã¤r ett stort kluvet flyttblock. Vattnet tycks komma frÃ¥n en skreva i berget. Avrinning Ã¥t SV. 
+FÃ¶rstudie infÃ¶r planerad nationalpark.
+FÃ¶r Ã¤ldre beskrivning se inventeringsboksuppslaget, skannat bokuppslag under Referenser."Ü
+ÙOfferkÃ¤lla, triangulÃ¤r, 1 x 0,9 x 0,6 m (NV, SV, Ã–SÃ–) och 0,6 m dj. Vattenfylld.
+
+4 m V om offerkÃ¤llan Ã¤r ett odlingsrÃ¶se, ca 10 m diam och 1,4 m h, av 0,1-0,8 m st stenar, Ã¶vervÃ¤gande av 0,1-0,2 m st stenar."Ü
+Ù1) TorplÃ¤mning, inom ett ca 100x70 m st omrÃ¥de (NV-SÃ–) Ã¤r enhusgrund med spismursrest, en kÃ¤llargrund, tvÃ¥ uthusgrunder, enbrunn, stenmurar, rÃ¶jningsrÃ¶sen och rÃ¶jda ytor. 2) Fyndplats fÃ¶rstenklubba, enligt uppgift, grÃ¥vit, bergart, 10 cm l, 7.5 cm broch 7 cm tj. Stenklubban hittades i nÃ¤rheten av nr 1.   FÃ¶rvaraspÃ¥ gÃ¥rden Bodaryd 1:3. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."Þ
+ÛTorplÃ¤mning, bestÃ¥ende av 1 husgrund, 9x7 m (NV-SÃ–), delvis ingrÃ¤vd i backen mot N. KvarstÃ¥ende vÃ¤ggar Ã¤r 1,0-1,2 m h och 0,6-0,8 m tj, av 0,3-0,8 m st stenar. IngÃ¥ngsÃ¶ppning pÃ¥ SV lÃ¥ngsidan, 2 m br. Skyltad."ß
+ÜTorplÃ¤mning, bestÃ¥ende av 1 bostadshusgrund, 7x5,5 m (NÃ–-SV). I NÃ– Ã¤r en kallmurad grund intill, 0,7 m h. SpismursrÃ¶set i NV Ã¤r 3 m st och 1 m h. RÃ¶jningsrÃ¶sen och rester av stengÃ¤rdesgÃ¥rd finns i omgivningen."ß
+ÜTorplÃ¤mning i form av cementerad husgrund efter bostadshus och grund efter ekonomibyggnad eftet torpet VibÃ¤ck. Torpet/gÃ¥rden var fortfarande i bruk kring 1950 och finns med pÃ¥ ekonomiska kartan frÃ¥n denna tid. Ny beskrivning i samband med arkeologisk utredning Ã¥r 2016. (RaÃ¤ dnr: 3.4.2-300-2017)
+FÃ¶r Ã¤ldre beskrivning, se skannat dokument."à
+ÝTorplÃ¤mning, ca 50x30 m (NÃ–-SV), bestÃ¥ende av 1 grund efter boningshus, 1 grund efter ekonomibyggnad och 1 potatisgrop.
+Husgrund efter boningshus, 6x4 m (Ã–-V), med stort spisrÃ¶se i Ã–.
+20 m Ã– frÃ¥n husgrunden Ã¤r:
+LadugÃ¥rdsgrund, inga mÃ¥ttuppgifter.
+30 m Ã–NÃ– om husgrunden Ã¤r:
+Potatisgrop, rund, 2,5 m diam och 0,8 m dj, delvis kallmurad."à
+ÝTorplÃ¤mning, ca 170x40 m (NNV-SSÃ–), bestÃ¥ende av 1 boningshusgrund, 1 kÃ¤llargrund och rÃ¶jningsrÃ¶sen.
+Boningshusgrunden Ã¤r 6x5 m (Ã–NÃ–-VSV) med i VSV kanten ett spismursrÃ¶se, 4 m diam och 0,6 m h, utrasat i NV kanten och under rotvÃ¤lta, med tegelbitar och nÃ¥gra glasflaskor. Intill och VSV om grunden Ã¤r en grop, 4x3 m st och 0,5 m dj.
+5 m NÃ– om husgrunden Ã¤r kÃ¤llargrund, 5x5 m och 1-1,5 m h, innermÃ¥tt 2,5x2 m (NNÃ–-SSV), med en 1 m br ingÃ¥ng i SSV.
+Grunderna Ã¤r belÃ¤gan i omrÃ¥dets SSÃ– del. OmrÃ¥det begrÃ¤nsas stÃ¤llvis av stenmur och rÃ¶jningsrÃ¶sen, de senare Ã¤ven inom omrÃ¥det."á
+ÞHusgrund, 5 x 5 m (N-S) och 0,5 m h av 0,3-0,5 m st delvis kanthuggna stenar.
+Enligt Ã…ke Friberg, JÃ¤rnsmedstorpet, Ã¤r detta platsen fÃ¶r torpet "HÃ¶net". Enligt tidigare anteckningar belagt frÃ¥n 1800-talets mitt. HÃ¶net benÃ¤mns ocksÃ¥ "Fitteboda", dÃ¥ mottagning fÃ¶r manfolk hÃ¶lls hÃ¤r samt snushandel.
+FÃ¶rstudie infÃ¶r planerad nationalpark."á
+ÞRÃ¶se, stensÃ¤ttningsliknande, runt, 17 m diam och intill 1 h avstenar, 0.2 - 0.4 m st, delvis Ã¶vermossad. I rÃ¶set finns ettfem-tal smÃ¥gropar, annars jÃ¤mnt vÃ¤lvd profil.  Bevuxen med bl.a.tvÃ¥ bjÃ¶rkar och nÃ¥gra barrtrÃ¤d. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."á
+ÞRÃ¶se, 15 m diam och 0.8-1.8 m h, bestÃ¥ende av 0.2-0.35 m ststenar. Mittblock, synligt 6x3 m (N-S) och 1.3 m h Ã¶ver rÃ¶set. INNV och V Ã¤r gropar, 2-5 m st och intill 0.5 m dj. FrÃ¥nmittblocket och mot N Ã¤r en upplagd stenmur - tidigarefastighetsgrÃ¤ns.UtanfÃ¶r kanten i N Ã¤r en oregelbunden stenpackning, 3-5 m diamoch 0.3 m h, av 0.2-0.3 m st stenar. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."â
+ßTorplÃ¤mning, sentida, bestÃ¥ende av tvÃ¥ husgrunder, varav en medspismursrester, en kÃ¤llargrund, rÃ¶jda ytor, rÃ¶jningsrÃ¶sen, enstenmur samt en vÃ¤g. I husgrunden med spismursrester Ã¤r enekskylt med inskriptionen: SÃ–DRELUND. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ã
+àHÃ¤llkista i rÃ¶se. RÃ¶set Ã¤r ca 12 m diam och intill 0,7 m h. Stenmaterialet bestÃ¥r i allmÃ¤nhet av runda stenar, ca 0,2-0,4 m st. RÃ¶set Ã¤r starkt ramponerat. PÃ¥ rÃ¶sets V del ligger 3 stenhÃ¤llar, 1,1x1 m st och 0,15 m tj, 0,7x0,5 m st och 0,2 m tj och 1,2x0,6 m st och 0,3 m tj (troligen takhÃ¤llar). I rÃ¶sets mitt Ã¤r en framgrÃ¤vd och frilagd hÃ¤llkista, ca 6,5x0,7 m st (NNV-SSÃ–) (fÃ¶r mÃ¥tt pÃ¥ ingÃ¥ende stenar i hÃ¤llkistan se skiss under Skannat bokuppslag). Kistans hÃ¤llar Ã¤r obetydligt nedgrÃ¤vda i ursprunglig markyta. GavelhÃ¤llarna syns ha varit i nivÃ¥ med takhÃ¤llarna, kanske t.o.m. obetydligt hÃ¶gre Ã¤n dessa. Kistans Ã¶vriga hÃ¤llar i ungefÃ¤rlig nivÃ¥ med rÃ¶seytan. I kistan Ã¤r en grop som i kistans mitt gÃ¥r ned till nÃ¤ra bottnen. SÃ– om kistans Ã– lÃ¥ngsida Ã¤r en uppkastad hÃ¶g, ca 1,5 m diam och ca 0,3 m h.
+
+Revideringsinventering, etapp 2, 1980: OmrÃ¥det runt rÃ¶set Ã¤r kraftigt igenvÃ¤xt. BÃ¶r rÃ¶jas!
+
+Revideringsinventering 1995: Platsen besÃ¶kt."å
+âRÃ¶se, 11 m diam och 0.7 - 1 m h. Stenarna Ã¤r 0.2 - 0.4 m st. Imitten en insÃ¤nkning, 2 m i diam och 0.2 m dj. I N och V i sentid  pÃ¥lagd rÃ¶jningssten. I mitten vÃ¤xer en asp. I N kanten Ã¤rrÃ¶jningssten pÃ¥fÃ¶rd, 0.3 - 1.5 m st. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."å
+âTorplÃ¤mning, 60x50 m (NNÃ–-SSV), bestÃ¥ende av 1 husgrund och 2 uthusgrunder, efter torpet Smedby.
+Husgrunden Ã¤r vinkelbyggd, 9x9 m (N-S) och 4 m br i S, 5 m br i V och 0,2 m h, av 0,2-0,6 m st stenar. SpismursrÃ¶se i mitten, 5 m diam och 1,5 m h. Helt Ã¶vermossat, enstaka naturstenar synliga, 0,3 m st. KÃ¤llargrop i N, rektangulÃ¤r, ca 4x3 m (Ã–-V) och 2 m dj, av tuktade naturstenar, 0,2-0,6 m st. IngÃ¥ng i N, 0,8-1 m br.
+Uthusgrunderna Ã¤r rektangulÃ¤ra, 9x7 m (N-S) och 0,5 m h, av naturstenar, 0,4-0,7 m st. PÃ¥trÃ¤ffad vid arkeologisk utredning Ã¥r 2014, utan KML-beslut. (RAÃ„ dnr 3.4.2-3159-2014)."æ
+ãGÃ¥rdstomt, Knottorp, 100x50-80 m (Ã–-V), bestÃ¥ende av 1 boningshusgrund, 1 tÃ¤mligen intakt kÃ¤llare, 1 ladugÃ¥rdsgrund, 2 brunnar, 2 grindstolpar, 1 mindre stuga och delvis avgrÃ¤nsande stengÃ¤rdesgÃ¥rd.
+
+Boningshusgrunden, belÃ¤gen i omrÃ¥dets V del, Ã¤r 15x5,5 m (N-S) och 0,6 m h, med Ã¶vermossad stenfot. Mot Ã– lÃ¥ngsidan Ã¤r tvÃ¥ spismursrester, varav den i N Ã¤r 4x3 m (N-S) och 1,5 m h, ursprungligen ca 2x2 m, och den i S ca 4 m diam och 2 m h, ursprungligen 2,5x2,5 m. BÃ¥da innehÃ¥ller enstaka tegelstenar, Ã¤r kraftigt utrasade och stenmaterialet "flyter" nÃ¤stan ihop. Grunden Ã¤r delvis tÃ¤ckt av nedsÃ¥gade trÃ¤d.
+
+Den tÃ¤mligen vÃ¤lbevarade kÃ¤llaren, belÃ¤gen ca 20 m NÃ– om boningshusgrunden, Ã¤r 8x5 m (VNV-Ã–SÃ–) och 0,6-1,8 m h, innermÃ¥tt 3,5x3 m och 1,7 m h, med kallmurade vÃ¤ggar och stenvÃ¤lvt tak, nedgrÃ¤vd 0,2 m dj i Ã–SÃ–-sluttning. I VNV och NNÃ– ytterkanten Ã¤r en 0,3-0,5 m h stenskoning. I kanten av den 2 m l och 0,7 m br Ã¶ppningen i Ã–SÃ– Ã¤r nedfallna stenar. Sammanbyggd med stengÃ¤rdesgÃ¥rd.
+
+LadugÃ¥rdsgrunden, belÃ¤gen 36 m VSV om boningshusgrunden, Ã¤r 12x9 m (Ã–-V) med huggen 0,5 m h stenfot. I V delens mitt Ã¤r ett foderbord, 0,7 m br och 0,5 m h, av gjuten betong och med kvarsittande bindslen, intill ett 7x6 m st betonggolv. MellanvÃ¤ggar av betong indelar grunden i fyra rum med tvÃ¥ ingÃ¥ngar.
+
+Brunnarna Ã¤r 2x2 m, en tÃ¤ckt av glest lagda Ã¶vermossade trÃ¤ribbor, den andra av timmerstockar, bÃ¥da omgÃ¤rdade av gles trÃ¤- och taggtrÃ¥dshÃ¤gnad, den i N hopfallen.
+ 
+Grindstolparna, intill och Ã– om vÃ¤g med 2 m:s mellanrum, Ã¤r 1,2 m h med fyrsidigt tvÃ¤rsnitt, 0,3x0,3 m, och pÃ¥ vardera tvÃ¥ respektive en jÃ¤rnhank. 
+
+Stugan Ã¤r 4,5x3 m, brÃ¤dfordrad med plÃ¥ttak. 
+
+Den delvis avgrÃ¤nsande stengÃ¤rdesgÃ¥rden Ã¤r 0,7-1,5 m br och 0,4-0,5 m h.
+
+Enligt Vadstena klosters jordebok frÃ¥n 1502 fanns i Korsberga "1 Ã¶detorp ok heter Knwtatorp"
+Enligt en storskiftesfÃ¶rrÃ¤ttning Ã¥r 1809 Ã¶ver StoragÃ¥rd framgÃ¥r att Knottorp avskiljts frÃ¥n StoragÃ¥rd enligt beslut 1795. GrÃ¤nserna faststÃ¤lldes 1809.  
+
+Utbredningen Ã¶verensstÃ¤mmer med gÃ¥rdstomten pÃ¥ laga skifteskarta frÃ¥n 1864. (RAÃ„ dnr 321-3628-2009)
+
+Ã„ldre beskrivning:
+GÃ¥rdstomt, ca 100x75 m (Ã–-V), bestÃ¥ende av 3 husgrunder, varav en med spismursrÃ¶se, rÃ¶jda och terrasserade odlingsytor, rÃ¶jningsrÃ¶sen m.m.
+
+Ã„ldsta kÃ¤nda belÃ¤gg fÃ¶r Knottorp 'Knwtatorp' Ã¤r frÃ¥n 1480"ç
+äSÃ¥gverkslÃ¤mning, bestÃ¥ende av 1 husgrund. Den Ã¤r 16x7 m (Ã–-V), i V ingrÃ¤vd intill 0,4 m dj i sluttning, i Ã– med glest placerade, huggna grundstenar, 0,5-0,7 m h, i S delen i tvÃ¥ parallella rader. I grundens NÃ– del Ã¤r ett fundament, 6x3 m (Ã–-V) och 0,8 m h i skalmursform med plan ovansida. NÃ¥got V om mitten lÃ¶per ett 1-2 m br dike (N-S). 
+
+Intill och NÃ– om grunden Ã¤r en brunn, 1 m diam och ca 5 m dj, stensatt, ej vattenfylld. Intill coh NV om grunden Ã¤r en grop, 3x2,5 m och 1 m dj. Enligt uppgift av ortsbo drevs Ã…ngsÃ¥gen av Lessebo AB som sÃ¥lde den Ã¥r 1903, dÃ¥ maskineri m.m. flyttades."è
+åTorplÃ¤mning, NorramÃ¥la ca 60x20 m (Ã–-V) bestÃ¥ende av 2 husgrunder och 1 kÃ¤llargrund. Husgrunden i Ã– Ã¤r 6,5x6 m 0,2 m h. SpismursrÃ¶se i N 2x2 m och 0,6 m h. Skyltad. Husgrunden lÃ¤ngst i V Ã¤r 9x6 m (Ã–-V) 0,5 m h, delvis ingrÃ¤vd i slÃ¤nt. I mitten Ã¤r fÃ¶rdjupning ca 0,4 m dj. Mellan dessa bÃ¥da Ã¤r kÃ¤llare 5x4 m (N-S) 1,2 m h av 0,3-1,2 m st stenar. Torpet var bebott pÃ¥ 1840-talet. Sist bosatt var Anders Petersson som dog 1921. Huset revs 1922. (RAÃ„ dnr 321-1252-2012)"é
+æTorplÃ¤mning, sentida, bestÃ¥ende av en husgrund, en kÃ¤llargrund,rÃ¶jda ytor, rÃ¶jningsrÃ¶sen samt en vÃ¤g. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."é
+æTorplÃ¤mning, ca 200x135 m (N-S), besÃ¥ende av 1 husgrund med spismursrest av grÃ¥sten, 1 grund till jordkÃ¤llare, stenmurar och rÃ¶jningsrÃ¶sen. Husgrunden Ã¤r ca 6,5x5,5 m st med ett i NÃ– utskjutande parti med en bevarad flat sten, ca 1,1x0,7x0,2 m st. JordkÃ¤llaren  ligger omkr. 7 m S om husgrunden. Den har kvadratisk form och Ã¤r ca 3x3 m stor och ursprungligen 1,5-2 m dj. KÃ¤llaren har grÃ¤vts in i en sydsluttning med ingÃ¥ng frÃ¥n S.   Vid lÃ¤mningen finns en skylt med texten: "Granstorp. Backstuga pÃ¥ KnutsgÃ¥rd. VÃ¤rnamo HembygdsfÃ¶rening 2004".
+Ã– om torplÃ¤mningen Ã¤r omrÃ¥de med rÃ¶jningsrÃ¶sen."ì
+éTorplÃ¤mning, inom ett omrÃ¥de av 90x60 m (NÃ–-SV), bestÃ¥ende av enhusgrund med spismursrest samt rÃ¶jda ytor. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."í
+êTorplÃ¤mning , bestÃ¥ende av 1 boningshusgrund , 10x5 m (Ã–NÃ–-VSV) och 0,5 m h. SpisrÃ¶se i Ã– delen ca 3 m st och 1,3 m h. I anslutning till husgrunden finns torpets gamla Ã¥krar, till stora delar helt stenrÃ¶jda, nu granplanterade."î
+ëTorplÃ¤mning, ca 100x60 m st omrÃ¥de (Ã–-V), bestÃ¥ende av enhusgrund med spismursrest, 13x6 m (Ã–-V), spridda grundstenar, enkÃ¤llare, rÃ¶jda ytor, rÃ¶jningsrÃ¶sen, stenmurar och brukningsvÃ¤g.Bevuxen med syrenbuskar.  Torpskylt: HOLMSTUGAN Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."î
+ëRunsten, 1,65 m hÃ¶g, 1,25 m bred (80-280 gon) och 0,1-0,2 m tjock. PÃ¥ NV sidan en hÃ¤stskoformig runslinga. RunhÃ¶jd 12-17 cm. PÃ¥ SÃ– sidan en mycket otydlig runslinga. RunhÃ¶jd 11-13 cm. Runristningen pÃ¥ stenens SÃ– sida Ã¤r sentida. Den Ã¤r utfÃ¶rd pÃ¥ 1800-talet. Runstenen Ã¤r rest i ett kallmurat postament av grÃ¥sten i markytans nivÃ¥ (postamentet ej synligt). Enligt SmÃ¥lands runinskrifter lyder inskriften:"Toste gjorde denna minnesvÃ¥rd efter Ã„tte, sin son."
+
+UppmÃ¥lad 2005."î
+ëTorplÃ¤mning, 50x25 m (N-S), bestÃ¥ende av 1 bostadsgrund och 2 ekonomihusgrunder. Bostadsgrunden Ã¤r10x4 m (N-S) med ett spismursrÃ¶se i Ã–. Ekonomihusgrunden V hÃ¤rom Ã¤r 7x4 m (NÃ–-SV) med underliggandekÃ¤llargrop, vilken har ingÃ¥ng frÃ¥n Ã–. Grunden lÃ¤ngst i N Ã¤r 10x5 m(N-S) och har en enkel stenfot. I omrÃ¥detvÃ¤xer syrenbuskar. Ã–-N om torplÃ¤mningen Ã¤r de numera skogsbevÃ¤xtaÃ¥krarna. Enligt lokal uppgift var platsenbebodd in pÃ¥ 1910-talet och husen stod Ã¤nnu kvar pÃ¥ 1920-talet. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."î
+ëTorplÃ¤mning, 70x50 m (NÃ–-SV), bestÃ¥ende av tvÃ¥ uthusgrunder och en jordkÃ¤llargrund.
+Den ena uthusgrunden, belÃ¤gen i omrÃ¥dets N del, Ã¤r rektangulÃ¤r, 6x4 (NNV-SSÃ–) och 0,2-0,3 m h av natursten. Indelad i tvÃ¥ sektioner.
+20 m VSV om fÃ¶regÃ¥ende:
+Uthusgrund rektangulÃ¤r 5x4 m (Ã–NÃ–-VSV)och 0,2-0,5 m h,  gjuten i cement. OvanpÃ¥ Ã¤r ett nedrasat brÃ¤dtak.
+I omrÃ¥dets V del, 25 m SV om fÃ¶regÃ¥ende:
+JordkÃ¤llargrund, kvadratisk, 5x5 m (Ã–-V) och 1,7 m dj, kallmurade vÃ¤ggar av naturstenar och pÃ¥bÃ¤ttrad med cement. Taket, som Ã¤r igenrasat, Ã¤r ett brÃ¤dtak med ryggÃ¥s. IngÃ¥ng i V.
+I omrÃ¥dets SÃ– del Ã¤r en befintlig byggnad i sÃ¤mre skick. PÃ¥ 1952 Ã¥rs karta redovisas samtliga husgrunder och byggnaden som befintliga byggnader."î
+ëHÃ¤llkista i stensÃ¤ttning.  HÃ¤llkistan Ã¤r ca 5 m l (N-S), 0.5 - 0.7m br och 0.2 - 0.5 m dj. I V lÃ¥ngsidan syns 3 hÃ¤llar, 0.6 - 1.35m l och 0.2 - 0.25 m tj samt in- och utvÃ¤ndigt 0.2 - 0.4 m h. DenN gavelhÃ¤llen Ã¤r 0.9 m l och 0.25 m tj samt in- och utvÃ¤ndigt 0.2m h. Den S gavelhÃ¤llen Ã¤r 1.1 m l och 0.4 m tj samt utvÃ¤ndigt inivÃ¥ med stensÃ¤ttningens yta och invÃ¤ndigt 0.3 m h. I Ã– lÃ¥ngsidansyns 4 hÃ¤llar, 0.5 - 1.2 ml och 0.15 - 0.35 m tj samt 0.5 m h.Mellan en del av hÃ¤llarna i lÃ¥ngsidorna finns mindre stenar, 0.1- 0.3 m st. I hÃ¤llkistans inre och N del ligger en hÃ¤ll, 1.1 m loch 0.4 m br samt 0.1 m tj, mÃ¶jligen har denna utgjort entakhÃ¤ll. Strax V om hÃ¤llkistans S Ã¤nde ligger tre st flatastenar, 0.4 - 0.5 m st.  StensÃ¤ttning, 12 m diam och 0.5 m h.Fyllning av 0.1 - 0.3 m st stenar, lÃ¤tt Ã¶vermossade. Bevuxen meden rÃ¶nn och tvÃ¥ stÃ¶rre granar. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."î
+ëTorplÃ¤mning, ca 270x150 m (N-S), bestÃ¥ende av 1 boningshusgrund, 1 ekonomibyggnadsgrund samt 1 jordkÃ¤llare. 
+Boningshusgrunden, belÃ¤gen i omrÃ¥dets NÃ– del, ca 30 m VSV om befintlig ekonomibyggnad, har otydlig i utstrÃ¤ckning. SpisrÃ¶se, ca 2 m st och intill 1,2 m h, med spÃ¥r efter murbruk.
+Ekonomibyggnadsgrunden, belÃ¤gen ca 90 m SSV om fÃ¶regÃ¥ende, Ã¤r 5x4 m (N-S) och 0,2-1,7 m h, med kallmurade vÃ¤ggrester. Uppbyggd i V-sluttning, delvis pÃ¥ berg i dagen. 
+JordkÃ¤llaren, belÃ¤gen ca 75 m S om boningshusgrunden, Ã¤r 4x4 m (Ã–-V) och intill 2 m h. IngrÃ¤vd i mindre SV-sluttning, med ingÃ¥ng i V. Kallmurad. Bevarad trÃ¤ram vid ingÃ¥ngen.
+
+Inom omrÃ¥det finns Ã¤ven torpets gamla odlingsmark med ett  50-tal rÃ¶jningsrÃ¶sen, 1-5 m st och 0,5-1,5 m h. Vissa rÃ¶jningsrÃ¶sen Ã¤r uppbyggda pÃ¥ eller mot jordfasta block, vissa har kallmurade sidor. I omrÃ¥det finns Ã¤ven ett 15-tal stenrÃ¶jda ytor, 10-20 m st, samt i V delen nÃ¥gra terrasser, intill 1 m h. OmrÃ¥det begrÃ¤nsas delvis av stenmurar.
+Inom omrÃ¥det finns dessutom en befintlig ekonomibyggnad.
+I SÃ– delen finns inkÃ¶rsvÃ¤gen till torpet med 2 grindstolpar."î
+ëTorplÃ¤mning, ca 380 x 100-170 m (Ã–-V), bestÃ¥ende av 3 husgrunder, varav en med spismursrÃ¶se, 1 kÃ¤llargrund, 1 fÃ¤gata, ett 20-tal rÃ¶jningsrÃ¶sen samt stenmurar. Boningshusgrunden, belÃ¤gen i omrÃ¥dets NV del, Ã¤r 10 x 8 m (Ã–-V) och intill 0,3 m h. SpismursrÃ¶se i mitten, 3,5 m st och 0,8 m h. Cementtrappa i V delen. PÃ¥ N delen av grunden Ã¤r tegel upplagt. KÃ¤llargrunden, belÃ¤gen 32 m SSÃ– dÃ¤rom, Ã¤r 6 x 5 m (N-S) och 1,8 m h med 2-3 m br vÃ¤ggar av delvis tuktad sten. IngÃ¥ng i S, 0,8 m br. Mycket vÃ¤lbevarad med trÃ¤karmen intakt och trÃ¤dÃ¶rren bevarad strax utanfÃ¶r. LadugÃ¥rdsgrunden, belÃ¤gen 33 m V om boningshusgrunden, Ã¤r 24 x 7 m (N-S) och 0,7 m h av delvis tuktad sten. Ytterligare en husrest finns 40 m N om boningshusgrunden. Den bestÃ¥r av en nedrasad trÃ¤byggnad, 6 x 4 m (Ã–-V) dÃ¤r nedre varvet bestÃ¥r av bilat timmer och vÃ¤ggarna i Ã¶vrigt av brÃ¤dor samt rester av fÃ¶nster och tak. Strax Ã– dÃ¤rom Ã¤r travar med taktegel. FÃ¤gatan, belÃ¤gen i omrÃ¥dets S del, Ã¤r 45 m l (NÃ–-SV) och 7-10 m br, flankerad av stenmurar, 2-4 m br och intill 1,6 m h. I hela omrÃ¥det finns ett stort antal mycket vÃ¤llagda och vÃ¤lbevarade stenmurar, 2-5 m br och 1-1,5 m h. (RAÃ„ dnr 326-3304-2008)
+
+Ã„ldre beskrivning:
+BebyggelselÃ¤mning, sentida, bestÃ¥ende av 2 husgrunder, varav 1 med skorstensstock, 1 fÃ¶rfallet uthus, 1 kÃ¤llargrund, rÃ¶jda ytor omgivna av vÃ¤lbyggda stenmurar, ett 10-tal odlingsrÃ¶sen samt vÃ¤g. BevÃ¤xt med tall- och granplantering samt bl a syrÃ©ner och frukttrÃ¤d."ï
+ìTreudd, rest av, 7-8 m i sida (NV, S och NÃ–) och 0,5 m h. Ã–vertorvad med i ytan enstaka stenar, 0,2-1 m st. Udden i NÃ– Ã¤r borttagen, eller ligger under ett uthus. PÃ¥ udden i NV Ã¤r ett stenparti anlagt. Udden i S Ã¤r belamrad med ris och kompost. Treudden, som benÃ¤mns korsberget, utgÃ¶r grÃ¤nsmÃ¤rke mellan Virestad prÃ¤stgÃ¥rd, ArnanÃ¤s och SÃ¶dra Kvarnatorp. I en skiftesfÃ¶rrÃ¤ttning frÃ¥n 1755 beskrivs Korsberget som "en samling kullerstenar lagda i form av ett kors med tre armar".
+PÃ¥ kullens krÃ¶n, ca 10 m N om treudden, ligger 4 hÃ¤llformade stenar, ca 1 m st och 0,1-0,2 m h. Ursprungligen resta? Vid boningshusets NV hÃ¶rn Ã¤r en rund fÃ¶rhÃ¶jning, ca 15 m diam och 0,7 m h. MÃ¶jligen Ã¤r huset delvis byggt pÃ¥ en stensÃ¤ttning?"ð
+íTorplÃ¤mning, bestÃ¥ende av en husgrund, kÃ¤llargrop, stenmur,rÃ¶jningsrÃ¶sen och rÃ¶jda ytor. Torpskylt: GrÃ¶ndal. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ñ
+îRunsten, 1,15 m hÃ¶g, 1 m bred (N-S) och 0,4 m tjock. Enligt SmÃ¥lands runinskrifter Ã¤r stenen i sin grundplan triangelformig och har runor pÃ¥ tvÃ¥ sidor. Runor dels i en slinga runt den plana plana Ã– sidans fria kant, dels pÃ¥ den SV sidan. RunhÃ¶jd, 7-9 cm. Mitt pÃ¥ den plana ytan finns ett kors. Enligt SmÃ¥lands runinskrifter Ã¤r NÃ¶bbelestenen en av SmÃ¥lands mÃ¤rkligaste runstenar och inskriften lyder:"Rosten och Eliv, Ã…ke och HÃ¥kan svennerna reste Ã¥t sin fader Kale (Kalle) den dÃ¶de kumlet vitt synligt. DÃ¤rfÃ¶r den gode icke skall glÃ¶mmas, sÃ¥ lÃ¤nge stenen stÃ¥r och runornas stavar."
+
+UppmÃ¥lad 1977."ñ
+îTreudd, rest av, 15-16 m i sida (NÃ–-S-V) och 0.2 - 0.3 m h.Ã–vertorvad. OvanpÃ¥ treudden har byggts ett missionshus, varfÃ¶rendast de yttersta spetsarna av uddarna kan skÃ¶njas. KlarastframtrÃ¤der den S udden som sticker ut ca 3 m. Den Ã¤r 2 m br och0.2 m h. Ã–vertorvad med i ytan enstaka stenar, 0.2 -0.3 m st. DenV sptsen markeras av 1 rest sten, 0.6 m h, 0.5 m br (SSÃ–-NNV) och0.3 m tj. Den NÃ– spetsen Ã¤r mycket svÃ¥ravgrÃ¤nsad pÃ¥ grund av attfyllnadsgrus lagts pÃ¥ denna sidan av byggnaden. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ñ
+îÃ„lvkvarnsfÃ¶rekomst. SkÃ¥lgropsblock i gÃ¥rden HÃ¶gnalÃ¶vs hagmark.
+ 
+Det jordfasta granitblocket Ã¤r 2,5 x 1,5-2 m och ca 1,5 m h, orienterat i NNÃ–-SSV
+ 
+I krÃ¶nlÃ¤ge pÃ¥ blocket ligger 5-7 skÃ¥lgropar varav tvÃ¥ Ã¤r sammanhÃ¤ngande och Ã¶vergÃ¥r i varandra, 5-6 av groparna ligger pÃ¥ rad lÃ¤ngs blockets krÃ¶nlÃ¤ge (NNÃ–-SSV), varav den sjunde ligger vid sidan av krÃ¶nlÃ¤ge.
+
+Groparna Ã¤r vÃ¤ldigt eroderade, men det gÃ¥r tydligt att kÃ¤nna de konkava ytorna med handflatan. En av skÃ¥lgroparna Ã¤r sÃ¤rskilt tydlig, De Ã¤r som mest knappt 1 cm djupa, i allmÃ¤nhet av stÃ¶rre diametrar om ca 4-8 cm (varav den tydligaste skÃ¥lgropen Ã¤r ca 4 cm diam), de Ã¤r StÃ¶rre hÃ¤r Ã¤n vid andra lokala fÃ¶rekomster sÃ¥som vid RAÃ„ UrÃ¥sa 8:1/L1953:4696 (med 35-50 skÃ¥lgropar, ca 250 m NNV) och vid Kyrkekullen L2021:2989
+
+Lokalen upptÃ¤cktes av Johannes Virdarson under april 2021"ò
+ïRÃ¶se, 14 m diam, 0.6 - 0.7 m h av stenar, 0.2 - 0.4 m st. I mittenÃ¤r ett flyttblock, ca 4 m h (NNÃ–-SSV) och 2 m h. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ò
+ïRÃ¶se, 12 m diam, 1.2 m h, av i allmÃ¤nhet 0.2-0.5 m st stenar, vidfoten delvis Ã¶vertorvade. I rÃ¶sets finns tre gropar, 1 m diamoch 0.5-1 m dj. Ã–ver rÃ¶set lÃ¶per gÃ¤rdsgÃ¥rdar.BevÃ¤xt med tvÃ¥ bjÃ¶rkar och nÃ¥gra smÃ¥ granar vid rÃ¶sets fot. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ò
+ïTorplÃ¤mning, 10x100 m (N-S), bestÃ¥ende av 1 grund efter boningshus, 1 brunn samt fossil Ã¥ker.
+
+I SÃ– delen av omrÃ¥det Ã¤r:
+
+Grund efter boningshus, 8x6 m (Ã–-V) och 0,5 m h. I S Ã¤r utbyggnad, 4x4 m och intill 0,4 m h. SpismursrÃ¶se, 3 m st och 0,9 m h. I N Ã¤r trappstenar.
+
+Ca 40 m NNV hÃ¤rom Ã¤r:
+
+Brunn, rund, 0,6 m diam och ca 2,5 m dj. Kallmurade sidor.
+
+I omrÃ¥det finns Ã¤ven fossil Ã¥ker bestÃ¥ende av rÃ¶jningsrÃ¶sen och stenmurar.
+
+I omrÃ¥det finns en kvarstÃ¥ende ekonomibyggnad."ó
+ðTorplÃ¤mning, bestÃ¥ende av 1 grund efter ekonomibyggnad. 
+Grund efter ekonomibyggnad, 12x6 m (Ã–-V) och 0,1 m h, av natursten. Har tillhÃ¶rt torpet Skogslund. Bostadshuset, som finns kvar, Ã¤r belÃ¤get N om grunden, pÃ¥ andra sidan vÃ¤gen."ó
+ðTorplÃ¤mning, bestÃ¥ende av tvÃ¥ husgrunder, varav en medspismursrest, rÃ¶jda ytor, rÃ¶jningsrÃ¶sen och brukningsvÃ¤g. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ó
+ðTorplÃ¤mning, inom ett ca 70x40 m st omrÃ¥de Ã¤r en husgrund medotydlig spismursrest, rÃ¶jningsrÃ¶sen och rÃ¶jda ytor. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ó
+ð1) Husgrund, 8x11 m (NNÃ–-SSV). I mitten en grop, 7x6 m. Endast stÃ¤llvis stensatt kring gropen. Ingen synlig mur. 28 m NNÃ– frÃ¥n nr 1 finns nr:2) Husgrund, ca 11x10 m (NÃ–-SV). I NÃ– troligen rest av mur, ca 2 m br. Ã…t VSV trolig ingÃ¥ng, en 3x2 m st grop och 1 m dj. Grunden omger en 1,25 m dj grop, ca 7x7 m st. Kallas Ryningens (RÃ¶dings) kÃ¤llare (se tradition). Mellan nr 1 och nr och NNÃ– om nr 1 Ã¤r ett plant omrÃ¥de, ca 10 m st. 32 m NV om NÃ– udden har troligen en bro lett Ã¶ver till nÃ¤rmastliggande udde. Ett 30-tal uppstickande pÃ¥lar har iakttagits vid lÃ¥gt vattenstÃ¥nd. PÃ¥larna Ã¤r ca 3 m h. Ej besÃ¶kt 1998. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ö
+óBy-gÃ¥rdstomt , bestÃ¥ende av en husgrund , nÃ¤rmast kÃ¤llargropsliknande, 13x10 m (NV-SÃ–) och ca 0,5 m dj. Vallformade vÃ¤ggrester, ca 4 m br och intill 0,5 m h. IngÃ¥ng i NV.
+Lilla Eknas ? tomt enligt Ã¤ldre kartmaterial. Tomten Ã¶vergiven."ö
+óTorplÃ¤mning, 220x60 m (N-S) bestÃ¥ende av tvÃ¥ husgrunder varav enmed spismursrest samt rÃ¶jda ytor med rÃ¶jningsrÃ¶sen. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ö
+óTorplÃ¤mning, sentida, bestÃ¥ende av tvÃ¥ husgrunder, varav en medspismursrester, en kÃ¤llargrund, en brunn samt en vÃ¤g. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ö
+óTorplÃ¤mning efter torpet Borgen, med synligt spismursrÃ¶se i norra delen och syllstenar. Ca 6x5 meter N-S. Syllstenar 0,4-0,8 meter stora. 
+15 meter Ã¥t sÃ¶der finns en fÃ¶rvaringsgrop, 1x2 meter, 0,5 meter djup, uppbyggd av stenar, 0,3-0,5 meter stora. Ã–ppning Ã¥t Ã¶ster. Syren vÃ¤xer pÃ¥ platsen. TorpstÃ¤llet Ã¤r skyltat.
+Torpet finns utmÃ¤rkt pÃ¥ karta frÃ¥n 1846."ö
+ó1) RÃ¶se, ca 23 m diam, 1.4 - 1.5 m h av stenar, 0.2 - 0.4 m st. Imitten en grop, ca 15 m diam och 1.5 m dj. Ã–stra delen av rÃ¶setÃ¤r borttaget, troligen vid tÃ¤kt, 8 m l (NV-SÃ–) och 2 m br. Imitten vÃ¤xer en ek jÃ¤mte ett flertal lÃ¶vbusket. 6 m V om nr 1 Ã¤r:2) StensÃ¤ttning, rund, 6 m diam och 0.5 m h. Fyllning av 0.2 -0.3 m st stenar. I mitten ligger en sten, 0.4 m h och 0.8 m st.StensÃ¤ttningen Ã¤r till stÃ¶rsta delen Ã¶vermossad. Bevuxen med enbjÃ¶rk, en asp samt nÃ¥gra mindre lÃ¶vbuskar. 10 m V om NVÃ¥kerhÃ¶rnet Ã¤r: 3) Minnessten, granit, 0.66 m h, 0.53 m br(Ã–NÃ–-VSV) och 0.1 - 0.3 m tj. Ristad inskription mot SÃ–. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."÷
+ôHÃ¤llristning pÃ¥ block, 5x2,4x1,7 m, bestÃ¥ende av 10 skÃ¥lgrop, 3-5 cm diam och 0,5-1,5 cm dj. BelÃ¤gen pÃ¥ sÃ¶dra kanten av blockets toppyta. (RaÃ¤ dnr: 321-865-2009) - 
+
+Ã„ldre beskrivning: SkÃ¥lgropsfÃ¶rekomst, i flyttblock, 5,5x2 m (N-S) och 1-1,3 m h, hÃ¶gst i S. PÃ¥ den ganska plana Ã¶versidan och lÃ¤ngst i S Ã¤r minst 4 skÃ¥lgropar, 3-5 cm diam och 0,5-1 cm dj."÷
+ôOfferkÃ¤lla, kallad BrÃ¤nnÃ¤ngs- eller BrÃ¤nne kÃ¤lla, oregelbunden,ca 7x2.5 m (N-S), intill ca 0.75 m dj vatten. NÃ¥got fÃ¶rstoradunder senare tid. Avrinner mot S.Betesmarken Ã– om kallas BrÃ¤nnÃ¤ngen. Enligt upplysning av snickareLindstrÃ¶m, ViÃ¥s. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ø
+õ1) RÃ¶se, 20 m diam och 2.25 m h, av i allmÃ¤nhet 0.3-0.4 m ststenar. I mitten Ã¤r en grop, 2 m diam och 1.2 m dj.Bevuxet med nÃ¥gra granar i kanten.3 m S om nr 1 Ã¤r:2) StensÃ¤ttning, kvadratisk (?), 6x6 m. Ã–vermossad fyllning av0.2-0.3 m st stenar. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ø
+õGÃ¥rdstomt, ca 90 x 60-80 m (NÃ–-SV), bestÃ¥ende av 1 boningshusgrund och 2 ekonomibyggnadsgrunder. Boningshusgrunden, belÃ¤gen i den SV delen, Ã¤r 15 x 7 m (NNÃ–-SSV) och 0,2 m h. I de NNÃ– och  SSV delarna Ã¤r  spismursrÃ¶sen. Dessa Ã¤r 2 x 2 m och 1 - 1,5 m h, av kallmurade stenar. RÃ¶jningssten Ã¤r stÃ¤llvis pÃ¥fÃ¶rd grunden. Ekonomibyggnadsgrunderna, belÃ¤gna ca 35 m NÃ– om boningshusgrunden, Ã¤r  11 x 6 m (NÃ–-SV) och 0,2 m h, respektive 10 x 8 m (NV-SÃ–) och 0,1 m h. I omrÃ¥det finns en fallfÃ¤rdig ekonomibyggnad i trÃ¤. Platsen Ã¤r benÃ¤mnd "Lilla BrorsmÃ¥la" pÃ¥ den gamla ekonomiska kartan. Tomten Ã¤r Ã¶vergiven."ü
+ùHÃ¤llkista i rÃ¶se. RÃ¶set Ã¤r runt, 20 m i diam och 0,4-1,5 m h, av0,3-0,6 m st stenar. Inom stora delar av rÃ¶set Ã¤r fyllningen borttagen. Ã– ommitten, inom ett 5x5 m st omrÃ¥de, kvarstÃ¥r rÃ¶sets hÃ¶jd till 1,5 m.StenpÃ¥fÃ¶rd i SV. HÃ¤llkistan, belÃ¤gen i rÃ¶sets mitt, Ã¤r ca 4,5x0,8 m (N-S). IN gaveln Ã¤r en hÃ¤ll, 0,75 m l, 0,6 m h och 0,15 m tj. I Ã– lÃ¥ngsidan Ã¤rtre hÃ¤llar, 1,2-1,7 m l, 0,4-0,7 m h och 0,2-0,4 m tj. I V lÃ¥ngsidan Ã¤rtvÃ¥ hÃ¤llar, 0,6-1 m l, 0,5-0,6 m h och 0,2-0,25 m tj. I och vidhÃ¤llkistan ligger tre hÃ¤llar, 1-1,25 m l och 0,2-0,3 m tj.Enligt uppgift har 1 stenyxa och 1 flintdolk upphittats i hÃ¤llkistanomkring Ã¥r 1900. Vid besÃ¶k av K Kjellmark iakttogs/tillvaratogs brÃ¤ndaben och en "skÃ¶rbrÃ¤nd eldsten av flinta" Ã¥r 1930. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ý
+úTorplÃ¤mning, inom ett ca 100x85 m st omrÃ¥de (Ã–-V) Ã¤r en husgrundmed spismursrest (otydlig), rÃ¶jningsrÃ¶sen och rÃ¶jda ytor. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ý
+úTorplÃ¤mning bestÃ¥ende av en husgrund, kvadratisk, 7x7 m (N-S) och 0,2-0,8 m h, hÃ¶gre i S. Eventuellt vinkelbyggd. SpismursrÃ¶se i NÃ–, oregelbundet, nÃ¤rmast kvadratiskt, 1,5x1,5 m (N-S) och 1,2 m h, av naturstenar, 0,2-0,5 m st. KÃ¤llare i SV delen, kvadratisk, 2,5x2,5 m (N-S) och ca 1 m dj. SpismursrÃ¶set bevÃ¤xt med en gran. KÃ¤llargropen kraftigt Ã¶vervÃ¤xt. 
+Omedelbart N om husgrunden Ã¤r en stensamling i marknivÃ¥, 3x1,5 m st (N-S). 0,1-0,5 m st stenar. Igenfylld, utvÃ¤ndig kÃ¤llartrapp?
+Skyltad â€Torp No. 85 VildÃ¶nâ€. Vid ekonomiska kartans utgivning Ã¥r 1950 bebyggt med ett bostadshus, en ladugÃ¥rd och ett uthus."ý
+úTorplÃ¤mning, ca 55x25 m (Ã–-V, bestÃ¥ende av 1 husgrund med spismursrÃ¶se, en jordkÃ¤llare och 1 rotfruktsgrop.
+Husgrunden, belÃ¤gen i omrÃ¥dets Ã– del, Ã¤r 7x5 m (Ã–-V) och intill 0,2 m h. Syllrad synlig i den Ã– delen. SpisrÃ¶set Ã¤r i V kanten, 4 m diam och 0,6 m h. 
+I omrÃ¥dets V delen Ã¤r en jordkÃ¤llare, 6x6 m (N-S), rummet Ã¤r 2x2 m och 0,5 m dj med Ã¶ppning Ã¥t S, 1 m br. 
+3 m Ã– om Ã¤r en rotfruktsgrop, rund, 1,7 m diam och 1 m dj. OmgÃ¤rdas av en otydlig vall, intill 1,8 m br och intill 0,2 m h.
+I omrÃ¥dets N del Ã¤r en grop, 1,5 m diam och 0,4 m dj. OkÃ¤nd funktion.
+
+Skyltad av hembygdsfÃ¶reningen: 8:31 / Stutaboda"þ
+ûRÃ¶se, 20 m diam, 1.4 m h. RÃ¶set bestÃ¥r av i allmÃ¤nhet 0.3-0.4 mst stenar. RÃ¶sets yta Ã¤r ojÃ¤mn med flera upplockade gropar. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."þ
+ûRÃ¶se, 27 m i diam och 1,5 m h, av 0,2-0,4 m st stenar. Mittgrop,4x3m och 1 m dj, som har blottlagt ett block, 2x1,5 m och 1 m h. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."þ
+ûTorplÃ¤mning, sentida. BestÃ¥ende av tvÃ¥ kÃ¤llargrunder, rÃ¶jda ytoroch rÃ¶jningsrÃ¶sen.  Bevuxet med bl.a. granar och bjÃ¶rkar. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ÿ
+üTorplÃ¤mning, bestÃ¥ende av 1 husgrund (sannolikt boningshusgrund), 7x5 m (NÃ–-SV) och 0.2 m h. I mittpartiet en grop (kÃ¤llargrop?), ca 2 m st och 0.5 m dj.
+2 m VNV grunden Ã¤r en urgrÃ¤vning i backsluttningen Ã¥t V, ca 5x3 m (Ã–NÃ–-VSV) och 0.5 m dj."ÿ
+üTorplÃ¤mning, inom ett omrÃ¥de av 100x50 m (NNÃ–-SSV), bestÃ¥ende aven husgrund med spismursrest, rÃ¶jningsrÃ¶sen och rÃ¶jda ytor. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ÿ
+üTorplÃ¤mning, inom ett omrÃ¥de ca 100x60 m st (Ã–-V) Ã¤r en husgrundmed spismursrest, en stenmur, rÃ¶jningsrÃ¶sen och rÃ¶jda ytor. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ÿ
+üRÃ¶se, 16 m i diam och 1,5 m h, av 0,2-0,4 m st stenar. I rÃ¶sets Sdel Ã¤r en grop, ca 4x1,5 m (Ã–-V) och 0,5 m dj. Omedelbart V om mitten Ã¤r en rund grop, 1 m i diam och 0,4 m dj. I Ã– Ã¤r kanten skadad pÃ¥ en strÃ¤cka av ca 10 m av en enkel brukningsvÃ¤g. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ÿ
+üTorplÃ¤mning, sentida, bestÃ¥ende av en husgrund med spismursrester,en kÃ¤llargrund, rÃ¶jda ytor, rÃ¶jningsrÃ¶sen samt en vÃ¤g (NV-SÃ–). Ihusgrunden Ã¤r en trÃ¤skylt med inskriptionen: LILLÃ„NG. Cirka 20 mV om husgrunden med spismursrest Ã¤r en tjÃ¤rbrÃ¤nna. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."ÿ
+üTjÃ¤rframstÃ¤llningsplats, bestÃ¥ende av 1 tjÃ¤rrÃ¤nna. TjÃ¤rrÃ¤nnan Ã¤r totalt 18x5 m (N-S). SjÃ¤lva rÃ¤nnan Ã¤r 15x2,5 m och intill 0,25 m dj. Omges av vallar, 1-1,5 m br och 0,2-0,4 m h, Ã¶vertorvade. RÃ¤nnan avgrÃ¤nsas i S av en tvÃ¤rgÃ¥ende, U-formad stenvall, 3,5-4 m l, intill 1,0 m h och 0,3-0,5 m br, bestÃ¥ende av 0,2-0,5 m st stenar. UtanfÃ¶r stenmuren Ã¤r uppsamlingsgropen, 4 m i diam och intill 0,7 m dj. PÃ¥trÃ¤ffad vid sÃ¤rskild utredning steg 1 utan KML-beslut 2010. (RAÃ„ dnr 326-1604-2010)"€
+ýRÃ¶se, ca 25 m diam och ca 3 m h. RÃ¶set bestÃ¥r av i allmÃ¤nhet0.2-0.35 m st stenar. I mitten Ã¤r en grop, 2.5 m diam och 0.8 mdj. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."€
+ýTorplÃ¤mning, inom ett ca 80x80 m st omrÃ¥de (N-S) Ã¤r en husgrundmed spismursrest, en uthusgrund, rÃ¶jningsrÃ¶sen och rÃ¶jda ytor. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."€
+ýTorplÃ¤mning, inom ett omrÃ¥de av 160x80 m (Ã–NÃ–-VSV), bestÃ¥ende aven husgrund med spismursrest, rÃ¶jningsrÃ¶sen och rÃ¶jda ytor. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."
+þSoldattorpet Treleborg, bestÃ¥ende av 1 husgrund, 8x5 m (NO-SV) 0,3-0,6 m h av 0,5-0,8 m st stenar. SpismursrÃ¶se i Ã– ca 1,2 m h, delvis med tegel. Soldattorpet hade nr 65 vid Ã–stra HÃ¤rads kompani. Ã…r 1770 bor Johan Carlsson och hans hustru Lisbet hÃ¤r. 1800 omtalas Dragon Peter Ek med fru Catarina. 1809 bor Maria Svensdotter med fyra barn i torpet. 1832 bor Nils Peter StÃ¥l och hans hustru Gustava Petersdotter. 1836 omtalas Lena Stina Johansdotter med dottern Carolina. 1847 bor Dragon Anders Bergmanmed hustru Stina. Den siste boende var Karl Jonnson som senare flyttade till Floholm i Korsberga socken. (RAÃ„ dnr 321-1252-2012)"‚
+ÿTorplÃ¤mning, inom ett ca 120x60 m st omrÃ¥de (NNV-SSÃ–) Ã¤r enhusgrund med spismursrest, en stenmur, rÃ¶jningsrÃ¶sen och rÃ¶jdaytor. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."‚
+ÿRÃ¶se, 18 m i diam och 1.3 m h, av 0.2-0.5 m st stenar. Kantkedjasynlig i Ã–, 0.3 m h av 0.6-1 m l stenar.RÃ¶set skadat genom stentÃ¤kt varvid ytan blivit gropig. OdlingsstenpÃ¥fÃ¶rd. I S-SV kanten Ã¤r tvÃ¥ kÃ¤llare ingrÃ¤vda.Ã–ver NNV kanten lÃ¶per en stenmur. Beskrivningen Ã¤r inte kvalitetssÃ¤krad. Information kan saknas, vara felaktig eller inaktuell. Se Ã¤ven Inventeringsbok."	Âõ(\ö?"	š™™™™™@"	®Gáz®û?"	ìQ¸…ë@" " " " " " " " 	" 
+" " "8$ ”¸ùú4ûòð"	²7æ$ ³–ú4ûñî"	¸6® âÈâú4"	²9š ¼è÷ú3"	Ä-®$ ·Šú4ûðì "	ôæ$ ßªœù4ûðì "	„Ø> œŸ´ù3"	ò-Œ £±-ù"	ŠÂ ª­€ù4"	ž:ð$ ¯ˆäù4ûðì "	æ1š ë³òù3"	Œì($ ˆŽ“ù4ûðì "	˜0ì ‰¤Æù3"	þ¤" ¸œùûðì "	¼M# à™ùûðì "	Ä¶ á›ƒù4"	¢4ˆ ïñôù4"	ü-à'$ ñÖÓù4ûñî"	¸5†$ òî¬ùûòð"	„*Ö4 ¤ãQù"	¬Ü3$ °˜§ù4ûðì "	Ž5 +$ ºóù>ûðì "	œþ. Ò¶–ù4"	Ü.ò& âÄJù"	Þà9 ã×Šùˆ"	€È=# ç¶Zùûñî"	â4Œ ÕÎMø"	¼) & Øƒƒø4"	œ0â ÜÊ+ø"	˜#À ì«mø4"	¤4°  òÀîøX"	È$º$ óùpø"	è¼/# ú®øûðì "	Îö$ ÿé‹ø4ûñî"	â5¦$ šÕ˜ø"ûðì "	Šè- ¥úø3"	°.  ¬Ý0ø"	¬( ±§üø3"	Š¤7 ¿”Dø"	Ú(–, Ã¨»ø3"	Ì< ÊšÚø4"	ìê Ë@ø4"	Î5®$ Û· ø3ûðì "	Öü éÂ‘ø4"	È€ ð’Šø4"	¬¸$ ò‚çø"ûðì "	ìæ& õë*ø"	š"Ð*$ ú„ÿøXûðì "	Æ"°1 …Ì’ø4"	°Ä š²õø4"	Æ= 0 Â{ø4"	ô=# ŸÁUøûðì "	¾Æ$ ¶Ý¢ø4ûñî"	º:º Ã¿Õø4"	êÜ)$ é¡ºø4ûòð"	ž3¸$ ê¾Âø4ûñî"	¨â&# ûéCøûðì "	ºª ý¦­ø4"	¬® € €ø4"	À0Ò •É&ø"	ˆÂ ž“§ø4"	’6ˆ ¥©—ø4"	š®
+ ¿‘2ø"	¨°! ß°)ø"	ÔÀ Èê³÷4"	à„ ÛôÃ÷4"	ˆšA é¹K÷"	øÎ& ëÁÑ÷3"	ú$ð …¯É÷>"	´Ö7# Š¨!÷ûðì "	¶"š/# Œº‰÷4ûðì "	Ê9 ŽýÁ÷4"	”'ü&$ ‘Ú•÷4ûòð"	¨ö	 “ÓÓ÷4"	¾‚" ¨­œ÷4"	Ê
+Ô5$ ½ÿ¤÷4ûðì "	ÈÚ&$ ÀÃõ÷4ûðì "	‚=¸/ ÁÍè÷4"	®‰ Ð¯÷4"	Ì%ò! Ù¹±÷4"	ª= áº4÷4"	ˆú$ ¼Œ÷4ûñî"	Ôü
+ ŽŒ}÷4"	š# †w÷4ûðì "	Â0Ü •“‰÷ˆ"	¾  ž×÷"	æ Ê$ ¡ß’÷4ûóï"	â¬ ¬—÷"	ª¼, ½ÞS÷"	Ê'3$ ËÒ‘÷4ûñî"	‚² ØŠö÷>"	–@ê2 Û™¦÷4"	¤´ ðËÙ÷4"	²´	$ ‚Œ²÷>ûñî"	¶˜*# Œ¤1÷ûðì "	ÆÎ" ŽÑb÷4ûðì "	°= ˜ãE÷"	†Ø+ šï÷"	Ê¬ Ÿæ6÷"	‚Š «Ëª÷4"	ºÜ ¯å5÷"	ÐÈ$ ±Îå÷4ûðì "	¸Œ	 ½íw÷4"	Ô0–) Àõ÷÷4"	ü¬# Ë»™÷4ûòð"	¸F# ÐÃY÷ûðì "	Ê$ò Û’º÷4"	Ê1Ì $ Ýç„÷4ûñî"	à– É¥Ðö4"	¶¨$ Ì—ªö4ûðì "	úà ÍÄö4"	‚È Ï‰#ö"	 $¦$ ÚêÅö4ûóï"	”´ î£`ö4"	ØÜ3 ðä­ö4"	ˆð –èzö4"	Ì²	 Ÿ¢:ö"	ä>Þ+ ­”iö4"	Š-–, ®½µö4"	¤%„-# ¼žšö4ûóï"	ž: ïÅ¥ö4"	ø” ñ¬Ÿö4"	è óàö4"	ŽÐ-# ô²àö4ûóï"	°r €Ôö"	U¶( ”Ùõö4"	Ø?  œ3ö3"	¸ä% ©½ñö4"	žÚ$ ÄÜ«ö4ûðì "	ÌÈ ã–Øö4"	ì,î ëÅö"	¬ Ú ¸…öý"	à#ž@ ™»Ýö4"	ÌÚ$ ¢á’ö4ûðì "	Žâ
+ ¹±¶ö4"	ª&þ)$ Å›¡ö4ûñî"	¤è Í‡,ö"	à„4 Óâ¨ö4"	ðÂ
+$ Õß½ö4ûòð"	ÔÀ ëÑfö4"	²è í¥õ"	–à õÞ4õ4"	Ö!ª0 ‰¿4õ4"	Œâ& ´…4õ4"	ê!’*$ Ø‘ÿõ4ûðì "	À®/ ‘Êõõ4"	-¦ # «¡óõ4ûðì "	Â U# ó´4õ4ûðì "	ž!°/ üª4õ4"	œ0ú'# °4õ4ûñî"	´Ð ’Ûsõ4"	bŽ “ø‡õ4"	 €' ×åõ"	´3  Ç•ûô3"	¢Ú# Êš4ô4"	Ø+Ä Ëæ4ô4"	¦¼?$ Î§»ô4ûñî"	 5  Ð•ô"	€5Æ# Ñ·ôûðì "	ø0’& Ò•·ô4"	Äæ Ó•<ô"	¾3 Ô•ô"	&ä7 Ö•ñô3"	öÔ2 ×•jô4"	Œ
+ Ù÷ô"	ÜÜ$ Ý•Äô3ûðì "	² ²,$ Þ§×ô4ûñî"	ä8Þ àó4ô4"	Â7®$ áž¹ô4ûðì "	ž( â•?ô"	 ª ã•þô3"	¾&´8 ä•¬ô4"	ä,d# å€3ô3ûñî"	ÆÂ# æëôûðì "	ª¸; ç•Gô"	‘²<$ è•‡ô4ûðì "	°Ð$ êž—ô4ûðì "	Ü(‚$ ï•Üô4ûðì "	Ø-Ò ñ•Fô	"	˜€! ô•‹ôˆ"	Ì6žA# öÒ4ô4ûðì "	ÒŠ+ ÷•=ô"	Ì9î ø•$ô"	‚"Ì5 ù‹XôX"	¬&ü/" û•;ôûñî"	zÄ# ü•Vô4ûðì "	ž	î ýØô"	‚Ð0 þ¬ô4"	–?9$ €•Àô4ûðì "	†;Þ •¯ô4"	¨  ‚µ4ô4"	¼9ü ƒ•ùô3"	ââ#$ „žŸô4ûðì "	Þ$ˆ †Æô"	”( )# ‡Ùôûðì "	Ú&ô5 ˆ•íô4"	Î-”
+# ‹•Ôô4ûðì "	RÜ •Íô4"	ê	¢"$ žøô4ûðì "	˜)˜ µô"	²"Æ# ’üôûðì "	¸Ä$ ••ãô4ûóï"	ø:Î$ —•†ô4ûðì "	Ä	ô ˜•´ô4"	¸
 Æ
- ™­Œ“‰†"	î$þ µtŒ"	’ª ÌŒ“ˆ„ "	’† Œ"	æ$´. Ä[Œ"	ˆ¢ è>Œ"	˜€! ±­Œ“ˆ„ "	Ôü	 öõŒ"	¸"¼ þÍŒ“ˆ„ "	’,ú ýŒ"	”( ) ¨Œ"	²*è& ‰Œ“ˆ„ "	¸Ä ¤Œ“ˆ„ "	®ô ¥Œ"	¼Ô" ÐŒ"	ÜÜ ¥Œ“ˆ„ "	‚¤ ŽJŒ"	¬/®	 «¯Œ"	¦1Ø Þ?Œ"	‘²< ¦ïŒ“Šˆ"	¤"È% Ô»Œ“ˆ„ "	² ²,	 úðŒ"	ââ# Ý°Œ“ˆ„ "	¦'Ê Ø±Œ“ˆ„ "	ž(	 †ÎŒ"	ä%' ÕÏŒ“‰†"	ä8Þ	 ¯øŒ"	Ü5‚ »@Œ"	°7ê ·ùŒ“ˆ„ "	ðž Ý¼Œ“ˆ„ "	œî	 É®Œ"	Äæ ¬üŒ“‰†"	ž7ì Å³Œ“‰†"	 5  ÑLŒ"	Ôæ8 ³ýŒ“‰†"	Ð,˜ Û\Œ"	ªî ßþŒ“ˆ„ "	°Ð	 ÑùŒ"	¶Þ; äŒ"	Èæ, þŒ“ˆ„ "	Ú&ô5 ‡Œ"	²"Æ ÖŒ“ˆ„ "	º¾( ŽŒ"	¤š ÖŒ"	¨$Š1 ÉŒ"	Î'ê0 ËŒ"	&ä7 ©Œ"	”î ˜Œ“ˆ„ "	Þô	 ÀÿŒ"	þS ˆÎŒ“ˆ„ "	Ì¢ õëŒ“ˆ„ "	Ð¤ Õ˜Œ“ˆ„ "	Ä+˜ ‚“Œ“‰†"	à¶ ½ÓŒ“‰†"	Ü&  æÔŒ“ˆ„ "	Ø-Ò ä¯Œ“ˆ„ "	È3ð ¸´Œ“ˆ„ "	ð2ú	 ÿÖŒ"	Ì'ˆ	 ¡×Œ"	â$¼ ÐÙŒ“‰†"	Â4È	 ôƒŒ"	ê‚ ÞŒ“ˆ„ "	ÌŠ1	 ÜŒ"	š:ä ïvŒ“ˆ„ "	€ø ²™Œ“Šˆ"	òÔ ‹]Œ"	ú7¦" ÇwŒ"	€5Æ È
-Œ“ˆ„ "	ø0’& ½°Œ“ˆ„ "	ªš	 ŒÛŒ“‹‡"	ø:Î	 “¶Œ"	¬(¤		 ë€Œ"	Ì6žA	 ÑƒŒ"	ì º Ù–Œ“ˆ„ "	Ìê ùxŒ“‰†"	¨*: ½˜Œ“ˆ„ "	Ú2ü	  „Œ"	¦ð ²šŒ“Šˆ"	Þ(” î_Œ"	²ö	 Å…Œ"	¬¨	 ­·Œ"	Ìs	 ¾òŒ"	¢Ú# °úŒ“‰†"	æ8¬ ž†Œ“ˆ„ "	¨)è	 á›Œ"	 *ò ÷¸Œ“ˆ„ "	†;Þ ïŒ"	‚"Ì5	 ¢œŒ"	¼ô
+ ™Æ
+ô
+"	æ$´. ›•ôX"	Š2„ ž¯ô4"	°'ð ž•Äô4"	Äî#  •Aôûðì "	Šð$ ¡§¾ô4ûñî"	†/¸$ ¢§µô4ûñî"	î$þ# ¤˜4ô4ûðì "	Æ/þ&$ ¦ž›ô4ûñî"	Â*´$ §•ô4ûðì "	¨)è ©•ô4"	¦ð «•¥ô4"	¼ô °ú4ô4"	¼È5 ²•Iô"	ÆÖ$ µ§…ô4ûñî"	ž7ì ¶•/ô"	¤¶  ·§òô4"	Ž$-$ ¸§½ô4ûðì "	†ö$ ¹•ƒô3ûñî"	æ8¬ ºäXôX"	¸,®$ »•¢ô4ûòð"	òÔ$ ¾§üô4ûñî"	ê+†$ Â§¨ô4ûðì "	Ò1¬ Ä•Hô"	°7ê" Å•xô4ûðì "	â2f$ Æ•¹ô3ûðì "	ªš	# Ç®4ô4ûñî"	ú.°#$ È§”ô4ûñî"	À8Ì$ É§“ô4ûñî"	ê‚ Ì•ô"	”!È Í•cô"	ˆ¢ Î§Ëô4"	Ö ˆ Ï§Ãô4"	Ä%Â Ñ•ðôX"	¶1œ. ÒÍô"	Î'ê0 Ó•7ô"	ü!ü"# Ô•£ô4ûðì "	ø4r# Õ¾
+ô
+ûðì "	’† Öžæô4"	¶*‚ × 4ô4"	àÀ0 Ú•Tô"	Ôæ8 Üð>ô>"	¢	È$ Ý§ô4ûðì "	”/¶ Þ•Âô4"	°ä" ßô"	¨$Š1 à•%ô"	ü– ãÏ4ô4"	À ä•dô"	ªî å•ôˆ"	š:ä$ æ•öô4ûñî"	Æ®# ç£ôûðì "	ÌŠ1 è•©ô3"	ÚÖ êàô"	Ð9¤$ ì•¿ôûðì "	¶Ü$ í•¸ô4ûðì "	È3ð î•ïô4"	ÐÖ ö•ìô"	îÆ# ÷§Ñô4ûñî"	°"a ø•°ô4"	ì
+$ ù•Òô3ûñî"	Ô¢5# û9ôûðì "	ð‚ ü•Oô"	þ=  ý•ôˆ"	ê‚$ þ§ôô4ûðì "	Ð¤ ÿ•þô"	¸"¼ •ô"	“°# ‚§€ô4ûñî"	¨*:# ƒ•ôûñî"	ä / „ì>ô>"	Ô<ú< †•žô4"	ò*œ$ ‡§Õô4ûðì "	’,ú Š•ìô3"	þº " ‹–sô4ûðì "	Â&g Œ§‹ô4"	¶2 §Öô4"	ä%'$ ’•ëô4ûðì "	žì
+ “•ûô4"	¦Ò
+ –•.ô"	€/® —öô"	¤š ˜•Ïô4"	ÒÖ ™Ó4ô4"	ŽØ ›§©ô4"	œÀ œÈô"	ž%¤4$ ¢§‰ô4ûðì "	 7Ô £•Òô4"	¼	Ì# ¤Ú4ô4ûñî"	â7’ ¥Ðô"	ˆ"ò ¦¬éô4"	È8Ú# §À4ô4ûñî"	ÌÌ' ¨•]ô"	2è ª§ßô4"	â$¼# ­©ôûðì "	®ô ®çô"	¼Ô"$ ¯•øô3ûòð"	¤"È%$ °§ˆô4ûòð"	Ð1ä ±Çô"	²*è& ²Ôô"	”î ³•8ô"	š#è ´•·ô4"	¦1Ø µ§€ô4"	Ô'‚ ·•uô4"	ÞÚ ¹§±ô4"	òØ$ º•¶ô4ûðì "	Ôü »•Öô3"	”-ô ¾•|ô4"	’ª ¿•oô"	ž&â$ À•‚ô4ûðì "	ðž$ Á§¦ô4ûñî"	Ü6ü" Â^ô4ûñî"	¶æ Å•(ô"	¦ ´$ Æ§ ô4ûðì "	Ú2ü$ Ç•„ô3ûðì "	š+ž%$ È«Èô4ûóï"	Ä!à É•ýôX"	†1Æ7 Ê•³ô4"	Œ¦ Ì¼4ô4"	Ê  Í•Àô4"	ºÞ$ Î§¼ô4ûñî"	ä3¤ Ï•qô"	š”3 Ð•úô4"	Ön$ Ù•áô4ûñî"	Â4È Ú§Œô4"	ì º$ Ü§ô4ûðì "	þ)º# Ýž\ô4ûóï"	¾&Ì$ Þ§¡ô4ûðì "	Ä+˜# ß³ôûðì "	º¾($ â•žô4ûðì "	Ìê# ä•vô4ûðì "	ª0Ì
+# åØôûðì "	°6’$ æ•Åô4ûðì "	œî çòô"	š<ò.# è§_ô4ûðì "	Î¼ ì¬Ìô4"	Ð9 íâô"	Èæ,$ î•šô4ûðì "	ú  ô§Ôô4"	†-¾% õÏ™ô™ûðì "	¼, $ ö•®ô4ûñî"	ÒŒ ÷•gô4"	²ö# ø•~ô4ûðì "	€ø ù•Wô4"	´
+ü# ú§«ô4ûðì "	Ê'# þ•Pô4ûðì "	šœ# ÿ•'ôûðì "	’¬ •²ô4"	Š ƒ•aô4"	€	–!$ „•Žô4ûñî"	º´ …•®ô4"	ô,ì# †§nô4ûðì "	ê ø ‡§‚ô4"	´0š ˆ§Þô4"	Ì'ˆ$ ‰§Êô4ûðì "	†-Î Š§íô4"	¦!è$ ‹•›ô4ûñî"	à¶ •”ô4"	_€$ ‘§×ô4ûðì "	Ì¢ ”•eô"	ú7¦" –§•ô4"	¬"ú —•Rô4"	¬/® ›Ì4ô4"	”,¨* œ§¾ô4"	¬(¤	 •[ô"	æ9þ"  áôûñî"	¾`# ¡Çôûðì "	Þô £•Bô"	¼š$ ¦§Áô4"	;# §Éôûðì "	–Þ# ¨ûyô4ûñî"	–&º) ©•Lô"	Œî ªžÎô4"	–<Î ¬þ3ô3"	”Ð# ­• ôûðì "	ºè(# ®´ôûðì "	‚¤ ²•Çô4"	ø( ³§„ô4"	¬-W# ´°ô4ûðì "	€'Ö# µ•kô4ûñî"	¢;¦ ¶•¿ô4"	Ìs ¸Ÿô4"	Ü5‚$ »•£ô4ûòð"	Þ(”$ ¼¢†ô4ûñî"	Ð,˜ ¾•rô"	°7Ö:$ Á•¼ô4ûðì "	ð2ú Â•îô4"	¼+ä Ã•†ôX"	ÚÒ0 Ä•hô4"	Ðü$ Æ§Ûô4ûñî"	Ü& $ Ç•˜ô4ûôí"	þ:¬# È•tô4ûòð"	ö%¦ É§ˆô4"	þS# Ê•lô4ûðì "	ö	Þ	 Ì•êô>"	ˆ´ Î•Žô4"	¬¨ ÏÖ3ô3"	Œ-€$ Ñ§Æô4ûðì "	¶;Š ÔÜ4ô4"	¦ö" Ö•Nô"	îº$ Ø¦ðô4ûñî"	¸9è$ Ù•…ô4ûðì "	˜þ Ú•‚ô3"	¶Þ; Ü•Óô4"	ìª# Þ‡4ô4ûðì "	Æ5à& àÛ4ô4"	4Æ# áÕôûðì "	úä ä§ïô4"	‚18 å•Žôˆ"	ª
+ˆ>$ æ§¸ô4ûðì "	¦'Ê èÐ4ô4"	Ú8Ð é•ô"	ÆÂ2 êž¤ô4"	 *ò

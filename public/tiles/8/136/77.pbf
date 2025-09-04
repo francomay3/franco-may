@@ -1,19 +1,27 @@
-Ô∂x
-archaeological_sites(Ä uuiddescriptionlabel	relevance	clusteredpoint_countsqrt_point_countpoint_count_abbreviated"
+Èíx
+archaeological_sites(Ä uuiddescriptionlabel	relevanceclass	clusteredpoint_countsqrt_point_countpoint_count_abbreviated"
 2"
 3"
 4"
 6"
 7"
-8"
+8"
+Bro"
+Vad"
 H√∂g"
 Kvarn"
-R√∂se"
+R√∂se"
+
+Labyrint"
+	Gravf√§lt"
 	Offerkast"
 
-V√§gm√§rke"
+V√§gm√§rke"
+F√•ngstgrop"
+Gr√§nsm√§rke"
 Minnesm√§rke"
 Tr√§industri"
+H√§llristning"
 Stens√§ttning"
 Vetten, R√∂se"
 Guldh√∂g, H√∂g"
@@ -25,9 +33,11 @@ V√§gm√§rke"
 R√∂nvarn, R√∂se"
 Sk√§rvstensh√∂g"
 Storr√∂s, R√∂se"
+Begravningsplats"
 Drotteh√∂g, H√∂g"
 Hylter√∂s, R√∂se"
 Rolfs grav, H√∂g"
+Slott/herres√§te"
 Store h√∂g, H√∂g"
 Albaster√∂s, H√∂g"
 Alguser√∂s, R√∂se"
@@ -55,6 +65,7 @@ V√§gm√§rke"
 Sm√•industriomr√•de"
 Stora varpet, R√∂se"
 Vetter√∂sena, R√∂se"
+K√§lla med tradition"
 L√§genhetsbebyggelse"
 Sk√§ndla r√∂s, R√∂se"
 Tryggeberg, Labyrint"
@@ -71,6 +82,7 @@ V√§gm√§rke"
 Ramsv√•l, Stens√§ttning"
 Sundasten, Gr√§nsm√§rke"
 Sundhammers r√∂s, R√∂se"
+Begravningsplats enstaka"
 Gamle man, Stens√§ttning"
 Grav- och boplatsomr√•de"
 Hagen, Bytomt/g√•rdstomt"
@@ -92,6 +104,7 @@ V√§gm√§rke"
 Tingskullen, Stens√§ttning"
 Aberg, L√§genhetsbebyggelse"
 Druls, L√§genhetsbebyggelse"
+Grav markerad av sten/block"
 Gr√§shaga led, Gr√§nsm√§rke"
 Lilla varpet, Stens√§ttning"
 Rinna, L√§genhetsbebyggelse"
@@ -456,11 +469,14 @@ $fe240b70-efa7-4e7e-ac1a-5972d09cfc70"'
 (Pykstenarna, Grav markerad av sten/block",
 *L√•nge stenen, Grav markerad av sten/block"-
 +V√§ttnesstenen, Grav markerad av sten/block"7
-5Vidrik Verlandssons grav, Grav markerad av sten/block"E
+5Vidrik Verlandssons grav, Grav markerad av sten/block"9
+7Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"E
 CR√∂da sten, Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"F
 DGomers sten, Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"F
-DSadelstenen, Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"W
-UGullbringa is a historic dwelling area that was once home to people in ancient times."É
+DSadelstenen, Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"N
+LF√∂r beskrivning av l√§mningen se Inventeringsbok under Dokument och bilder."W
+UGullbringa is a historic dwelling area that was once home to people in ancient times."{
+yBeskrivningen √§r inte kvalitetss√§krad. Information kan saknas, vara felaktig eller inaktuell. Se √§ven Inventeringsbok."É
 ÄThis archaeological site preserves a well-preserved circular stone mound from the Iron Age, offering visitors a glimpse into ancient burial practices and social structures. The surrounding area includes remnants of prehistoric settlements and defensive earthworks, showcasing significant historical layers that invite exploration and imagination about life in this historic landscape."Ñ
 ÅThe small settlement mound at Orrakulle offers a fascinating glimpse into everyday life from the past, with its preserved traces revealing insights into historical housing and community organization.
 
@@ -476,7 +492,8 @@ Beskrivningen av h√•rden och detaljer kan vara olik beroende p√• tidpunkt, men d
 áWelcome to the captivating archaeological site of Offerstenen! It offers a fascinating glimpse into ancient ritualistic practices with its well-preserved standing stone circles and engravings that stand as impressive testaments to our shared prehistoric heritage."ä
 áThe archaeological site of Sl√§ttar√•s offers a fascinating glimpse into the past with its well-preserved remnants that speak to historical domestic life and community activities.
 
- Visitors can explore notable features including earthworks and foundations suggesting everyday structures from bygone eras, alongside intriguing artifacts hinting at daily routines once conducted on this land."ã
+ Visitors can explore notable features including earthworks and foundations suggesting everyday structures from bygone eras, alongside intriguing artifacts hinting at daily routines once conducted on this land."ä
+áG√•ngrift i h√∂g. H√∂gen √§r ca 14 m i diam och 1,3 m h med i ytan enstaka stenar 0,2-0,4 m st. Den rektangul√§ra kammaren, bel√§gen i h√∂gens mitt, √§r 3,2 x 1,5 m (NN√ñ-SSV). Den V l√•ngsidan best√•r av tv√• h√§llar 1,2-1,3 m br 0,3-0,5 m tj, och 0,8-0,9 m h √∂ver h√∂gens yta. P√• √ñ l√•ngsidan ligger en h√§ll 1,1 m l och 0,6 m br. Mot S √§r en h√§ll 1,2 m br 0,3 m tj och 1,1 m h, kraftigt lutande √•t SSV.Mot N √§r en gavelh√§ll 1 m br, 0,2 m tj och 0,8 m h, vilken luter in mot mammaren. Omedelbart NV om sidoh√§llarna ligger en takh√§ll 3,8 x 1,1 m st och intill 0,4 m tj. (NN√ñ-SSV) p√• denna finns fyra √§lvkvarnar (Valla 27:2). Kammaren √§r till stor del fylld av intill 0,1 m st stenar. Fr√•n S√ñ leder g√•ngen 5,5 x 4 m (NV-S√ñ). G√•ngens N√ñ sida utg√∂rs av tre h√§llar 0,2-0,8 m h √∂ver h√∂gens yta, 0,8-1,1 m l. G√•ngens SV sida utg√∂rs av tv√• h√§llar 0,2-0,3 m h och 0,7-1 m l. Mellan dessa ligger en h√§ll, troligen takh√§ll, 1,5 m l 1,1 m br och intill 0,5 m tj. P√• h√∂gens S del ligger tre stenar 0,9-1,5 m l."ã
 àThe archaeological site of Klovstena offers a fascinating glimpse into the past through its well-preserved remains and historical artifacts. Visitors can explore intriguing structures and learn about life during ancient times at this significant location in Lerum."ã
 àThe site is a fascinating underwater shipwreck from the 16th or 17th century that reveals important insights into historical maritime trade and daily life during that period.
 
@@ -486,7 +503,9 @@ Visitors can explore its rich collection of artifacts including wooden anchors, 
 Visitors can explore evidence of historical dwellings and daily life from earlier periods, providing insight into how people lived long ago."å
 âNestled along a small stream is the well-preserved ruins of an old farm and its surrounding cultivated fields, offering a glimpse into how people lived centuries ago in this rural landscape.
 
-Visitors can explore the remains of houses, farmyards with stone remnants of old enclosures, and traces of ancient orchards within this historically significant area designated as the Svanelund estate."ê
+Visitors can explore the remains of houses, farmyards with stone remnants of old enclosures, and traces of ancient orchards within this historically significant area designated as the Svanelund estate."ç
+äStens√§ttning, n√§rmast rund, 7-8 m diam och 0,3 m h. √ñvertorvad fyllning med i ytan talrika stenar, 0,3-0,5 m st. I sluttningen SS√ñ h√§rom √§r en av flata stenar och murbruk uppf√∂rd plattform, 3 m diam och 0,4 m h. Denna √§r delvis uppriven med sk√§rviga stenar i en zon runt anl√§ggningen intill 1 m fr√•n denna.
+F√∂r skiss av stens√§ttningen se det inskannade bokuppslaget under Referens."ê
 çThe archaeological site of Kr√∂satorpet offers a fascinating glimpse into the past through its preserved domestic structures and artifacts found in situ. Visitors can explore remnants of historical habitation that provide insight into daily life during earlier periods."ê
 çKrulles Grav is a fascinating ancient burial site located in Skepplanda, featuring distinctive stone chamber graves that offer glimpses into the region's prehistoric past.
 
@@ -497,7 +516,10 @@ Visitors can explore the preserved underground passage and examine the well-defi
 Though not yet fully investigated or verified in detail, this open-air archaeological site offers valuable insights into how rural landscapes have been shaped by human activity since historical times."í
 èKilatorpet is an archaeological site offering a fascinating glimpse into ancient domestic life through its well-preserved remains.
 
-Visitors can explore traces of historical housing and daily routines at this location that provides valuable insight into past communities."ì
+Visitors can explore traces of historical housing and daily routines at this location that provides valuable insight into past communities."í
+èFartygsl√§mning. Uppgift saknas om l√§mningens sammanh√•llna utbredning. Fartyget  har varit kraftigt byggt med 20-40 cm breda och drygt 20 cm tjock spant. Borden √§r upp emot 40 cm breda och har en tjocklek av 6,5-7 cm. √ñster om l√§mningen finns ett stockankare som dock b√∂r vara betydligt yngre (1800-1900-tal).
+
+Dendrokronologisk analys av tv√• tr√§prover av bord (ek) visar att fartyget sannolikt byggdes under 1500-talets senare del eller under 1600-talet. Analysen utf√∂rdes av Dendro.dk. Vid provtagningen p√•tr√§ffades en trefotsgryta (yngre r√∂dgods) mellan tv√• spant.  Grytan √§r p√• typologiska grunder grovt daterad till perioden 1500-1750."ì
 êThe archaeological site at Halsar√∂set offers a fascinating glimpse into the past with its preserved remains and historical artifacts.
 
 Visitors can explore evidence of ancient activities and structures that provide insight into how people lived long ago in this location."î
@@ -525,12 +547,17 @@ This archaeological site preserves evidence from an earlier period in the parish
 ïNestled in the village of Hajom, this ancient dwelling site offers a captivating glimpse into everyday life from long ago. Visitors can explore well-preserved stone foundations and scattered artifacts that reveal fascinating details about past inhabitants' routines and skills."ò
 ïThe archaeological site of Lusasken is a well-preserved open-air dwelling from the past that offers visitors a glimpse into ancient living conditions and daily life in its historical context.
 
-At this location, you can see the remains of what was likely a significant settlement structure, giving a vivid sense of how people lived long ago and standing as an impressive testament to our cultural heritage."ö
+At this location, you can see the remains of what was likely a significant settlement structure, giving a vivid sense of how people lived long ago and standing as an impressive testament to our cultural heritage."ò
+ïG√•nggrift i h√∂g. H√∂gen √§r 10-12 m i diam och 0,7-1 m h. Kantkedja av 0,5-0,8 m l, 0,4-0,5 m h och 0,1-0,2 m tj stenar. Den n√§rmast runda kammaren bel√§gen i h√∂gens mitt √§r ca 2 m i diam inre m√•tt, bes√•r av nio h√§llar. Dessa √§r 0,4-1,35 m l, 0,1-0,3 m tj och 0,3-0,8 m h, inre m√•tt. H√§llarna √§r p√• utsidan 0,1-0,4 m √∂ver h√∂gens niv√•. P√• kammarens N√ñ del √§r en takh√§ll 1,9 x 1,3 m (NNV-SS√ñ) och 0,35 m tj. G√•ngen synes vara helt t√§ckt av h√∂gen. M√∂jligen ing√•r en liten h√§ll i S, 0,6 m l (synlig) i g√•ngen."ò
+ïTorpl√§mning, ca 9x5 m (N-S), best√•ende av 1 husgrund med spismursrest. Husgrunden √§r relativt v√§lbevarad i den S-delen och syllstenar ligger p√• rad h√§r. N-delen √§r skadad av markarbeten, endast enstaka stenar finns h√§r. Spisr√∂set √§r ca 2,5x2,5 m stort och best√•r av ljus kalkhaltig jord med stenar. S om torpet finns en stenlagd kant som bildar en ca 2 m bred och 5 m l√•ng terrass. Alldeles √ñ om husgrunden finns en naturlig bergsavsats. Husgrunden har i tidigare unders√∂kning refererats till som den "√ñstra husgrunden", och har utgjort 1 av 2 enheter inom fornl√§mningen. 
+
+Platsen framrensades vid skadedokumentation, se skadebeskrivning nedan."ö
 óPettratorp is a historic estate that offers a glimpse into the past with its preserved buildings and rich cultural heritage.
 
 Visitors can explore the well-maintained structures and learn about the area's development through engaging historical exhibits and informative displays."ö
 óNestled in the heart of R√∂sefj√§ll, this ancient stone structure offers a fascinating glimpse into prehistoric life with its reconstructed rectangular building divided into two chambers. Visitors can explore remnants of the original circle-shaped layout and marvel at the well-preserved, dry-stone walls standing up to 1 meter thick, showcasing impressive craftsmanship from the region's early inhabitants."ö
-óThe archaeological site of Sl√§ttehall is a historic boundary marker located in the parish of Lindome, offering a glimpse into past land divisions and cultural landscapes. Visitors can explore its location near Synlig Ovan Mark with approximate coordinates provided, potentially observing remnants that reflect its significance in historical contexts despite some uncertainty regarding investigation status."ú
+óThe archaeological site of Sl√§ttehall is a historic boundary marker located in the parish of Lindome, offering a glimpse into past land divisions and cultural landscapes. Visitors can explore its location near Synlig Ovan Mark with approximate coordinates provided, potentially observing remnants that reflect its significance in historical contexts despite some uncertainty regarding investigation status."ú
+ôTorpl√§mning, delunders√∂kt, belagt fr√•n 1894 men rivet f√∂re 1932. Inrapporterat i samband vid arkeologisk nyutredning 2015. (RA√Ñ dnr 3.4.2-3696-2015)"ú
 ôWelcome to the ancient stone circle in Gothenburg parish! This fascinating site features a well-preserved circular arrangement of stones dating back centuries, offering a glimpse into early medieval ceremonial practices.
 
 You'll find it situated on a prominent hilltop with commanding views, featuring an impressive ring-shaped mound (r√∂se) surrounded by carefully placed stones. The restored structure showcases intricate stonework and possible traces from its original construction or later modifications for military purposes nearby."û
@@ -554,7 +581,10 @@ The structure features authentic elements like stone walls, window openings on o
 
 For visitors, the most visually striking aspect is the clear remains of what appears to be a cozy back kitchen structure alongside it, both testaments to everyday life in this rural H√§msdalarna setting from centuries ago."¢
 üThe archaeological site of Sm√∂rkullen features ancient rock carvings that offer a fascinating glimpse into the lives and beliefs of people from long ago. Visitors can explore these well-preserved marks in their natural setting, imagining the stories they might tell about past cultures."¢
-üBygdas R√∂se is a fascinating archaeological site featuring a prominent hilltop mound and an ancient stone setting circle, offering visitors a glimpse into the past through subtle earthworks and intriguing artifacts. The area also includes several other well-preserved stone circles surrounded by woodland, providing ample opportunities to explore remnants of historical ceremonial grounds in their natural setting."£
+üBygdas R√∂se is a fascinating archaeological site featuring a prominent hilltop mound and an ancient stone setting circle, offering visitors a glimpse into the past through subtle earthworks and intriguing artifacts. The area also includes several other well-preserved stone circles surrounded by woodland, providing ample opportunities to explore remnants of historical ceremonial grounds in their natural setting."¢
+üStatus: Kraftiga timmer spridda i leran. Synligt ovan leran: ett ankare utan stock, ankarklys av j√§rn med t√•grester i (status 1972).
+√ñvrigt: Hur och varf√∂r vraket kommit att identifieras som Jungfru Elisabeth, f√∂rlist 1717, framg√•r ej av uppgifter i SMA.
+Fyndlista: En akterst√§v med √•mningsm√§rken V-XII, tegelstenar i varierande storlek, tr√§trissa med j√§rnnav och blypl√•tar, har b√§rgats av sportdykare."£
 †This archaeological site reveals a prehistoric ritual structure built from carefully arranged stones, offering a glimpse into ancient ceremonies and beliefs. Visitors can observe the impressive stone circles and dolmens within the mound, showcasing remarkable craftsmanship from the past."£
 †Fjotth√•let is a small historical dwelling that offers a fascinating glimpse into everyday life from the past, with its preserved structures and artifacts giving visitors a tangible sense of history. Situated in J√∂rlanda parish, this site provides an intimate look at how people lived centuries ago through carefully maintained remnants, making it a unique and visually engaging experience for all curious tourists."§
 °Stens√§ttningen i Tingskullen √§r ett rundligt grusbel√§st slott med ett unikt par av f√∂rmodligen √§ldre stenar som fortfarande syns d√§r man g√•tt upp mot dem."§
@@ -577,11 +607,18 @@ This open-air archaeological site reveals traces of ancient activity, such as a 
 •The archaeological site at Hedebergs√§ng offers a fascinating glimpse into the past with remnants of old buildings still visible on the surface. Visitors can explore traces of historical habitation that may include foundations or artifacts providing insight into everyday life from yesteryear."®
 •Nestled in the village of Horred lies a historic settlement known as R√∂rvik, characterized by its ancient residential structures that offer a glimpse into everyday life from centuries past.
 
-This archaeological location reveals fascinating traces of medieval housing and community organization within Synlig ovan mark, providing valuable insights into how people lived during the time when this area was first developed."©
+This archaeological location reveals fascinating traces of medieval housing and community organization within Synlig ovan mark, providing valuable insights into how people lived during the time when this area was first developed."®
+•Gravf√§lt, delunders√∂kt, 180x30 m (NN√ñ-SSV), best√•ende av ca 31 fornl√§mningar. Dessa utg√∂rs av 6 h√∂gar och 25 runda stens√§ttningar. Gravf√§ltet har ursprungligen varit ca 180x60-80 m (NN√ñ-SSV). En av gravh√∂garna var tidigare registrerad som Stenkyrka 172:1.  
+
+Se Skannat dokument, Inventeringsbokuppslag under Huvuduppgiftsfliken f√∂r ytterligare uppgifter som har registrerats vid Fornminnesregistret f√∂re FMIS inf√∂rande.
+
+I samband med f√∂runders√∂kning och slutunders√∂kning av den V delen av l√§mningen konstaterades att gravf√§ltet haft en utstr√§ckning om b√•da sidor om v√§g 723 men att synliga sp√•r av gravarna p√• den V sidan f√∂rsvunnit genom odling. P√• V sidan p√•tr√§ffades 22 bortodlade h√∂gar, varav 21 unders√∂ktes.
+Tidigare unders√∂kningar och arkivmaterial indikerar att gravf√§ltet haft en ytterligare str√§ckning √•t V och NV (se kommande rapporter fr√•n Bohusl√§ns museum). (RA√Ñ dnr 321-2471-2005)."©
 ¶The archaeological site at R√§vagalgen offers a glimpse into past human habitation in this picturesque location near Synlig ovan mark, with its uncertain damage and investigation status adding to the enigma of what visitors might discover during their exploration. The classification as residential structures from Horred parish suggests historical dwellings could be uncovered here, situated at coordinates 57.386781, 12.475160, while awaiting further insights into its current state and inventory details mentioned in the Inventeringsbok reference."©
 ¶The archaeological site marks the resting place of the Danish warship "K√∂penhamn," which sank in a dramatic battle during the Swedish-Danish War in 1675 or 1676. Visitors can explore this unique underwater shipwreck, featuring impressive concentrations of cannonballs and remnants of ordnance that tell the story of naval warfare from the 17th century.
 </think>
 The site preserves part of an ancient Danish warship, "K√∂penhamn," which sank in battle over three centuries ago. Visitors can observe fascinating underwater artifacts, including corroded cannons, a collection of cannonballs, and traces of historical ordnance that illuminate naval conflicts from the 17th century."™
+ßBebyggelsel√§mning, efter torpet Dammhagen. L√§get redovisat p√•ra√§s registerkarta tillsammans med texten: "3 hg". Namnet utsattav LMV p√• den reviderade ekonomiska kartan. Beskrivningen √§r inte kvalitetss√§krad. Information kan saknas, vara felaktig eller inaktuell. Se √§ven Inventeringsbok."™
 ßLilla Varpet is an archaeological site with ancient rock engravings that offer a fascinating glimpse into past cultures and their beliefs.
 
 Visitors can see intricate petroglyphs carved directly onto rocks, showcasing detailed depictions of animals and human figures from thousands of years ago."™
@@ -605,8 +642,17 @@ The location at Synlig ovan mark provides easy access to explore what might be s
 R√•da Sten's striking placement above ground highlights the ingenuity of early societies, presenting an impressive remnant that invites exploration and reflection on their beliefs and craftsmanship."¨
 ©The archaeological site in question represents a well-preserved medieval dwelling and garden area that offers visitors a unique glimpse into historical daily life. Notably featuring stone foundations of both the house and cellar, along with traces of wood flooring and doorways, it is a tangible link to past communities.
 
-The location has been documented through field investigations but remains unexcavated, suggesting its potential for ongoing discovery related to medieval settlement patterns in this specific region. Surrounded by vegetation yet clearly defined archaeologically, the site's authenticity is strikingly maintained despite being situated near water and woodland."Ø
-¨Svarvestugan is an ancient house site located in the open landscape of Surteby-Kattunga that offers a fascinating glimpse into bygone eras, featuring remnants like foundations and stone walls which invite visitors to visualize what life was once like here. It provides insight into how people lived long ago through its well-preserved structure, allowing you to explore the everyday history embedded in these very grounds today."≥
+The location has been documented through field investigations but remains unexcavated, suggesting its potential for ongoing discovery related to medieval settlement patterns in this specific region. Surrounded by vegetation yet clearly defined archaeologically, the site's authenticity is strikingly maintained despite being situated near water and woodland."≠
+™Fartygsl√§mning. Fyndplats f√∂r en skeppsklocka av brons och en blockskiva av tr√§. Delar av skeppsklockan samt blockskivan upptogs mellan √•ren 1995 och 1998 av sportdykare. Vid efterunders√∂kning √•r 2002 p√•tr√§ffades p√• den st√∂rsta av de upptagna klockdelarna  en text d√§r det g√•r att urskilja ordet: "SKEPPET" samt bokst√§verna "K" och "N" eller n√•got liknande. Bronsen √§r bitvis kraftigt anfr√§tt. En r√∂ntgen och sl√§pljusfotografering utf√∂rdes f√∂r att f√∂rs√∂ka identifiera och datera fartyget men utan resultat. (RA√Ñ dnr 321-2112-2004)."Ø
+¨Svarvestugan is an ancient house site located in the open landscape of Surteby-Kattunga that offers a fascinating glimpse into bygone eras, featuring remnants like foundations and stone walls which invite visitors to visualize what life was once like here. It provides insight into how people lived long ago through its well-preserved structure, allowing you to explore the everyday history embedded in these very grounds today."±
+ÆFartygs/b√•tl√§mning, skadad, inom ett 37,5 x 5 meter stort omr√•de (NNV-SSO) √•terfinns flera koncentrationer av koppartackor eller -pl√•tar. Kopparpl√•tarna √§r √∂verlag kraftigt nedbrutna och nedslipade till f√∂ljd av korrosion och mekanisk n√∂tning. Sannolikt har de ursprungligen haft en storlek av ca 900 x 400 x 24 mm och en styckevikt p√• drygt 70 kg. En bed√∂mning, baserad b√•de p√• antalet hela pl√•tar och p√• m√§ngden l√∂sa fragment i omr√•det, √§r att det ursprungligen kan ha r√∂rt sig om ett 70-tal pl√•tar med en sammanlagd vikt av drygt 5 000 kg. Enligt Bohusl√§ns museums bed√∂mning √§r kopparpl√•tarna med st√∂rsta sannolikhet en del av en fartygslast h√§rr√∂rande fr√•n ett f√∂rlist fartyg. I  n√§romr√•det ligger den sedan tidigare k√§nda l√§mningen efter √•ngfartyget Oscar II, f√∂rlist √•r 1883 med last av styckegods, men denna l√§mning har av allt att d√∂ma inget samband med det aktuella fyndet. (RA√Ñ dnr 326-141-2009). 
+
+
+√Ñldre beskrivning:
+
+Ett 60-70 tal kopparplattor 900x400x2,5 cm ligger utspritt √∂ver berget i ett str√•k i NNV-riktning ifr√•n Kleningen, utbredningens l√§ngd √§r ca 30 M. Plattorna √§r samlade i buntar om ca 10 st, vissa mer intakta √§n andra. Vissa plattor √§r v√§ldigt h√•rt nedbrutna antagligen av f√∂roreningar i metallen samt av n√∂tning mot botten vid kraftig sj√∂g√•ng.
+
+Datering: Finns en medeltida trattkanon som √§r hittad vi grundet hannehakarna ca 200 M d√§rifr√•n (L1968:248). Kanonen kan m√∂jligen vara ifr√•n samma vrak eftersom den kan ha rullat ner ifr√•n grundet kleningen i vind/sj√∂h√§vningsriktningen mot NO."≥
 ∞Galgbacken is a significant historical site with archaeological remains that provide insight into the past culture and way of life in this region.
 
 Visitors can explore artifacts and features from various periods at this location, offering a tangible connection to history through its preserved evidence."≥
@@ -639,7 +685,8 @@ Its most striking elements include visible stone slabs from post holes and found
 ∏The ancient site of Skiaberg in northern Sk√•ne reveals well-preserved traces of significant historical structures and artifacts from the Viking Age.
 
 Visitors can explore the impressive standing stones and remnants of longhouses that offer a fascinating glimpse into medieval life through expertly guided tours."ª
-∏This archaeological site features a well-preserved circular stone structure known as an 'offerkast', which was likely used for ancient rituals or ceremonies. Visitors can explore the impressive stone circle and its central altar, gaining insight into prehistoric community practices in this serene rural setting."º
+∏This archaeological site features a well-preserved circular stone structure known as an 'offerkast', which was likely used for ancient rituals or ceremonies. Visitors can explore the impressive stone circle and its central altar, gaining insight into prehistoric community practices in this serene rural setting."ª
+∏H√∂g, rest av, 14-15 m diam och 0,4-0,8 m h. Ett kvarst√•ende parti SSV om mitten √§r ca 1,1 m h. Detta parti √§r √∂vertorvat och √∂vermossat, men uppvisar i sk√§rningar en sten- och jordblandad fyllning. De talrika stenarna √§r i allm√§nhet 0,3-0,4 m st. I √∂vrigt √§r fornl√§mningens yta gropig efter stent√§kt. Det bortf√∂rda stenmaterialet √•terfinns sannolikt i den stenmur som finns 5 m N√ñ om fornl√§mningen. Stenmuren g√•r i NV-S√ñ."º
 πNilsa R√∂s is an ancient stone circle that offers a fascinating glimpse into prehistoric ritual practices. Visitors can observe the carefully arranged stones and interesting features like the overhanging large boulder and surrounding vegetation, all within its natural, open-air setting near the village of Nilsa."º
 πSteeped in history, this ancient burial site offers a captivating glimpse into the past with its well-preserved stone setting and intricate tombstones.
 
@@ -747,7 +794,11 @@ This archaeological site features circular arrangements of standing stones with 
 Visitors can explore its ancient structure and observe how it was used in everyday life long ago."’
 “B√§ckalid is an archaeological site that offers a fascinating glimpse into the past through its well-preserved remains and artifacts. Visitors can explore the traces of historical buildings and structures, providing insight into how people lived long ago while enjoying the atmospheric context in this picturesque location near Torestorp."’
 “The archaeological site of Bj√∂rkehagen is a significant area in the Alings√•s parish with potential traces of residential structures from historical periods. Visitors can explore remnants that provide insight into past living conditions, though details remain elusive as investigation status and damage information are currently unknown."÷
-”This archaeological site features ancient stone remnants that hint at a significant historical settlement nearby, offering visitors a glimpse into the area's past human habitation through subtle landscape clues."◊
+”This archaeological site features ancient stone remnants that hint at a significant historical settlement nearby, offering visitors a glimpse into the area's past human habitation through subtle landscape clues."÷
+”Bebuggelsel√§mningar, 55x50 m (NV-S√ñ), best√•ende av 1 husgrund, 1 k√§llargrund och 1 √•kerterrass.
+Husgrunden √§r 10x6 m (N-S) och utf√∂rd i kallmurad sten. Spisr√∂se i mitten.
+K√§llargrunden √§r 7x5 m (√ñ-V) och intill 1,8 m dj, utf√∂rd i kallmurad sten.
+√Ökerterrassen √§r 12x10 m (N-S). L√§ngs √ñ sidan √§r en kallmurad kant, 0,4 m h."◊
 ‘The ancient burial site at Gyromme Altare is a fascinating glimpse into historical practices, featuring striking stone arrangements that offer insight into past funerary traditions.
 
 Visitors can explore the well-preserved remains and unique artifacts found here, providing an up-close experience with prehistoric culture and craftsmanship."ÿ
@@ -781,6 +832,8 @@ These earthworks are surrounded by mystery as they showcase asymmetrical shapes 
 ⁄Nestled in the village of Stora Lundby, this archaeological site reveals a glimpse into everyday life from the past through its well-preserved traces of domestic structures and artifacts found above ground at coordinates (57.847861, 12.296967). The discovery here provides valuable insights into how people lived historically as evidenced by remnants suggesting once inhabited homes within this area.
 
 It is located in Stora Lundby parish with significant findings uncovered and documented on-site that are currently verified through field investigations. These structures offer a fascinating snapshot of historical residential patterns near these specific coordinates, providing tangible connections to lives lived centuries ago."ﬁ
+€Fartygsl√§mning. 
+Status: Vraket ligger helt nedb√§ddat i botten. Det enda som sticker upp √§r n√•gon enstaka balk. P√• vrakplatsen finns √§ven ett ansenligt stenr√∂se vilket f√∂rmodligen √§r rester av fartygets last. Under detta stenr√∂se finns sannolikt bevarade tr√§konstruktioner. Allt ovan sj√∂bottnen √§r av√§tet av skeppsmask (status 1995)."ﬁ
 €This archaeological site is a preserved ancient dwelling foundation surrounded by forest and characterized by its unique moraine terrain. Visitors can observe the distinct stone traces of the main house pit, the probable kiln feature in the northeast corner, and the remnants of hearths and walls providing tangible connections to past habitation."ﬁ
 €Welcome to Sj√∂kvarnen, a historic water mill site located near Rolfs√•n with significant archaeological value. This area features well-preserved traces of the mill structure and surrounding landscape from earlier surveys, offering fascinating insights into how it functioned historically as an independent unit without a typical farmstead nearby."ﬂ
 ‹Welcome to Slanelyckan in Frilles√•s parish, a unique and well-preserved open-air archaeological site that offers visitors a fascinating glimpse into everyday life from the past ages.
@@ -811,7 +864,8 @@ This location holds historical significance as it was one of four watermills doc
 ‡R√§ttarns is an intriguing cluster of ancient dwellings from a significant historical period.
 
 Visitors can explore remnants that hint at daily life in the past and appreciate its unique location within this specific region."„
-‡Welcome to R√∂satorpet, a well-preserved historical site from the past agricultural era. Here you can explore fascinating remnants of old dwellings nestled within ancient fields and surrounded by dramatic natural landscapes."‰
+‡Welcome to R√∂satorpet, a well-preserved historical site from the past agricultural era. Here you can explore fascinating remnants of old dwellings nestled within ancient fields and surrounded by dramatic natural landscapes."„
+‡Husgrund, rest av, ca 4x3 m (√ñ-V) och ca 0,6 m h, best√•ende av en kallmurad k√§llargrund med en st√∂rre stenh√§ll som tak. Inne i k√§llargrunden finns rester av j√§rngrytor mm. Runt om l√§mningen v√§xer syr√©ntr√§d. Husgrunden √§r bel√§gen i en tr√•ng klyfta mellan berg och p√• N sidan av v√§g 168 strax S√ñ om Tjuvkil . Husgrunden √§r det enda kvarvarande sp√•ret efter g√•rden Klammerhult, som var en jordbruksl√§genhet p√• Broberg. Broberg finns omn√§mnt i arkiv sedan mitten av 1600-talet. Klammerhult finns √§ven omn√§mnt som torp under Gullbringa s√§teri i skriftlig k√§lla fr√•n 1777. Enligt historiska kartor l√•g huvudbyggnaden N om v√§gen och ekonomibyggnaden S om v√§gen. Av ekonomibyggnaden finns idag inga synliga sp√•r."‰
 ·The archaeological site features a well-preserved wreck of a large ship from the late 18th century, likely identified as PRINZ VON HESSENSTEIN, which sank in Stora Kalvsund around 2,000 years ago. Visitors can observe distinctive wooden planks still protruding from the north side and learn about its cargo of paper scrolls recovered during excavations."‰
 ·This archaeological site features remnants of a historic dwelling and farmyard from the mid-19th century, specifically around a bog iron smelting area known as Pr√§stedammstorpet.
 
@@ -823,7 +877,20 @@ Visitors can explore traces of stone foundations suggesting houses and storage b
 Visitors can explore the well-preserved circular structure and examine artifacts from the surrounding burial mounds nearby."Ê
 „Nestled in the heart of a rolling landscape lies the ancient stone spring basin known as K√§llsr√∂se, featuring intricately carved stones and remnants of older stonework nearby.
 
-This significant site reveals fascinating insights into past water management systems through its well-preserved spring basin surrounded by characteristic loose rubble masonry."Ë
+This significant site reveals fascinating insights into past water management systems through its well-preserved spring basin surrounded by characteristic loose rubble masonry."Ê
+„Grav- och boplatsomr√•de, delunders√∂kt, ca 80x6-40 m (N√ñ-SV). Detta utg√∂rs av 3 resta stenar och boplatsl√§mningar i form av kulturlager, 1 h√§rd, 1 h√§rdrest, 2 gropar, 1 stolph√•l samt 1 r√§nna. 
+De resta stenarna beskrivs separat:
+1) Rest sten, 2,8 m h, 1,3 m br och 0,2 m tj.
+3 m V om nr 1 √§r:
+2) Rest sten, 4 m h, 1,4 m br och 0,4 m tj.
+11 m SV om nr 2 √§r:
+3) Rest sten, avbruten och omkullfallen, 3,6 m l, 1,1 m br och 0,15 m tj. Rot√§nden kvarst√•r, 0,2 m h. Stenen br√∂ts en stormnatt √•r 1890.
+
+En f√∂rst√∂rd brandgrav under flatmark unders√∂ktes 1949 av √Ö. Fredsj√∂. (GAM 47729-47730).
+
+Tv√• av de resta stenarna var tidigare registrerade som Norum 30:2 respektive Norum 30:3.
+
+Revideringsinventeringen 1990: Ej bes√∂kt. WB"Ë
 ÂNestled in the forested hills above the village, this ancient stone circle stands as a silent testament to prehistoric ritual practices. Its striking circular formation and central barrow are particularly fascinating features that invite visitors to ponder their ceremonial purpose and historical significance within the landscape.
 
 **Key aspects for focus:**
@@ -948,7 +1015,8 @@ Visitors can explore the remains of everyday structures from long ago, offering 
 ˛Lille V√•le is a small, ancient stone circle that offers a unique glimpse into the past with its round shape and carefully stacked stones.
 
 It's located on a raised area near T√∂l√∂ Church and provides a nice vantage point over the surrounding landscape."Å
-˛Planterbacken is a historic dwelling complex offering a fascinating glimpse into everyday life from the past, and visitors can explore its remnants including foundations and artifacts within the current archaeological site. It provides valuable insights into residential patterns during medieval times through accessible ground evidence and surrounding features in Torestorp parish."Å	
+˛Planterbacken is a historic dwelling complex offering a fascinating glimpse into everyday life from the past, and visitors can explore its remnants including foundations and artifacts within the current archaeological site. It provides valuable insights into residential patterns during medieval times through accessible ground evidence and surrounding features in Torestorp parish."Å
+˛H√§llkista i h√∂g. H√∂gen √§r 9 m diam, 1 m h. H√§llkistan, bel√§gen i h√∂gens mitt √§r 4,5x1,6 m (inre m√•tt), N20 g √ñ- S20 gV). I V l√•ngsidan √§r tre h√§llar 1,2-1,3 respektive 1,75 m l, 0,8 - 1 m h. I √ñ l√•ngsidan √§r tv√• h√§llar, 1,5 respektive 2,6 m l, 0,8-1 m h. 0,2 m utanf√∂r den st√∂rre √§r √§nnu en delvis synlig h√§ll. Samma dubbla v√§gg synes finnas i V. N gavelh√§llen √§r 1,6 m l, 0,95 m h. S gaveln √§r √∂ppen. Kistans N del t√§cks av en h√§ll, 3,4x2,4 m st, 0,25 m h. Omedelbart S om kistan ligger den andra t√§ckh√§llen 2,4x1,7 m, 0,2 m tj. Mellan v√§ggh√§llarna och den kvarliggande t√§ckh√§llen finns n√•gra flata stenar, 0,2-0,4 m st (en √§r 1 m l), 0,05-0,1 m tj. Kistans N del √§r urgr√§vd och dess botten ligger ca 0,5 m djupare √§n den S."Å	
 ˛Laxatorpet is a significant historical property from the late Iron Age or early medieval period, located in the parish of T√∂llsj√∂ and easily accessible above ground level at its present site. It represents an important example of residential architecture from that era, offering intriguing insights into past life through visible structures like foundations and possible traces of hearths, although further investigation confirms some details are still uncertain due to limited documentation or changes over time.
 
 *(Self-correction: The user requested a description with 2 sentences focusing on interesting/visually striking aspects in non-technical neutral style. I focused too much on the site's classification and context without emphasizing its visual features sufficiently, though I did mention "visible structures". Let me refine this to better capture what visitors might find fascinating at Laxatorpet - perhaps highlighting the tangible evidence of daily life from that period like hearth traces or foundation walls which are visually striking remnants. Also need to ensure it remains accessible and neutral regarding technical details.)*"Ç
@@ -962,10 +1030,57 @@ This archaeological find showcases an old house foundation and surrounding struc
 
 This unique building features distinct traces of smoke channels inside its main chamber and surrounding stone walls that are partially moss-covered, providing tangible connections to ancient domestic life."	333333@"	è¬ı(\èˆ?"	öôôôôô@"	§p=
 ◊£@"	ÆG·zÆ˚?" " " " " " " 	" 
-" " "8! ßÂ?∑∏Æ™ "	“*®6 ª“∂"	Ñ"¥3 ä©∂"	ƒ º0! ‚Ó∂∏Æ™ "	∆"à5! πä∂∏Ø≠"	Ä-˙9 Ç@∂"	Œê ˛°T∂"	∆&à0 ¯Ÿ2∂"	∫+Ä7! ¬‚"∂∏Æ™ "	é"à4 ∂°<∂"	»3ú8" Í∫ƒ∂∏≥¨"	ñå6! Öã7∂∏Æ™ "	˛Ú! ’ñW∂∏Æ™ "	§'Ó0! √Åc∂∏Æ™ "	Ê0¬0! Ã˘Rµ∏Ø≠"	¯4î9 É™µ"	Ú.¢ ÁØøµ"	‹-Ä0! Ωµnµ∏Æ™ "	∆;®5 øÀ;µ"	“%Ã= ÌSµ"	¯Ä —›Hµ"	Ã0–7 Àå!µ"	Ç)Ï< öÇNµ"	¥)∞5" Ä»Ωµ∏Æ™ "	û&ƒ< ”‡Aµ"	¥#Ä1 õ…Cµ"	®%¨> ¡¶-µ"	í!º4 Ãò/µ"	∏'∂6 üˆyµ"	Ê6†" ∫h¥"	Ú<Ã ÂˇF¥"	∂'ê2! ∑ü*¥∏Æ™ "	å!º/ ∞Ì+¥"	™+ê; »Û,¥"	¢*≤= ©–Ö¥"	é8¿ ! €‘U¥∏Ø≠"	¢7‚!! ∆˚v¥∏Æ™ "	í4 µ¥¥"	≤ ® Õ«¥"	∫ÿ! ˚¸X¥∏Æ™ "	ﬁ(Í4 ê±:≥"	˛‡%" ‘Àé≥∏Æ™ "	∞>∫= ÿ˜6≥"	Ê/Ï# ´≤6≥"	ÿ*ƒ! ü˝b≥∏Ø≠"	¬)ˆ: ﬂ f≤"	Ó>¸/ ô‰g≤"	¢*Ü1 ∏|≤∏Æ™ "	‹æ ≠◊:≤"	ÆÜ$ Ÿ:≤"	 
-“! •Ä~≤∏±´"	Ú>¸0 Â≤"	%Ó ⁄îπ≤"	Í?®4	 ¬ì≤"	æ¥  §Ù6≤∏Æ™ "	‘.o! ÓÇ6≤∏Æ™ "	“7¬" í’™≤∏Ø≠"	–-§@" ËΩä≤∏Æ™ "	Ç=æ2 Ê≤"	˛‚ Ùú≤"	¯@ƒ: ›ó&≤"	å.§ œıY±"	Ä2ˆ> Èæm±"	ƒ0ó Êÿû±"	∏∏9 –âü±"	Ü?¶" å£å±∏Æ™ "	∂?Œ0 ∞ŒØ±"	Ã;Í ﬁ∏0±"	Ä7¥*! ∫‡Q±∏Æ™ "	¯3˛! ‚œ_±∏Ø≠"	ú8ƒ0! ùÕz±∏Æ™ "	‚?Ê< ∂ª{±"	Œ=‹ Ç†±"	¥;Ä8 éËº±"	î ƒ> ⁄Ù}±"	æ8ñ: ˙Œ±"	Ê& *  ¡ïZ±∏Ø≠"	»,7 ë¿:±"	™û ¶:±∏Æ™ "	í
-Ä Ùπ:±"	 ¸ ÒË:±"	Æ¶ ˜:±"	ÿ¥ Ó:±∏Ø≠"	Ú‚ £Ü:±"	¿Ü!  Î:±"	‚¢% á:±∏Æ™ "	Í∞
- Òó:±"	Ê#ˆ8" â˚°±∏Ø≠"	⁄ ö" …ˆç±∏Æ™ "	–@Ã> Åöi±"	∂5‡ πí±"	à<Ê4 ˘ì∞±"	⁄5Ù; ∆…±∏Æ™ "	∆9ä ™G±"	–@ §§o±"	ﬁ0‡: Ëˇ[±"	 !+ è ±∏Æ™ "	ƒ‚ ã„±"	‡∏ ≥–p±"	Œ æ" ﬂ®±±∏Ø≠"	¿#Ë4" ˛Êè±∏Æ™ "	Ó>Ü? œ±"	Ã@¿! †ﬂ(±∏Ø≠"	§û7 ìÿj±"	ú>™4" ÅÅê±∏Æ™ "	¿1ˆ: àÉ∏±"	‹3? ñ“¡±"	í>‡ ıœ±"	òÓ ¨≥)±"	å<Ñ= ¶B±"	‹à òã¢±"	à(º0 ¥Ô≤±"	“.≤ ø±"	†=–
-! “Æ±∏∞Æ"	∏,¸? ¿éÄ±"	»9¿/ ‡àq±"	‘4Ú »ù1±"	Í(" ÖâÅ±∏Æ™ "	‡0®9" ∏ﬁë±∏Æ™ "	¶2§4 ‡I±"	íÆ Ÿ÷≥±"	™3Æ! íûJ±∏Ø≠"	î:¿2! «õr±∏Æ™ "	‘;∂< ƒ√¥±"	î:˛5! ç€`±∏Æ™ "	†+⁄ É⁄µ±"	¶8ò  ô£±"	í<‹" ≠ﬂ§±∏Æ™ "	™¯" à˛Ç±∏Æ™ "	Ó"˛! ﬁºÉ±"	úÏ! èòK±∏Æ™ "	‡/Í ëƒk±"	÷Ó# ˇö±"	˛%å	 û‹±"	Ó)ﬁ1" «∞•±∏Æ™ "	Ë?ö? ùÑ±∏Æ™ "	‡?–! „—s±∏≤©"	®<¯." ß£í±∏Æ™ "	∫@å ’á\±"	ö,ñ …Í¶±"	Ù-‡+ ¸Ít±"	Œ$î- ¢∂Ü±"	§<∆$ ∑a±"	®-Ó= ÜÄî±"	ˆ1¶? √Ÿ6±"	Ï,Æ ÿ¡6±"	à4¶' ¸È6±"	‡å
- ©ß6±"	¯∏ €ê6±"	®4ñ@ ª6±"	ÚÙ Ú®6±"	˙8‚ „¶6±"	ñ7ê! ŒÁ6±∏∞Æ"	¶4à: ƒ‘6±"	®5¸ ‘€6±"	î9† óè6±"	˛7¬ ™˜6±"	Ç9¥ ñ∆6±"	÷?à%! õı6±∏Æ™ "	ò;∫% Ø§6±"	Ë>Ü$ ‹É≈±"	ƒ(“" ≈—æ±∏Æ™ "	ñ=™0 ”Ò±"	å$ä$ ˆ⁄u±"	‘/ﬁ ØÛß±"	¶4¬> ·õ®±"	Ç/ƒ@" ç≈∫±∏Æ™ "	í8¬2 ¿úá±"	à,æ@ ‰#±∏Æ™ "	∏	n" Œ‰ï±∏∞Æ"	 ?¬; ó†	±"	§2–8" öÕà±∏Ø≠"	¨.¯; î”ñ±"	Ã<Ë;" ˆÎó±∏Ø≠"	¥?Ó" ◊¢ª±"	‡?¸8 µÁ¬±"	®2ê! ÑÈ]±∏∞Æ"	∂>." ô‚ò±∏Æ™ "	Œ=§/ ≤”±"	≤;ñ Úîô±"	Ï8∂@ ÈÊâ±"	¥;ú;" ≥Ö©±∏Æ™ "	Ó7¸: æÜº±"	Ã"‹ ‹û$±"	‘ä" ˝è√±∏Ø≠"	“7¸2 –˝»±"	ƒ®! ±±"	§Ú ˚Ñl±"	¢5ê: ÏÓ±"	ÜË& •ù±"	àÓ Ô‹±"	ÙÏ	 Äå±"	Ä#» î’±"	∫'¨5 Î¬±"	¯%í6 ÷Ï±"	 ®.! ÜÃ±∏Æ™ "	‘ƒ- ˝˛±"	Æ+íA	 º ±"	¯>Ü £Ô¿±"	Ë:¥ Ìêö±"	Í8¥8 Ûü±"	¯;Ä Â˙=±"	 + ÏÖ±"	∫2÷7 ·›õ±"	Œ.–? °ñO±"	à6¶ ›ÌP±"	¶"ÿ+ “Ò3±"	¨8¢, À¸3±"	Æ7§( ˘¯V±"	‡*ú òé^±"	–™" ‰•Ω±∏Æ™ "	≤;Ç3 ıí´±"	 8¸3 ãﬁ¨±"	¨>- ≤†%±"	é(Ñ ±˘±"	òº Û±∏Æ™ "	˙»! ◊¢±∏Æ™ "	–@ÿ4 ˙÷±"	Œ‘ ≈˙±"	»$ƒ ∑ç±"	ËÚ* ¢±"	™ö! â•±∏Æ™ "	Ê¬ ˇÑ.±"	ËÆ ÷´4±"	Ê+‚ ú±"	ò@™ ®¨≠±"	ö5º3 á±∏Æ™ "	∂‚! úL±∏Æ™ "	ê8Ù Æ¯D±"	Æ,Ã& ¥áE±"	∫ ÔÃ∂±"	º'Ñ, Æë∑±"	‚6¢:" ¯àã±∏Æ™ "	∞#÷-! °Úd±∏Ø≠"	ƒ;¸. ì◊±"	æ.ÿ! ÕïM±"	∫» —çe±"	ñ<⁄0 ïß8±"	⁄º!! Î·±∏Æ™ "	†+∞ " ®·ú±∏Æ™ "	î;∏1 ûìÆ±"	ä5∆# ¨Úw±"	ﬁ,¿ ´9±"	¸¶ ˜øæ±"	é@“< ï≠ù±"	û7Ó4 ÍÏ>±"	Ù˛ ä±"	˛g! åô5±∏Æ™ "	¸ò †ä«±"	∫ ] êë
-±"	ƒ%»2	 é∆±"	ˆk Á'±"	∫: Ñ„x±"	§5§?
+" " "8# ≥˜I◊ÿŒ  "	“*®6# Œˇ+÷
+ÿŒ  "	é"à4# œ†o÷ÿŒ  "	Ê0¬0# Óç!÷
+ÿŒ  "	∆"à5$ ˆ’–÷fÿ”Ã"	ñå6 Ñı;÷"	∫+Ä7# ë£A÷
+ÿŒ  "	˛Ú# ·µb÷ÿŒ  "	§'Ó0 ä¿_÷"	∆&à0 éõJ÷"	Œê ñƒ&÷
+"	ƒ º0 ¬ºF÷"	»3ú8# ≈¢÷
+ÿœÕ"	Ä-˙9 «·%÷"	Ñ"¥3 Õ¡6’
+"	í!º4 ◊§*’
+"	Ç)Ï< ÿ≤8’
+"	∏'∂6 ﬂ˝K’"	¥#Ä1 è≈'’'"	Ú.¢ ß‰M’"	®%¨># …–z’@ÿŒ  "	∆;®5 ÀÊE’
+"	“%Ã=# ÿé]’ÿœÕ"	¯4î9 ›ÓS’'"	Ã0–7 Û À’?"	‹-Ä0 ˘˝^’"	¯Ä$ å„…’PÿŒ  "	û&ƒ< ¶òY’"	¥)∞5 ´ãÖ’@"	Ê6†" ‘í5‘
+"	¢*≤=# áíc‘ÿŒ  "	ﬁ(Í4 ∆Ît‘@"	Ú<Ã$ “öÇ‘ÿŒ  "	í4 Ÿ‚‘"	∫ÿ# Á„`‘ÿœÕ"	¢7‚! ÒïQ‘"	∂'ê2 µﬂë‘@"	é8¿  ºã4‘
+"	™+ê; ¡œ‘"	≤ ®# √æ3‘
+ÿŒ  "	å!º/$ ‡Ÿö”@ÿŒ  "	∞>∫= ‰ñ@”@"	Ê/Ï## ´ìn”@ÿœÕ"	¬)ˆ: ∑Õ@”@"	ÿ*ƒ úÃD”D"	˛‡% Ú¬“"	˛‚ ¸Ç	“	"	%Ó Ä∂“"	¯@ƒ:" ∞â@“@ÿŒ  "	‘.o$ ±üä“@ÿ—À"	Ú>¸0 ŒÇü“@"	æ¥ ÂèD“D"	 
+“ Ê≥≈“@"	Í?®4 È±/“"	å.§ ÎÂr“@"	Ó>¸/$ Ùÿñ“@ÿŒ  "	Ç=æ2# ˙°@“@ÿŒ  "	“7¬$ û‰∂“@ÿœÕ"	–-§@ •Ås“@"	¢*Ü1 πÁD“D"	ÆÜ$$ ƒûà“@ÿŒ  "	‹æ Àª—"	†=–
+ Ã≠å—@"	»9¿/ –@—@"	®5¸$ —Ì —@ÿŒ  "	ñ=™0% “ÿ÷—‘ÿŒ  "	∆9ä$ ”À±—@ÿŒ  "	Ë?ö? ’à≤—@"	Ù-‡+ ÷âD—D"	‚¢% Ÿ¥X—"	∫»# ⁄Ñ@—@ÿ–Œ"	¶4à: €îd—@"	Ä2ˆ> ‹®´—@"	Ü?¶ ›•q—@"	ñ<⁄0 ﬁê<—<"	¨8¢, ·üh—"	ö,ñ ‚Ä
+—
+"	 ®.# „Ω—ÿŒ  "	–@ÿ4 ÂÊø—L"	™3Æ Êìâ—@"	æ8ñ: Á®@—@"	®4ñ@ Ë¢——f"	ƒ(“ ÈÅ[—"	¶"ÿ+ Í◊è—"	úÏ$ Î√Ω—@ÿœÕ"	¿#Ë4 Ï⁄T—"	íÆ Ì˙ß—@"	Œ.–? Ô∆@—@"	ñ7ê" ⁄,—
+ÿŒ  "	∏	n ÒôG—
+"	 + Û⁄0—
+"	∫: Ùûg—"	 !+ ıŸy—@"	ƒ0ó# ˜˛—ÿŒ  "	†+∞  ¯§—"	∫2÷7 ˘Ø¶—@"	Í8¥8# ˙©D—DÿœÕ"	Ú‚ ˚Ì
+—
+"	ÙÏ	 ˝∂D—D"	Ê#ˆ8 ˛»@—@"	˙8‚# ˇÂ—ÿŒ  "	˙» Åﬁã—"	òÓ ÇˆÅ—@"	‘/ﬁ É⁄ —@"	é@“< Ö≤º—@"	⁄5Ù; ÜÚ—"	Œ‘ àá@—@"	‡å
+ âî
+—
+"	Æ+íA$ ä¯õ—@ÿŒ  "	Ó>Ü? ã¥	—	"	˛%å	 å´
+—
+"	Ä#»$ çóú—@ÿŒ  "	¿1ˆ: éÖ¨—@"	¥;Ä8# ê˚i—@ÿ–Œ"	∂>. íñ†—@"	ˆ1¶?# ì˜D—DÿŒ  "	Í∞
+ îôƒ—@"	‹3?$ ïë≠—@ÿœÕ"	⁄ ö ñ⁄—
+"	˛g óı—"	‡∏$ òæò—@ÿŒ  "	∂?Œ0# ôÏl—ÿŒ  "	†+⁄ ö⁄“—f"	ˆk# õ∑V—ÿŒ  "	‡/Í ú∞—"	ƒ%»2 ù€D—D"	™û# û∏U—ÿœÕ"	î:¿2 üËv—@"	ú>™4 †Ò
+—
+"	∫'¨5 °¬B—"	⁄º! ¢·@—@"	÷?à% £∫—"	§2–8 §™Æ—@"	à(º0$ •Ù§—@ÿŒ  "	Œ=§/$ ¶‹î—@ÿœÕ"	¨.¯;# ®èW—ÿŒ  "	ê8Ù$ ©⁄ê—@ÿŒ  "	‡?– ™˘	—	"	Ó)ﬁ1# ¨Ò1—
+ÿœÕ"	§û7 ≠∞Z—#"	à6¶ Æ—í—@"	§<∆$ ØÑÃ—f"	Ë:¥ ≤ÖL—L"	‹à$ ≥√û—@ÿŒ  "	∫@å$ ¥Û®—@ÿŒ  "	î;∏1 µ«@—@"	¯∏ ∂å@—@"	Ç9¥ ∏ëÉ—@"	ﬁ,¿$ π¸∞—ÿŒ  "	™¯ ∫™√—@"	‚6¢: ªà≥—@"	¶4¬> ºÈª—@"	Ã;Í Ω⁄—
+"	§Ú æÔ"—"	≤;ñ øÏ|—"	Œ æ ¿éæ—@"	“.≤ ¡˘Œ—f"	®2ê ¬÷á—@"	Œ=‹ √¨—"	ËÚ*$ ƒÔù—@ÿŒ  "	¶2§4 ≈¨(—
+"	à<Ê4 «˛@—@"	ÚÙ »⁄◊—‘"	¯>Ü  •»—@"	Ã"‹ Ãªì—@"	à,æ@" ÕØe—@ÿœÕ"	»,7 œÈ@—@"	Ï,Æ –ﬁ¿—@"	î:˛5 —ê—"	»$ƒ# ”µ~—@ÿŒ  "	‘;∂< ‘º:—
+"	Í($ ’ïô—@ÿŒ  "	–@Ã> ÷≥Ø—@"	í<‹ ◊õ<—<"	Æ7§($ ⁄ˆ°—@ÿ–Œ"	 ?¬; €⁄—"	Ã@¿ ‹ú’—‘"	ƒ®!# ﬁ…—ÿ–Œ"	∏,¸? ﬂÜ—"	å$ä$ ‡¯@—@"	î9† ‚∆=—
+"	Ê+‚ „¡«—@"	‡?¸8 ‰‹@—@"	à4¶' ËΩ-—
+"	‘ä Í”9—"	Ä7¥* Ïß}—"	‘4Ú Ì∫¥—@"	Ç/ƒ@# ÓÍk—@ÿœÕ"	ú8ƒ0# Ô‡—@ÿ“…"	®<¯.$ ≈…—@ÿŒ  "	≤;Ç3 ÚÙ™—@"	∏∏9 ıÉï—@"	¥;ú; ˆäH—
+"	Ù˛ ˜›
+—
+"	¯%í6 ¯É
+—
+"	ÜË& ˚Á¬—?"	º'Ñ, ¸“m—@"	®-Ó= ˝ÜD—D"	Æ¶ ˛Æ•—@"	Ï8∂@ ˇπ—"	¯;Ä Ä‘D—D"	 ¸ Å±∑—@"	 8¸3$ Çˇ£—@ÿœÕ"	¥?Ó" É´D—D"	ÿ¥$ Ñ†ó—@ÿŒ  "	∞#÷- Öça—"	‡*ú Ü› —"	Ê& * áöx—@"	¢5ê: à¸Ä—@"	Œ$î-$ âßœ—fÿœÕ"	“7¸2 ã£7—
+"	ËÆ çπu—@"	∂5‡ èÎ¡—@"	¶8ò êÄÑ—@"	§5§?$ ë°ç—@ÿŒ  "	‡0®9# í€
+—
+ÿŒ  "	‘ƒ-# ì⁄—
+ÿŒ  "	∂‚$ îùé—ÿŒ  "	Ó"˛!# ï¿—ÿŒ  "	Ê¬ ó˚∏—@"	¨>-# ò∏>—
+ÿŒ  "	¸ò$ ô‡∆—@ÿŒ  "	í8¬2 ö˙»—"	î ƒ># õ⁄)—
+ÿŒ  "	ƒ‚ ùﬂw—"	÷Ó# üÛ—"	æ.ÿ! †‚¢—@"	Ã<Ë; °»©—@"	û7Ó4 ¢ÓÕ—?"	í>‡ £Æ@—@"	˛7¬ §¶j—"	–™# ßä@—@ÿŒ  "	ò;∫% ®⁄$—"	ò@™$ ©ËÜ—@ÿŒ  "	‚?Ê< ™≠∫—@"	ä5∆# ¨©”—f"	∫ ]# ≠áp—@ÿœÕ"	ƒ;¸. ÆÍ—"	™ö ØùD—D"	¿Ü! ∞ø{—@"	ﬁ0‡: ±∑
+—
+"	àÓ# ≤D—DÿŒ  "	í
+Ä ¥«π—@"	ö5º3 ∂åR—R"	–@ ∑⁄C—"	¸¶ ∏Œ2—
+"	å<Ñ= ∫óN—"	Æ,Ã& ªƒ@—@"	Ë>Ü$ Ωò—"	òº æø.—
+"	é(Ñ$ øúµ—@ÿŒ  "	Ó7¸: ¿¶O—
+"	∫# ∆Ú\—ÿŒ  "	¯3˛

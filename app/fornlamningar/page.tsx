@@ -13,17 +13,56 @@ import {
 } from '@vis.gl/react-maplibre';
 import { throttle } from 'lodash';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { Box, LoadingOverlay } from '@mantine/core';
+import {
+  Box,
+  Button,
+  Checkbox,
+  LoadingOverlay,
+  Modal,
+  Stack,
+} from '@mantine/core';
 import metadata from '../../public/tiles/metadata.json';
 import { isPointFeature, isTileMetadata, PointFeature } from './models';
 import PointPopup from './PointPopup';
 import { FORNLAMNINGAR_LAYER } from './constants';
 import { useDisclosure, useLocalStorage } from '@mantine/hooks';
+import { IconFilter } from '@tabler/icons-react';
+
+const availableFilters = [
+  'Lägenhetsbebyggelse',
+  'Husgrund, historisk tid',
+  'Hög',
+  'Stensättning',
+  'Röse',
+  'Blästplats',
+  'Källa med tradition',
+  'Bytomt/gårdstomt',
+  'Hällristning',
+  'Grav markerad av sten/block',
+  'Område med skogsbrukslämningar',
+  'Naturföremål/-bildning med bruk, tradition eller namn',
+  'Gränsmärke',
+  'Stenkammargrav',
+  'Fartygs-/båtlämning',
+  'Fångstgropssystem',
+  'Gravfält',
+  'Fångstgrop',
+  'Runristning',
+];
 
 export default function Fornlamningar() {
   const [selectedFeature, setSelectedFeature] = useState<PointFeature | null>(
     null
   );
+  const [filters, setFilters] = useLocalStorage<string[]>({
+    key: 'fornlamningar-filters',
+    defaultValue: availableFilters,
+  });
+  const [
+    isFiltersModalOpen,
+    { close: closeFiltersModal, toggle: toggleFiltersModal },
+  ] = useDisclosure(false);
+
   const [isPopupOpen, { open: openPopup, close: closePopup }] =
     useDisclosure(false);
 
@@ -41,11 +80,8 @@ export default function Fornlamningar() {
     ? Number(metadata.maxzoom)
     : 11;
 
-  // Wait for localStorage to be ready, then calculate initial view state
   const [isReady, setIsReady] = useState(false);
-  React.useEffect(() => {
-    setIsReady(true);
-  }, []);
+  React.useEffect(() => setIsReady(true), []);
 
   const initialViewState = useMemo(() => {
     if (savedViewState) {
@@ -55,20 +91,20 @@ export default function Fornlamningar() {
         zoom: savedViewState.zoom,
       };
     }
-
     if (isTileMetadata(metadata) && metadata.bounds) {
-      const [west, south, east, north] = metadata.bounds.split(',').map(Number);
-      return {
-        bounds: [west, south, east, north] as [number, number, number, number],
-      };
+      const [w, s, e, n] = metadata.bounds.split(',').map(Number);
+      return { bounds: [w, s, e, n] as [number, number, number, number] };
     }
-
     return { longitude: 13.623047, latitude: 58.216995, zoom: 6 };
   }, [isReady, savedViewState]);
 
+  // prettier-ignore
   const mapStyle = useMemo(
     () => ({
       version: 8 as const,
+
+      sprite: `${process.env.NEXT_PUBLIC_DOMAIN}/fornlamningar-icons/icons`,
+
       sources: {
         osm: {
           type: 'raster' as const,
@@ -88,37 +124,58 @@ export default function Fornlamningar() {
         { id: 'osm-tiles', type: 'raster' as const, source: 'osm' },
         {
           id: FORNLAMNINGAR_LAYER,
-          type: 'circle' as const,
+          type: 'symbol' as const,
           source: 'fornlamningar',
           'source-layer': 'archaeological_sites',
           minzoom: 0,
           maxzoom: 24,
-          paint: {
-            'circle-radius': [
+          filter: [
+            'all',
+            ['in', ['get','class'], ['literal', filters]],
+          ],
+          layout: {
+            'symbol-sort-key': ['-', ['coalesce', ['get', 'relevance'], 0]],
+            'icon-allow-overlap': false,
+            'icon-ignore-placement': false,
+            'icon-padding': 2,
+            'icon-image': [
+              'match',
+              ['get', 'class'],
+              'Lägenhetsbebyggelse', 'building',
+              'Husgrund, historisk tid', 'hut',
+              'Hög', 'maya',
+              'Stensättning', 'bones',
+              'Röse', 'stonehenge',
+              'Blästplats', 'anvil',
+              'Källa med tradition', 'greek-temple',
+              'Bytomt/gårdstomt', 'hut',
+              'Hällristning', 'cave-painting',
+              'Grav markerad av sten/block', 'bones',
+              'Område med skogsbrukslämningar', 'hut',
+              'Naturföremål/-bildning med bruk, tradition eller namn', 'greek-temple',
+              'Gränsmärke', 'shield',
+              'Stenkammargrav', 'stonehenge',
+              'Fartygs-/båtlämning', 'drakkar',
+              'Fångstgropssystem', 'weapon',
+              'Gravfält', 'bones',
+              'Fångstgrop', 'weapon',
+              'Runristning', 'moai',
+              'question-mark',
+            ],
+            'icon-size': [
               'interpolate',
               ['linear'],
               ['zoom'],
-              5,
-              2,
-              sourceMaxZoom,
-              4,
-              24,
-              10,
-            ] as any,
-            'circle-color': [
-              'case',
-              ['>=', ['get', 'relevance'], 10],
-              '#2563eb', // blue for relevance 8+
-              '#32a80e', // green for relevance < 8
-            ] as any,
-            'circle-stroke-width': 1,
-            'circle-stroke-color': '#ffffff',
-            'circle-stroke-opacity': 0.8,
+              3, 0.05,
+              12, 0.15,
+              18, 0.3,
+            ],
+            'icon-anchor': 'center',
           },
         },
       ],
     }),
-    [sourceMinZoom, sourceMaxZoom]
+    [sourceMinZoom, sourceMaxZoom, filters]
   );
 
   const onMouseEnter = () => (document.body.style.cursor = 'pointer');
@@ -135,16 +192,14 @@ export default function Fornlamningar() {
     [setSavedViewState]
   );
 
-  const onMove = (evt: { viewState: ViewState }) => {
+  const onMove = (evt: { viewState: ViewState }) =>
     throttledSaveViewState(evt.viewState);
-  };
 
   const onClick = (e: MapLayerMouseEvent) => {
     const feature = e.features?.[0];
     if (!feature || feature.geometry.type !== 'Point') {
       return;
     }
-
     if (!isPointFeature(feature)) {
       return;
     }
@@ -165,27 +220,68 @@ export default function Fornlamningar() {
   }
 
   return (
-    <Box w="100%" h="500px" data-testid="map">
-      <Map
-        mapStyle={mapStyle}
-        initialViewState={initialViewState}
-        minZoom={3}
-        maxZoom={19}
-        style={{ width: '100%', height: '100%' }}
-        interactiveLayerIds={[FORNLAMNINGAR_LAYER]}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        onClick={onClick}
-        onMove={onMove}
+    <>
+      <Box
+        pos="absolute"
+        left="0"
+        top="0"
+        bottom="0"
+        right="0"
+        data-testid="map"
       >
-        {isPopupOpen && selectedFeature && (
-          <PointPopup feature={selectedFeature} onClose={closePopup} />
-        )}
-        <ScaleControl />
-        <FullscreenControl />
-        <NavigationControl />
-        <GeolocateControl {...geolocateControlOptions} />
-      </Map>
-    </Box>
+        <Map
+          mapStyle={mapStyle as any}
+          initialViewState={initialViewState}
+          minZoom={3}
+          maxZoom={19}
+          style={{ width: '100%', height: '100%' }}
+          interactiveLayerIds={[FORNLAMNINGAR_LAYER]}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          onClick={onClick}
+          onMove={onMove}
+        >
+          {isPopupOpen && selectedFeature && (
+            <PointPopup feature={selectedFeature} onClose={closePopup} />
+          )}
+          <ScaleControl />
+          <FullscreenControl />
+          <NavigationControl />
+          <GeolocateControl {...geolocateControlOptions} />
+          <Button
+            size="xs"
+            variant="default"
+            onClick={toggleFiltersModal}
+            style={{ top: '8px', left: '8px' }}
+            leftSection={<IconFilter size={16} />}
+          >
+            Filters
+          </Button>
+        </Map>
+      </Box>
+
+      <Modal
+        opened={isFiltersModalOpen}
+        onClose={closeFiltersModal}
+        title="Filters"
+      >
+        <Stack>
+          {availableFilters.map(filter => (
+            <Checkbox
+              key={filter}
+              label={filter}
+              checked={filters.includes(filter)}
+              onChange={() =>
+                setFilters(
+                  filters.includes(filter)
+                    ? filters.filter(f => f !== filter)
+                    : [...filters, filter]
+                )
+              }
+            />
+          ))}
+        </Stack>
+      </Modal>
+    </>
   );
 }

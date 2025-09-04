@@ -1,21 +1,27 @@
-ïõx
-archaeological_sites(Ä uuidlabel	relevance	clusteredpoint_countsqrt_point_countpoint_count_abbreviated"
+ÈÅx
+archaeological_sites(Ä uuiddescriptionlabel	relevanceclass	clusteredpoint_countsqrt_point_countpoint_count_abbreviated"
 2"
 3"
 4"
 5"
 9"
 10"
-Bro"
+Bro"
+Vad"
 H√∂g"
 Kvarn"
 R√∂se"	
-H√§gnad"
+Boplats"	
+H√§gnad"	
+Kloster"
 	Offerkast"
 	V√•rdkase"
 
 V√§gm√§rke"
+F√•ngstgrop"
 Runristning"
+Gr√§nsm√§rke"
+Minnesm√§rke"
 Tr√§industri"
 Dammbron, Bro"
 H√§llristning"
@@ -23,7 +29,10 @@ V√§gm√§rke"
 Stens√§ttning"
 Jonsh√∂g, H√∂g"
 Mj√∂h√∂g, H√∂g"
+Stenkammargrav"
 Textilindustri"
+F√§stning/skans"
+Kemisk industri"
 Sp√§rranordning"
 Tors h√∂g, H√∂g"
 Begravningsplats"
@@ -40,7 +49,8 @@ V√§gm√§rke"
 Kungagraven, R√∂se"
 Signilds bur, H√∂g"
 Trollakyrka, R√∂se"
-B√•knaberget, R√∂se"
+B√•knaberget, R√∂se"
+Plats med tradition"
 K√§lla med tradition"
 L√§genhetsbebyggelse"
 Fartygs-/b√•tl√§mning"
@@ -95,6 +105,7 @@ V√§gm√§rke"
  Jula killa, K√§lla med tradition""
  Kolh√§rens, L√§genhetsbebyggelse""
  Omr√•de med skogsbruksl√§mningar""
+ Ristning, medeltid/historisk tid""
  Stenlyckan, L√§genhetsbebyggelse""
  Tj√§rdalsbacken, Kemisk industri"#
 !Femdagarsr√§nnan, Kemisk industri"#
@@ -371,8 +382,11 @@ $ffffe989-798a-4677-b7ff-401c6a5b0ee2"'
 ,Ekebergs laxfiske, F√•ngstanl√§ggning √∂vrig".
 ,Laiba-Hannans k√§llare, L√§genhetsbebyggelse"/
 -Kung H√∂nas sten, Grav markerad av sten/block"0
-.Predikstolen, Ristning, medeltid/historisk tid"C
-AMilahall, Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"D
+.Predikstolen, Ristning, medeltid/historisk tid"9
+7Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"C
+AMilahall, Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"C
+A√Ñlvkvarnsf√∂rekomst, 3 √§lvkvarnar, 4-5 cm i diam och 1-2 cm dj."D
+BFlyttblock - "Tummastenen", s.k ruckesten, 1,5 m diam och 1,3 m h."D
 BTumstenen, Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"E
 CKyrksoffan, Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"E
 CLindstenen, Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"E
@@ -381,14 +395,724 @@ DTummastenen, Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"G
 ERunamohallen, Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"I
 GPr√§stak√§llan, Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"J
 HJord√§lvsh√•lan, Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"K
-IKlingande stenen, Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"	H·zÆG	@"	è¬ı(\èˆ?"	ÆG·zÆ˚?"	ÏQ∏ÖÎ@" " " " " " " " 	" 
-" " "8 ú6ãåÅ˛ "	é$‘ ∞iãåÅ˛ "	ﬁ2ò ØjãåÅ˛ "	¸"Ï íTä"	ê§	 ËÁä"	†¶2 î˛äåÅ˛ "	¿#Æ	 ¨Ôä"	‰ ¸ uVä"	∞(® æ=ä"	⁄-Æ zoä"	‘-˙ ˝2ä"	Ê$ﬁ cä"	`õ ™+äåÅ˛ "	¢ú, ådä"	 6¨ —!ä"	†:§# àÄäåâ˝"	J˛ õ.ä"	e∞: ¶äåÅ˛ "	¶≤%	 –Îä"	–&ê	 †˙ä"	å
-Ú  Jä"	¨™!	 ùÓä"	æ‰*	 ¥Ïä"	¶'™ ∏_ä"	òˆ ◊nä"	ˆ∞% êLäåÅ˛ "	Ùí Ÿ@âåÅ˛ "	 <ú	 ıËâ"	Ú§ ö'â"	∞.à  ºâ"	¨$¨ éZâ"	ö¿? ã`âåÅ˛ "	é-ƒ ÕBâ"	Ùå ≥9â"	∏Œ' ”[âåÅ˛ "	Ã˙< «â"	í	1	 ®„â"	†9ˆ! † âåÅ˛ "	ûû	 ∫ıâ"	ú:æ	 ÔÈâ"	Ä¢%	 ‘â"	∞Ë	 ´Íâ"	ˆ6Ï ÉQâåÅ˛ "	%Ú5 Öâ"	‚	ö, €fâ"	ä)‰	 “Çâ"	∏∆$	 ﬁÌâ"	Ã4“ îIâ"	ö	–	 √‰â"	ÑÑ$ ’â"	à3é	 ΩÂâ"	∫∞ ÍRâ"	Ä=¸  °Wâ"	∞‰ ÀXâ"	r‰ ìKâåÅ˛ "	¥“	 °Gâ"	Æ)∂ ûYâåÇˇ"	Ë≤ µMâåÅ˛ "	“
-	 ç¯â"	¯*§ ≤gâ"	†Ê& åPà"	ú0¬ ‰à"	‡é( π1à"	–¥ ‹à"	Í¢ ÃAà"	ﬁÊ0	 èˇà"	åÏ ≈aàåÇˇ"	   ƒ8à"	BÄ9 ∂bà"	ûê „à"	à¢7	 ú˚à"	¿∂$	 û¸à"	Ü.ä x\à"	»¿ ÷Cà"	‘&Ù ëeàåÅ˛ "	Æ˛ Ïkà"	Ç7ä	 ¶Ûà"	ê6∫ ®:à"	‚‚	 ïÅà"	íí ﬂ/à"	ö5¸ {qà"	àö ©?àåÅ˛ "	ê‹ ˜Sà"	ÄÄ ±Fà"	¥¸+ ¸là"	˛Ñ ∂màåÇˇ"	¶/¯ «à"	∫∫: w&à"	∏1‚!	 Ú˜à"	Íæ* §rà"	Ã‰ Œ,à"	í7ˆ ¿0à"	˙‚ Ö>á"	ˆ8Ï ﬁ-á"	Yæ8 Ò$á"	ò<ò Ãpá"	0¯ ª)á"	Ó/å ∆)á"	⁄ñ! ÉOáåÅ˛ "	æ‚	 £Úá"	‡#	 •˘á"	®2‰ ç^á"	¶)	 ±Êá"	ä
-®. âÜ"	  ∏ “UÜ"	¸Ù& ≠*Ü"	ä#¶, ÎHÜ"	‚Ë! ’DÜ"	∏/¬ Ç)Ü"	Ó8¶ π)Ü"	ú6Ë ¢)Ü"	Æ∞ ÿ)Ü"	¯,Œ ∑)ÜåÇˇ"	Ã0§ á)Ü"	∆0Í ‹)Ü"	¿∂& ò)Ü"	¿å% ≥Ö"	™   Ü#Ö"	‚∂$ ÄÖåÅ˛ "	˛#˛ ÅÖ"	Ï ˆÖ"	¬%î ùÖåÅ˛ "	î§# ·Ö"	º"ä ›;Ö"	†<∂ æ*Ö"	˛
-∏5 v*Ö"	ÜAå' º*Ö"	Ëﬁ# ƒ<ÖåÅ˛ "	∞=⁄! ÜhÖ"	‹4à ≤HÖ"	˙Ñ, ñ7Ö"	ÑÜ( é3Ö"	⁄‡ ÷3ÖåÅ˛ "	∫  ¡3Ö"	Ñ(™  ˚
-Ö"	¯-– ÆÖ"	ò.÷ ∑Ö"	l®$ øÖåÅ˛ "	Ê9‚ üÖåÅ˛ "	∆∫& è4Ö"	ﬁ3†	 ïÒÖ"	ÿî …ÖåÅ˛ "	Œ$Ë »(Ö"	Íí#	 –ˆÖ"	Ë-§ ÿ)Ö"	ìÙ ¡)ÖåÅ˛ "	î-æ s)Ö"	¶C ó)Ö"	û‡ ë)Ö"	®Ó ì)Ö"	∫˛ ∞)ÖåÅ˛ "	ƒû y)Ö"	‰.¬ )Ö"	¶í ¬)Ö"	Ç5÷ ∏)Ö"	Í-à à)ÖåÅ˛ "	Æ=Ë ≠)ÖåÅ˛ "	∆¿ ⁄)Ö"	¶<™	 £)Ö"	»:‰ ˙)Ö"	Ë?Ä
-  )Ö"	†@ñ √)Ö"	∏>˛	 ß)ÖåÅ˛ "	™¿ ó)ÖåÅ˛ "	¿2Ó Õ)ÖåÅ˛ "	Ü‹ È)Ö"	∏∆ á)ÖåÅ˛ "	í?Ä
- ä)Ö"	¸$˛ §)Ö"	1Ó ¨)Ö"	ƒ!§ ª)Ö"	Ä6ˆ À)Ö"	à#Ó ø)Ö"	 &û })Ö"	¸ ‘)ÖåÇˇ"	“‚ ◊)Ö"	ò.» ”)ÖåÇˇ"	í2å …)Ö"	Ùê Ω)Ö"	†‚ ê)Ö"	Íæ ‚)ÖåÉÅ"	Ëî Ø)Ö"	Ê⁄ €)Ö"	ÿ® ⁄)Ö"	æ≤# ô)ÖåÅ˛ "	≤Ç ‡)Ö"	æ ‰  |)Ö"	™Ê# ™)ÖåÅ˛ "	ûÓ$ ¢)ÖåÅ˛ "	Ê$ ß)ÖåàÇ"	†$Ú Â)Ö"	Ë(Ä  ¬)Ö"	ƒ∫ ò)ÖåÇˇ"	Æ/ä Æ)Ö"	–/  œ)ÖåÅ˛ "	ê)ä Ù)Ö"	ÍÄ( â)Ö"	∞ò! Û)Ö"	∫‡ —)Ö"	ˆË •)Ö"	Í# ›)Ö"	ú§ t)Ö"	ÓÃ! ∫ÖåÅ˛ "	(˙  ¥Ö"	»;ò ¯EÖ"	Œ*» Œ]ÖåÅ˛ "	ƒú ≈]Ö"	Í Ñ]ÖåÅ˛ "	∏§ ˘]Ö"	ƒ(å »]Ö"	≤Œ ©]Ö"	Ù¸ Ê]ÖåÇˇ"	¬æ õ]Ö"	ò‡ ¿]ÖåÅ˛ "	⁄∫ Ì]Ö"	–Ú ‡]Ö"	¿Ê
- ü]ÖåÇˇ"	Ó∂ ñ]ÖåÇˇ"	¨ˆ ~Ö"	Ñ‹. Ñ	ÖåÑÄ"	ﬁ®$ Ó%Ö"	Óö& ÁÖ"	ÿ?Ù  œ"ÖåÅ˛ "	‹à ôÖ"	Í ‘ öÖ"	ﬁ=‘ ﬂÖåÅ˛ "	ÏÃ	 ä‚Ö"	Æ∂	 ãÙÖ"	Ã6û ·5ÖåÉÅ"	‹¶
- ŸÖ"	Æö ∆Ö"	à#⁄ ´ÖåÅ˛ "	⁄!“ µÖåÅ˛ "	†$‡  íNÖ"	˛3ƒ
+IKlingande stenen, Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"O
+MH√∂g, ca 20 m diam och 5 m h. Svagt N-sluttande bottenplan. T√§tt kringodlad."Q
+OTorpl√§mning, best√•ende av 1 boningshusgrund, 6x5 m (N-S), med spisr√∂se i NV."R
+PGr√§nsm√§rke, best√•ende av 1 flyttblock, 4 m i genomsk√§rning och intill 4 m h."U
+SStenblock, "Kyrksoffan", 1,5x1 m st och 0,7 m h, format som en b√§nk med ryggst√∂d."W
+UHusgrund, rest av, endast spisr√∂set synligt, 1 m h, kallmurad.
+
+Platsen √§r skyltad."[
+YH√∂g, ca 10 x 4 m i diam √ñ - V och ca 1.2 m h. Odlingsstenp√•kastad. H√∂gen kringpl√∂jd."^
+\Torpl√§mning, best√•ende av 1 husgrund, 8x5 m (NV-S√ñ), med spisr√∂se, 3 m diam och 0,5 m h."a
+_Rest sten, 1.65 m h, 1.0 m br, 0.6 m tj. Lutar n√•got √•t S. Stenen√§r sannolikt f√∂rhistorisk."e
+cHusgrund, 6x5 m (√ñN√ñ-VSV) och intill 1.8 m h, kallmurad, ingr√§vd i backsl√§nt. √ñppning i √ñN√ñ."k
+iTorpl√§mning. P√• platsen √§r minst 1 husgrund. Omr√•det √∂vervuxet med sly och ej m√∂jligt att beskriva."t
+rKvarn, grund ca 5x5 m. Grunden av gr√•sten 0,3-0,5 m st. I S √§r grunden 2 stenar bred. (RA√Ñ dnr 3.4.2-4509-2016)"v
+tTorpl√§mning, best√•ende av 1 husgrund, 6x6 m st och intill 1,5 m h, kallmurad. K√§llare under hela huset, 1,5 m dj."z
+xTorpl√§mning, bets√•ende av 1 husgrund, 7x5 m (N-S) och intill 1 m dj, kallmurad. Ing√•ng i S. Delvis ingr√§vd i sl√§nt."{
+yBeskrivningen √§r inte kvalitetss√§krad. Information kan saknas, vara felaktig eller inaktuell. Se √§ven Inventeringsbok."
+}Gr√§nssten, markerande riksgr√§nsen Danmark-Sverige. Flyttblock, 3 m diam, 1.5 m h. Blocket delas i S av en 0.1 m br spricka."Å
+Torpl√§mning, husgrund, 8x5 m (√ñ-V), 0.3 m h. I N√ñ h√∂rnet √§r spisr√∂se, 0.6 m h. Sp√•r av odling i anslutning till grunden."É
+ÄTj√§rr√§nna, 19x6 m (√ñ-V), kallmurat br√∂ste, i V b√•gformat, intill 1.2 m h. Otydlig tj√§rgrop 4 m V om br√∂stet. V√§lbevarad."É
+ÄK√§lla med namn och tradition, romboid, 1,25x0,7 m (√ñ-V) och 0,25m dj, med avrinning √•t NV. I S√ñ kanten √§r ett stenblock, 1,5 m l (VNV-√ñS√ñ) och 2 m h. I NV kanten av k√§llan och √∂ver avrinningen √§ren flat h√§ll, ca 0,3x0,3 m (SV-N√ñ) och 0,03 m tj."É
+ÄTorpl√§mning, best√•ende av 1 husgrund. Den √§r 14-15x7 m (N-S), mindre utbyggnad i SV, med 0,5-0,7 m br och intill 1,5 m h kallmurade v√§ggar, h√∂gst i √ñ, och indelad i tre rum. Ett rum i N √§r 4x2 m (√ñ-V), ett i SV 3x1,5 m (N-S). Mitt i grunden √§r en √∂vertorvad spismursrest, 2,5x2 m (√ñ-V) och 0,6 m h. I grundens √ñ sida √§r tv√• 1 m br √∂ppningar, i S en 1,5 m br √∂ppning. Inrasade stenar inuti grunden.
+
+P√• platsen l√•g, enligt en laga skifteskarta fr√•n 1830, torpet √Ökestorp. 
+
+Enligt mark√§garen l√•g ett undantag och ett garveri √ñ om grunden, i dagens √•kermark och utan l√§mningar. Undantaget ska ha brunnit ner √•r 1905."Ö
+ÇStens√§ttning, oregelbunden, n√§rmast rund, ca 14 m diam och 0,2-0,8 m h, h√∂gst i mitten. En gr√§nsmur (N√ñ-SV) l√∂per genom graven, vilket m√∂jligen orsakat att mittpartiet √§r h√∂gre och kraftigt omplockat, men det kan √§ven vara rest av mittr√∂se. N och S om stenmuren √§r stens√§ttningen √∂vertorvad och √∂vermossad, 0,1-0,2 m h, i mitten 0,6-0,8 m h. Stenmaterialet √§r vanligen 0,2-0,3 m, men √§ven st√∂rre, 0,5-1 m st stenar, f√∂rekommer. I gravens mitt, intill och N om stenmuren, √§r ett par h√§llar, varav den st√∂rsta 1 m l, 0,6 m br och 0,15 m tj. 
+Den kantkedja som beskrevs vid inventeringen 1971 kunde inte urskiljas √•r 2010."Ö
+ÇTorpl√§mning, ca 275x175 m (√ñS√ñ-VNV), best√•ende av 1 boningshusgrund, 1 k√§llargrund, 6 ekonomibyggnadsgrunder och 1 brunn.
+Boningshusgrunden, bel√§gen p√• kr√∂net, centralt i omr√•det, √§r 10x5 m (NN√ñ-SSV) och intill 0,4 m h. Otydlig utstr√§ckning i N. Ing√•ng med utrasad trapp i S√ñ.
+K√§llargrunden, bel√§gen 30 m S om boningshusgrunden √§r 7x5 m (√ñN√ñ-VSV), med intill 1,5 m h v√§ggar av kallmurad sten. Ing√•ng i √ñN√ñ.
+Ekonomibyggnadsgrunderna √§r 3-9 m l och 2-5 m br. En √§r 0,5 m dj, √∂vriga har 0,3-2 m h v√§ggar av kallmurad sten. Samtliga √§r delvis ingr√§vda i backen. Flertalet har jordfasta block, intill 3 m st ing√•ende i v√§ggpartierna. En ansluter till k√§llargrunden, en 3x2 m st har n√§rmast karakt√§ren av f√•lla. En, bel√§gen l√§ngst i SV har eldstad? I NV h√∂rnet m√∂jligen en linbastu.
+Brunnen, bel√§gen 40 m √ñ om k√§llargrunden, √§r rund 0,7 m diam, kallmurade sidor. 
+Inom omr√•det finns √§ven torpets in√§gomark med ett 50-tal r√∂jningsr√∂sen, vanligen oregelbundna, 3-5 m st och 0,2-0,7 m h."Ü
+ÉTorpl√§mning, ca 20 m i diam, best√•ende av 1 husgrund, 1 ladug√•rdsgrund och 1 jordk√§llaregrund. 
+
+Husgrunden √§r 12x6 m (√ñN√ñ-VSV), med synlig stenfot, intill 0,3 m h, av 0,3-0,6 m st stenar. Vid SV h√∂rnet √§r ett spismursr√∂se, 4 m i diam och 1,2 m h, √∂vertorvat. SS√ñ l√•ngsidan ansluter i √ñ till en kort stenmur. SV om spismursr√∂set och utanf√∂r den S l√•ngsidan √§r en tillbyggnad, 3x3 m och √∂ppen mot S.
+5 m √ñ om husgrunden √§r en ladug√•rdsgrund, 9x8 m (√ñN√ñ-VSV), med synlig stenfot, intill 0,35 m h, av 0,3-0,6 m st stenar.
+4 m NNV om husgrunden √§r en jordk√§llaregrund, ingr√§vd i backen mot S, 8x6 m (√ñN√ñ-VSV). Kallmurade v√§ggar, intill 1,2 m h och 0,4-0,6 m br, best√•ende av 0,2-0,5 m st stenar. Ing√•ng i NNV, 0,7 m br.
+Jordk√§llaregrundens V v√§gg ansluter direkt till en f√§gata, som √§r 70 m l (NV-S√ñ).
+Tomten omges av ett flertal stenmurar. I omr√•det V om tomten finns ca 5 r√∂jningsr√∂sen, oregelbundna, 2-4 m i diam och 0,3-0,6 m h, ett par ligger ovanp√• stenblock. (RA√Ñ dnr 326-1997-2009)"á
+ÑV√•rdkase, rest av. Inom ett ca 20 x 10 m st plant parti (N-S) med berg i dagen √§r h√§llen sporadiskt eldskadad. Inom ett ca 4 x 2 m st omr√•de (N-S) i den S √§nden av det eldp√•verkade partiet √§r mycket rikligt med eldskador i form av kantiga och sk√§rviga gropar, 0,1 - 0,8 m st och 0,02 - 0,07 m dj. √ñ om det eldskadade partiet √§r en klyfta i berget, 2 x 1 m (√ñ-V) och 0,5 - 1 m dj. 10 m N om det eldp√•verkade partiet har sentida eldning f√∂rekommit.
+Berget kallas numera f√∂r "Hinseberget" men har tidigare ben√§mnts "Orb√∂tsberg". Enligt ortnamnsforskaren Bertil Ohlsson kan namnet √•terf√∂ras p√• ett medeltida "Wardhb√∂te" d√§r b√∂te betyder v√•rdkase. "Orb√∂tdtz b√§rg" omn√§mns enligt Ortnamnsregistret f√∂r f√∂rsta g√•ngen i skriftliga k√§llor √•r 1666 och st√•r enligt Ohlsson utsatt p√• en i Krigsarkivet f√∂rvarad karta fr√•n samma √•r. P√• kartan √§r en stuga, √§gd av "Hinsse peer", markerad nedanf√∂r berget. Hinseberget omn√§mns enligt Ortnamnsregistret f√∂r f√∂rsta g√•ngen i skriftliga k√§llor √•r 1755."à
+ÖTorpl√§mning, ca 40 x 40 m, best√•ende av 1 boningshusgrund med ihopbyggd k√§llargrund, 13 x 7 m (NNV-SS√ñ) och 0,1 - 0,5 m h, av √∂vertorvade stenar. I mitten √§r ett spismursr√∂se, 2,5 x 2 m st (√ñN√ñ-VSV) och 0,5 m h, av √∂vermossade, kallmurade stenar. I den SS√ñ √§nden √§r k√§llargrunden, 5 x 4 m st (√ñN√ñ-VSV) och 0,5 m dj. S om grunden st√•r en tr√§skylt med svartm√•lad text:
+H√§r l√•g Brosiljetorpet \ Under S√∂dra Hoka G√•rd
+Enligt ortsbefolkningen kallades torpet f√∂r "Bresiljetorpet" efter den man som bodde h√§r och jobbade p√• en bresiljekvarn i Karlshamn. Inga byggnader √§r markerade h√§r p√• H√§radsekonomiska kartan 1915-19."â
+ÜTorpl√§mning, 120x70 m (NN√ñ-SSV), best√•ende av grund efter bostadshus, 2 uthusgrunder samt fossil √•kermark.
+Husgrunderna ligger p√• en mor√§nkulle i omr√•dets N del. Grund efter bostadshus, 7x5 m (N√ñ-SV), ingr√§vd i sl√§nt med intill 1,6 m h kallmurar. I SV √§r spismursr√∂se. N h√§rom √§r tv√• uthusgrunder best√•ende, 4x4 resp. 7 x4 m, ingr√§vda i backsl√§nt, intill 1 m dj. Runt grunderna √§r  kuperad fossil √•kermark med ett 20-tal r√∂jningsr√∂sen, i N och V begr√§nsad av stenmur, i S och √ñ √∂verg√•ende i tidigare sank √§ngsmark. "Thuretorpet", f√∂rste torpare var Thure H√•kansson, 1758-1823. Siste torpare M√•ns H√•kansson, 1850-65."â
+ÜTorpl√§mning, ca 120 x 80 m (N-S), best√•ende av 1 boningshusgrund, 9 x 5 m (N-S) och intill 0,4 m h, av √∂vertorvade stenar, 0,2 - 0,4 m st, n√•gra tuktade. I mitten √§r ett spismursr√∂se, 2 x 2 m (N-S) och 0,6 m h, av delvis √∂vertorvade, kallmurade stenar. Grunden √§r bel√§gen i omr√•dets √ñ del.  I en stenmur i omr√•dets S del st√•r en tr√§skylt med svartm√•lad text:
+H√§r l√•g Torpet Petters t√§ppe \ Under S√∂dra Hoka G√•rd
+I omr√•det finns ca 10 r√∂jningsr√∂sen, n√§rmast runda eller oregelbundna, 2 - 5 m st och 0,4 - 1,2 m h. Inga byggnader √§r markerade h√§r p√• H√§radsekonomiska kartan 1915-19 och omr√•det utg√∂rs av skog och √§ng."ä
+áTorpl√§mning, best√•ende av husgrund, 5 m l, otydlig, kallmurad. Uthusgrund √§r direkt S om husgrund. Fossil √•ker strax N om husgrund."ã
+àBackstugel√§mning best√•ende av 1 husgrund, 8x6 m (VNV-√ñS√ñ), intill 0,7 m h kallmur av tuktad sten. Spismursr√∂se i N√ñ, intill 1 m h."ã
+àPlats med tradition och namn. En liten rest sten, 0.3 m h, 0.2 mbr och 0.07 m tj. Gravplatsen √§r bel√§gen d√§r tre byar gr√§nsarsamman."ã
+àRest sten, gr√•sten, 1.2 m h, 0.6 m br (NNV-SS√ñ) och 0.35 m tj.Stenen st√•r rest i en stenpackning. Se skiss iinventeringshandlingarna."ã
+àVadst√§lle, tidvis m√∂jligen bro eller sp√•ng, √∂ver vilket Via Regia passerat Vieryds√•n. Endast V nedfarten √§r bevarad. Motsatta strandbriken √§r kallmurad, i likhet med ett l√•ngt parti av √•brikens b√•da sidor. Kallmurningen tillkom under 1800-talets senare del i samband med rensning av √•f√•ran, f√∂ranledd av s√§nkning av N√§ssj√∂ns yta. I samband med detta spr√§ngdes en klippa nedanf√∂r vilken Landsbro var bel√§gen. Landsbro anges i r√•g√•ngsf√∂rr√§ttning √•r 1757 som gr√§nsm√§rke mellan M√∂rtjuk och Hakarp."ç
+ä1) H√∂g, 16 m diam och 1 m h.√ñvertorvad. Kantskadad i V delen inom ett segment 8x4 m st.Ytskadad. Skadorna delvis uppkomna genom att kringliggande jordschaktats bort, och en √•kerv√§g (i V). Bevuxen med ett flertalmindre, planterade tallar.Revideringsinventering 1992:Delunders√∂kt i samband med besiktning av skador 1968. Fynd av 1kruksk√§rva av oornerad keramik samt fragment av br√§nda ben."ç
+äOmr√•de med skogsbruksl√§mningar , ca 20x15 m (N-S), best√•ende av 1 tj√§rr√§nna och 1 beckkokningsanl√§ggning .
+Tj√§rr√§nnan √§r 11 m l (N-S), 2,5 m br och 0,5 m dj. Flankeras av vallar 1-2 m br och 0,1-0,3 m h. I N√ñ √§nden √§r en uppmurad, b√•gformad br√∂stning i kallmur, 2 m br och 0,5 m h. 2,5 m N√ñ om denna √§r en uppsamlingsgrop , 1,5 m st och 0,5 m dj.
+Beckkoket, bel√§get 3 m SS√ñ om r√§nnan √§r, ca 1,3 m st och 0,6 m h. Gropen f√∂r grytan √§r igenrasad och delvis belamrad med r√∂jningssten . Eldningsh√•l i N"ç
+äTorpl√§mning, best√•ende av 1 boningshusgrund. Boningshusgrunden har en mycket otydlig begr√§nsning. Det enda som tydligt kvarst√•r √§r spismursr√∂set, 2 x 2 m st och 0,6 m h, av kallmurade stenar. I marken intill √§r rikligt med krossat tegel.
+Boningshuset √§r markerat p√• 1835 √•rs arealavm√§tningskarta. H√§r √§r ocks√• en ekonomibyggnad markerad ca 10 m N√ñ om boningshuset. Ingen grund efter denna kunde iakttagas vid besiktningstillf√§llet. Omr√•det var dock t√§tt bevuxet med l√∂vsly och br√§nn√§sslor. Torpet kallades f√∂r Hallatorpet enligt kartakten. Torpet √§r √§ven markerat p√• H√§radsekonomiska kartan 1915-19. Ett h√•lv√§gssystem leder till torpet (se RA√Ñ 200)
+Ca 100 m SV om torpl√§mningen √§r en k√§llargrund (se RA√Ñ 201), som m√∂jligen har tillh√∂rt torpet."è
+åTorpl√§mning.
+Husgrund, 10x6 m (√ñ-V) och 0,2-0,7 m h. I S√ñ √§r kallmurat spismursr√∂se, 0,8 m h. I √ñ √§r k√§llar grop, 4x3 m och 2 m dj, kallmurad. N√ñ om husgrunden √§r fossil √•ker med ett 10-tal, 2-6 m st och intill 1,5 m h r√∂jningsr√∂sen. "Nils Nilssons torp"."è
+å1) H√∂g, 15 m diam och 2 m h.I ytan talrika stenar, 0.1-0.2 m st, enstaka 0.3-0.5 m st. Vid √ñkanten en 1.9 m l och 0.4 m h sten.P√• SV kanten odlingssten, 4 m l, 2 m br och intill 0.6 m h.7 m N√ñ om nr 1 √§r:2) H√∂g, 9 m dim och 1.2 m h.Endast SV halvan √§r v√§lbevarad. I √∂vrigt omfattande ytt√§kt intill0.5 m dj.Yttre delarna mot NV-N-N√ñ t√§ckta av steng√§rdesg√•rdar, den N √§rsockengr√§ns."ê
+çR√∂se, 15 m diam, uppbyggt √∂ver bergklack med skenbar h√∂jd av 1,5 m. Stenarna √§r 0,3-0,6 m st. P√• r√∂set √§r ett kallmurat kummel, 3 m diam, 1,5 m h. I SV delen √§r en grop, 3 m diam, 0,6 m dj.
+R√∂set kallas Trollakyrka.
+F√∂r √§ldre beskrivning se scannat dokument."ê
+çTorpl√§mning, best√•ende av 1 husgrund och fossil √•ker.
+Husgrund, 7x7 m (√ñ-V) och intill 1,5 m h, kallmurad. I N√ñ √§r ett spismursr√∂se, 0,6 m h. I V delen √§r en k√§llare, 1,4 m dj, kallmurad, med utg√•ng i V. I grundens SV √§r en stenramp, 10x3 m (√ñ-V) och 0,2-1 m h.
+L√§ngs h√∂jdryggen N och S om grunden √§r fossil √•kermark med talrika r√∂jningsr√∂sen, vanligen 1-2 m st och intill 1 m h."ê
+çTorpl√§mning, best√•ende av 1 boningshusgrund med en vinkelbyggd k√§llargrund.
+Boningshusgrunden √§r 17 x 5 m (√ñ-V) och intill 0,3 m h, av kallmurade stenar. I det N√ñ h√∂rnet √§r ett spismursr√∂se, 2 x 2 m st och 0,5 m h, av kallmurade stenar. Omedelbart intill och √ñ om boningshusgrunden √§r k√§llargrunden, delvis inbyggd i backsluttning, 11 x 5 m (N-S), med 0,4 m tj och 1 - 1,4 m h v√§ggrester, av kallmurade stenar. I det N√ñ h√∂rnet √§r en ing√•ng, 0,5 m br.
+Torpet √§r markerat p√• H√§radsekonomiska kartan 1915-19."ë
+é1) Tj√§rr√§nna, 18 m l (VNV-√ñS√ñ), 2.5 m br, 0.6 m dj. Br√∂ste saknas. 2 m √ñS√ñ h√§rom √§r tj√§rgrop, 1.5 m diam, 0.5 m dj. 1 m VNV om 1 √§r 2) Beckgryta, 1.2 m diam, 0.6 m dj, kallmurade kanter. 1 m SV om 1 √§r 3) Beckgryta, 1.2 m diam, 0.6 m dj. Rest av stenskoning."ë
+éTorpl√§mning, 20x20 m, best√•ende av grund efter bostadshus samt uthusgrund.
+Grund efter bostadshus, 7x5 m (VNV-√ñS√ñ), 1,3 m h, kallmurad. I N √§r spismursr√∂se, 0,8 m h. N h√§rom √§r uthusgrunden, 5x4 m (√ñ-V), i N√ñ och N begr√§nsad av intill 2 m h flyttblock, i √∂vrigt av 0,5 m h kallmur. V om grunderna √§r en 5x5 m st h√§gnad, begr√§nsad av 0,5 m h stenmurar. "Godratomten", bebodd av avskedade b√•tsmannen Abram Goder d. 1866. Hustrun Elin Andersdotter, g m Per Matsson, bodde kvar till 1903 - kallades "Godra-Elinen"."î
+ëOfferk√§lla, kvadratisk, 0,7 x 0,7 m och 1,3 m dj med kanter av kvadratiska stenar. Brunnskar 0,7 m h ovan mark av 0,2 m tj tuktade stenar med √∂verliggare av fasonerade stenar. I den nedre av brunnskarsstenarna i markytan i S √§r en 0,15 m st kvadratisk uthuggen  √∂ppning. P√• brunnskarets S sida √§r inhugget: 1927. P√• den V sidan √§r inhugget, im√•lat med svart f√§rg: 1857 och p√• den N sidan √§r inhugget: iiF. Runt brunnskaret √§r en √•ttakantig g√•rd, ca 3,5 m diam av kullerstenar och kvadratiska, tuktade stenar.
+Offerk√§llan √§r torrlagd med jord, pinnar och skr√§p i botten. Inget vatten fanns vid inventeringstillf√§llet 1965. Enligt uppgift f√∂rsvann vattnet ur k√§llan i och med att den intilliggande b√§cken f√∂rdjupades. N√ñ om k√§llan st√•r en j√§rnskylt med Karlshamns vapen och d√§runder texten: OFFERK√ÑLLA
+I k√§llan har man √•tminstone sedan 1700-talet offrat bl a mynt, metallf√∂rem√•l, br√∂d och √§gg. Dessutom har man druckit av vattnet samt badat och tv√§ttat sig i det. S√§rskilt under midsommarafton skall detta ha p√•g√•tt d√• √§ven lekar och dans var ett vanligt inslag. Under 1700-talets mitt sattes en penningstock upp intill k√§llan som d√• ocks√• rensades, √∂verbyggdes och kringg√§rdades av staket. Det ber√§ttas √§ven att Karl XI skall ha druckit av vattnet, d√§rav namnet "Kungsk√§llan", "Kongsk√§llan" eller "Kungak√§llan". Under mitten av 1800-talet l√§t en f√∂rm√∂gen man bygga en stenmur runt k√§llan, vilken delvis kvarst√•r. Festerna vid k√§llan urartade emellertid och efter ett v√•ldsamt slagsm√•l 1838 upph√∂rde firandet till viss del. Det ber√§ttas dock att √§nnu under 1870-talet brukade folk vandra till k√§llan p√• midsommarafton."ï
+íNaturbildning med tradition. Milahall. P√• platsen √§r ett 3 m st, intill 1 m h flyttblock. Enligt lokal tradition rastplats vid gammal f√§rdv√§g."ï
+íR√∂se, rest av, ca 15 m diam. Stenarna √§r i allm√§nhet 0,3 - 0,5 m st. I den centrala delen √§r ett par synliga 0,8 - 1,6 m l h√§llar. R√∂sets N h√§lft √§r kraftigt skadad av stent√§kt och endast ett √∂vertorvat 0,2 - 0,3 m h bottenskikt √•terst√•r. I √ñN√ñ √§r ett 5 x 5 m st, intill 0,6 m h parti av r√∂sefyllningen bevarat. I S √§r r√∂sefyllningen upplagd i ett kummel, 8 m diam, 1,6 m h med i S synlig kallmur. Kumlet har fungerat som ensm√§rke och tj√§nade √§nnu efter sekelskiftet 1900 som fundament till en enkel fiskefyr."ñ
+ìRistning i rest stenblock, 1,35 m h, 0,9 m br och 0,7 m tj.  P√• stenens toppyta, j√§mn och lutande ca 40g √•t SS√ñ, √§r ett 15-tal kors inristade."ñ"
+ì"Status: R√ÑNNANS V√ÑSTRA SLUTTNING:
+Ca 80 p√•lar har p√•tr√§ffats i botten. De var genomg√•ende av klent virkemed en diameter av ca 15 cm. Flertalet var okluvna bj√∂rkstammar d√§r barken fortfarande var synlig n√§rmast botten. Den del som stack upp ovan botten var starkt bakterieangripen och d√§rigenom spetsformad samt bevuxen. De djupast bel√§gna p√•larna var l√§ngre √§n de √∂vriga. P√•larnas inb√∂rdes placering varierade mellan enstaka p√•lar, grupper om 2-4 p√•lar p√• rad och i r√§t vinkel mot r√§nnans l√§ngdaxel eller oregelbundna samlingar av upp till 9 p√•lar. De allra flesta p√•larna stod i grupper om 2-4 p√•lar, s√•som beskrivits ovan. Avst√•ndet mellan dessa p√•lar var 1-3 meter. Avst√•ndet mellan p√•lgrupperna i N-S riktning var s√§llan mer √§n 20 meter, vanligen betydligt kortare. Tre p√•lar var spetsade i √§ndarna med eggverktyg (status 1969).
+
+V√ÑSTRA SIDAN:
+P√•larna var genomg√•ende av klent virke, ofta gran eller bj√∂rk. Deras diameter var ca 10 cm vid basen, och de stack upp ca 50 cm √∂ver botten. P√•larna var grupperade i ett till synes fast system s√• att de stod tv√• och tv√• eller tre p√• rad med den √∂versta p√• 4-metersniv√•n och den nedre p√• 6 meter. Avst√•ndet mellan dessa grupper varierade fr√•n 4 upp till 20 meter. De st√∂rre luckorna har f√∂rmodligen uppkommit genom att p√•lar rensats undan i samband med fiske p√• platsen.
+
+En st√∂rre samling p√•lar iakttogs 100-150 meter norr om bryggan. 9 p√•lar var d√§r grupperade i fyrkant med 3 meters sida.
+
+√ñSTRA SIDAN:
+P√•larna st√•r i formationer liknande de p√• andra sidan sundet, men virket var gr√∂vre. P√•larna st√•r ofta 2 och 2 tv√§rs r√§nnan eller i grupperingar n√•gra meter fr√•n r√§nnans kant. Denna typ av p√•lning √•terkommer inom en str√§cka av ca 100 meter, varefter en lika l√•ng fyndl√∂s str√§cka f√∂ljer. Efter denna finns 6 st kraftiga p√•lar i fyrkant om ca 2x2 m, med en p√•le i mitten och en ovanf√∂r. Den st√∂rsta p√•len var en meter h√∂g och hade en diam p√• 3 dm. 
+
+S√∂der om denna dykdalbliknande anl√§ggning iakttogs endast enstaka p√•lar. De var omv√§xlande grova och klena och omr√•det mellan dem var fyndl√∂st (status 1972).
+B√§rgning: 1969-1974 utf√∂rde Blekinge museum marinarkeologiska unders√∂kningar av vikingatida sp√§rrsystem i sk√§rg√•rden utanf√∂r Listerby, Vab√•sa och Hjorthammar. Unders√∂kningarna inleddes farleden mellan Tork√∂ och √ñstan√∂, d√§r man enligt boende i trakten hade tagit upp p√•lar ur botten. I r√§nnans v√§stra sluttning p√•tr√§ffades ett 80-tal p√•lar av bj√∂rk och gran. Dessa bed√∂mdes dock vara recenta. Ut√∂ver dessa p√•lar p√•tr√§ffades dock √§ven kraftigare p√•lar, som var v√§l f√∂rankrade i dybotten. N√•gra p√•lar togs upp f√∂r C-14 analys. 
+
+1972 fortsatte Blekinge museum unders√∂kningarna i Djupasund/Stutafj√§rden. Enligt muntliga uppgifter skulle p√•lningen b√∂rja l√§ngre s√∂derut √§n d√§r man dykt √•r 1969. 1972 √•rs dykningar f√∂rlades d√§rf√∂r vid den delvis raserade stenlastningsbryggan p√• Tork√∂ mitt emot Stutafl√∂tarna. Ett stort antal p√•lar p√•tr√§ffades mellan denna punkt och omr√•det strax √∂ster om den norra bryggan p√• Tork√∂. Samtliga p√•lar stod i sj√§lva r√§nnan, medan fynd saknas fr√•n 3-metersplat√•n. Under 6 meter fanns ingen p√•lning, och inte heller mellan land och r√§nnan.
+
+D√• unders√∂kningarna fortsatte p√• andra sidan djupr√§nnan i Djupasund/Stutafj√§rden, i h√∂jd med √ñstan√∂ och s√∂derut, p√•tr√§ffades flera p√•lar ca 100 meter fr√•n land, i r√§nnans kant. Denna p√•lning fortsatte ca 100 meter. Efter drygt 100 meters fyndl√∂s str√§cka p√•tr√§ffades √•ter n√•gra p√•lar.
+
+D√• samtliga p√•lar eller p√•lgrupper var glesa, oregelbundna och av klent virke samt l√∂pte parallellt med strandlinjen har de tolkats som rester av recenta fisken, ev. stakan√§tsfiske. De fyrsidiga p√•lformationerna skulle eventuellt kunna tolkas som dykdalber.
+
+Inga sp√•r av p√•lrader tv√§rs sundet kunde observeras. Vattenomr√•det v√§ster om √ñstan√∂n ans√∂ktes √§ven efter att fiskare i trakten l√§mnat uppgifter om att en p√•lning skulle finnas mellan √ñstan√∂ och Tork√∂. Bottenomr√•det var dock tomt, vilket kan f√∂rklaras av att man dragit not p√• platsen och att stora delar av botten best√•r av berg.
+
+Prover f√∂r datering har tagits fr√•n n√•gra av p√•larna.
+√ñvrigt: Fler p√•lningar, som f√∂refaller vara samtida, finns i omr√•det (se SMA 821:051-821:056).
+Byggmaterial: Tr√§"ó
+îOmr√•de med skogsbruksl√§mningar best√•ende av 1 tj√§rr√§nna och 1 br√∂ste.
+Tj√§rr√§nna, 12 m l (NNV-SS√ñ), 3 m br och 0,6 m dj, begr√§nsad av √∂vertorvade vallar, 1 m br. I SS√ñ √§r ett kallmurat br√∂ste, 0,4 m h, delvis raserat. 1 m SSV om br√∂stet √§r tj√§rgrop, 2 m diam och 1 m dj.
+1 m N√ñ om tj√§rr√§nnan √§r:
+Beckgryta (?), rest av, 1 m diam och 0,7 m dj, i N begr√§nsad av delvis bevarad kallmur."ò
+ïHusgrund, 7x6 m (N√ñ-SV) och 0.6-1 m h, kallmurad. Spisr√∂se i √ñ. K√§llare, 1 m dj. Ing√•ng i SV. Tydligt terrasserat omr√•de.
+
+Platsen √§r skyltad."ò
+ïR√∂se, n√§rmast runt, 24 m diam och 0,5 - 2 m h. Stenarna √§r vanligen 0,2 - 0,5 m st b√•de rundade och kantiga. I r√∂sets S - V kant √§r antydan till br√§tte, 1,5 m br och 0,1 - 0,2 m h inom en 14 m l str√§cka, av 0,2 - 0,4 m st stenar . Flera st√∂rre stenar, 0,6 - 0,8 m st, ligger p√• r√∂sets S kant. I r√∂sets S del √§r en stens√§ttningsliknande anl√§ggning, rund, 3 m diam och 0,3 m h, av 0,2 - 0,4 m st stenar, delvis √∂vertorvade. R√∂set √§r kraftigt omplockat med flera gropar.
+R√∂set kallas Drakar√∂r. N.H Sj√∂borg omtalar 1792: "...en vacker utsikt p√• en kulle, som kallas Drakar√∂r, best√•r av klappursten..."
+Kring r√∂set √§r sp√•r av stenbrytning."ô
+ñB√§rgning: 1969-1974 utf√∂rde Blekinge museum marinarkeologiska unders√∂kningar av vikingatida sp√§rrsystem i sk√§rg√•rden utanf√∂r Listerby, Vab√•sa och Hjorthammar. D√• man lokaliserat flera p√•lningar som sp√§rrat den inre segelleden fr√•n v√§ster, antog man att motsvarande p√•lningar √§ven m√•ste ha funnits i √∂ster, f√∂r att st√§nga Hjorthammarsviken. 1974 koncenterarade man d√§rf√∂r unders√∂kningarna till de smalaste partierna av Hjorthammarsviken. Unders√∂kningen tog tv√• dagar i anspr√•k, och de p√•lar som lokaliserades markerades med fl√∂ten och positionsbest√§mdes med pejlkompass. 
+
+Det fyndl√∂sa omr√•det i vikens mitt kan f√∂rklaras av det f√∂retagits muddringar p√• flera h√•ll i viken och att det kring sekelskifter 1800-1900 g√•tt regulj√§ra turer med √•ngb√•t √∂ver omr√•det. Bevarandef√∂rh√•llandena f√∂r p√•larna bed√∂ms vara d√•lig, d√• djupet √§r grunt och d√• p√•larna √§r utsatta f√∂r is och erosion.
+
+Av de fynd som gjorts f√∂refaller det som om Hjorthammar skyddats av en p√•lsp√§rr mellan Varn√§s p√• Alm√∂ och Roparehallarna p√• Tromt√∂.
+
+Status: Den f√∂rsta p√•len p√•tr√§ffades ca 80 m norr om fastighetsgr√§nsen till Varn√§s 6:1 och ca 45 meter rakt ut fr√•n stranden. P√•len stack upp n√•gon decimeter √∂ver bottenslammet och endast k√§rnan var bevarad. Fr√•n denna p√•le och i √∂stlig riktning mot Roparehallarna finns ytterligare l√•ga, mjuka p√•lar. 
+
+Sammanlagt har 16 p√•lar lokaliserats mellan Alsn√∂sidan och Tromt√∂sidan utanf√∂r Roparehallarnas norra del. Den st√∂rsta koncentrationen fanns p√• Alm√∂sidan. De tv√• lokaleran √•tskildes av ett ca 65 meter brett omr√•de mitt i viken, d√§r inga p√•lar p√•tr√§ffades.
+
+
+Fyndlista: B√§rgat i samband med unders√∂kningen 1974:
+
+En p√•le (f√∂r datering) 
+n√•gra stockar med os√§ker anknytning till sp√§rranl√§ggningen.
+√ñvrigt: Fler p√•lningar, som f√∂refaller vara samtida, finns i omr√•det (se SMA 821:051-821:056).
+Byggmaterial: Tr√§
+
+2023 unders√∂kte Blekinge museum anl√§ggningen som en del av projektet ‚ÄùBlekinges p√•lsp√§rrar‚Äù. Sp√§rren har tidigare unders√∂kts av Blekinge museum under √•ren 1966-1974 samt 1995.
+
+Sundet mellan Alm√∂ och Tromt√∂ √§r 240 meter brett och sp√§rren g√•r att f√∂lja cirka 180 meter √∂sterut fr√•n Alm√∂, vid den sista delen av str√§ckan mot Roparehallen p√• Tromt√∂ syns inte p√•larna p√• botten. Sp√§rren f√∂refaller vara 40‚Äì50 meter bred och p√•larna st√•r mycket t√§tt p√• v√§stra stranden vid Alm√∂. Storleken p√• p√•larna varierar mycket, fr√•n smala till 23 centimeter breda och de sticker upp 20 centimeter som mest. P√•larna √§r f√∂retr√§delsevis av ek.
+Rapporten finns att l√§sa p√•:
+https://cust.kulturhotell.se/c32/files/original/198a309adb690718749890068805e18e.pdf"ö
+óTorpl√§mning - b√•tmanstorp - best√•ende av bostadshusgrund, 12x 7 m (NN√ñ-SSV), intill 1,6 m h kallmur. Invid V l√•ngsidan √§r spismursr√∂se, 0,8 m h."û
+õBackstugel√§mning, best√•ende av 1 husgrund och 1 jordk√§llare.
+
+Husgrunden √§r ca 10x5,5 m (√ñ-V), kallmurad, 0,7-0,8 m br och 0,7-1,2 m h. Delvis ingr√§vd i sl√§nt. I N√ñ h√∂rnet √§r spismursr√∂se. √ñppning √•t S, 4x1,5 m (N-S), dubbelmur med st√§llvis tuktad sten, 0,7 m br och 0,8 m h, av 0,2-0,6 m st stenar. N√ñ om husgrunden √§r en jordk√§llare, delvis ingr√§vd, 4x2 m (√ñS√ñ-VNV). √ñppning i S√ñ. 
+
+Enligt uppgift fr√•n Spr√•k- och Folkminnesinstitutet (Johan Svensson, 1932) skall det ha funnits en backstuga vid "gamla" Hallahus."ü
+úStenbro, 8 m l (√ñN√ñ-VSV), 6 m br och 1,8 m h, ovan vattenytan. Byggd av tuktade, kallmurade stenar, 1 m l och 0,5 m br. I den NNV sidan √§r en √∂ppning, 0,3 m br och 1 m h. I den SS√ñ sidan √§r en st√∂rre √∂ppning, rektangul√§r, 0,5 m br och 1,5 m h. Brons ovansida √§r t√§ckt av ett 0,5 - 0,8 m tj jord- och gruslager. Tv√• tuktade brostenar med j√§rnring p√• toppen st√•r vid vardera √§nden p√• brons SS√ñ sida. Ett j√§rnr√§cke ligger lutad p√• den ena. Bron √§r ej i trafik.
+H√§r gick den gamla landsv√§gen mellan M√∂rrum och Asarum √•tminstone fram till 1920-talet (se Asarum 576). B√§cken, som utg√∂r b√•de socken- och h√§radsgr√§ns, kallas enligt Ortnamnsregistret f√∂r "Gillabrob√§ck" och/eller "H√∂gabrolyckeb√§ck" med √§ldsta namnbel√§gg √•r 1774.  Omr√•det kallas √§nnu f√∂r Gillabro."ü
+úOfferk√§lla, best√•ende av en 3 m dj, kallmurad brunn, t√§ckt med brunnskar i tr√§konstruktion. Brunnen omges i N, S och √ñ av en n√§rmast fyrsidig h√§gnad, 32x24 m (NNV-SS√ñ), 0,9-1,1 m br och 0,1-0,2 m h, best√•ende av tv√• parallella rader av 0,3-0,7 m st stenar. Den V sidan av omr√•det avsk√§rs av industrisp√•r.
+Omedelbart NN√ñ om brunnen √§r ett 2x1,5 m st, jordfast block, i vars V kant √§r ett, genom erosion, urgr√∂pt parti, 0,6x0,9 m st.
+
+Brunnen torde vara identisk med "S:t Enewalds k√§lla", tidigast omn√§mnd √•r 1405. Den urgr√∂pta stenen omtalas i en √•r 1763 upptecknad s√§gen: "det synes af samma stene hvar St. Enewald hafver sidat&". Samma k√§lla omtalar att St. Enevald l√§t bygga ett kapell vid k√§llan. P√• Johannes Meyers S√∂lvesborgskarta fr√•n omkring √•r 1650 anges S. Enebalds Alte Kirche och strax √∂ster d√§rom Enewolds Brunn. Jens S√∂rensens karta √∂ver Blekinge fr√•n √•r 1719 anger p√• den aktuella platsen Enevalds Kilde.
+Brunnen med omgivande h√§gnad finns √§ven angiven p√• 1814 √•rs karta √∂ver S√∂lvesborgs stadsjordar. 
+
+I samband med rensning av brunnen har i √§ldre tid mynt p√•tr√§ffats vid flera tillf√§llen. Brunnen med omgivande omr√•de ber√∂rdes av ej sanktionerade markarbeten √•r 1989. Blekinge museum genomf√∂rde en efterunders√∂kning och √•terst√§llning av omr√•det, varvid den ovan n√§mnda h√§gnaden
+p√•tr√§ffades och frilades. Fynd av mur- och taktegel samt mynt framkom intill denna."†
+ù1) Flyttblock, 9x6 m och 5 m h.Intar en dominant st√§llning i don omgivande stenfria sl√§tten.Denna sten √§r f√∂rknippad med sagan om  Ljungby horn och pipa."†
+ùGr√§nsm√§rke, best√•ende av ett flyttblock, 11 x 3 m och 5 m h. Gr√§nsm√§rket n√§mns i en gr√§nsbest√§mning 1555. Har √§ven kallats abborrastenen (1800-tal)."†
+ùStens√§ttning, rund, 11 m diam och 0.3 m h. √ñvertorvad, med i ytanenstaka stenar, 0.2-0.3 st. Mittblock, 3.7x2 m (N-S) och 1.4 mh. Kantkedja, 0.1-0.5 m h. av, 0.4-1.1 m l, stenar. I N kantenfattas ett par stenar. 1 m N√ñ om mittblocket ligger 1 jordfaststen, 1.7x1.4 m st och 0.3 m h."†
+ùTorpl√§mning, ca 35 x 35 m (N-S) best√•ende av 1 boningshusgrund och 1 k√§llargrund.
+Boningshusgrunden, bel√§gen i omr√•dets N del, √§r 5 x 4 m (√ñ-V) och intill 0,3 m h, av √∂vertorvade stenar. I √ñ delen √§r ett spismursr√∂se, 3 x 2 m st (N-S) och 1,5 m h. Ca 10 m S om boningshusgrunden √§r k√§llargrunden, 4 x 4 m (NV-S√ñ) och intill 1 m h med 0,5 - 1 m tj v√§ggrester, av kallmurade stenar. I NV √§r en ing√•ng, 2 m l och 0,5 m br. Flera sentida r√∂jningsr√∂sen finns i omr√•det, som enligt ortsbefolkningen kallas f√∂r M√∂rlundabacken."°
+ûTorpl√§mning, 20x10 m (NV-S√ñ), best√•ende av 2 husgrunder.
+
+I NV √§r:
+
+Grund efter bostadshus, 10x6 m (√ñ-V), 0,3 m h kallmur. I N √§r spismursr√∂se, 0,4 m h.
+
+4 m S√ñ h√§rom √§r:
+
+K√§llargrund, 5x4 m (N-S), ingr√§vd i backsl√§nt, intill 1,5 m h kallmurar. I N √§r bevarat gavelr√∂ste."°
+û1) Rest sten, gnejs, gr√•randig med partier av rosenkvarts, 1 m h,1.05 m br (N√ñ-SV och 0.55 m tj. Svagt lutande √•t NV.J.P. Hall skriver 1928: "I skoltr√§dg√•rden st√•r en bautasten,kallad Axelstenen... . Den √§r 1.5 meter h√∂g, 1.5 m bred vidbasen, 0.7 m bred i toppen samt 0.5 m tjock. Vid gr√§vning kringdensamma har man funnit ben av djur.". Se √§ven J.P. Hallskartskiss √∂ver Gr√•kullabacken under RA√Ñ-nr 81 K√∂pinge sn iinventeringshandlingarna.I omr√•det kring nr 1 √§r:2) Boplats, unders√∂kt och borttaget. Se ATA dnr 4488/84-09-12."°
+ûR√∂se, 20 m diam och 1,3 m h. Med fyllning av 0,2-0,5 m st stenar,enstaka st√∂rre, i mittpartiet och vid kanterna √§r n√•gra block,1-1,5 m st. Delvis synlig kantkedja i NV, 0,1-0,2 m h, av 1 m lstenar. Omr√∂rt i ytan, delvis utrasat √•t S. Skadat av t√§kt i Ndelen, en grop, 2 m diam och 0,5 m dj. √ñvertv√§rad av en stenmur(N√ñ/√ñN√ñ-SV/VSV) i mellersta delen, vinklad √•t SS√ñ √∂ver S√ñ delen.Belamrat med r√∂jningssten vid kanten i S√ñ. √ñvermossat,kraftigare i S delen, √∂vertorvade kantpartier. Bev√§xt medgranar, samt l√∂vtr√§d med sly."¢
+üTorpl√§mning, best√•ende av 1 husgrund, 10x5 m (N-S) och intill 1 m h, kallmurad. Delvis ingr√§vd i sl√§nt. Spisr√∂se i √ñ. K√§llare i N.
+
+Platsen √§r skyltad."¢
+üTorpl√§mning, ca 100x20 m (N√ñ-SV), best√•ende av 1 boningshusgrund och 1 grund efter ekonomibyggnad.
+Boningshusgrunden, bel√§gen i omr√•dets N√ñ del, √§r 5x4 (√ñ-V). Spismursr√∂se, ca 2 m st och 0,9 m h.
+Ekonomibyggnadsgrunden, bel√§gen i omr√•dets SV del, √§r 5x3 m (√ñ-V) och 0,2 m h."¢
+üRunsten, DR 347, gnejs-granit, 2,39 m h, 0,38-0,49 m br (NN√ñ-SSV) och 0,2-0,34 m tj. Ristningen mot V. Runh√∂jd, 13 cm. Ristningen √§r grund p√• grund av vittring. Inskriften upplyser om att √§rkebiskop Absalom och √Ñsbj√∂rn Mule byggde kyrkan: 
+"krist : Maria : sun : hiabi : them : ar : kirku : ??? : artha : Absalon : arki : biskup : ak : Asbjarn : Mule". 
+Stenen √§r fastmurad i golvet till Norra √Ösums kyrka."£
+†Torpl√§mning best√•ende av husgrund och f√∂rvaringsgrop.
+Husgrund, 6x4 m (NN√ñ-SSV), intill 0.2 m h, kallmurad. Spisr√∂se i V h√∂rnet, intill 1.5 m h. √ñ sidan avgr√§vd i samband med grust√§kt.
+10 m NV om husgrund √§r f√∂rvaringsgrop, 2 m diam, 0.8 m dj, rest av kallmur i √ñ.
+H√§r bodde 1849 avskedade b√•tsmannen John Johnsson Fisk och Britta Sallin. John dog 1868, Britta dog 1896. De var de sista som bodde h√§r."•
+¢Torpl√§mning best√•ende av husgrund, 7x5 m (N-S), intill 1.2 m dj, kallmurad. Delvis ingr√§vd i backsl√§nt. Ing√•ng i S. Spisr√∂se i N, intill 0.6 m h, kallmurat."•
+¢Naturbildning med tradition, "Jord√§lvsh√•lan", best√•ende av en b√§ckravin d√§r vattendraget f√∂rsvinner ner i h√•lan och in under √•sen f√∂r att komma upp p√• en plats ca 200 m n√§rmare sj√∂n. Traditionen ber√§ttar att n√§r dimmorna stiger under kv√§llen √§r det √§lvorna som dansar h√§r."•
+¢Omr√•de med torpl√§mning, ca 50-40 m (NN√ñ-SSV), best√•ende av en torpgrund, 3 gropar och 1 stenmursh√§gnad och 1 svinf√•lla.
+Torpgrunden √§r 8x5 m (N-S) med raserad spis i  S√ñ och kallmurad k√§llare, 3x1.5 m.
+Groparna √§r 3 m diam och 1 m dj.
+Stenmursh√§gnaden √§r 6x5 m st.
+Ca 15 m √ñ om torpgrunden √§r:
+Svinf√•llan, best√•ende av block, 2 m h med kallmurade sidor (innerm√•tt 1 m), 2.9 m l, 0.75 m h och 0.6 m br."¶
+£Torpl√§mning, best√•ende av 1 boningshusgrund, 12 x 7 m st (√ñN√ñ-VSV) med 0,3 - 0,5 m tj och intill 1,5 m h v√§ggrester, av kallmurade stenar. I det N h√∂rnet √§r ett spismursr√∂se, 2 x 2 m st och 0,3 - 0,5 m h. Omedelbart NN√ñ och ihopbyggd med boningshusgrunden √§r en k√§llargrund, 5 x 3 m st (√ñN√ñ-VSV) och 0,5 m dj. Torpet kallades f√∂r "Sissalycka" enligt ortsbefolkningen. Torpet √§r markerat p√• Generalstabskartan 1869 och p√• H√§radsekonomiska kartan 1915-16.
+Omedelbart N om torpl√§mningen √§r ett r√∂jningsr√∂seomr√•de (se RA√Ñ 102)."®
+•G√•rdstomt?. Enligt avm√§tningskarta √•r 1705 finns en husmarkering h√§r med siffran  "2".  Inga husgrunder kunde iakttagas vid revideringsinventering 2010. Omr√•det var dock kraftigt igenv√§xt av buskar och sly. Ca 400 m VSV h√§rom √§r p√• samma karta en husmarkering och texten "R√øedahl N 1". H√§r √§r fortfarande Ryedals g√•rd/s√§teri bel√§gen (se RA√Ñ 266). Enligt geometrisk avm√§tningskarta √•r 1747 utg√∂rs marken h√§r av en √•kerlycka och g√•rden uppges tidigare ha st√•tt ca 260 m S√ñ h√§rom (se RA√Ñ 267), ca 550 m √ñS√ñ om nuvarande g√•rdsl√§ge. Platsen bel√§gen inom ett omr√•de med fossil √•kermark (se RA√Ñ 264).
+Enligt Milton utgjorde Ryedal ett av fru SidseI Ulfstands gods p√• Lister √•r 1563, d√• kallat R√øe. I Pr√§strelationerna 1624 omtalas 18 "thorp" i Gammalstorps socken varav Ryedal skall ha varit ett av dessa, ben√§mnt "R√øe". Enligt Milton bestod Ryedal vid medeltidens slut och fram till omkring 1650 av 1 jordeboksg√•rd. Omkring √•r 1658 omtalar Milton 2 jordeboksg√•rdar. 
+M√∂jligen har en av Ryedals g√•rdar varit bel√§gen h√§r."©
+¶I nord√∂stra h√∂rnet av l√§mningen en k√§llare eller h√∂g grund till ekonomibyggnad, ca 11x6 m(n-s), kallmurad med tv√• sektioner. Grund/v√§ggar upp till 2 m h√∂ga av 0,1- 1 m st stenar. Delvis mycket stora stenar i grunden. √ñppning(ar?) i v√§st. L√§mningen √§r skyltad som "Torpruin" men saknar spismursr√∂se. 
+
+Bostadshusgrunden kunde inte med s√§kerhet √•terfinnas. En m√∂jlig bostadshusgrund konstaterades i den nordv√§stra h√∂rnan av l√§mningen, √§ven en m√∂jlig mitt i omr√•det.  Sv√•rbed√∂mt p√• grund av h√∂gt gr√§s. 
+
+Ingen husgrund kunde konstateras p√• punkten f√∂r l√§mningen fr√•n tidigare digitalisering. Dock en stenmur med grindstolpar direkt s√∂der om punkten."©	
+¶	Torpl√§mning, ca 60x20 m (√ñ-V), best√•ende av 1 grund efter bostadshus, 1 grund efter ekonomibyggnad samt 1 brunn.
+
+1) Grund efter boningshus, 17x10 meter stor (N-S), best√•ende av rej√§la stengrunder, ett spismursr√∂se i N√ñ och en stentrappa utmed den V v√§ggen.
+
+8 m √ñ om 1) √§r:
+
+2) Grund efter ekonomibyggnad, kvadratisk, 26x17 m (√ñ-V), bel√§gen i kraftig √∂stsluttning. Grunden √§r anpassad efter markens lutning och √§r till stor del ingr√§vd i sluttningen. Centralt i grunden finns en rad stenar vilken fungerar som rumslig avdelare (N-S). Ing√•ng i S√ñ och utanf√∂r denna en trappa best√•ende av fyra platta stenar ingr√§vda i marken. I den √ñ delen finns upp till 1,6 m h stengrunder. Utmed √ñ kortsidan av husgrunden finns ytterligare en formation av grundstenar, ca 12x12 meter, som en utbyggnad, med ing√•ng fr√•n norr.
+
+En tolkning √§r att de b√•da grunderna utgjort en byggnad.
+
+N√ñ om husgrunden √§r en brunn och ca 12 m S om husgrundens N√ñ h√∂rn b√∂rjar en v√§llagd stenmur, 1,3 m h, vilken l√∂per l√§ngs med v√§gen mellan Haje-Pers och Sl√§tta-Nissens. 
+
+Torpl√§mningarna Sl√§tta-Nissens och Starkatorpet ligger ca 160-200 m S√ñ om Haje-Pers.
+(RA√Ñ dnr 321-2659-2008)."´
+®G√•rdsl√§mning best√•ende av 1 husgrund, 20x6 m (N-S), intill 0,7 m h kallmur, belamrad med r√∂jningssten. Till grunden leder fr√•n √ñ tillfart, flankerad av stenmurar."´
+®L√§mning efter backstuga, 7x5 m (N-S), best√•ende av i N och S intill 0,6 m h √∂vertovade kallmurar. L√•ngsidornas murar
+endast delvis synliga. Rest av spismursr√∂se? i SO. Grunden √§r helt √∂vervuxen med vintergr√∂na. 
+
+Omedelbart S h√§rom √§r en 12x6 m st stenr√∂jd yta, likaledes √∂vervuxen med vintergr√∂na.
+
+I stenstugan bodde fram till omkring 1930
+"Danskajohanna" - Johanna Svensdotter, f√∂dd 1857, d√∂d 1937. Johanna var gift med 
+Johan Peder Mortensen, f√∂dd 1851. Sju barn v√§xte upp i stugan.
+(informationsskylt uppsatt av Karlshamns kommun)"¨
+©Omr√•de med skogsbruksl√§mningar best√•ende av 1 tj√§rr√§nna, 1 beckgryta samt en grop.
+Tj√§rr√§nna, 14x2 m (N-S), intill 0.5 m dj. I S br√∂ste, kallmurat. 1 m V om 1 √§r: Beckgryta, 1.5 m diam, intill 0.8 m dj, kallmurad. I S eldstads√∂ppning. 3 m S om br√∂stet √§r en grop, 1.5 m diam, 0.2 m dj."¨
+©H√∂g med g√•nggrift?, 18 m diam och 2.2 m h. I ytan enstaka stenar,0.3-0.5 m st. En sten p√• √ñS√ñ-sluttningen √§r 0.9 m l, 0.5 m br och0.3 m h. P√• h√∂gens kr√∂n mot S √§r en rest markfast h√§ll, 0.7 msynlig l (N-S), 0.45 m h och 0.2 m tj. 1.3 m √ñ om denna h√§ll √§rsynligt toppen av en h√§ll, 0.5 l (N-S), 0.25 m tj och 0.2 m h. Ih√∂gens √ñ del √§r ett stenblock, 1x0.6 m och synligt 0.3 m h. H√∂gen√§r skadad p√• alla sidor, 1-2 m in fr√•n bottenskicket mot kr√∂nettill ett djup av 0.1-0.4 m.  Utanf√∂r h√∂gens SV kant ligger enmakadamslagningssten."≠
+™Backstugel√§mning, 8x6 m (NV-S√ñ), ingr√§vd i backen mot S√ñ. Kallmurade v√§ggar, 0,5-1,3 m h och 0,5-0,7 m tj, av 0,2-0,6 m st stenar. Troligen spisr√∂se vid N h√∂rnet. Ing√•ng i NV, 0,8 m br. Enstaka r√∂jningsr√∂sen i n√§romr√•det. Skyltad. Anlagd 1857 och bebodd in p√• 1930-talet (Riksarkivet)."≠
+™Inom ett omr√•de, 60x30 m (NV-S√ñ) √§r 4 st husgrunder.
+Husgrund (1), 6x6 m st  (NV-S√ñ) och intill 0,5 m h. 
+5 m NV om (1) √§r:
+Husgrund (2), 5x4 m (N√ñ-SV) och intill 1,5 m h, kallmurad. 
+27 m S√ñ om (1) √§r:
+Husgrund (3), 5x4 m st (NV - S√ñ) och intill 1 m h, kallmurad.
+11 m √ñN√ñ om (1) √§r:
+Husgrund (4), rest av, 4x4 m st med intill 1,8 m h kallmur.
+S√ñ om (1) √§r:
+Odlingsterrass, 8x8 m, mot S√ñ begr√§nsad av kallmur."Æ
+
+´
+Torpl√§mning, ca 80x30 m (NN√ñ-SSV), best√•ende av 1 husgrund, 1 brunn, 1 jordk√§llaregrund, 1 ladug√•rdsgrund och 1 smedjegrund. P√•tr√§ffad i samband med s√§rskild utredning steg 1 utan KML-beslut √•r 2012.
+Husgrunden √§r 7x5 m (NNV-SS√ñ) och 0,2-0,35 m h, √∂vertorvad. I √ñ delen √§r ett spisr√∂se, 2,5-3 m diam och 0,7 m h, med synliga 0,15-0,3 m st stenar.
+4 m N om husgrunden √§r en brunn, 0,6 m i diam och synligt 0,3 m dj. Kallmurade v√§ggar av 0,2-0,3 m st stenar.
+10 m SS√ñ om brunnen √§r en jordk√§llaregrund, 6x4 m (N-S), ingr√§vd i backen mot S. V√§ggarna √§r 1,5-1,7 m h och 0,5-0,6 m br, av 0,2-0,45 m st stenar. I √ñ och V l√•ngv√§ggen √§r tv√• nischer, 0,3-0,45 m br, 0,3-0,4 m h och 0,35-0,4 m dj. Ing√•ng i N, 0,7 m br och 2 m l.
+13 m SSV om jordk√§llaregrunden och 3 m SV om v√§g √§r en ladug√•rdsgrund, 11x6 m (√ñN√ñ-VSV). Ingr√§vd mot N i backen. V√§ggarna √§r 0,5-2,0 m h och best√•r av 0.3-0,6 m st stenar. Grunden √§r n√§stan helt √∂ppen mot S.
+45 m N√ñ om husgrunden och 13 m √ñ om v√§g √§r en smedjegrund, 6x5 m (N-S), ingr√§vd i backen mot √ñ. V√§ggarna √§r 0,5-1,5 m h och 0,6-0,7 m br, best√•ende av 0,2-0,5 m st stenar. Mitt emot √ñ l√•ngv√§ggen √§r ett spisr√∂se, 3-3,5 m i diam och intill 1,0 m h, av 0,2-0,35 m st stenar.
+I omr√•det finns en del korta stenmurar (RA√Ñ dnr 3.5.6-1980-2012)."Ø
+¨Torpl√§mning, omfattande 2 husgrunder samt brunn.
+Husgrund, k√§llargrund, 7x3.5 m, ingr√§vd i backsl√§nt, intill 2 m h kallmurar.
+3 m NV h√§rom √§r:
+K√§llargrund, ingr√§vd i backsl√§nt, intill 7.5 m h kallmurar.
+Brunn finns 30 m N√ñ om den f√∂rstn√§mnda grunden.
+F√∂rsta innehavare Ola √Ökesson 1832."∞
+≠Torpl√§mning, best√•ende av en boningshusgrund, 16x8 m (N-S) och intill 0,6 m h. Spismursr√∂se i huset mellersta √ñ del. 
+Steng√§rde sammanfaller med √ñ l√•ngsidan. 
+R√∂jningsr√∂se 8 m V om husgrunden, 12x8 m st (√ñ-V). 
+
+Rest sten med inskription: "Ving Olans", bel√§gen √ñ om l√§mningen, vid v√§gen."∞
+≠Ekonomibyggnadsgrund, 16 x 4 m (NNV-SS√ñ) och intill 0,3 m h, best√•ende av tuktade stenar, 1 - 1,2 m l och 0,3 m tj. Centralt √§r grunden gjuten. I NNV √§r en gjuten platta, 3 x 2 m (NN√ñ-SSV), och 0,2 m h. I N√ñ √§r ett gjutet fundament, 1 x 0,5 m (NN√ñ-SSV) med fyra fasta j√§rnskruvar. I S √§r en staplad h√∂g med tegel, 3 x 1,5 m (NNV-SS√ñ) och 0.7 m h. 1 m  V om grunden √§r en gjuten grund, 5 x 4 m (NNV-SS√ñ) och 0,5 m h."±
+ÆHusgrund, 4x3 m (N√ñ-SV), best√•ende av 3 m l, 0.5-1 m h kallmur samt 2 vinkelst√§llda, intill 4 m h flyttblock. Strax √ñ h√§rom √§r fossil √•ker med talrika r√∂jningsr√∂sen."±
+ÆSk√•lgropsf√∂rekomst, best√•ende av 2 sk√•lgropar, 4 cm i diam och0.5 - 1 cm dj. Den ena n√•got vittrad. Bel√§gna n√§ra h√∂gstapunkten av flyttblock 3 x 2 m i sida och 2 m h."±
+ÆTorpl√§mning, best√•ende av 1 boningshusgrund med k√§llare samt 1 brunn och 1 f√•lla. 
+Boningshusgrund, ca 10x5 m (NNV-SS√ñ), spismursr√∂se i NN√ñ. K√§llare, innerm√•tt 3,3x2,3 m st och intill 1,2 m h. 
+Brunn, 0,8 m diam, kallmurad, ca 0,9 m dj, bel√§gen ca 5 m fr√•n SV h√∂rnet av boningshusgrunden. 
+Ca 20 m √ñ om husgrunden √§r en f√•lla (?), 3,5x2 m st (√ñ-V). Stora block i N och √ñ. I S v√§ggrest, kallmurad, intill 1,2 m h."±
+ÆTorpl√§mning, best√•ende av 1 husgrund  och 1 uthusgrund.
+Husgrunden √§r 7x5 m (N-S). I S tydlig stenfot, intill 0,3 m h√∂g, av √∂vermossade stenar. I NV h√∂rnet √§r ett spisr√∂se, 2 m i diameter och 0,6 m h√∂gt, av 0,2-0,4 m stora stenar. En stenrad utg√•r fr√•n grundens N√ñ h√∂rn. 25 m √ñ om husgrunden √§r en uthusgrund, 8x4 m (√ñ-V). Tendens till stenfot, intill 0,2 m h√∂g. I √ñ √§r en grop, 2,5 m i diameter och 0,4 m djup."≤
+ØKlosterruin, best√•ende av en mur, 4,4 m l, 1,5 m br och 1,1 m h (N-S) och i 90 graders vinkel med denna en annan mur, 2,5 m l, 1,3 m br och 0,3-0,6 m h (√ñ-V) best√•ende av klumpstenar, bl.a, en som √§r 2 m l och 0,4 m h. Bitvis 4 skift stenar kallmurade. I muren ing√•r √§ven tegelstenar och kalkbruk."≤
+ØTorpl√§mning, 25x10 m (√ñ-V), best√•ende av 3 husgrunder.
+
+1) Husgrund, 9x6 m (N-S) och 0,2-0,5 m h kallmurar. Centralt spismursr√∂se, 0,6 m h, kallmurat.
+
+16 m √ñ om 1) √§r:
+
+2) Husgrund, 5x4 m (√ñ-V) och intill 1,6 m h, kallmur. Delvis ingr√§vd i sl√§nt.
+
+4 m NNV om 2) √§r:
+
+3) Husgrund, 7x5 m och 0,2-0,4 m h, syllstenar/kallmurar.
+
+I n√§ra anslutning till l√§mningen √§r fossil √•ker best√•ende av ett flertal r√∂jningsr√∂sen."≤
+ØTorpl√§mning, best√•ende av 2 husgrunder, f√•lla och fossil √•ker.
+Husgrund (1), 4x4 m (NN√ñ-SSV) och intill 1,2 m dj, kallmurad. Ingr√§vd i sl√§nt. √ñppning i SSV.
+2 m SS√ñ om grund (1) √§r:
+Husgrund (2), 6 m l, bevarad bredd 4m och intill 0,5 m h, kallmurad. Delvis ingr√§vd i backsl√§nt.
+Omedelbart √ñN√ñ om grund (2) √§r:
+F√•lla, 4x3 m st, begr√§nsad av stenmur.
+√ñN√ñ om grunderna √§r fossil √•ker med talrika r√∂jningsr√∂sen."≥
+∞Torpl√§mning, best√•ende av 3 husgrunder. 1) Husgrund, 7x5 m (√ñ-V), intill 1.3 m h kallmurar. I √ñ √§r utskjutande spisr√∂se. 6 m NNV om 1 √§r 2) Husgrund, 3x3 m (√ñ-V), v√§lbevarade kallmurar 1-1.5 m h. Omedelbart N om 2 √§r 3) Husgrund, 4x4 m (√ñ-V), v√§lbevarade kallmurar 1.3-2 m h. V gaveln √∂ppen."≥
+∞Torpl√§mning, 25x20 m (NV-S√∂), best√•ende av 1 husgrund, 1 brunn (?), 1 jordk√§llareruin och 1 ladug√•rdsgrund.
+Husgrunden √§r 8x5 m (√ñ-V). Tydlig stenfot, 0,2-0,35 m h, av 0.3-0,5 m st stenar. I N √§r ett spisr√∂se, 4 m i diam och 1,5 m h, av 0,2-0,6 m st stenar. Omedelbart V om husgrunden √§r en brunn (?), 0,8 m i diam ch idag 0,2 m dj. Avgr√§nsas av en stensatt kant av 0,25-0,35 m st stenar. 9 m N om husgrunden √§r en jordk√§llareruin, 8x5 m (N√ñ-SV) och intill 1,5 m h. ingr√§vd i backen mot N√ñ. I SV ing√•ng, 0,8 m br. 5 m VSV om jordk√§llareruinen √§r en ladug√•rdsgrund, 15x9 m (N√ñ-SV), ingr√§vd i backen mot N√ñ. Kallmurade v√§ggar, intill 1,5 m h, av 0,3-0,6 m st stenar."¥
+±Gr√§nsm√§rke, best√•ende av ett flyttblock, 14x6 m (N√ñ-SV) och ca 5m h. I toppen finns en inhuggen vinkel. Omn√§mns p√• Burmans karta √•r 1684 och i gr√§nsbest√§mning √•r 1554."¥
+±Gr√§nsm√§rke, rest sten, 0,5 m h, 0,35 m br (N√ñ-SV) och 0,2 m tj. Gr√§nsstenen finns inlagd p√• kartor fr√•n √•r 1696 och 1802. √Ör 1696 kallas platsen "Sinnersh√∂g" och √•r 1802 f√∂r "Sinnerh√∂gsr√∂set".Observera namnet - n√•gon slagg kan dock ej hittas i omr√•det. S√ñ omgr√§nsstenen finns ett myrdrag."µ
+≤Torpl√§mning best√•ende av 2 husgrunder.
+Husgrund (1), 8x5 m (N-S) och 1 m h kallmur. I V √§r spismursr√∂se av huggen sten, 2 m h. I N √§r k√§llare, 1,2 m dj kallmur. Ing√•ngs√∂ppning i V.
+√ñ om grund (1) och omdelbart √ñ om v√§g √§r:
+Husgrund (2), rest av, ca 5 m l, st√§llvis synliga syllstenar, 0,1 m h."∂
+≥1/Rest sten, 2 m h, 1.4 m br (N-S) och 0.4 m tj. Avsmalnandeupptill. Lutar ca 20 o √•t √ñ. H√∂sten √•r 2022 f√∂ll stenen eftersom dess grop var f√∂r liten och f√∂r grund. Stenen restes igen av i samarbete med Trafikverket. Stenen √§r  ovan mark ca 1,7 m h,  1,4 m br (N-S) och 0,5 m tj. Hela stenen √§r ca 2,5 m h.  2 m NV om nr 1 √§r   2/Rest sten,1.55 m h, 0.4 m br (NNV-SS√ñ) och 0.33 m tj. Avsmalnandeupptill. Lutar ca 10 o √•t SV."∂
+≥Linberedningsl√§mningar, best√•ende av 1 husgrund och 2 lintorkar.
+1) Husgrund, 5x4 m och intill 1,3 m dj kallmurar. I NV begr√§nsad av bergklack.
+3 m √ñ om 1) √§r:
+2) Lintork, 2,5x1,5 m (N-S) och intill 0,7 m dj. Begr√§nsad i N och V av jordfasta block och i √∂vrigt av 0,3-0,8 m h kallmurar.
+8 m √ñN√ñ om 2) √§r:
+3) Lintork, 3x1,2 m (NV-S√ñ) och intill 0,8 m dj. Begr√§nsad i VNV av jordfast block, i √∂vrigt av kallmur, 0,4-0,7 m h."∂
+≥Torpl√§mning, best√•ende av 1 husgrund, 10x8 m (NNV-SS√ñ). Tydlig stenfot, intill 1,0 m h i V, av 0,2-0,5 m st stenar. Spisr√∂se vid NV h√∂rnet, 1,8x1,8 m och 2,0 m h, av 0,3-1,2 m st stenar. K√§llare under golvniv√•, 4x3,5 m (NNV-SS√ñ) och 0,8-1,2 m dj, kallmurad av 0,3-0,6 m st stenar. Ing√•ng i S, 1,0 m br. Enstaka enkla stenmurar i n√§romr√•det. Skyltad. Byggd i b√∂rjan av 1820-talet och √∂vergiven p√• 1920-talet (Riksarkivet)."∑
+¥Domarring, 7 m diam, best√•ende av, 7 klumpstenar, 0.8-1.1 m stoch intill 0.6 m h. I domarringen √§r talrika, 0.2-0.4 m st,stenar. R√∂jningssten? Bev√§xt i mitten med en gammal ek."∑
+¥Torpl√§mning, best√•ende av 2 husgrunder.
+1) Husgrund, 8x5 m (NN√ñ-SSV) och intill 0,5 m h kallmur. Centralt spismursr√∂se, intill 1,5 m h, kallmurat av huggen sten. Grunden √§r kraftigt √∂vertorvad i NN√ñ och VNV.
+Direkt SSV om 1) √§r:
+2) Husgrund, 6x5 m (NN√ñ-SSV) och intill 0,2 m h, kraftigt √∂vertorvad."π
+∂Torpl√§mning, best√•ende av 1 boningshusgrund och 1 k√§llargrund.
+Boningshusgrunden √§r 6 x 4 m (N-S) och intill 0,5 m h, av 0,5 - 0,8 m st stenar.  Oklar begr√§nsning i √ñ och i V. I NV √§r ett spismursr√∂se, 2 x 1 m (√ñ-V) och 0,5 m h. 10 m SSV om boningshusgrunden √§r k√§llargrunden, 4,5 x 4 m (√ñ-V) och 1,2 m h med 1 m tj v√§ggrester, av kallmurade stenar, delvis √∂vermossade. I NV h√∂rnet √§r en stensamling, 1x1 m st och 0,3 m h, av kallmurade, delvis huggna, 0,1 - 0,3 m st stenar. I √ñ √§r en ing√•ng, 0,8 m br. Torpet √§r markerat p√• Laga skifteskartan √•r 1851 men inte p√• H√§radsekonomiska kartan √•r 1919. Torpl√§mningen √§r bel√§gen i ett stenbrottsomr√•de (se H√§llaryd 209)."∫
+∑Torpl√§mning, best√•ende av 1 husgrund, 11x7 m (√ñ-V), med delvis synlig stenfot, intill 0,3 m h, av 0,3-0,5 m st stenar. L√§mningen kan best√• av tv√• t√§tt intilliggande byggnader. 6 m SV om husgrunden √§r ett brunnskar i cement. Enstaka r√∂jningsr√∂sen finns i omr√•det.
+Torpet √§r bebott 1807 (Riksarkivet)."∫
+∑Omr√•de, 20x10 m (NV-S√ñ), med 2 k√§llargrunder, bel√§gna 5 m fr√•n varandra (NV-S√ñ). B√•da √§r 5x5 m och ingr√§vda intill 2 m dj i N- och N√ñ-sluttning. Den NV grunden har 1-1,5 m h kallmurade v√§ggar och i N en 2-3 m br √∂ppning, oklar bredd p.g.a. infallen sten. I den S√ñ grunden √§r sidorna jordt√§ckta, med delvis synlig kallmurning, fr√§mst i SV gaveln. Den √§r helt √∂ppen mot N√ñ. Inuti den √§r ris och olika typer av pl√•tk√§rl."ª
+∏Ollonsvinsf√•lla, ca 3,5x1,5 m (NV-S√ñ). I N√ñ l√•ngsidan √§r ett jordfast block, 4x1,5 m (NV-S√ñ) och 1,4 m h. I NV kortsidan √§r en kallmurad stenmur, 1,5 m l, 1,4 m h och 0,4-0,7 m tj, av 0,1-0,4 m st stenar. I S√ñ kortsidan √§r en delvis nedrasad stenmur, 1,5 m l, 0,6 m h och 1 m tj. Strax VSV om ollonsvinsf√•llan √§r ett jordfast stenblock, 2,5x2 m (√ñ-V) och 1,2 m h, vilket kan ha anv√§nts f√∂r att ytterligare avgr√§nsa h√§gnaden."Ω
+∫Torpl√§mning. 
+Husgrund, 6x5 m (N-S), √∂vertorvad, intill 1 m dj, kallmurad. Spismursr√∂se i NNV h√∂rnet, 0,3 m h, √∂vertorvat. Ing√•ng i S. 
+
+Str√∂mbergs torp enligt skifteskartan 1826."ø
+ºRest sten, 1.15 m h, 1.2 m br vid basen och 0.5 m tj vid basen.Avsmalnande upp√•t och avrundad upptill. √ñvre delen, 0.8 m h, √§rendast 0.2 m tj. Den SSV sidan √§r t√§mligen plan.  Stenen st√•r ien liten f√∂rh√∂jning av jord, 5x2 m (VNV-√ñS√ñ) och 0.7 m h. Mellantv√• v√§gar som grenar sig och mynnar ut i landsv√§gen. Vidbesiktning 1992 var den omtalade kullen skadad av v√§gsk√§rningarp√• tre sidor, s√• den idag uppvisar en triangul√§r form."¿
+ΩDiabasg√•ng, 15-20 cm br, frilagd l√§ngs en 6 m l str√§cka. Diabasg√•ngen med sina naturliga sprickbildningar har under sekler uppfattats som en runristning. Omn√§mnda av Saxo omkring 1200."¿
+ΩHusgrund efter skyttepaviljong, 7x6 m (N-S), vars V del, 6x2,5 m (N-S), ligger 0,4 m h√∂gre √§n √ñ delen. Kantas i √ñ och S av en 0,4-1,5 m h stensyll av v√§l lagd och huggen sten, h√∂gst i S√ñ, i sluttning. Grunden √∂vermossad √∂ver ett 0,2-0,6 m h lager av sm√•sten och grus. Delvis byggd p√• h√§llmark. 
+Paviljong och skjutbana invigdes september 1940. Oklart n√§r den lades ner. Skjutbanan √§r utsatt p√• den ekonomiska kartan fr√•n 1971-72."¿
+ΩMilstolpe, kalksten, 0,52 m h, 0,33 m br (√ñ-V) och 0,14 m tj. Rektangul√§r genomsk√§rning. I den mot N vettande sidan √§r tre flathuggna rektangul√§ra ytor med mellanliggande streck i relief. I den nedersta flathuggna ytan √§r i relief siffrorna:
+1672
+Ingen ytterligare inskription kunde iakttagas vid revideringsinventering 2011. Vid f√∂rstag√•ngsinventeringen 1965 syntes √§ven otydlig text i det √∂versta f√§ltet:
+/2 \ MYI
+Milstolpen st√•r i ett kallmurat postament, 1,5 x 1,5 m st och 0,5 - 1 m h, av 0,2 - 0,4 m st stenar, delvis √∂vertorvade. Postamentets S sida √§r inbyggd i en till stora delar raserad stenmur.
+F√∂r beskrivning och skiss fr√•n f√∂rstag√•ngsinventeringen se scannat dokument."¿
+ΩB√§rgning: 1975 f√∂reslog Listers h√§rads fiskerif√∂rening att Pukaviksbukten skulle unders√∂kas i syfte att lokalisera de √∂rlogsfartyg som f√∂rmodas finnas d√§r. F√∂rslaget om en s√•dan unders√∂kning riktades till zoologiska institutionen i Lund, vilka beviljats medel f√∂r en marinbiologisk unders√∂kning utanf√∂r Blekinge, Sk√•nes och s√∂dra Hallands kuster. Det √§r oklart om den marinbiologiska unders√∂kningen kom att inkludera inventeringar i Pukaviksbukten.
+
+H√§ndelsef√∂rlopp: Den 21 juli 1678 f√∂retogs en dansk landstigningsoperation i v√§stra Blekinge och Elleholm, varvid 100 danskar landsattes. De danska fartygen b√∂r d√§refter ha kvarstannat p√• Elleholms redd, f√∂r n√•gra dagar senare f√∂retogs ett nytt anfall mot M√∂rrums skans. Vid den √∂rlogsstrid som d√§refter inleddes f√∂rlorade den danska flottan 6-7 fartyg. Den resterande delen av flottan √•terv√§nde mot Danmark.
+√ñvrigt: Ett av de fartyg som efterslaget √•terv√§nde mot Danmark f√∂rliste och hittades som vrak utanf√∂r Bornholm 1970.
+
+P√• sj√∂kort fr√•n b√∂rjan av 1800-talet skall varken vara utm√§rkta."¡
+æTorpl√§mning, best√•ende av husgrund, 8x4,5 m (NN√ñ-SSV) och 0,3-1 m h, kallmurad. Spismursr√∂se centralt placerat. K√§llare i S, 1,8 m h, kallmurad. 
+
+Mias stuga, Alvarsm√•la nr 6. 
+1:e torpare Abraham Andersson med familj kom dit 1850, fr√•n Alvarsm√•la nr 16. 
+Siste torpare Ingrid Maria Carlstr√∂m f. 1859 d. 1939."¬
+øBy-/g√•rdstomt, ca 90 x 20-50 m (N-S). Ungef√§rlig utstr√§ckning f√∂r Svinaryds tomt enligt storskifteskartor √•r 1810 och 1811. Vid revideringsinventering 2011 p√•tr√§ffades inom omr√•det 1 boningshusgrund, 2 ekonomibyggnadsgrunder och 1 k√§llargrund.
+Boningshusgrunden, bel√§gen i omr√•dets mitt, √§r mycket otydlig, ca 15 x 6 m (√ñ-V) och intill 0,3 m h med v√§l insjunkna, spridda grundstenar, 0,3 - 0,5 m st. P√• grunden √§r en √∂vertorvad spismursrest, 3 x 1,5 m (√ñ-V) och 0,3 - 0,8 m h, av kallmurade, 0,3 - 0,5 m st stenar. Den ena ekonomibyggnadsgrunden, bel√§gen 8 m N√ñ om boningshusgrunden, √§r 5 x 4 m (N-S) och 0,5 - 1,3 m h, av kallmurade, 0,3 - 0,5 m st stenar. √ñ v√§ggpartiet utg√∂rs av en stenmur. Den andra ekonomibyggnadsgrunden, bel√§gen 15 m N om boningshusgrunden, √§r 10 x 5 m (√ñ-V) och 0,2 - 0,4 m h, av 0,3 - 0,4 m st stenar. I √ñ begr√§nsas grunden av en stenmur. K√§llargrunden, bel√§gen ca 40 m NN√ñ om boningshusgrunden, √§r 4,5 x 4 m (√ñ-V) och 0,1 - 1,6 m h, av kallmurade, 0,3 - 0,5 m st stenar, ingr√§vd i backe. I V √§r en ing√•ng, 0,8 m br. Stenmurar omg√§rdar stora delar av omr√•det. R√∂jningssten ligger i N delen. Fler grunder kan finnas i omr√•det. Tomten √§r helt √∂vergiven.
+Enligt storskifteskartor 1810 och 1811 √§r h√§r minst 8 byggnader.Texten "Swinar√øds heman" √§r skrivet i omr√•det p√• storskifteskartan √•r 1811. Svinaryd omn√§mns f√∂r f√∂rsta g√•ngen i skriftliga k√§llor √•r 1595 "Swiner√∂dt". Enligt Pr√§strelationerna 1624 utg√∂r "Suinner√ø" ett av H√§llaryds 34 "torper". Svinaryds tomt √§r √∂vergiven p√• H√§radsekonomiska kartan 1915-19."√
+¿H√§llristning i block, 1,8 x 1,1 x 0,2 m, best√•ende av 1 r√§nna och 44 sk√•lgropar.
+R√§nnan √§r 2 cm l och sammanbinder 2 sk√•lgropar. 
+Sk√•lgroparna √§r 4 - 7 cm diam, 0,5 - 1,5 cm dj.
+Blocket har med all sannolikhet utgjort t√§ckh√§ll till en h√§llkista (se Listerby 324).
+
+Tidigare beskrivning: H√§llristning, i block (1,8x1,1x0,2 m), best√•ende av 1 r√§nna och 22 sk√•lgropar. R√§nnan √§r 2 cm l och sammanbinder tv√• sk√•lgropar. Sk√•lgroparna √§r 4-7 cm i diam och 0,5-1,5 cm dj. (Ra√§ dnr: 326-4826-2011)
+
+√Ñldre beskrivning: H√§llristning p√• liggande, ursprungligen troligen rest sten, 0,5 x 0,5 m st, best√•ende av ca 20 sk√•lgropar. Dessa √§r 4 - 7 cm diam, 0,5 - 1 cm dj. Stenen √§r 1,8 m l (N√ñ-SV), 1 m br och 0,15 - 0,35 m tj.
+0,5 m SV h√§rom √§r ytterligare en liggande sten med sk√•lgropar (se RA√Ñ 67:2). Stenarna kallades tidigare "√Ñggastenarna". Vid snabbinventeringen 1937 noterades en ca 6 x 4 m st, 0,2 m dj grop strax S√ñ om stenarna."ƒ
+¡Torpl√§mning, best√•ende av rester av husgrund, ca 9x4,4 m (N-S), kallmurad spis i N, ca 1 m h, i en sida som √∂vrigt √§r raserad. 
+K√§llare, kallmurad, bel√§gen i S delen av l√§mningen, ca 2,5x2 m st, med synligt djup av 0,5 m. 
+Ekonomibyggnad, bel√§gen ca 10 m √ñ om boningshusgrunden, √§r kvadratisk, 2,7 m sida (NNV-SS√ñ), v√§lvd, kallmurad, i √ñ 1,3 m h och 1 m br, I N och S ca 1 m h. √ñppning, 0,9 m br. 
+Murarna i N och S utg√∂rs av av skiftesmurar. 
+
+Ausatorpet tillh√∂rde g√•rden Ausen=√Ösen, som ligger S om torpet, bara l√§ngorna finns kvar. 
+
+Sista inv√•nvaren kalaldes f√∂r "Kr√§mare-Hjalmar", en liten mager gubbe som d√∂pte sina 7-8 barn, under 1930- och 40-talen, efter personer i bibeln."≈
+¬Torpl√§mning, 20x20 m (N-S), best√•ende av 2 husgrunder och 1 k√§llargrop.
+Husgrund (1), 6x6 m (N-S) och intill 1,6 m h, kallmurad. I N √§r ett spismursr√∂se.
+6 m N om grund (1) √§r:
+Husgrund (2), 5x4 m (√ñ-V) och intill 1 m h, kallmurad.
+3 m NNV om grund (1) √§r:
+K√§llargrop, 2x2 m och intill 0,5 m dj.
+N om grunderna √§r sm√• odlingsytor begr√§nsade av kallmurade terrasskanter.
+
+F√∂rsta k√§nda dagsverkstorpare var Nils Peter Petersson, dog 1863."∆
+√Backstugel√§mning, ca 340x120 m (NNV-SS√ñ) best√•ende av 1 boningshusgrund samt stenr√∂jda ytor avgr√§nsade av stenmurar.
+Boningshusgrunden, bel√§gen i omr√•dets N del, √§r 7x4 m (N√ñ-SV) och 1 m h. Spisr√∂se i N, 3 m st och 1,3 m h. 
+√ñvriga delen av omr√•det √§r helt stenr√∂jt. I √ñ, S och V √§r det avgr√§nsat av kraftiga stenmurar, 2-5 m br och intill 1,3 m h. I N delen √§r en flack stenstr√§ngsliknande avgr√§nsning, 1-1,5 m br och 0,2-0,4 m h."«
+ƒTorpl√§mning, best√•ende av 2 husgrunder samt 1 grop.
+1) Husgrund, 12x6 m (NNV-SS√ñ) och 1,6 m h kallmurar, ingr√§vd i backsl√§nt. I NNV √§r ett spismursr√∂se .
+8 m N√ñ om nr 1 √§r
+2) Husgrund 10x6 m (N√ñ-SV) och 1,7 m h kallmurar, ingr√§vd i backsl√§nt.
+2 m NV om nr 2 √§r
+3) Grop, rektagul√§r, 3x2,5x1,5 m (N√ñ-SV) och 0,4 m dj, kallmurad.
+I anslutning till grunderna √§r fossil √•ker med ett stort antal r√∂jningsr√∂sen samt begr√§nsad av stenmurar."»
+≈Skansanl√§ggning, ca 10x10 m (NN√ñ-SSV), best√•ende av en femuddigvall med svagt insv√§ngda sidor, 6.5 m l, och en vallgrav i N√ñ.Vallen   √§r ca 3 m br och 1.0 m h. Vallgraven √§r ca 6 m l, ca 6 mbr och ca   0.6 m dj. Anl√§ggningen √§r bev√§xt med ett 10-tall√∂vtr√§d och n√•gra   l√∂vbuskar.   Se skiss i inventeringsboken."»
+≈1) Offerk√§lla, 1,4x1,2 m (√ñ-V) och 0,6 m dj. Stensatt av 0,6-0,9m st stenar. Avlopp delvis stensatt mot VSV till en cementbrunn och damm. Numera anv√§nd som vattenutsk√§nkning till boskap.23 m √ñN√ñ om nr 1 √§r2) V√§gbank, 33 m l (VNV-√ñS√ñ), 5-7 m br och 0,3-0,5 m dj. P√• bankarna √§r stenar och block uppkastade. V√§gen f√∂rsvinner i NV och √ñ i stenmur och √•ker.130 m SS√ñ om nr 1 √§r ett stort odlingsr√∂se, av Pehr Johnsson upptaget som kummel."»
+≈G√•rdsl√§mning, ca 20x20 m, best√•ende av tv√• husgrunder. 
+Husgrund, 14x6 m (N-S) och intill 0,6 m h kallmur i N, V och S. I √ñ √•terst√•r endast enstaka syllstenar. I grunden √§r tv√• spismursr√∂sen, 0,5 resp. 0,7 m h. 
+11 m √ñS√ñ h√§rom √§r en husgrund, rest av, best√•ende av ett 4x4 m st och 0,7 m h spismursr√∂se. Spismursr√∂set √§r omedelbart V √∂vertorvad vall av r√∂jningssten. 
+
+P√• platsen l√•g 1706 g√•rden Kolh√∂ga, omn√§mnd 1421 samt 1651."…
+∆K√§lla 1.5 m i diam. K√§llan √§r idag rensad fr√•n buskar och √§romringad av ett rej√§lt staket, 4x3 m (√ñ-V). 4 m N om k√§llan √§r enliten b√§ck (√ñ-V). En informationsskylt √§r uppsatt vid v√§gen."…
+∆Stenvalvbro, 12 m l (VNV-√ñS√ñ), 3 m br och intill 2 m h, v√§lvd i 1spann, 3,5 m br och 1,3 m h, av 0,3-0,4 m l och 0,1-0,25 m tj stenar i kilat valv. Torvyta p√• f.d. k√∂rbanan. Bron √§r ej i bruk."…
+∆Torpl√§mning, ca 60x30 m (NN√ñ-SSV), best√•ende av 1 k√§llargrund och 1 m√∂jlig husgrund.
+K√§llargrunden √§r 6x5 m (N-S) och ca 1,2 m h. D√∂rrfoder finns kvar, men inte tak eller d√∂rr. Ing√•ng i S.
+Den m√∂jliga husgrunden  √§r 7x4 m (√ñ-V) och ca 0,4 m h. Grunden √§r fylld med sten s√• att den bildar en rektangul√§r plat√•." 
+«H√∂g, 20 m diam och 3 m h. I mitten en grop (skyttev√§rn?), 4,5 m diam occh 1,3 m dj. Fr√•n h√∂gens NV kant g√•s till gropen ett dike, 9 m l (NV-S√ñ), 2 m br och 0,7-1 m dj. I gropens och dikets kanter finns stenar, 0,15-0,4 m st. I h√∂gens NV kant finns utschaktad fyllning. D√§r finns ocks√• talrikt med stenar, 0,2-0,5 m st." 
+«Torpl√§mning, 40x20 m (VNV-√ñS√ñ), best√•ende av 1 husgrund, 1 jordk√§llaregrund och 1 ladugrund.
+Husgrunden √§r 7,5x5 m (N-S) och 0,3 m h, √∂vertorvad. I N √§r ett spisr√∂se, 3 m i diam och 0,7 m h, med enstaka synliga 0,2-0,35 m st stenar. 5 m N om husgrunden √§r en jordk√§llaregrund, 8x6 m (N-S). V√§ggarna √§r 1-1,2 m br och 0,5-1,2 m h, √∂vertorvade med s√§rskilt i N gaveln synliga 0,3-0,6 m st stenar. Ing√•ng i S, 1,2 m br. 35 m √ñ om husgrunden √§r en rest av timrad lada, 5,5x5,5 m (NN√ñ-SSV) och 0,4-0,6 m h. I √ñS√ñ sidan √§r en stenfot, 1,0 m h, av 0,2-0,5 m st stenar."À
+»Milstolpe, kalksten, 1,3 m h, 0,7 m br vid basen (N-S) och 0,15 m tj. Avsmalnande upp√•t med profilerad √∂verdel. P√• den V sidan finns inhugget Adolf Fredriks namnchiffer, samt under detta 1 M / R. J. I. L. / 1766. 
+Milstolpen √§r placerad i ett postament, 2 x 2 m st och 0,9 m h, av kallmurade stenar, 0,3 - 0,5 m st. Merparten av stenarna utg√∂rs av rundad natursten, men ett antal rektangul√§ra, tillhuggna stenar f√∂rekommer l√§ngst ner i postamentet."Ã
+…Backstugel√§mning, best√•ende av 1 boningshusgrund, 5x4 m (√ñ-V). Delvis murade v√§ggar, 1 m h och intill 1 m br. Tveksamt spisr√∂se i S delen. Ing√•ng i S. 
+Ett antal torpr√∂sen finns i omgivningarna."Ã
+…Stens√§ttning, rest av, 6 m diam och 0.15 m h. √ñvertorvad med i ytan enstaka stenar, 0.2-0.3 m st. Anlagd √∂ver bergklack.
+
+Fynd: Halskrage, fingerring, tutulus, br√§nda och obr√§nda ben samt tr√§kol."Ã
+…Torpl√§mning, best√•ende av 1 husgrund, 9x7 m (VNV-√ñS√ñ), med tydlig stenfot, 0,2-0,4 m h, av 0,3-0,6 m st stenar. I S√ñ √§r ett spisr√∂se, 3 m i diam och 1,1 m h, av √∂vermossade 0,2-0,4 m st stenar."Õ
+ Skogsbruksl√§mningar, best√•ende av 1 tj√§rdal samt 1 tj√§rr√§nna.
+Tj√§rdal, 9 m diam, anlagd i backsl√§nt. I √ñ och V begr√§nsad av stenmur, 1 m h, kallmurad. √ñppning i S√ñ, fr√•n vilken en r√§nna leder in mot centrum. 4 m V om tj√§rdalen √§r: Tj√§rr√§nna, 18 m l (N-S), 2-2.5 m br, 0.3-0.6 m dj. I S kallmurat br√∂ste, 0.6 m h."Œ
+ÀL√§mning efter mj√∂lnarbostad, best√•ende av husgrund, 10x9 m (√ñ-V), intill 0,6 m h kallmur. I N √§r spismursr√∂se, intill 1,8 m h, kallmurat av huggen sten.I N och S √§r ing√•ngar med trappor, vilka utg√∂rs av gamla kvarnstenar. I √ñ √§r k√§llare, intill 1,4 m dj, kallmurad av tuktad sten.
+
+Har tillh√∂rt Agng√∂lsm√•la kvar och benstamp. √Ör 1922 bodde Nils Johan Magnusson h√§r. Bongingshuset revs √•r 1944. Sista boende av br√∂derna Sven och Olle Olsson."Œ
+ÀFyra gravar orienterade i √ñ-V riktning p√•tr√§ffades utanf√∂r norra bog√•rdsmuren (sj√§lva stenmuren √§r sedan ett tiotal √•r t√§ckt med jordmassor och gr√§s i syfte att fungera som skyddsbarri√§r vid h√∂gvatten). Endast ett av skeletten (grav 4, som tydligt visade sp√•r efter halshuggning) gr√§vdes fram till sin helhet (se rapport). M√∂jligtvis kan det sammanlagt vara fr√•ga om tre gravar eftersom kraniet som √•terfanns f√∂rst (grav 1) kan h√∂ra till kroppen i grav 2 (se rapport). P√• samma plats p√•tr√§ffades skelett 1950, i samband med kabelnedgr√§vning till kyrkan. Dessa angavs d√• ligga felv√§nda, d.v.s. med huvudena √•t √∂ster. Dock l√•g skeletten i grav 1-4 r√§ttv√§nda, med huvud√§ndan √•t v√§ster."Œ	
+À	L√§mningar efter torpst√§llet J√∂ssatorpet i form av grund efter 1) bostadshus och 2) jordk√§llare. Bostadshusets grund √§r ca 10 x 7 meter stor (√ñ-V). I v√§stra delen finns en k√§llardel med ing√•ng mot v√§st. V√§ggarna √§r ca 1,6 meter h√∂ga och 0,7 meter breda. V√§ggarna √§r uppbyggda av b√•de st√∂rre och mindre block, flera l√§tt tillhuggna. De st√∂rre stenarna √§r bort√•t en meter stora och flera av de mindre 0,2-0,3 meter stora. I husgrundens norra del mellan k√§llardelen och den √∂vriga delen ligger ett spismursr√∂se som sticker ut utanf√∂r  husgrunden. Spismursr√∂set √§r kvadratiskt och ca 2,5 meter i sida. Mot norr √§r spismursr√∂set h√∂gre uppmurat eftersom marken sluttar. H√§r √§r det ca 1 meter h√∂gt och delvis utrasat. Vid husets ursprungliga ing√•ng √•t s√∂der finns det en trappsten bevarad, ca 1,5 x 0,6 meter stor.
+
+Jordk√§llaren √§r bel√§gen 25 meter norr om bostadshusgrunden och √§r ca 5x3 meter stor (N-S) och har en h√∂jd av ca 2 meter i sin s√∂dra del och ca 1,5 meter h√∂ga p√• sidorna. Stenarna som utg√∂r jordk√§llarens v√§ggar √§r ofta 0,2-0,4 meter stora. Det finns ocks√• flera sm√• som √§r 0,1-0,15 meter stora.
+
+S√∂der om bostadshuset finns flera r√∂jningsr√∂sen, men som ej karterats."Œ
+ÀG√•rdstomt, ca 190 x 120 m (√ñ-V) enligt utstr√§ckning p√• avm√§tningskarta √•r 1710, best√•ende av 4 husmarkeringar. I beskrivningen omtalas ett "gatehus" bel√§get i V delen av omr√•det ungef√§r p√• platsen f√∂r nuvarande ekonomibyggnad. I √ñ delen omtalas en "g√•rdmansstufva warutj en gamel gubbe sitter". I √∂vrigt beskrivs bl a √•krar, k√•lg√•rdar och en liten humleg√•rd. Enligt avm√§tningskarta √•r 1705 √§r 4 husmarkeringar med namnet "R√§fwaryd" intill. Enligt laga delningskarta √•r 1746 √§r endast tv√• hus markerade och namnet "R√§fwaryd" intill. Vid enskifte √•r 1819 delas √§gorna upp i tv√• enheter och ben√§mns "S√§teriet Nya Ryedahl". Enligt akten fick Pehr J√∂nsson bo kvar inom den gamla tomten medan Pehr Ingemansson fick flytta ut ca 400 m NN√ñ h√§rom.
+Enligt H√§radsekonomiska kartan 1915-19 finns tv√• g√•rdar i omr√•det. Den ena, bel√§gen i V, finns fortfarande kvar men √§r obebodd. Den andra √§r bel√§gen i N√ñ d√§r endast grunder √•terst√•r. Dessa utg√∂rs av 1 boningshusgrund och 1 ekonomibyggnadsgrund. Boningshusgrunden, bel√§gen i √ñ, delvis ingr√§vd i marken, √§r 16 x 10 m (N-S) med 1 m tj och 0,5 - 1,3 m h v√§ggrester av kallmurade, tuktade stenar. Grunden avdelas i N av en stenmur. Den N delen √§r 10 x 4 m (√ñ-V). I √ñ √§r en m√∂jlig ing√•ng, 1,3 m br. Den S delen √§r 12 x 10 m (N-S). I mitten av den S delen √§r ett spismursr√∂se, 3 m diam och 1,3 m h, av ihoprasade stenar med inslag av tegel. M√∂jlig ing√•ng i N√ñ, 1,3 m br. Ett hus √§r markerat ungef√§r h√§r √§ven p√• 1710 √•rs avm√§tningskarta. 10 m NV om boningshusgrunden √§r ekonomibyggnadsgrunden, 18 x 7 m (√ñ-V) med 1 m tj och intill 2,3 m h v√§ggrester, av kallmurade, delvis tuktade stenar. Sp√•r av f√∂nsternischer i v√§ggarnas √∂vre del, varav en √§r br√§dfordrad. Den S v√§ggresten har till stor del rasat. Omr√•det √§r helt igenslyat och t√§tt bev√§xt med buskar och tr√§d. Fler grunder kan finnas.
+Enligt Milton omn√§mns R√§varyd f√∂r f√∂rsta g√•ngen i skriftliga k√§llor omkring 1530 och utgjorde ett av fru Sidsel Ulvstands gods p√• Lister √•r 1563, best√•ende av 1 g√•rd. Enligt Pr√§strelationerna 1624 utgjorde "Reffuer√ø" ett av 18 torp i Gammalstorps socken. Omtalas b√•de som by och g√•rd i Ortnamnsarkivet.
+Omr√•det √§r delvis bebyggt. I V delen √§r ett √∂de bostadshus med en trel√§ngad ekonomibyggnad och d√§remellan en delvis igenv√§xande stensatt g√•rdsplan."œ
+ÃGr√§nsm√§rke, resta stenar p√• ett flyttblock, 5.5x2.5 m st (NNV-SS√ñ) och 1.2-2.5 m h.
+Rest sten, 0.7 m h, 1x0.15 m i genomsk√§rning (NNV-SS√ñ).
+Rest sten, 1.2 m h, 1.5x0.2 m i genomsk√§rning (NN√ñ-SSV)."œ
+ÃOfferk√§lla, 2.5 x 1.5 m st (√ñ-V) och ca 1 m dj. V√§ggar avkallmurad sten i √ñ och S. I N v√§ggen √§r en kantst√§lld h√§ll 1.3 ml, 0.6 m h och 0.2 m tj. I botten √§r en plan sten, ca 2 m l och0.5 m br. Tidigare sipprade klart, kallt vatten fram fr√•n v√§ggeni √ñ men sedan torrsommaren 1969 √§r den ganska torr.Bev√§xt med l√∂vsly."œ
+ÃTorpl√§mning, best√•ende av husgrund, 11x5 m (N-S) och intill 1 m h, kallmurad. Tv√• k√§llare under huset, intill 1,5 m dj. I N√ñ √§r spismursr√∂se, 1,1 m h.
+
+5 m N h√§rom √§r terrass, 17 m l (√ñ-V), begr√§nsad av kallmur, 0,4 m h. Finns √§ven rester av grundmur efter ladug√•rd v√§ster om v√§gen. Finns √§ven odlingsr√∂sen.
+
+Karl Karlsson, f√∂dd √•r 1842, med hustrun Inga Persdotter, var sista innehavaren. Fler uppgifter om torpet under avsnittet tradition."–
+ÕTj√§rframst√§llningsplats, 12x4 m (NNV-SS√ñ), best√•ende av 1 tj√§rdaloch 1 beckgryta?Tj√§rdalen, 10x2 m och 0,3 m dj, omgiven av vallar, 1 m br och 0,2m h. I NNV delen √§r en grop f√∂r tj√§rtunnan, 2 m i diam. Gr√§nsstenmuren har en ursprunglig √∂ppning f√∂r tj√§rdalen.2 m N√ñ om gropen √§r beckgrytan?, 1,5 m i diam och 0,3 m dj. √ñvertorvad. Grop f√∂r eld√∂ppning √•t N, 1,5x1 m (N-S). Vid provstick med jordsond p√•tr√§ffades sten och ett kraftigt sotlager"—
+ŒMinnessten, 0,6 m h, 0,6 m br (√ñN√ñ-VSV) och 0,2 m tj. Stenen lutar 25 grader √•t SS√ñ. Stenen anvisad av f.d. skogsvaktare Bernhard Persson, Perstorp, L√∂nsboda. Stenen √§r rest n√•gon g√•ng p√• 1620-talet √∂ver pr√§sten Cochins i Glim√•kra, som v√•dask√∂t sig i huvudet och avled.
+
+Revideringsinventering 1994-06-27: Ej bes√∂kt/AJ."—
+ŒTorpl√§mning, 40x20 m (NN√ñ-SSV), best√•ende av 1 grund efter boningshus, 1 grund efter ekonomibyggnad och 1 brunn.
+Boningshusgrunden √§r 8x8 m (√ñN√ñ-VSV) och 0,2 m h. I NV √§r ett spismursr√∂se, 3 m st och 1 m h. Husgrunden har en k√§llare i S√ñ som √§r 3x2 m l (√ñN√ñ-VSV) och 1,2 m dj, med kallmurade sidor. I SV delen st√•r en minnessten.
+7 m N om boningshusgrunden √§r ekonomibyggnadsgrunden, 11x10 m (√ñ-V) och 0,5-10 m h, indelad i tre sektioner. Ing√•ng i N. V delen av grunden utg√∂rs delvis av mur i gr√§ns.
+15 m NN√ñ om ekonomibyggnadsgrunden √§r brunnen, 1 m diam och 0,5 m dj."“
+œTorpl√§mning bets√•ende av 1 husgrund, 8x6 m (N-S), kallmurad 0,1-0,7 m h och fasta stenar intill mark. K√§llare under del av huset, rundad, kallmurad intill 1,3 m dj. Spismursr√∂se i NV, kallmurat, 0,8 m h."“
+œStens√§ttning, rest av, rundad, ca 8 m diam, 0,25 m h. Delvis √∂vertorvad och -mossad fyllning, av 0,2 - 0,4 m st stenar. I stens√§ttningen st√•r en rest sten, 1,8 m h, 0,4 m br.
+Stens√§ttningens V del bortgr√§vd vid grust√§kt 1946. I samband d√§rmed tillvaratogs delar av ett lerk√§rl samt br√§nda ben. Vid efterunders√∂kning p√•tr√§ffades under stenpackningen i grustagskanten en spjutspets av j√§rn samt en j√§rnnit.
+Stens√§ttningen ben√§mndes i √§ldre tid  Assers r√∂r. Namnet upptr√§der f√∂rsta g√•ngen 1492 i gr√§nsbeskrivning i ett dombrev utf√§rdat av rikshovm√§staren Powel Laxmand."“
+œTorpl√§mning(?), best√•ende av 1 husgrund, delvis ingr√§vd i NV-sluttning och byggd emot steng√§rdesg√•rd i S√ñ. Den √§r 6x4 m (NV-S√ñ), innerm√•tt 4x2,5 m med 1-1,5 m br och 0,4-0,7 m h v√§ggvallar. I S√ñ √§r nedfallna stenar eller rest av eldstad. √ñppen mot NV.
+
+Pehr Matssons torp enligt uppgift i enskifteskarta fr√•n 1818 (ett samf√§llt sandtag bskrivs ligga "mitt f√∂r Pehr Mattssons husbyggnader") . Efter rektifiering av historisk karta sammanfaller grunden med en kartmarkerad byggnad. En l√•ng byggnad √§r utsatt V d√§rom, men den kunde inte lokaliseras trots goda f√∂rh√•llanden."“
+œGrav- och boplatsomr√•de, 170x75 m (N-S), delunders√∂kt, best√•ende av 4 resta stenar, 2 skepps√§ttningar, 1 rund grav (h√∂g eller stens√§ttning) och ca 14 brandgravar.
+De resta stenarna √§r i den N delan av gravf√§ltet. Rest sten 1, 1,7 m h och 1,4x0,6 m vid basen, avsmalnande upp√•t. 1,3 m NN√ñ d√§rom √§r rest sten 2, 0,85 m h och 0,6x0,8 m vid basen, n√•got avsmalnande upp√•t. Lutar n√•got √•t S. Ca 20 m NV d√§rom √§r rest sten 3, nu 1,2 m h och 2x0,6 m st (N√ñ-SV). M√∂jligen kullfallen √•t SV. 6 m VSV d√§rom √§r rest sten 4, 1,45 m h och 1,2x0,4 m vid basen (√ñS√ñ-VNV). Lutar ca 25 grader √•t √ñS√ñ. Ca 0,4 m √ñ om den f√∂rsta stenen √§r en l√∂st liggande sten, 0,5x0,3 m st och 0,4 m h. Ca 4 m √ñ om den andra stenen √§r en jordfast sten, 0,6x0,35 m st och 0,2 m h. Dessa tv√• kan ev. ha ett samband med de √∂vriga. De resta stenarna √§r placerade s√• att de tillsammans m√∂jligen kan utg√∂ra rest av en skeppss√§ttning. Senare unders√∂kningar har √§ven avsl√∂jat vissa boplatssp√•r, varf√∂r det tidigare gravf√§ltet kom att √§ndras till l√§mningstypen grav- och boplatsomr√•de, se till√§gg."”
+–Kvarngrund efter Grism√•la kvarn, 4,5x4 m st och 0,3 m h, uppbyggd av 0,3-0,6 m st block. Fundament f√∂r dammlucka precis V om ruinen. Kvarnplanen √§r utm√§rkt p√• karta fr√•n 1827. (Ra√§ dnr: 3.4.2-456-2016)"‘
+—Offerk√§lla, 1,5 m diam och ca 1,4 m dj. V√§ggar av kallmurad sten, 0,2-0,3 m st. I kanten upptill √§r n√•gra stenar 0,8-1,1 m l och 0-2 m tj. Offerk√§llan har restaurerats. Ovan markytan har en 1,2 m i diam stor brunnsring uppmurats med natursten synlig p√• utsidan. Under markytan √§r brunnen kallmurad av kullersten. √ñver brunnen √§r ett j√§rngaller. Runt brunnen √§r en stenl√§ggning, 0,7 m br, av natursten samt huggna stenflisor bildande ett stj√§rnm√∂nster."’
+“Stens√§ttning, ursprungligen troligen rund, ca 13 m i diam och ca0.4 m h. √ñvertorvad. √ñver graven l√∂per en steng√§rdesg√•rd(NNV-SS√ñ - n√•got mer N-S) och det √§r endast under denna somgraven tycks vara bevarad.Bev√§xt med en, evetuellt tv√• oxlar.Graven √§r utsatt med namn p√• kartan fr√•n 1756, d√§r den anv√§ndessom gr√§nsskiljare."’
+“Torpl√§mning, best√•ende husgrund, 9x5 m (N-S) och 0,7 m h, kallmur. I V √§r spismursr√∂se, 0,4 m h. Omedelbart V h√§rom √§r terrass, 5x5 m. Norr om ruinen efter bostadshuset finns ett omr√•de med ett flertalodlingsr√∂sen. Detta var torpets √•kermark, nu kalavverkad. Rakt v√§sterut i skogsv√§gens T-korsning finns resterna av en k√§llare ingr√§vd i sluttningen. Ganska intakt fr√•nsett tak och d√∂rr. Ligger som enskilt objekt p√• Forns√∂k RA√Ñ Br√§kne-Hoby 685.
+
+Torpet innehades av b√•tsmansonen Ola Olsson Granbalk och hans hustru Anna. Den siste boende var brorsonen Karl Johan Pettersson."÷
+”Torpl√§mning, 20x15 m (N√ñ-SV), best√•ende av husgrund, 7x5 m (NV-S√ñ) och  0,2 m h. Spismursr√∂se i √ñ, 0,7 m h. 7 m SV om denna √§r husgrund, 15x5 m (NV-S√ñ) och 0,2 m h syllstenar.
+Torpet revs p√• 1920-talet."÷
+”Torpl√§mning, best√•ende av 2 husgrunder. 
+Husgrund, 7x5 m (√ñ-V) och intill 1,3 m h, kallmurad. K√§llare under del av huset, 1,4 m dj. Spismursr√∂se i S, 1,1 m h. 
+8 m V om denna √§r husgrund, 7x5 m (N-S) och intill 1,4 m h, kallmurad. 
+I anslutning till grunderna √§r fossil √•ker avgr√§nsad av stenmur i V. 
+Sist bodde h√§r familjen Petter Olsson och Sissa J√∂nsdotter. Petters far var b√•tsman Granbalk. Makarna Petter och Sissa omkom under fiske i Ramsj√∂n 1913."◊
+‘Gr√§nsm√§rke, flyttblock, ca 13 m i diam och ca 8 m h. Branta sidor. I V kanten n√•got frostspr√§ngt. En stenmur, som utg√∂r gr√§ns, ansluter till flyttblocket i N√ñ. Omn√§mns som riksgr√§nsm√§rke redan √•r 1554."◊
+‘1) R√∂se, 18 m diam och 1 m h. Stenarna √§r i regel, 0.2-0.4 m st.Stenarna √§r upplockade s√• att en l√•g ringformig vall bildatsrunt det n√•got f√∂rs√§nkta mittpartiet. Skadat i S delen genomstent√§kt. T√§tt bev√§xt med l√∂vtr√§d, s√§rskilt hassel.5 m N om nr 1 √§r:2) R√∂se?, 8 m diam och 1.2 m h. Stenarna √§r i regel, 0.2-0.4 mst. Kring r√∂sets fot finns en del st√∂rre stenar, 0.5-1 m st.R√∂jningssten p√•f√∂rd i stor m√§ngd. Bev√§xt med hassel och enr√∂nn.9 m NV om nr 1 √§r:3) R√∂se?, nu n√§rmast ovalt, 9x6 m (√ñ-V) och 1.2 m h. Stenarna √§ri regel, 0.2-0.4 m st, med inslag av gr√∂vre material i botten.R√∂jningssten p√•f√∂rd i stor m√§ngd. Bev√§xt med hassel.25 m √ñN√ñ om nr 1 √§r:4) √Ñlvkvarnsf√∂rekomst, i flyttblock, 6x6 m och 3.5 m h, best√•endeav 10-tal √§lvkvarnar. Dessa √§r 3-8 cm diam och 0.5-1.5 cm dj.Bel√§gna p√• blockets ovansida.Omedelbart N om r√∂sena √§r:5) Flatmarksgravar, uppgift om. Omedelbart N om r√∂sena har 2gravurnor p√•tr√§ffats vid pl√∂jning."Ÿ
+÷Offerk√§lla, 1.5 m diam och 0.3 m dj. I mitten √§r en klumpsten 0.5m st. Avlopp mot NNV.I k√§llan har vid flera tillf√§llen p√•tr√§ffades mynt. Vid bes√∂k p√•platsen iakttogs tre tio√∂ringar av sent dato i k√§llan."Ÿ
+÷Torpl√§mning, best√•ende av 2 husgrunder.
+1) Husgrund, 5x4 m, intill 1.2 m h, ing√•ng i V, kallmurad.
+2 m N om nr 1 √§r:
+2) Husgrund, 4x3 m, intill 0.8 m h, kallmurad. Spisr√∂set placerat mellan de b√•da grunderna."Ÿ
+÷Torpl√§mning, ca 90x60 m (NNV-SS√ñ), best√•ende av 3 grunder och 1 k√§lla.
+Grund (1), efter boningshus, ca 8x5 m st, knappt urskiljbar stensyll.
+I omr√•dets S del p√• kulle √§r:
+Grund (2), efter jordk√§llare, 5,4x5 m (√ñS√ñ-VNV) och ca 1,8 m h. V√§gg i N √§r kallmurad, 1,4 m br. Sk√•lformad i √ñ och S (rasat? neds√•gade granar i dessa kanter). √ñppning i V.
+Grund (3), efter stall/loge, 15x6 m (√ñS√ñ-VNV), med knappt sk√∂njbar stensyll.
+I omr√•dets N del √§r:
+K√§lla."⁄
+◊Torpl√§mning, 30x15 m (N-S), best√•ende av 1 husgrund och 1 jordk√§llaregrund.
+Husgrunden √§r 12x10 m (√ñ-V). Delvis synlig stenfot, intill 0,4 m h. Utmed N l√•ngsidan √§r ett spisr√∂se, 2x2 m (√ñ-V) och 1,1 m h, av 0,15-0,4 m st stenar. I V √§r en ing√•ngstrappa.  13 m N om husgrunden och 6 m NN√ñ om v√§g √§r en jordk√§llaregrund, 8x4 m (N-S), ingr√§vd i backen mot N. Kallmurade v√§ggar, 1,2 m h, av 0,2-0,4 m st stenar. I N  √§r ett stenblock. Ing√•ng i S, 0,6 m br."€
+ÿTorpl√§mning, best√•ende av 2 husgrunder.
+1) Husgrund, 6x6 m (N-S) och 0.5-1.8 m h, kallmurad. Ingr√§vd i backe. Spisr√∂se i NV. Inne i grunden √§r ett stenblock, 1x1 m st och 2 m h.
+10 m NV om nr 1 √§r:
+2) Husgrund, 5x3 m (√ñ-V) och 1.7 m h, kallmurad. Ingr√§vd i backe. √ñppning i V med v√§lbevarade rester av d√∂rrkarm.
+
+Platsen √§r skyltad."€
+ÿBebyggelsel√§mning, os√§ker utstr√§ckning, best√•ende av 2 husgrunder och 1 djupt dike med 3 brunnar. 
+Husgrund, ca 11x6 m (N√ñ-SV). Grunden har en kraftig skorsten och k√§llare i SV. 
+Husgrund, ca 7x6 m (N√ñ-SV). Grunden ligger i f√∂rl√§ngningen av den f√∂rstn√§mnda husgrunden, √•t N√ñ, med ett avst√•nd p√• ca 2 m . Grunden har kraftig skorsten och rester av former av murad sten. 
+Ett kraftigt dike g√•r mot grunden fr√•n S√ñ och √§r sedan draget runt grunden. I diket finns 3 betongr√∂r/brunnar, t√§ckta. 
+L√§ge och utformning tyder p√• en √§ldre anv√§nvdning d√§r vatten anv√§nts som drivkraft."›
+⁄R√∂se, 18 m diam, 2,5 m h. Stenarna √§r vanligen 0,3-0,5 m st, enstaka 0,6-0,8 m st skarpkantade stenar ing√•r. R√∂set √§r omplockat i ytan med flera intill 0,6 m dj gropar.
+F√∂r √§ldre beskrivning se scannat dokument."›
+⁄Torpl√§mning, best√•ende av husgrund, 4x3 m (NV-S√ñ), ingr√§vd i backsl√§nt, intill 1.6 m dj, kallmurad. Jordfast block i N√ñ. Bevarat gavelr√∂ste i V. Ing√•ng i √ñ.
+Fossil √•kermark, svedja, i anslutning till grunden."›
+⁄Torpl√§mning, best√•ende av 2 husgrunder.
+
+Husgrund, 6x4,5 m (√ñ-V) och intill 0,7 m h, syllstenar. I N√ñ √§r spismursr√∂se, 1 m h. Omedelbart √ñ om √§r: Husgrund, 5x4,5 m (√ñ-V) och 0,7 m h, kallmurad, ingr√§vd i sl√§nt. Ing√•ng i √ñ.
+
+F√∂rste innehavare J√∂ns Persson 1824-1905.
+Siste innehavare Gustav Svensson f. 1849. 
+Torpet brann ner 1929."›
+⁄Torpl√§mning, 35x15 m (N-S), best√•ende av 1 husgrund och 1 jordk√§llaregrund.
+Husgrunden √§r 7x5 m (N-S) och har delvis synlig stenfot, intill 0,5 m h, av 0,3-0,5 m st stenar. I SV √§r ett spisr√∂se, 2,5 m i diam och 0,6 m h, av delvis √∂vertorvade 0,2-0,4 m st stenar. S om spisr√∂set √§r en grop, 1-1,5 m i diam och 0,8 m dj, med kallmurade v√§ggar av 0,2-0,35 m st stenar. 25 m N om husgrunden √§r en jordk√§llaregrund, 4x2 m (N-S) och 0,3-0,4 m dj. Kallmurade sidor, 0,2-0,3 m h och 0,2-0,3 m br, av 0,2-0,4 m st √∂vertorvade stenar. I omr√•det finns en syr√©n, n√•gra odlingsr√∂sen och stenmurar."ﬁ
+€1) R√∂se, n√§rmast runt 17 m i diam och 1,5 m h. Stenarna √§r0,1-0,8 m st, vanligen 0,2-0,5 m st. I mitten och mot NV √§r 3gropar 1,5-2,5 m i diam och 0,4-0,7 m dj. I r√∂sets N√ñ kant √§rrikligt med odlingssten upplagd."ﬁ
+€Torpl√§mning, best√•ende av 1 husgrund, 9x7 m (NV-S√ñ), delvis ingr√§vd i backen mot N. Kvarst√•ende v√§ggar √§r 1,0-1,2 m h och 0,6-0,8 m tj, av 0,3-0,8 m st stenar. Ing√•ngs√∂ppning p√• SV l√•ngsidan, 2 m br. Skyltad."ﬂ
+‹Backstugel√§mning, best√•ende av 1 husgrund, 8x5 m (NN√ñ-SSV), intill 0,5 m h kallmur. I N√ñ √§r spismursr√∂se. I NN√ñ √§r i grundens f√∂rl√§ngning en tillbyggnad, 5x4 m st. SS√ñ om grunden √§r en hamlad l√∂nn, 3 m diam."ﬂ
+‹S√•gl√§mning, best√•ende av 1 husgrund och 1 dammvall.
+Husgrunden √§r 12x4 m (N-S), best√•ende av grundmur i tv√• fundament, och ca 1,8 m h, av 0,4-1,3 m st tuktade stenar. I vattnet g√•r det ut br√§der med h√•l, s√• kallade rustb√§ddar. Bottenstocken √§r i tr√§ och bevarad under vatten. M√∂lle√∂n √§r till st√∂rre delen utrasad i vattnet men grundstenarna g√•r att sk√∂nja under ytan.
+N om husgrunden √§r dammvallen p√• √∂mse sidor av √•n, best√•ende av skalmurskonstruktion med ett litet fall. √ñ armen √§r 17 m l (N√ñ-SV), 1,2 m br och 0,6 m h. V armen √§r 90 m l (NV-S√ñ). (Ra√§ dnr 3.4.2-421-2016)."ﬂ
+‹Status: P√• botten finns 5 j√§rnkanoner, varav en ligger inkl√§md under ett stenblock finns p√• platsen. Tre av kanonerna m√§ter ca 200 x 30 cm och en m√§ter ca 150 x 20 cm. Tre av kanonerna ligger prydligt uppradade p√• linje, nedsjunkna i botten till lavettf√§stena. De andra tv√• ligger strax intill (status 1964). 
+
+
+P√• botten finns efter b√§rgningen av en kanon 4 st j√§rnkanoner, varav tre stycken m√§ter ca 200x30 cm och en ca 150x20 cm. En av de st√∂rre ligger omgiven rullsten och skeppstimmer. En av kanonerna ligger n√§rmare land. Vid denna finns √§ven grovt tr√§virke. Ca 100 m SV fr√•n kanonerna ligger ett kraftigt, l√•ngt tr√§stycke med en dimension av ca 40 cm bredd och 60 cm h√∂jd. Fyndet ligger mestadels, med √∂verkanten, ca 0,5 m ner i sj√∂botten. Eventuellt kan detta timmer vara en k√∂lstock. Spant och bottenstockar finns √§ven (os√§ker uppgift). T√§tt vid sidan om det eventuella k√∂lsvinet ligger en kanon. Inte l√•ngt d√§rifr√•n finns ett stort tr√§roder, vars roderblad √§r kn√§ckt ifr√•n roderstocken. P.g.a. sandvandring √§r fynden ibland tydligt synliga och ibland dolda (status 1982).
+Datering: Enligt P. Dedenroth-Schou, museumsinspekt√∂r, T√∂jhusmuseet √§r den b√§rgade kanonen tillverkad vid Fossums Bruk i Norge, d√§r kanoner tillverkades 1702 - 1712. Den b√§rgade kanonen √§r m√§rkt CB, vilket skulle st√• f√∂r Cai B√∂rting, √§gare av bruket. 
+
+Enligt dr Egil L√∂nnberg, Bofors, √§r kanonen svensk och troligen tillverkad p√• Ankarsrums bruk, tillh√∂rigt Gillis De Besche omkring 1700.
+
+Kanoner av denna typ kan ha anv√§nts s√• l√•ngt fram som 1800-talets b√∂rjan.
+√ñvrigt: P√• √∂n finns stenrader som eventuellt kan vara l√§mningar av den gamla kyrkog√•rden.
+
+Skulle kanonerna komma fr√•n evakueringen av det engelska batteriet √§r det inte s√§kert att vrakl√§mningen √§r kopplad till kanonerna.
+B√§rgning: Kanonerna lokaliserades 1964, och en av kanonerna b√§rgades av en dykarklubb i Karlshamn efter erh√•llet tillst√•nd. Kanonen f√∂rvarades i lavett utanf√∂r sportdykarklubben lokaler i Karlshamn. Beteckningarna p√• kanonen √§r numera bortrostade.
+
+Vid vidare efterforskningar i omr√•det p√•tr√§ffades √§ven vrakrester 1981. 
+
+
+Fyndlista: B√§rgat av sportdykare med tillst√•nd 1968:
+en gjutj√§rnskanon, f√∂rmodligen 6 pundig."·
+ﬁRuin efter Vittsk√∂vle s√•g, ca 13,5x6,5 m st (N-S) och som mest 4 m h. Uppbyggd av tillhuggna stenblock med cementfogar. Stenarna ca 0,3-1 m st. Uppf√∂rd p√• 1890-talet, nedlagd p√• 1940-talet. (Ra√§ dnr: 3.4.2-2666-2016)"·
+ﬁOmr√•de med skogsbruksl√§mningar, ca 15x10 m (NV-S√ñ), best√•ende av 1 tj√§rr√§nna samt 1 grop. 
+
+Tj√§rr√§nnan √§r 7 m l (NV-S√ñ) och intill 1,5 m br och 0,4 m dj. NV om r√§nnan √§r ett br√∂ste, 0,4 m h och 0,3 m br. NV om br√∂stet √§r en uppsamlingsgrop, 1 m diam och 0,4 m dj. 4 m N√ñ om r√§nnan, en grop, 1 m diam och 1,3 m dj, troligen lerklinad."‚
+ﬂSkeppss√§ttning, 15x7 m (NN√ñ-SSV), best√•ende av 11 stenar. Varje relingsida har 5 klumpstenar, 0,5-0,9 m st och 0,2-0,3 m h. Stenarnas l√§ngdaxel ligger i varierande riktning. I SSV-st√§ven √§r en rest sten, 0,5 m h och 0,7x0,4 m (N√ñ-SV). St√§vstenen i NN√ñ saknas. Vid platsen f√∂r denna sten finns en s√§mre k√∂rv√§g. Enligt lokalbefolkningen √§r detta en domarring, hitflyttad av "Kvicksa- Viktor". Vid inventering √•r 1974 bed√∂mdes denna anl√§ggning som en naturbildning."„
+‡Omr√•de, 20x15 m (√ñ-V).
+Inom omr√•det √§r en tj√§rr√§nna, en beckgryta och en grop.
+Tj√§rr√§nna, 15x3 m (√ñ-V), intill 0.4 m dj, rest av br√∂ste i √ñ, intill 0.4 m h. 1 m √ñ om br√∂stet √§r tj√§rgrop, 2 m diam och intill 1 m dj.
+8 m N√ñ om denna √§r:
+Beckgryta, 2 m diam och intill 1 m dj. 
+5 m N om tj√§rr√§nnan √§r:
+Grop, 2 m diam och intill 1 m dj."„
+‡Fartygsl√§mning, f√∂rmodas vara Baltic.
+
+Historik: 1872 Baltic byggdes av D R Andersson f√∂r Carlshamns √Öngb√•ts Ab (H Schmidt), Karlshamn. Hon sattes i trafik i september 1872. 
+1876,  s√•ldes hon f√∂r 35.000 kr till skeppsredare Robert Ternstr√∂m, Karlshamn. 
+1878,  22 juli s√•ld till Frans H J Wolff, Karlskrona. Vid dennes d√∂d 1886 √§rvdes hon av C G O Winter.
+1892,  fick fartyget ny panna 
+1903, 29 sept √∂verf√∂rd till Rederi Ab Gl√ºckauf. 
+1907, 14 mars blev Alfred K Fernstr√∂m, Asarum, ny chef f√∂r rederiet. Fartyget fick en ny panna 1892.
+1908-12-14 grundst√∂tte och sj√∂nk
+
+√Öngmaskinen var p√• 180 hk
+
+H√§ndelsef√∂rlopp: Baltic grundst√∂tte p√• sk√§ret Bus√∂ren utanf√∂r Boll√∂arna i Karlskronas sk√§rg√•rd under sydlig vind med regntjocka. √Öngaren √∂vergavs av skeppsfolket och blev sedermera  totalt vrak.
+
+Status: Vraket √§r nedbrutet men √•ngpannan med tillh√∂rande motor, roder samt massor av br√§der finns kvar (status 1976).
+Vraket st√•r uppr√§tt p√• fin sandbotten p√• ca 5-7 m djup, d√§r f√∂rskeppet st√•r p√• den djupa delen. √Öngpannan med maskin st√•r i mitten av vraket och skjuter upp mot ytan till ca 3 m djup. Propelleraxel och propellern (ett av tre blad √§r borta) √§r intakt och rodret ligger direkt bakom vraket. I f√∂ren kan en del av bryggan synas med en trolig "lamph√•llare" eller liknade fortfarande fastsatt i bryggans golv.
+Skeppets b√•da sidor har lagt sig rakt ut och borstar man bara bort lite sand s√• syns √§ven tr√§sidorna som √§r till stor del intakt s√∂der om √•ngpannan. I f√∂ren finns √§ven ankarspelet alt n√•gon form av en trossspel kvar. En eller tv√• master ligger p√• f√∂rskeppet.
+Vrakplatsen √§r l√§tt att hitta men det kan vara sv√•rt att ta sig fram pga alla grund som ligger runt vrakplatsen.
+
+Besiktigades av SMM den 2016-12-14. 
+
+√ñvrigt: I sj√∂f√∂rklaringen kan man l√§sa: "Omkring kl 7 p√• f√∂rmiddagen syntes pl√∂tsligt n√•got m√∂rkt, som antogs vara land. Roret lades genast f√∂r gir styrbord h√§n. Fartyget t√∂rnade emellertid omedelbart p√• grund och fastnade. Det l√•g illa p√• grundet och skadades allt mer. P√• eftermiddagen √∂fvergavs det af skeppsfolket efter beslut d√§rom i skepppsr√•d. P√•f√∂ljande dagar under b√§ttre v√§der b√§rgades en del inventarier och annat √•tkomligt fr√•n fartyget.""‰
+·Omr√•de med skogsbruksl√§mningar, best√•ende av 1 tj√§rr√§nna och 1 beckgryta.
+1) Tj√§rr√§nna, 13 m l (VNV-√ñS√ñ), 4 m br och 1 m dj, begr√§nsad av √∂vertorvade vallar, 2 m br och 0,1 m h. I VNV √§r kallmurat br√∂ste, 0,7 m h.
+2 m VNV om br√∂stet √§r tj√§rgrop, 2 m diam och 0,6 m dj.
+2 m VNV om 1) √§r:
+2) Beckgryta, 2,5 m diam och 0,4 m dj, kallmurad."Â
+‚Torpl√§mning, best√•ende av 1 husgrund och fossil √•ker.
+Husgrund, 7x6 m (√ñ-V) och intill 0,7 mn h, kallmurad. I S √§r ett spismursr√∂se, intill 1 m h, kallmurad.
+I omr√•det kring grunden √§r fossil √•kermark.
+
+Dagsverkstorp sedan 1863.
+F√∂rste torpare: Sven Persson, 1826-1907.
+Siste torpare: Sven Elof, 1874, flyttade i mitten av 1930 till Jakobstorp."Ê
+„Offerkast, ca 3 m diam, intill 1 m h. Bottenskiktet utg√∂rs av 0,1 - 0,3 m st stenar, √∂ver vilka √§r ett b√•l av ris och grenar.
+Offerkastet √§r bel√§get omedelbart √ñ om skogsbilv√§g. Ett jakttorn √§r rest intill offerkastet."Ê
+„Omr√•de med skogsbruksl√§mningar, 20x20 m st, best√•ende av 1 tj√§rr√§nna och 1 beckgryta.
+Tj√§rr√§nna, 10 m l (√ñS√ñ-VNV), 2,5 m br och 0,4 m dj. I √ñS√ñ √§r ett br√∂ste √∂vertorvat, 0,3 m h. 3,5 m √ñS√ñ om br√∂stet √§r tj√§rgrop, 1,5 m diam och 0,5 m dj.
+6 m SV om tj√§rr√§nnan √§r:
+Beckgryta, 1,5 m diam och 0,7 m dj, kallmurad. Eldstads√∂ppning i S√ñ."Ê
+„1) H√∂g, 24 m diam och 3.5 m h. I ytan enstaka stenar, 0.1-0.3 mst. Ytan √§r oj√§mn med flera kaninh√•l. Kr√∂net avplanat inom ettomr√•de av 7 m diam. I mitten √§r en rund grop, 2.5 m diam och 0.3m dj. 2 m SSV om nr 1 √§r: 2) H√∂g, 18 m diam och 1.8 m h. N√§ramitten √§r en f√∂rdjupning, 3 m diam och 0.2 m dj. I N√ñ kanten √§ren rund grop, 2.5 m diam och 0.7 m dj. 8 m S om nr 2 √§r: 3) H√∂g,29 m diam och 3 m h. I ytan enstaka stenar, 0.2-0.3 m st. Oj√§mnyta. V delen bortschaktad."Ê
+„V√§gvisarsten, tuktad granit, 1,6 m h, 0,4 - 0,5 m br (√ñN√ñ-VSV) och 0,4 m tj, kvadratisk genomsk√§rning,. I vardera stenens √ñN√ñ och SS√ñ sidor √§r en uthuggen, plan yta, kvadratisk, 17 x 17 cm. Intill och 0,6 m under kvadraterna √§r stenen avplanad i hela sin bredd. Enligt f√∂rstag√•ngsinventeringen 1965 skall stenen ha haft m√•lad text och p√• samtliga sidor fanns d√• sp√•r av vit f√§rg. Vid revideringsinventering 2011 fanns inga sp√•r av f√§rg. Platsen kallas f√∂r "Kilen"."Á
+‰Torpl√§mning, ca 50x50 m (N-S), best√•ende av 1 boninghusgrund och 1 k√§llargrund. 
+Boningshusgrunden √§r 5x5 m st. I SV √§r ett spismursr√∂se, ca 2 m st och ca 1,2 m h.
+K√§llargrunden √§r 4x3 m (√ñ-V) och 1,4 m h. Ing√•ng i √ñ."Á
+‰Torpl√§mning best√•ende av 1 husgrund samt fossil √•ker.
+Husgrund, 10x6 m (√ñ-V) och 0,8 m h, kallmur av delvis tuktad setn. I V √§r spismursr√∂se, 0,8 m h, kallmurat. I √ñ √§r k√§llare, 1,8 m dj, kallmurad. Grunden ligger invid stenmur.
+√ñ om grunden √§r fossil √•ker med flera r√∂jningsr√∂sen.
+
+Torparen H√•kan Svensson bodde kvar i torpet till √•r 1892."Ë
+ÂHusgrund, 8x5 m (VNV-√ñS√ñ). Ingr√§vd i backsl√§nt, kallmurat innerliv intill 1.5 m h.
+I anslutning till grunden √§r fossil √•ker med talrika r√∂jningsr√∂sen.
+"Laiba-Hannans". Magnus Johansson f. 1826, hustru Hanna H√•kansdotter."Ë
+ÂJordk√§llare, 3,9x2,5 m (N-S) och 1,2-1,9 m h. Kallmurade v√§ggar, v√§lvd i N. Ing√•ng 0,9 m br och 2,5 m l i S. Spisr√∂se i SV.
+
+P√• platsen ska enligt uppgiftsl√§mnare Grankvistatorpet ha legat, endast jordk√§llaren finns kvar."Ë
+ÂH√∂g, rest av, √∂verodlad, nu n√§rmast oval, 35 x 25 m (NV-S√ñ), medoklar h√∂jd. I ytan syns talrika 0.1 - 0.2 m st stenar. Bel√§genp√• en markant kulle, 1 m h.Enligt uppgifter fr√•n Alice Abrahamsson, Jeppsag√•rden, och AnnaSvensson, Iv√∂, √§r detta "Nisse h√∂j".  Enligt Tuneld, 1690 - 93,fanns en gravh√∂g tre pistolskott N om kyrkan. P√• 1802 √•rs karta√§r graven angiven.Det mesta av graven har bortodlats, men rikligt med sten i ytang√∂r att gravl√§mningar √§nnu kan finnas kvar."Ë
+ÂTorpl√§mning, ca 200x150 m (N-S), best√•ende av 1 grund efter boningshus, 1 ladug√•rdsgrund, 1 ekonomibyggnad, 1 brunn, 1 f√•lla samt fossil √•ker med ett 70-tal r√∂jningsr√∂sen och h√§gnadsmurar.
+Bebyggelsel√§mningarna ligger i N delen av omr√•det, inom en yta av 60x50 m (√ñ-V). Boningshusgrunden √§r ca 10x6 m (√ñ-V), med inrasad spis i √ñ. Ladug√•rdsgrunden √§r 7.4x5.4 m (N-S). Ekonomibyggnaden √§r 5 m diam. Grundmurarna √§r ca 0.9 m br och 1.6 m h i √ñ samt mycket raserad i V. Kallmurad brunn, 1 m diam och 1.2 m dj. R√∂jningsr√∂sena √§r 0.7-2.5 m st och 0.8-1.6 m h. Inom omr√•det ca 40 m NNV om boningshusgrunden ligger en kallmurad f√•lla, 6.5x5 m (√ñ-V), med murar, 0.9 m br och 0.8 m h. Stort block i V kortsidan. Utan √∂ppning."È
+ÊTorpl√§mning, 50x50 m, best√•ende av 2 husgrunder, 2 k√§llare och ett raserat troligt spisr√∂se.
+Husgrunderna √§r 12x7 (N-S) och 0.5-1.6 m h respektive 14x7 m (N-S) och 0.5-1.2 m h. K√§llarna √§r 6.1x3.7 m st och 0.9 m dj respektive 3x2.9 m st. Den sistn√§mnda √§r fylld med sten. Ett troligt spisr√∂se, √∂vertorvat med n√•gra synliga stenar och tegelrester."È
+Ê1) Skans, 80x40 m (N-S), bel√§gen p√• l√•g sandf√∂rh√∂jning medskansens st√∂rsta h√∂jd och brantaste del mot V, medan den saktaplanar ut mot √ñ.Den S och n√•got h√∂gre delen utg√∂rs av en vinkelformad vall medvardera vinkelbenet 31 m l. N delen √§r 40 m l, 8 m br och 1 m h,svagt sv√§ngd vall med talrika synliga stenar, i V delen 0.5-1 mst.Mellan N och S delen en s√§nka, 4 m br och 1 m dj.P√• den vinkelformade skansens NV del √§r:2) Rest sten, 3 m h, 1.1 m br och 0.5 m tj, r√∂d granit.Stenen har ett tiotal sprickor varav n√•gra √§r lagade med cement.Troligen f√∂rhistorisk.Se skiss i inventeringshandlingarna."Í
+ÁOmr√•de med skogsbruksl√§mningar, best√•ende av 1 tj√§rr√§nna och 1 beckgryta.
+1) Tj√§rr√§nna, 9 m l (NNV-SS√ñ), 2,5 m br och 0,5 m dj, begr√§nsad av √∂vertorvade vallar, 1 m br och intill 0,5 m h. I N √§r kallmurat br√∂ste, 0,1 m h. Direkt N h√§rom √§r tj√§rgrop, 1 m diam och 0,1 m dj.
+5 m V om tj√§rgrop √§r:
+2) Beckgryta, 2 m diam och 0,8 m dj, kallmurad."Í
+ÁTorpl√§mning, ca 50 x 40 m (N-S), best√•ende av 1 boningshusgrund, 1 stensatt grop, 1 k√§llargrund, 2 f√•llor och 1 ekonomibyggnadsgrund.
+Boningshusgrunden, bel√§gen i omr√•dets mitt, √§r 13 x 8 m (√ñ-V) och 0,1 - 0,4 m h, av kallmurade, starkt √∂vertorvade stenar, 0,2 - 0,4 m st. L√§ngs den N l√•ngsidan √§r ett spismursr√∂se, 3 x 2 m st (N-S) och 0,5 m h, av kallmurade stenar med inslag av tegel. 1 m V om boningshusgrunden √§r den stensatta gropen, oval, 3 x 2 m (N-S) och 0,7 m dj.
+5 m NNV om boningshusgrunden √§r k√§llargrunden, 6 x 5 m (N-S) och 1 m h med kallmurade v√§ggrester, 1, 2 m tj. Ing√•ng i S, 0,7 m br. 7 m V om boningshusgrunden √§r f√•llorna, 4 x 4 resp 5 x 3 m st, begr√§nsade av flyttblock och stenmurar, 0,5 - 1 m br och 0,3 - 0,6 m h. B√•da har en ing√•ng i ena h√∂rnet, 0,5 m br. V om f√•llorna √§r ekonomibyggnadsgrunden, 12 x 5 m (√ñ-V) och 0,2 - 0,3 m h, av 0,3 - 0,6 m st stenar. I V avdelad i tre delar av enkla stenrader. I omr√•det st√•r en tr√§skylt med svartm√•lad text: H√§r l√•g Kryddatorpet \ Under S√∂dra Hoka G√•rd
+Inga byggnader √§r markerade h√§r p√• H√§radsekonomiska kartan 1915-19."Î
+ËBackstuga, 20x5 m (√ñ-V), best√•ende av 2 husgrunder, byggda emot en steng√§rdesg√•rd (√ñ-V) i S. 
+
+En grund √§r 6x3 m (√ñ-V), med 0,6-1 m h och 0,4-0,5 m br kallmurade v√§ggar, i V emot berg. Indelad i tv√• rum, 2x2 m och 3x2 m st, med en 0,5 m br och intill 0,8 m h mellanv√§gg. I det √ñ rummet √§r en eventuell eldstadsrest i S delen.
+
+Den andra grunden, 5 m √ñ om den f√∂rsta, √§r 7x4 m (√ñ-V) med 0,5 m br och, inifr√•n, 1-1,3 m h kallmurade v√§ggar. Indelad i tv√• rum, 4x3 m st (N-S). I √ñ rummets SV h√∂rn √§r en spismursrest, 2x1,5 m (√ñ-V) och 1,3 m h. √ñppen mot N. Kantas i NV av st√∂rre block.
+
+Enligt Tenland byggdes h√§r ett litet hus 1882, vilket brann ner 1908. D√• byggdes ett nytt hus intill det gamla. F√∂rst bodde h√§r en √§nkeman, f.d. b√•tsman, senare en kvinna med tre barn. Stugan √∂vergavs 1936. I skriften finns bild p√• den mycket enkla stugan."Ï
+È1/Gravf√§lt, 135x85 m (√ñS√ñ-VNV), best√•ende av ca 40 resta stenar.Dessa √§r 0.85-2.5 m h, 0.5-2.25 m br och 0.25-0.5 m tj. Flera avstenarna lutar och 6 av dem √§r kullfallna. De st√∂rsta stenarna√§r i   gravf√§ltets √ñ del.   Inom gravf√§ltet √§r:2/Sk√•lgropsf√∂rekomst i block, 4x1.5 m (N-S) och 1.2 m h,best√•ende av   3 sk√•lgropar, 3-4 cm i diam och 0.5-1 cm dj,bel√§gna p√• blockets   ovansida. P√• blockets √ñ sida finns enavl√•ng f√∂rdjupning, 14x3 cm och   1-1.5 cm dj. (Os√§ker)"Ï
+ÈH√§llristning i naturligt flyttblock 7 m st och intill 2 m h, best√•ende av 1 (5?) sk√•lgrop. P√• den N√ñ sidan av blockets sl√§ta yta, √§r en cirkelformad f√∂rdjupning, bel√§gen ca 0,3 m ovan markytan, n√§rmast rund, 24 cm diam och intill 2 cm dj med en i centrum konvex yta. 2 cm upp mot v√§nster finns en sk√•lgropsliknande f√∂rdjupning, oval, 7x5 cm st och 1 cm dj. Ca 0,8 m upp mot h√∂ger finns en sk√•lgropsliknande f√∂rdjupning, oval, 20x17 cm och 2 cm dj. P√• blockets S del finns 2 sk√•lgropsliknande f√∂rdjupningar, ovala, 5x4 cm och 1-2 cm dj. Framkom vid arkeologisk inventering √•r 2016 (RA√Ñ-2017-5177)."Ì
+ÍF√•ngstgrop, varg, totalt 8,5 m i diam. Gropen √§r 4 m i diam och nu 1,6 m dj. Vallen √§r 2-2,5 m br och 0,4 m h. I botten ligger f√∂rmultnade l√∂v, kvistar, djupet √§r d√§rf√∂r sv√•rbed√∂mt. Vallen √§r n√•gott√§ktskadad i N√ñ kanten."Ô
+ÏTj√§rr√§nna, 14 m l (N-S), 1.5-2 m br och 0.3-0.5 m dj. I N √§r kallmurat br√∂ste, 0.5 m h. Omedelbart N om detta √§r tj√§rgrop, 1.4 m diam och 0.3 m dj.
+5 m VNV om tj√§rr√§nnan √§r:
+Beckgryta, 1.2 m diam och 0.7 m dj, kallmurade sidor."Ô
+ÏTorpl√§mning, ca 50 x 40 m (√ñ-V), best√•ende av 1 boningshusgrund  och 1 ihoprasad f√∂rr√•dsbyggnad. Boningshusgrunden, bel√§gen i omr√•dets NV del, √§r 12 x 6 m (√ñ-V) och intill 0,5 m h, av kallmurade stenar. I den V √§nden √§r ett spismursr√∂se, 3 x 3 m st och 1,4 m h, av kallmurade stenar med inslag av tegel. Omedelbart √ñ om spismursr√∂set √§r en k√§llargrund, 6 x 5 m (√ñ-V) och 0,5 - 1 m dj med 0,5 m tj v√§ggrester av kallmurade stenar. Mitt p√• den √ñ kortsidan √§r en ing√•ng, 1m br. 5 m V om boningshusgrund √§r den sammanrasade f√∂rr√•dsbyggnaden, av tr√§, 3 x 2 m (N-S). Enligt ortsbefolkningen kallades torpet "Fritza lycka" efter den senaste √§garen. Torpet brann ned p√• 1940-talet. Markerat p√• H√§radsekonomiska kartan 1915-19."Ò
+ÓStens√§ttning, rund, 8 m i diam och 0.5 m h. √ñvertorvad med i ytantalrika stenar, 0.2-0.4 m st. I mitten en grop, 3.5 m i diam och0.6   m dj. I gropens √ñS√ñ kant ett block, ca 1 m st och 0.3 m h.Enligt en uppgift av Pehr Johnsson 1908-09 skattgr√§vdesl√§mningen   n√•gra √•r tidigare av en gubbe "√Ölle-svennen".L√§mningen √§r av Pehr   Johnsson upptagen som h√∂g."Ò
+
+Ó
+Grotta med namn, best√•ende av ett, under stora flyttblock, naturligt utrymme, oregelbundet, ca 7 x 3-4 m (N√ñ-SV) och 0,5 - 1,7 m dj. Den N - √ñ insidans begr√§nsning, fr√•n grottans botten upp till blockets undersida, utg√∂rs huvudsakligen av kallmurade stenar, 0,1 - 0,3 m st, delvis avbruten p√• en ca 1 m l str√§cka i √ñ. D√§r √§r rester efter en m√∂jlig eldstad, 0,5 x 0,5 m st och 0,5 m h, av 0,1 - 0,4 m st stenar. Rakt ovanf√∂r, mellan takblockets ytterkant och markytan, √§r en √∂ppning, 0,3 x 0,3 m st, r√∂kh√•l?. I S √§r en ing√•ng, 3 m l (N-S), 1 m br och 1 m h, omg√§rdad av jordblandade stenmurar, 0,5 - 0,7 m br och 1 m h. P√• ett av flyttblocken, N√ñ om ing√•ngen, √§r en informationsskylt uppsatt.
+H√§r skall "Pampa Johannes" ha bott i flera √•r under 1800-talet. Hans egentliga namn var Johannes J√∂nsson, f√∂dd i Asarum 1832. Han utbildade sig till smed och tog d√• namnet Palmqvist. Varf√∂r han bosatte sig h√§r √§r ovisst. Han ska bl a ha livn√§rt sig p√• odling i omr√•det. Det s√§gs att han s√• sm√•ningom √∂vergav grottan och byggde ett enkelt tr√§hus i n√§rheten. Inga l√§mningar efter detta kunde dock iakttagas. N om grottan √§r en f√•lla (se Asarum 487) d√§r Johannes gris ska ha haft sin hemvist. Johannes dog √•r 1879, 47 √•r gammal. Grottan kallas i folkmun f√∂r "Palmqvists grotta" och berget f√∂r "Palmqvistaberget". Flera r√∂jningsr√∂sen finns i omr√•det."Ú
+ÔKvarngrund, ca 4x2,5 m (N-S), best√•ende av kallmurade stenv√§ggar i V, √ñ och N,som mest 0,5 m h. Stenarna √§r 0,4-0,6 m st.
+Delar av kvarngrunden har fallit samman mot √•n. En tjock l√∂vf√∂rna t√§ckte kvarnl√§mningen vid besiktningstillf√§llet, fler konstruktioner kan finnas l√§ngre nedstr√∂ms. I M√∂rrums√•n, precis N om kvarnl√§mningen finns en r√§nna, ca 20 m l. Denna h√∂r troligen till kvarnl√§mningen, m√∂jligen har den dock rensats ytterligare i senare tid. (RA√Ñ dnr 3.4.2-3094-2014)."Ú
+ÔBytomt/g√•rdstomt, ca 100 x 70-110 m (N-S). En av Duveryds tv√• tomter enligt Storskifteskarta √•r 1805. Tomten √§r delvis bebyggd. I omr√•dets NV del √§r 1 boningshusgrund och 1 k√§llargrund.
+Boningshusgrunden √§r 8 x 5 m (NV-S√ñ) och 0,1 - 0,2 m h, av kraftigt √∂vertorvade stenar. I den NV delen √§r ett spismursr√∂se, 2 x 2 m st och 0,5 m h, av √∂vertorvade stenar med inslag av tegel. Ca 30 m V om boningshusgrunden √§r k√§llargrunden, 6 x 5 m (NNV-SS√ñ) och 1 m dj med stensatta kanter av kallmurade stenar. I SS√ñ √§r en ing√•ng, 1 m br. Fler grunder kan finnas. Omr√•det √§r kraftigt igenslyat. Den andra tomten √§r bel√§gen ca 70 M SSV h√§rom (se Asarum 628).
+Duveryd omn√§mns f√∂r f√∂rsta g√•ngen i skriftliga k√§llor i b√∂rjan av 1500-talet: "Dodrydh". I Pr√§strelationerna √•r 1624 beskrivs "D√øer√ø" som en av Asarums sockens 10 sm√• byar, best√•ende av tre g√•rdar."ı
+ÚTorpl√§mning, dagsverkstorp, best√•ende av 1 husgrund, 11x8 m (N-S) och intill 0,8 m h, kallmurad. I V √§r ett spismursr√∂se. I √ñ √§r en k√§llargrop.
+
+F√∂rste torpare 1846-1856: Peter Mathisson Lagg.
+Siste torpare 1870-1895: Peter Gummesson."ı
+ÚBrofundament i form av jordvall 5x3 m stor (N-S) och ca 0,4 m h√∂g. St√§llvis ligger stenar placerade p√• fundamentets sidor. Bro√∂verg√•ng syns i historiskt kartmaterial 1812 och 1824. V√§gen flyttad senast 1855, 40 m √•t sydv√§st. √Ñgarna ber√§ttar om att de sj√§lva sett en bottenstock med urtag i √•n. Det finns ocks√• oklara uppgifter om kvarn/s√•g och br√§nneri i n√§romr√•det. Bottenstocken kunde inte ses vid besiktningstillf√§llet och uppgifterna om verksamhet har inte g√•tt att bel√§gga."ı
+ÚRest av kallmurad husgrund av huggen sten med spisr√∂se i √∂ster. Grunden var f√∂rr h√∂gre och har f√∂rst√∂rts vid v√§gbygget.10 m √∂ster om husgrunden finns grunden till ladug√•rden i V√ñ, kallmurad grund 4,5x16 m, h√∂jd 0,1-1,1 m, h√∂gst i N√ñ. Framf√∂r huset har funnits grindstolpar av sten som nog f√∂rsvann vid v√§gbygget. Den gamla Backarydsv√§gen gick n√•gra meter framf√∂r huset och i samma h√∂jd som grundens nederdel enligt gammalt foto. Den nya v√§gen g√•r betydligt h√∂gre √§n grunden."ˆ
+ÛOmr√•de med skogsbruksl√§mningar, ca 20x15 m (NN√ñ-SSV), best√•ende av 1 tj√§rr√§nna och 1 kallmurad grop.
+Tj√§rr√§nnan √§r 12 m l (NN√ñ-SSV), 3 m br och 0,7 m dj. Flankeras delvis av vallar, 1,5-3 m br och intill 0,4 m h. I N √§nden √§r en uppmurad, b√•gformig br√∂stning i kallmur, 2,5 m br och 0,9 m h. omedelbart NN√ñ om denna √§r en uppsamlingsgrop, 1,5 m st och 0,7 m dj.
+Den kallmurade gropen, bel√§gen 7 m V om uppsamlingsgropen √§r n√§rmast rund, 2 m diam och o,7 m dj med kallmurade sidor."ˆ
+ÛTorpl√§mning, best√•ende av 1 k√§llargrund, 8 x 6 m (√ñ-V) och 0,5 - 1 m h, av kraftigt √∂vertorvade, kallmurade stenar, 0,1 - 0,5 m st. I √ñ √§r en ing√•ng, 1 m br. I SV kanten √§r ett flyttblock, 2 m st och 1,5 m h. K√§llargrunden har med st√∂rsta sannolikhet tillh√∂rt ett torp, bel√§get 10 m N√ñ h√§rom. Inga sp√•r efter detta kunde p√•tr√§ffas men omr√•det har en starkt kulturpr√§glad vegetation. V√§gen mellan Ryedal och Gammalstorp l√∂per (N-S) mellan k√§llargrunden och platsen f√∂r boningshuset.
+Torpet √§r markerat p√• laga skifteskartan √•r 1828, p√• H√§radsekonomiska kartan 1915-19 och p√• Ekonomiska kartan 1972."˜
+Ù1) H√∂g, 18 m diam och 1,7 m h. Bev√§xt med ett 20-tal tallar,flertalet yngre.15 m NV om nr 1 √§r:2) Stens√§ttning, rund, 13 m diam och 0,7 m h. √ñvertorvad. Delvisn√•got otydlig begr√§nsning, Sm√•gropig yta. Delvis n√•got otydligbegr√§nsning. Bev√§xt med n√•gra sm√•tallar.Omedelbart √ñN√ñ om nr 2 √§r:3) Stens√§ttning, rund, 9 m diam och 0,3 m h. √ñverotrvad.Tallstubbe."˜
+ÙTorpl√§mning(?), ca 20x20 m (√ñ-V), best√•ende av 1 bostadshusgrund, 1 k√§llargrund och 1 n√•got os√§ker grund.
+
+Bostadshusgrunden √§r 6x5 m (√ñ-V) med en 0,3 m h stenfot. L√§ngs √ñ sidan √§r en spismursrest, 6x2,5 m (N-S) och 0,2-0,8 m h, h√∂gst i N, utanf√∂r grundens N sida.
+K√§llargrunden, bel√§gen 3 m √ñ om husgrunden, har innerm√•tt 4x1,5 m (√ñ-V) med i S sidan delvis synlig kallmurning. Ingr√§vd 0,5-1 m dj in i brant V-sluttning. I V √§r en 0,8 m br √∂ppning.
+Den os√§kra grunden, bel√§gen 5 m S om husgrundens S√ñ h√∂rn, √§r ca 4,5x2,5 m (NN√ñ-SSV) och intill 0,4 m h, stenfylld med stenfot i VNV och SSV. N√•got otydlig begr√§nsning.
+
+1 m S om k√§llargrunden √§r ett sandtag, 5x5 m.
+
+En byggnadsmarkering utsatt p√• storskifteskarta fr√•n 1807."˜
+ÙH√∂g? Rest av? 6 m i diam och nu 0.4 m h. H√∂gen √§r t√§kt avr√∂jningssten, 0.5 - 1.6 m st till en h√∂jd av 1.8 m. P√• kantenv√§xer massor av n√§sslor. P√• √•sryggen b√•de NV och  S√ñ om h√∂gen √§rmins 4 obetydliga f√∂rh√∂jningar, 7 - 10 m i diam och , 0.1 - 0.2m h.  I ytan √§r  flera stenar 0.5 m st p√• den  S√ñ f√∂rh√∂jningen,m√∂jligen rester av stens√§ttningar. Vid stent√§kt har tidigare ettantal urne och skelettgravar p√•tr√§ffats p√• Karsh√∂jebacken. (S.Curman i skrivelse till lantbr M. Olsson, H√•sl√∂ Viby d. 28. 6.33.).  Vid krossning av stenblock  fr√•n kullen p√•tr√§ffades 1933mellan stenblocken ett tiotal urnor, varav  6 st inneh√∂ll br√§ndaben. Dessutom p√•tr√§ffades skelettgravar, vilka inte √∂versteg 3individer. Genom den stent√§kt som skett p√• kullen √§r det os√§kerthuruvida de obetydliga f√∂rh√∂jningarna √§r gravar eller l√§mningarefter sentida verksamhet."˘
+ˆH√∂g, 15 m diam och ca 2 m h. N√•gra enstaka stenar i ytan, 0.1-0.2m st. Avplanad topp med tre gropar, 2-3 m st och 0.3-0.4 m dj.Marken runt h√∂gen har brukats och sjunkit undan varf√∂r h√∂gen gerett betydligt st√∂rre och h√∂gre intryck fr√•n NV."˘
+ˆFartygsl√§mning, troligen ca 20-25x5,5 m. Eventuellt kravellbyggt. Det har t√§tsittande, grova spant och ca 0,35 m h bord samt v√§gare. Spant och bottenplankor av svartek, handsmidda naglar, spikar, glasbitar och ett 20-tal stora stenar finns fortfarande p√• botten och sticker upp ur sanden. √Ötminstone 3 sarkofager med lock samt flera sarkofagdelar finns kvar vid vraket."˙
+˜Sten, "Klingande stenen", 1.2 m i genomsk√§rning, upplagd p√• jordfast block samt uppallad med sm√§rre stenar. Ytan √§r gropig p.g.a. vittring. Vid slag avger stenen ett klingande ljud. Stenen ligger i fossil √•kermark med spridda r√∂jningsr√∂sen."˙
+˜Gr√§nsm√§rke, best√•ende av 1 flyttblock, 5x3m st (NN√ñ-SSV) och 2,5m h.Gr√§nsm√§rket omn√§mns skriftligt f√∂rsta g√•ngen √•r 1554 och ingick d√•i gr√§nsdragningen mellan Sverige och Danmark. Idag utg√∂r det landskapsgr√§ns mellan Sm√•land och Blekinge. Beskrivningen √§r inte kvalitetss√§krad. Information kan saknas, vara felaktig eller inaktuell. Se √§ven Inventeringsbok."˙
+˜Omr√•de med skogsbruksl√§mningar best√•ende av 1 tj√§rr√§nna och 1 beckgryta.
+Tj√§rr√§nna, 15 m l (NV-S√ñ), 3 m br och 0,5 m dj, begr√§nsad av √∂vertorvade vallar, 1,5-2,5 m br och intill 0,5 m h. I NV √§r rest av kallmurat br√∂ste, 0,5 m h. 4 m V om br√∂stet √§r tj√§rgrop, 3 m diam och 1,1 m dj.
+Beckgryta, 1 m diam och 0,6 m dj, stensatt. V utsidan √§r kallmurad, 0,5 m h."¸
+˘Torpl√§mning, best√•ende av 1 husgrund, 6,5x4 m (N-S) och intill 0,3 m h, kallmurad. I NV √§r ett spismursr√∂se, intill 0,9 m h, kallmurat.
+
+F√∂rste torpare. Anders Svensson Sundin, f. 1850, d. 1926.
+Siste torpare: Selma Serafia Pettersson, f. 1877."¸
+˘G√•rdstomt, ca  80 x 30 m (√ñN√ñ-VSV), best√•ende av 1 boningshusgrund och 1 kvarst√•ende ekonomibyggnad.
+Boningshusgrunden √§r 10 x 9 m (N√ñ-SV) och intill 0,3 m h, best√•ende av en syllstensrad, 0,3 - 0,5 m br och 0,1 - 0,3 m h, av kallmurade stenar. I NV saknas syllstensraden. I det N h√∂rnet √§r ett spismursr√∂se, 3 x 2 m (NV-S√ñ) och 1 m h, av kallmurade stenar och tegelstenar. Omedelbart √ñ om spismursr√∂set √§r en cementerad 0,1 m tj ram, 1 x 1 m st och 0,4 m h, fylld med tegelstenar. Ekonomibyggnaden √§r bel√§gen ca 20 m SV om boningshusgrunden.
+Enligt informationsskylt p√• platsen var beteckningen p√• g√•rden "Asarum 10 Nyedal" och hade √§gor p√• 4,5 ha √•ker. Mang√•rdsbyggnaden uppf√∂rdes 1910 av Martin Lindstr√∂m. 1944 hade man 1 h√§st, 4 kor och 1 ungdjur. Markerad p√• H√§radsekonomiska kartan 1915-19.
+P√• g√•rdens √§gor skall stenyxor och sk√§rvor ha p√•tr√§ffats."˛
+˚Torpl√§mning, best√•ende av 1 husgrund samt fossil √•kermark. Husgrund, 9x7 m (√ñ-V), 0.3-0.5 m h, spismursr√∂se i N kanten. Husgrunden ligger i omr√•de med fossil √•kermark, starkt igenvuxen. Adam Pettersson flyttade hit fr√•n Tings√•s 1848. Skyltad."˛
+˚Backstugel√§mning, best√•ende av 1 husgrund.
+Husgrund, 8x6 m (N-S) och 1,4 m h, kallmurad av tuktad sten. I NV h√∂rnet av grunden √§r spismursr√∂se/ugn, 1,2 m h, kallmurad. 
+Anlagd vid stenmur.
+
+Byggdes i mitten av 1800-talet. Husmannen Mattis Svensson vad den f√∂rste innehavaren. Emil Fransson bodde h√§r till 1955. D√§refter har brandk√•ren √∂vning i huset och eldade upp det."ˇ
+¸Backstugel√§mning, ca 20x10 m (√ñ-V), best√•ende av 1 boningshusgrund och 1 ekonomibyggnadsgrund. 
+Boningshusgrunden √§r 5x4 m (N√ñ-SV), med kallmurade v√§ggar, intill 1,1 m h. Ing√•ng i S. Spisr√∂se i N. 
+Ekonomibyggnadsgrunden √§r 7x4 m (N√ñ-SV), med kallmurade v√§ggar, intill 2 m h. Ingr√§vd i backen i S delen. 
+Detta skall enligt uppgiftsl√§mnare vara det √§ldsta Sj√∂dalen."ˇ
+¸R√∂se, 19 m diam, 2,5 m h. Stenarna √§r 0,3-0,8 m st. I N delvis synlig kantkedja av 0,3-0,7 m st stenar, n√•gra kantst√§llda. I centrum √§r tv√• gropar 2-3 m st, 0,7-1,2 m dj.
+R√∂set ligger p√• en utsiktspunkt inom Brunnsomr√•det och fornl√§mningen ben√§mns sedan Brunnsepoken "V√§stra kumlet". Till platsen leder anlagd promenadv√§g.
+F√∂r √§ldre beskrivning se scannat dokument."ˇ
+¸Omr√•de, 20x15 m (N√ñ-SV), best√•ende av 1 kaserngrund och 1 k√§llargrund. Kasern f√∂r stenhuggare i b√∂rjan av 1900-talet till 1930-talet, kallad Kappeskasernen, enligt bybo. 
+Kaserngrunden √§r 9x5-6 m (NN√ñ-SSV), med 0,5 m br och 0,3-0,5 m h stenfot av grovt stenmaterial, indelad i tre rum, avdelade av 0,5 m br och 0,5 m h stensyll. I √ñS√ñ l√•ngsidan, och 1 m utanf√∂r denna, √§r en eldpall, 4x3 m (NN√ñ-SSV) och 0.6 m h. Ett par nedfallna tr√§d ligger √∂ver grunden.  
+K√§llargrunden, 8 m √ñN√ñ d√§rom, √§r 6x5 m (√ñ-V), ingr√§vd i SV-sluttning, med 0,5-1,5 m h, kallmurade v√§ggar, h√∂gst i √ñ gaveln. I V √§r en 1 m br √∂ppning."Ä
+˝Torpl√§mning, 20x10 m (N-S), best√•ende av 2 husgrunder.
+
+Husgrund, 8x6 m (NV-S√ñ), ingr√§vd i backsl√§nt, intill 1,5 m h kallmur. I NV delen √§r spismursr√∂se.
+4 m S om √§r: 
+Husgrund, 7x4 m (√ñ-V), delvis ingr√§vd i backsl√§nt, intill 1,5 m h kallmur."Å
+˛Torpl√§mning, best√•ende av husgrund, 6x6 m (N-S), kallmurad, intill 0,3 m h. K√§llare, 0,7 m dj. Spismursr√∂se i N√ñ h√∂rnet. 
+1 m NN√ñ h√§rom √§r husgrund, 3,5x2,5 m (N-S), syllstenar, intill 0,3 m h. 
+
+Anders Israelsson med barn kom till platsen 1839."Å
+˛Tj√§rframst√§llningsplats, 16x3,5 m (NV-S√ñ), best√•ende av en tj√§rr√§nna och en avrinnings- och uppsamlingsgrop.Tj√§rr√§nnan √§r 10 m l (NV-S√ñ), 3,5 m br och 0,6 m dj. R√§nnan omgesav vallar, 2-3 m br och 0,2-0,4 m h. I S√ñ √§r en kallmurad kant, 3m l, 0,3 m br och 0,6 m h, med ett avtappningsh√•l. Uppsamlingsgropen √§r 6x2 m (NV-S√ñ) och 1 m dj. Anl√§ggningen √§r v√§lbevarad."Å
+˛F√•ngstanl√§ggning, fast fiske, Ekebergs laxfiske, knappt synlig ovan vattnet, best√•ende av st√∂rre block som syns ovan vattenytan, varv ett tycks markera slutet. Blocken omkring metern stora. Av str√∂mmarna att d√∂ma tycks det finnas kvar en stenstr√§ng under vattnet som blocken ing√•r i. P√• den V sidan finns ett kvadratiskt betong- och grusfundament, ca 3x2,5 m st (√ñ-V) och ca 0,6 m tj, vilket √§r ett sentida f√§ste till det fasta fisket. Finns markerad i karta fr√•n 1817. (Ra√§ dnr: 3.4.2-2730-2016)"Ç
+ˇTorpl√§mning, best√•ende av 2 husgrunder samt fossil √•kermark med ett antal odlingsr√∂sen.
+1) Husgrund, 7x7 m (√ñ-V) och intill 1.5 m h. Jordfast block utg√∂r en del av grunden. Spisr√∂se i N√ñ raserat. Kallmurad grund.
+6 m N om nr 1 √§r:
+2) Husgrund, 5x4 m, 1.2 m h, kallmurad, ingr√§vd i backsl√§nt. Mellan grunderna √§r kallmurad terrasskant.
+Man som bodde h√§r var stenarbetare."	H·zÆG	@"	è¬ı(\èˆ?"	ÆG·zÆ˚?"	ÏQ∏ÖÎ@" " " " " " " " 	" 
+" " "8# ßØ@˜¯ÌÍ "	é$‘# ∫¥u˜2¯ÌÍ "	¸"Ï# ª˝t˜3¯ÌÍ "	ﬁ2ò ÄÎ`ˆ3"	∞(® Ö•zˆ3"	‘-˙ ä≠nˆ3"	`õ# õ´Vˆ3¯ÌÍ "	Ùí ùÂ^ˆ3"	ê§$ ü¢âˆ3¯ÌÍ "	¿#Æ ¶«8ˆ
+"	e∞: ®¿˘ˆ2"	æ‰* ´úàˆ˛"	å
+Ú# µ◊5ˆ¯ÌÍ "	¢ú, ø˘˜ˆ("	¶'™ √ìjˆ"	òˆ …êGˆ"	⁄-Æ ’èTˆ("	¨™! ‚õyˆ2"	ˆ∞% Û∆ÚˆR"	†¶2 àö<ˆ	"	Ê$ﬁ# ìŸãˆ3¯ıÈ"	J˛ óîoˆ3"	 6¨# ±¿&ˆ¯ÌÍ "	¶≤% ∑Á˙ˆF"	‰ ¸ €Õˆˆ3"	–&ê ‹∂*ˆ
+"	†:§#" éú[ı¯ÌÍ "	%Ú5 ê÷ı"	‚	ö, òÅÜı˛"	¯*§ ôßdı1"	ö¿?# ûôUı¯ÌÍ "	¥“	 •®0ı
+"	∞.à # ©Ücı3¯ÓÎ"	Ë≤ ¨·aı3"	∞‰ ≥ÅÓı("	†9ˆ! ∂ñıı3"	ˆ6Ï æﬁCı"	∏Œ' ≈éÉı˛"	ú:æ ŒÛÔıR"	ÑÑ$ ÿ…Lı"	Ùå ﬂæ˚ı3"	∞Ë# ‰óJı¯ÌÍ "	 <ú ı·\ı"	Ä=¸  ˙íÙıR"	Ä¢% ÄöÛı3"	Ú§# ñõkı¯ÌÍ "	é-ƒ üîSı"	ö	–# ´Ö)ı¯ÌÍ "	ûû ¨†Qı"	Æ)∂ ΩÇrı2"	†Ê&# ¿ÊWı¯ÌÍ "	“
+ «ª#ı
+"	¨$¨ »Äı2"	∫∞ “™$ı"	í	1 ÷ˇbı"	r‰ ›ßçı="	∏∆$# ﬁ¢eı2¯ÌÍ "	Ã˙< ‡©ı"	à3é Êﬂqı3"	ä)‰ È∫¯ı3"	Ã4“ ÇØ/Ù
+"	∏1‚! ÉàfÙ3"	»¿ ÜÔ|Ù3"	àö óüZÙ3"	ú0¬# úÃpÙ3¯ÌÍ "	Æ˛ Ø⁄}Ù3"	Ã‰ ±µˇÙ˛"	ê6∫# ¡ïxÙ3¯ÓÎ"	¶/¯ Àï:Ù	"	˙‚ œ’BÙ"	BÄ9 “ÿ!Ù"	∫∫: ◊√KÙ"	ﬁÊ0 Ÿ‚6Ù
+"	í7ˆ ·€MÙ"	‘&Ù ÁÉÙ"	Í¢ ÓêÙ"	à¢7 ÔÆ'Ù"	‡é( ˜óvÙ3"	Ç7ä ˝¡ÖÙ˛"	Íæ* ÇÃ]Ù"	ÄÄ áåwÙ3"	˛Ñ ö›äÙ="	åÏ †‰åÙ3"	íí ßÕâÙ˛"	¿∂$ ©⁄äÙ˛"	Ü.ä ≥ÊDÙ"	‚‚# ¥ÁIÙ¯ÌÍ "	ê‹ ºÄPÙ"	¥¸+ ¡†mÙ3"	ûê ƒ¬;Ù"	–¥# –ÚlÙ3¯ÓÎ"	   Íç9Ù"	ö5¸ ∞ÙáÛ˛"	®2‰ º®ÒÛR"	ä
+®. —˚3Û3"	⁄ñ! Èã7Û"	Yæ8 ¸¨-Û
+"	ò<ò# éäYÛ3¯ÌÍ "	æ‚ êâHÛ"	ˆ8Ï ò◊iÛ3"	¶) Æ∑˝Ûh"	‡# ∆í3Û3"	Ó/å ◊…{Û3"	0¯ ç„3Ú3"	Ó8¶ í“3Ú3"	∆0Í ≠˛3Ú3"	Æ∞# ¬ù3Ú3¯ÓÎ"	Ã0§ ƒ¸3Ú3"	ú6Ë ›Ï_Ú+"	¸Ù& ‡ºNÚ3"	∏/¬ ˆÈRÚR"	‚Ë! îøÚ"	  ∏ £¡3Ú3"	¿å% ∏∞4Ú4"	ä#¶, „‰3Ú3"	¯,Œ ÁŒ3Ú3"	¿∂& ~‡3Ò3"	¶C æ3Ò3"	ÓÃ! Åµ4Ò4"	ÜAå' Ñè3Ò3"	‰.¬ á±3Ò3"	™Ê# àÆ3Ò3"	¸ â Ò"	Ñ‹.# ã—Ò¯ÌÍ "	˛#˛ å”(Ò("	Ï# è°
+Ò
+¯Ï"	ﬁ®$ ëò,Ò"	‚∂$# ì™3Ò3¯ÌÍ "	Æ=Ë î€3Ò3"	∞ò! ï≈3Ò3"	¸$˛ ñòÇÒ˛"	Ã6û öò>Ò"	ﬁ3† †ò¸ÒR"	ÿî# °‹gÒg¯ÓÎ"	¨ˆ ¢©3Ò3"	û‡# £ü3Ò3¯ÓÎ"	Æ/ä §ûÒ"	Í ‘# ™∫Ò¯ÌÍ "	∆∫& Æ∞3Ò3"	»:‰# ≤Ω3Ò3¯ÌÍ "	™¿ ¥¥gÒg"	Ù¸ ∑≠3Ò3"	ƒ!§# ∏Ì3Ò3¯ÌÍ "	∆¿ π¶3Ò3"	–/ # ªÀ3Ò3¯ÌÍ "	ƒû Ω√RÒR"	˙Ñ,# ¿°Ò¯ÌÍ "	†$‡  ∆£3Ò3"	Ä6ˆ «˜4Ò4"	Ëﬁ# »÷3Ò3"	†‚  ƒ3Ò3"	 &û Ã‹=Ò="	Ñ(™  Õ»3Ò3"	Ç5÷ –≤gÒg"	Í ”ë2Ò2"	Íí## ‘Œ	Ò	¯ÌÍ "	Œ$Ë ÷‚3Ò3"	à#Ó# ⁄‘3Ò3¯ÌÍ "	ê)ä €òÑÒ˛"	Ë-§ ‹ø3Ò3"	ˆË# ﬁû3Ò3¯ÓÎ"	í2å „•3Ò3"	ìÙ Â–3Ò3"	¶<™	 Êù3Ò3"	ÿ® Ë“3Ò3"	ú§# Í±Ò¯ÌÍ "	ÏÃ Î„3Ò3"	æ ‰ # Ïò?Ò¯ÔÌ"	‹¶
+# Ìò3Ò3¯ÔÌ"	Ëî Ó3Ò3"	Ë(Ä # Ò’gÒg¯ÓÎ"	¬æ Úº Ò "	ÿ?Ù  Ù‡3Ò3"	∏∆ ¯πgÒg"	–Ú ˘ò.Ò"	Óö& ˚Ë3Ò3"	¶í ˛ﬂ3Ò3"	∫‡ ˇ¬3Ò3"	ÍÄ( Åﬁ(Ò("	¬%î ÉòOÒ"	Œ*» ÑãgÒg"	ƒ(å Ö›3Ò3"	Ë?Ä
+ ÜÒÒ"	¯-–# è´gÒg¯ÌÍ "	∏§ ëÑsÒ3"	‹4à# í¯3Ò3¯ÌÍ "	í?Ä
+ ïòÌÒ2"	Æ∂ ô=Ò="	⁄‡ õœ3Ò3"	Íæ úÿ3Ò3"	®Ó ùëXÒ3"	˛3ƒ û£3Ò3"	∫˛ °ôAÒA"	ÑÜ(# ¢ñ3Ò3¯ÌÍ "	¿2Ó# §∆3Ò3¯ÌÍ "	≤Ç •ÍÒ"	ﬁ=‘ ¶≤gÒg"	ò‡# ®–(Ò(¯ÌÍ "	î§## ™ƒgÒg¯ÓÎ"	Ó∂# ≠≈3Ò3¯ÌÍ "	Ê$ Ø≥3Ò3"	1Ó ∞§3Ò3"	Í## ≤§3Ò3¯ÙÓ"	†$Ú# µ‘3Ò3¯ÌÍ "	ûÓ$# ∂ˆÒ¯ÌÍ "	⁄!“ π»Ò"	ò.÷ ∫À3Ò3"	Ê⁄ æç"Ò""	™   ø∏Ò"	»;ò ¬«Ò"	l®$ √ì3Ò3"	Í-à# ≈ò%Ò
+¯ÌÍ "	(˙  …Ÿ4Ò4"	˛
+∏5#  ˙Ò¯ÌÍ "	Ê9‚# ÀπgÒg¯ÌÍ "	⁄∫# Ãé3Ò3¯ÌÍ "	î-æ Õ—3Ò3"	ƒ∫ Œ∑3Ò3"	∏>˛	# œ∏FÒF¯ÌÍ "	∞=⁄! —ªÒ"	à#⁄ ” gÒg"	≤Œ ‘¶3Ò3"	Ùê ’Â3Ò3"	†@ñ# ÿË3Ò3¯ÌÍ "	Ü‹# Ÿ”gÒg¯ÌÍ "	ƒú# ⁄≥+Ò+¯ÌÍ "	‹à# ﬂå3Ò3¯ÓÎ"	“‚# ·ı=Ò=¯ÌÍ "	∫  ‚Ω3Ò3"	ò.» ‰áÒ"	Æö Â¨3Ò3"	æ≤# ËòEÒ"	†<∂ Î∂gÒg"	¿Ê
+ Ïœ(Ò("	º"ä
