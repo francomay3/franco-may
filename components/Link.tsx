@@ -1,3 +1,5 @@
+'use client';
+
 import { Anchor, type AnchorProps } from '@mantine/core';
 import NextLink from 'next/link';
 import { ComponentProps } from 'react';
