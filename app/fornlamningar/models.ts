@@ -7,7 +7,7 @@ export const zodPointFeature = z.object({
   properties: z.object({
     description: z.string(),
     label: z.string(),
-    relevance: z.number(),
+    score: z.number(),
     uuid: z.string(),
   }),
 });

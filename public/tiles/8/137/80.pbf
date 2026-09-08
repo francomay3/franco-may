@@ -1,458 +1,560 @@
-��x
-archaeological_sites(� uuiddescriptionlabel	relevanceclass	clusteredpoint_countsqrt_point_countpoint_count_abbreviated"
+�x
+archaeological_sites(� uuidlabelclassdescriptionscore	clusteredpoint_countsqrt_point_countpoint_count_abbreviated"
 2"
-3"
-4"
-5"
-Fyr"
-Hög"
-Kvarn"
-Röse"	
+3"
+Borg"
+Hög"	
 Boplats"	
-Kalkugn"
+Byshög"	
+Kloster"	
+Ormhög"	
+Saxhög"
 
-Vägmärke"
-Runristning"
-Gränsmärke"
-Ishög, Hög"
-Kyrka/kapell"
-Byshög, Hög"
+Borg (2)"
+
+Gillhög"
+
+Hanahög"
+
+Hanehög"
+
+Hålhög"
+
+Hög (2)"
+
+Hög (3)"
+
+Lerbjär"
+
+Lundhög"
+
+Midshög"
+
+Skoghög"
+
+Tagshög"
+
+Tofthög"
+
+Tornhög"
+
+Torshög"
+
+Ulvshög"
+	Bode hög"
+	Bosebjär"
+	Brysshög"
+	Bånghög"
+	Dysjesten"
+	Dyssesten"
+	Fennehög"
+	Flinthög"
+	Glumstorp"
+	Gruddhög"
+	Hallsrör"
+	Horsahög"
+	Hyllehög"
+	Hålahög"
+	Kyrkoruin"
+	Ljunghög"
+	Långhög"
+	Rävshög"
+	Råckhög"
+	Skälhög"
+	Storehög"
+	Svenshög"
+	Trindhög"
+	Ulahögen"
+	Värnhög"
+
+Askebacken"
+
+Beles hög"
+
+Beritsholm"
+
+Disas ting"
+
+Erkes dös"
+
+Lustbacken"
+
+Norre hög"
+
+Oddes hög"
+
+Orhögarna"
+
+Prästhög"
+
+Simonshög"
+
+Skävehög"
+
+Smörshög"
+
+Stendösen"
+
+Tre högar"
+
+Vihögarna"
+
+Vållehög"
+Ales stenar"
+Algots hög"
+Darhögarna"
+Gärdslunda"
+Herrehögen"
+Hällebjär"
+Kloster (2)"
+Kobjershög"
+Krabbe hög"
+Kungshögen"
+Lyckebacken"
+Runristning"
+Rågebacken"
+Sönnerhög"
+Visslebjär"
+Våråsrör"
+Bildristning"
+Brytestuhög"
+Gyllhögarna"
+Hemmingshög"
+Jättagraven"
+Jättegraven"
+Kyrka/kapell"
+Kyrkofästan"
+Minnesmärke"
+Ramms högar"
+Gessie högar"
+Grönhögarna"
 Hällristning"
-Kashög, Hög"
-Lomhög, Hög"
-Salhög, Hög"
-Stensättning"
-Boplatsområde"
-Genahög, Hög"
-Gillhög, Hög"
-Hanehög, Hög"
-Havshög, Hög"
-Kalkhög, Hög"
-Kitthög, Hög"
-Lökhög, Hög"
-Skoghög, Hög"
+Kungshögarna"
+Malttorkehög"
+Mogrevestenen"
+Rövarebacken"
+Skanörs borg"
+Sladderhögen"
+Stensättning"
+Tingshögarna"
+Skåre skansar"
 Stenkammargrav"
-Tornhög, Hög"
-Torshög, Hög"
-Vårhög, Hög"
-Ålshög, Hög"
-Bode hög, Hög"
-Bruabål, Röse"
-Brysshög, Hög"
-Bånghög, Hög"
-Görshög, Hög"
-Hallsrör, Hög"
-Hamnanläggning"
-Harpehög, Hög"
-Kolabacken, Fyr"
-Skallhög, Hög"
-Skälhög, Hög"
-Storehög, Hög"
-Svenshög, Hög"
-Ugglehög, Hög"
-Ulvsbacke, Hög"
-Beles hög, Hög"
-Borrebacke, Hög"
-Hammenhög, Hög"
-Prästhög, Hög"
-Skägghög, Hög"
-Svinhögen, Hög"
-Tre högar, Hög"
-Vihögarna, Hög"
-Algots hög, Hög"
-Darhögarna, Hög"
-Femhögarna, Hög"
-Greveskalle, Hög"
-Lyckebacken, Hög"
-Silvas hög, Hög"
+Stora Mallhög"
+Tiomannahögen"
+Fästning/skans"
+Hanakammabacken"
+Runristning (2)"
+Runristning (3)"
+Skumparpsbacken"
+Begravningsplats"
+Bildristning (2)"
+Kyrka/kapell (2)"
+Slott/herresäte"
+Hällristning (4)"
+Kråkarpekullarna"
+Månstorps gavlar"
+Stenbocks skansar"
+Stenbocksvallarna"
 Stenkrets/stenrad"
-Sönnerhög, Hög"
-Våråsrör, Hög"
-Brytestuhög, Hög"
-Esarpshögen, Hög"
-Munkhögarna, Hög"
-Skrivarehög, Hög"
-Buddahögarna, Hög"
-Grönhögarna, Hög"
-Kungshögarna, Hög"
-Malttorkehög, Hög"
-Plats med tradition"
-Tingshögarna, Hög"
-Tjörneröset, Hög"
-Frillinge hög, Hög"
-Källa med tradition"
-Lilla Mallhög, Hög"
-Lägenhetsbebyggelse"
-Stora Tofthög, Hög"
-Adam och Eva, Kalkugn"
-Fartygs-/båtlämning"
-Kung Gorms hög, Hög"
-Tegelvikshögen, Hög"
-Byastenen, Runristning"
-Kung Hottars hög, Hög"
-Midshög, Stenkammargrav"
-Dysjesten, Stenkammargrav"
-Klackstenen, Gränsmärke"
-Krutbacken, Stensättning"
-Ljunghög, Stenkammargrav"
-Ales stenar, Hällristning"
-Rågebacken, Stensättning"
-Trollasten, Stenkammargrav"
-Grav markerad av sten/block"
-Blårs högar, Stensättning" 
-Döängen, Plats med tradition" 
-Karlingedösen, Stenkammargrav" 
-Klockaredösen, Stenkammargrav" 
-Mångelsten, Stenkrets/stenrad"!
-Kycklingahönan, Stenkammargrav"!
-Vasahuset, Lägenhetsbebyggelse"&
+Stensättning (3)"
+Hallsbjärs stenar"
+Peder Oxes Vinberg"
+Stadsvall/stadsmur"
+Stenkammargrav (2)"
+Begravningsplats (2)"
+Begravningsplats (3)"
+Stenkrets/stenrad (2)"
+Gränsbestämt område"
+Brönnestad gamla kyrktomt"
+Grav markerad av sten/block"!
+Grav markerad av sten/block (2)"&
 $005eabc5-4ae1-4dc4-90af-930a91268ee0"&
-$055600cc-f035-4102-b66b-a89360dc4fdc"&
-$05b08018-f374-4da2-b3db-d6bd105c3ba0"&
-$06ca59e3-31ca-4f56-b28e-1d7afdcd1a8d"&
-$09ec2f29-360d-4d95-8c99-59ccd1074248"&
-$0b712703-4188-4470-8fbf-bdbdca80210b"&
+$02633f9f-f841-435d-b626-6c7f96f54a43"&
+$046c01f3-ec0d-4be3-95cd-1765d70dfb2e"&
+$04f38d77-1453-4f33-9169-1a9dc84701b2"&
+$092cb94f-315c-4169-b946-5a1aa4043261"&
+$09687932-276a-4f53-b250-8d1a73f5af2a"&
+$0c16223e-8859-491d-916e-9b1052d6b516"&
+$0c35aa19-7191-4ca3-b7c1-fc5066c5688f"&
+$0ca25727-88d8-42f7-aa4c-8f10261c0441"&
+$0d16168d-b73c-4b53-b372-64d8122f107a"&
+$102c4e86-8718-4621-ae56-0258ddb70cf9"&
+$105ab19f-3b71-4e34-bd4a-6264475dff5a"&
+$107c6a1b-5e87-43ac-8386-4bc185d05080"&
 $1108ab8f-1a31-4ea8-9b00-05a7ec091300"&
-$121702c1-7a54-45c0-940c-d3c5a51d87fa"&
-$13ecb6b6-ce2a-4cc0-92f9-a4a516c83e80"&
+$1325f48a-807e-4b39-9bca-9dc9ae3878f8"&
+$13cb7d4b-f948-4d47-a4e6-537720c673a8"&
 $1446b4dc-2ace-45c2-98dc-ce494bd17bf3"&
-$180b4ad0-66fd-42b3-b8c3-3ee808173b12"&
-$190186ed-b098-46b6-a3a9-4fe66a9481df"&
-$1bbcd65f-ac14-4e2e-a229-bed6b759d3e7"&
+$149fae6e-726c-485f-ad87-89ddf865f7fb"&
+$16773182-9351-4a17-bfaf-b847f601d6ab"&
+$16b1a535-22d9-4825-98a7-d9dc551214cf"&
+$184ffe06-c442-43c4-a0e4-91a82e6d640e"&
+$1d3cd4f9-df58-467d-bc3e-d05357bbbb7d"&
+$1f3c1465-d3e8-4368-8cb8-d12d4cb41a40"&
+$1fdb2174-c98d-4284-a475-7ef106a0c36d"&
+$20827449-1b89-4141-99aa-3c7e4b56bd37"&
+$2269301d-cc30-4250-ab57-9c8ffc3cd927"&
+$268d3a3d-7242-4824-b026-b840ea76928a"&
+$2726f776-2b87-4b8d-8f79-b9c80df56c27"&
+$27335cb5-9272-4096-828e-89fd2fbd1870"&
+$28c9af6e-ad6f-4a80-9b79-adc78740ae1c"&
+$28dc37d8-ccaa-444a-8e39-3ecb3f9f8a97"&
 $29327e1e-2bbb-436b-839d-2b8cefd8e932"&
-$2a758d3a-5cdb-4941-94fc-6121fe0482b7"&
-$33e10255-6246-4783-862d-6290fd2368a3"&
+$2a255f53-c9ad-4294-8d04-4a629f713673"&
+$2b9d44e2-5534-4b4f-8dd0-875d03bdb92d"&
+$2bf8d9fd-0aaa-4f81-921c-30aa6421298e"&
+$2d4c3c00-c737-437a-bff5-65d36871e637"&
+$2d9627a6-e463-485f-a481-26aceefe4efa"&
+$301c6e08-7d6f-47cf-a56c-21aad51071f1"&
+$31d811dc-9ab0-46f5-b3c2-c0adc5f371cf"&
+$322fae77-8f80-4ce2-840f-bd560747e879"&
+$3416b2d8-ed7b-40de-8824-d875ace9209c"&
+$34aa1c07-858c-47b1-92d6-001e29ff2e0a"&
+$35cbea12-42a8-4ecd-a585-93a4b6219d0d"&
 $36ff9fc6-10d1-4755-81c6-7e6453db8db1"&
+$370ff57a-530f-4f37-a205-1c64a632a80a"&
+$37b37a3e-f3c2-4f64-a982-b5cb648f30ee"&
+$38990f07-3666-418a-ba00-32f15bbafcb6"&
 $390571d4-ec77-423d-aa58-002a6017d8e7"&
-$39620fa9-3bb1-4248-8c05-04d023ed32ff"&
 $39a3da45-b697-4359-89de-685c4eed473b"&
-$3bf99e42-29ab-44da-be20-e8c04973eef5"&
-$3eb18c05-6a12-4725-a473-6ba941761d49"&
-$3f3a1c8f-6d45-4502-b51c-45d0722024f1"&
+$3b5b3b3e-4c81-4cd0-8ec3-4d20c2c86dd3"&
+$3dd8bf9d-2efe-4bbe-83f9-d42cb644a0f3"&
+$3f0cb0f6-bbd2-4f24-96dc-a666465cbd00"&
 $3fc25c1b-5fb5-4bdd-a719-b6853d10872e"&
-$41f4704c-8790-483d-936a-86ca47d06f22"&
+$400cc978-ccca-4e58-9c25-9fd386020f6a"&
+$403d21d2-7263-4795-88e8-fc9b9dd13eb6"&
+$41a6fcc1-f538-4fa6-9d0e-1333c505d607"&
+$41ed5edf-20ec-4d95-ac57-553ff3893800"&
+$42bb4317-c1d0-4103-a573-fb90d5de3c09"&
+$4389d384-754c-419e-9655-d2deee2b4329"&
 $447260fc-4a4f-4659-ade7-46d9bbcf24ed"&
-$4733acb7-6e32-4a3e-86ae-4ad18aa511b9"&
-$4b2bfa8c-2893-4468-bacc-ffe7e95b7d64"&
+$4aeceac8-fab8-475e-b584-8af148ba82f4"&
+$4b428277-4f40-4b90-9f26-c0015a7ea61a"&
 $4bd21df5-4adf-4011-9de8-8d88351fa549"&
-$4e12118f-914d-4518-9d51-7a718e76b139"&
-$4e21323a-4176-4386-a54b-bc771fa8268f"&
-$4ec79d71-9cb6-4e0f-ad8e-ce1c5630278e"&
-$505049fa-ca4c-42b6-aeb8-e15509e731bf"&
-$51650959-eec8-46d1-8725-cc250c3002a2"&
-$51801fb0-85e5-48d6-898f-b9c180cdc0c5"&
+$4caac6da-949d-49f9-a0b0-2f5e5edb8a7d"&
+$557ece4c-2034-4796-8ab3-f6bf9294b2d9"&
+$558c4546-d491-4f90-9b99-59c340977393"&
+$55b50b74-23bf-45fe-a3c2-c863b817e9bb"&
 $56d6bf16-53c3-4c8d-9aca-90fec0fbcb22"&
-$57d7e35f-7a2a-49c5-aff2-84b875b40073"&
+$58c41c53-3396-4853-ba3e-55fc20db45f1"&
 $593a6b71-49fd-4bb3-b9a3-868d24ec6080"&
 $596f1230-26cf-47e1-85c3-5c60527f6183"&
-$5a53b818-74b9-4884-9ae1-783ba46895db"&
-$5cf119bc-01aa-4251-acc0-72ebc6165e7b"&
-$6242a589-ad1e-49de-a81c-5a8d2e351edd"&
-$657158df-099e-4bee-8923-c0486f106b00"&
-$665687cc-267a-419d-8107-ee7f36b5c592"&
+$5acef761-d875-475e-ba08-95682eb728fa"&
+$5c5429a4-7440-4165-8dae-93e3a8182a09"&
+$5fd47e37-ef50-4fc1-96a4-7e63a43116b9"&
+$604e4086-74a3-48f5-8a09-5a0939e33463"&
+$63e4b945-4b70-4a0d-8c8d-5fa7e33fba5f"&
+$64417c81-6c66-443d-846f-2112b9fa2aa7"&
+$66176f49-396c-4925-9f1b-df5aabc6bd73"&
+$68298eb0-49f0-4a19-b870-a95c3256dfc6"&
+$690c72a2-8777-4642-85e2-4d8e0bc6f905"&
+$6c535fbd-3b2d-4a3d-86ea-e1629cca19fb"&
 $6ce07f3b-35ab-414f-beb6-eeab3d6cede7"&
-$6cfed7ba-a599-4a12-8101-a174c29ae5ba"&
-$6f88ef35-c4be-4477-abab-cbe8da9b32bf"&
-$6fd09857-998e-46f0-b59b-ee125f2b65ea"&
+$6f381274-bf55-4c9a-a4e6-881f79f61336"&
+$6fcb220b-4956-40bb-af05-150724d96bff"&
+$709df645-2bdd-437d-b182-e9d09b800f95"&
 $72c627c7-67c8-47c0-90c0-c9c5ac74b1c1"&
 $72dcb22d-95ea-451c-9cf4-c886db5d2684"&
-$76c09958-35c3-40c3-a1e3-493767c0247e"&
-$775b0611-dfc4-4713-917d-cb7f4b735b4f"&
-$787c73e0-cc87-43af-8d8a-96b636618d5a"&
-$7947f486-992c-46d5-a37d-a5e25ef74e58"&
-$7bd97a22-2a42-4687-a94e-368d2c0312e2"&
-$7c4b595d-269a-47ee-8c72-edeb1b5bcefb"&
-$7d594c2c-0796-431d-9087-edd47aa4b5b5"&
-$7db98e4b-f5f2-4cdc-b95f-afaa35990baf"&
-$7e0e685a-96a0-479d-b8e0-2e1ba6a65f64"&
-$86426c69-d537-4eb6-b717-c3490ebeeb24"&
-$8681453a-b679-46db-96c8-425a975e8578"&
-$87027e2d-f010-473b-88a4-069fc31a5f0b"&
-$8a86f1ef-d12d-4ae4-8443-d866ae42adc4"&
-$8dfc89be-67a6-4581-8798-a6cb1cc2a794"&
-$8e80467e-8d29-44b8-b9fe-342a347b6c76"&
-$8fd1b954-556b-445e-90a6-affa37ef130e"&
-$90a3760c-9636-420c-a338-796ab629540e"&
-$95b5157b-ef62-49e9-9532-69e0b19b33be"&
-$96065565-f2be-45ac-8f74-ecab83ffc564"&
+$73516d1a-4ea9-49be-a736-b1a701f7e366"&
+$73ab1c96-c521-428a-8090-d5e2b4e1c6c8"&
+$746a8bea-ab33-40c6-84a7-3fe384293cc6"&
+$760d5eb4-01c2-4fc1-91aa-42351bca07d0"&
+$779f3cca-7fc1-4db4-9505-8c8e0341f91b"&
+$7840e52b-f150-4f59-ab91-93b9de5c6e15"&
+$794c8d41-a7c5-4875-b5b8-278e82f41276"&
+$79ae21c4-ef20-4e89-acec-ba0577e024b6"&
+$7abcad45-8024-4175-8319-53bd41225336"&
+$7c1f0a08-c2fa-4353-93cf-210532a9d1ac"&
+$883cb7e5-09c1-4024-8043-b3d5db180ead"&
+$8a396b16-0ecf-49e9-beb5-2321a743eb25"&
+$90e143e0-3d19-422c-8a78-7084664d6439"&
+$9289c441-8f6a-4073-ad8b-2a685911311c"&
+$95eaaaff-7882-43f8-af70-ff7f92028d17"&
+$9637de0b-cf94-468f-83f9-03c051f66033"&
 $96dd4e7e-79f1-48e2-8b17-e8d9ac6b607a"&
-$974a3a63-33e3-46c7-b7f6-01e3a9c3f93c"&
-$9a7e549b-0ee7-4a0d-8459-01c1eefc9585"&
-$9dcca64b-1b35-497a-a19a-f38b7dc61b62"&
-$9dd017e2-359b-4a1f-a848-6e80bc8a0b95"&
-$9f0c961a-c64d-4333-aa6d-e6ed63564dbe"&
-$9fd446a2-57d8-488b-a5d5-d836c2514042"&
-$Jungfrukällan, Källa med tradition"&
-$a0737c6d-7430-40b1-92d1-3ba55eb519f2"&
+$9709efc7-2e1d-439f-9163-c57ecb62ed20"&
+$9717e62a-5eea-4950-8071-b02ec5ad2520"&
+$97ea06ca-20b7-48c2-ad7e-eb70fb4f0a32"&
+$9910ad18-e0ec-4a23-aba6-ecc11651d42c"&
+$9c33739f-caa8-4280-b2c2-035f25cb369b"&
+$9e737430-9ada-4b2a-af67-d027b2ad0e22"&
+$9ea50675-3c6f-4992-940b-11c296255ada"&
+$a197d086-1587-48c9-a221-9e7002e141f2"&
 $a2aadc98-68ec-4ebe-80fc-23b10e487a21"&
-$a800443e-4fa1-49e4-ad86-235248d6aef5"&
-$a817c730-2936-47ab-95a3-e91becec2802"&
-$abe1eb7a-8fbe-4715-ae6e-1c50d52eff46"&
-$afdd67cf-d83c-49f2-8239-c4a9ebe29cfe"&
+$a60286a6-7e7f-415d-897d-6d2afca726cf"&
+$a8a2bc27-f849-42df-bc81-920099319e8c"&
+$aaa8d09b-ce81-4cc4-84fa-a5d416e14722"&
+$ab495d61-300c-4446-b05f-9d17c068615e"&
+$ab7ddda3-2a33-4b17-8848-1d56c4b5a4b2"&
+$ab9860ea-2b5e-4e10-99ba-fae4e62d7f44"&
+$ad079d79-be3e-4cca-b191-4e0a821c2916"&
 $b14269cd-8dce-4905-a9fb-efc4f14ade52"&
 $b189feb5-7d92-4d7f-94d1-91788f407fff"&
-$b1f66a33-4a17-4231-a56a-658e65b62198"&
-$b2aef55e-ae94-470b-9dcb-bfb9e3771f8d"&
+$b205ac21-dda4-4841-962c-69696b8e5676"&
 $b2bcdb52-cb0d-4227-b372-7bbaaad1e796"&
-$b2f4e90d-0aa5-4093-a01b-1905e9c2b835"&
+$b398448a-4221-4fc7-a1e8-c4b058a33933"&
+$b65ebfdd-60bf-4f96-b31f-1cd325a64299"&
+$b6929c6b-24d0-45a7-8ebf-af1b753b7d14"&
 $b7e72947-bd37-4d2f-b56c-4168f083bdb0"&
-$b9111fdd-5976-4cfa-a50f-6a16830e3b4c"&
-$bdf471cb-17ee-47c1-9b19-03934bb142ae"&
+$b800c003-c458-46c5-aafe-ff56f968ea69"&
+$baf43556-09e4-480f-9fbf-ab65d1e9ce9c"&
+$bb6c75a9-2a9c-4fe2-9d10-4a5205b03b8a"&
+$bc2025b1-3692-4c03-bd76-f893538930fb"&
+$bcafe35a-7d2a-496a-b59f-6f358f6579ce"&
+$bd352286-4165-4405-a839-c29f2400b0f4"&
+$be7d4c1d-3ad8-450a-90be-a6154f086cab"&
+$be90719d-a274-45f0-b982-d4444564026b"&
+$bee0fa71-55fe-4e90-b343-534f04093bd5"&
 $bfc43c4f-151f-41a7-9e54-0ae7f4b31128"&
-$c68672b1-11b7-4384-ba12-36809edeac0f"&
+$c03f0f49-e946-47c6-8b33-ff8bc0304c59"&
+$c0585b38-273f-4bab-a074-4fa07294947a"&
+$c1fb476a-eff2-4ed6-9b3e-904e3ece25d0"&
+$c641ecca-440c-400e-904d-4257ea699bae"&
 $c7a5a1ad-cc9a-4e3e-80a0-27c0334ca6d4"&
-$c9bc2340-be2a-422a-86a1-72bbf133672a"&
-$cfe3d3a8-b2af-4920-a866-960291999931"&
-$d07eb101-a5a1-4a16-8ff1-b0100370fe4c"&
-$d0963804-b3a6-4e96-ab52-fa42dd58a361"&
+$c96f1af0-030f-4c16-81da-bac7e4916d84"&
+$cd13741e-7eae-4b3f-9d5a-867ee08bb76e"&
+$d333c29a-a3f7-4e19-9b04-3798b7d89675"&
+$d33a0cd1-25d6-449a-a05b-6f9403de4cdc"&
 $d33a26af-8954-47bf-9173-46612e7a7bb9"&
-$d458acff-af4e-47d0-984e-04b73ad2efba"&
+$d4bdf5f3-7ca1-4663-a120-e9195ae0fdd3"&
 $d552f7fb-1c9c-469d-bdc4-df959b8e443c"&
-$d63e10de-6d2f-4c3f-b61f-196756dd20b3"&
-$d67ff127-c482-409e-9dbb-eaa215827dfc"&
-$d9817aa4-4308-4278-ab2b-5081d1cfb9c3"&
-$dc0846e0-4259-4f0b-a43f-05548f0dc7c4"&
-$dc225efb-6cb4-4648-a484-39ca379193b0"&
-$dcc0f048-85c8-4b27-9e44-823ca180d652"&
-$dd06f311-ac3d-4877-aa96-70b1db0ae2f6"&
+$d5ae3d0b-28c7-44f8-a6a4-ef7315d2acab"&
+$d62470be-7d67-4ff4-83b2-43351170170c"&
+$d66568e3-eafd-4ab6-b53a-763b97c989ec"&
+$dcb0f4dc-b6f0-4b63-bf95-b1e7b59d186c"&
 $dd431ec3-1892-4e84-9dbe-140353978a8e"&
-$e4684631-c1ae-4418-a7bc-7ce1a15741f6"&
-$e549d539-0b41-4606-81a8-be302f5e7296"&
+$dd4d951f-5614-4743-b672-97e1d5105afe"&
+$e075d043-57bb-4802-b3cd-95b7eb41fd8f"&
+$e5c271a4-8fe4-40e5-99bb-92fb85eabddb"&
 $e5d17ace-7bf3-44a3-8867-1ec3b2578737"&
-$e771b430-a7c2-48e6-9af8-3c32de7a496e"&
-$eb05f1aa-86ce-46f7-aeaa-d49b23857085"&
-$edddcf88-f602-4bc9-be93-969e534dfb1a"&
-$f01c4265-570f-46dc-9d68-d29fdf8063f3"&
+$e8e5eb68-64e3-43f8-80b7-8ea5ee9f5596"&
+$e9bebbc4-46b4-4a43-ab6c-18ea7f86f5ca"&
+$ec8b1a2b-541a-48f5-90a2-2ddf15b13898"&
+$ed2a6705-2c0a-4d6b-be9e-566c6fd22683"&
+$ed2dd006-ce66-4b3f-a2fe-9c3765e06dda"&
+$ed9e955c-7a5f-40a5-8c73-fab07a150aed"&
+$ef92b0ed-ee83-455f-97c2-06d1b33e2548"&
+$f0c6a707-d7eb-444f-81af-2efbf4f5bab1"&
 $f181be1a-7949-4443-8b69-e5ee928ce113"&
-$f1f335fb-3a3e-4470-b40f-495240f59ac7"&
-$f27982ee-3bc2-4682-b96a-0754b30c19a1"&
-$f3080263-0b4d-4cc2-b725-dbbef01dbccf"&
-$f45d6497-49ab-4267-8c27-618e67b8c097"&
-$f5ea78ff-9e8f-4430-914e-447d835af369"&
+$f1843096-d1da-4543-b487-b8c999c73372"&
+$f2090da7-257e-4d0c-a0f2-133af665d42f"&
+$f419293a-6b9f-497e-bc59-dcd9c1f2210b"&
 $f673ebb0-bf37-4bf6-b7f5-414943e6eb62"&
-$f7d836cd-76dd-4ad2-acc8-59db22817fdc"&
-$f8916570-7138-4cd3-85bd-e5edbc3e6a81"&
-$f9b47892-a31f-47bb-8ef8-4f526c2c4c50"&
-$fac61696-dc98-46db-acc3-8b4e3a4dc3a2"&
-$fe9353fb-45b8-4bd5-bfe7-f4b4e6dfa7d9"&
-$fee80d4d-5ff4-4eb3-aeb4-bf5f1528c8e5"&
-$ffa0880b-0963-490b-8d5c-a7d54198ce2b"'
-%Bruasten, Grav markerad av sten/block"(
-&Byastenen, Grav markerad av sten/block"(
-&Högasten, Grav markerad av sten/block"(
-&Käringen, Grav markerad av sten/block"(
-&Oderhallskällan, Källa med tradition")
-'Långe-Per, Grav markerad av sten/block"*
-(Mångelsten, Grav markerad av sten/block"*
-(Stavastenen, Grav markerad av sten/block"+
-)Vintertisslekällan, Källa med tradition"-
-+Broås käring, Grav markerad av sten/block".
-,Sankta Botildas källa, Källa med tradition"8
-6Gränssten, flyttblock, 3x2 m (VNV-ÖSÖ) och 1.3 m h."9
-7Naturföremål/-bildning med bruk, tradition eller namn"G
-ETippelstenen, Naturföremål/-bildning med bruk, tradition eller namn"L
-JGamlegårdstornen, Naturföremål/-bildning med bruk, tradition eller namn"L
-JVitabäckskällan, Naturföremål/-bildning med bruk, tradition eller namn"R
-PHög, rest av, ca 20 m diam och 0.5 m h. Överodlad.Harpehög (eller Karpehög)."Z
-X1) Rest sten av granit, röd, 1.45 m h, 0.9 m br (Ö-V) och 0.8 mtj, uppåt avsmalnande."
-}Hög, 22x18 m (N-S) och 2.5 m h. Skadad av sandtäkt ochdjurgropar.Beväxt med fyra granar, ett tiotal lövträd och buskage."�
-�1) Hög, rest av, 20 m diam och 0.3 m h. Överplöjd.Finns på åkerstycket Lökhögsåsen enligt enskifteskarta Örsjöby,1806."�
-�Hög, ca 17 m i diam och ca 2.5 m h. Ursprungligen plan topp, 3.5m i diam och flacka slänter. I SV delen av toppen och slänten ären grop, ca 5x3 m (NÖ-SV) och ca 0.6 m dj. Kraftigt skadad runtom vid plöjning så att en brant kant uppstått, 0.70-0.90 m h.Den ngt oregelbundna formen kan bero på att högen fungerat somstenupplag. Beväxt med 5 större och några mindre buskage."�
-�Hög, rest av, nu överplöjd, ca 20 m diam och 1 m h. Enstaka 0.2 mst stenar i ytan.Området precis intill kallas Banhögsåkrar på en karta från 1747över Snårestads by.I Prästrelationerna 1691 omnämnes tre högar i Norre Vång,däribland "Bahögh" med följande kommentar: Läsningen osäker, dåBa- slutar raden och kanten möjligen är något skadad. Kan ev.stå Ba...högh."�
-�Stenblock, gråsten, 1.5x1.2 m (Ö-V) och 0.55 m h. Närmast flatovansida. Stenblocket vilar på ett flertal stenar 0.1-0.3 m st.Beläget i en trekantig mittrefug, 7x8x8 m, täckt med singel ochbegränsad av huggen gatsten. Stenen är förmodligen hitflyttad,men meningarna är delade om detta. Varje år kalades förrbystämman till Mårtensgille av åldermannen från byastenen.Stenen skall även vrida sig då den "luktar" nygräddat bröd.Uppgiftslämnare: Hulda Truedsson, ca 70 år, St Isie, Klagstorp mfl."�
-�1) Plats med tradition, begravningsplats, kallat "Döängen", iform av ett stenröse 7 m diam och 1 m h.Bevuxen med fläderbuske."�
-�Stensättning  ursprungligen rund ca 10 m diam och 0.5 m h.Kraftigt skadad av nu avstår endast oregelbundna resterhuvudsakligen från mitten och åt N-NV. Över mossad fyllning av0.2-0.5 m st stenar.Kraftigt täktskadad. Vid kanterna påförd röjningssten."�
-�Rest sten, granit, 2,35 m h, 1.,5 m br vid basen (ÖSÖ-VNV), uppåt svagt avsmalnande, och 0,45 m tj. Stenen sprängdes 1950 i ett stort antal bitar men blev samma år hopfogad med cement och uppsatt på sin ursprungliga plats. I närheten av stenen påträffade en bonde från Lilla Råby år 1713 ett stenmonument, 6x2,4 m och 1,2 m dj. Under detta hittades ien brandgrop 1 flintdolk."�
-�Dös, runddös i hög, rest av. Högen är 6x4,5 m st (NV-SÖ) och 0,4 m h. Runt kanten i Ö-SÖ-S, är 5 resta eller kantställda stenar, 0,3-0,75 m h och 0,7-1 m st. Tre stenar är avslagna. Kammaren, belägen i V delen, består av 1 sidohäll och 1 takblock. Sidohällen är 2,4 m l (NNÖ-SSV), 0,9 m br och 1,3 m h, med flat sida mot VNV (kammarens insida). Intill och VSV om sidohällen finns takblocket, 1,9 m l (NNÖ-SSV), 1,6 m br och 1 m tj. 
-
-Beväxt med 1 ask, 2 björkar, 4 lönnar och 1 körsbärsträd."�
-�Stensättning (?), närmast rund, 7 m i diam och 0.4 m h. Delvisövertorvad fyllning av 0.2-0.5 m st stenar. I Ö kanten en0.7x0.6 m st och 0.5 m h sten. Fyllningsmaterial delvis utrasadi sluttningen kring stensättningen. Beväxt med en björk och ungarönnar."�
-�1) Hög, rest av, nu överplöjd, ca 20 m diam och 0.5 m h.Ca 20 m N om 1 är2) Hög?, rest av, nu överplöjd, ca 20 m diam och 0.3 m h."�
-�1) Sten med sentida runristning, granit, 1.3 m h, 1.26 m br och0.22 m tj. Runt om kanten löper inskrift.Översättning av inskriften:Tungom hjalper jag til häst trotur sit.Inne på stenen står:anno MDII:XXIII . Jag lider av intet.2) Ursprunglig plats för sten med sentida runristning. Fannsursprungligen vid bytorget ca 185 m SSV om den nuvarande platsenvarifrån den flyttades på 1700-talet. Stenen begagnades delstill att sitta på dels vid uppstigning till häst. En sk.ridsten.Se skiss i inventeringshandlingarna."�
-�1) Hög, 18x16 m (NV-SÖ) och intill 1.5 m h. I SV en urgrävning3x2 m (NÖ-SV) i NV en urgrävning 5x3 m (NÖ-SV). Svåravgränsad,då terrängen runt högen är söndergrävd.I V delen av nr 1 är:2) Milstolpe, granit, 0.9 m h, 0.45 m br (NV-SÖ) och 0.2 m tj.Avrundat överstycke. På stenens NÖ sida är följande text: ¿ \M.Stenen är fastsatt i ett postamenmt, 0.2-0.3 m h ochursprungligen 2x2 m av 0.3-0.6 m st stenar.Omedelbart SÖ om nr 1 är:3) Hög, rest av, ca 15 m diam och 0.5 m h. Gropig och oklar ibegränsningen. Har varit utsatt för omfattande täktverksamhet.Högen finns tillsammans med nr 1 registrerad på en karta överfäladsmark till Önnerups by 1798-1800. Bruzelius skriver 1878att: I den ena är inrättad en källare och på den andra är enmilstolpe.I området NV om nr 1 är sporadiskt med slagen flinta i rasbrantenned mot strandplanet. En del av flintorna eldpåverkade."�
-�1) Hög, 20 m diam, 1.8-2.5 m h, med plan topp och tämligen flackaslänter. I V delen av toppen syns en del sten (eventuellstenpackning) i ytan, 0.2-0.5 m st. V sidan av högen ärkantskadad vid plöjning.I högen finns många kaninhål och den är bevuxen med buskar ochmindre träd.4 m Ö om nr 1 är:2) Hög, 20 m diam och 2 m h. Plan topp, 5 m diam. Högen ärkantskadad på V sidan. I högen finns många kaninhål och den ävbevuxen med buskar och mindre träd.På N sidan av högarna finns en eventuell märgelgrav."�
-�Hög, 13 m diam och 1.5 m h. Flack profil.Ett kaninhål i högen. Några stenar 0.1 m st under grässvålen.Namnet enligt Sjöstedt 1951:23."�
-�1) Offerkälla, igenfylld, diffus.Talrika 0.2-0.5 m st stenar i markytan. Sannolikt rund, 2-2.5 mdiam, rest av kantring? i NÖ?. Övertorvad."�
-�1) Hög, 8 m diam och 0.6 m h. Ojämn yta med avplanad topp, 5x3.5m (NÖ-SV). I ÖSÖ kanten är 1 sten, 0.1 m h och 0.35 m l.1 m Ö om 1:s Ö kant är:2) Terrasskant, ca 150 m l (NNV-SSÖ), 2.5 m br och 0.5 m h. I Ndelen är i ytan enstaka stenar, 0.2-0.5 m st. I S delen övergårterrasskanten i en jordvall.Från nr 1:s N kant är:3) Jordvall, ca 35 m l (ÖNÖ-VSV), 1-1.5 m br och 0.2-0.3 m h."�
-�1) Hög, rest av, överodlad. Nu synlig på håll som en mycket flackförhöjning, ca 16 m diam och 0.3  m h. V delen inom granbeväxttomtmark.50 m VSV om nr 1:2) Hög, rest av. Överodlad. Nu synlig som en flack förhöjning, ca25 m diam och 0.5 m h.Markägaren uppgav vid 1971 års inventering att flintbitar ochsvartbrända stenar påträffades vid plöjning i högarna. Hanbekräftade  att det funnits två högar och angav var de legat,vilket stämde med platserna för de inprickade högarna. Uppgiftenom deras lägen hade han erhållit för länge sedan av någom ejangiven person. Säkerligen är dessa överodlade högar resterna avLjusahögarne."�
-�Fartygslämning, 9,8x3,2 m. Vraket är ett segelfartyg av ek, med en trolig ursprunglig längd av 12 m. Det är medeltida av allmogeskeppstyp, med rak akterstäv. 13 bordgångar är bevarade på styrbords sida och 6 på babords sida. Förstäven är dold i sanden eller saknas. Skeppet är klent byggt. Det är nitat med romboida brickor och spanten är fästade vid borden med trädymlingar. I skeppet finns stora mängder tegelsten och takpannor. Den översta bordläggningsplankan på babordssidan har måtten 0,225x0,02 m. Det översta bordet på styrbordssidan är betydligt kraftigare, 0,105x0,035 m, och antas vara styrbords reling. Spanten är klena och avståndet mellan dem varierar mellan 0,5 och 0,77 m. Spanten mäter omkring 0,115-0,13x0,055x0,085 m. Akterstäven är rak, något utfallande, intappad i kölen och fäst med en tvärgående dymling. Tätningen mellan stäv och köl antas vara vävt tyg indränkt i tjära. Kölen, av vilken ca 10 m är bevarad, ligger utfallen utanför skeppet parallellt med skrovet på babords sida. Mastspåret utgör troligen en del av kölsvinet. Plankorna i innergarneringen ligger dikt an mot varandra, och bedömdes vara av barrträdstyp. Lasten består av tegelsten och takpannor av munk- och nunnetyp. Midskepps och föröver ligger takpannorna travade i rader från styrbord till babord. I aktern ligger tegelsten, sida vid sida. Ovanpå lasten påträffades även en del av en silltunna.
-
-Analys av veden har visat att båten förmodligen inte var särskilt gammal när den förliste. Dendrokronologiska prover visar att den byggts under 1500-talet, mest sannolikt efter 1541. Tidigaste möjliga fällningsår är 1536."�
-�Offerkälla, ca 60 cm diam och ca 25 cm dj, i grusbotten.Stensatta sidor i N och S. Avrinner i form av bäck mot ÖSÖ. I Vett cementrör. Vid undersökningen gjordes inga föremålsfynd.Starkt övervuxen av nässlor och buskar.Vintertisslekällan/Winterfeslehålan, 1839."�
-�Rest sten (?), gråsten, 0,8 m h, 1,2 m l, 0,7 m br (N-S), 0,5 m tj nedtill och 0,2 m tj upptill. Stenen lutar kraftigt åt SV. Kring stenen ligger 4-5 lösa stenar, 0,3-0,4 m st, vilka troligen har blivit ditlagda från åkern. Stenen är troligen underminerad av kaninhål."�
-�Hög, 20 m diam och 2.5 m h, med välva topp och kraftigt sluttandem h odlingskant. Beväxt med två mindre lövträd och ett 40-talmindre lövbuskar."�
-�1) Hög, 13 m diam och 1,5 m h. I ytan enstaka stubbar. 2) Hög söder om nr 1 är en hög 9 m diam och 1 m h. Den mindre högen är något skadad vid avverkning då man kört över högen. Det är dock ringa påverkan. Stenfattig mark, men stubbar efter avverkning förekommer."�
-�Hög, ca 20 m i diam och 2 m h. Brant S-sida. Runt högen uppslängtåkersten. N-NÖ delen skadad av djurgångar. Beväxt med 100-taletmindre lövträd."�
-�Offerkälla, ca 1 m diam och ca 0.2 m dj. Stensatta kanter avotuktade stenar, 0.2-0.7 m st och täckt av två större stenar somett tak. Öppning i NÖ."�
-�Hög, rest av, 15-20 m diam och 0.7 m h. SV om mitten är en vall(NNV-SSÖ), längs högen, ca 2 m br och intill 0.5 m h. Sannoliktuppkommen genom odling. Överodlad.Högen upptagen på 1769 och 1862 års kartor. På 1767 års kartaöver Flädie benämns högen för Lilla Mallhög."�
-�Hög, 15 m diam och 2.5 m h. I mitten en rest mittsten, tresidigklumpsten med rundad topp, 0.7 m h. Sidorna är 0.45-0.55 m br.Välvd topp. Brant slänt åt V och flack slänt åt Ö. Vid NV kantenär 1 sten, 0.2x0.2 m, rest av kantkedja? Kantskador i V delen.Beväxt med två almar."�
-�Hög, 20 m i diam och 3.6 m h. Välvd topp, långsluttande sidor,ngt brantare mot N. Ö slänten ngt insjunken. Beväxt med enstaka,kraftigt tuktade buskar."�
-�Hög, 17-20 m diam och 2.4 m h. På V sidan enstaka stenar i ytan.I NV och SV antydan till kantkedja, bestående av 2 stenar,0.2-0.3 m h och 0.2-0.4 m l. Ytan delvis täckt av påfördmatjord. Flera kaninhål. Beväxt med fem oxlar, en fläder, enlövträd samt nässlor och hundkäx."�
-�Hög, 13-16 m diam och 2.5 m h. Smågropig yta. Avplanad topp, ca 3m diam. Kantskadad runtom, så att en brant kant 0.1-0.5 m h,uppstått. Beväxt med en ek."�
-�1) Offerträd, ca 2.8 m omkrets i brösthöjd och ca 8 m h. Trädet är en vit hagtorn (Crataegus calycina). Fridlystes 1919. 10 m SSÖ om trädet är en betongstolpe med naturminnesmärke "Naturminne. Fridlyst enl. lag". Tidigare fanns ytterlligare ett offerträd intill ovanstående."�
-�Hög, 12-17 m i diam (Ö-V) och 2-3 m h. I NÖ antydan tillkantkedja, bestående av 2 stenar, 0,4 m h och 0,8 m l. På högenstopp en oval fördjupning, 7x5 m (Ö-V) och 0,3 m dj. Så gott somhela högen täcks av i sen tid påförd matjord. Bevuxen mednässlor, hundkex och björnbär."�
-�Hög, 20 m diam och 1.6-2 m h. Avplanad topp, ca 14 m diam. Högen avdelas på mitten av ett 6 m br och 2 m dj schakt (Ö-V). I ochNÖ om detta finns en mängd röjningssten. Högen är starkt skadad. Kraftigt beväxt med lövträd, granar och några fruktträd. Enligtuppgift skall en väderkvarn tidigare varit placerad på högen.Den nedrevs någon gång på 1940-talet. På karta 1800 kallasområdet Svenshög."�
-�Hög, 18-19 m diam och 2.5-3 m h. Toppen avplanad. I N-V-S är enkantkedja, 0.15-0.7 m h, av 0.4-1.1 m l, glest satta stenar.Kantkedjan har sannolikt anbragts i sen tid. Från NV kantenleder en trappa av klumpstenar upp till kullens topp.Enligt Erik Dahlberg kallas högen Slibe hög (1676). Intilliggandeåkerstycke kallas Sliber läcken (1664).Utan att det kunnat bestyrkas har tingshögen Lerbeckshöjidentifierats med Sliparebackens hög. Förstnämnda hög kallas1390 Laebers hög, 1530 Lybertis hög, S:t Lybers hög och S:tLiborie hög."�
-�Runsten, granit, 2 m h, 1,5 m br vid basen och 0,75 m br (Ö-V) och 0,55 m br. Runorna är 17 cm h. Ristningent är åt N-sidan. Stenen står direkt i marken, med några runor under markytan. Texten lyder i tolkning: "Broder reste denna sten efter sin broder Busa (han var) en mäktig man" (se skiss i inskannade dokument).
-
-1966 tätades vissa sprickor med finkornigt cementbruk, stenen frigjordes från lavar, runorna uppmålades samt restes från sin lutning. Dessutom höjdes den ca 1 m. 1977 målade Runverket upp den och undersökte den."�
-�1) Rest sten, granit, 1.6 m h, 1 m br (ÖNÖ-VSV) och intill 0.7 mtj. Stenen lutar åt SV.Ytterligare en sten skall ha funnits nära denna resta sten, någraalnar därifrån i en stengärdesgård.Ca 6.5 m N om nr 1 har påträffats:2) Härd, ca 0.7 m diam och ca 0.3 m dj med fyllning av ett skiktskörbränd sten, kol och sotbemängd jord. Påträffad vidanläggande av oljecistern, undersökt av Axel Hörlén 1954."�
-�1) Hög, 25 m i diam och 3.3 m h. I toppens mitt är en grop, 7 m idiam och 1.1 m dj. I gropen finns ett trädgårdsbord av sten. Ihögens Ö slänt en sentida terass med nedre kanten stensatt, 10 ml, och den inre kanten stensatt, 6 m l. Stenraden vänder i SÖupp mot toppen. På terassen ligger ett stenblock, 1.40x0.80 m.Högens kant är i ÖSÖ-SV borttagen någon m in i högen ochstensatt intill 0.8 m h. I N slänten är en igenfylld grop, 62.5m (N-S) och idag 0.2 m dj. Beväxt med 10 lövträd. 14 m SSÖ om nr1 och 1 m S om S hörnet av hus är:2) Hög, 23 m i diam och 3.8 m h. Plan topp, 9 m i diam. I Nsläntens övre del är en nergrävning 4x4.5 och 0.8 m dj, somövergår i en stensatt trappa, ca 1.8 m br. Högens N kant ärborttagen någon m in i högen och stensatt, 1.2 m h. V sidan ngtinsjunken nedtill efter igenfyllning av inbyggd stensattträdgårdsgrotta, 2-3 m (Ö-V) och 1.2 m h, med 3 stenar synliga,0.4-0.5 m st. Beväxt med 7 lövträd och 4 buskage. 18 m SSÖ om nr2 är:3) Hög, 4 m h. Plan topp, 9 m i diam. I toppens mitt och mot Sslänten är en grop, 8x6 m och 0.6 m dj. I SÖ är högen skadad vidvägarbete så att en brant kant uppstått, 8 m l och 0.7 m h. 25 mSSÖ om nr 3 är:4) Hög, 27 m i diam och 4.5 m h. Svagt rundad topp, långsluttandeslänter. I NÖ slänten är två ytskador, 4x4 m, 0.6 m dj resp 2x2m, 0.30 m dj. I SÖ slänten är en sentida, halvcirkelformadterassering, 2x3.4 m, kantsatt med stenar. I NNV är en svagsänka från toppen ned till kanten med några synliga stenar,rester av en trappa? I V slänten är en kantskada, 10 m l och 0.8m h. Kantskador runt hela högen. Beväxt med 11 bokar. På toppenav nr 4 är:5) Hällristning? Svagt oval sten, 0.92x0.72 m. På stenensovansida är 1 hel fotsula, 0.24 x0.10 m och 0.35 m dj. Tydligtframträdande stortå och främre trampdyna. Ristningen befinnersig vid stenens kant och kan ha stympats vid skada på stenen.Troligen påbättrad vittring. Enl uppgift från Lennart Svensson,Fjärdingslöv 15:10, har stenen transporterats hit från Börringeav hans farfar. Mellan nr 2 och 3 var:6) Dös?, borttagen. Omkring år 1900 påträffades ett "stenflak"med 103 stenar nära intill varandra under markytan. Fynd blandstenarna: krukskärvor från bronsåldern och på en vitaktig stenfanns sk harpix (Olof Christoffersson 1918)."�
-�Hög, 15 m i diam och 2.5 m h. Ojämn yta. I mitten är en grop, 3 mi diam och 0.5 m dj. I ÖSÖ sluttningen är en sten, 0.8 m l(NÖ-SV) 0.3 m br och 0.1 m h. Genom kringodling har N, V och Skanten fått branta kanter, 0.8-1 m h. Ö har genom äldre odlingfått en brant kant, 1.2 m h. Möjligen är högen ursprungligen 12m i diam och 2 m h. Beväxt med hagtornsbuske och törnebuskarsamt utanför Ö kanten 14 bokar."�
-�Dös(?) rest av, bestående av 1 rest sten, 1,5 m h, 1,4 m br (Ö-V) och nästan 0,75 m tj. Antaligen en av kammarstenarna till en megalitgrav - dös. Åkern invid dösen har marknamnet Dyssie åker, på 1731 års karta över Tågarp, vilket är en trolig förklaring till namnet Dyssestenen."�	
-�	1) Medeltidsanläggning, bestående av en smal, naturlig udde, somenligt 1812-års rekognoceringskarta utgjorde en ö. Uddenslandsida är spärrad av 1 vall, ca 100 m l (NV-SÖ), 2-3 m br ochintill 0.5 m h, bestående av 0.4-1 m st stenar. Stenmaterialetsynes vara starkt utkastat. I N är stenmaterialet i vallensparsamt. En fördjupning, "dike", 2 m br och 0.3 m dj, finns häri anslutning till och V om vallen. 50 m VSV om vallen är en meddenna närmast parallellt liggande platå, ca 50 m l, 25 m br ochintill 1.5 m h, med tämligen branta slänter i N-Ö-S. Hela platånsluttar svagt mot Ö- I V övergår den i en närmast plan yta, ca75x40 m (ÖNÖ-VSV). 1971 var vattenståndet ovanligt lågt iBörringesjön. Då påträffades ett pålverk i anslutning tilluddens S strand, nära uddens V spets. Ett 40-tal ekpålarpåträffades, stickande upp några cm ovan sjöbotten. Pålarnabestod dels av rundvirke, med upp till 50 cm diam, dels avplankliknande stycken med tillspetsade ändar. Pålarna stod med igenomsnitt 6-8 m avstånd, ställvis ordnande parvis med ca 2 mmellanrum.Inom nr 1 är:2) Boplats. Ett stort antal kärnor, skrapor, avfallsmaterial m.m.har hittats på udden."�
-�Hög, 10.5 m diam och 0.6 m h. Flack hög med kantkedja, ca0.05-0.2 m h av 0.15-0.4 m st stenar. Endast delar av kantkedjansynlig. Backen är bevuxen med diverse lövträd och buskar.I den N sluttningen av moränkullen undersökte Folke Hansen enanläggning som bestod av en stenpackning och under denna ennärmast oval stenram. Inga fynd påträffades. Anläggningenåterställdes och övertäcktes efter undersökningen."�
-�1) Hög, delvis undersökt, 10 m diam och ca 1 m h.Undersökt av Marta Strömberg 156.I mittpartiet rester av en skelettgrav (N-S). Inga gravgåvor. ISÖ delen 2 sekundärgravar. Den ena var belägen i en ca 0.5 m ststenpackning som innehöll brända ben, hartstätning samt 1järnkniv. Den andra bestod av ett lerkärl, av bikonisk form,täckt av några stenar. Urnan innehöll brända ben, 1 nål av bronsmed spiralupprullat huvud samt 1 bronspärla av rullad bronstråd.Datering: yngre bronsålder.Högens NV del ej undersökt då markägaren ej gav tillstånd attfälla det träd som växte i detta parti.Ca 20 m SV om nr 1 är:2) Hög, delvis undersökt, 11 m diam och 0.8 m h. 1954 undersöktesdelar av högen av Bengt-Arne Persson (LUHM). Undersökningenberörde endast kantpartier i SÖ och V. Inga gravar anträffades.En rad klumpstenar i SÖ antogs vara rester av en kantkedja.Ca 5 m SÖ om nr 2 är:3) Stensättning (eller flack hög), delvis undersökt, 5 m diam och0.2 m h. Övertorvad. Undersökt av Bengt-Arne Persson 1954.Undersökningen bestod av att 2 st, ca 1 m br, schakt berördehögen. Det ena (NV-SÖ) tangerade högens kant i NV. Det andravinkelrätt mot det första och gick genom anläggningens centralaparti. I mittpartiet påträffades ett område med kol och brändaben samt 3 st fragment av en bronshalsring samt en smältbronsklump. Datering: yngre bronsålder.I jordfyllningen till de 3 undersökta anläggningarna påträffadesdessutom en mängd stenåldersföremål: 1 dolkblad, 2 tvärpilar,nacken till 1 tjocknackig yxa, 13 slipade fragment, 24skivskrapor, 16 spån, 1 bit bärnsten, några bitarstenålderskeramik samt en mängd flintavfall.Ca 5 m SV om nr 1 är en vall, ca 130 m l (SÖ-NV), 2-4 m br och ca0.5 m h. Sannolikt härrörande från odling i sen tid.Mellan nr 1 och nr 2 är en markerad svacka i terrängen(hålvägsliknande), sannolikt naturlig. I NÖ kanten av denna ären äldre terrasserad väg (NV-SÖ)."�
-�Hög, 15 m diam och 2.5 m h, med svagt välvd topp. På högens topp,i dess NÖ del är en stenhäll, 2x2.5 m (N-S). I högens SV del ären grop, 3x5 m (Ö-V) och intill 0.5 m dj.Bevuxen med nyponbuske.Enligt beskrivning 1761, Gundralövs by, benämnes högen "bak" ochligger på åkerstycket "Stora Tofthög". Ö om finns åkerstycket"Lilla Tofthög" och NV om åkerstyckena "Västra och Östra Kalfwahög" och "Kullskrok"."�
-�1) Hög, rest av, ca 18 m diam och 0.4 m h.Ca 15 m NÖ om nr 1 är:2) Hög, rest av, ca 20 m diam och 0.2 m h.Ca 30 m SSÖ om nr 1 är:3) Hög, rest av, ca 20 m diam och 0.2 m h.Omedelbart ÖSÖ om nr 3 är:4) Hög, rest av, ca 20 m diam och 0.2 m h.Ca 15 m SSV om nr 3 är:5) Hög, rest av, ca 25 m diam och 0.5 m h.Ca 30 m SSÖ om nr 5 är:6) Hög, rest av, ca 20 m diam och 0.3 m h.Högarna är helt överodlade.Omgivande åker är på 1766 års karta benämnd Munkehöijsfallet.Möjligen samma som Månghög i Landeboken, beläget i Skeglinges Svång."�
-�Grund efter kvarn. Ca 20x14 meter stor (N-S) (måtten svårbedömda pga kraftig växtlighet). Den består av skärvig sten som är 0,4-0,6 meter stora. Själva grundmuren är som mest 1-1,5 meter hög. Som högst är den i norr där den ansluter till vägbanken. Grunden består av två etage. I grundens norra del i anslutning till vägbanken finns ett  igensatt vattenintag i betong till kvarnbyggnaden (troligen för turbindrift). I grundens södra del finns ett valv i sten där kvarnens utloppskanal finns. En mindre kvarnsten ligger kvar på platsen."�
-�Runsten, granit, 1,70 m hög, 1,35 m bred (N-S) och 0,5 m tjock. Den V sidan är flathuggen. På denna är inhugget ett vargliknande djur och ett drakskepp, inramat av ett band med runinskriften: KLIBIR OCH ÅSA RESTE DESSA KUMMEL EFTER ULF. Runhöjden är 11 cm. Runstenen är placerad i V-kanten av en i sen tid uppkastad ovalhög, vilken är gräsbevuxen. Stenen står ej på ursprunglig plats. I prästrelationerna från år 1624 omtalas stenen, då insatt i Östra muren av Tullstorps gamla kyrka, vilken revs 1846. Då inmurades stenen i den N delen av kyrkomuren. Stenen är spräckt diagonalt, nu lagad. Möjligen spräcktes den vid flyttningen från gamla kyrkan till muren. P Asp kallar stenen för "Ulfs runsten". Även A H Westergård kallar stenen för Ulf runsten. Skiss i inventeringshandlingarna."�
-�Hög, 17-19 m diam och ca 2.8 m h. I mitten en svacka, ca 10 mdiam och ca 1.2 m dj. Svackan förskjuten mot högens Ö kant.Kantskador. Beväxt med ett 20-tal unga lövträd."�
-�På havsbotten, i det översta lagret i hamnbassängen påträffades 22 vrak. Det första var fyllt av sten, förmodligen barlast, ett annat var lastat med taktegel av medeltida typ. I ett av skeppsvraken fann man delar av 1 tysk bönbok från 1500-talet, i ett annat låg 2 tunnor tjära, 1 slipsten etc. Vid ett av de större skeppsvraken påträffades även 1 kittel av brons. På ett annat ställe påträffades ytterligare 1 bronskittel, i vilken det låg 3 mindre dylika, 1 tenntallrik och 2 kastruller. Dessutom påträffades den övre randen av ytterligare 2 kittlar. Alla kittlar har haft hankar, och ansågs ha begagnats ombord på fartygen.
-
-I samma lager påträffades även 2 bössor, 6 olika stora kanonkulor av järn, varav 2 var smidda, 1 kedjekula samt 2 kanonkulor av sten. Dessutom påträffades 2 yxor av järn, 1 medeltida ljusstake, 1 knivslida, 2 skivor av ben till knivskaft, 1 liten klocka av malm, 1 tennsked, 6 bearbetade hjorthornsspetsar, 1 bearbetat hästben som kan ha använts som skridsko samt 1 visselpipa av gåsben. Av osteologiskt material fanns oxe och häst, men även hund, katt, svin, räv och rådjur fanns representerat. Även humanosteologiskt material i form av ett hjässben, nackdelar av kranium samt fragment av ett kranium påträffades.
-
-I det andra arbetsområdet, slipern, vid sidan av den egentliga hamnen, påträffades ytterligare 2 vrak, 1 tennskål, övre delen av 1 kopparkittel, 3 gjutna trefotsgrytor, 30 brynen till liar, 1 bryne, 1 gjutform för knappar, 1 sölja av mässing, 1 sabel av järn med fastrostad balja, 1 tobakspipa av mässing, 2 kärl av lera, samt ben av häst, oxe, svin, hund och bock.
-
-Torvlagret var inte fyndförande. Under detta lager fanns emellertid ett moränlager med 8 flintredskap, 1 bronsklubba samt 2 skivor av ben till ett knivskaft (status 1869)."�
-�Hög, 10 m diam och 1.6 m h. Ställvis kantskadad av odling. Beväxthuvudsakligen med nyponbuskar.Enligt uppgift (källa se nr 21) skall på platsen ha funnitsytterligare gravhögar. Skall ha funnit med på äldreskifteskartor (1700). Håkantorp.Namnet Kung Hottars hög ej nämnt i äldre kartmaterial, härförekommer namnet Röhögarna. Röhög 1757 års karta.Röhögsallmänningen 1828 års karta.Röhögsallmänningen anges ligga i Svenshögsvången, varför möjligenäven namnet Svenshög åsyftar högen.Angående namnet se även RAÄ nr 29 V Karaby sn."�
-�Rest sten av granit, flyttad, 2.1 m h, 1 m br (ONO-VSV) och0.3-0.8 m tj. Stenen har 2 avsatser och en konliknande topp. Vidbasen är en cementerad kant. Toppen är förstärkt och lagad medcement. Stenen skall tidigare ha stått ca 40 m längre åt S menföll ned i grustäkten vid 1930-talets början, varvid stenenflyttades till nuvarande plats. I fallet slogs den konliknandetoppen av vilken nu är påsatt och lagad med cement. Stenenkallas för Käringen och enligt tradition skall en kvinna, som ien linåker slagit sitt barn, ha blivit förvandlad till sten.Stenen anses ha fungerat som sjömärke i äldre tider.Stenen finns utmärkt på enskifteskartan över Stora Beddinge1820-21."�
-�1) Långdös i hög. Högen är ca 23x12 m (N-S) och 1-1.5 m h,närmast rektangulär form. Klumpformiga kantstenar, 7 st (2 i Ö,3 i S, 1 i N och 1 i V) omger högen. De är 0.2-0.5 m h och 0.5-1m st. Av döskammaren är inget synligt 1985. Ett block ca 0.8 m hoch 9.7 m st, beläget något N om mitten hör möjligen tillkammaren.Beväxt med några almbuskar. Dösen undersöktes av LUHM 1934-35. Ihögens mittparti påträffades en centralt placerad döskammare ca1.45x0.75-0.95 m (N-S), avsmalnande mot S.Vid undersökningen återstod de båda gavelhällarna samt enalångsideshällen. Döskammaren omgavs av ett stödröse ca 5 m idiam. Kammaren hade i sentid blivit genomgrävd ända ned tillbotten och här påträffades endast brons sölja från senare tid. Ihögens fyllning hittades dessutom en kärnyxa samt några bitarkeramik. Efter undersökningen täcktes gravkammaren.17 m Ö om nr 1 är:2 ) Gånggrift i hög. Högen är 11x15 m (NÖ-SV) och 1.2 m h.Kammaren belägen i högens mittparti är 6.3x1.6-2.1 m (NÖ-SV)avsmalnande mot ändarna. I NV långsidan 5 hällar, 0.65-1.3 m broch 0.6-1 m h. I SÖ långsidan 4 hällar 0.5-1.2 m br och 0.5-0.9m h.Gavelhällar (2 st i SV, 1 i NÖ), 0.8-1 m br och 0.5-0.8 m h. Engavelhäll saknas i NÖ.Gång åt SÖ, ca 5 m l (SÖ-NNV) och 0.3-0.5 m br av 5 parsidohällar 0.3-0.7 m br och 0.3-0.5 m h ( ett par av dessamöjligen dörrstenar). Vid gångens mynning fasadhällar (4 st påNÖ sidan och 1 på SV sidan), 0.2-0.5 m h och 0.5-0.8 m br.På ett par ställen är packning av stenflisor mellan blocken ikammare och gång. På högens sidor, ca 1-2 m från kanten är enstenkrets bestående av ett 15-tal  stenar (därav ett 10-talresta). De är 0.2-0.6 m h och 0.5-0.9 m st. Bruzelius (1880)uppger att gånggriften omgavs av ett 25-tal stenar, vilka blivitborttagna och sedermera åter ditsatta. Takhällar saknas helt.Enligt Bruzelius borttogs dessa ungefär 1850.Forssander (1937) omtalar att fasadhällarna över gick i en kantkedja, denna är ej synlig 1985. Anläggningen beväxt med 4 ekar.Gånggriften undersöktes av LUHM 1934-1935. Kammaren var i sentidhelt genomgrävd och här hittades endast några krukskärvor ochett par spån knivar.Gången var vid undersökningen någorlunda orörd, här påträffadesett 10-tal bärnstenspärlor, en rundnackig flintyxa (skadad ieggen), ett 10-tal spån och spånskrapor, 1 dolk, 2 dolkfragment,5 bladformiga pilspetsar, En odekorerad lerkärl ( SN ) samt ca300 krukskärvor varav flertalet ornerade.Vid gångens mynning fanns ett halv cirkelformat röse med ca 45000 krukskärvor,  flertalet ornerade (av fotskålar, trattbägarebrämbågare, lerskedar, hängkärl mm ) vidare ett 80-talbärstenspärlor, ett 100-tal spån, spån skrapor och spånknivar,10 tvärpilar, 2 spånpilsspetsar, 1 tresidig pilspets, 2tunnackiga bergartsyxor, 2 tunnackiga flintyxor, 2 tunnbladigaflintyxor, 2 tjocknackiga flintyxor (flertalet av yxornaavskiligt skadade i eggpartiet), dessutom påträffades i skivyxasamt 3 slipade fragment.3) Gränsbestämt område. Inom området är Västra Hoby 3:1-2, 4:1samt 22:1 registrerade."�
-�Hög, rest av (?), med namn och tradition, ca 25 m diam och 1 mh.Beväxt med gräs.Enligt inventeringen 1970 ska på platsen ha hittats 1fragmentarisk håleggad flintyxa.Området brukas nu av Gunnar Andersson, Dalagården.Markerad som grusbacke på 1856 års karta (Akt 18) samt med namnetStore Greveskalle."�
-�1) Hög, rest av, 18 m diam och 1.5 m h. I högens mitt är ettrektangulärt parti, ca 9x5 m (N-S) och 0.5 m dj. I S mynnar engrävd gång, 2x1.2 m (N-S). Kanterna är stensatta, detta ettsentida trädgårdsarrangement. Av detta syns nu dock föga.Fördjupningen som torde varit djupare med stensatta kanter är nubelamrad med odlingssten och igenfylld av såväl löv som annanbråte. Beväxt med bok, ask, slån samt diverse lövsly."�
-�Hög, ca 14 m diam och 2,5 m h. Plan topp. Kantskadad. Beväxt meddiverse lövträd. Restaurerad.Undersökt 1900 där det framkom ett kranium av homo, flintor,järnföremål, ben, tand (homo), medeltida stengodsskärva,grönstensyxa, skivskrapa och dolkfragment. Grönstensyxan framkomi fyllningen till högen."�
-�Dös i hög. Högen är 12 m i diam och 1,1 m h. Dösen består av ett takblock, ett gavelblock samt 3 sidoblock. Takblocket är 3,5x2,8 m (Ö-V) och 1,2 m tj. Gavelblocket i V är 1,3 m l, 1,5 m h och 0,5 m tj. Sidoblocken på S sidan är 1,3-1,4 m l, 1,3-1,4 m h och 0,4-0,5 m tj. På N sidan saknas ett sidoblock, det återstående är 1,5 m l, 1,4 m h och 0,8 m tj. Dösen har ingångsöppning mot Ö. Kammaren är trekantig med spetsen mot Ö, 2,5 m i sidorna, 1,7 m vid basen och ca 1,5 m h. Rester av inkilade stenar finns mellan de större blocken. Runt högen finns ett kvadratiskt område, 12 m i sida. I varje hörn av detta finns en sten. Längs V kanten finns även en sten mellan hörnstenarna. Hörnstenarna har troligen samtliga varit uppresta, 0,7-1,1 m h, idag lutar de kraftigt. Den NÖ stenen är avslagen."�
-�Stensättning(?), rund, 10 m diam och 1 m h. Fyllning, i huvudsakövertorvad, av 0.2-05 m st stenar. Kraftigt belamrad medröjningssten. Tätt kringodlad. Beväxt med en ek mm samt slån."�
-�1) Hög, 14 x 9 m (ÖSÖ-VNV) och 1.8 m h med tämligen långsluttande slänt i V. I mitten är en grop 5 x 2.5 m st (ÖNÖ-VSV)och 0.8 m dj. I övrigt är toppen avplanad. I SV slänten är engrop 3 x 2 m (NÖ-SV) och intill 0.6 m dj. Kantskadad i N - Ö - Sså en brant kant uppstått, intill 1.5 m h. Undersökt av SvenSöderberg. Fynd av en 1/2 kanna, brända ben samt mågrabronssmulor. 2 m V om nr 1 är:2) Hög, 12 m i diam och 0.2 m h. I mitten var en grop 2.5 m idiam och intill 1.4 m dj, nu igenfylld, i vilken ett skyttevärnfunnits. ytskadad. Kantskadad i N - V - S så en brant kantuppstått 0.5 - 2 m h. 14 m VNV om nr 2 är:3) Hög, 14 m  i diam och 2.4 m h med välvd topp och tämligenbranta slänter. I mitten är en ytskada 5.5 x 2.5 m st (NÖ-SV)och intill 0.4 m dj. I ÖNÖ slänten är en grop 1.5 m i diam och0.2 m dj. Kantskadad runt om så att en brant kant uppstått 1.5 -2 m h. Undersökt av Sven Söderberg. Fynd av brända ben"�
-�Hällristning, belägen på S sidan av stenen närmast Ö om NV stävstenen, bestående av ca 6 skålgropar, ca 6 cm diam och 0,5-1 cm dj, belägna på en lodrät, 1,2 m l coh 0,15 m br yta."�
-�1) Domarring, rund, 17 m diam, nu bestående av 12 stenar varav 4är resta och 8 liggande.De resta stenarna är 1-1.1 m h, 0.7-1 m br och 0.5-0.8 m tj. Deliggande stenarna är 0.8-1.8 m l, 0.6-1.2 m br och 0.25-0.6 mtj. Troligen saknas 8-10 stenar.Domarringen är i en stensättningsliknande förhöjning, 20 m diamoch 0.2-1 m h. Området kring domarringen har varit utsatt förgrustäkt omkring 1920. Ytan inom domarringen är troligenursprungliga markytan.Det kan ej uteslutas att anläggningen är rest av dös. Stenarnaskulle då utgöra stenkrets vilken omgivit en dös."�
-�Fartygslämning. Sammanhängande vrakrester fördelade på två fyndplatser, på basis av timrens dimensioner och konstruktionsdetaljer antas de kunna tillhöra samma vrak. Avståndet mellan de två synliga sammanhängande vrakresterna uppgår till 47 m. Troligen ligger stora delar översandade.
-
-Fyndplats 1: förstäven har lokaliserats, den är 0,43 m br och 0,28 m tj. 2 smidda roderarmar med fingerling och rormalja påträffades. I området ligger spant, knän, lösa bord/garneringsplankor utspridda. De sammanhängande sektionerna ger vid handen att fartyget har varit byggt i kravellbyggnadsteknik. Materialet består av ek, som genom översandningen bibehållits i relativt gott skick. Borden/innergarneringen är mellan 0,06-0,1 m tj och 0,25-0,32 m br. Spanten är 0,37 m br och 0,1 m tj. Dymlingarna har en diam på 0,03-0,04 m.
-
-Fyndplats 2: Detta område är betydligt mer översandat. Här har endast bord, innergarnering, bottenstockar och några enstaka spant kunnat observerats. Ett större sammanhängande element finns även i detta område. Dimensionerna överensstämmer med de konstruktiva detaljer som undersökts i det andra fyndområdet. Det kan därför inte uteslutas att det är fråga om samma vrak som delat på sig.
-
-Vrakets konstruktion ger anledning att antaga att det är av hög ålder, kanske 1700-tal, och grovleken på timret (upp till 0,4 m i tvärmått) kan ge anledning till förmodan om ett örlogsfartyg. I ett område omkring vraket har ett flertal, ur botten uppstickande, grova skeppsdetaljer observerats. Det har inte kunnat konstateras om dessa är lösa vrakdelar eller uppstickande delar av under sanden dolda vrak.
-
-I början av 1980-talet påträffades en fragmentarisk träskulptur i strandkanten, vilken är daterad till 1600-tal. Den kan emellertid inte med säkerhet sammankopplas med vrakfyndet."�
-�1) Hög, rest av (?), ca 25 m diam och 1.5 m h. Diffusbegränsning. Talrika stenar i den plöjda ytan, flera 0.2-0.3 mst. Perfekt läge.2) Avrättningsplats? Galgbacke enligt uppgift på orten."�
-�Hög(?), rest av, överodlad, ca 15 m i diam och 0.5 m h. I områdetär flera liknande flacka kullar, vilket föranleder sättandet avett (?) Markerad ca 30 m längre åt S på 1747 års karta."�
-�Källa med ett flertal utflöden mot S, vilka bildar en litenrännil, 0.2-0.35 m br och 0.1 m dj. Ca 20 m S härom är uppbyggtett litet dämme, där anordningen för vattendrickning har anlagt."�
-�1) Hög, rest av, 20x30 m (VSV-ÖNÖ), och ca 1 m h. I mittpartieten sten, ca 0.3 m st. I N-NV-V skadad vid täktverksamhet.Överodlad.Ca 5 m S om nr 1 är:2) Hög, rest av, ca 20 m diam och 0.5 m h. Överodlad.I anslutning till nr 1 och nr 2 är:3) Stenåldersboplats, ca 300x75 m (N-S). Inom området måttligtmed flintavslag. På platsen tillvaratogs 1 skivyxa, 1 bryne, 2kärnborrar samt ett 15-tal spån och avslag, flertaletretuscherade och svallade.Boplatsens utsträckning åt N i hagmarken ej fastställd.Ett 20-tal m Ö om nr 3, inne i trädgården är:4) Fyndplats för 1 tresidig gropkeramisk pilspets. Urfornsakssamlingen RAÄ nr 18. I närheten har också hittats 1flintskära (ur samma fornsakssamling).Platsen benämns Altarkullen på 1969 års ek. karta.Altarkull nämns även i Landeboken 1570 som en äng i V vång."�
-�Hög, 20 m i diam och 3.2-4.0 m h. I SSV-kanten är en mindrebetongsbyggnad uppförd och i SÖ-kanten ett större träskjul.Bevuxen med ett flertal bokar och almar.  Namnet enligt 1703 årskarta."�
-�Hög, ca 20 m diam och 1.5 m h. I mitten en grop, 5x4 m (N-S) och0.6 m dj. På högen en fixpunkt av betong. Ligger på en naturlighöjdsträckning varför begränsningen delvis är svårbedömd."�
-�1) Hög, 16x20 m (N-S) och 3 m h. Svagt insjunken på en yta av 4x4m på krönet. Västra sidan kapad av väg och övriga sidor ansattaav åkerbruk därför har högen erhållit en fyrkantig avgränsning.Har ursprungligen varit 24 m diam.V om nr 1 är:2) Flatmarksgrav och boplatslämningar, undersökta och borttagnasommaren 1985. Undersöktes i samband med vägbreddning, en 45 m loch 4 m br (NNÖ-SSV) yta omedelbart V om högen.11 anläggningar påträffades dessa utgjordes av 1 skadad urnegrav,4 härdar och 6 gropar. Urnan var fylld av brända ben, meninnehöll ingen gravgåva. Övriga fynd var flinta och träkol,fynden daterades till yngre bronsålder.Grävningen utförd av A Esping-Bodén UV-Syd."�
-�Runsten, granit, 1,4 m h, 0,6 m br (Ö-V) och 0,25-0,4 m tj. På stenens N och S sida finns runor, 7-10 cm h. Dessa är imålade med röd färg, radskiljestreck med svart färg. Stenen är rest i en "stenhög", 6,5x3 m (Ö-V) och 1 m h. Texten skall, enligt Engström (1927), uttydas: "Navne reste denna sten efter sin broder Toke. Han var död västerut".
-
-En konservering av stenen genomfördes 2018 då det fanns spjälkningar som behövde åtgärdas."�
-�Kyrkoruin, delvis undersökt, 24x7 m (VNV-ÖSÖ), i huvudsak bestående av en övertorvad grund, av 0,3-0,4 m st stenar. I V finns rester av ett torn, ca 9 m h, med kvarstående vägg huvudsakligen i N och V. Tornet är uppfört av ohuggen natursten och av kalkbruk, spår av kalkputs finns. I NV-knuten handslaget tegel. I Ö delen finns ett, i sen tid uppfört, altare av stenmaterial från ruinen. I S är en amatörmässigt restaurerad grund av vapenhuset, 5x5 m. Kyrkans grund utmärks idag av en tegelgång, ca 1 m br.
-
-Arkeologiskt undersökt 1975. Kyrkan visade sig ha en traditionell romansk planlösning med långhus, kor och absid. Till detta hade vid senare tillfällen fogats ett torn i V och ett vapenhus i S. Någon sakristia har inte funnits. Den ursprungliga byggnaden var helt byggd i tegel i fullmursteknik, medan tornet och vapenhuset var av gråsten, med fogarna skolade med tegelflis och mindre stenar. Samtliga grundmurar var lagda utan användning av murbruk. Sannolikt har det funnits en äldre träkyrka. Tegelkyrkan uppfördes före mitten av 1200-talet och revs 1787."�	
-�	Hamnanläggning, okänd utbredning. I direkt anslutning till strandbrinken på Lödde ås norra strand (rakt nedanför en av de arkeologiskt belagda boplatserna) har vid dikesgrävning påträffats trärester, vilka p.g.a. den topografiska situationen tolkats som kajrester. 
-
-I Lödde ås mynning finns en spärr mitt i inloppet. Den består av en stensamling och lämnar endast en mindre del av inloppet öppet för passage. Strax innanför denna spärr utgår från åns N strand en mindre pålning, som ytterligare bör ha försvårat passagen in mot byn.
-
-Lämningen (troligen L1990:8651 som åsyftas) utgörs av ett stenrev, som når upp över vattnet och som sannolikt utgör resterna av en pir. Stenreveln har numera en längd av omkring 25 meter ovan och 100 m under vattnet. Revet bestod ursprungligen av grova stenkar av ek fyllda med sten. Ovan vattnet har träet för länge sedan multnat bort och brutits sönder av sjön, varvid stenfyllningen spritts ut. Under vattnet kvarstår timret delvis fortfarande. På 1980-talet kunde de träbyggda stenkaren ännu tydligt iakttagas. Man kunde då fortfarande segla innanför karet. Därefter har stenkaren nästan helt övertäckts av sand och segelleden igensvämmat."�
-�1) Kalkugnsruin, cylindrisk, 10 m diam och ca 11 m h, av rötttegel förstärkt med lodräta bandjärn. Uppförd år 1902-03.Ca 2 m V och nr 1 är:2) Kalkugnsruin, konisk, 5 m diam och totalt ca 25 m h, med en5-kantig ca 1.5 m h bas. Av rött tegel, med en konisk skorsten,intill 2.5 m diam och 8 m h. Ugn och skorsten förstärkta medlodräta och vågräta bondjärn. Uppförd år 1865. Runt ugnarnalöper grundmurar från en byggnad som omgivit ugnarna, ca 55x15 m(NNV-SSÖ), 2-3,5 m br och 1.5-3 m h, kallmurade av gråsten.Grundmurarna är på flera ställen raserade, och av den Ö murenåterstår ingenting. Den N muren har i NV en ca, 10-12 m löppning, och i NÖ en mindre öppning. Mot ugn nr 2 är en ingångmed ett nu raserat tegelvalv. På hela området innanför murarnaär material från de raserade murarna samt tegel från de bådaugnarna. I V delen är ett upplag för jordbruksredskap, oljefat,däck mm.Ugn nr 1 restaurerades sommaren 1983 med hjälp från RAÄ.Skorstensdelen återuppbyggdes inte utan ersatters med ett tak.Ugn nr 2 är i sort behov av reparation. Ugn nr 2 uppfördes 1865som en av två likadana ungnar, av dåvarande innehavaren tillBjärsjölagård, kammarherre August Bernhard von Bulow. Ungnarnabyggdes av tyska ugnbyggare. I denna typ av ugnar eldades medved och kol i tre öppningar på ugnens sidor. Bränsle och kalkblandades inte och man fick därför mycket ren kalk. Kalkstenentippades ner i ugnen genom en öppning uppe på sidan och efterbränningen rakades kalken ut genom de tre nedre öppningarna.1902-03 ersattes den Ö ugnen av en dankbyggd ugn. I denna ugnvar botten utruskad med en, rist och på denna varvades kalk ochbränsle i form av ved och kol.På den omgivande, byggnades S sida var ett hisstorn där kärrornamed kaksten hissades upp i höjd med ugnarnas övre kanter. Ihisstornet var också trappor för hisskotare. Intill ugnarna.fanns även lador där ved, kol och den färdiga kalkenförvarades.Kalkstensbrytning se RAÄ nr 11."�
-�Gånggrift i hög. Högen är 8 m diam och 0,4 m h. I S-SÖ kanten är 2 kantställda block, 0,4 m h, 0,6 m br och 0,3 m tj i S, resp. 1,0 m h, 1,0 m br och 0,35 m tj i SÖ - detta block vilar ev. på ett mindre block. I V delen finns en ev. gånggrift, rektangulär, 6x2 m (N-S). I N sidan är 2 stenar, synligt 0,1-0,2 m h och 0,4-0,6 m st. I Ö kanten syns 3-4 stenar, 0,1-0,2 m h och 0,1-0,4 m st. I V sidan finns 2 stenar, 0,1-0,3 m h och 0,4-0,7 m h. I S sidan är 1 sten synlig, 3 takstenar, 2-2,5 m l, 1,3-1,5 m br och ca 1 m tj. Benämnes "Högmans graf" på karta från år 1765."�
-�1) Hög, 20x10 m (ÖSÖ-VNV), närmast oval och intill 5.5 m h (iSÖ), i NV ca 1.5 m h. I NV kanten en del röjningssten, 0.1-0.7 mst och ett block, ca 1 m st.Invid högen möjligen äldre täktverksamhet, därav högens form.Anläggningen något osäker i sitt nuvarande utseende. Kanmöjligen vara ett vid grustäkt utsparat parti.Ca 60 m NÖ om nr 1 är:2) Hög, platsen för? På 1785 års karta är här en kulle markerad.Ca 60 m NÖ härom är:3) Hög, platsen för? På 1785 års karta är här en kulle markerad.Av nr 2 och nr 3 är inget synligt 1985. Sannolikt borttagna isamband med täktverksamhet.Marken där högen och de borttagna högarna ligger kallasSönnerhögs åkern på 1741 och 1785 års kartor."�
-�Hög, 12-15 m diam (NNV-SSÖ) och 2-7 m h. På mitten är en svacka,1.5 m diam och 0.3 m dj. V och i viss mån Ö kanten borttagengenom odling. Talrika kaninhål i NV-Ö. Beväxt med ett lövträdoch en buske."�
-�Hög, 13-14 m i diam och 3 m h. I NÖ delen av toppen är en grop,ca 3 m i diam och 0.8 m dj. Branta sluttningar. I VNVsluttningen är en hagtornsbuske. Genom kringplöjning har enkant, 0.2-0.6 m h, uppstått."�
-�1) Hög, ca 22 m  diam och 3 m h. I kanterna, något uppdraget,enstaka 0.2-0.3 m m h och 0.3-0.6 m st stenar. Rest avkantkedja? I VSV delen av högen en grop 4 m diam och intill 1 mdj med ränna mot högens kant 2 m br och 0.7 m dj. Ett antalmindre gropar och ojämnheter finns i anläggningens yta. Mindrekantskador.31 m NÖ om nr 1 är:2) Hög, rest av, närmast oval, 16x10 m (NV-SÖ) och 1 m h.Avplanade yta. Kanterna skadade och delvis bortodlade, främst iNÖ och SV.3) Gränslinjebestämt område. Inom området är Löddeköpinge1:1-2 samt SV-delen av Löddeköpinge 17:6 registrerade."�
-�Hög, 12x10.5 m (NV-SÖ), 2.7 m h. I ytan enstaka kaninhål. Rundattoppig profil.Beväxt med sju lövträd.Namnet enligt 1787 års karta över Löddeköpinge. Där kallas åkerninvid högen för Lomhögsåkrar."�
-�Hög, rest av, nu överplöjd, ca 20 m diam och 0.7 m h.Kallas Ulsbacke enl. karta 1747.Vid inventeringstillfället var åkerstycket beväxt med blommanderaps. På högens växte det sämre med stora bara fläckar."�
-�Älvkvarnsförekomst i block, 3x2,5 cm st (Ö-V) och 0,8 m h, bestående av minst 1 älvkvarn. Denna är 4 cm diam och 1,5 cm dj. Den är belägen ungefär i mitten av blockets  tämligen vågräta översidas S del.
-Ett flertal naturliga fördjupningar är 0,1-0,6 m st och 0,05-0,2 m dj; ett par av dessa är fotsulefigurliknande, särskilt en i SV delen, 20x7 cm st (ÖNÖ-VSV) och 3 cm dj.
-Odlingssten kring blockets fot. Blocket var tidigare belamrat med odlingssten."�
-�1) Hög, stensättningsliknande, diam och höjd numera omöjligt attfastställa. Anläggningen torde dock ha varit högst 15 m diam.Hela anläggningen är numera belamrad med odlingssten intill enhöjd av ca 1.75 m. Överväxt med täta buskage.Anläggnignen kallas sedan gammalt Tjorneröset.Uppgiftslämnare : Tord Ingvar Ekberg, Bonderum 13."�
-�Torplämning, ca 25x10 m (NNÖ-SSV), bestående av 1 husgrund och 1 ladugårdsgrund. 
-Husgrunden är 10x6 m (Ö-V) och 0,2-0,4 m h, övertorvad med enstaka synliga fotstenar, 0,4-0,7 m l. Vid NV hörnet är ett spisröse, 2-3 m i diam och 0,3 m h, 7 m SSV om husgrunden och omedelbart S om stig är en ladugårdsgrund, 9x6 m (Ö-V) och intill 0,4 m i S. Övertorvad med delvis synliga fotstenar, 0,4-0,6 m l. Skyltat. Torpet är omnämnt år 1787. (RAÄ dnr 326-4175-2011)."�
-�1) Hög, 15 m i diam och 2.5 m h. Avplanad platå, 9 m i diam ochbranta slänter. På NV sidan trätrappsteg upp till platån. Vsidan bevuxen med snår. Ett tiotal almar omgärdar högen.25 m N om nr 1 är nr 2:2) Grav under flat mark, påträffad vid grävning för källare 1941,varvid påträffades stark kalcinerade skelettdelar och spår avärg efter bronsföremål.Ca 6 m Ö om nr 1 är nr 3:3) Grav påträffad och skadad vid ledningsgrävning 1973. Vidbesiktning konstaterades att hela skelettet grävts bort. Någraben i sekundärt läge kunde dock tillvaratagas. En profilframrensades i vilken nedgrävningskontur kunde skönjas. Iprofilen påträffades ett lerkärl,vilket daterar graven tillyngre romersk järnålder."�
-�1) Hög, 10 m i diam, 1.3 m h. I ytan enstaka stenar, 0.1-0.4 mst, sannolikt sekundärt påfört material. Högen tidigareundersökt, den var då 10 m i diam, ca 1.5 m h. I centrum framkomen stenkista av hällar i vilken ett flertal begravningar ägtrum. I kistan framkom också:1 kniv, 1 rakkniv, 1 syl och 1 pincett, samtliga av brons.Uppskattningsvis ca 50 m SV om nr 1 är:2) Hög, platsen för. Anläggningen markerad på 1831-32 års Lagaskifteskarta över Barsebäck."�
-�Dubbelgånggrift i hög. Högen, rest av, är 10 m i diam och 0,3 m h, med nu närmast kvadratisk bottenplan, 10x10 m (N-S). I högens SÖ del finns en gånggrift, (eller dös), närmast kvadratisk, 2,55x2,1 m (inre mått, VNV-ÖSÖ) och 1,25 m h (inre mått). I NV sidan är 2 hällar, 0,9-1,1 m br, 1,2-1,3 m h och 0,7-0,8 m tj. NÖ sidan har en häll, 1 m br, 1,25 m h och 0,6 m tj. I SÖ sidan finns 1 häll, 0,9 m br, 1,45 m h och 0,75 m tj, samt i SV sidan, 1 häll, 2 m br, 1,5 m h och 0,8 m tj. En lös sten, 0,6 m st ligger invändigt på NÖ sidan. Ingång, 0,95 m br, i SÖ eller NÖ, 0,7 m br. Två takblock, 2,2-3 m l, 1,5-1,8 br och 0,85-1,5 m h.
-På N takblocket älvkvarnsförekomst, 70 älvkvarnar (se RAÄ-nr Hammarlöv 2:2).
-
-1,2 m NV om gånggriften finns ännu en gånggrift, närmast kvadratisk, 3,05x2,2 m st (inre mått, NV-SÖ) och 1,4 m h (inre mått). I NV sidan finns en häll, 1,1 m br, 1,5 m h och 0,5 m tj. I NÖ sidan är tre hällar, 0,6-0,9 m br, 1,3-1,4 m h och 0,5-1 m tj. I SÖ sidan finns två hällar, 1 m br, 1,45-1,6 m h och 0,6 m tj. I SV sidan finns två hällar, 1,25-1,55 m br, 1,55-1,6 m h och 0,5-0,6 m tj. På NÖ sidan är en ingång, 2,2 m l (NÖ-SV) och 0,55-0,7 m br med två sidohällar, 1,1 m l. 1-1,1 m h och 0,4-0,55 m tj. På S ingångssidan finns en sten, 0,3 m st. Två takblock, 2-2,85 m l, 1,4-2,1 m br och 0,8-1 m h. Lerskifferskivor som tätning mellan hällarna på SV sidan. 
-
-På S och N takblocket älvkvarnsförekomst, 200, resp. 40 älvkvarnar (se RAÄ-nr Hammarlöv 2:3 och 2:4).
-
-Gravarna undersökta omkring 1850 av N.G. Bruzeius, varvid följande fynd gjordes: 1 knacksten, 1 flintmejsel, bitar av lerurnor, 4 flintspån, 1 brynsten, obearbetade bärnstensbitar (SHM inv nr 1783a)."�
-�Hög, 16-20 m diam och 1.8 m h. Plan topp. I Ö slänten är en 0.8 mh och 0.8 m st sten. Kantskadad. Odlingsstenar upplagda ikanterna.Beväxt med en buske.1975 undersöktes en 2x1.5 m st yta i V kanten pga de hål somnågra barn grävt. En stenpackning blev synlig. Inga fyndpåträffades och schaktet fylldes igen.namnet belagt på 1769 års karta."�
-�Hög, 21 m i diam och 2.5 m h. Högen är kraftigt skadad ochursprunglig höjd går ej att säkert fastställa. Från högens Skant och in till centrum är en grävd grop, 10x6 m (N-S), somnästan går ned till högens botten. På gropbottnens V sida syns 5stenar, på N sidan 2 stenar och på Ö sidan 1 sten, vilkasannolikt har utgjort grundstenar till en byggnad. Från gropenhar det uppkastats material, så att högen har erhållit 4 "krön",med en totalhöjd av 2.0-2.5 m."�
-�Hög, 15 m diam och 2 m h. Plan topp 6 m diam. I ytan ställvisenstaka stenar 0.2-0.3 m st. I toppen och ut mot SV kanten är enurschaktning 7x3 m st (NNÖ-SSV) och intill 0.3 m dj. I övrigtsmärre kantskador i NV och SSV."�
-�1) Hög, rest av, överodlad, ca 15 m i diam och idag 0.5 m h.Ca 30 m N om 1 är:2) Hög, rest av, överodlad, ca 20 m i diam och idag 0.5 m h.Ca 15 m N om 2 är:3) Hög, rest av, överodlad, ca 15 m i diam och idag 0.3 m h."�
-�1) Fyrplatslämningar, ca 18 m diam, bestående av en rund vall,6-8 m br och 0.2-0.5 m h. Övertorvad med ytan riklig förekomstav träkol. I VSV delen är slaggstycekn, 0.01-0.1 m st, roströdatill blåsvarta, läta och håliga. I SÖ en öppning, ca 6 m br.Beväxt med törnebuskar.7 m 355 gon om nr 1 är:2) Minnessten, gråsten, 0.7x0.4 m (NÖ-SV) och 0.6 m h.Inskription på den NV sidan: KOLBACKEN, FYRPLATS 1222-1796,FN.FF. (Falsterbo Naturskudds- och fornminnesförening)."�
-�Hög, 12-13 m diam och 3.5 m h. Ojämn yta. Avplanad topp, 5x1.5 m(SSÖ-NNV). Ö sidan insjunken, 7x5 m. Kringplöjd så att en kant,0.2-0.3 m h, uppstått.Enligt Bruzelius skall högen vara till hälften utgrävd (O. C.1918)."�
-�Rest sten, omkullfallen, granit med stort inslag av fossiler,1.25 m h, 0.35 m br och 0.3 m tj.Enl. traditionen den förstenade prästfru Stava (se RAÄ nr 6). Omman försöker rubba stenen, går det gårdens folk och fä illa."�
-�1) Hög, 20 m diam och 2.5-3 m h. Från mitten och mot VNV enurgrävning, 5x8 m (VNV-ÖSÖ) och 0.5 m dj. Från N kanten upp påhögen leder en cementerad trappa.Beväxt med sju lövträd i kanten.Ca 60 m SSV om nr 1 är:2) Hög, (?), rest av, ca 25 m diam och 0.2 m h I ytan enstaka0.1-0.4 m st stenar. Överodlad.I anslutning till nr 1 och nr 2 är:3) Stenåldersboplats, ca 150x100-150 m (ÖNÖ-VSV). Inom områdetsparsamt med slagen flinta. Fyra retuscherade avslagtillvaratogs."�
-�1) Hög, närmast oval, 20x15 m (ÖNÖ-VSV) och 2.5 m h. Den harvälvd topp och långsluttande sidor. NNV delen bortschaktad ca 5m in i högen vid uppatagning av märgelgrop. S-SSÖ delenkantskadad vid plöjning, så att en brant kant uppstått, 0.4-0.8m h.  Kraftig gräs- och örtvegetation.Intill nr 1 är:bladet Lund syns på platsen två högar intill varandra med eninbördes riktning av NNÖ-SSV. Oklart på vilken sida om denbefintliga högen den nu borttagna varit belägen."�
-�Hög, 19 m i diam och 2 m h, med något avplanad topp, ca 4 m idiam. Högen har tämligen flacka sidor, mot NNÖ svagt sluttande, där en rak kant uppstått pga odling. Högen har smågropig yta. Helt kringodlad. Beväxt med gräs. I anslutning till högen finns enstaka flintavslag i åkern. Vid 1969 års inv antecknades namnet Borhög, enligt en KnutKnutsson, Skånes Hembygdsförbund. Antagligen samma som den Borghög som omnämns i Landeboken, belägen i Ö Odarslövs V Vång."�
-�Offerkälla.Källan ansågs som helig och man offrade där. Enligt N G Bruzeliustog man upp de offrade pengarna vid bestämd tid och delade utdessa till de fattiga.Enligt P Asp offrade man på S:t Hans afton, även under Aspslevnad. Mynt från1600-talets senare hälft har hittats i källan.Sägnen och namnet lever fortfarande kvar bland ortsbefolkningen."�
-�1) Hög, ca 20 m diam och 2.5 m h. Svagt rundad topp. Flack SÖ, Öoch N slänt och brantare SV och V slänt. I NV delen ett relativtskarpt "hörn" mellan V och N sidan. Eventuellt kantskadad i Vdelen.Beväxt med ett femtontal lövträd och buskar.Ca 30 m S om nr 1 är:2) Hög, rest av, (dös, rest av?), ca 15 m diam och intill 0.3 mh. Överodlad. Förhöjningen låg vid SV kanten av en flack höjdsom sluttar åt S och V ned mot Risebergsbäcken och som stigernågot åt Ö och N."�
-�Hög, rest av, ursprungligen ca 20 m diam och 1.6 m h.Bortschaktad fyllning i SV delen intill mittpartiet. Nu återstårett ca 20 m l (NV-SÖ), 5-7 m br och 1.6 m h parti i de N och Ödelarna. I ytan enstaka och i skadade delar talrika stenar är0.2-0.5 m st. Några block, av vilka ett par vid kanten i NÖ, är0.7-0.8 m st.Beväxt med en mångfald lövträd och -buskar. F d hönshus i denavschaktade delen.10-20 m SV om högen är i markytan oregelbundna förhöjningar,0.1-0.2 m h."�
-
-�
-Dös, i stensättning (?). Stensättningen är rund, 10 m i diam och 0,3 m h. Övertorvad. Kammaren, som är belägen i stensättningens Ö del, är 6x5 m (N-S) och består av 13 stenar. Dessa är 0,4-1,4 m h, 0,7-1,6 m br och 0,3-0,8 m tj. I vardera kortsidan finns 3 stenar. Minst ett par av stenarna är sekundära. I mittpartiet är en i ytan synlig sprängsten, 0,1 m h och 0,7x0,4 m st. Gång saknas. Beväxt med flertalet lövträd.
-
-Osäkert om det som nu förefaller vara en stensättning kring anläggningen är bildat av att den är kringodlad. Ole Worms presteindberetning 1624: "...en mycket stor sten, upplagd på andra stora stenar, så högt upp att folk kan sitta där under. Denna samma sten kallar man Tippelsten." Swalander: "Vid byn Mölleberga på slätten nära vägen fanns ända till 1793 ett minnesmärke..." Vidare: "I äldre tider kallades det Tippelstenen, i våra dagar Mölleberga Kycklingehöna. En väldig sten, som har längd av nästan sex alnar, till formen nästan fyrkantig, vilar på tolv mindre stenar." (Engström anser detta omöjligt). Enligt Swanander grävde man kring anläggningen för att finna dyrbarheter och till slut sprängdes minnesmärket 1792.
-
-Graven undersöktes sommaren 1985. Inga särskilda fynd gjordes och man kunde ej finna några spår efter en gång. Undersökningen utfördes av LUHM under ledning av Mats Larsson."�
-�Hög, 16 m diam och 1.5 m h. Avplanad topp 14 m diam.Beväxt med tre stora alar och fyra mindre almar samtbrännässlor.Högen har förmodlingen varit överodlad.Denna hög samt RAÄ-nr 24 kallas Kungshögarna av ortsbefolkningen."�
-�1) Hög, 22 m i diam och 1.7 m h. Upptill är högen avplanad, 12 mi diam. I V är en grop, 5x3 m (NÖ-SV) och 0.6 m dj. I gropens SVdel är ett stenblock, 0.5 m br, 2 m l (NÖ-SV) och 0.5 m h. 0.8 mNÖ om detta är 1 klumpsten, 0.2 m h och 0.5 m st. Högen har engropig och ojämn yta, delvis söndergrävd av vildkaniner. Beväxtmed en hagtornsträd i NNV. 27 m SÖ om nr 1 är:2) Hög, 15 m i diam och 2.5 m h. I mitten är en grop, 4 m i diamoch 0.8 m dj. Högen har en gropig och ojämn yta, delvissöndergrävd av vildkaniner. 38 m NÖ om nr 2 är:3) Hög, närmast oval, 10x6 m (N-S) och 1.6 m h. I Ö är en grop,4x2.5 m (N-S) och intill 0.5 m dj. Kanterna är branta. Högen haren gropig och ojämn yta, i kanterna delvis söndergrävd avvildkaniner. Runt högen är en granplantering.Uppgifter från Johan Sandberg, 83 år, L Beddinge 86:1,Beddingestrand m.fl."�
-�Hög, 21-22 m diam och 5 m h. Ojämn och smågropig yta. Avplanadtopp, ca 5 m diam. Kringplöjd så att en brant kant 0.2-0.8 m hkant uppstått runtom. Enstaka lösa odlingsstenar påförda. Beväxtmed 10 lövträd och vårblommor."�
-�Rest sten, granit, 0.75 m h, 0.6 m br (N-S) och 0.4 m tj vidbasen.På platsen skall ha funnits en stensättning (?), som raserats på1870-talet (Ingers).Enligt Bruzelius (1878) fanns: I vägamötet... en större samlingaf ganska ansenliga stenar, Mangelstenar kallade, hvilka fordomutgjort en stendyss, som förstördes för omkring femtio årsedan.Benämningen Mångelsten förekommer i kommentar till karta från1819.Stenen sannolikt ej rest av den fornlämning som funnits påplatsen. Den har emellertid status som fornlämning i trakten.Dessutom kan det ej uteslutas att rester av gravgömma finns kvari marken."�
-�1) Flyttblock, granit, 7.5 m l (N-S), 5 m br och 1.6 m h. Planöversida med svag välvning. Högsta punkten i S. Stenen ärsprängd.På flyttblockets S ovansida är:2) Älvkvarnsförekomst, 0.7x0.1 m bestående av 4 älvkvarnar, 5-6cm diam och 0.5-1 cm dj. Ligger på blockets högsta punkt.I Tunelds Prästrelationerna omtalas Thippelsteenn som en jungfrukastat efter sin fästman. Bruzelius nämner den också dock utannamn. Här är det en jätteflicka som kastat stenen efter sinbortridande otrogne älskare. Hästen slog bakut och den ena hoventräffade stenen, hvar före märke av skon ännu synes på densamma.Denna berättelse lever ännu kvar bland ortsbefolkningen.Sagesman: Siv Olsson, ca 60 år, Åkesdal, Gärdslöv, Skurup m fl."�
-�Hög, oval, 19x16 m (N-S) och intill 2 m h. Avplanat krön, vilkethar en ca 3x3 m st ytskada, som fyllts igen. Kraftigtkringplöjd. I högen är ett flertal kaninhål. Beväxt med ett30-tal hagtornsträd och kraftig gräsvegetation."�
-�1) Hög, 20 m i diam, 2.5-3.5 m h. Kanterna terrasserade. I mittenen grop, 7 m i diam och 1.4 m djup, omgärdad av en vall, 1 m broch 0.2 m h, med en öppning mot SV. 5 m l, 1 m br och 0.5 m dj.Ett 20-tal stubbar i högen.På platsen har funnits ytterligare 2 högar,2-3) en raserades och uppbyggdes möllan på 1841, b) enundersöktes och bortschaktades redan 1803, varvid framkom ettmänniskotänder, ett skelett samt "fotkedja", stenlagd plan, pådenna 3 runda stenkretsar och en stenkista. (enligt Sjöborg varden undersökta högen belägen ett stycke från de då  tvåkvarvarande. Sjöborg anger vidare att även de då kvarvarandehögarna hade rester av "fotkedja" intill 1.2 m h.)Platsen markerad utifrån en storskifeskarta från 1770."�
-�Hög, 12 m i diam och 1.7 m h. Högens yta beståe av tätt packadjord, på vilken placerats ett flertal 0.1-0.5 m st stenar. En"kantkedja" löper runt högen, intill 0.15 m h, av 0.1-0.2 m lstenar. Mitt på högen växer en stor lönn."�
-�Runsten, 1,2 m h, 0,6 m br (Ö-V) och 0,4 m tj. I N sidan finns inskriften: "Autir satte denna \ sten efter Håkon". Undersökt och uppmålad av runverket 1977-05-11. Se skiss och runavskrift i inskannat dokument. 
-Runstenen är Skårbystenen 2, DR281 och kan ha stått nära en annan känd runsten, Skårbystenen 1, Gussnavastenen nu placerad på Kulturen i Lund."�
-�Hög, 18 m diam och 3.5 m h, med plan topp 6.5 m diam och medtämligen branta slänter. I högens Ö och S sida är 3 resp 1stenar synliga i ytan, 0.2 m h och 0.4-0.5 m st, sannoliktingående i kantkedja. I N delen av högens topp är en grop, 4x2.8m (NNÖ-SSV) och 0.6 m dj. På S slänten är en skada, frånsläntens övre del ned mot kanten, där skadan är 5 m br och 0.4 mdj. Den S sidan förefaller, genom skadan, något insjunken. SVoch V sidan har en kantskada som är 15 m l, 1-1.5 m h och somgår 1 m in i högen.Vid senare plöjningsarbeten har en 1 m br kant bildats utmedhögens S och V sida.Högen beväxt med en hagtorn på N slänten.2-3 m SÖ om högkanten syntes i den plöjda åkerytan en sotfläck,innehållande skörbränd sten."�
-�Dös, undersökt och restaurerad 1965-1967 av M. Strömberg. Då konstaterades att kammaren bestod av 6 stenar, av gnejs och granit, runt en polygonal kammare, 2,4x2 m st (N-S), inre mått. Stenarna är 1,8-1,97x0,8-1,6 m st och 0,5-1,2 m tj. Endast halva stenarna står ovan jord, en av stenarna är frostsprängd. Kammarens yttre mått är 4,25x3 m st (N-S). Takblock av granit, oregelbundet runt, 3 m i diam och 1,4 m h. Stenpackning runt varje block ca 0,2 m br, av mindre stenar. Gång åt S av 2 stenar, 1,4 m l. Vinkelrät mot stenarna är en 0,8 m l tröskelsten, ev. ytterligare 2 st. Dösen är belägen på en rektangulär stenläggning ca 11x5 m st (Ö-V) av ett skikt stenar 0,2-0,4 m l. V delen ej undersökt, framkom genom spettning. I kammaren påträffades 5 fyndförande lager. Bottenlagret var 0,2 m tj och utgjordes av småsten. I det ovanliggande lagret, 5-6 cm tj, påträffades skelettdelar, spånskrapa, skivborr, 2 spån, 8 avslag, 27 bärnstenspärlor. Nästa lager var 0,5 m tj, och omrört med ett stort antal fynd från olika perioder, bla keramik, flintföremål, järnföremål, pärlor och brända och obrända ben. Runt dösen framkom 5 stolphål.
-
-Utanför dösens ingång var vad M. Strömberg kallade ett "röse", oregelbundet, 12x5 m st (Ö-V). Stenarna var 0,03-0,8 m st, lagda i 1-2 skikt. Undersökt 1965 av M. Strömberg varvid framkom 1 stenhäll 1,9x0,8 m st och 0,2 m tj. Vidare påträffades 15 depåfynd av brända ben och flintyxor eller fragment av flintyxor. Spritt i röset påträffades keramik och flinta. Av röset syns inga spår, ev borttaget. 
-
-Dösen undersöktes 1855 av N.G. Bruzelius varvid påträffades keramik, 2 slipstenar av lerskiffer, träkol, trä och benbitar. Dessutom undersökt ca 50 år dessförinnan."�
-�Milstolpe, ca 0.9 m h,0.45 m br (NV-SÖ) och 0.17 m tj med avrundade hörn i toppen. I NÖ sidan inskriften: 1/2 \ M. Postamentet låg förskjutet  strax Ö om själva milstenen och är av gråsten, delvis övertorvad (NV-SÖ) och 0.6 m h."�
-�1) Hög, ca 12 m diam och 0.8-1 m h. Enstaka stenar i ytan 0.1-0.4m st. Röjningssten påförd i S kanten.Beväxt med två bokar i S kanten.1 m VNV om 1 är:2) Stensättning, rund, 4-5 m diam och 0.2 m st.1 m S om nr 2 är:3) Stensättning, rund, 5 m diam och 0.2 m h. Övertorvad. Enstakatill talrika stenar i ytan 0.1-0.2 m st. Grop i mitten, 2 m diamoch 0.25 m dj."�
-�Hög, delvis undersökt, 20x17 m (Ö-V) och 3 m h. Avplanat krön. I N-V branta slänter, speciellt i V där högen sannolikt är avgrävd.
-
-Delundersökt genom seminariegrävning (dnr 421-2693-1996) i form av ett 15x2 m st schakt i och N om högen. I schaktet strax N om Storehög, syntes 4 stora stenar lagda i en svag båge, vilket tolkades som rester efter en kantkedja till en utplöjd hög. Utifrån fyndmaterialet (bearbetad flinta) synes högen vara anlagd på en stenåldersbosättning."�
-�Hög, närmast oval, 9x7 m (NÖ-SV) och intill 1 m h. Toppenavplanad. Sidorna i NÖ-SÖ är flackt sluttande. Smärre ytskada iSSÖ slänten. I övrigt kantskadad så att begränsningen är oklar.Möjligen har även sekundärmaterial påförts och därigenomdeformerat högen. Över högen leder en gångstig (NNÖ-SSV).Beväxt med några almar och lövbuskar.Den i 1968 års beskrivning omtalade förhöjningen 15 m NÖ om högenär i nuläget diffus och svårbegränsad.Ligger inom St Råby sn."�
-
-�
-Gånggrift i hög. Högen är 10 m i diam och 1,3 m h. I ytan finns enstaka stenar, 0,1-0,2 m st. Gånggrift, med närmast rektangulär kammare, 2,5x1,1-1,4 m (NV-SÖ). Belägen i högens NÖ del. I SV långsidan finns 3 kantställda stenblock, 0,9-1,4 m br och 0,7-0,9 m tj. I NÖ långsidan är 3 kantställda stenblock, 0,8-1,1 m br och 0,4-0,9 m tj. I NV är 1 gavelhäll, 1,3 m br och 0,9 m tj. Sidohällarna är på utsidan 0,4-0,9 m h över högytan, i det inre 1,2-1,4 m h. De består av gråsten. Från SÖ sidan av kammaren leder gången, 2 m l (NV-SÖ) och 0,8 m br. I gångens SV sida finns 2 kantställda stenblock, 0,9-1 m br och 0,7 m tj, och i NÖ sidan finns 2 kanställda stenblock, 0,8-1,2 m br och 0,5-0,6 m tj. Gångens block är 1,05-1,2 m h, över högens yta är de 0,45-0,7 m h.
-
-I högen finns ytterligare en gånggrift, se RAÄ-nr Östra Torp 22:1.
-
-1851 undersökt av N. G. Bruzelius varvid en bit av en lerurna, träkol och en slipsten påträffades.
-
-1915 undersökt av F. Hansen varvid 1 stensättning utanför kullen påträffades på ca 30 cm dj. Tidigare hade 2 stensättningar påträffats på ca 20 cm dj av en lantbrukare. I högen hittades ca 10 000 krukbitar och flint- samt stenföremål. I själva gånggrifterna påträffades några få krukbitar samt delar av en flintmejsel. Uppgifter från Hjalmar Lind, f 1901, Östar Torp 6:203, Smygehamn, m.fl."�
-�Långdös, kammare, 4x2 m (Ö-V), bestående av 7 stenblock, 0,3-0,5 m h, 0,4-2 m l och 0,2-0,6 m br. Takblocket är 1,2 m h, 1,8 m l och 1,6 m br. Kring dösen finns en rektangulär stenkrets, 7x5 m (N-S), bestående av 15 stenar, 0,2-0,8 m h, 0,3-0,7 m st. Stenar saknas i N.
-
-Undersökt och restaurerad 1928-29. Fynd: Pilspetsar av flinta, keramik, djurben, ben m.m."�
-�1) Hög, 14 m diam coh 1.8 m h. Avplanad topp?. Kanten är stensattmed stenar, 0.4-1 m st. Högen är kringplöjd. På högen är ett5-tal lösa stenar, 0.6-1 m st. Beväxt med ca 10 alnar ochlövbuskar."Högen undersökt troligen 1870 under gårdsägaren Nils Jeppssonstid och återställdes sedan och omgavs av den stenmur, som ännustår kvar, för att den inte skulle raseras vid plöjning" (RAÄ1968:2).Enligt förra ägaren Gösta Fredgård, Fredsgård, skall fyndetfinnas på Kulturen i Lund."�
-�Hög, med kantstenar, 20 m diam och 1.5 m h. Runt kanten finns 23stenar därav är en rest, övriga är kullfallna. Den resta stenenär 1.75 m h, 0.7 m br och ca 1 m tj. De kullfallna stenarna är1.6-2.25 m l, 0.6-1.25 m br och 0.8-1.3 m tj. I högens V del ären grop 6x3 m st (NNÖ-SSV) och 0.5 m dj. Rakt över högen går etttraktorspår. Vid provgrävning har B. Stjernqvist påträffatfundament till de påträffade stenarna, vilket innebär att dealltså varit resta.Möjligen har ytterligare gravkullar funnits i omgivningen. På1719 års karta finns flera kullar utritade i närheten. Namnetenligt 1719 års karta m fl."�
-�Gånggrift i hög. Högen är 17 m diam och ca 1,7 m h. Kammaren är helt täckt av högen. Kammaren är 4,5x1,5-1,7 m (NNÖ-SSV). I VNV långsidan, 4 hällar, 1,4-1,6 m h och 1-1,2 m br. I ÖSÖ långsidan, 4 hällar, 1,2-1,6 m h och 0,6-1,1 m br. I NNÖ 1 gavelhäll, 1,5 m h och 1,35 m br. I SSV 1 gavelhäll, 1,5 m h och 1,4 m br. Kammaren täcks av 2 takblock, 1,8-2,5 m l och 1,3-1,8 m br samt ett (i V) år 1966 gjutet betongtakblock.
-
-Gång åt ÖSÖ , 5,5 m l och 0,6-0,8 m br. I NNÖ sidan 7 hällar, 0,9-1,3 m h och 0,4-1,2 m br. I SSV sidan 7 hällar, 0,9-1,2 m h och 0,9-1,1 m br. Mellan hällarna i gång och kammare finns på ett flertal ställen kallmur av mindre stenar. Även gången är täckt av högen. Ovan högens yta är 2 takhällar till kammaren synliga, 1,5-3,5 m st och 0,4-0,7 m tj. 3 st (ev. 4) gångtakhällar synliga, 0,5-1,6 m st och ca 0,6 m tj.
-
-Undersökt av F. Hansen 1919 (el. 1920). Fynd: bl.a. 30-tal bärnstenshängen typ dubbeleggad stridsyxa, megalitgravskeramik, dolkar och spjutspetsar samt 2 långa bronssvärd, 1 knapp samt delar av en fibula.
-
-Namnet Ljunghög enligt 1803 års enskifteskarta."�
-�1) Rest sten, 1.4 m h, vid basen 1.35 m br och upptill 0.6-0.75 mbr. Den NNÖ sidan är tämligen plan, övriga sidor samt toppen ärrundade.2.5 m SÖ om nr 1 är:2) Rest sten, 1.2 m h, 1.25 m br (NNÖ-SSV), och 0.6 m tj. Den NNÖsidan är tämligen plan, övriga sidor samt toppen är rundade.7.5 m SÖ om nr 1 är:3) rest sten, 1.2 m h, 1.1 m br (VNV-ÖSÖ) och intill 1 m tj.Närmast ovalt tvärsnitt med samtliga sidor rundade. Åkerholmenhelt kringplöjd. Beväxt med gräs.Vid samtal med Bengt Iacobeus, Åsums  gård, framkom att denne aväldre arbetare hört berättas att gårdens förre ägare vid någottillfälle skulle ha tagit bort stenarna, men därefter hauppmanats att återställa dem. Stenarna restes då sannolikt ej påursprunglig plats."�
-�1) Röse och offerkast, ca 9 m diam och 0.6 m h. Röset som bestårav delvis övertorvad fyllning, av 0.2-0.4 m st stenar,Kantskadsat i S kanten genom väg. Beväxt med ett 10-tal granar.Enligt Gustaf Clemensson, som under åren 1908-1910 företogantikvarisk-topografiska undersökningar i Albo härad, skall manvid vägbyggnation ha funnit människoben i bottnen på röset."�
-�Hög (?), 15x8 m (ÖNÖ-VSV) ca 1.5 m h. Norra delen bortgrävt isamband med täkt verksamhet. Högen har en utplanad yta. Ärbelägen på en naturlig kulle, 30-40 m i diam. 3-4 m h. Möjligenär alltsammans rester av en av grustäkt (i norr) skadad hög.På 1806 års karta kallas området Stenhögsstycket. 1779 års kartabenämmer högen Strömhög. Se Särslöv sn nr 24."�
-�Rest sten, bergart, 1.5 m h och 0.9 m tj, närmast tresidig. Påden NÖ sidan är inhugget:1900 \ HLTFViSe skiss i inventeringshandlingarna.Enligt Nils Persson, Örmölla 13:37, är texten inhuggen av OlaVilander, Abbekås och bokstäverna utgör initialbokstäver iföljande text:HUR LÅNG TID FÖRE VET INGENDetta syftar på att stenen rests så långt tillbaka att ingen vetnär.På en lantmäterikarta från 1766 finns Hörastintstenen markeradstrax NNV om den aktuella. Möjligen er dessa identiska."�
-�Boplatsområde, ca 70x20-40 m st (SV-NO), bestående av 2 gropar, 4 lager och 17 stolphål. 3 av lagren tillhör fyndförande kulturlager som tolkats tillhöra en arbetsgrop med en ugnskonstruktion. Fynden utgörs av keramik och bränd lera (infodring och ugnsväggar). Ett par av stolphålen kan utgöra rester efter ett vindskydd till arbetsgropen. Övriga stolphål ligger spridda och bildar inga övergripande konstruktioner. I områdets södra del, i sydsluttning ned mot tidigare vattendrag, påträffades rester efter ett kulturlager i form av ett utkastlager innehållandes fynd av keramik och bränd lera. Keramik och C14-analys har daterat lämningarna till äldre järnålder.  Området är inte avgränsat åt öster, där villaområde ligger idag."�
-�Hög, rest av, ca 20 m i diam och 0.4 m h. Överodlad. Enl.arbetare på Hobygård plöjs det alltid upp stenar på platsen, ensvag förhöjning. Arbetarna är dock övertygade om att där harlegat ett hus. Namnet Alogotshög namnt redan i handeboken."�
-�1) Hög, rest av, överodlad, ca 20 m diam och 0.7 m h. Talrikastenar i ytan, 0.1-0.3 m st, dessutom iakttogs ett parflintavslag och skörbränd sten. Delvis diffus begränsning.Åt S är "Torshögsåkrar" 1762, och högen har försetts medtillbyggnad åt N, rektangulär. Namnet "Brytebacke" 1832 kan tydapå att högen byggts om till brydestuga.Ca 150 m SV om fd bytomtsgräns."�
-�Hög, 9x12 m (N-S) 0.8-2 m h. Delvis oklar begränsning mot vägen.Kantskadad i S mot tomtgräns samt i Ö-SÖ mot vägen. Omnämnd iSjöstedts:  Barsebäcks fiskeläge.Namnet Skägghögsstycket på åkern invid högen på 1831-32 årslagaskifteskarta."�
-�Dös i hög, rest av, ca 20 m i diam och 0,5 m h. Högen är starkt utplöjd och syns endast som en mindre förhöjning i åkermarken. En jordvall, 0,7 m h och 1 m br, markerandes fastighetsgräns, sträcker sig över högen i Ö-V-riktning.
-
-I J. Tunelds Prästrelationer... från år 1624, omnämns en dös kallad Naetz dyts, vilken ska vara belägen på den S vången. På SGU:s kartblad Trelleborg, 1912, är en stenkammargrav utritad på denna plats samt omnämnd i beskrivningen som Näsdösen. På Skånska rekognoceringskartan är en hög utmärkt på ungefär denna plats, vilken kan vara Näsdösen, men även en hög, kallad Bonde hög, omnämnd i J. Tunelds Prästrelationer..., samt i SGU:s Beskrifvning till... Denna skall ha legat på den Ö vången."	���(\��?"	�G�z��?"	�Q���@" " " " " " " " 	" 
-" " "8 ��;�"	�� ��X�"	�E q���a"	�� " r�J���� "	�� y�>�"	�� z�Z�"	�?� ~��"	�� �`�"	�:� ���"	��  ��]�"	� ��d�"	��  ��$�"	�?�	% �������� "	��$ ����a���"	�%� ��h�Q"	�$� ��A�"	�?# ��R���� "	�1� ��5�"	�� ��g�"	�� ��9�"	�� ����a"	��" k�����"	�� u���a"	�@� x���O"	�8� ��/�"	�*�# ��M���� "	�>�	 ��?�"	�9 ����O"	�3� ��%�"	��# ��*����"	�� ��8�"	�� ��H�"	��# ��<���� "	�� ���"	�. ���"	�� ����O"	�;� ��=�"	�)� ��'�"	��# ��V���� "	�� ��W�"	�7�# ��!����"	�� �����"	�3� ��[�"	�'� ��(�"	�0� ����a"	�6�# ��.���� "	��	 ��N�"	�� ��U�"	�@� ��-�"	�5�# ��f�@���"	�� ��+�"	��" ��:����"	�u# ��S�	��� "	�/� ���"	�+� ��6�"	�0 ��L�"	�;� ��e�"	�� ����a"	�� ���"	�� j�,�"	��" m�����"	�� s��"	�� ����a"	�.�	 ��b�"	�7�
- ��I�"	�'� ��1�"	�/� ���"	��# ��Y���� "	��# ������ "	� �"# ��P���� "	�� ��c�K"	��# ������"	��# ������"	�� ��\�"	�� ��E�"	�- �����"	�!� ��D�"	�� ���"	�* ��2�"	�� ��"�"	�(� ����a"	�#�# ��#���� "	��# ��4����"	�� o�_�"	� � t��"	�)�" v� ���� "	�� }� �"	�5� ��^�"	�?� ��B�"	�/�# ��G���� "	�8� ����O"	�%� ��&�"	�.�# ��F����"	�� ���"	��# ��C���� "	�� ��0�"	�.� ��b�"	�7�	# ��7����"	��# ��3���� "	��# ������ "	�� ��)�)"	�� ���"	�!� ��T�T"	�� ���"	�� ���"	�$�# ��T�T���"	�� i��"	�'�" l����� "	�&� n��"	�� p�a�a"	��" w�����"	��" {��"	�� |��"	�;�# ������ "	�� ���"	�� ��
-�
-"	�0�# ������ "	�1�# ������ "	��
- ���"	�} ��a�a"	�*�# ������ "	�� ���"	�= ���"	�0� ���"	� �!# ������ "	�� ���"	�� ���"	�@� ���"	�� ��T�T"	�5� ���"	�!�
+$fa2b6e4e-b8cb-4efe-be84-9ac9db024613"&
+$fa9aa7f9-b039-4f23-bb97-e37187d2f569"&
+$fc720ec9-0897-4911-b264-8808f86667d9"&
+$fc79d66e-fb7f-495f-adc2-c6fe3c9c507e"B
+@Hög, 25 m i diam och 2.5 m h.Beväxt med ett flertal lövträd."d
+bHög, ca 35 m diam och 3.5 m h. Söndergrävd i flertalet sidor.Beväxt med ett flertal lövträd."n
+lFörskansningsvall, ca 1000 m l, 6-10 m br och 0.5-2 m h. Ianläggningens mittparti och N härom är två…"p
+nHög, ca 20 m diam och 3 m h. I mitten en grop, 3 m diam och 0.2 mdj. Kantskadad. Tätt beväxt med lövträd."p
+nKyrkoruin(?), ca 30x20 m (NNÖ-SSV) och 1m h. Övertorvad yta.Flertal diken, 1-2 m br och 0.2-0.5 m dj, med…"p
+nOmråde med minnesstenar, ca 40x40 m (N-S). Minnesstenarna, avgranit, är 0.5-1.5 m h, försedda med huggna…"q
+oHög (?), ca 13 m i diam och 1.3 m h. Avbanat krön med enurgrävning, rund, 2 m i diam och 0.3 m dj. I ytan…"r
+pHög, rest av, ursprungligen ca 20 m diam och 1.6 m h.Bortschaktad fyllning i SV delen intill mittpartiet. Nu…"r
+pRunsten, sandsten, 1,11 m h, ca 1,2 m br (SSÖ-NNV) och 0,25-0,4 m tj. Runhöjd, 9 cm. Runstenen är närmast…"s
+qHög, oval, 19x16 m (N-S) och intill 2 m h. Avplanat krön, vilkethar en ca 3x3 m st ytskada, som fyllts igen.…"t
+rHög, närmast rund, 23 m diam och 3.5 m h. Avplanad topp 20 mdiam. Högen har branta kanter och är kantskadad…"u
+sHög, 20-22 m i diam och intill 2.5 m h (från omgivande nuv.markyta räknat). Relativt plan topp. 7-8 m i diam.…"u
+sHög, 26 m diam och 4.2 m h. Avplanad topp med en rund flackförhöjning i mitten ca 6 m diam och 0.3 m h (grund…"v
+t1) Hög, 20 m diam, 1.8-2.5 m h, med plan topp och tämligen flackaslänter. I V delen av toppen syns en del sten…"v
+t1) Hög, ca 22 m diam och 3 m h. I kanterna, något uppdraget,enstaka 0.2-0.3 m m h och 0.3-0.6 m st stenar. Rest…"v
+t1) Kyrkogrund, delvis undersökt, under mark.Vid arkeologiska provundersökningar påträffades grundmurar.Mellen…"v
+tBorgruin, -område, uppgift om. Ole Worms omtalar 1624: "VdjSandhager by. Westen for den Nordiste Gaard findis en…"v
+tSkans, 30-40x30-50 m (NÖ-SV). I S och Ö utfyllt så att en intill3 m h terasskant bildats. Begränsas i NV (mot…"w
+uFörsvarsanläggning, delvis undersökt. De runt slottet, Malmöhus, omgivande bastioner, vallar och gravar. Oklar…"w
+uKapell, plats för. Enligt flera uppgifter skall här ha funnitsett kapell. Idag används området som kulturbete,…"x
+v1) Hög, 18x16 m (NV-SÖ) och intill 1.5 m h. I SV en urgrävning3x2 m (NÖ-SV) i NV en urgrävning 5x3 m (NÖ-SV).…"x
+vHög, 13 m diam och 2.75 m h. Avskuren vid kanten på alla sidor.Beväxt med ett par större lövträd samt diverse…"x
+vHög, 13-16 m diam och 2.5 m h. Smågropig yta. Avplanad topp, ca 3m diam. Kantskadad runtom, så att en brant kant…"x
+vHög, 22 m diam och 4.4 m h, med tämligen plan topp, 4.5 m diam.Nära mitten är en grop, 0.9 m diam och 0.1 m dj.…"x
+vHög, 22 m i diam och ca 3 m h. I högen är anlagt ett värn,cementerat, ca 4 m st och ca 1.75 m dj. I högens SSV…"y
+w1) Gravfält, ca 90x20 m (ÖNÖ-VSV), bestående av 5 gravhögar,10-17 m diam och 1-2. h. Samtliga utom den V mycket…"y
+w1) Hög, 14 x 9 m (ÖSÖ-VNV) och 1.8 m h med tämligen långsluttande slänt i V. I mitten är en grop 5 x 2.5 m st…"y
+w1) Hög, rest av, 25 m i diam och 0,3 m h. Överodlad. Markägarenhar tidigare plöjt upp en ca 7 m st stenkrets på…"y
+wBorgruin, 20 x 8 m (N-S), bestående av övertorvade murar, 1-2 mbr och 0,5-1 m h, med i ytan syliga tegelstenar och…"y
+wHög, 24 m i diam och 4 m h. Toppen avplanad, 6 m i diam. Högenhar nu tämligen branta till mycket branta slänter,…"y
+wHög, närmast rund, 20 m i diam och 4.5 m h. Avplanad topp 5 m idiam. I mitten av denna är en grop, 3 m i diam och…"y
+wRunsten, 1,2 m h, 0,6 m br (Ö-V) och 0,4 m tj. I N sidan finns inskriften: "Autir satte denna \ sten efter Håkon".…"z
+x1) Hög, 20 m i diam, 2.5-3.5 m h. Kanterna terrasserade. I mittenen grop, 7 m i diam och 1.4 m djup, omgärdad av en…"z
+x1) Hög, eller röse, ca 16 m diam och 1.8 m h. Högens slänt ärrunt om pålagd med odlingssten. Kantskadad runt om…"z
+x1) Runsten, 1,05 m synligt h, 0,85 m br (ÖNÖ-VSV) och 0,55 m synligt tj. Ristningen vätter mot SSV och är av sent…"z
+xBorgområde, medeltida anläggning, ca 120-130x100 m (N-S)ursprungligen, sannolikt 150x135 m (N-S). Anläggningen (se…"z
+xBorgruin, bestående av en platå med formen av en parallelltrapets med den N långsidan (VNV-ÖSÖ) 75 m l och den V…"z
+xHög, 18-19 m diam och 2.5-3 m h. Toppen avplanad. I N-V-S är enkantkedja, 0.15-0.7 m h, av 0.4-1.1 m l, glest satta…"z
+xHög, 20 m diam och 1.6-2 m h. Avplanad topp, ca 14 m diam. Högen avdelas på mitten av ett 6 m br och 2 m dj schakt…"z
+xHög, nu oregelbunden, dock närmast oval, 29x15 m (Ö-V) och 1.7 mh. I V kanten är en i sen tid anlagd kantkedja av…"{
+y1) Bytomt, delvis undersökt, ca 350-650x150-300 m (N-S). Enligtkarta från 1788 Dalby bys utsträckning.Inom bytomten…"{
+y1) Hög, 25 m diam och 0.5 m h. Överplöjd.I högens V del är:2) Fyndplatsen för 1 tjocknackig, asymmetrisk, delvis…"{
+y1) Hög, 25 m diam och 3 m h. Avplanad topp med en försänkning 5x4m (N-S) och 0.3 m dj.Lätta kantskador.Beväxt med…"{
+y1) Hög, nu oval, 25x18 m (ÖNÖ-VSV) och 2.5 m h. Uptill tämligenavplanad och med smågropig yta. I ytan är enstaka…"{
+yGånggrift i hög. Högen är 17 m diam och ca 1,7 m h. Kammaren är helt täckt av högen. Kammaren är 4,5x1,5-1,7 m…"{
+yHög, 22 m i diam och 3.2 m h med plan topp 8 m i diam. I mittenär en flack grop 8 x 4 m st (ÖNÖ-VSV) och 0.6 m dj.…"{
+yHög, 25x20 m st (NÖ-SV) och 3.2 m h med plan topp, 7 m diam. Skadad i S slänten vid jordtäkt inom ett ca 10x6 m st…"{
+yHög, ca 25 m diam och 3 m h. Avplanad. Kantkedja i NÖ-NV av 0.4-1m st stenar. Bevuxen med en mångfald lövträd och…"|
+z1) Hög, 15 m diam och 2-2.2 m h. Talrika stenar i ytan, 0.1-0.3 mst. Tätt kringodlad. Yt- och kantskador efter täkt,…"|
+z1) Hög, 25 m i diam och 3.5 m h. På högens topp en upplagdjordhög, 7 m i diam och 1.5 m h. Kantskadad vid plöjning…"|
+z1) Vallgrav, ca 160 m l (N-S), 15-20 m br 1-2 m dj, delvisigenfylld i den S delen. Ej vattenfylld.5 m Ö om den S-delen…"|
+zBorgområde, ca 135x120 m st (N-S), bestående av borgplatå med borgruin, inre vallgrav och vall. Borgplatån, 62x58 m…"|
+zHög, 22 m diam och 2.7 m h, med plan topp, 5.5 m diam. I högenfinns många kaninhål. Beväxt i V med en tall och ett…"|
+zHög, 28 m diam och 4.5 m h, med plan topp, 8 m diam. I högens SVslänt är en trappa med fem steg, ned till släntens…"|
+zHög, ca 17 m i diam och ca 2.5 m h. Ursprungligen plan topp, 3.5m i diam och flacka slänter. I SV delen av toppen och…"|
+zHög, delundersökt, nu 35x12 m (ÖNÖ-VSV) och 3-4 m h. Ojämn och gropig yta. 1909 iakttogs i N delens schaktkant ett…"|
+zHög, närmast rund, 32 m diam och 4 m h, med tämligen branta sidor. I toppen är en grop, 9 m diam och 1.7 m dj. Runt…"|
+zHög, rest av, delvis undersökt, 20 m i diam och 1,2 m h. Delvis undersökt av Folke Hansen 1928, varvid Tygelsjö 4:1…"|
+zHög, rund, 25 m diam och ca 0.5 m h. Överplöjd. Belägen iåkermark på krön av hög höjd, mot N-sluttning. Ligger…"|
+zKlosterruin, rest av, 30x15 m (Ö-V), bestående av murar och golv. Murarna är 0.6-1.3 m br och 0.6-1 m h av tegel och…"|
+zKyrkogrund och ödekyrkogård, delvis undersökta och borttagna.Överodlade. År 1936 underrättades LUHM om att gravar…"|
+zPlatsen Brönnestads kyrka, enligt uppgift riven under 1500-talet. Delundersökt. Inom ett ca 70x40 m st (Ö-V) område…"|
+zRunsten, 1,55 m h, 0,9 m br (NÖ-SV) och 0,5 m tj. I NV sidan finns inskriften: "Tuna satte denna sten efter Bram [...]…"|
+zRunsten, gnejs, 1,85 m h, 0,45-0,8 m br (SSÖ-NNV) och 0,3-0,5 m tj. På stenens S sida finns runor huggna i en 1,6 m h…"|
+zRunsten, granit, 1,70 m hög, 1,35 m bred (N-S) och 0,5 m tjock. Den V sidan är flathuggen. På denna är inhugget ett…"|
+zSkeppssättning, 39 m l (ÖNÖ-VSV) och 10 m br, bestående av 39resta stenar, 0.6-1.55 m h, 0.6-1.8 m br och 0.3-0.8 m…"|
+zVallanläggning, rest av, bestående av en inre vall och en yttrevallgrav. Valen är 525 m l (NÖ-SV) och ursprungligen…"|
+zÖdekyrkogård, ca 40x40 m (NNÖ-SSV), på kyrkogårdens NV del, ärmarkerad med 0.2-0.3 m st stenar.Kyrkogrund, 16x9 m…"}
+{1) Domarring, 7 m diam, ursprungligen bestående av sannolikt 7resta stenar, varav 4 kullfallna återstår. Stenarna är…"}
+{1) Hög, 10-11 m diam och 1 m h. I ytan enstaka stenar, 0.2-0.4 mst, samt lösa flintbitar, 0.1-0.25 m st.Beväxt med en…"}
+{1) Hög, 14 m diam och ca 1 m h. I ytan talrika, löst liggandestenar, 0.2-0.4 m st. NNV delen av högen är i nivå med…"}
+{1) Hög, 29 m diam och 4.2 m h. Branta slänter. På krönet en grop,8x5 m (NÖ-SV) och intill 1.2 m dj. Beväxt med tre…"}
+{1) Hög, ca 20 m diam och 3.5 m h. Kantskadad.Beväxt med lövträd.10 m NNV om nr 1 är:2) Hög, ca 18 m diam och 2 mh.…"}
+{1) Hög, ca 27 m diam och 2.8 m h. Relativt flacka slänter. Jämnyta. Restaurerad.Undersökt mellan åren 1894 och 1896…"}
+{1) Hög, ca 32 m i diam och 4.5 m h, med flacka slänter och plantopp, 8 m i diam. I SV delen av toppen en grop, 2x1.3 m…"}
+{1) Hög, närmast oval, 30x16 m (VNV-ÖSÖ) och 2 m h. I denVNV-delen är en grop, 5 m diam och 0.8 m dj. Schaktskador i…"}
+{1) Minnessten, kalksten, 1.8 m h, 1.1 m br (Ö-V) nedtill och 0.7m br upptill, samt 0.25 m tj. Profilerad upptill i form…"}
+{1) Rest sten, 1.2 m h, 0.7 m br och 0.15-0.27 m tj (NNV-SSÖ).Stenen lutar åt NÖ.1 m NV om nr 1 är:2) Rest sten, (?),…"}
+{1) ödekyrkogård, ca 40x40 m (Ö-v) I centrala delen är,2) Kyrkogrund 15x6 m (Ö-V), begränsad av 0.2-0.3 m h och 1 m…"}
+{Borgruin, 130x140 m i diam, bestående av ruinkulle samt inre och yttre vallgrav med mellanliggande vall. Ruinkullen, ca…"}
+{Dös i stensättning. Stensättningen är oval, 62x6-8 m (Ö-V) och 0,3-0,8 m h. Övertorvad, med i ytan enstaka stenar,…"}
+{Hög, 32 m diam och 3.3 m h, med relativt plan topp, 9 m diam ochflacka slänter. På toppens S del en ring av 6 stenar,…"}
+{Hög, ca 30 m diam och 3 m h. Markerad som en kulle på 1697-års karta. Enligt Bruzelius har man påträffat skelett av…"}
+{Runsten av rödaktig granit, 1.3 m h, 0.85 m br (Ö-V) och 0.3-0.4m tj. Huggen inskription med runor åt Ö, imålad med…"}
+{Skans, befästningsanläggning, ca 500 m l (NNÖ-SSV), ca 5-9 m broch 0.2-1.2 m h (vanligen 0.5-0.8 m h). Jordvallen är…"~
+|1) Hög, 13 m diam och 1,5 m h. I ytan enstaka stubbar. 2) Hög söder om nr 1 är en hög 9 m diam och 1 m h. Den mindre…"~
+|1) Hög, 16x20 m (N-S) och 3 m h. Svagt insjunken på en yta av 4x4m på krönet. Västra sidan kapad av väg och övriga…"~
+|1) Hög, 20-27 m diam (NÖ-SV) och 3.5 m h, med åt Ö släntandeavplanad topp, 8 m diam.Högen är närmast oregelbundet…"~
+|1) Hög, 20x10 m (ÖSÖ-VNV), närmast oval och intill 5.5 m h (iSÖ), i NV ca 1.5 m h. I NV kanten en del röjningssten,…"~
+|1) Hög, ca 25 m diam och 4 m h. Toppig. Ojämn yta.Restaurerad under början av 1970-talet, varvid ett parjordkällare i…"~
+|1) Hög, rest av (?), ca 25 m diam och 1.5 m h. Diffusbegränsning. Talrika stenar i den plöjda ytan, flera 0.2-0.3 mst.…"~
+|1) Hög, rest av, överodlad. Nu synlig på håll som en mycket flackförhöjning, ca 16 m diam och 0.3 m h. V delen inom…"~
+|1) Kyrkogrund, bestående av en närmast rektangulär, stenrikkulle, ca 22x11 m (ÖNÖ-VSV) och intill 1.5 m h. I V delen…"~
+|1) Kyrkoruin, 32x10 m (VNV-ÖSÖ), bevarad i 2 m höjd och högre, avgranitblock och tuktade sandstensblock, intill 0.8 m…"~
+|Borganläggning utan klar avgränsning, dock minst 30 m i diam. Påplatsen ligger det Piperska gravkoret i en jordhög. I…"~
+|Borganläggning, totalt 70x40 m (N-S). Borgplatån är 45x25 m(N-S), med ett närmast plant ytområde. Platån avgränsas…"~
+|Gånggrift i hög. Högen är 25 m diam och ca 1,5 m h. Gånggriftens kammare är ca 6x2,5 m (N-S). Vid V långsidan fyra…"~
+|Hög, 15 m diam och 2 m h. Plan topp 6 m diam. I ytan ställvisenstaka stenar 0.2-0.3 m st. I toppen och ut mot SV kanten…"~
+|Hög, 20-22 m diam och 4 m h. Plan topp. SSV kanten avskuren avgata samt beklädd med stenfot.Namnet Råckhög belagt på…"~
+|Hög, 27 m diam och 5.5-6 m h. Grop i mitten, 4 m diam och 0.7 mdj. Från gropen vetter mot S en ränna, 1 m br och 0.5 m…"~
+|Hög, 34 m diam och ca 6.2 m h. I Ö sidan en urgrävning ca 5x10(Ö-V) och ca 1.5 m dj. Antydan till brätte ca 1-2 m br…"~
+|Hög, ca 14 m diam och 2,5 m h. Plan topp. Kantskadad. Beväxt meddiverse lövträd. Restaurerad.Undersökt 1900 där det…"~
+|Hög, ca 25 m diam och 1.8 m h. Överodlad. Kraftigt täktskadadekantpartier, särskilt i N-S-Ö, med nu delvis tämligen…"~
+|Hög, ca 27x23 m (Ö-V) och 2.6 m h med plan topp, 3 m i diam.NNÖ-ÖNÖ delen är borttgen, intill 7 m in i högen. I Ö…"~
+|Hög, rest av, ca 20x17 m (Ö-V) och intill 2 m h i N kanten. Avhögen återstår till synes bara den centrala delen, som…"~
+|Kyrkogrund, i västra delen är en synlig rest av kyrkogrunden eller kyrkogårdsmuren, bestående av en stenmur, 12 meter…"~
+|Runsten, granit, 0,9 m h, 0,6 m br (NNV-SSÖ) och 0,35 m tj. På SV sidan och SÖ sidan finns en runtextrad, runhöjd 6-7…"~
+|Skansanläggning, ca 700x100 m (VNV-ÖSÖ), bestående av en vall med4 bastioner, vallgravar, vallar och 3 skansar.Vallen…"~
+|Skeppssättning, 67x18,5 m st (NV-SÖ), bestående av 58 resta stenar av granit och kvartssandsten. Stenarna är vanligen…"~
+|Stadsvall, 580 m l (NNV-SSÖ), 12-20 m br och 0,8-2,5 m h. Mestadels brant sluttande sidor och avplanat krön. Vallen är…"
+}1) Hög 24 m i diam 2.75 m h. I högen är ett flertal kaninhål.Högen bevuxen med div. lövsly. Uppskattningsvis ca 10 m…"
+}1) Hög, 19 m diam och 3.7 m h. Branta kanter. I SV ett urgrävtparti, 6x4 m (NNÖ-SSV) och intill 1.2 m dj.45 m SSV om nr…"
+}1) Hög, ca 12 m diam och 0.8-1 m h. Enstaka stenar i ytan 0.1-0.4m st. Röjningssten påförd i S kanten.Beväxt med två…"
+}1) Långhög, 30x9 m (Ö-V) och 1.3 m h. I ytan enstaka stenar,0.1-0.2 m st. I V delen en urgrävning, 3x3 m och 0.3 m dj,…"
+}1) Runsten, granit, 1-3 m h, 0.47 m br (Ö-V) och 0.3 m tj inmuradi kyrkans Ö-vägg.. Runhöjd 8-12 cm. På S sidan är 4…"
+}Borgruin-/område, ca 80x70 m (Ö-V). Områdets begränsning gjord utifrån de naturliga förutsättningarna. Arkeologiskt…"
+}Borgruin/område, plats för, ungefärlig utsträckning 120 x 90 m (NV-SÖ) enligt enskifteskarta 1785. 3 husgrunder finns…"
+}Borgruinsområde, närmast rektangulärt, 160x110 m (N-S), bestående av en närmast rektangulär holme 70x60 m (N-S). På…"
+}Dös(?) rest av, bestående av 1 rest sten, 1,5 m h, 1,4 m br (Ö-V) och nästan 0,75 m tj. Antaligen en av kammarstenarna…"
+}Hög, 18 m diam och 3.5 m h. Branta sidor, upptill svagare välvd,ca 10 m diam. Högen har en smågropig yta. Från mitten…"
+}Hög, 22-23 m i diam och ca 5 m h. Ojämn och gropig yta. I NÖ delen finns en grop, 12x5 m (N-S) och 0,2-1 m dj. Utdragen…"
+}Hög, 22-28 m i diam och 3,8-4,2 m h med närmast plan överdel, 6x8m (NÖ-SV). På högens topp en, i sen tid, rest sten,…"
+}Hög, 30 m diam och 4.5 m h. I ytan enstaka stenar, 0.2-0.4 m st.Ytan ojämn och söndergrävd av vildkaniner. Beväxt med…"
+}Hög, 33-34 m i diam och 5,10-5,85 m h. På toppen en rännformigskada, 15x3-7 m (SÖ-NV) och intill 0,9 m dj. På högens…"
+}Hög, ca 23 m i diam ochintill 5.25 m h. Högens topp avplanad frånmitten mot SSV, 6x3 m (NNÖ-SSV) och intill 1 m dj.I V…"
+}Kyrkoruin, ca 28x12 m (Ö-V), med murrester under markytan. Idag är murresterna markerade med en klippt buxbomhäck. Inga…"
+}Runsten, 1,9 m h, intill 0,6 m br (NÖ-SV) och intill 0,55 m tj. Runinskriften i SSÖ sidan. Stenen påträffades liggande…"�
+~1) Gånggrift i hög. Högen är 29 m i diam och 2.8 m h. Upptill ärhögen något avplanad, 7 m i diam. I dess S del är 2…"�
+~1) Hög, 25 m i diam och 3.3 m h. I toppens mitt är en grop, 7 m idiam och 1.1 m dj. I gropen finns ett trädgårdsbord av…"�
+~1) Hög, ca 25 m diam och 4 m h. Kantskadad. Beväxt med lövträd.Ca 25 m Ö om nr 1 är :2) Hög, ca 40 m diam och 1 m h.…"�
+~1) Kyrkoruin, delvis undersökt, bestående av tornrester, 6.8x5 m(Ö-V). Tornets dagermurar är intill 1.7 m tj och intill…"�
+~1) Röse, 26 m i diam och 1.5 m h, bestående av delvis övermossadeflintstenar, 0.05-0.2 m st. Stenarna är omplockade och…"�
+~Borgruin. Inom ett ca 90x60 m st område (NV-SÖ) skall enligt uppgift en borg eller en stor gård varit belägen. Området…"�
+~Hög, 20 m i diam och 3.6 m h. Välvd topp, långsluttande sidor,ngt brantare mot N. Ö slänten ngt insjunken. Beväxt med…"�
+~Hög, 24 m i diam och 3 m h. Plan topp, 5 m i diam och långsluttande slänter. Kantskadad runt om vid plöjning så att en…"�
+~Hög, 25 m i diam och 2.5-3 m h. I SÖ delen är en 3-4 , br sektorav högen bortgrävd. I anläggningen 4-5 gropar 1-3 m i…"�
+~Hög, 30 m diam och 3 m h, med relativt flacka slänter och välvdtopp. I högens mitt är rest mittsten, kraftigt lutande,…"�
+~Hög, rest av, ca 20 m i diam och 0.4 m h. Överodlad. Enl.arbetare på Hobygård plöjs det alltid upp stenar på platsen,…"�
+~Klosterruin/område, bestående av en husgavel i Ö och grund till en korsgång i N, V och S om klostergården. Grunden är…"�
+~Kolerakyrkogård, rektangulär, 28 x 15 m (NNÖ-SSV). Begränsas i V-N-Ö av en jordvall, 1,5 - 2 m br och 0,4 - 0,6 m h. I…"�
+~Kyrkoruin, 20,25x6.73 m (ÖSÖ-VNV) med V-form under sadeltak avenkupigt tegel. Murarna i långhuset och koret är 1.05-2.9…"�
+~Långdös i stensättning. Stensättningen, oval, är 57x6 m (Ö-V) och 0,2-0,3 m h. Övertorvad med i ytan enstaka stenar,…"�
+~Medeltida borganläggning, rest av, ca 110-130 x 100 m (NNV-SSÖ), bestående av vall och vallgrav. Vallen är 2-5 m br och…"�
+1) Hög, 20 m diam och 2.5-3 m h. Från mitten och mot VNV enurgrävning, 5x8 m (VNV-ÖSÖ) och 0.5 m dj. Från N kanten upp…"�
+1) Hög, ca 20 m diam och 2.5 m h. Svagt rundad topp. Flack SÖ, Öoch N slänt och brantare SV och V slänt. I NV delen ett…"�
+1) Hög, närmast oval, 20x15 m (ÖNÖ-VSV) och 2.5 m h. Den harvälvd topp och långsluttande sidor. NNV delen bortschaktad…"�
+Dubbelgånggrift i hög. Högen, rest av, är 10 m i diam och 0,3 m h, med nu närmast kvadratisk bottenplan, 10x10 m (N-S).…"�
+Dös, på en liten platå, 6x4 m (NNV-SSÖ) och 0,3 m h. Dösen består av 2 sidohällar, 1 gavel, samt 1 takblock. Kammaren…"�
+Hög, 12-13 m diam och 3.5 m h. Ojämn yta. Avplanad topp, 5x1.5 m(SSÖ-NNV). Ö sidan insjunken, 7x5 m. Kringplöjd så att…"�
+Hög, 20 m i diam och 2,5 m h. Kantskadad i NÖ-SÖ-SV genom schaktning, sannolikt jordtäkt. Mittpartiet och N-NÖ delen av…"�
+Hög, 28 m diam och 3.8 m h, med välvd topp och tämligen brantaslänter. SSÖ om mittpartiet är en grop, 6 m diam och 0.8…"�
+Hög, 35 m diam och 4 m h. I mitten är en grop, 10x16 m (Ö-V), sommynnar ut i Ö slänten.Bevuxen med sex körsbärsträd,…"�
+Hög, rest av, delvis undersökt, 38 m diam och 0,5 m h. Överplöjd. På högens yta är ett 10-tal stenar, 0,2-0,4 m st, i…"�
+Kyrkoruin, närmast rektangulär, 13x6 m (Ö-V) och 0.3-1 m h, bestående av en förhöjd platå kantad av enstaka 0,4-0,5 m…"�
+Slottsruin, 25x15 m (NNÖ-SSV), bestående av väggar och gavlar av gråsten och tegel, ca 15 m h och 3 m tj. Från NV sidan…"�
+Stenkrets, rektangulär, rest av, långdös?, 36x16 m l (Ö-V), bestående av 16 resta stenar, varav 5 i N långsidan, 8 i S…"�
+�1) Boplats, 200x120 m (NÖ-SV), på backens krön och nedåt den frånNÖ till SV sluttning av backen med måttlig förekomst…"�
+�Hög, 15 m i diam och 2.5 m h. Ojämn yta. I mitten är en grop, 3 mi diam och 0.5 m dj. I ÖSÖ sluttningen är en sten, 0.8…"�
+�Hög, 18 m diam och 2.5 m h, med svagt välvd topp och tämligenbranta slänter. I ytan är tämligen talrika stenar, 0.2-0.7…"�
+�Hög, 21 m i diam och 2.5 m h. Högen är kraftigt skadad ochursprunglig höjd går ej att säkert fastställa. Från högens…"�
+�Hög, 25 m i diam och 3 m h. I högens S del är ingrävt 6x4 m ochkantsatt med sten. Även kantstenar och stenparti i V-SÖ.…"�
+�Hög, 35 m i diam och 5.3 m h. Ojämn yta med brant slänt mot V, iövrigt långsluttande. I mitten, med dragning åt SO, är…"�
+�Hög, delvis undersökt, 20x17 m (Ö-V) och 3 m h. Avplanat krön. I N-V branta slänter, speciellt i V där högen sannolikt…"�
+�Hög, idag närmast rektangulär, 35x25 m (Ö-V) och 4.5 m h. Upptillavplanad yta 20x10 m (Ö-V). Högen är skadad av odling…"�
+�Hög, närmast oval, 9x7 m (NÖ-SV) och intill 1 m h. Toppenavplanad. Sidorna i NÖ-SÖ är flackt sluttande. Smärre ytskada…"�
+�Gånggrift i hög, rest av. Av högen återstår ett parti i NNV-delen 6x1,5 m st (ÖNÖ-VSV) och ca 1 m h. Kammaren är rund,…"�
+�Gånggrift i hög. Högen är ca 25 m i diam och 2,5 m h. Gånggriften täcks av högen, dess kammare är rundat rektangulär,…"�
+�Gånggrift i hög. Högen är närmast rektangulär, 17x8 m (Ö-V) och1-1,5 m h. I SÖ och i NÖ är en antydan till kantkedja…"�
+�Hällkista, 3.7x1.5 m (yttre mått, ÖSÖ-VNV) och 3x0.7 (inre mått).I SV långsidan är 4 hällar och i NÖ långsidan är 3…"�
+�Hög, 25 m diam och 5 m h. På toppen är ett schakt tvärs överhögen 9x3 m (NV-SÖ) och 0.2-7 m dj. I den NNV delen är ett…"�
+�Långdös i hög. Högen är 53x13 m (SÖ-NV) och ca 2,4 m h. Högen omges av 37 st kantstenar (flertalet resta), 0,3-1,1 m h,…"�
+�1) Hög, 22 m diam och 0ch 3.5 m h, med välvd topp.I högens topp är 1 synlig sten, 0.2 m st. I högens SÖ slänt är 1grop,…"�
+�Hög, 26x21 (NNV-SSÖ) och 2.5 m h.Beväxt med två mindre lövträd.På högens NÖ sida skär motorvägen tätt intill, denna…"�
+�Långhög (?), 28x9 m (Ö-V) och 1.6 m h med toppig ovansida. Ca 5 m V om Ö kanten är en svacka tvärs över högen, 1.5 m br…"�
+�1) Ödekyrkogård, ca 58x34 m (Ö-V). Kyrkogårdsmuren är bevarad i Spå en 20 m l sträcka. Muren är här 0.8-1 m h och 1-1.5…"�
+�Borganläggning, bestående av 3 höjdplatåer samt 1 inre och 1yttre vallgrav. I N är höjdplatå (A), 45x25 m (VNV-ÖSÖ) och…"  A"  -B"  OB"  �B" ��B" ��B"	
+ףp=
+O@"	
+ףp=*N@"	
+ףp=*X@"	
+ףp=�U@"	
+ףp=�C@"	
+ףp=�T@"	�G�zTU@"	�G�ztU@"	�G�z�4@"	�G�z�D@"	�G�z�R@"	�G�z�P@"	��Q�@"	��Q�>W@"	��Q�nV@"	��Q�~X@"	��Q��R@"	��Q��W@"	��Q��W@"	��Q��R@"	)\���R@"	)\���T@"	)\���(U@"	)\���8R@"	)\���HX@"	)\���XT@"	)\���hH@"	)\����W@"	)\����@@"	)\����W@"	33333�W@"	33333�W@"	33333�G@"	33333�V@"	33333�U@"	=
+ףpK@"	=
+ףp�U@"	=
+ףp�W@"	=
+ףp�D@"	=
+ףp�4@"	H�z�V@"	H�z�GG@"	H�z�WT@"	H�z�wV@"	H�z��R@"	H�z��U@"	R���T@"	R���Q @"	R���Q@"	R���Q@"	R���Q<@"	R���QX@"	R���qQ@"	R���W@"	R���U@"	R����W@"	\���(<X@"	\���(�U@"	\���(�W@"	fffff&V@"	ffffffA@"	ffffffX@"	fffff�K@"	fffff�X@"	fffff�U@"	fffff�:@"	fffff�W@"	q=
+ףS@"	q=
+ף0M@"	q=
+ף0S@"	q=
+ףPA@"	q=
+ףpG@"	q=
+ף�X@"	q=
+ף�V@"	q=
+ף�N@"	{�G�
+P@"	{�G�N@"	{�G�:;@"	{�G�X@"	��Q�%R@"	��Q�%W@"	��Q�eX@"	��Q��R@"	��Q��X@"	��Q��W@"	���(\B@"	���(\/U@"	���(\OW@"	���(\oM@"	���(\oU@"	���(\��?"	���(\�I@"	���(\�S@"	���(\�C@"	���(\�X@"	���(\�T@"	�����YW@"	�����yX@"	������@"	������X@"	������U@"	������W@"	������T@"	������X@"	�p=
+�M@"	�p=
+�#/@"	�p=
+�#K@"	�p=
+�CX@"	�p=
+׃U@"	�p=
+ףW@"	�p=
+׳U@"	�p=
+��B@"	�G�zn>@"	�G�znX@"	�G�z�>@"	�G�z��?"	�G�z�T@"	�G�z�7@"	�G�z�S@"	���QXW@"	���Q�T@"	���Q�G@"	���Q�W@"	���Q�Q@"	��(\�F@"	��(\�U@"	��(\�W@"	��(\�2S@"	��(\�bI@"	��(\��;@"	��(\��U@"	��(\��W@"	�����,L@"	�����,W@"	�����|X@"	����̌7@"	����̬Q@"	ףp=
+U@"	ףp=
+gP@"	ףp=
+gW@"	ףp=
+�T@"	ףp=
+�G@"	ףp=
+�S@"	ףp=
+�Q@"	�z�GV@"	�z�G!P@"	�z�G1X@"	�z�GAR@"	�z�GAV@"	�z�GaO@"	�z�G�X@"	�z�G�X@"	�Q��T@"	�Q��kV@"	�Q��{S@"	�Q���T@"	�Q���X@"	�Q���K@"	�Q���V@"	�Q���S@"	�Q���U@"	�Q���V@"	�Q���Q@"	�Q���T@"	�(\��U@"	�(\��EU@"	�(\��uS@"	�(\�W@"	�(\���V@" " " 4" C" \"8# �d����� "	��# �'Y����� "	�9� �
+���"	��# ������"	�5� �sY��"	�%� ���"	�� �*��"	�� �wt��"	��# �-����� "	��	 �hl��"	��  �5z��"	�0� �ii��"	�� �nN��"	��# �9_����� "	�!�! �xl��"	��" �8����� "	�P# �7����� "	�� ���"	�r �j��"	��# �~~����� "	��# �6_�����"	��" �}��"	�(� �oN��"	�"� �|[��"	�8� ���"	��# ������ "	��  �M��"	�� �3��"	�� �U��"	�� �]��"	�� ���"	�� �����"	�� # �=����� "	��# �YY�����"	��# ������ "	��# �L����� "	�� �E��"	��# ������ "	�� �u_��"	�� �:��"	�� �sY��"	��" �ll����� "	�i �p��"	�� ���"	��# �C_����� "	�?� �Xi��"	�� # �NN����� "	�$� �_��"	��# ������"	�;� �2��"	�� ���"	�� �yl��"	�p ���"	�,�# ������ "	�@� ���"	�5� ���"	�2 �"��"	�� �B��"	�� �(i��"	�# �G����� "	�1� �;��"	�� ���"	�� ���"	�$� �A��"	��# ������ "	� �# �P��"	�? �NN��"	�0� ���"	�� �+��"	� �&��"	�*� �i��"	�=� �!��"	�� �^��"	�� �\��"	�� �~~��"	�4�# ������ "	�� �?��"	�%� �I��"	��	 ���"	�0� ���"	�'� �a��"	�� �/��"	�� ���"	� �0��"	�� �v��"	�+�# ������ "	�=�$ ��q����� "	�/�# �T����� "	�� �@��"	�� ���"	�+� �1��"	�� �V��"	� ���"	�.�# ������ "	�� �Z��"	�7� �)��"	�-�# ������ "	�8� �bi��"	�� �F��"	�#� �e��"	�N ���"	�'� ���"	�� ���"	�)�# �qq����� "	�-� ���"	�9� �`��"	�(�# ������ "	�!� �sY��"	�-( ���"	�&� �i��"	�� �i��"	�?� �	��"	�'�# �c�����"	�� �H��"	�� �k��"	�I ���"	�;� �4��"	�.� �g��"	�;� ���"	�� ���"	��# �>����� "	�*� ���"	�� ���"	�� ��q��"	�� �,��"	�5� ���"	�!� � f��"	��# �YY��"	�9� ���"	�'� �NN��"	�3�# �zz����� "	�#�
+ �<��"	�� ���"	�� ��q��"	�=� �NN��"	�!� �#��"	�0� �qq��"	�� ���"	�)� ���"	�5� ���"	�;� �Of��"	� � ���"	��# ������ "	�5� �Q��"	�� ���"	�� ��Y��"	� �# �J����� "	�0� ���"	�� �m��"	�4� �����"	�� �NN��"	�?� �.��"	�*� �YY��"	�� �sY��"	�? ���"	��# �NN����� "	�� �{f��"	�@� �qq��"	�)� �W��"	�$� �R��"	�/� �D��"	�# �rS��"	�2� �ii��"	�� �YY��"	�(� ��z��"	�=� ���"	�"� ���"	�/� �K��"	�>�	 ���"	�A� ���"	�� ���"	�� ���"	�(� ���"	�#� �NN��"	�5� �$��"	�?� �%��"	��

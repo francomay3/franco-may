@@ -142,7 +142,7 @@ export default function Fornlamningar() {
         },
         fornlamningar: {
           type: 'vector' as const,
-          tiles: [`${process.env.NEXT_PUBLIC_DOMAIN}/tiles/{z}/{x}/{y}.pbf?v=6`],
+          tiles: [`${process.env.NEXT_PUBLIC_DOMAIN}/tiles/{z}/{x}/{y}.pbf?v=10`],
           minzoom: sourceMinZoom,
           maxzoom: sourceMaxZoom,
           attribution: '© Franco May / RAÄ data',
@@ -159,7 +159,7 @@ export default function Fornlamningar() {
           maxzoom: 24,
           filter: buildFilter(filters),
           layout: {
-            'symbol-sort-key': ['-', ['coalesce', ['get', 'relevance'], 0]],
+            'symbol-sort-key': ['-', ['coalesce', ['get', 'score'], 0]],
             'icon-allow-overlap': false,
             'icon-ignore-placement': false,
             'icon-padding': 2,
