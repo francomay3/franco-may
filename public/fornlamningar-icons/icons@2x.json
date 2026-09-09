@@ -1,93 +1,555 @@
 {
-  "anvil": {
-    "height": 256,
+  "bastion": {
+    "height": 128,
     "pixelRatio": 2,
-    "width": 256,
+    "width": 128,
     "x": 0,
     "y": 0
   },
-  "bones": {
-    "height": 256,
+  "beacon": {
+    "height": 128,
     "pixelRatio": 2,
-    "width": 256,
-    "x": 256,
-    "y": 0
+    "width": 128,
+    "x": 0,
+    "y": 128
   },
-  "building": {
-    "height": 256,
+  "bloomery": {
+    "height": 128,
     "pixelRatio": 2,
-    "width": 256,
-    "x": 512,
-    "y": 0
-  },
-  "cave-painting": {
-    "height": 256,
-    "pixelRatio": 2,
-    "width": 256,
-    "x": 768,
-    "y": 0
-  },
-  "drakkar": {
-    "height": 256,
-    "pixelRatio": 2,
-    "width": 256,
+    "width": 128,
     "x": 0,
     "y": 256
   },
-  "greek-temple": {
-    "height": 256,
+  "boat-landing": {
+    "height": 128,
     "pixelRatio": 2,
-    "width": 256,
+    "width": 128,
+    "x": 0,
+    "y": 384
+  },
+  "boundary-stone": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
     "x": 0,
     "y": 512
   },
-  "hut": {
-    "height": 256,
+  "bridge": {
+    "height": 128,
     "pixelRatio": 2,
-    "width": 256,
+    "width": 128,
+    "x": 0,
+    "y": 640
+  },
+  "burial-mound": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
     "x": 0,
     "y": 768
   },
-  "maya": {
-    "height": 256,
+  "cairn": {
+    "height": 128,
     "pixelRatio": 2,
-    "width": 256,
+    "width": 128,
+    "x": 0,
+    "y": 896
+  },
+  "canal": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 128,
+    "y": 0
+  },
+  "carving-historic": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 128,
+    "y": 128
+  },
+  "castle": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 128,
+    "y": 256
+  },
+  "cemetery": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 128,
+    "y": 384
+  },
+  "charcoal": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 128,
+    "y": 512
+  },
+  "church": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 128,
+    "y": 640
+  },
+  "clearance-cairn": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 128,
+    "y": 768
+  },
+  "cooking-pit": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 128,
+    "y": 896
+  },
+  "dam": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 256,
+    "y": 0
+  },
+  "ditch": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 256,
+    "y": 128
+  },
+  "dolmen": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
     "x": 256,
     "y": 256
   },
-  "moai": {
-    "height": 256,
+  "enclosure": {
+    "height": 128,
     "pixelRatio": 2,
-    "width": 256,
-    "x": 512,
-    "y": 256
+    "width": 128,
+    "x": 256,
+    "y": 384
   },
-  "question-mark": {
-    "height": 256,
+  "farmstead": {
+    "height": 128,
     "pixelRatio": 2,
-    "width": 256,
-    "x": 768,
-    "y": 256
-  },
-  "shield": {
-    "height": 256,
-    "pixelRatio": 2,
-    "width": 256,
+    "width": 128,
     "x": 256,
     "y": 512
   },
-  "stonehenge": {
-    "height": 256,
+  "finds": {
+    "height": 128,
     "pixelRatio": 2,
-    "width": 256,
+    "width": 128,
+    "x": 256,
+    "y": 640
+  },
+  "fire-cracked-mound": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
     "x": 256,
     "y": 768
   },
-  "weapon": {
-    "height": 256,
+  "fishing-village": {
+    "height": 128,
     "pixelRatio": 2,
-    "width": 256,
+    "width": 128,
+    "x": 256,
+    "y": 896
+  },
+  "ford": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 384,
+    "y": 0
+  },
+  "forestry": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 384,
+    "y": 128
+  },
+  "forge": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 384,
+    "y": 256
+  },
+  "fossil-field": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 384,
+    "y": 384
+  },
+  "furnace": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 384,
+    "y": 512
+  },
+  "gallows": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 384,
+    "y": 640
+  },
+  "grave-field": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 384,
+    "y": 768
+  },
+  "grave-flat": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 384,
+    "y": 896
+  },
+  "grave-marked-stone": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 512,
+    "y": 0
+  },
+  "grave-unknown": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 512,
+    "y": 128
+  },
+  "harbour": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 512,
+    "y": 256
+  },
+  "hearth": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 512,
+    "y": 384
+  },
+  "hillfort": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
     "x": 512,
     "y": 512
+  },
+  "house-foundation": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 512,
+    "y": 640
+  },
+  "hut-platform": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 512,
+    "y": 768
+  },
+  "industry": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 512,
+    "y": 896
+  },
+  "kiln": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 640,
+    "y": 0
+  },
+  "labyrinth": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 640,
+    "y": 128
+  },
+  "lighthouse": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 640,
+    "y": 256
+  },
+  "log-floating": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 640,
+    "y": 384
+  },
+  "manor": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 640,
+    "y": 512
+  },
+  "memorial": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 640,
+    "y": 640
+  },
+  "milestone": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 640,
+    "y": 768
+  },
+  "military": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 640,
+    "y": 896
+  },
+  "mill": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 768,
+    "y": 0
+  },
+  "mine": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 768,
+    "y": 128
+  },
+  "monastery": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 768,
+    "y": 256
+  },
+  "offering-cairn": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 768,
+    "y": 384
+  },
+  "park": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 768,
+    "y": 512
+  },
+  "pitfall-system": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 768,
+    "y": 640
+  },
+  "pitfall-trap": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 768,
+    "y": 768
+  },
+  "quarry": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 768,
+    "y": 896
+  },
+  "road": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 896,
+    "y": 0
+  },
+  "rock-carving": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 896,
+    "y": 128
+  },
+  "rock-painting": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 896,
+    "y": 256
+  },
+  "runestone": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 896,
+    "y": 384
+  },
+  "sacred-nature": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 896,
+    "y": 512
+  },
+  "sami-hut": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 896,
+    "y": 640
+  },
+  "sea-mark": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 896,
+    "y": 768
+  },
+  "settlement": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 896,
+    "y": 896
+  },
+  "settlement-grave": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 1024,
+    "y": 0
+  },
+  "shipwreck": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 1152,
+    "y": 0
+  },
+  "spring": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 1280,
+    "y": 0
+  },
+  "stone-ball": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 1408,
+    "y": 0
+  },
+  "stone-circle": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 1536,
+    "y": 0
+  },
+  "stone-cist": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 1664,
+    "y": 0
+  },
+  "stone-setting": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 1792,
+    "y": 0
+  },
+  "storage-pit": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 1920,
+    "y": 0
+  },
+  "summer-farm": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 1024,
+    "y": 128
+  },
+  "terrace": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 1024,
+    "y": 256
+  },
+  "town-layer": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 1024,
+    "y": 384
+  },
+  "town-wall": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 1024,
+    "y": 512
+  },
+  "trench": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 1024,
+    "y": 640
+  },
+  "unknown": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 1024,
+    "y": 768
+  },
+  "well": {
+    "height": 128,
+    "pixelRatio": 2,
+    "width": 128,
+    "x": 1024,
+    "y": 896
   }
 }

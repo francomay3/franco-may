@@ -13,15 +13,18 @@ import {
 } from '@vis.gl/react-maplibre';
 import { throttle } from 'lodash';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import { ICON_FOR_CLASS, FALLBACK_ICON } from './iconForClass';
 import {
   Box,
   Button,
   Card,
   Checkbox,
   CloseButton,
+  Group,
   LoadingOverlay,
   Overlay,
   Stack,
+  Text,
 } from '@mantine/core';
 import metadata from '../../public/tiles/metadata.json';
 import { isPointFeature, isTileMetadata, PointFeature } from './models';
@@ -33,57 +36,28 @@ import {
   useLocalStorage,
 } from '@mantine/hooks';
 import { IconFilter } from '@tabler/icons-react';
+import { FILTER_FAMILIES, ALL_FAMILY_IDS } from './filterFamilies';
 
-const availableFilters = [
-  'Lägenhetsbebyggelse',
-  'Husgrund, historisk tid',
-  'Hög',
-  'Stensättning',
-  'Röse',
-  'Blästplats',
-  'Källa med tradition',
-  'Bytomt/gårdstomt',
-  'Hällristning',
-  'Grav markerad av sten/block',
-  'Område med skogsbrukslämningar',
-  'Naturföremål/-bildning med bruk, tradition eller namn',
-  'Gränsmärke',
-  'Stenkammargrav',
-  'Fartygs-/båtlämning',
-  'Fångstgropssystem',
-  'Gravfält',
-  'Fångstgrop',
-  'Runristning',
-  'Other',
+// Filter on `family`, not on `class`. The exporter thins per family, so a
+// family-level selection is a union of independently well-distributed sets and
+// MapLibre's collision engine refills the space freed by whatever is hidden.
+// Filtering on individual classes would cut inside a thinning bucket and leave
+// the gaps back.
+const buildFilter = (selected: string[]) => [
+  'in',
+  ['coalesce', ['get', 'family'], 'misc'],
+  ['literal', selected],
 ];
-
-const buildFilter = (selected: string[]) => {
-  const wantOther = selected.includes('Other');
-  const selectedKnown = selected.filter(c => c !== 'Other');
-
-  const any: any[] = ['any'];
-
-  if (selectedKnown.length) {
-    any.push(['in', ['get', 'class'], ['literal', selectedKnown]]);
-  }
-
-  if (wantOther) {
-    any.push([
-      '!',
-      ['in', ['coalesce', ['get', 'class'], ''], ['literal', availableFilters]],
-    ]);
-  }
-
-  return any.length > 1 ? any : ['in', ['get', 'class'], ['literal', []]];
-};
 
 export default function Fornlamningar() {
   const [selectedFeature, setSelectedFeature] = useState<PointFeature | null>(
     null
   );
   const [filters, setFilters] = useLocalStorage<string[]>({
-    key: 'fornlamningar-filters',
-    defaultValue: availableFilters,
+    // Deliberately a new key. The old one stores RAA class names, which match
+    // no family, so reusing it would show an empty map once on upgrade.
+    key: 'fornlamningar-families',
+    defaultValue: ALL_FAMILY_IDS,
   });
   const [
     isFiltersModalOpen,
@@ -142,7 +116,7 @@ export default function Fornlamningar() {
         },
         fornlamningar: {
           type: 'vector' as const,
-          tiles: [`${process.env.NEXT_PUBLIC_DOMAIN}/tiles/{z}/{x}/{y}.pbf?v=10`],
+          tiles: [`${process.env.NEXT_PUBLIC_DOMAIN}/tiles/{z}/{x}/{y}.pbf?v=13`],
           minzoom: sourceMinZoom,
           maxzoom: sourceMaxZoom,
           attribution: '© Franco May / RAÄ data',
@@ -163,37 +137,28 @@ export default function Fornlamningar() {
             'icon-allow-overlap': false,
             'icon-ignore-placement': false,
             'icon-padding': 2,
+            // Built from the generated ICON_FOR_CLASS table so it cannot
+            // drift from the sprite. All 153 classes the pipeline emits are
+            // covered; FALLBACK_ICON is only reachable if the tiles get a
+            // class the icon set has not seen yet.
             'icon-image': [
               'match',
               ['get', 'class'],
-              'Lägenhetsbebyggelse', 'building',
-              'Husgrund, historisk tid', 'hut',
-              'Hög', 'maya',
-              'Stensättning', 'bones',
-              'Röse', 'stonehenge',
-              'Blästplats', 'anvil',
-              'Källa med tradition', 'greek-temple',
-              'Bytomt/gårdstomt', 'hut',
-              'Hällristning', 'cave-painting',
-              'Grav markerad av sten/block', 'bones',
-              'Område med skogsbrukslämningar', 'hut',
-              'Naturföremål/-bildning med bruk, tradition eller namn', 'greek-temple',
-              'Gränsmärke', 'shield',
-              'Stenkammargrav', 'stonehenge',
-              'Fartygs-/båtlämning', 'drakkar',
-              'Fångstgropssystem', 'weapon',
-              'Gravfält', 'bones',
-              'Fångstgrop', 'weapon',
-              'Runristning', 'moai',
-              'question-mark',
+              ...Object.entries(ICON_FOR_CLASS).flat(),
+              FALLBACK_ICON,
             ],
+            // A 64 px sprite, so size = drawn px / 64. The previous ramp
+            // (0.05 at z3, 0.15 at z12) drew them at 3-10 px, which is why the
+            // icons were never really visible; it went unnoticed while the low
+            // zooms had almost no points left in them at all.
             'icon-size': [
               'interpolate',
               ['linear'],
               ['zoom'],
-              3, 0.05,
-              12, 0.15,
-              18, 0.3,
+              0, 0.22,
+              8, 0.28,
+              12, 0.34,
+              16, 0.42,
             ],
             'icon-anchor': 'center',
           },
@@ -293,16 +258,35 @@ export default function Fornlamningar() {
                   ref={filterModalRef}
                 >
                   <Stack>
-                    {availableFilters.map(filter => (
+                    {FILTER_FAMILIES.map(family => (
                       <Checkbox
-                        key={filter}
-                        label={filter}
-                        checked={filters.includes(filter)}
+                        key={family.id}
+                        label={
+                          <Group gap="xs" wrap="nowrap">
+                            {/* The sprite is only reachable from the map
+                                canvas, so the filter list uses the same
+                                glyphs as standalone SVGs. */}
+                            <img
+                              src={`${process.env.NEXT_PUBLIC_DOMAIN}/fornlamningar-icons/svg/${family.icon}.svg`}
+                              alt=""
+                              width={24}
+                              height={24}
+                              style={{ display: 'block', flexShrink: 0 }}
+                            />
+                            <Text size="sm">
+                              {family.label}{' '}
+                              <Text span c="dimmed" size="sm">
+                                ({family.count.toLocaleString('sv-SE')})
+                              </Text>
+                            </Text>
+                          </Group>
+                        }
+                        checked={filters.includes(family.id)}
                         onChange={() =>
                           setFilters(
-                            filters.includes(filter)
-                              ? filters.filter(f => f !== filter)
-                              : [...filters, filter]
+                            filters.includes(family.id)
+                              ? filters.filter(f => f !== family.id)
+                              : [...filters, family.id]
                           )
                         }
                       />

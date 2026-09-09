@@ -1,16 +1,28 @@
-á¬x
-archaeological_sites(€ uuidlabelclassdescriptionscore	clusteredpoint_countsqrt_point_countpoint_count_abbreviated"
-2"
-3"
+ÊÉx
+archaeological_sites(€ uuidlabelclassfamilyscore"
+Fyr"
 Borg"
-HÃ¶g"	
+HÃ¶g"
+forts"
+Borren"
+IshÃ¶g"
+graves"	
 Boplats"	
 ByshÃ¶g"	
+HÃ¤gnad"	
 Kloster"	
 OrmhÃ¶g"	
-SaxhÃ¶g"
+RÃ¶hÃ¶g"	
+SaxhÃ¶g"	
+rockart"
 
 Borg (2)"
+
+BÃ¥lhÃ¶g"
+
+BÃ¶nhÃ¶g"
+
+Fornborg"
 
 GillhÃ¶g"
 
@@ -18,11 +30,15 @@
 
 HanehÃ¶g"
 
+HavshÃ¶g"
+
 HÃ¥lhÃ¶g"
 
 HÃ¶g (2)"
 
 HÃ¶g (3)"
+
+HÃ¶g (4)"
 
 LerbjÃ¤r"
 
@@ -36,26 +52,39 @@
 
 TofthÃ¶g"
 
+TollhÃ¶g"
+
 TornhÃ¶g"
 
 TorshÃ¶g"
 
-UlvshÃ¶g"
+UlvshÃ¶g"
+
+VipphÃ¶g"
+
+maritime"
 	Bode hÃ¶g"
 	BosebjÃ¤r"
 	BrysshÃ¶g"
+	Byastenen"
 	BÃ¥nghÃ¶g"
 	Dysjesten"
 	Dyssesten"
 	FennehÃ¶g"
 	FlinthÃ¶g"
 	Glumstorp"
+	GravfÃ¤lt"
 	GruddhÃ¶g"
+	GÃ¶rshÃ¶g"
 	HallsrÃ¶r"
 	HorsahÃ¶g"
-	HyllehÃ¶g"
 	HÃ¥lahÃ¶g"
+	KillehÃ¶g"
+	KvinnhÃ¶g"
 	Kyrkoruin"
+	KÃ¤ringen"
+	Lilleborg"
+	LillehÃ¶g"
 	LjunghÃ¶g"
 	LÃ¥nghÃ¶g"
 	RÃ¤vshÃ¶g"
@@ -65,7 +94,9 @@
 	SvenshÃ¶g"
 	TrindhÃ¶g"
 	UlahÃ¶gen"
-	VÃ¤rnhÃ¶g"
+	VÃ¤rnhÃ¶g"
+	religious"
+	transport"
 
 Askebacken"
 
@@ -73,11 +104,25 @@ Beles hÃ¶g"
 
 Beritsholm"
 
+BjÃ¶rnhÃ¶g"
+
 Disas ting"
 
 Erkes dÃ¶s"
 
+FiskelÃ¤ge"
+
+GrÃ¶tehÃ¶g"
+
+HammenhÃ¶g"
+
+Kolabacken"
+
+LemmeshÃ¶g"
+
 Lustbacken"
+
+LÃ¥nge-Per"
 
 Norre hÃ¶g"
 
@@ -85,38 +130,52 @@ Oddes hÃ¶g"
 
 OrhÃ¶garna"
 
+OshÃ¶garna"
+
 PrÃ¤sthÃ¶g"
 
 SimonshÃ¶g"
+
+SkÃ¤gghÃ¶g"
 
 SkÃ¤vehÃ¶g"
 
 SmÃ¶rshÃ¶g"
 
+Stadslager"
+
 StendÃ¶sen"
 
 Tre hÃ¶gar"
 
+Trollasten"
+
 VihÃ¶garna"
 
-VÃ¥llehÃ¶g"
+VÃ¥llehÃ¶g"
+
+settlement"
 Ales stenar"
 Algots hÃ¶g"
+Boplats (2)"
 DarhÃ¶garna"
 GÃ¤rdslunda"
-HerrehÃ¶gen"
 HÃ¤llebjÃ¤r"
 Kloster (2)"
 KobjershÃ¶g"
 Krabbe hÃ¶g"
 KungshÃ¶gen"
+KyrkohÃ¶gen"
 Lyckebacken"
+MÃ¥ngelsten"
 Runristning"
 RÃ¥gebacken"
 SÃ¶nnerhÃ¶g"
 VisslebjÃ¤r"
 VÃ¥rÃ¥srÃ¶r"
+Almans backe"
 Bildristning"
+BjÃ¶rns hÃ¶g"
 BrytestuhÃ¶g"
 GyllhÃ¶garna"
 HemmingshÃ¶g"
@@ -136,23 +195,39 @@ VÃ¥llehÃ¶g"
 SkanÃ¶rs borg"
 SladderhÃ¶gen"
 StensÃ¤ttning"
-TingshÃ¶garna"
+TingshÃ¶garna"
+VÃ¤pmannahÃ¶g"
+Ã–stre hÃ¶gar"
+BroÃ¥s kÃ¤ring"
+FiskelÃ¤ge (5)"
+KarlingedÃ¶sen"
+KlockaredÃ¶sen"
+Skogholms borg"
 SkÃ¥re skansar"
 Stenkammargrav"
 Stora MallhÃ¶g"
-TiomannahÃ¶gen"
+Stora TofthÃ¶g"
+TiomannahÃ¶gen"
+VemmenhÃ¶garna"
 FÃ¤stning/skans"
 Hanakammabacken"
+Lilla KvarnhÃ¶g"
 Runristning (2)"
 Runristning (3)"
+Runristning (6)"
 Skumparpsbacken"
 Begravningsplats"
 Bildristning (2)"
 Kyrka/kapell (2)"
-Slott/herresÃ¤te"
+MinnesmÃ¤rke (2)"
+Slott/herresÃ¤te"
+VÃ¤stra TornhÃ¶g"
+HÃ¤llristning (2)"
+HÃ¤llristning (3)"
 HÃ¤llristning (4)"
 KrÃ¥karpekullarna"
 MÃ¥nstorps gavlar"
+Per Perssons vall"
 Stenbocks skansar"
 Stenbocksvallarna"
 Stenkrets/stenrad"
@@ -163,17 +238,29 @@ VÃ¥llehÃ¶g"
 Stenkammargrav (2)"
 Begravningsplats (2)"
 Begravningsplats (3)"
-Stenkrets/stenrad (2)"
-GrÃ¤nsbestÃ¤mt omrÃ¥de"
+Stenkrets/stenrad (2)"
+Stenkrets/stenrad (3)"
+Svenstorps herregÃ¥rd"
+GrÃ¤nsbestÃ¤mt omrÃ¥de"
+Falsterbohus slottsruin"
 BrÃ¶nnestad gamla kyrktomt"
-Grav markerad av sten/block"!
-Grav markerad av sten/block (2)"&
+Grav markerad av sten/block"
+Stora och Lilla KungsdÃ¶sen"!
+Grav markerad av sten/block (2)"#
+!Husgrund, fÃ¶rhistorisk/medeltida"&
 $005eabc5-4ae1-4dc4-90af-930a91268ee0"&
+$02041cdf-e7f1-4c95-a054-010cef50c6b5"&
 $02633f9f-f841-435d-b626-6c7f96f54a43"&
+$0322a555-7a35-491d-ab54-f1109c6c8cfe"&
 $046c01f3-ec0d-4be3-95cd-1765d70dfb2e"&
 $04f38d77-1453-4f33-9169-1a9dc84701b2"&
+$062681a4-9ca5-4a58-a6f9-85441803738f"&
+$06ca59e3-31ca-4f56-b28e-1d7afdcd1a8d"&
+$07e8a873-6837-4471-bcf2-8fde8f687396"&
 $092cb94f-315c-4169-b946-5a1aa4043261"&
 $09687932-276a-4f53-b250-8d1a73f5af2a"&
+$0b75ff59-80a7-42d4-95a9-396d5653a4c3"&
+$0c06ad39-c8a6-439b-ba96-e38ca8097178"&
 $0c16223e-8859-491d-916e-9b1052d6b516"&
 $0c35aa19-7191-4ca3-b7c1-fc5066c5688f"&
 $0ca25727-88d8-42f7-aa4c-8f10261c0441"&
@@ -182,18 +269,28 @@ $102c4e86-8718-4621-ae56-0258ddb70cf9"&
 $105ab19f-3b71-4e34-bd4a-6264475dff5a"&
 $107c6a1b-5e87-43ac-8386-4bc185d05080"&
 $1108ab8f-1a31-4ea8-9b00-05a7ec091300"&
+$12831dca-98b7-4a24-86ea-5556c6de2a02"&
 $1325f48a-807e-4b39-9bca-9dc9ae3878f8"&
-$13cb7d4b-f948-4d47-a4e6-537720c673a8"&
 $1446b4dc-2ace-45c2-98dc-ce494bd17bf3"&
 $149fae6e-726c-485f-ad87-89ddf865f7fb"&
+$1597170a-d48d-42e1-a948-06e247660322"&
+$16175a15-fa33-4dee-821a-6ac9f4083fea"&
 $16773182-9351-4a17-bfaf-b847f601d6ab"&
 $16b1a535-22d9-4825-98a7-d9dc551214cf"&
+$171ae0b9-998c-4e8c-88b0-43e69bd1ffcf"&
 $184ffe06-c442-43c4-a0e4-91a82e6d640e"&
+$190b244e-0fef-498e-b17e-ec4319eef652"&
+$1990f019-02fd-45e1-8bed-5aaac227b87c"&
+$1a16fa7f-87be-4b27-aa4a-16c27f7bd125"&
+$1ba2f150-02f5-48fa-bedc-2f51fbc78639"&
+$1c748609-3a1f-4d16-8920-9b07bb56f473"&
 $1d3cd4f9-df58-467d-bc3e-d05357bbbb7d"&
 $1f3c1465-d3e8-4368-8cb8-d12d4cb41a40"&
 $1fdb2174-c98d-4284-a475-7ef106a0c36d"&
+$202fa07d-2ffa-4699-af83-8812666f81eb"&
 $20827449-1b89-4141-99aa-3c7e4b56bd37"&
 $2269301d-cc30-4250-ab57-9c8ffc3cd927"&
+$24dbde6a-2229-4f5a-a5aa-9fab864518d2"&
 $268d3a3d-7242-4824-b026-b840ea76928a"&
 $2726f776-2b87-4b8d-8f79-b9c80df56c27"&
 $27335cb5-9272-4096-828e-89fd2fbd1870"&
@@ -205,33 +302,50 @@ $2b9d44e2-5534-4b4f-8dd0-875d03bdb92d"&
 $2bf8d9fd-0aaa-4f81-921c-30aa6421298e"&
 $2d4c3c00-c737-437a-bff5-65d36871e637"&
 $2d9627a6-e463-485f-a481-26aceefe4efa"&
+$2f73ab7d-3491-4be1-bcbf-b77df936dedd"&
 $301c6e08-7d6f-47cf-a56c-21aad51071f1"&
 $31d811dc-9ab0-46f5-b3c2-c0adc5f371cf"&
 $322fae77-8f80-4ce2-840f-bd560747e879"&
+$33ef8889-9d61-4ac8-826e-edac66a36f87"&
 $3416b2d8-ed7b-40de-8824-d875ace9209c"&
+$342faed8-472a-4593-b9ab-ccd42da29f0e"&
 $34aa1c07-858c-47b1-92d6-001e29ff2e0a"&
 $35cbea12-42a8-4ecd-a585-93a4b6219d0d"&
 $36ff9fc6-10d1-4755-81c6-7e6453db8db1"&
 $370ff57a-530f-4f37-a205-1c64a632a80a"&
 $37b37a3e-f3c2-4f64-a982-b5cb648f30ee"&
+$38865332-52ba-473a-a9f8-417428fe1a29"&
 $38990f07-3666-418a-ba00-32f15bbafcb6"&
+$38a66082-dec1-4cb5-9942-c1f6d07464d9"&
 $390571d4-ec77-423d-aa58-002a6017d8e7"&
+$39620fa9-3bb1-4248-8c05-04d023ed32ff"&
 $39a3da45-b697-4359-89de-685c4eed473b"&
 $3b5b3b3e-4c81-4cd0-8ec3-4d20c2c86dd3"&
 $3dd8bf9d-2efe-4bbe-83f9-d42cb644a0f3"&
+$3eb18c05-6a12-4725-a473-6ba941761d49"&
 $3f0cb0f6-bbd2-4f24-96dc-a666465cbd00"&
+$3f3a1c8f-6d45-4502-b51c-45d0722024f1"&
 $3fc25c1b-5fb5-4bdd-a719-b6853d10872e"&
 $400cc978-ccca-4e58-9c25-9fd386020f6a"&
 $403d21d2-7263-4795-88e8-fc9b9dd13eb6"&
 $41a6fcc1-f538-4fa6-9d0e-1333c505d607"&
 $41ed5edf-20ec-4d95-ac57-553ff3893800"&
+$42493365-e1e1-41b0-82ce-9f6fd945ed4b"&
 $42bb4317-c1d0-4103-a573-fb90d5de3c09"&
 $4389d384-754c-419e-9655-d2deee2b4329"&
 $447260fc-4a4f-4659-ade7-46d9bbcf24ed"&
+$44a438bb-1eaf-4381-8537-b63b015e0904"&
+$450605de-d18c-4b79-b3da-407db2594006"&
 $4aeceac8-fab8-475e-b584-8af148ba82f4"&
+$4b0847ff-abc7-438f-bde5-9c88d0ddbfde"&
 $4b428277-4f40-4b90-9f26-c0015a7ea61a"&
 $4bd21df5-4adf-4011-9de8-8d88351fa549"&
 $4caac6da-949d-49f9-a0b0-2f5e5edb8a7d"&
+$4dde38e3-0469-4524-98dc-8ff12a40ef98"&
+$4f7e6111-4bb9-4328-85c4-4a19c3170332"&
+$505049fa-ca4c-42b6-aeb8-e15509e731bf"&
+$52ddb702-d410-4383-919b-da9cde4c0e4a"&
+$556fe626-1ab4-400a-8100-84dabc063b31"&
 $557ece4c-2034-4796-8ab3-f6bf9294b2d9"&
 $558c4546-d491-4f90-9b99-59c340977393"&
 $55b50b74-23bf-45fe-a3c2-c863b817e9bb"&
@@ -239,64 +353,114 @@ $56d6bf16-53c3-4c8d-9aca-90fec0fbcb22"&
 $58c41c53-3396-4853-ba3e-55fc20db45f1"&
 $593a6b71-49fd-4bb3-b9a3-868d24ec6080"&
 $596f1230-26cf-47e1-85c3-5c60527f6183"&
+$5a53b818-74b9-4884-9ae1-783ba46895db"&
 $5acef761-d875-475e-ba08-95682eb728fa"&
+$5b5f00f1-5fc8-4c0d-aeba-10c44dfbff9c"&
+$5bf67d43-e8a9-4013-aa86-25d3db71b840"&
 $5c5429a4-7440-4165-8dae-93e3a8182a09"&
+$5d56ffb8-e565-471e-8a32-10c52f798ba4"&
+$5ef7dcbd-97d9-4314-bbc7-0c24e1d2c57b"&
 $5fd47e37-ef50-4fc1-96a4-7e63a43116b9"&
 $604e4086-74a3-48f5-8a09-5a0939e33463"&
+$60d212a3-28cc-4c4d-8da1-b34f75377ef8"&
 $63e4b945-4b70-4a0d-8c8d-5fa7e33fba5f"&
 $64417c81-6c66-443d-846f-2112b9fa2aa7"&
+$64b6273c-8b48-4064-8f0a-c0e4ae1358ad"&
 $66176f49-396c-4925-9f1b-df5aabc6bd73"&
 $68298eb0-49f0-4a19-b870-a95c3256dfc6"&
 $690c72a2-8777-4642-85e2-4d8e0bc6f905"&
+$6b9cbb70-5acd-40fb-93a2-5b79330ecf99"&
+$6bf85a3b-2a15-4442-9372-91d2f31c2834"&
+$6c1e8ee2-e6f2-48f7-acda-3dff65276cb1"&
 $6c535fbd-3b2d-4a3d-86ea-e1629cca19fb"&
 $6ce07f3b-35ab-414f-beb6-eeab3d6cede7"&
+$6e361622-a2a5-4705-98cf-1db5f1bf4e5e"&
 $6f381274-bf55-4c9a-a4e6-881f79f61336"&
 $6fcb220b-4956-40bb-af05-150724d96bff"&
 $709df645-2bdd-437d-b182-e9d09b800f95"&
+$7212b6a4-9fc0-4d4b-bc2d-0fb16f6f5c4e"&
+$723ca7f9-dbeb-436a-b81c-4076f24601c0"&
+$728fafec-d91d-414a-824d-107f6b04504c"&
 $72c627c7-67c8-47c0-90c0-c9c5ac74b1c1"&
 $72dcb22d-95ea-451c-9cf4-c886db5d2684"&
 $73516d1a-4ea9-49be-a736-b1a701f7e366"&
 $73ab1c96-c521-428a-8090-d5e2b4e1c6c8"&
 $746a8bea-ab33-40c6-84a7-3fe384293cc6"&
-$760d5eb4-01c2-4fc1-91aa-42351bca07d0"&
+$75dca37e-7ac1-48d1-827a-210cc861d583"&
 $779f3cca-7fc1-4db4-9505-8c8e0341f91b"&
 $7840e52b-f150-4f59-ab91-93b9de5c6e15"&
+$787c73e0-cc87-43af-8d8a-96b636618d5a"&
 $794c8d41-a7c5-4875-b5b8-278e82f41276"&
 $79ae21c4-ef20-4e89-acec-ba0577e024b6"&
+$7a3d1d03-7801-4336-a782-3eb154b8d6c8"&
+$7a675e6a-cc4f-4636-a62b-b7f3ef9b8ae0"&
 $7abcad45-8024-4175-8319-53bd41225336"&
+$7b4401d9-121b-4e1f-9db1-e76a83a0e450"&
 $7c1f0a08-c2fa-4353-93cf-210532a9d1ac"&
+$7c64dd9f-cb33-4506-a383-a4d34d0a7628"&
+$7db98e4b-f5f2-4cdc-b95f-afaa35990baf"&
+$7fca3cec-0741-4972-a6a4-8e02a491b9a0"&
+$804b4817-cd0a-4b27-a4a7-40853f670a1c"&
+$856e0565-87c8-456a-8b39-296a013c8093"&
+$8681453a-b679-46db-96c8-425a975e8578"&
+$86e536a9-525b-4aff-9844-5507c777ab2f"&
+$87027e2d-f010-473b-88a4-069fc31a5f0b"&
 $883cb7e5-09c1-4024-8043-b3d5db180ead"&
+$885cbf1a-11a3-4cd9-854e-7130f875719f"&
+$89c4d1c1-34d3-45aa-9106-dcb96206158f"&
 $8a396b16-0ecf-49e9-beb5-2321a743eb25"&
+$8a86f1ef-d12d-4ae4-8443-d866ae42adc4"&
+$8c0941f5-c5dc-425f-b8db-2e9e62cbcc5d"&
+$90019204-5e81-4074-ad5c-aece109cb124"&
+$90a3760c-9636-420c-a338-796ab629540e"&
 $90e143e0-3d19-422c-8a78-7084664d6439"&
 $9289c441-8f6a-4073-ad8b-2a685911311c"&
+$94fe66e7-17ef-4cfc-879e-e60a72453ede"&
+$95da4e0e-fa68-4615-a7ec-49c5ef6f8a28"&
 $95eaaaff-7882-43f8-af70-ff7f92028d17"&
 $9637de0b-cf94-468f-83f9-03c051f66033"&
 $96dd4e7e-79f1-48e2-8b17-e8d9ac6b607a"&
 $9709efc7-2e1d-439f-9163-c57ecb62ed20"&
 $9717e62a-5eea-4950-8071-b02ec5ad2520"&
-$97ea06ca-20b7-48c2-ad7e-eb70fb4f0a32"&
 $9910ad18-e0ec-4a23-aba6-ecc11651d42c"&
+$9ac5c698-f2ec-48ce-b8c0-e80d7b3c8ef4"&
 $9c33739f-caa8-4280-b2c2-035f25cb369b"&
+$9e64139e-29bc-4587-afcd-35abad800696"&
 $9e737430-9ada-4b2a-af67-d027b2ad0e22"&
 $9ea50675-3c6f-4992-940b-11c296255ada"&
+$9f3cbd15-2507-4444-8a6e-6651d35926f6"&
 $a197d086-1587-48c9-a221-9e7002e141f2"&
 $a2aadc98-68ec-4ebe-80fc-23b10e487a21"&
+$a5612c0b-bce6-485c-8222-5b2e5e1c37dd"&
 $a60286a6-7e7f-415d-897d-6d2afca726cf"&
+$a800443e-4fa1-49e4-ad86-235248d6aef5"&
+$a817c730-2936-47ab-95a3-e91becec2802"&
 $a8a2bc27-f849-42df-bc81-920099319e8c"&
+$a94a6495-5eb8-4d3d-8a22-960d2a97f8b2"&
 $aaa8d09b-ce81-4cc4-84fa-a5d416e14722"&
+$aac06fc5-cddc-42c8-a969-5c0902aacd7f"&
 $ab495d61-300c-4446-b05f-9d17c068615e"&
 $ab7ddda3-2a33-4b17-8848-1d56c4b5a4b2"&
 $ab9860ea-2b5e-4e10-99ba-fae4e62d7f44"&
+$abc70c47-83c9-4da8-a4e0-1d493e4d489f"&
+$abd105ac-4613-4ac6-b921-b139c3511d5a"&
 $ad079d79-be3e-4cca-b191-4e0a821c2916"&
+$aed5eb30-1fd2-4801-8638-00b747a345fa"&
+$af258940-ae7e-4420-8560-c61c568b22c9"&
 $b14269cd-8dce-4905-a9fb-efc4f14ade52"&
 $b189feb5-7d92-4d7f-94d1-91788f407fff"&
 $b205ac21-dda4-4841-962c-69696b8e5676"&
 $b2bcdb52-cb0d-4227-b372-7bbaaad1e796"&
+$b394504c-cd67-4474-b1c8-51ed978f6252"&
 $b398448a-4221-4fc7-a1e8-c4b058a33933"&
+$b4fe4339-73d7-4adf-b0e7-b4f020157df6"&
+$b5637814-5737-4990-afb4-92034b9e217a"&
 $b65ebfdd-60bf-4f96-b31f-1cd325a64299"&
 $b6929c6b-24d0-45a7-8ebf-af1b753b7d14"&
+$b717c1e9-faf8-4018-b3a5-39ab362ed6bc"&
 $b7e72947-bd37-4d2f-b56c-4168f083bdb0"&
 $b800c003-c458-46c5-aafe-ff56f968ea69"&
+$ba629327-1e2a-4270-b241-df99e4a56c6a"&
 $baf43556-09e4-480f-9fbf-ab65d1e9ce9c"&
 $bb6c75a9-2a9c-4fe2-9d10-4a5205b03b8a"&
 $bc2025b1-3692-4c03-bd76-f893538930fb"&
@@ -307,254 +471,146 @@ $be90719d-a274-45f0-b982-d4444564026b"&
 $bee0fa71-55fe-4e90-b343-534f04093bd5"&
 $bfc43c4f-151f-41a7-9e54-0ae7f4b31128"&
 $c03f0f49-e946-47c6-8b33-ff8bc0304c59"&
+$c0480691-0223-4620-88b7-98bad19fbdcd"&
 $c0585b38-273f-4bab-a074-4fa07294947a"&
+$c0f30305-680b-4436-91b0-68cacde9e669"&
+$c12b8edd-0b35-4e79-afe4-b05826e1f864"&
 $c1fb476a-eff2-4ed6-9b3e-904e3ece25d0"&
+$c2cfac3b-fbe4-4522-832b-9796bcbaa987"&
 $c641ecca-440c-400e-904d-4257ea699bae"&
 $c7a5a1ad-cc9a-4e3e-80a0-27c0334ca6d4"&
 $c96f1af0-030f-4c16-81da-bac7e4916d84"&
+$c9bc2340-be2a-422a-86a1-72bbf133672a"&
+$ccbc14ae-926f-4763-9714-07ab151aeee1"&
 $cd13741e-7eae-4b3f-9d5a-867ee08bb76e"&
+$cd241245-ed75-4dad-893a-fb9fbd21f736"&
+$ce79a77c-92c3-4b80-b68c-24b19161d55a"&
+$cfcc13dd-b900-45ce-8b25-e9dbb5bee30b"&
+$d10359a9-b645-4b03-96f8-288820f075a3"&
+$d29924bd-2adb-43c2-ac93-0da5bb8a732c"&
 $d333c29a-a3f7-4e19-9b04-3798b7d89675"&
 $d33a0cd1-25d6-449a-a05b-6f9403de4cdc"&
 $d33a26af-8954-47bf-9173-46612e7a7bb9"&
+$d3744bd9-1b07-43b4-9ba1-5bffe0c1f372"&
+$d458acff-af4e-47d0-984e-04b73ad2efba"&
 $d4bdf5f3-7ca1-4663-a120-e9195ae0fdd3"&
 $d552f7fb-1c9c-469d-bdc4-df959b8e443c"&
 $d5ae3d0b-28c7-44f8-a6a4-ef7315d2acab"&
 $d62470be-7d67-4ff4-83b2-43351170170c"&
 $d66568e3-eafd-4ab6-b53a-763b97c989ec"&
+$d88bbcba-0cca-4a3e-9316-15ca223d5189"&
+$db3a9afa-50e6-469b-977c-f8b9c17adeb4"&
+$dc0846e0-4259-4f0b-a43f-05548f0dc7c4"&
 $dcb0f4dc-b6f0-4b63-bf95-b1e7b59d186c"&
+$dd365603-2acf-45ae-b7e6-2208c975c215"&
+$dd3771b9-b7c8-443a-8d5c-2d4cc12943b5"&
 $dd431ec3-1892-4e84-9dbe-140353978a8e"&
 $dd4d951f-5614-4743-b672-97e1d5105afe"&
 $e075d043-57bb-4802-b3cd-95b7eb41fd8f"&
+$e2abff1f-a07f-4a9b-b804-e3afe3a929ff"&
 $e5c271a4-8fe4-40e5-99bb-92fb85eabddb"&
 $e5d17ace-7bf3-44a3-8867-1ec3b2578737"&
+$e8b5c381-648a-4b56-af1e-6fc9170b9561"&
 $e8e5eb68-64e3-43f8-80b7-8ea5ee9f5596"&
 $e9bebbc4-46b4-4a43-ab6c-18ea7f86f5ca"&
+$ebb410e6-45f6-4aeb-bd0c-a8c5c57912d8"&
 $ec8b1a2b-541a-48f5-90a2-2ddf15b13898"&
 $ed2a6705-2c0a-4d6b-be9e-566c6fd22683"&
 $ed2dd006-ce66-4b3f-a2fe-9c3765e06dda"&
 $ed9e955c-7a5f-40a5-8c73-fab07a150aed"&
+$ee5abb78-fdd4-4d68-afd8-212add73873a"&
+$eec1b2ae-6462-4dce-bc85-4b702392deb6"&
 $ef92b0ed-ee83-455f-97c2-06d1b33e2548"&
 $f0c6a707-d7eb-444f-81af-2efbf4f5bab1"&
 $f181be1a-7949-4443-8b69-e5ee928ce113"&
 $f1843096-d1da-4543-b487-b8c999c73372"&
 $f2090da7-257e-4d0c-a0f2-133af665d42f"&
+$f3a94731-59ac-4f32-aab8-cba80459675e"&
+$f3b027e9-dfb0-4fda-9ecb-5b74326fc324"&
 $f419293a-6b9f-497e-bc59-dcd9c1f2210b"&
+$f5ea78ff-9e8f-4430-914e-447d835af369"&
 $f673ebb0-bf37-4bf6-b7f5-414943e6eb62"&
+$f7023fb5-33fe-468c-8efc-3f83c0a6154e"&
+$f8916570-7138-4cd3-85bd-e5edbc3e6a81"&
+$f9896e94-80e5-49f8-ad9f-30b562703050"&
+$f9b47892-a31f-47bb-8ef8-4f526c2c4c50"&
 $fa2b6e4e-b8cb-4efe-be84-9ac9db024613"&
 $fa9aa7f9-b039-4f23-bb97-e37187d2f569"&
+$fac61696-dc98-46db-acc3-8b4e3a4dc3a2"&
+$fad288b1-7aba-47cf-9cad-b23554bfeba1"&
 $fc720ec9-0897-4911-b264-8808f86667d9"&
-$fc79d66e-fb7f-495f-adc2-c6fe3c9c507e"B
-@HÃ¶g, 25 m i diam och 2.5 m h.BevÃ¤xt med ett flertal lÃ¶vtrÃ¤d."d
-bHÃ¶g, ca 35 m diam och 3.5 m h. SÃ¶ndergrÃ¤vd i flertalet sidor.BevÃ¤xt med ett flertal lÃ¶vtrÃ¤d."n
-lFÃ¶rskansningsvall, ca 1000 m l, 6-10 m br och 0.5-2 m h. IanlÃ¤ggningens mittparti och N hÃ¤rom Ã¤r tvÃ¥â€¦"p
-nHÃ¶g, ca 20 m diam och 3 m h. I mitten en grop, 3 m diam och 0.2 mdj. Kantskadad. TÃ¤tt bevÃ¤xt med lÃ¶vtrÃ¤d."p
-nKyrkoruin(?), ca 30x20 m (NNÃ–-SSV) och 1m h. Ã–vertorvad yta.Flertal diken, 1-2 m br och 0.2-0.5 m dj, medâ€¦"p
-nOmrÃ¥de med minnesstenar, ca 40x40 m (N-S). Minnesstenarna, avgranit, Ã¤r 0.5-1.5 m h, fÃ¶rsedda med huggnaâ€¦"q
-oHÃ¶g (?), ca 13 m i diam och 1.3 m h. Avbanat krÃ¶n med enurgrÃ¤vning, rund, 2 m i diam och 0.3 m dj. I ytanâ€¦"r
-pHÃ¶g, rest av, ursprungligen ca 20 m diam och 1.6 m h.Bortschaktad fyllning i SV delen intill mittpartiet. Nuâ€¦"r
-pRunsten, sandsten, 1,11 m h, ca 1,2 m br (SSÃ–-NNV) och 0,25-0,4 m tj. RunhÃ¶jd, 9 cm. Runstenen Ã¤r nÃ¤rmastâ€¦"s
-qHÃ¶g, oval, 19x16 m (N-S) och intill 2 m h. Avplanat krÃ¶n, vilkethar en ca 3x3 m st ytskada, som fyllts igen.â€¦"t
-rHÃ¶g, nÃ¤rmast rund, 23 m diam och 3.5 m h. Avplanad topp 20 mdiam. HÃ¶gen har branta kanter och Ã¤r kantskadadâ€¦"u
-sHÃ¶g, 20-22 m i diam och intill 2.5 m h (frÃ¥n omgivande nuv.markyta rÃ¤knat). Relativt plan topp. 7-8 m i diam.â€¦"u
-sHÃ¶g, 26 m diam och 4.2 m h. Avplanad topp med en rund flackfÃ¶rhÃ¶jning i mitten ca 6 m diam och 0.3 m h (grundâ€¦"v
-t1) HÃ¶g, 20 m diam, 1.8-2.5 m h, med plan topp och tÃ¤mligen flackaslÃ¤nter. I V delen av toppen syns en del stenâ€¦"v
-t1) HÃ¶g, ca 22 m diam och 3 m h. I kanterna, nÃ¥got uppdraget,enstaka 0.2-0.3 m m h och 0.3-0.6 m st stenar. Restâ€¦"v
-t1) Kyrkogrund, delvis undersÃ¶kt, under mark.Vid arkeologiska provundersÃ¶kningar pÃ¥trÃ¤ffades grundmurar.Mellenâ€¦"v
-tBorgruin, -omrÃ¥de, uppgift om. Ole Worms omtalar 1624: "VdjSandhager by. Westen for den Nordiste Gaard findis enâ€¦"v
-tSkans, 30-40x30-50 m (NÃ–-SV). I S och Ã– utfyllt sÃ¥ att en intill3 m h terasskant bildats. BegrÃ¤nsas i NV (motâ€¦"w
-uFÃ¶rsvarsanlÃ¤ggning, delvis undersÃ¶kt. De runt slottet, MalmÃ¶hus, omgivande bastioner, vallar och gravar. Oklarâ€¦"w
-uKapell, plats fÃ¶r. Enligt flera uppgifter skall hÃ¤r ha funnitsett kapell. Idag anvÃ¤nds omrÃ¥det som kulturbete,â€¦"x
-v1) HÃ¶g, 18x16 m (NV-SÃ–) och intill 1.5 m h. I SV en urgrÃ¤vning3x2 m (NÃ–-SV) i NV en urgrÃ¤vning 5x3 m (NÃ–-SV).â€¦"x
-vHÃ¶g, 13 m diam och 2.75 m h. Avskuren vid kanten pÃ¥ alla sidor.BevÃ¤xt med ett par stÃ¶rre lÃ¶vtrÃ¤d samt diverseâ€¦"x
-vHÃ¶g, 13-16 m diam och 2.5 m h. SmÃ¥gropig yta. Avplanad topp, ca 3m diam. Kantskadad runtom, sÃ¥ att en brant kantâ€¦"x
-vHÃ¶g, 22 m diam och 4.4 m h, med tÃ¤mligen plan topp, 4.5 m diam.NÃ¤ra mitten Ã¤r en grop, 0.9 m diam och 0.1 m dj.â€¦"x
-vHÃ¶g, 22 m i diam och ca 3 m h. I hÃ¶gen Ã¤r anlagt ett vÃ¤rn,cementerat, ca 4 m st och ca 1.75 m dj. I hÃ¶gens SSVâ€¦"y
-w1) GravfÃ¤lt, ca 90x20 m (Ã–NÃ–-VSV), bestÃ¥ende av 5 gravhÃ¶gar,10-17 m diam och 1-2. h. Samtliga utom den V mycketâ€¦"y
-w1) HÃ¶g, 14 x 9 m (Ã–SÃ–-VNV) och 1.8 m h med tÃ¤mligen lÃ¥ngsluttande slÃ¤nt i V. I mitten Ã¤r en grop 5 x 2.5 m stâ€¦"y
-w1) HÃ¶g, rest av, 25 m i diam och 0,3 m h. Ã–verodlad. MarkÃ¤garenhar tidigare plÃ¶jt upp en ca 7 m st stenkrets pÃ¥â€¦"y
-wBorgruin, 20 x 8 m (N-S), bestÃ¥ende av Ã¶vertorvade murar, 1-2 mbr och 0,5-1 m h, med i ytan syliga tegelstenar ochâ€¦"y
-wHÃ¶g, 24 m i diam och 4 m h. Toppen avplanad, 6 m i diam. HÃ¶genhar nu tÃ¤mligen branta till mycket branta slÃ¤nter,â€¦"y
-wHÃ¶g, nÃ¤rmast rund, 20 m i diam och 4.5 m h. Avplanad topp 5 m idiam. I mitten av denna Ã¤r en grop, 3 m i diam ochâ€¦"y
-wRunsten, 1,2 m h, 0,6 m br (Ã–-V) och 0,4 m tj. I N sidan finns inskriften: "Autir satte denna \ sten efter HÃ¥kon".â€¦"z
-x1) HÃ¶g, 20 m i diam, 2.5-3.5 m h. Kanterna terrasserade. I mittenen grop, 7 m i diam och 1.4 m djup, omgÃ¤rdad av enâ€¦"z
-x1) HÃ¶g, eller rÃ¶se, ca 16 m diam och 1.8 m h. HÃ¶gens slÃ¤nt Ã¤rrunt om pÃ¥lagd med odlingssten. Kantskadad runt omâ€¦"z
-x1) Runsten, 1,05 m synligt h, 0,85 m br (Ã–NÃ–-VSV) och 0,55 m synligt tj. Ristningen vÃ¤tter mot SSV och Ã¤r av sentâ€¦"z
-xBorgomrÃ¥de, medeltida anlÃ¤ggning, ca 120-130x100 m (N-S)ursprungligen, sannolikt 150x135 m (N-S). AnlÃ¤ggningen (seâ€¦"z
-xBorgruin, bestÃ¥ende av en platÃ¥ med formen av en parallelltrapets med den N lÃ¥ngsidan (VNV-Ã–SÃ–) 75 m l och den Vâ€¦"z
-xHÃ¶g, 18-19 m diam och 2.5-3 m h. Toppen avplanad. I N-V-S Ã¤r enkantkedja, 0.15-0.7 m h, av 0.4-1.1 m l, glest sattaâ€¦"z
-xHÃ¶g, 20 m diam och 1.6-2 m h. Avplanad topp, ca 14 m diam. HÃ¶gen avdelas pÃ¥ mitten av ett 6 m br och 2 m dj schaktâ€¦"z
-xHÃ¶g, nu oregelbunden, dock nÃ¤rmast oval, 29x15 m (Ã–-V) och 1.7 mh. I V kanten Ã¤r en i sen tid anlagd kantkedja avâ€¦"{
-y1) Bytomt, delvis undersÃ¶kt, ca 350-650x150-300 m (N-S). Enligtkarta frÃ¥n 1788 Dalby bys utstrÃ¤ckning.Inom bytomtenâ€¦"{
-y1) HÃ¶g, 25 m diam och 0.5 m h. Ã–verplÃ¶jd.I hÃ¶gens V del Ã¤r:2) Fyndplatsen fÃ¶r 1 tjocknackig, asymmetrisk, delvisâ€¦"{
-y1) HÃ¶g, 25 m diam och 3 m h. Avplanad topp med en fÃ¶rsÃ¤nkning 5x4m (N-S) och 0.3 m dj.LÃ¤tta kantskador.BevÃ¤xt medâ€¦"{
-y1) HÃ¶g, nu oval, 25x18 m (Ã–NÃ–-VSV) och 2.5 m h. Uptill tÃ¤mligenavplanad och med smÃ¥gropig yta. I ytan Ã¤r enstakaâ€¦"{
-yGÃ¥nggrift i hÃ¶g. HÃ¶gen Ã¤r 17 m diam och ca 1,7 m h. Kammaren Ã¤r helt tÃ¤ckt av hÃ¶gen. Kammaren Ã¤r 4,5x1,5-1,7 mâ€¦"{
-yHÃ¶g, 22 m i diam och 3.2 m h med plan topp 8 m i diam. I mittenÃ¤r en flack grop 8 x 4 m st (Ã–NÃ–-VSV) och 0.6 m dj.â€¦"{
-yHÃ¶g, 25x20 m st (NÃ–-SV) och 3.2 m h med plan topp, 7 m diam. Skadad i S slÃ¤nten vid jordtÃ¤kt inom ett ca 10x6 m stâ€¦"{
-yHÃ¶g, ca 25 m diam och 3 m h. Avplanad. Kantkedja i NÃ–-NV av 0.4-1m st stenar. Bevuxen med en mÃ¥ngfald lÃ¶vtrÃ¤d ochâ€¦"|
-z1) HÃ¶g, 15 m diam och 2-2.2 m h. Talrika stenar i ytan, 0.1-0.3 mst. TÃ¤tt kringodlad. Yt- och kantskador efter tÃ¤kt,â€¦"|
-z1) HÃ¶g, 25 m i diam och 3.5 m h. PÃ¥ hÃ¶gens topp en upplagdjordhÃ¶g, 7 m i diam och 1.5 m h. Kantskadad vid plÃ¶jningâ€¦"|
-z1) Vallgrav, ca 160 m l (N-S), 15-20 m br 1-2 m dj, delvisigenfylld i den S delen. Ej vattenfylld.5 m Ã– om den S-delenâ€¦"|
-zBorgomrÃ¥de, ca 135x120 m st (N-S), bestÃ¥ende av borgplatÃ¥ med borgruin, inre vallgrav och vall. BorgplatÃ¥n, 62x58 mâ€¦"|
-zHÃ¶g, 22 m diam och 2.7 m h, med plan topp, 5.5 m diam. I hÃ¶genfinns mÃ¥nga kaninhÃ¥l. BevÃ¤xt i V med en tall och ettâ€¦"|
-zHÃ¶g, 28 m diam och 4.5 m h, med plan topp, 8 m diam. I hÃ¶gens SVslÃ¤nt Ã¤r en trappa med fem steg, ned till slÃ¤ntensâ€¦"|
-zHÃ¶g, ca 17 m i diam och ca 2.5 m h. Ursprungligen plan topp, 3.5m i diam och flacka slÃ¤nter. I SV delen av toppen ochâ€¦"|
-zHÃ¶g, delundersÃ¶kt, nu 35x12 m (Ã–NÃ–-VSV) och 3-4 m h. OjÃ¤mn och gropig yta. 1909 iakttogs i N delens schaktkant ettâ€¦"|
-zHÃ¶g, nÃ¤rmast rund, 32 m diam och 4 m h, med tÃ¤mligen branta sidor. I toppen Ã¤r en grop, 9 m diam och 1.7 m dj. Runtâ€¦"|
-zHÃ¶g, rest av, delvis undersÃ¶kt, 20 m i diam och 1,2 m h. Delvis undersÃ¶kt av Folke Hansen 1928, varvid TygelsjÃ¶ 4:1â€¦"|
-zHÃ¶g, rund, 25 m diam och ca 0.5 m h. Ã–verplÃ¶jd. BelÃ¤gen iÃ¥kermark pÃ¥ krÃ¶n av hÃ¶g hÃ¶jd, mot N-sluttning. Liggerâ€¦"|
-zKlosterruin, rest av, 30x15 m (Ã–-V), bestÃ¥ende av murar och golv. Murarna Ã¤r 0.6-1.3 m br och 0.6-1 m h av tegel ochâ€¦"|
-zKyrkogrund och Ã¶dekyrkogÃ¥rd, delvis undersÃ¶kta och borttagna.Ã–verodlade. Ã…r 1936 underrÃ¤ttades LUHM om att gravarâ€¦"|
-zPlatsen BrÃ¶nnestads kyrka, enligt uppgift riven under 1500-talet. DelundersÃ¶kt. Inom ett ca 70x40 m st (Ã–-V) omrÃ¥deâ€¦"|
-zRunsten, 1,55 m h, 0,9 m br (NÃ–-SV) och 0,5 m tj. I NV sidan finns inskriften: "Tuna satte denna sten efter Bram [...]â€¦"|
-zRunsten, gnejs, 1,85 m h, 0,45-0,8 m br (SSÃ–-NNV) och 0,3-0,5 m tj. PÃ¥ stenens S sida finns runor huggna i en 1,6 m hâ€¦"|
-zRunsten, granit, 1,70 m hÃ¶g, 1,35 m bred (N-S) och 0,5 m tjock. Den V sidan Ã¤r flathuggen. PÃ¥ denna Ã¤r inhugget ettâ€¦"|
-zSkeppssÃ¤ttning, 39 m l (Ã–NÃ–-VSV) och 10 m br, bestÃ¥ende av 39resta stenar, 0.6-1.55 m h, 0.6-1.8 m br och 0.3-0.8 mâ€¦"|
-zVallanlÃ¤ggning, rest av, bestÃ¥ende av en inre vall och en yttrevallgrav. Valen Ã¤r 525 m l (NÃ–-SV) och ursprungligenâ€¦"|
-zÃ–dekyrkogÃ¥rd, ca 40x40 m (NNÃ–-SSV), pÃ¥ kyrkogÃ¥rdens NV del, Ã¤rmarkerad med 0.2-0.3 m st stenar.Kyrkogrund, 16x9 mâ€¦"}
-{1) Domarring, 7 m diam, ursprungligen bestÃ¥ende av sannolikt 7resta stenar, varav 4 kullfallna Ã¥terstÃ¥r. Stenarna Ã¤râ€¦"}
-{1) HÃ¶g, 10-11 m diam och 1 m h. I ytan enstaka stenar, 0.2-0.4 mst, samt lÃ¶sa flintbitar, 0.1-0.25 m st.BevÃ¤xt med enâ€¦"}
-{1) HÃ¶g, 14 m diam och ca 1 m h. I ytan talrika, lÃ¶st liggandestenar, 0.2-0.4 m st. NNV delen av hÃ¶gen Ã¤r i nivÃ¥ medâ€¦"}
-{1) HÃ¶g, 29 m diam och 4.2 m h. Branta slÃ¤nter. PÃ¥ krÃ¶net en grop,8x5 m (NÃ–-SV) och intill 1.2 m dj. BevÃ¤xt med treâ€¦"}
-{1) HÃ¶g, ca 20 m diam och 3.5 m h. Kantskadad.BevÃ¤xt med lÃ¶vtrÃ¤d.10 m NNV om nr 1 Ã¤r:2) HÃ¶g, ca 18 m diam och 2 mh.â€¦"}
-{1) HÃ¶g, ca 27 m diam och 2.8 m h. Relativt flacka slÃ¤nter. JÃ¤mnyta. Restaurerad.UndersÃ¶kt mellan Ã¥ren 1894 och 1896â€¦"}
-{1) HÃ¶g, ca 32 m i diam och 4.5 m h, med flacka slÃ¤nter och plantopp, 8 m i diam. I SV delen av toppen en grop, 2x1.3 mâ€¦"}
-{1) HÃ¶g, nÃ¤rmast oval, 30x16 m (VNV-Ã–SÃ–) och 2 m h. I denVNV-delen Ã¤r en grop, 5 m diam och 0.8 m dj. Schaktskador iâ€¦"}
-{1) Minnessten, kalksten, 1.8 m h, 1.1 m br (Ã–-V) nedtill och 0.7m br upptill, samt 0.25 m tj. Profilerad upptill i formâ€¦"}
-{1) Rest sten, 1.2 m h, 0.7 m br och 0.15-0.27 m tj (NNV-SSÃ–).Stenen lutar Ã¥t NÃ–.1 m NV om nr 1 Ã¤r:2) Rest sten, (?),â€¦"}
-{1) Ã¶dekyrkogÃ¥rd, ca 40x40 m (Ã–-v) I centrala delen Ã¤r,2) Kyrkogrund 15x6 m (Ã–-V), begrÃ¤nsad av 0.2-0.3 m h och 1 mâ€¦"}
-{Borgruin, 130x140 m i diam, bestÃ¥ende av ruinkulle samt inre och yttre vallgrav med mellanliggande vall. Ruinkullen, caâ€¦"}
-{DÃ¶s i stensÃ¤ttning. StensÃ¤ttningen Ã¤r oval, 62x6-8 m (Ã–-V) och 0,3-0,8 m h. Ã–vertorvad, med i ytan enstaka stenar,â€¦"}
-{HÃ¶g, 32 m diam och 3.3 m h, med relativt plan topp, 9 m diam ochflacka slÃ¤nter. PÃ¥ toppens S del en ring av 6 stenar,â€¦"}
-{HÃ¶g, ca 30 m diam och 3 m h. Markerad som en kulle pÃ¥ 1697-Ã¥rs karta. Enligt Bruzelius har man pÃ¥trÃ¤ffat skelett avâ€¦"}
-{Runsten av rÃ¶daktig granit, 1.3 m h, 0.85 m br (Ã–-V) och 0.3-0.4m tj. Huggen inskription med runor Ã¥t Ã–, imÃ¥lad medâ€¦"}
-{Skans, befÃ¤stningsanlÃ¤ggning, ca 500 m l (NNÃ–-SSV), ca 5-9 m broch 0.2-1.2 m h (vanligen 0.5-0.8 m h). Jordvallen Ã¤râ€¦"~
-|1) HÃ¶g, 13 m diam och 1,5 m h. I ytan enstaka stubbar. 2) HÃ¶g sÃ¶der om nr 1 Ã¤r en hÃ¶g 9 m diam och 1 m h. Den mindreâ€¦"~
-|1) HÃ¶g, 16x20 m (N-S) och 3 m h. Svagt insjunken pÃ¥ en yta av 4x4m pÃ¥ krÃ¶net. VÃ¤stra sidan kapad av vÃ¤g och Ã¶vrigaâ€¦"~
-|1) HÃ¶g, 20-27 m diam (NÃ–-SV) och 3.5 m h, med Ã¥t Ã– slÃ¤ntandeavplanad topp, 8 m diam.HÃ¶gen Ã¤r nÃ¤rmast oregelbundetâ€¦"~
-|1) HÃ¶g, 20x10 m (Ã–SÃ–-VNV), nÃ¤rmast oval och intill 5.5 m h (iSÃ–), i NV ca 1.5 m h. I NV kanten en del rÃ¶jningssten,â€¦"~
-|1) HÃ¶g, ca 25 m diam och 4 m h. Toppig. OjÃ¤mn yta.Restaurerad under bÃ¶rjan av 1970-talet, varvid ett parjordkÃ¤llare iâ€¦"~
-|1) HÃ¶g, rest av (?), ca 25 m diam och 1.5 m h. DiffusbegrÃ¤nsning. Talrika stenar i den plÃ¶jda ytan, flera 0.2-0.3 mst.â€¦"~
-|1) HÃ¶g, rest av, Ã¶verodlad. Nu synlig pÃ¥ hÃ¥ll som en mycket flackfÃ¶rhÃ¶jning, ca 16 m diam och 0.3 m h. V delen inomâ€¦"~
-|1) Kyrkogrund, bestÃ¥ende av en nÃ¤rmast rektangulÃ¤r, stenrikkulle, ca 22x11 m (Ã–NÃ–-VSV) och intill 1.5 m h. I V delenâ€¦"~
-|1) Kyrkoruin, 32x10 m (VNV-Ã–SÃ–), bevarad i 2 m hÃ¶jd och hÃ¶gre, avgranitblock och tuktade sandstensblock, intill 0.8 mâ€¦"~
-|BorganlÃ¤ggning utan klar avgrÃ¤nsning, dock minst 30 m i diam. PÃ¥platsen ligger det Piperska gravkoret i en jordhÃ¶g. Iâ€¦"~
-|BorganlÃ¤ggning, totalt 70x40 m (N-S). BorgplatÃ¥n Ã¤r 45x25 m(N-S), med ett nÃ¤rmast plant ytomrÃ¥de. PlatÃ¥n avgrÃ¤nsasâ€¦"~
-|GÃ¥nggrift i hÃ¶g. HÃ¶gen Ã¤r 25 m diam och ca 1,5 m h. GÃ¥nggriftens kammare Ã¤r ca 6x2,5 m (N-S). Vid V lÃ¥ngsidan fyraâ€¦"~
-|HÃ¶g, 15 m diam och 2 m h. Plan topp 6 m diam. I ytan stÃ¤llvisenstaka stenar 0.2-0.3 m st. I toppen och ut mot SV kantenâ€¦"~
-|HÃ¶g, 20-22 m diam och 4 m h. Plan topp. SSV kanten avskuren avgata samt beklÃ¤dd med stenfot.Namnet RÃ¥ckhÃ¶g belagt pÃ¥â€¦"~
-|HÃ¶g, 27 m diam och 5.5-6 m h. Grop i mitten, 4 m diam och 0.7 mdj. FrÃ¥n gropen vetter mot S en rÃ¤nna, 1 m br och 0.5 mâ€¦"~
-|HÃ¶g, 34 m diam och ca 6.2 m h. I Ã– sidan en urgrÃ¤vning ca 5x10(Ã–-V) och ca 1.5 m dj. Antydan till brÃ¤tte ca 1-2 m brâ€¦"~
-|HÃ¶g, ca 14 m diam och 2,5 m h. Plan topp. Kantskadad. BevÃ¤xt meddiverse lÃ¶vtrÃ¤d. Restaurerad.UndersÃ¶kt 1900 dÃ¤r detâ€¦"~
-|HÃ¶g, ca 25 m diam och 1.8 m h. Ã–verodlad. Kraftigt tÃ¤ktskadadekantpartier, sÃ¤rskilt i N-S-Ã–, med nu delvis tÃ¤mligenâ€¦"~
-|HÃ¶g, ca 27x23 m (Ã–-V) och 2.6 m h med plan topp, 3 m i diam.NNÃ–-Ã–NÃ– delen Ã¤r borttgen, intill 7 m in i hÃ¶gen. I Ã–â€¦"~
-|HÃ¶g, rest av, ca 20x17 m (Ã–-V) och intill 2 m h i N kanten. AvhÃ¶gen Ã¥terstÃ¥r till synes bara den centrala delen, somâ€¦"~
-|Kyrkogrund, i vÃ¤stra delen Ã¤r en synlig rest av kyrkogrunden eller kyrkogÃ¥rdsmuren, bestÃ¥ende av en stenmur, 12 meterâ€¦"~
-|Runsten, granit, 0,9 m h, 0,6 m br (NNV-SSÃ–) och 0,35 m tj. PÃ¥ SV sidan och SÃ– sidan finns en runtextrad, runhÃ¶jd 6-7â€¦"~
-|SkansanlÃ¤ggning, ca 700x100 m (VNV-Ã–SÃ–), bestÃ¥ende av en vall med4 bastioner, vallgravar, vallar och 3 skansar.Vallenâ€¦"~
-|SkeppssÃ¤ttning, 67x18,5 m st (NV-SÃ–), bestÃ¥ende av 58 resta stenar av granit och kvartssandsten. Stenarna Ã¤r vanligenâ€¦"~
-|Stadsvall, 580 m l (NNV-SSÃ–), 12-20 m br och 0,8-2,5 m h. Mestadels brant sluttande sidor och avplanat krÃ¶n. Vallen Ã¤râ€¦"
-}1) HÃ¶g 24 m i diam 2.75 m h. I hÃ¶gen Ã¤r ett flertal kaninhÃ¥l.HÃ¶gen bevuxen med div. lÃ¶vsly. Uppskattningsvis ca 10 mâ€¦"
-}1) HÃ¶g, 19 m diam och 3.7 m h. Branta kanter. I SV ett urgrÃ¤vtparti, 6x4 m (NNÃ–-SSV) och intill 1.2 m dj.45 m SSV om nrâ€¦"
-}1) HÃ¶g, ca 12 m diam och 0.8-1 m h. Enstaka stenar i ytan 0.1-0.4m st. RÃ¶jningssten pÃ¥fÃ¶rd i S kanten.BevÃ¤xt med tvÃ¥â€¦"
-}1) LÃ¥nghÃ¶g, 30x9 m (Ã–-V) och 1.3 m h. I ytan enstaka stenar,0.1-0.2 m st. I V delen en urgrÃ¤vning, 3x3 m och 0.3 m dj,â€¦"
-}1) Runsten, granit, 1-3 m h, 0.47 m br (Ã–-V) och 0.3 m tj inmuradi kyrkans Ã–-vÃ¤gg.. RunhÃ¶jd 8-12 cm. PÃ¥ S sidan Ã¤r 4â€¦"
-}Borgruin-/omrÃ¥de, ca 80x70 m (Ã–-V). OmrÃ¥dets begrÃ¤nsning gjord utifrÃ¥n de naturliga fÃ¶rutsÃ¤ttningarna. Arkeologisktâ€¦"
-}Borgruin/omrÃ¥de, plats fÃ¶r, ungefÃ¤rlig utstrÃ¤ckning 120 x 90 m (NV-SÃ–) enligt enskifteskarta 1785. 3 husgrunder finnsâ€¦"
-}BorgruinsomrÃ¥de, nÃ¤rmast rektangulÃ¤rt, 160x110 m (N-S), bestÃ¥ende av en nÃ¤rmast rektangulÃ¤r holme 70x60 m (N-S). PÃ¥â€¦"
-}DÃ¶s(?) rest av, bestÃ¥ende av 1 rest sten, 1,5 m h, 1,4 m br (Ã–-V) och nÃ¤stan 0,75 m tj. Antaligen en av kammarstenarnaâ€¦"
-}HÃ¶g, 18 m diam och 3.5 m h. Branta sidor, upptill svagare vÃ¤lvd,ca 10 m diam. HÃ¶gen har en smÃ¥gropig yta. FrÃ¥n mittenâ€¦"
-}HÃ¶g, 22-23 m i diam och ca 5 m h. OjÃ¤mn och gropig yta. I NÃ– delen finns en grop, 12x5 m (N-S) och 0,2-1 m dj. Utdragenâ€¦"
-}HÃ¶g, 22-28 m i diam och 3,8-4,2 m h med nÃ¤rmast plan Ã¶verdel, 6x8m (NÃ–-SV). PÃ¥ hÃ¶gens topp en, i sen tid, rest sten,â€¦"
-}HÃ¶g, 30 m diam och 4.5 m h. I ytan enstaka stenar, 0.2-0.4 m st.Ytan ojÃ¤mn och sÃ¶ndergrÃ¤vd av vildkaniner. BevÃ¤xt medâ€¦"
-}HÃ¶g, 33-34 m i diam och 5,10-5,85 m h. PÃ¥ toppen en rÃ¤nnformigskada, 15x3-7 m (SÃ–-NV) och intill 0,9 m dj. PÃ¥ hÃ¶gensâ€¦"
-}HÃ¶g, ca 23 m i diam ochintill 5.25 m h. HÃ¶gens topp avplanad frÃ¥nmitten mot SSV, 6x3 m (NNÃ–-SSV) och intill 1 m dj.I Vâ€¦"
-}Kyrkoruin, ca 28x12 m (Ã–-V), med murrester under markytan. Idag Ã¤r murresterna markerade med en klippt buxbomhÃ¤ck. Ingaâ€¦"
-}Runsten, 1,9 m h, intill 0,6 m br (NÃ–-SV) och intill 0,55 m tj. Runinskriften i SSÃ– sidan. Stenen pÃ¥trÃ¤ffades liggandeâ€¦"€
-~1) GÃ¥nggrift i hÃ¶g. HÃ¶gen Ã¤r 29 m i diam och 2.8 m h. Upptill Ã¤rhÃ¶gen nÃ¥got avplanad, 7 m i diam. I dess S del Ã¤r 2â€¦"€
-~1) HÃ¶g, 25 m i diam och 3.3 m h. I toppens mitt Ã¤r en grop, 7 m idiam och 1.1 m dj. I gropen finns ett trÃ¤dgÃ¥rdsbord avâ€¦"€
-~1) HÃ¶g, ca 25 m diam och 4 m h. Kantskadad. BevÃ¤xt med lÃ¶vtrÃ¤d.Ca 25 m Ã– om nr 1 Ã¤r :2) HÃ¶g, ca 40 m diam och 1 m h.â€¦"€
-~1) Kyrkoruin, delvis undersÃ¶kt, bestÃ¥ende av tornrester, 6.8x5 m(Ã–-V). Tornets dagermurar Ã¤r intill 1.7 m tj och intillâ€¦"€
-~1) RÃ¶se, 26 m i diam och 1.5 m h, bestÃ¥ende av delvis Ã¶vermossadeflintstenar, 0.05-0.2 m st. Stenarna Ã¤r omplockade ochâ€¦"€
-~Borgruin. Inom ett ca 90x60 m st omrÃ¥de (NV-SÃ–) skall enligt uppgift en borg eller en stor gÃ¥rd varit belÃ¤gen. OmrÃ¥detâ€¦"€
-~HÃ¶g, 20 m i diam och 3.6 m h. VÃ¤lvd topp, lÃ¥ngsluttande sidor,ngt brantare mot N. Ã– slÃ¤nten ngt insjunken. BevÃ¤xt medâ€¦"€
-~HÃ¶g, 24 m i diam och 3 m h. Plan topp, 5 m i diam och lÃ¥ngsluttande slÃ¤nter. Kantskadad runt om vid plÃ¶jning sÃ¥ att enâ€¦"€
-~HÃ¶g, 25 m i diam och 2.5-3 m h. I SÃ– delen Ã¤r en 3-4 , br sektorav hÃ¶gen bortgrÃ¤vd. I anlÃ¤ggningen 4-5 gropar 1-3 m iâ€¦"€
-~HÃ¶g, 30 m diam och 3 m h, med relativt flacka slÃ¤nter och vÃ¤lvdtopp. I hÃ¶gens mitt Ã¤r rest mittsten, kraftigt lutande,â€¦"€
-~HÃ¶g, rest av, ca 20 m i diam och 0.4 m h. Ã–verodlad. Enl.arbetare pÃ¥ HobygÃ¥rd plÃ¶js det alltid upp stenar pÃ¥ platsen,â€¦"€
-~Klosterruin/omrÃ¥de, bestÃ¥ende av en husgavel i Ã– och grund till en korsgÃ¥ng i N, V och S om klostergÃ¥rden. Grunden Ã¤râ€¦"€
-~KolerakyrkogÃ¥rd, rektangulÃ¤r, 28 x 15 m (NNÃ–-SSV). BegrÃ¤nsas i V-N-Ã– av en jordvall, 1,5 - 2 m br och 0,4 - 0,6 m h. Iâ€¦"€
-~Kyrkoruin, 20,25x6.73 m (Ã–SÃ–-VNV) med V-form under sadeltak avenkupigt tegel. Murarna i lÃ¥nghuset och koret Ã¤r 1.05-2.9â€¦"€
-~LÃ¥ngdÃ¶s i stensÃ¤ttning. StensÃ¤ttningen, oval, Ã¤r 57x6 m (Ã–-V) och 0,2-0,3 m h. Ã–vertorvad med i ytan enstaka stenar,â€¦"€
-~Medeltida borganlÃ¤ggning, rest av, ca 110-130 x 100 m (NNV-SSÃ–), bestÃ¥ende av vall och vallgrav. Vallen Ã¤r 2-5 m br ochâ€¦"
-1) HÃ¶g, 20 m diam och 2.5-3 m h. FrÃ¥n mitten och mot VNV enurgrÃ¤vning, 5x8 m (VNV-Ã–SÃ–) och 0.5 m dj. FrÃ¥n N kanten uppâ€¦"
-1) HÃ¶g, ca 20 m diam och 2.5 m h. Svagt rundad topp. Flack SÃ–, Ã–och N slÃ¤nt och brantare SV och V slÃ¤nt. I NV delen ettâ€¦"
-1) HÃ¶g, nÃ¤rmast oval, 20x15 m (Ã–NÃ–-VSV) och 2.5 m h. Den harvÃ¤lvd topp och lÃ¥ngsluttande sidor. NNV delen bortschaktadâ€¦"
-DubbelgÃ¥nggrift i hÃ¶g. HÃ¶gen, rest av, Ã¤r 10 m i diam och 0,3 m h, med nu nÃ¤rmast kvadratisk bottenplan, 10x10 m (N-S).â€¦"
-DÃ¶s, pÃ¥ en liten platÃ¥, 6x4 m (NNV-SSÃ–) och 0,3 m h. DÃ¶sen bestÃ¥r av 2 sidohÃ¤llar, 1 gavel, samt 1 takblock. Kammarenâ€¦"
-HÃ¶g, 12-13 m diam och 3.5 m h. OjÃ¤mn yta. Avplanad topp, 5x1.5 m(SSÃ–-NNV). Ã– sidan insjunken, 7x5 m. KringplÃ¶jd sÃ¥ attâ€¦"
-HÃ¶g, 20 m i diam och 2,5 m h. Kantskadad i NÃ–-SÃ–-SV genom schaktning, sannolikt jordtÃ¤kt. Mittpartiet och N-NÃ– delen avâ€¦"
-HÃ¶g, 28 m diam och 3.8 m h, med vÃ¤lvd topp och tÃ¤mligen brantaslÃ¤nter. SSÃ– om mittpartiet Ã¤r en grop, 6 m diam och 0.8â€¦"
-HÃ¶g, 35 m diam och 4 m h. I mitten Ã¤r en grop, 10x16 m (Ã–-V), sommynnar ut i Ã– slÃ¤nten.Bevuxen med sex kÃ¶rsbÃ¤rstrÃ¤d,â€¦"
-HÃ¶g, rest av, delvis undersÃ¶kt, 38 m diam och 0,5 m h. Ã–verplÃ¶jd. PÃ¥ hÃ¶gens yta Ã¤r ett 10-tal stenar, 0,2-0,4 m st, iâ€¦"
-Kyrkoruin, nÃ¤rmast rektangulÃ¤r, 13x6 m (Ã–-V) och 0.3-1 m h, bestÃ¥ende av en fÃ¶rhÃ¶jd platÃ¥ kantad av enstaka 0,4-0,5 mâ€¦"
-Slottsruin, 25x15 m (NNÃ–-SSV), bestÃ¥ende av vÃ¤ggar och gavlar av grÃ¥sten och tegel, ca 15 m h och 3 m tj. FrÃ¥n NV sidanâ€¦"
-Stenkrets, rektangulÃ¤r, rest av, lÃ¥ngdÃ¶s?, 36x16 m l (Ã–-V), bestÃ¥ende av 16 resta stenar, varav 5 i N lÃ¥ngsidan, 8 i Sâ€¦"ƒ
-€1) Boplats, 200x120 m (NÃ–-SV), pÃ¥ backens krÃ¶n och nedÃ¥t den frÃ¥nNÃ– till SV sluttning av backen med mÃ¥ttlig fÃ¶rekomstâ€¦"ƒ
-€HÃ¶g, 15 m i diam och 2.5 m h. OjÃ¤mn yta. I mitten Ã¤r en grop, 3 mi diam och 0.5 m dj. I Ã–SÃ– sluttningen Ã¤r en sten, 0.8â€¦"ƒ
-€HÃ¶g, 18 m diam och 2.5 m h, med svagt vÃ¤lvd topp och tÃ¤mligenbranta slÃ¤nter. I ytan Ã¤r tÃ¤mligen talrika stenar, 0.2-0.7â€¦"ƒ
-€HÃ¶g, 21 m i diam och 2.5 m h. HÃ¶gen Ã¤r kraftigt skadad ochursprunglig hÃ¶jd gÃ¥r ej att sÃ¤kert faststÃ¤lla. FrÃ¥n hÃ¶gensâ€¦"ƒ
-€HÃ¶g, 25 m i diam och 3 m h. I hÃ¶gens S del Ã¤r ingrÃ¤vt 6x4 m ochkantsatt med sten. Ã„ven kantstenar och stenparti i V-SÃ–.â€¦"ƒ
-€HÃ¶g, 35 m i diam och 5.3 m h. OjÃ¤mn yta med brant slÃ¤nt mot V, iÃ¶vrigt lÃ¥ngsluttande. I mitten, med dragning Ã¥t SO, Ã¤râ€¦"ƒ
-€HÃ¶g, delvis undersÃ¶kt, 20x17 m (Ã–-V) och 3 m h. Avplanat krÃ¶n. I N-V branta slÃ¤nter, speciellt i V dÃ¤r hÃ¶gen sannoliktâ€¦"ƒ
-€HÃ¶g, idag nÃ¤rmast rektangulÃ¤r, 35x25 m (Ã–-V) och 4.5 m h. Upptillavplanad yta 20x10 m (Ã–-V). HÃ¶gen Ã¤r skadad av odlingâ€¦"ƒ
-€HÃ¶g, nÃ¤rmast oval, 9x7 m (NÃ–-SV) och intill 1 m h. Toppenavplanad. Sidorna i NÃ–-SÃ– Ã¤r flackt sluttande. SmÃ¤rre ytskadaâ€¦"„
-GÃ¥nggrift i hÃ¶g, rest av. Av hÃ¶gen Ã¥terstÃ¥r ett parti i NNV-delen 6x1,5 m st (Ã–NÃ–-VSV) och ca 1 m h. Kammaren Ã¤r rund,â€¦"„
-GÃ¥nggrift i hÃ¶g. HÃ¶gen Ã¤r ca 25 m i diam och 2,5 m h. GÃ¥nggriften tÃ¤cks av hÃ¶gen, dess kammare Ã¤r rundat rektangulÃ¤r,â€¦"„
-GÃ¥nggrift i hÃ¶g. HÃ¶gen Ã¤r nÃ¤rmast rektangulÃ¤r, 17x8 m (Ã–-V) och1-1,5 m h. I SÃ– och i NÃ– Ã¤r en antydan till kantkedjaâ€¦"„
-HÃ¤llkista, 3.7x1.5 m (yttre mÃ¥tt, Ã–SÃ–-VNV) och 3x0.7 (inre mÃ¥tt).I SV lÃ¥ngsidan Ã¤r 4 hÃ¤llar och i NÃ– lÃ¥ngsidan Ã¤r 3â€¦"„
-HÃ¶g, 25 m diam och 5 m h. PÃ¥ toppen Ã¤r ett schakt tvÃ¤rs Ã¶verhÃ¶gen 9x3 m (NV-SÃ–) och 0.2-7 m dj. I den NNV delen Ã¤r ettâ€¦"„
-LÃ¥ngdÃ¶s i hÃ¶g. HÃ¶gen Ã¤r 53x13 m (SÃ–-NV) och ca 2,4 m h. HÃ¶gen omges av 37 st kantstenar (flertalet resta), 0,3-1,1 m h,â€¦"…
-‚1) HÃ¶g, 22 m diam och 0ch 3.5 m h, med vÃ¤lvd topp.I hÃ¶gens topp Ã¤r 1 synlig sten, 0.2 m st. I hÃ¶gens SÃ– slÃ¤nt Ã¤r 1grop,â€¦"…
-‚HÃ¶g, 26x21 (NNV-SSÃ–) och 2.5 m h.BevÃ¤xt med tvÃ¥ mindre lÃ¶vtrÃ¤d.PÃ¥ hÃ¶gens NÃ– sida skÃ¤r motorvÃ¤gen tÃ¤tt intill, dennaâ€¦"…
-‚LÃ¥nghÃ¶g (?), 28x9 m (Ã–-V) och 1.6 m h med toppig ovansida. Ca 5 m V om Ã– kanten Ã¤r en svacka tvÃ¤rs Ã¶ver hÃ¶gen, 1.5 m brâ€¦"†
-ƒ1) Ã–dekyrkogÃ¥rd, ca 58x34 m (Ã–-V). KyrkogÃ¥rdsmuren Ã¤r bevarad i SpÃ¥ en 20 m l strÃ¤cka. Muren Ã¤r hÃ¤r 0.8-1 m h och 1-1.5â€¦"†
-ƒBorganlÃ¤ggning, bestÃ¥ende av 3 hÃ¶jdplatÃ¥er samt 1 inre och 1yttre vallgrav. I N Ã¤r hÃ¶jdplatÃ¥ (A), 45x25 m (VNV-Ã–SÃ–) ochâ€¦"  A"  -B"  OB"  »B" €ŠB" €ÅB"	
+$fc79d66e-fb7f-495f-adc2-c6fe3c9c507e"&
+$fde5332a-f75f-4585-a93d-167bc89b4126"&
+$fe9353fb-45b8-4bd5-bfe7-f4b4e6dfa7d9"&
+$feb59547-eb46-48d7-8897-44f74dc97fee"&
+$ffa0880b-0963-490b-8d5c-a7d54198ce2b"'
+%Husgrund, fÃ¶rhistorisk/medeltida (2)"  B"  B"   @"  •B"  ¬A"  ³B"  ÁB" €ŽB" €B"	
 ×£p=
-O@"	
-×£p=*N@"	
-×£p=*X@"	
-×£p=ÊU@"	
-×£p=êC@"	
-×£p=úT@"	®GázTU@"	®GáztU@"	®Gáz”4@"	®Gáz´D@"	®GázÄR@"	®GázÔP@"	…ëQ¸@"	…ëQ¸>W@"	…ëQ¸nV@"	…ëQ¸~X@"	…ëQ¸ŽR@"	…ëQ¸ŽW@"	…ëQ¸žW@"	…ëQ¸ÞR@"	)\ÂõR@"	)\ÂõT@"	)\Âõ(U@"	)\Âõ8R@"	)\ÂõHX@"	)\ÂõXT@"	)\ÂõhH@"	)\ÂõØW@"	)\Âõè@@"	)\ÂõøW@"	33333“W@"	33333£W@"	33333³G@"	33333³V@"	33333óU@"	=
-×£pK@"	=
-×£pU@"	=
-×£pW@"	=
-×£pÝD@"	=
-×£pý4@"	Ház®V@"	Ház®GG@"	Ház®WT@"	Ház®wV@"	Ház®—R@"	Ház®§U@"	R¸…ëT@"	R¸…ëQ @"	R¸…ëQ@"	R¸…ëQ@"	R¸…ëQ<@"	R¸…ëQX@"	R¸…ëqQ@"	R¸…ëW@"	R¸…ë±U@"	R¸…ëÁW@"	\Âõ(<X@"	\Âõ(ŒU@"	\Âõ(ìW@"	fffff&V@"	ffffffA@"	ffffffX@"	fffff†K@"	fffff–X@"	fffffÆU@"	fffffæ:@"	ffffföW@"	q=
-×£S@"	q=
-×£0M@"	q=
-×£0S@"	q=
-×£PA@"	q=
-×£pG@"	q=
-×£X@"	q=
-×£ V@"	q=
-×£°N@"	{®Gá
-P@"	{®GáN@"	{®Gá:;@"	{®GáºX@"	…ëQ¸%R@"	…ëQ¸%W@"	…ëQ¸eX@"	…ëQ¸…R@"	…ëQ¸ÕX@"	…ëQ¸õW@"	Âõ(\B@"	Âõ(\/U@"	Âõ(\OW@"	Âõ(\oM@"	Âõ(\oU@"	Âõ(\ö?"	Âõ(\¯I@"	Âõ(\¯S@"	Âõ(\ÏC@"	Âõ(\ÏX@"	Âõ(\ïT@"	š™™™™YW@"	š™™™™yX@"	š™™™™™@"	š™™™™™X@"	š™™™™¹U@"	š™™™™¹W@"	š™™™™ùT@"	š™™™™ùX@"	¤p=
-×M@"	¤p=
-×#/@"	¤p=
-×#K@"	¤p=
-×CX@"	¤p=
-×ƒU@"	¤p=
-×£W@"	¤p=
-×³U@"	¤p=
-×ÃB@"	®Gázn>@"	®GáznX@"	®Gáz®>@"	®Gáz®û?"	®GázÎT@"	®Gázî7@"	®GázþS@"	¸…ëQXW@"	¸…ëQˆT@"	¸…ëQ¸G@"	¸…ëQÈW@"	¸…ëQØQ@"	Ãõ(\F@"	Ãõ(\U@"	Ãõ(\W@"	Ãõ(\2S@"	Ãõ(\bI@"	Ãõ(\‚;@"	Ãõ(\âU@"	Ãõ(\âW@"	ÍÌÌÌÌ,L@"	ÍÌÌÌÌ,W@"	ÍÌÌÌÌ|X@"	ÍÌÌÌÌŒ7@"	ÍÌÌÌÌ¬Q@"	×£p=
-U@"	×£p=
-gP@"	×£p=
-gW@"	×£p=
-‡T@"	×£p=
-—G@"	×£p=
-—S@"	×£p=
-çQ@"	áz®GV@"	áz®G!P@"	áz®G1X@"	áz®GAR@"	áz®GAV@"	áz®GaO@"	áz®G¡X@"	áz®GñX@"	ìQ¸…T@"	ìQ¸…kV@"	ìQ¸…{S@"	ìQ¸…‹T@"	ìQ¸…›X@"	ìQ¸…«K@"	ìQ¸…«V@"	ìQ¸…ÛS@"	ìQ¸…ÛU@"	ìQ¸…ÛV@"	ìQ¸…ëQ@"	ìQ¸…ûT@"	ö(\ÂU@"	ö(\ÂEU@"	ö(\ÂuS@"	ö(\Â…W@"	ö(\ÂõV@" " " 4" C" \"8# ¢d†Ô›–Ç "	äâ# ›'YÃ„›–Ç "	Ê9È ™
-ƒÝÀ"	œ’# ‡ÁË›—à"	 5Þ ŽsYÐ»"	°%° ÌÜì"	ˆÊ “*šƒ"	€Š ìwtÑ‰"	ð†# €-ÙÐ›–Ç "	ª‚	 ¨hl¢¬"	®¢  ¤5zÒµ"	Š0” °iiáü"	†‰ ­nNöó"	þò# 9_¶Î›–Ç "	¨!Î! ´xl‹Þ"	ºà"  8Ïª›–Ç "	„P# ª7‰¾›–Ç "	Ö” è® "	¶r ¯já…"	˜Ê# §~~¤Ø›–Ç "	 –# ±6_Þ¥›—à"	Œ¤" Œ}Ûÿ"	ò(º –oN©ï"	æ"þ ã|[¼Š"	¨8´ ÜÇ¯"	Àä# ®òÁ›–Ç "	Â®  ²MÈ§"	Œ¶ ®3œð"	¬æ ‘U·ˆ"	úÐ ý]ëç"	„Ê ªê¤"	œÆ ±†…ƒÒ"	”ê # ú=Ú›–Ç "	¶ # ¬YY»Œ›—à"	Øº# ûÂÿ›–Ç "	Š„# ðLÌ’›–Ç "	üŽ ‚E×‹"	æØ# Âþ›–Ç "	°â ¥u_É”"	öÄ ö:è¢"	šÒ …sY¹ø"	ðÌ" ³llÈê›–Ç "	Úi ™p°Í"	úÂ ÔØä"	´Î# ©C_£Ä›–Ç "	Ò?Ú ïXi‡ú"	ð¾ # •NN÷ò›–Ç "	þ$Š ƒ_ð½"	ìŽ# ˜æë›—à"	È;þ µ2Óš"	Šâ ‹€•"	„Š Õyl¹Ž"	èp ŠŽŽ"	¬,þ# Óå‹›–Ç "	º@Â ÛÃ¶"	Ü5ô ÝÆ˜"	ü2 ˜"¸û"	Ê¾ ­Bï†"	Ø® Í(iã"	ì# ñGÕ¨›–Ç "	È1š œ;Ô•"	ÌÎ ÆÉý"	ˆò à¬"	¼$˜ çAÅï"	Ôä# ÖÞ›–Ç "	¦ †# îPð"	„? NNÖ­"	Œ0° ¾ÔÑ"	üÌ ¥+™Û"	ª ë&Î£"	¾*’ ÒiÜš"	ü=º Ù!Å‘"	ÖÌ «^Ë¦"	ô¦ ©\¦Ù"	îÀ Þ~~ùô"	Ò4‚# ²ËÆ›–Ç "	–ü „?Õó"	¤%² ¦Iß’"	¨ˆ	 Ë–Ã"	¨0¸ ºàƒ"	ô'Ú —aÖö"	ªŽ ³/²‘"	”€ ¬—ê"	ê 0¾"	†´ “v¸ò"	Ê+Æ# Ã½Ó›–Ç "	Ô=ì$ £€qóÌ›–Ç "	’/¦# †TÍá›–Ç "	¨¨ Ø@Ûˆ"	Ø´ æå"	ž+Ê Á1ãù"	Ê¦ äV›†"	Î Ÿ•—"	€.¼# êº…›–Ç "	Ê¦ íZÎ‚"	‚7þ ˆ)â›"	ö-À# ùÌã›–Ç "	ä8Ž œbißŒ"	Â¸ ŽF»É"	˜#ˆ °e³û"	êN ‡Œ‡"	Œ'Ú §ÿ“"	Úœ Éìì"	ˆ)À# ¯qqå²›–Ç "	Æ-º £Í°"	Š9¢ ×`Á€"	Ž(–# ½ª÷›–Ç "	ž!´ åsY”™"	–-( žÇý"	®&ò ÐiÄ¿"	Âì ¶i­€"	ô?‚ À	é„"	Ê'”# šcþ¼›—à"	ä® ‹HÚ"	šÄ ¢k¥"	ÄI –äü"	Ú;ä â4Úè"	ú.Ì gÑõ"	Î;¼ Œ¡"	ö Ñ¯ë"	šÌ# Š>Ïø›–Ç "	Ü*Â žÄ™"	˜Ö ¦¼÷"	ª  Ä€q þ"	‚ü š,˜¸"	´5Î «±‚"	ì!†  fºí"	È¤# õYY´·"	ö9Ú Î«î"	 'ò  NNµ¹"	‚3ª# zzøÅ›–Ç "	#ä
- ¤<ˆ±"	æ² ü×Õ"	öˆ óq“ñ"	Ü=ò æNN¿Š"	î!² ÷#¾«"	˜0” ¡qqú×"	¬ ›â"	„)¦ ‰ç˜"	ž5À ·’é"	ž;ò ”Of§È"	    ÿíí"	è¸# ò‡›–Ç "	ê5î éQ¿æ"	´¨ ’·"	ø¢ ‘„Yôú"	¨ ¢# øJà´›–Ç "	ô0† ”î–"	°Ê •mžé"	Ô4Ò µ……„è"	ÂÌ ´NNÙ“"	Œ?ˆ ».Ýö"	ê*ä ¿YYÆñ"	¦Ê ÈsY…Ê"	†? ÊÀÜ"	ò¼# ßNN¡Â›–Ç "	®Š ô{fý©"	€@˜ qqÂ³"	ö)² ŸW¨‰"	Ä$ø ÅR‘ß"	ú/ò ¡DÀÝ"	¼# ¶rSõŸ"	¾2ö ÚiiÊî"	èÜ þYYÊº"	ì(Ú ‰‚zû®"	ì=€ ¹½â"	 "Â ÏÐô"	Ü/œ ¨KØ”"	¦>ì	 ¼Òõ"	„AÔ ’ÓÖ"	Âê Ÿç"	Ì” ˆ‚ž"	œ(Œ ¸äù"	â#è ÇNNŠ"	ð5ô —$ñÏ"	¼?Ì á%üœ"	Öâ
+@"	
+×£p=*K@"	
+×£p=:U@"	
+×£p=:W@"	
+×£p=:X@"	
+×£p=J8@"	
+×£p=JC@"	
+×£p=JD@"	
+×£p=JT@"	
+×£p=jP@"	
+×£p=jR@"	
+×£p=šV@"	
+×£p=ªU@"	
+×£p=ªV@"	
+×£p=ÊW@"	®Gáz$R@"	®Gáz4Q@"	®Gáz4W@"	®GáztO@"	®GáztS@"	®Gáz”@@"	®GázÄU@"	®GázÔ:@"	®GázÔS@"	®GázôT@"	®GázôV@"	…ëQ¸Q@"	…ëQ¸>X@"	…ëQ¸^V@"	…ëQ¸~V@"	…ëQ¸~W@"	…ëQ¸ŽX@"	…ëQ¸žJ@"	…ëQ¸¾H@"	…ëQ¸Þ9@"	…ëQ¸ÞR@"	…ëQ¸ÞS@"	…ëQ¸ÞW@"	)\ÂõXV@"	)\ÂõxV@"	)\ÂõˆF@"	)\ÂõˆV@"	)\Âõ¨(@"	)\Âõ¨L@"	)\Âõ¨T@"	)\Âõ¨X@"	33333U@"	33333T@"	33333#U@"	333333U@"	33333SO@"	33333SU@"	33333s>@"	33333ƒU@"	33333ƒV@"	33333“W@"	33333³:@"	33333³O@"	33333ÓW@"	33333ãU@"	33333ó>@"	=
+×£pI@"	=
+×£pU@"	=
+×£p=@"	=
+×£p=J@"	=
+×£p]O@"	=
+×£p}T@"	=
+×£p}X@"	=
+×£pS@"	=
+×£pB@"	=
+×£pÍX@"	=
+×£pÝR@"	=
+×£pÝS@"	=
+×£pÝV@"	=
+×£píV@"	Ház®'@@"	Ház®7S@"	Ház®GC@"	Ház®WW@"	Ház®wP@"	Ház®‡T@"	Ház®§W@"	Ház®÷Q@"	R¸…ëA@"	R¸…ëQ@"	R¸…ëQF@"	R¸…ëQU@"	R¸…ë‘P@"	R¸…ë¡V@"	R¸…ë±S@"	R¸…ëÁW@"	R¸…ëÑU@"	R¸…ëÑX@"	R¸…ëñT@"	\Âõ(P@"	\Âõ(V@"	\Âõ(,V@"	\Âõ(LW@"	\Âõ(LX@"	\Âõ(\!@"	\Âõ(\E@"	\Âõ(lW@"	\Âõ(œR@"	\Âõ(œX@"	\Âõ(¼H@"	\Âõ(ÜM@"	\Âõ(ÜU@"	\Âõ(üT@"	fffffV@"	fffff6S@"	ffffffæ?"	fffffvU@"	fffffvW@"	fffff¦V@"	fffffÆO@"	fffffÖU@"	q=
+×£F@"	q=
+×£O@"	q=
+×£0;@"	q=
+×£€W@"	q=
+×£€X@"	q=
+×£°W@"	q=
+×£ÐR@"	q=
+×£ðT@"	q=
+×£ðX@"	{®GáX@"	{®GáJT@"	{®GáJU@"	{®Gáz1@"	{®GázN@"	{®GázQ@"	{®GázR@"	{®GáºW@"	{®GáÚN@"	{®GáÚU@"	{®GáêU@"	…ëQ¸3@"	…ëQ¸%T@"	…ëQ¸%U@"	…ëQ¸EX@"	…ëQ¸UW@"	…ëQ¸uU@"	…ëQ¸…@"	…ëQ¸…=@"	…ëQ¸…G@"	…ëQ¸•X@"	…ëQ¸ÅN@"	…ëQ¸ÅW@"	…ëQ¸åV@"	…ëQ¸õR@"	Âõ(\B@"	Âõ(\T@"	Âõ(\/H@"	Âõ(\/U@"	Âõ(\O4@"	Âõ(\O@@"	Âõ(\OS@"	Âõ(\OX@"	Âõ(\oI@"	Âõ(\oT@"	Âõ(\@"	Âõ(\E@"	Âõ(\ŸX@"	Âõ(\¯V@"	Âõ(\¿T@"	Âõ(\ÿW@"	š™™™™9W@"	š™™™™IP@"	š™™™™YW@"	š™™™™iU@"	š™™™™‰V@"	š™™™™™@"	š™™™™¹D@"	š™™™™éW@"	¤p=
+×O@"	¤p=
+×U@"	¤p=
+×#U@"	¤p=
+×3W@"	¤p=
+×CT@"	¤p=
+×CV@"	¤p=
+×cS@"	¤p=
+×cU@"	¤p=
+×ƒK@"	¤p=
+×³V@"	¤p=
+×ÓQ@"	®Gáz>S@"	®GázNG@"	®GázNN@"	®Gáz~W@"	®Gáz~X@"	®GázŽX@"	®GázžP@"	®Gáz®J@"	®Gáz¾P@"	®GázÎT@"	®GázîF@"	®GázîV@"	¸…ëQ(X@"	¸…ëQ8S@"	¸…ëQHX@"	¸…ëQxW@"	¸…ëQ¸T@"	¸…ëQÈV@"	¸…ëQØQ@"	¸…ëQØW@"	¸…ëQèP@"	¸…ëQèR@"	¸…ëQèV@"	¸…ëQøC@"	¸…ëQøU@"	¸…ëQøX@"	Ãõ(\D@"	Ãõ(\"W@"	Ãõ(\¢H@"	Ãõ(\ÂU@"	Ãõ(\ÂX@"	Ãõ(\ÒS@"	Ãõ(\ÒV@"	ÍÌÌÌÌV@"	ÍÌÌÌÌ,G@"	ÍÌÌÌÌlE@"	ÍÌÌÌÌŒ=@"	ÍÌÌÌÌŒK@"	ÍÌÌÌÌ¬A@"	ÍÌÌÌÌìT@"	×£p=
+K@"	×£p=
+wN@"	×£p=
+‡R@"	×£p=
+‡U@"	×£p=
+—>@"	×£p=
+·Q@"	×£p=
+× @"	×£p=
+×G@"	×£p=
+×I@"	áz®GT@"	áz®G!X@"	áz®GA@@"	áz®GQX@"	áz®Ga9@"	áz®Ga;@"	áz®GaQ@"	áz®GaS@"	áz®GqQ@"	áz®GV@"	áz®GW@"	áz®G‘U@"	áz®G¡6@"	áz®G¡7@"	áz®G¡I@"	áz®G¡V@"	áz®G¡W@"	áz®G¡X@"	áz®GÁW@"	áz®Gá=@"	áz®GáW@"	ìQ¸…C@"	ìQ¸…W@"	ìQ¸…+L@"	ìQ¸…+P@"	ìQ¸…KU@"	ìQ¸…[T@"	ìQ¸…k)@"	ìQ¸…k:@"	ìQ¸…{S@"	ìQ¸…{X@"	ìQ¸…‹U@"	ìQ¸…«N@"	ìQ¸…«O@"	ìQ¸…«X@"	ìQ¸…»S@"	ìQ¸…»V@"	ìQ¸…»W@"	ìQ¸…ËK@"	ìQ¸…ËN@"	ìQ¸…ËR@"	ìQ¸…ÛQ@"	ìQ¸…ÛU@"	ìQ¸…ë3@"	ö(\Â5R@"	ö(\Âu$@"	ö(\ÂuP@"	ö(\ÂåU@"	ö(\ÂåW@"	ö(\Âõ@"	ö(\Âõ:@"	ö(\Âõ?@"	ö(\ÂõQ@ Ä‹Ç"	äÔ ¸9€Gñ"	Â9” ´¼HÑ"	œ’ –
+
+G»"	ø4è Ñ¥€GÌ"	°%° …€€G"	¬‚ ª¢"	ˆÊ ¦?ð"	€Š ì­§—"	ð† åÜ"	Š ¢# Í–œ†"	®¢  ‹B”"	ªü ÇM±³"	Š0” €——í"	†‰ ûŸs²"	þò „¯œ¸"	ºà ŸW†ý"	”!®! ÷Tâ"	ÒÚ ÀV’"	„L à$×"	¶r Ëµµ¼"	”¨ ÚN†€"	Ú²" þ˜e"	˜Ê œ´ù"	ò(º ÞQº"	ÐÔ ü
+
+Gà"	¾°  ²½ò"	ò¶ ª sò"	æ"þ ®‚‚š"	è8ô Îf†¢"	Ð?Ú È""	Àä ÿzó"	®Ô Ô|š"	úÐ Ï³‚Á"	¨8´ Ø¶—¯"	œž" È«†ƒ"	öÄ ÕJˆ"	¬æ ÏÏ"	œÆ ‚qñ"	Œ¶ Ó€€G„"	Ò¬ „„ù"	„Ê ê€€Gî"	œ0È “¥€GÆ"	ðÌ Á¿ï"	”ê  à¬"	¼˜	 €]é"	œì ¾——ì"	Þ  ðo“"	èö i±"	æØ ‚½"	°ð ˜å"	¤¬ áœœÚ"	Úi øX"	šÒ Þ¢Ã"	úÂ ï—"	ð¾  ·Ö"	¶@  ¹ø"	´Î †›"	ìŽ º°œ†"	èp É!¦"	âÜ ©ssÉ"	ð$Ä Ûõ"	„;– ±7Ž"	Ì| Þ¡s¹"	ÂÜ à¥€G¿"	¾!ˆ äÄ"	è”
+ åI‰"	Šâ ëëÂe¾"	–† ›Î"	„Š ÜŸs¿"	Êê °Pƒ"	¼„ ¼œœ¬"	„V —˜"	ü*Ì âp‚"	öø Æœœæ"	˜ˆ šÍ"	Ž® Æpî"	¾.š Æ€"	â‚ šŸ"	¬,þ Ä+ž"	Ü5ô ý™«"	Ü1˜ ½Sè"	¼!î! «=—’"	ì µLœ"	Þú Ø¦‚ñ"	úÚ Ôd‘"	Ø® ³2›"	Ê¾ É¨"	ü2 ¬Õ"	‚^ ¯%Ô"	º"ò! Ó©†Ï"	Ö¼ ÿá"	¾@â ÊµµÆ"	Ò4‚ ¶¶—ü"	ü=º é6Ž"	¾*’ ¯Ye°"	Â+æ Ìß"	¼$˜ »‰"	Ä ì" Žxû"	ê0’ îuè"	„? ×cÐ"	Ôä ¹ZŠ"	ÌÎ ÁœœË"	Ôþ  ss"	Œ0° Â0ê"	ÖÌ ¶þ"	ÀÀ “Ù"	üÌ ò@ª"	ª Ÿä"	ˆò ©‚"	¨0¸ ’`ž"	¤%² ø…ª"	ô¦ Ž ¨"	ô'Ú ¢µµË"	®¾ Òø"	ú*Ô Ïô"	òü ú÷"	ê Ð“†¦"	Š¼  öƒŽ"	îÀ Ü'ÿ"	ìº …——¥"	²¦ ¥À—¥"	ªœ" Úˆ³"	ªŽ Ö¬¤"	Ê+Æ ƒD£"	”€ úà"	¸5Î E"	†´ Ý•Ò"	°Ö ã”—ð"	ú´ Û\Õ"	º0 Ùœœ·"	Îˆ ™"	’¦ «——¾"	î ¦! ã——¡"	–ö ›Å"	Î=ð Àa·"	Ø´ Ò”"	ž+Ê •{ù"	´Œ ð·£ó"	æ/° Ñ}ý"	Î Êl
+G§"	¨ˆ	 èþ"	´È —F¤"	Ê¦ çssß"	Þ+Ä ç‰—Œ"	Â¸ í™"	‚7þ Û½"	Ô&î §‚‚Œ"	æî ò€€GÍ"	Þâ ½»‚"	Ìü ×ŒÎ"	êN þô"	à8¨ Å>¹"	ö-À Ãü"	Œ'Ú  ˆ"	Ô9þ ä<©"	¨ˆ	 æ«†æ"	ü¬ Ù3‘"	ä˜ ˆ®"	Úi ®»"	ØÐ ÅÁ"	Š9¢ Ò¥€Gâ"	–-( ôŠ"	Úœ ˆ,—Ã"	ô?‚ §˜"	ˆ)À ¼¼"	€.¼ ³-—ï"	Âì Ö££‡"	²-° èU¿ï"	ØÊ žjÛ"	˜#ˆ ¿‡Ø"	Ž(– b—ø"	ð:Š ’ÿ"	þ â –‹"	Ê'” •©†„"	Ô=ä ·ssÇ"	ˆø Í——“"	ÆŠ Ìkˆ"	šÄ ‰heÀ"	¢Œ »­"	®&ò Ô©†ó"	ôú ßŠÛ"	ÒŽ ´÷"	šÌ ïšç"	ÄI ·£å"	‚ü ºŽ…"	Î;¼ ÎK"	ú.Ì ÍÂ"	ö ¿R &¶"	ÈÎ ‡¹±´"	Ü=æ ö€€GÌ"	ö9Ú Ý‚‚Ä"	Ú-Â Ä›"	Š%Ð ß*sþ"	²7˜ È^œ"	¼*¸ éª†÷"	Ì€ Â††Ó"	Ö*è µAç"	´5Î ó#®"	ª  ”
+
+G€"	®5æ ™‡"	€ è é¶"	˜Ö Ý:¿§"	ø$’ ôssê"	È,‚ åss£"	ø¸ Ö——ú"	¦?Ê Ó/†"	È¤# Ì«†‡"	še Á——ÿ"	Ö?Ú Ð.ö"	ì!† Ð±±×"	¼"  ìss°"	‚3ª Þ"	šê  "	²?” Õssö"	î!² œ¿¿…"	â#¨
+ î££Ó"	¬ ñ[«"	æ² ù4ö"	˜0” ƒÖ"	öˆ Ø§§µ"	Ò$ì ó¸£•"	Ü=ò Éµ"	ö†! íÞ"	ä2º Ñí"	¸3à á“"	„)¦ ­²"	 'ò Š–"	ž;ò ÷©†Ý"	²‚ Ü¨Ê"	¬%à ñ"	¾5Ì ×tÝ"	    £…"	ø¢ ™¯"	ž5À CÐ"	ê*ä Š¸"	è¸ Ú11"	Æ8Ø ‘©†Ê"	Ä¾ ûmé"	Ê1Ä †¿¿–"	ÂÌ ¨Ñ"	°Ê ãvÙ"	´¨ ùss¡"	ˆ>ð ýssü"	â1¬ £ssÈ"	â:Ô ¦¥€GÅ"	†? Ëª†û"	´’ ¨)Â"	ò¼ Ùô"	Ô4Ò âssº"	Œ?ˆ á££‹"	Ö¢ ”€€Gí"	¦Ê ÊssÔ"	æ&‚ õ²È"	€@˜ ¢ì"	Úü  Ã——‰"	èÜ ë~e"	Ä$ø Ëssá"	æ² ¾eÀ"	¾| Îº±’"	Þ?¬ â±"	¼Ô ÃgÚ"	¼# ¡¾€G©"	¨ ¢ žwò"	ú/ò è££Ò"	ö)² ¤„"	À;Ê ÅŸsä"	ºÂ °ë"	Ü/œ ²€€G‘"	úÐ! êr¿‹"	öà êž­"	ê'æ ¤û"	–<š æ¤y—"	¾2ö Ç¹±ã"	ì=€ ‡€€Gú"	ì(Ú ü‘¿ì"	–6’ Œë"	 "Â ¸ð"	¬† ¬‡"	ò'š ¡__eŠ"	Æ¬  õný"	¦>ì	 æ«†õ"	ð˜ ‘ú"	„AÔ ÕŸ"	Âê †8Œ"	† Â
+ ‰®	eØ"	–(Æ ŒÜ"	Ì” ä’O&É"	´º çƒ"	”¬ ˜(´"	œ(Œ ‹"	â#è ­5•"	¼?Ì ±õ"	Ä,è Ç11î"	èÈ  ¥ss "	ð5ô ß;ã"	¢ð

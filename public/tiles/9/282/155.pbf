@@ -1,62 +1,88 @@
-ÔÒx
-archaeological_sites(€ uuidlabelclassdescriptionscore	clusteredpoint_countsqrt_point_countpoint_count_abbreviated"
-2"
-3"
-6"
+õox
+archaeological_sites(€ uuidlabelclassfamilyscore"
 Borg"
-HÃ¶g"
-RÃ¶se"
-Burgar"	
+HÃ¶g"
+misc"
+RÃ¶se"
+forts"
+Burgar"
+graves"	
+GÃ¥lrum"	
+HÃ¤gnad"	
 Kloster"	
 Slottet"	
+rockart"	
 Ã–vrigt"
 
 Fornborg"
 
+HÃ¶g (2)"
+
 HÃ¶g (3)"
 
 Stenkors"
+	Bro ojkar"
 	FÃ¤rdvÃ¤g"
 	GravfÃ¤lt"
 	GrÃ¶nhaug"
-	Vite rojr"
+	RÃ¶se (2)"
+	Vite rojr"
+	religious"
+	transport"
+
+settlement"
 Binge slott"
 BjÃ¤rs hÃ¶g"
 BÃ¤ndesborg"
+HÃ¤gnad (2)"
 Kvarnbacken"
 Majsterrojr"
 Runristning"
-Trullhalsar"
+Trullhalsar"
+TrullhÃ¶gen"
 Bildristning"
 Fornborg (4)"
 Kyrka/kapell"
+Lojsta slott"
 MinnesmÃ¤rke"
 Sankt GÃ¶ran"
 Stenkistgrav"
+Bro stajnkalm"
 FÃ¤rdvÃ¤g (2)"
 GravfÃ¤lt (2)"
 HÃ¤llristning"
 StensÃ¤ttning"
 Tjelvars grav"
 Bara Ã¶dekyrka"
+Kaupungs slott"
 Stenkammargrav"
 Ardre Ã¶dekyrka"
 FÃ¤stning/skans"
 Runristning (2)"
 Runristning (3)"
 Valdemarskorset"
+Begravningsplats"
 Bildristning (2)"
+S:t Klemens ruin"
+Slott/herresÃ¤te"
 Stenkistgrav (3)"
 HÃ¤llristning (4)"
 Stenkrets/stenrad"
 StensÃ¤ttning (2)"
 StensÃ¤ttning (3)"
-StensÃ¤ttning (4)"
+StensÃ¤ttning (4)"
+Drottens kyrkoruin"
+S:t Lars kyrkoruin"
+S:t Pers kyrkoruin"
+Stadsvall/stadsmur"
+Stenkammargrav (2)"
 Bro StajnkÃ¤llingar"
-FÃ¤stning/skans (2)"
+FÃ¤stning/skans (2)"
+Helgeands kyrkoruin"
 Stenkrets/stenrad (2)"
 Stenkrets/stenrad (3)"
-Stenkrets/stenrad (4)"
+Stenkrets/stenrad (4)"
+S:ta Katarina kyrkoruin"
 KarlsvÃ¤rds fÃ¤stningsruin"
 KrÃ¤klings StajnkÃ¤llingar"
 Grav markerad av sten/block"!
@@ -64,19 +90,25 @@
 Grav markerad av sten/block (3)"!
 Grav markerad av sten/block (4)"#
 !Husgrund, fÃ¶rhistorisk/medeltida"&
+$00429dca-376a-4585-a732-32ad54048c95"&
 $00fdb49e-2906-48ec-ad8c-8949b32a984e"&
 $03452f8a-9311-4949-922b-1fe07319ade0"&
+$03aef82f-4ca7-40c2-a955-cffa4f94f0cb"&
 $05f335c2-2636-4ce7-8563-451ab599d0bb"&
 $06d8f661-0d56-46a6-942e-34800f9b09f3"&
 $08477180-fd2f-460c-9ee8-6304ef158abd"&
+$08f9a118-ea92-4992-8959-fae54cb12498"&
 $093ef631-a0e7-4bc0-88eb-8deac12c7d2f"&
 $0e111531-c0c8-4423-8e0d-c78cdc231f13"&
+$0e33cfd7-ca86-4707-bc04-0ed35417933d"&
+$0f3c799e-076a-45e9-9c57-95c769a099e2"&
 $0f9365c0-d9fb-4803-820d-394a39a6bc0a"&
 $101e5286-7141-4325-9fe1-724591a87a68"&
 $10fd3cb1-9657-41a1-a6ad-40599b25a96b"&
 $11edbf63-7b58-46b0-96e4-0c958873d5a9"&
 $139de481-4e88-4d17-8bfe-95c78f65d2d6"&
 $13c79c3e-b8c9-4d51-9194-6193631858cb"&
+$142ac408-440e-4ea0-abca-2dfa8f778d40"&
 $1515ccec-f1de-4fcd-a3c9-46997c48a00b"&
 $15397ea8-0cb4-4e9a-99fa-2930e9559a41"&
 $17837654-b42a-4892-9504-f8ddb56ba3c2"&
@@ -84,6 +116,7 @@ $19629dfc-be6a-4650-a407-b038ef46beed"&
 $1c9e3851-a083-4270-aefe-59793f01fc3d"&
 $1d588fdb-beba-42b0-bafc-4c4fddc4a8c2"&
 $203bb5e3-5fb7-4d0c-9511-34782e0cd946"&
+$20df5eac-e1fe-469c-bc7c-d8f1c7106ecf"&
 $23018e9b-95f9-48be-a0b2-25374a0186ba"&
 $234a786d-64c5-41be-8627-df78731a8725"&
 $258200d5-dbf0-447e-b22f-e0d23804fd2a"&
@@ -91,276 +124,190 @@ $25f071c9-526b-4a74-a690-ada6ec7ac584"&
 $261fa1a5-2f16-4d08-a250-5633921d8dcd"&
 $2a7bb8c1-bc73-41f1-b9eb-6e630bca0784"&
 $2aa8e3c5-e148-443d-85fa-4597c8cbd9d5"&
+$2d0e7d31-c3e1-42bd-9bf1-3e70d89ebfa6"&
 $2d3ceab0-33bd-4d1f-8047-303af3e4dd8d"&
+$2d96caac-64e4-4020-9edf-4b47989d43b9"&
+$2f097dcf-9a1e-4454-b728-83d58e1e6b43"&
 $2fd95a79-a059-4e5d-8222-5fe517bd555a"&
 $3313e282-2af8-4289-a47d-32bcc11ec5fe"&
 $3395f589-7aa1-41f4-a183-6ea354ad58ad"&
+$3433f2cc-17ee-4a8f-ac23-b8fd059ee802"&
 $344f971d-534a-467c-92dd-76467bb59b7e"&
 $361c1c26-4c83-4216-a116-340e524af512"&
+$36e673e6-93ba-40c9-819f-177768d41735"&
 $37aebaff-a928-4e54-8d44-c7ccc1adccbf"&
 $37d8dea7-d20d-47a4-8677-f8b5d1b0f941"&
+$3923ea98-b3c5-4c00-a224-2da2ab703acf"&
+$3a5badf1-7114-4e1c-a9cf-866d7f56d7c8"&
+$3adb5df8-337b-40f3-b70f-124f5574cf2f"&
 $3c26e5c5-5bf4-44e4-a912-d7d2994321e2"&
 $3cc77e29-cab4-43b3-ad48-8e5444a029b3"&
 $3d346aca-9df5-4a2d-ab26-7fd0eeea0bdb"&
 $3ecb471f-a260-4458-a2f4-8b38e0a42783"&
 $3f6b01fa-6d9c-4495-bdf5-fe39f834de6b"&
 $420652dd-5d88-459b-a14e-27f4601aec5d"&
+$420ca7d2-e4dd-4fc1-bd66-f58502c907c0"&
 $42bb85cc-5033-4b6f-a4e7-4be76f4ad801"&
+$439979fa-6b20-4c19-bb6b-7843f51eba1a"&
+$43fa8914-8397-47ad-af0a-3b649c1ba226"&
+$45e7d5a5-d515-4488-820c-2ebf84d190d2"&
 $4912beb6-b1bb-45d7-8ae2-97f835f424c2"&
 $4c0277a9-bd36-46ae-b29f-bab6502071cf"&
 $4e49706f-c12e-4f86-ae9b-7b1e20a7eadc"&
 $4ea4df49-1b35-45d8-956a-f0ba52a2a924"&
 $50594e7a-5dc4-4b24-8601-5c7dcfe25b06"&
+$51819a04-6b56-4eb3-a7e2-2cc04792020e"&
 $5184eb10-b1e9-4d50-9ded-328c2d2197fa"&
 $590d8058-b069-4247-b129-70934041fb7a"&
 $596fa83e-b3ee-4511-8e97-64ef7430e9ea"&
 $5a7826ca-ba46-4c9a-913a-707ce14535c4"&
 $5dc092df-bcaf-4808-b1cb-2b48797e507f"&
 $5e7578f4-506d-4757-99c2-ff20f0baa32c"&
+$5e82f922-28e5-49ac-bc39-1eb115419a1e"&
 $63486745-f23e-4e7a-91aa-f168fdfd289e"&
+$6457147e-1a53-412e-b0c7-40b708a7f52b"&
 $658aace8-6938-4873-900c-9492d953c299"&
+$663de7ba-d8b0-44a1-be2c-3b7ff7b0761b"&
 $663f4a05-12af-4a1d-955a-2c71a7b4a3ec"&
 $6754ff8d-aa84-4a6d-8d8a-e1960a0d7591"&
 $6942d2c2-325a-4477-bec2-7fc796cd6f10"&
+$6a0e0bf0-182a-4902-8d65-521a6da0498e"&
 $6bf1ec91-cfb0-4390-9930-a3a1b6567392"&
+$6c00c57d-0a52-4e63-a862-860d2b603dc9"&
 $6ca9093c-f7c6-48ae-91d9-afc664413d18"&
 $6f08bdb3-025b-4fe0-b5e5-d3595cef9239"&
 $6ff79bab-ffd1-4cc3-8b41-6134a9e81856"&
-$71cb0809-b54f-40fc-b787-001c6be1f9f5"&
 $720740dc-b8dc-4a63-bf36-429ae6cdc3d7"&
 $722a9b7e-0771-45a6-8df8-061359c89576"&
 $72516a38-ae39-449e-ac96-8c98ce458323"&
 $743df641-d190-4a51-80df-1958a3a2137e"&
 $74beb8b3-6b6d-45ee-a054-eb4864c5de4e"&
-$758faba3-b700-43ec-9d19-8ea4bab9a89f"&
 $7b1e3db0-fc47-4c79-a583-1c6b89f867c0"&
 $7fb03e6b-ef5a-4206-b9b9-e06b6b91e2cd"&
 $8059c8b5-2ffa-4073-8a5c-59bacfe7f3e3"&
 $82eb7923-4760-4349-8bc8-226f0ec001d1"&
 $87290708-7122-4ed4-8228-b83429c91cba"&
+$87b60d58-520d-4176-ae94-af9c832c676f"&
+$8894733f-2971-4bac-9d49-21d6d360039f"&
 $88ab1038-7852-453b-b747-b0ffdfe8db8e"&
+$8aa68794-edd1-418e-bf51-07653fd3a0f4"&
 $8d75a89b-2180-4ee3-afd1-1ecbad780867"&
 $8d849629-c9c6-4948-95f2-d7339b1f77e6"&
 $8ff8f49a-4eec-4d67-baed-a79b6c73e209"&
 $91af4074-2cdb-406a-9b9d-5954b14187e7"&
 $94c96ec4-fd09-4d4a-841c-9f06a866262a"&
+$99898d89-5678-46a0-87bb-a4217be8b842"&
 $99a70d2c-e28d-4c4a-8eb9-2598292bf6a9"&
 $9ae67cf6-356a-40d9-8893-47bdce132903"&
-$9b967edc-ac7f-4db0-ad80-8b58b240c746"&
 $9d4ac611-3074-4536-aa7a-1380cb618a71"&
 $9d4bdf5f-3a8f-4853-857f-7b6f7d4c8244"&
 $9dc59ef7-5a9c-4f42-a630-f32b0983c7dc"&
 $9f66d11f-e4f5-44ab-ac6d-1ec525e503d5"&
 $a138dd84-f8ff-4763-a365-977e340a289e"&
 $a511f34f-4690-412b-95fc-9d72109a872e"&
+$a629abe6-fe51-4b16-86d2-d449d1134ac8"&
+$a6bd564d-a1f1-45cd-abd0-9c7ad19e8151"&
 $a74512dd-6085-460f-b338-2cab608f54aa"&
 $b0689f19-69c1-41c3-a4f1-54fba9ea4862"&
 $b22655c6-f9b0-44a3-b9fc-563615bd4552"&
+$b29ba27b-70fa-46f8-9ca4-e731250a524b"&
 $b708da66-5600-48bf-8860-72b09f0d7da5"&
-$b8b7285b-3b5d-40c6-a958-57fae9b48f5b"&
 $ba1f2081-23cf-416d-a832-8d9513701864"&
+$ba9f8879-936e-4e0a-95b0-30c719bb4a8e"&
+$bb8b74da-1402-424a-9f77-e4e60ebc8a5e"&
 $bd2bed97-12c4-49a7-bd02-ef1479736a51"&
 $be915911-c671-47c7-a372-1572e7af3fc7"&
+$be9fc991-8802-4ae0-845b-70c719603c01"&
 $bf0af549-2c03-42d6-a2fd-e868e58f0639"&
 $bf7185c4-08aa-4d3c-857c-b1b2146c110b"&
 $c3e39a9d-be38-4b53-ac38-35a54849edf5"&
+$c41e7c1f-fb01-4855-959c-a5f5cbd54a53"&
+$c4e0a249-db29-42bb-adc8-dc19f783a889"&
+$c81e584f-5592-46c6-8228-932c95db7e45"&
 $c9938614-ae85-4ce1-9e47-82c2a2cad019"&
 $cb0bc669-f516-4d1c-ba13-c5a7b6d5914b"&
 $cd8ec9e9-2a8d-44ae-8e0c-f7eb9a9dd932"&
 $d2ba2490-a574-40f8-91ce-56e6236b9857"&
+$d38b6cee-bf83-4323-b975-4b2c2ce5c1ff"&
+$d3bf88ab-cd3f-49ca-a45b-9382b0543c7b"&
 $d452438e-af43-4a8d-b1d3-c934770a2507"&
 $d64336bf-9b9f-4f4a-9904-b1f640b4bde1"&
 $d67784a4-05b6-45a7-9901-1f8afc619ce4"&
 $db4ac883-e40b-438e-a155-b3c6df7d5c8b"&
+$db4e73f1-300f-49f5-af58-d44e853500b8"&
+$dc0d9d0d-05fe-4959-ad0d-f823abc53c43"&
+$dd1b0f0e-8bb4-4c09-bfee-21403c5e7d74"&
 $e228ee3f-b73d-4427-b17c-402c411ef8bd"&
+$e2b17659-2f83-44b6-8731-5a172381cff9"&
 $e3e836ea-7193-484c-96cf-07a02c4e8acf"&
 $e55d49ec-f23a-47cd-91c7-074a31a60bd7"&
 $e6583ee1-c220-4717-a370-d0f74964ae5e"&
 $e77339e5-be51-40ab-83b2-83e314c353a9"&
 $e7c0f3af-5dea-4027-944a-88b2057fbee5"&
 $e9f9651c-bf98-4852-8de6-c7b78150eaa5"&
-$eab3a0a5-ebc2-4d31-bde4-2c1cec4a927d"&
 $ebcc03dc-61f2-4d3c-881c-33035981f85b"&
 $ed0d34fc-6292-4d30-afc1-c0c57238c546"&
+$eeef3514-7b21-409b-97da-567a28fbf7bb"&
 $f154dad2-cfd6-401b-9434-8afe8bf94ba6"&
 $f2f41c32-4a20-4817-a34e-01f208c7a9c2"&
+$f5677048-403d-4818-a5e8-c57de7e8ca32"&
 $f742d6c9-74dc-4f65-a2e1-91f7fbb97c0a"&
+$f851364e-0dde-4586-81f2-b0a98b9b9011"&
 $f9f5d4e2-a2ab-4652-85f4-2ba3c3bbbe9c"&
 $f9fae194-5a82-4b2d-99bd-a8a49877284b"&
 $fa377d5f-146d-4ae9-858d-a6c46e472386"&
 $fcfcc6b2-76a0-42d2-aee7-964ea1ba2707"'
+%Husgrund, fÃ¶rhistorisk/medeltida (2)"'
 %Husgrund, fÃ¶rhistorisk/medeltida (5)"'
-%Husgrund, fÃ¶rhistorisk/medeltida (7)"3
-1Kastal, rest av, 10x9 m (NNV-SSÃ–) och ca 13 m h."r
-pRingkors, kalksten, 2,05 m h och 0,6 m br vid basen (Ã–-V) 1,1 m br upptill och 0,15 m tj. De tre korsarmarnaâ€¦"u
-s1) StensÃ¤ttning, rund, 12 m i diam. Denna dÃ¶ljes under ett 1,3 m h odlings rÃ¶se. 5 m S 10cg Ã– om nr 1 Ã¤r 2)â€¦"u
-sRunstensfragment, 2 st. Ett runstensfragment, sandsten, 0,47x0,40 m och 0,17 m tj. Det andra runstensfragmentet,â€¦"v
-tBildsten, kalksten, 1,23 m h, 0,72 m br (Ã– 10cg N-V 10cg S) och 0,15 m tj. Den SÃ– sidan helt plan. Inga synligaâ€¦"v
-tGravfÃ¤lt, 125x70 m (40cg-24cg) bestÃ¥ende av 13 fornlÃ¤mningar. De ssa utgÃ¶res av 2 skeppsÃ¤ttning och 11 rundaâ€¦"v
-tGravfÃ¤lt, 85x50 m (N-S) bestÃ¥ende av 26 fornlÃ¤mningar. Dessa utg Ã¶rs av 5 rÃ¶sen, 19 runda stensÃ¤ttningar, 1â€¦"v
-tVallgrav, kvadratisk, 45x45 (N-S) 5-7 m br och intill 1 m dj. I nnanfÃ¶r vallgraven Ã¤r utefter densamma en lÃ¥g,â€¦"w
-uGravfÃ¤lt, 490x80 m (Ã– 20cg N-V 20cg S), bestÃ¥ende av 187 fornlÃ¤m ningar. Dessa utgÃ¶res av 4 rÃ¶sen, 181 rundaâ€¦"w
-uGravfÃ¤lt, 70x50 m stort (Ã–-V), bestÃ¥ende av en stensÃ¤ttning med en centralt placerad skeppssÃ¤ttning och ca 12â€¦"w
-uHÃ¶g, rund, 25 m diam och c:a 3 m h.Ã–vertorvad med stÃ¤llvis synli ga grÃ¥stenar 0,6-0,2 m stora (vanl 0,4-0,3 m)â€¦"w
-uSkeppsÃ¤ttning, 8x2,5 m (N-S) och 0,2-0,5 m h. Fyllning av jord o ch enstaka stenar. Kantkedja, 0,2-0,5 m h, av 20â€¦"w
-uSolur, pÃ¥ medeltida kolonn av kalksten, 2,25 m h, med verkkapitÃ¤l. Soluret Ã¤r daterat 1732, och tillverkat fÃ¶râ€¦"x
-v1) Bildsten, kalksten, 3,4 m h, 1,65 m br (Ã–NÃ–-VSV) och 0,2-0,35 m tj. PÃ¥ den slÃ¤thuggna ytan mot VNV kan intetâ€¦"x
-v1) Domarring, 5 m i diam, bestÃ¥ende av 3 resta stenar och 2 omku llfallna. Stenarna Ã¤r 0,3-0,7 m h grÃ¥stenar. Deâ€¦"x
-vRunristningar, 5 st, i putsen i kyrkans tornkammare och tornbÃ¥ge. I S vÃ¤ggen, 29 cm V om portalen och 37 cm Ã¶verâ€¦"y
-w1) SvÃ¤rdslipningssten, rÃ¶daktig, granit, 1,2x0,65 m (N-S) och 0, 7 m h, bestÃ¥ende av 5 sliprÃ¤nnor samt slipytor.â€¦"y
-wBildsten, kalksten, 2 m h, 1,67 m br vid basen (Ã–NÃ–-VSV), 1,05 m br vid halsen och 1,03 vid huvudet och 0,27 m tj.â€¦"y
-wGravfÃ¤lt, 95x55 m (SSÃ–-NNV) bestÃ¥ende av 17 fornlÃ¤mningar. Dessa utgÃ¶ras av 1 rÃ¶se, 7 runda stensÃ¤ttningar, 7â€¦"z
-x1) Bildsten, av kalksten 1,21x70 (Ã–-V) och 13 cm tj. S-sidan slÃ¤ t (Bildsida). Stenen Ã¶vervÃ¤xt med gul mossa. PÃ¥â€¦"z
-x1) Bildsten, kalksten, 2,48 m h, 1,05 m br och 0,18 m tj. Rundad Ã¶verdel, tvÃ¤r underdel. TvÃ¥ breda spÃ¥r pÃ¥ 0,8 mâ€¦"z
-x1) Borttagen skeppssÃ¤ttning, ca 13x5 m (NÃ–-SV) och 0,4 m h samt med kantstenar av kalkhÃ¤llar. Helt borttagen genomâ€¦"z
-x1). Kyrkoruin 20x10 m (Ã–-V), lÃ¥nghus 12 m l 10 m br, kor 8 m l, 8 m br. Murarna uppfÃ¶rda av kalksten. Koret har enâ€¦"z
-xBildsten, 1,4 m h, 0,8-1 m br (NÃ–-SV), intill 0,25 m tj. Enligt uppgift kontrollerad av Gotlands lÃ¤nsmuseum. Stenenâ€¦"z
-xBildsten, kalksten, 2,97 m h varav h frÃ¥n basen till huvudet Ã¤r 2 m och huvudet Ã¤r 0,97 m h. Br Ã¤r vid basen 1,68â€¦"z
-xFornborg, ca 490 m l (N-S). BestÃ¥ende av en jord och stenfylld vall, 4-8 m br och 0,2-1,5 m h. Vallen Ã¤r lÃ¤gst ochâ€¦"z
-xFornborg, med en utstrÃ¤ckning av 100x60 m (Ã–-V), bestÃ¥ende av en kalk- och grÃ¥stensvall samt naturlig klintbrant.â€¦"z
-xGravfÃ¤lt, 185x150 m (N-S), bestÃ¥ende av 320 fornlÃ¤mningar. Dessa utgÃ¶res av 1 rÃ¶se, 291 runda stensÃ¤ttningar, 1â€¦"z
-xHÃ¶g, ca 25 m diam och ca 3 m h. I ytan enstaka till talrika sten ar 0,1-0,3 m st. I mitten grop, ca 8 m diam och 2 mâ€¦"z
-xRest sten, grÃ¥sten, 2,3 m h, 1 m br och 0,7 m tj. Lutar ca 45cg mot SV. Runt om Ã¤r en oregelbunden samling, 2-3 m iâ€¦"z
-xRuninskrift , sentida, i tvÃ¥ i vinkel mot varandra stÃ¤llda rader, 0,37 m re sp 0,40 m l. Runorna Ã¤r 0,05-0,09 m h,â€¦"z
-xRunsten, kalksten, 1,9 m h, 0,95 m br och 0,1 m tj. RunhÃ¶jd 7-1 0 cm. Ristningen vetter mot N. StÃ¥r fastkrampad motâ€¦"z
-xStenkors, 2,1 m h, 0,63 m br (Ã–-V) och 0,12 m tj, av huggen kalk sten med en under stenens rundade Ã¶verdel inhuggenâ€¦"{
-y1) Rest sten, granit, nÃ¤rmast rektangulÃ¤r genomskÃ¤rning 0,9 m h, 0,75 m br (NÃ–-SV) och 0,35 m tj. Stenen syns varaâ€¦"{
-y1) RÃ¶se, 24 m diam och 2,3 m h. Stenarna Ã¤r rundade och i regel 0,2-0,4 m st. Avflackande profil Ã¥t SV. I mitten enâ€¦"{
-yBildsten (?) Rest sten av kalk med bildstens form (se fig) 1,6 m h, 0,9 m br (V 20cg N-Ã– 20cgS) och 0,15 m tj. NÃ¥gonâ€¦"{
-yFornborg, 110x110 m (NÃ–-SV), bestÃ¥ende av 2-3 vallar med mellanliggande och utanfÃ¶rliggande vallgravar. I S-SSV Ã¤râ€¦"{
-yGravfÃ¤lt, 50x25 m (NÃ–-SV), bestÃ¥ende av 6 fornlÃ¤mningar. Dessa u tgÃ¶ras av 1 rÃ¶se, 4 runda stensÃ¤ttningar och 1â€¦"{
-yMedeltida ruin, 15x14 m (VSV-Ã–NÃ–) och intill 1,4 m bestÃ¥ende av nu delvis frilagda grundmurar, ruinkulle och vallarâ€¦"{
-yRingkors, kalksten, 1,85 m h och 0,47 m br vid basen (N 40cg N-S 40cg Ã–) och 1 m br (korsarmarna). De tre korsarmarnaâ€¦"{
-ySkans, ursprungligen, sannolikt bÃ¥gformad el vinklad, nu bestÃ¥en de av tvÃ¥ vallar, 40 resp 24 m l med ca 18 m luckaâ€¦"{
-ySkeppssÃ¤ttning, ca 18x5 m (Ã–-VS) och 0,2-0,3 m h. LÃ¤tt Ã¶vertorvad fyllning av grÃ¥stenar, 0,2-0,3 m st. Kantkedja,â€¦"{
-yStenkors, medeltida, kalksten, 2,05 m h och 1,12 m br. Stolpen o ch trÃ¤ramen Ã¤r 0,42-0,60 m br och 0,10 m tj. Saknarâ€¦"|
-zCisterciensiskt kloster grundat 1163-64, delundersÃ¶kt, inom ett minst 165x100 m st (N-S) omrÃ¥de, med till stora delarâ€¦"|
-zFornborg, 360x200 m (NÃ–-SV), bestÃ¥ende av en vall, 4-5 m br och 0,5-1,2 m h. Vallen Ã¤r uppbyggd av kalkstensflis ochâ€¦"|
-zHÃ¤llkista, rest av(?), bestÃ¥ende av en 0,3 m l. (V 5cg N-Ã– 5cg S ), 0,03 m tj och 0,05-0,07 m h kalksten. Jordmassorâ€¦"|
-zHÃ¶g, 20 m i diam och 1-1,5 m h. I anlÃ¤ggningens tunna vegetation sskikt syns relativt mÃ¥nga 0,2-0,5 m st grÃ¥stenar.â€¦"|
-zSkeppssÃ¤ttning 8x3 m (N 5cg V-S 5cg Ã–) och 0,2 m h. Ã–vertorvad m ed i ytan enstaka 0,1-0,6 m st grÃ¥ och kalkstenar.â€¦"|
-zSkeppssÃ¤ttning, 15x4 m (NV-SÃ–) och 0,4 m h. Ã–vertorvad med i yta n enstaka grÃ¥stenar 0,1-0,3 m st. Tydlig kantkedjaâ€¦"|
-zStenkors, kalksten, 2,15 m h, 0,55 m br (NV-SÃ–) nedtill, 0,41 m br upptill och 0,13-0,18 m tj. Korsarmen Ã¤r 1,22 m l,â€¦"}
-{1) Bildsten, kalksten, 2 m h, 1,05 m br vid basen (NNÃ–-SSV) och 0,2 m tj. Avsmalnande uppÃ¥t, utsvÃ¤llande och trubbigtâ€¦"}
-{1) Fornborg, 90x80 m (Ã–-V) bestÃ¥ende av en i myrmark utskjutande udde omgiven av vallar. Vallarna Ã¤r 2-8 m i br, i Ã–â€¦"}
-{1) SkeppssÃ¤ttning, 11xca 4 m (V 40cg N-Ã– 40cg S) och 0,4 m h. Ã–v ertorvad med i ytan enstaka stenar, 0,1-0,5 m st. Avâ€¦"}
-{1) SkeppsÃ¤ttning, 11x3 m (N 10cg V-S 10cg Ã–), bestÃ¥ende av 24 re sta stenar, 0,4-1,6 m h, 0,45-1,0 m br och 0,3-0,9 mâ€¦"}
-{1) StensÃ¤ttning, rund ca 4 m diam och 0,25 m h. Ã¶vertorvad med i ytan enstka 0,3-0,4 m st grÃ¥- och kalkstenar. Tydligâ€¦"}
-{Kastal (rest av) nÃ¤rmast kvadratisk, 9x9 m (N-S) och ca 13 m h. ca 40 m Ã–NÃ– om NÃ– hÃ¶rnet av nr 1 Ã¤r 2) HÃ¤llkista,â€¦"}
-{Rest sten, grÃ¥sten, ca 0,5 m h och intill 0,2 m br. PÃ¥trÃ¤ffad vid sÃ¤rskild utredning Ã¥r 2005. (RAÃ„ dnr 321-272-2006)."}
-{Runsten, rest av, (signum G 200) 1,33 m l, 0,56 m br och 0,24 m t j. Ena lÃ¥ngsidan och kortsidan Ã¤r snett avfasade ochâ€¦"}
-{Stenkista 2,1x0,9 m (V 40cg S-Ã– 40cg N) och 0,3 m dj. SÃ– och NV sida hÃ¤llarna Ã¤r 101-2,1 m l, 0,3 m h och 0,1-0,15 mâ€¦"}
-{Stenkors av kalksten, 1,45 m h, 0,6 m br (N-S) och 0,15 m tj. Fragmentariskt, bÃ¥da korsarmarna Ã¤r avslagna. Korset harâ€¦"~
-|1) Bildsten, fragment, kalksten, 1,1 m h, 0,78 m br (NNV-SSÃ–) oc h ca 0,15 m tj. Lutar ca 15cg mot VSV. 0 m SSÃ– om nr 1â€¦"~
-|1) Fornborg, 145x90 m (NÃ–-SV) bestÃ¥ende av en inre och en yttre ringvall. Den inre vallen av ca 25 m l synes vara 3-4 mâ€¦"~
-|1) GravfÃ¤lt, ca 30x25 (N-S), bestÃ¥ende av ca 10 fornlÃ¤mningar be lÃ¤gna pÃ¥ 0-3 m inbÃ¶rdes avstÃ¥nd. FornlÃ¤mningarnaâ€¦"~
-|1) Husgrund, 14x9 m (N 10cg Ã–-S 10cg V). Vallarna Ã¤r 2-3 m br, 0 ,5 m h av grÃ¥- och kalkstenar. Bottenplanet 4-5 m br,â€¦"~
-|1) Rest sten, granit, 0,4x0,3 m (N 40cg V-S 40cg Ã–) och 0,7 m h. Svagt lutande Ã¥t Ã– 30cg V. 15 Ã– 5cg N om nr 1 Ã¤r 2)â€¦"~
-|1) SkeppssÃ¤ttning, rest av, 9x3 m (Ã– 35cg N-V 35cg S). Fylld, 0, 3-0,4 m h, med ett flertal synliga grÃ¥stenar, 0,3-0,5â€¦"~
-|1. SkeppssÃ¤ttning, ca 20 m l (NNÃ–-SSV) 3 m br. StÃ¤vstenen i NNÃ– Ã¤r 1,35 m h, 0,9x0,4 m tj, nÃ¤rmast stÃ¤vstenen 6 stâ€¦"~
-|BefÃ¤stningsanlÃ¤ggningar. Inom ett ca 400x350 m (Ã–-V) st omrÃ¥de a v holmens centrala och hÃ¶gsta delar finns fÃ¶ljandeâ€¦"~
-|Bildsten? rest av, kalksten, 0,25 m h, 0,75x0,15 m (V 10cg N-Ã– 1 0cg S). HÃ¤llen stÃ¥r i en svagt markerad fÃ¶rhÃ¶jning,â€¦"~
-|Fornborg, 90x35 (NÃ–-SV), bestÃ¥ende av en vall, Ã¶vertorvad med i ytan talrika grÃ¥stenar, vanligen 0,3-0,6 m st. Vallenâ€¦"~
-|Fornborg, nÃ¤rmast rund, 95-105 m diam. BestÃ¥ende av en vall, 3-6 m br, 0,3-0,6 m h, av jord och sten. Enstaka 0,3-0,6 mâ€¦"~
-|GravfÃ¤lt, 85x25 m (Ã–NÃ–-VSV), bestÃ¥ende av 9 fornlÃ¤mningar. Dessa utgÃ¶res av 3 rÃ¶sen, 5 runda stensÃ¤ttningar och 1â€¦"~
-|HÃ¶g, 57 m i diam och 5,5 m h, med plan topp, ca 25 m i diam och branta sidor. i sidorna enstaka eller talrika grÃ¥stenarâ€¦"~
-|HÃ¶g? ca 8 m diam och 1-1,3 m h. I ytan kÃ¤nnbara kalkflisor, smÃ¥s ten och grus. I mitten fÃ¶rsÃ¤nkning, ca 2 m diam ochâ€¦"~
-|Ringkors, 2,4 m h. 1,3 m br (N 10cg V-S 10cg Ã–), 0,1-0,2 m tj. A rmarna Ã¤r 0,54-0,57 m l. Ringens ytterkant Ã¤r 0,85 m.â€¦"~
-|Ringkors, kalksten, medeltida, 3,1 m h, 0,64 m br (NNV-SSÃ–) och 0,16 m tj. Korsarmen Ã¤r 1,2 m br. PÃ¥ V sidan, 1,95 m hâ€¦"~
-|Ruin, rund, 21 m diam och 2,3 m h. BestÃ¥r av jordmassor, kalk och grÃ¥stenar, vanligen 0,2-0,4 m st, enstaka dock intillâ€¦"~
-|Runsten, kalksten 1,66 m h, vid basen 0,8 m br (Ã–-V) och 0,17 m tj. HÃ¶jden pÃ¥ runorna i slingan som lÃ¶per runt stenenâ€¦"~
-|SkeppsÃ¤ttning, 11x3 m (V-Ã–) och 0,3 m h. Ã–vertorvad fyllning av 0,2-0,7 m st grÃ¥stenar. StÃ¤vstenen i Ã– Ã¤r 0,9 m stâ€¦"
-}1) Fornborg, 110x85 m (NNÃ–-SSV), bestÃ¥ende av ett omrÃ¥de, 85x70 m, omgivet av en jordvall, 3-4 m br och intill 0,5 m h,â€¦"
-}1) Fornborg, 175x120 m (N-S) bestÃ¥ende av i S en kalkstensmur, s amt i N-Ã–-V av naturlig klintkant. Muren Ã¤r ca 120 m lâ€¦"
-}1) Rest sten, grÃ¥sten, 0,8x0,4 m (V 45cg N-Ã– 45cg S) och 0,1 m h , svagt lutande Ã¥t S 40cg V. 1 m N 35cg V om nr 1 samtâ€¦"
-}GravfÃ¤lt 25x25 m (N-S), bestÃ¥ende av 8 fornlÃ¤mningar. Dessa utgÃ¶ res av runda stensÃ¤ttningar (varav 1 osÃ¤ker), 4-6 mâ€¦"
-}GravfÃ¤lt, 80x60 m (NNÃ–-SSV), bestÃ¥ende av 11 fornlÃ¤mningar. Dess a utgÃ¶res av runda stensÃ¤ttningar, vilka Ã¤r 4-10 mâ€¦"
-}GravfÃ¤lt, bestÃ¥ende av: StensÃ¤ttning, rund 11 m i diam och 0,6 m h. Ã–vertorvad med i ytan enstaka grÃ¥stenar 0,2 m st.â€¦"
-}GravfÃ¤lt, ca 45x30 m (VNV-Ã–SÃ–), bestÃ¥ende av ca 10 fornlÃ¤mningar i tÃ¤mligen tÃ¤t gruppering. Dessa utgÃ¶res av rundaâ€¦"
-}OmrÃ¥de med gravar (massgravar), delundersÃ¶kt, ca 40x15-2 m (NNÃ–-SSV), ursprungligen bestÃ¥ende av 4 massgravar, varav 3â€¦"€
-~1) GravfÃ¤lt, ca 40x20 m (NNÃ–-SSV), bestÃ¥ende av 6 fornlÃ¤mningar. Dessa utgÃ¶res av 3 runda stensÃ¤ttningar. 1 rest stenâ€¦"€
-~1) RÃ¶se, 29 m i diam och 4 m h. Stenarna Ã¤r 0,1-0,5 m st grÃ¥sten ar (vanligast 0,2-0,4 m st). StÃ¤llvis synlig kantkedjaâ€¦"€
-~1) SkansanlÃ¤ggning, rest av, ca 90x70 m (N-S). Av den yttre vall en Ã¥terstÃ¥r i V och NNV en strÃ¤cka av 110 m (N-S), 3-5â€¦"€
-~1) SkeppssÃ¤ttning, (rest av), 12x3 m (Ã–NÃ–-VSV) och 0,2 m h. Kraf tigt Ã¶vertorvad med i ytan enstaka synliga grÃ¥stenar,â€¦"€
-~1. GravfÃ¤lt, ca 55x30 m (Ã–-V), bestÃ¥ende av 8 runda stensÃ¤ttning ar, 3-12 m diam och 0,1-7 m h. Ã–vertorvade med i ytanâ€¦"€
-~Fornborg, 120x80 m (VNV-Ã–SÃ–). Vallarna Ã¤r 10-15 m br och vanligen 1-1.5 m h. Vallen Ã¤r kraftigast och hÃ¶gst i Ã–, dÃ¤râ€¦"€
-~Fornborg, 290x95 (NNÃ–-SSV), bestÃ¥ende av en huvudborg och en fÃ¶rborg. Huvudborgen, belÃ¤gen pÃ¥ bergets hÃ¶gsta och NNÃ–â€¦"€
-~Fornborg, ca 1 300x730-1 200 m (Ã–-V). I V-N-Ã– utnyttjas den naturliga bergsbranten, som Ã¤r intill 10 m h. PÃ¥ 12 platserâ€¦"€
-~GravfÃ¤lt, 165x35 m (NNÃ–-SSV) bestÃ¥ende av 15 fornlÃ¤mningar. Dess a utgÃ¶res av 1 rÃ¶se, 8 runda stensÃ¤ttningar, 1 ovalâ€¦"€
-~GravfÃ¤lt, 330x100 m (NNÃ–-SSV) bestÃ¥ende av 31 fornlÃ¤mningar, (va rav 1 osÃ¤ker). Dessa utgÃ¶res av 28 rÃ¶esen (varav 2,â€¦"€
-~GravfÃ¤lt, 70x50 m (NÃ–-SV), bestÃ¥ende av 22 fornlÃ¤mningar. Dessa utgÃ¶res av runda eller nÃ¤rmast runda stensÃ¤ttningar,â€¦"€
-~GravfÃ¤lt, delundersÃ¶kt, 350x50-140 m (NNV-SSÃ–), bestÃ¥ende av ca 700 fornlÃ¤mningar. Dessa utgÃ¶rs av 1 rÃ¶se, minst 664â€¦"€
-~Kyrkoruin, 23x12 m (Ã– 10cg N-V 10cg S) bestÃ¥ende av murade kalkh Ã¤llar. Murarna Ã¤r 1 m br och 2,5-4,5 m h. Ã–ppningar iâ€¦"€
-~SkeppssÃ¤ttning, rest av, 24x4 m (NNÃ–-SSV) bestÃ¥ende av 25 resta och omkullfallna stenar. Stenarna i stÃ¤varna Ã¤r 1-1,65â€¦"
-1) Fornborg, ca 330x200 m (N-S), bestÃ¥ende av en i det nÃ¤rmast s ammanhÃ¤ngande vall frÃ¥n NÃ– och N till V och SV samt avâ€¦"
-Bildsten, ca 1,1 m h, i ntill 1,07 m br och 0,12 m tj (VSV-Ã–NÃ–). Den saknar bildframstÃ¤llning. Den Ã¤r uppallad av nÃ¥graâ€¦"
-GravfÃ¤lt, 110x30 m (N-S) bestÃ¥ende av 17 fornlÃ¤mningar. Dessa ut gÃ¶rs av 3 skeppsÃ¤ttningar, 9 runda stensÃ¤ttningar ochâ€¦"
-GravfÃ¤lt, 120x60 m (NV-SÃ–) bestÃ¥ende av ca 56 fornlÃ¤mningar (var av 19 osÃ¤kra). Dessa utgÃ¶res av 2 rÃ¶sen, rest av, 50â€¦"
-GravfÃ¤lt, 20x15 m (NNÃ–-SSV) bestÃ¥ende av 8 fornlÃ¤mningar. Dessa utgÃ¶res av 2 skeppssÃ¤ttningar och 6 oregelbundna ellerâ€¦"
-GravfÃ¤lt, 350x200 m (VNV-Ã–SÃ–) bestÃ¥ende av ca 125 fornlÃ¤mningar, vanligen i tÃ¤mligen gles gruppering. Dessa utgÃ¶rs avâ€¦"
-GravfÃ¤lt, 45x30 m (N-S), bestÃ¥ende av 13 fornlÃ¤mningar. Dessa u tgÃ¶res av runda stensÃ¤ttningar, vilka Ã¤r 3-10 m i diamâ€¦"
-GravfÃ¤lt, 90x40 m (N-S), bestÃ¥ende av 14 fornlÃ¤mningar (varav 3 osÃ¤kra). Dessa utgÃ¶res av runda stensÃ¤ttningar, 2-14 mâ€¦"
-GravfÃ¤lt, delundersÃ¶kt, 55x25 m (NV-SÃ–), bestÃ¥ende av 22 fornlÃ¤mningar. Dessa utgÃ¶rs av 21 runda stensÃ¤ttningar och 1â€¦"ƒ
-€1) SvÃ¤rdslipningssten, granit, 11 m l (Ã–NÃ–-VSV), 0,6 m br och 0, 6 m h. FÃ¶rekomsten, som Ã¤r belÃ¤gen pÃ¥ stenens mot VSVâ€¦"ƒ
-€GravfÃ¤lt, 50x40 m (N-S), bestÃ¥ende av 5 fornlÃ¤mningar. Dessa utgÃ¶res av 1 rÃ¶se, 3 runda stensÃ¤ttningar och 1 rest sten.â€¦"ƒ
-€GravfÃ¤lt, 610x240 m (N-S), bestÃ¥ende av ca 400 fornlÃ¤mningar och ca 80 gravar. Dessa utgÃ¶res av 1 hÃ¶g, 2 osÃ¤kra rÃ¶sen,â€¦"ƒ
-€GravfÃ¤lt, med en ungefÃ¤rlig utstrÃ¤ckning av 20x20 m (N 30cg V-S 30cg Ã–) bestÃ¥ende av 9 fornlÃ¤mningar. Dessa utgÃ¶res avâ€¦"ƒ
-€GravfÃ¤lt, med en ungefÃ¤rlig utstrÃ¤ckning av 45x25 m (Ã– 20cg N-V 20cg S) bestÃ¥ende av 5 fornlÃ¤mningar (varav 1 osÃ¤ker).â€¦"ƒ
-€GravfÃ¤lt, med en ungefÃ¤rlig utstrÃ¤ckning av 50x20 m (N 30cg V-S 30cg Ã–) bestÃ¥ende av 6 fornlÃ¤mningar. Dessa utgÃ¶res avâ€¦"ƒ
-€GravfÃ¤lt, med en utstrÃ¤ckning av 350x240 m (Ã–-V) bestÃ¥ende av 66 fornlÃ¤mningar. Dessa utgÃ¶res av 4 hÃ¶gar samt 62 rundaâ€¦"ƒ
-€GravfÃ¤lt. Inom det markerade omrÃ¥det, 125x50 m (NNÃ–-SSV) stort, finns rester av fÃ¶rstÃ¶rda och utgrÃ¤vda gravar. Ã…r 1899â€¦"ƒ
-€HÃ¶g(?), nÃ¤rmast rund, 17 m diam och 2.2,3 m h. Ã– delen Ã¤r bortsc haktad ner till 0,5 m h Ã–NÃ– om mitten Ã¤r en grop, 1 mâ€¦"„
-1) GravfÃ¤lt, med en utstrÃ¤ckning av 420x120 m (VNV-Ã–SÃ–) bestÃ¥ende runda eller nÃ¤rmast runda stensÃ¤ttningar samt en restâ€¦"„
-GravfÃ¤lt, ca 330x180 m (Ã–-V), bestÃ¥ende av ca 160 fornlÃ¤mningar i bÃ¥de tÃ¤t och spridd gruppering. De utgÃ¶res av 1 hÃ¶g,â€¦"„
-GravfÃ¤lt, med en ungefÃ¤rlig utstrÃ¤ckning om 90x50 m (N 30cg Ã–-S 30cg V) bestÃ¥ende av 10 fornlÃ¤mningar. Dessa utgÃ¶res avâ€¦"„
-Kyrkoruin med tillhÃ¶rande spetÃ¤lske-, kolera- och pestkyrkogÃ¥rdar och sjukhusruiner. N om ruinen Ã¤r tvÃ¥ gravvÃ¥rdar frÃ¥nâ€¦"…
-‚1) Fornborg?, av okÃ¤nd utstrÃ¤ckning, begrÃ¤nsad i Ã– och V av fÃ¶ga branta sluttningar, Ã¶ver platÃ¥n i SÃ–-S-SV en vall (b),â€¦"…
-‚GravfÃ¤lt, 55x50 m (VNV-Ã–SÃ–) bestÃ¥ende av 19 fornlÃ¤mningar. Dessa utgÃ¶res av runda stensÃ¤ttningar, vilka Ã¤r 3-7 m i diamâ€¦"  B"  }B"  “B"  µB"	
+%Husgrund, fÃ¶rhistorisk/medeltida (7)"  >B"  p@"  Ø@" €‘B"	
 ×£p=
-X@"	
-×£p=ZQ@"	
-×£p=ºX@"	
-×£p=Ê:@"	®Gáz,@"	®GázM@"	®GáztT@"	®Gáz”#@"	®Gáz¤P@"	®Gáz´A@"	®GázôE@"	)\Âõ(O@"	)\ÂõØP@"	)\ÂõèB@"	33333G@"	333333,@"	33333sB@"	33333sU@"	33333£R@"	33333£X@"	33333ó>@"	=
-×£p=C@"	=
-×£p]M@"	=
-×£p­Q@"	=
-×£p½:@"	=
-×£p½H@"	=
-×£pýA@"	Ház®8@"	Ház®<@"	Ház®‡5@"	Ház®—X@"	Ház®Ç&@"	R¸…ëQ4@"	R¸…ëQV@"	R¸…ëqN@"	R¸…ëÑN@"	R¸…ëÑX@"	\Âõ(<Q@"	\Âõ(\@"	\Âõ(\:@"	\Âõ(\û?"	\Âõ(lR@"	\Âõ(|N@"	\Âõ(œA@"	\Âõ(üV@"	fffff@@"	fffffQ@"	fffffFT@"	fffff¦K@"	fffff¶U@"	q=
-×£E@"	q=
-×£0N@"	q=
-×£p @"	q=
-×£pý?"	q=
-×£ð4@"	{®Gá:3@"	{®Gá:M@"	{®Gáz5@"	{®Gázø?"	{®Gáú&@"	{®Gáú/@"	{®GáúB@"	{®GáúE@"	…ëQ¸$@"	…ëQ¸…@"	…ëQ¸µP@"	…ëQ¸µV@"	…ëQ¸ÅB@"	Âõ(\O=@"	Âõ(\R@"	Âõ(\ö?"	Âõ(\ÏP@"	Âõ(\ÿQ@"	š™™™™9U@"	š™™™™YR@"	š™™™™yB@"	š™™™™‰S@"	š™™™™™@"	š™™™™™N@"	š™™™™™ý?"	š™™™™ÉW@"	š™™™™ÉX@"	¤p=
+@"	
+×£p=
+6@"	
+×£p=S@"	
+×£p=*F@"	
+×£p=*M@"	
+×£p=jD@"	®Gáz4H@"	®Gáz4V@"	®Gáz”&@"	®Gáz”<@"	®GázÔU@"	…ëQ¸%@"	…ëQ¸^2@"	…ëQ¸ž:@"	…ëQ¸¾V@"	…ëQ¸îX@"	…ëQ¸þA@"	)\Âõ(ð?"	)\ÂõhN@"	)\ÂõxX@"	)\Âõ¸X@"	)\ÂõØX@"	)\Âõè>@"	33333“P@"	33333³N@"	=
+×£p}E@"	=
+×£pC@"	=
+×£p½?@"	=
+×£pÝX@"	Ház®G6@"	Ház®Ç7@"	Ház®Ç=@"	R¸…ëR@"	R¸…ëS@"	R¸…ë‘5@"	R¸…ë‘V@"	R¸…ë±B@"	R¸…ëÑ?@"	R¸…ëáQ@"	\Âõ(<U@"	fffffFS@"	fffffFT@"	ffffff
+@"	ffffff@"	fffff–P@"	fffffÖT@"	fffffæB@"	q=
+×£ R@"	q=
+×£01@"	q=
+×£PJ@"	q=
+×£PT@"	q=
+×£p0@"	q=
+×£pÝ?"	q=
+×£T@"	q=
+×£°1@"	q=
+×£°E@"	q=
+×£°I@"	q=
+×£°X@"	q=
+×£ÐV@"	{®Gá:B@"	{®GázE@"	{®GázO@"	{®GáªX@"	{®GáºJ@"	{®GáÚF@"	…ëQ¸%W@"	…ëQ¸…@@"	…ëQ¸…O@"	…ëQ¸¥G@"	…ëQ¸µW@"	…ëQ¸åK@"	Âõ(\!@"	Âõ(\/O@"	Âõ(\O5@"	Âõ(\oW@"	Âõ(\@"	Âõ(\@"	Âõ(\(@"	Âõ(\C@"	Âõ(\ŸT@"	Âõ(\ÏC@"	Âõ(\ÏK@"	š™™™™	P@"	š™™™™9G@"	š™™™™YQ@"	š™™™™yO@"	š™™™™‰X@"	š™™™™™5@"	š™™™™™S@"	š™™™™ÙO@"	š™™™™éQ@"	š™™™™ùH@"	¤p=
 ×P@"	¤p=
-×#B@"	¤p=
-×ƒH@"	¤p=
-×£@"	®Gáz. @"	®GázN@@"	®GázNI@"	®Gázn9@"	®GáznB@"	®Gáz®û?"	®GázîT@"	¸…ëQø<@"	Ãõ(\7@"	Ãõ(\S@"	Ãõ(\BF@"	Ãõ(\bA@"	Ãõ(\bO@"	Ãõ(\Â@"	Ãõ(\Âå?"	ÍÌÌÌÌP@"	ÍÌÌÌÌ\S@"	ÍÌÌÌÌŒ9@"	ÍÌÌÌÌÌ@"	ÍÌÌÌÌÌ3@"	ÍÌÌÌÌüS@"	×£p=
-K@"	×£p=
-§R@"	×£p=
-·O@"	×£p=
-×F@"	áz®G¡;@"	áz®GÁI@"	áz®GÁX@"	áz®Gá@"	áz®GáH@"	ìQ¸…;V@"	ìQ¸…k"@"	ìQ¸…ëH@"	ö(\ÂW@"	ö(\ÂuJ@"	ö(\Âµ<@"	ö(\Âõ@" " " " /"8 —)’á"	Ôú ™çŽ"	¨ø" B¶®¼¸ƒ "	œÔ
- r»<Œ¿"	¤*Ò3 c
-
-šÐ"	î'Ø1 g%ŸÛ"	ˆ%¬9 ¥ó½"	¢)ò# ƒæ¼ºŠ"	–ì
- y:8¡´"	Š&†?" E#Òé¼¸ƒ "	šª D2&•ÿ"	þ/ ˆ¼"	¸ˆ/ Iº<ûÞ"	à ¢9# ˜÷±¼¸ƒ "	Þ'î, ¢&&äî"	ö:ø/ Ÿ¨Î"	¼)Þ. ]*Í†"	øÄ4 £½™"	¾) =/!”Ã"	ˆ+¨ k×ì"	ô)¸! q
-è§"	þ=È," L3-Þ‰¼¹˜"	Öò fØ£"	ö!²# ¤íœ¼¸ƒ "	þÜ" F"-å©¼¸ƒ "	²)† M±Ï"	âî Š
-Õ‚"	š.Ä ¨Ôæ"	Ž
-Ð ¸
-
-‚»"	è¼. œ6&ÿ‡"	”1À AÅ…"	ä$Œ! ¶µÔ"	–) \5-Š¾"	†+î# «'‰â¼¸ƒ "	“Ì ¦Ðë"	òÀ2 KŽÉ"	 	Þ ³Ó„"	ðŠ C0!¾þ"	ú!Ø w¼Å"	Ê/î2 ‡*É"	ê¼ ‚â¢"	Ú%Œ7 P„ª"	Â&Ô ²êº"	ô ” _ÁŸ"	Æê ¬
-àÈ"	Ì’	# µà¼¸ƒ "	ô"È>" z, ø‹¼¸ƒ "	ö° N+ýç"	Ú&¸& 
-™ß"	”ª@ §Úð"	œð ©ËÓ"	š °0 Q1îõ"	Ì² ´«Â"	Ô(ê& v›í"	Ö&Œ" e©¨¼¸ƒ "	¦ü b‡µ"	€þ( ­—­"	’š? j³•"	¸˜ a		È³"	¦‚  ¹7¤°"	à&Œ+ ’ƒÖ"	¨'ž H0!ñ‘"	‚'„!#  $$é»¼¸ƒ "	–	° ÜË"	üÚ Wß«"	Â¬ [†"	ÎÖ, |
-ùû"	Úì) S®Ç"	Ð(´ m
-
-˜ï"	œ%ì( VÆÒ"	úØ@# •öú¼¸ƒ "	ÎÜ u  ªÊ"	È!´ @;8¹"	¾+ž8 Xã€"	´+&" G5-Êˆ¼¸ƒ "	ú&¤: s´Í"	° ¯À—"	 Ô O5-þ"	Ä!ø? o  Ì×"	¦'¾@ U3-–Æ"	æ,æ ›‘è"	Ð'™ ‰
-
-·ž"	È+„ ‹…”"	ê#º ±Äê"	ª)”+ T¢Ñ"	îÌ lž"	ô¦ ‘°š"	ÌŒ €¯¶"	Ì.® ŽÙ"	°Ø >8Ý¬"	œ#à ª88ÙÀ"	È¦
-# °¿Õ¼¸ƒ "	Ìˆ! iáä"	È(¼ „Î¤"	þ"¶ (õ–"	ü	Š&" p88ôØ¼¹˜"	ˆ7¶, †
-
-ï›"	ê$Ž+ dúÚ"	ª„ ·Ûö"	ôÄ( h0!òó"	¾! t²Ý"	ÊÒ( –--ë¦"	¤)ì ˆÂô"	ä#ü }.!“ù"	æÌ9 …œÌ"	¦*”* Œ0!üÁ"	Æ'ò “¥ø"	¨"¤ 
-
-Ü"	òš ^Ñü"	Ø!‰ {­Ä"	æ)Š: J²"	à+¦& ?4-ðñ"	ª#Ò Z--ì“"	Ø¾ ¡
-
-Ö·"	¼1ú2 n£ "	’(Æ
- R‹¯"	ž!Ò" ~§ý¼¸ƒ "	òÜ žÏã"	ô´1" x&&Ã’¼¸ƒ "	Ôê@ `¦¥"	†’ ”¬Œ"	¤ â# €ò¼¸ƒ "	ˆ	æ Y98 å"	²², ®--Ç÷"	–Ø	 š¸¡"	&Î
+×#)@"	¤p=
+×CC@"	¤p=
+×£+@"	¤p=
+×ãQ@"	®Gáz.R@"	®Gáz>V@"	®Gáz^X@"	®Gáz®@"	®GázÎX@"	®GázîH@"	¸…ëQM@"	¸…ëQ8#@"	¸…ëQXF@"	¸…ëQˆS@"	¸…ëQ˜I@"	¸…ëQ¸:@"	¸…ëQÈX@"	Ãõ(\S@"	Ãõ(\"B@"	Ãõ(\B(@"	Ãõ(\B?@"	Ãõ(\BI@"	Ãõ(\Â@"	Ãõ(\Â@"	ÍÌÌÌÌL1@"	ÍÌÌÌÌLO@"	ÍÌÌÌÌ|P@"	ÍÌÌÌÌœQ@"	ÍÌÌÌÌœX@"	ÍÌÌÌÌ¬W@"	×£p=
+>@"	×£p=
+M@"	×£p=
+GR@"	×£p=
+—5@"	×£p=
+—L@"	×£p=
+·D@"	×£p=
+ÇX@"	×£p=
+×-@"	×£p=
+×P@"	×£p=
+÷@@"	áz®G!N@"	áz®G!O@"	áz®GAL@"	áz®GaN@"	áz®GaU@"	áz®GÁR@"	ìQ¸…D@"	ìQ¸…+D@"	ìQ¸…+Q@"	ìQ¸…KB@"	ìQ¸…[X@"	ìQ¸…kG@"	ìQ¸…‹C@"	ìQ¸…‹T@"	ìQ¸…›R@"	ìQ¸…›X@"	ìQ¸…«R@"	ìQ¸…ë @"	ìQ¸…ë,@"	ìQ¸…ë/@"	ìQ¸…ëC@"	ö(\ÂB@"	ö(\ÂO@"	ö(\Â%X@"	ö(\ÂEW@"	ö(\ÂEX@"	ö(\Âu?@"	ö(\Â•A@"	ö(\Âµ?@"	ö(\ÂÕP@ †;;’"	8Ø ¹C%Ÿ"	¢Ø
+ éB%˜"	¤Ð
+ Î		è"	¨ø ](%ð"	þÐ	 Ë7'„"	Ôú ŸþT—"	¤*Ò3 Š¼"	î'Ø1 \D%Á"	†  Ô:%ü"	®²
+ ’3%—"	ˆ%¬9  %%Ù"	”²
+ ÈM%–"	¨ì
+ æI%æ"	È²
+ ·’"	ž"¸? U¡"	ˆ¨ á  Ÿ"	¢)ò ¨PÈ"	¾„ ²''ý"	\¢ ò& Í"	Ö€A ªRP "	Š&†? b0%Ä"	Œª ¦*½"	æ’ aH4‘"	þ/ Â  ¦"	¸ˆ/ Ì'å"	Ü', fýTŠ"	à ¢9 Ü44"	ö:ø/ X1.Œ"	’'¦: Öª"	¼)Þ. €9#°"	øÄ4 ÷EEÒ"	tŠ –!¸"	ô)¸! Ý''•"	¾) 
+µ"	þ=È, V@.¬"	ˆ+¨ ¼$Û"	š.Ä jJ>í"	ÜÀ c/>«"	Š)€ Ž…"	ö!² Ù¤"	Ü)Ž É''ñ"	–Ô ØEE"	zÜ
+ Þ''˜"	èä k–"	âî ø€"	–) ßF2‚"	¤ò úä"	è¼. [²"	ä$Œ! ä##£"	Ž
+Ð ÒN4Ý"	”1À L>ã"	†+î o"©"	è)ê. §  û"	Ê/î2 Í×"	èÎ ž"	¨7¼, ó##†"	ðŠ l<)¥"	Ú&¸& ^A.¯"	ú!Ø öš"	Ì#Ø= ~QPú"	ˆ˜ ƒß"	Æê â##Õ"	òÀ2 «=-Ü"	öª ìÆ"	Ì’	 iÀ"	 	Þ nØ"	Â&Ô _J>ù"	Ð‚ è  Ë"	š °0 ±  ‰"	Ú%Œ7 ñž"	ô ” ¸9#›"	ê¼ ¿•"	€$Æ= ë5 ‹"	•Ì ¥ˆ"	Ö&Œ Œ‡"	ÆÐ ôê"	Ô(ê& ç88ÿ"	“Ì pG#‚"	Ì² ã  Š"	œð ÀÉ"	”ª@ àÔ"	ž¸ Â"	Â¤! ûO´"	à&Œ+ ¶88»"	Êö •,î"	¸˜ ‰''õ"	€þ( íÞ"	’š? eA.é"	‚'„! Ä‰"	¨'ž v##ÿ"	Â¬ ˆÇ"	¦‚  ×22“"	â	ê rÖ"	Ð(´ yÃ"	ü¾ Ðì"	¶*î. PP†"	ð6¸, ¬º"	Úì) mL>œ"	Ä!ø? ð¿"	ª)”+ Ó''ƒ"	üÚ Ïˆ"	Ð'™ »"	È+„ ¡Ž"	° }''œ"	ÎÖ, tJ>Ó"	æ,æ ›--"	¦'¾@ ¤--Ñ"	È!´ ™”"	œ%ì( á"	èž ½±"	ê#º å§"	 'œ, x''‘"	´+& ï##¾"	 Ô Ç))ò"	²ì „"	ª¬ ZSP“"	¾+ž8 dL>£"	à& : ”‡"	È(¼ Ê>>Å"	¤)ì u¨"	úØ@ Ãž"	ÌŒ °¤"	Ì.® Á¢"	°Ø s##ô"	îÌ º™"	ä#ü êPPþ"	È¦
+ Ú))¢"	ö´ ˜Œ"	ô¦ ³ï"	þ"¶ œPP"	þ6°, WP¡"	œ#à ù   "	ôÄ( …„"	 º üTÚ"	æ%Ì+ ´"	¦*”* |>>¥"	Ø¾ ¾A.Ì"	Æ'ò ‚"	Ø!‰ “A.¹"	¾! µø"	ê$Ž+ Å³"	¨"¤ g¶"	èâ w›"	ä Ñ…"	Ž'¬8 ‘  š"	Ž'ü+ hâ"	à+¦& Æà"	¤ â ‹Ð"	ª„ £ó"	ÊÒ( Õ##‹"	ô´1 î>>Ž"	–Ø	 šë"	’(Æ
+ õÊ"	ìÌ YK>™"	ª#Ò Ûƒ"	¼1ú2 ‡"	†’ ©44÷"	ÒÔ@ `Ï"	è. {QPÎ"	²², ¢®"	º(¸2 —##ç"	öð' q+€"	ž!Ò ­?.ö"	æÌ9 ¯6 ­"	ü	Š& ®”"	”¶ z  ·"	Ò/ê2

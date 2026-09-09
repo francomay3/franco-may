@@ -5,7 +5,10 @@ export const zodPointFeature = z.object({
     coordinates: z.tuple([z.number(), z.number()]),
   }),
   properties: z.object({
-    description: z.string(),
+    // `description` is deliberately NOT here: it lives in the sharded files
+    // under /descriptions and is fetched on click. See descriptions.ts.
+    class: z.string().optional(),
+    family: z.string().optional(),
     label: z.string(),
     score: z.number(),
     uuid: z.string(),
@@ -42,7 +45,13 @@ export const zodTileMetadata = z.object({
   bounds: z.string(),
   antimeridian_adjusted_bounds: z.string(),
   type: z.string(),
-  strategies: z.string(),
+  // tippecanoe only writes these when it had to intervene, and which key it
+  // uses depends on the strategy. Requiring `strategies` silently broke the
+  // schema the moment clustering was removed -- isTileMetadata returned false
+  // and maxzoom fell back to 11, which makes MapLibre overzoom the z11 tile
+  // and shifts every point at z12-14.
+  strategies: z.string().optional(),
+  tippecanoe_decisions: z.string().optional(),
   format: z.string(),
   generator: z.string(),
   generator_options: z.string(),

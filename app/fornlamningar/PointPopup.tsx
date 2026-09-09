@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { PointFeature } from './models';
+import {
+  formatSize,
+  loadDescription,
+  PlaceDescription,
+} from './descriptions';
 import { LngLatLike, Popup, PopupEvent } from '@vis.gl/react-maplibre';
 import { Title, Text, Flex, Stack } from '@mantine/core';
 import Link from '@/components/Link';
@@ -12,6 +17,23 @@ const PointPopup = ({
   feature: PointFeature;
   onClose: () => void;
 }) => {
+  const { uuid } = feature.properties;
+  const [description, setDescription] =
+    useState<PlaceDescription | null>(null);
+
+  const subtitle = formatSize(description?.size);
+
+  useEffect(() => {
+    let live = true;
+    setDescription(null);
+    loadDescription(uuid).then(text => {
+      if (live) {setDescription(text);}
+    });
+    return () => {
+      live = false;
+    };
+  }, [uuid]);
+
   const latitude = feature.geometry.coordinates[1];
   const longitude = feature.geometry.coordinates[0];
   const googleMapsUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
@@ -62,8 +84,37 @@ const PointPopup = ({
       focusAfterOpen
     >
       <Stack>
-        <Title order={3}>{feature.properties.label}</Title>
-        <Text>{feature.properties.description}</Text>
+        {/* A generated title beats the fallback label, which for an
+            unnamed place is just its class name. */}
+        <Title order={3}>
+          {description?.title || feature.properties.label}
+        </Title>
+        <Text lang={description?.raw ? 'sv' : 'en'}>
+          {description?.content ?? ''}
+        </Text>
+        {(description?.period || subtitle) && (
+          <Text size="xs" c="dimmed" mt={-8}>
+            {description?.period && (
+              <span
+                title={
+                  description.period.basis === 'typology'
+                    ? 'Estimated from the type of site, not recorded for this one'
+                    : 'Stated in the heritage register'
+                }
+                style={{
+                  borderBottom:
+                    description.period.basis === 'typology'
+                      ? '1px dotted currentColor'
+                      : undefined,
+                }}
+              >
+                {description.period.text}
+              </span>
+            )}
+            {description?.period && subtitle ? ' · ' : ''}
+            {subtitle}
+          </Text>
+        )}
         <Flex wrap="wrap" gap="10" justify="space-evenly">
           <Link
             href={googleMapsUrl}
