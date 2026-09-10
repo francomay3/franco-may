@@ -37,6 +37,7 @@ import {
 } from '@mantine/hooks';
 import { IconFilter } from '@tabler/icons-react';
 import { FILTER_FAMILIES, ALL_FAMILY_IDS } from './filterFamilies';
+import { familyLabel } from './familyLabels';
 
 // Filter on `family`, not on `class`. The exporter thins per family, so a
 // family-level selection is a union of independently well-distributed sets and
@@ -274,9 +275,9 @@ export default function Fornlamningar() {
                               style={{ display: 'block', flexShrink: 0 }}
                             />
                             <Text size="sm">
-                              {family.label}{' '}
+                              {familyLabel(family.id)}{' '}
                               <Text span c="dimmed" size="sm">
-                                ({family.count.toLocaleString('sv-SE')})
+                                ({family.counts[0].toLocaleString('sv-SE')})
                               </Text>
                             </Text>
                           </Group>
