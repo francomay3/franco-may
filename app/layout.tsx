@@ -8,7 +8,6 @@ import {
   MantineProvider,
 } from '@mantine/core';
 import { theme } from '../theme';
-import { AppShellWrapper } from '../components/AppShellWrapper/AppShellWrapper';
 import { SITE_CONFIG } from '@/utils/constants';
 import { Poppins, Source_Serif_4 } from 'next/font/google';
 import { QueryProvider } from '@/components/QueryProvider';
@@ -56,9 +55,7 @@ export default function RootLayout({ children }: { children: any }) {
       </head>
       <body>
         <MantineProvider theme={theme} defaultColorScheme="auto">
-          <QueryProvider>
-            <AppShellWrapper>{children}</AppShellWrapper>
-          </QueryProvider>
+          <QueryProvider>{children}</QueryProvider>
         </MantineProvider>
       </body>
     </html>

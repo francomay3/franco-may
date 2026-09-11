@@ -47,8 +47,8 @@ const html = `
       <p>But what does this have to do with artificial intelligence?.</p>
 
       <p>
-        If you think of our brain as a combination of two agents — one dumb that
-        desires, and another intelligent that solves — then an advanced AI is
+        If you think of our brain as a combination of two agents. One dumb that
+        desires, and another intelligent that solves. then an advanced AI is
         exactly like the cortex, <strong>intelligence without will</strong>.
       </p>
 
