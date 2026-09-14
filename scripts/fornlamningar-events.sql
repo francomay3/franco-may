@@ -51,6 +51,13 @@ CREATE INDEX IF NOT EXISTS fl_events_rate ON fl_events (ip_hash, server_ts DESC)
 -- order of the commits, which is what makes `seq > since` correct. The cost
 -- is that writers serialise on one row; at a few writes per second that is
 -- free, and this app will not see a few writes per second for years.
+--
+-- GAPS ARE EXPECTED AND HARMLESS. A phone that resends an event it already
+-- sent -- which the outbox does whenever a response is lost -- consumes a
+-- number without inserting a row, because the insert is ON CONFLICT DO
+-- NOTHING. A reader asks for `seq > cursor` and a number with no row behind
+-- it simply returns nothing, so a gap costs one integer and nothing else. It
+-- is not a lost event, which is what it looks like at first glance.
 CREATE TABLE IF NOT EXISTS fl_event_seq (
   id BIGINT PRIMARY KEY CHECK (id = 1),
   v  BIGINT NOT NULL
