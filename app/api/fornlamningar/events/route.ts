@@ -78,14 +78,36 @@ function authorFrom(request: NextRequest): string | null {
 }
 
 /**
+ * The salt, read once per server instance and remembered.
+ *
+ * It lives in the database rather than in an environment variable so there is
+ * nothing to set, nothing to copy when the project moves, and no deploy that
+ * quietly loses rate limiting because a variable was forgotten. One extra
+ * query per cold start.
+ */
+let saltCache: string | null = null;
+
+async function ipSalt(): Promise<string | null> {
+  if (saltCache) {
+    return saltCache;
+  }
+  const { rows } = await pool.query<{ value: string }>(
+    "SELECT value FROM fl_config WHERE key = 'ip_salt'"
+  );
+  saltCache = rows[0]?.value ?? null;
+  return saltCache;
+}
+
+/**
  * A salted hash of the caller's address.
  *
  * Enough to count requests, useless as a record of where somebody was. The
- * salt has to be set: without it the hash of an IPv4 address is reversible by
- * trying all four billion of them.
+ * salt is not optional: an unsalted hash of an IPv4 address is reversible by
+ * trying all four billion of them, which would make this a log of where
+ * people have been instead of a counter.
  */
-function ipHash(request: NextRequest): string | null {
-  const salt = process.env.FL_IP_SALT;
+async function ipHash(request: NextRequest): Promise<string | null> {
+  const salt = await ipSalt();
   if (!salt) {
     return null;
   }
