@@ -13,6 +13,11 @@
 -- ('comment_delete') -- otherwise a phone that was offline when a comment
 -- was written and deleted would never learn that either happened.
 
+-- gen_random_bytes, used for the salt at the bottom of this file, lives in
+-- pgcrypto. gen_random_uuid() is core since Postgres 13; gen_random_bytes is
+-- not, and the difference only shows up as an error on a fresh database.
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+
 CREATE TABLE IF NOT EXISTS fl_events (
   seq        BIGINT      PRIMARY KEY,
   event_id   UUID        NOT NULL UNIQUE,
@@ -61,3 +66,20 @@ CREATE TABLE IF NOT EXISTS fl_accounts (
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   device_ids TEXT[] NOT NULL DEFAULT '{}'
 );
+
+-- A place for values the code needs and nobody should have to set.
+--
+-- `ip_salt` exists so a request can be counted without the address being
+-- recoverable: an unsalted hash of an IPv4 address is reversible by trying
+-- all four billion of them, which makes it a record of where somebody was
+-- rather than a counter. Generating it here rather than as an environment
+-- variable means there is no secret to hand around, nothing to forget when
+-- the project moves, and no deploy that silently loses rate limiting because
+-- a variable was not copied.
+CREATE TABLE IF NOT EXISTS fl_config (
+  key   TEXT PRIMARY KEY,
+  value TEXT NOT NULL
+);
+INSERT INTO fl_config (key, value)
+VALUES ('ip_salt', encode(gen_random_bytes(32), 'hex'))
+ON CONFLICT (key) DO NOTHING;

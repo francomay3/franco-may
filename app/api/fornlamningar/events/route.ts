@@ -86,12 +86,16 @@ function authorFrom(request: NextRequest): string | null {
  */
 function ipHash(request: NextRequest): string | null {
   const salt = process.env.FL_IP_SALT;
-  if (!salt) {return null;}
+  if (!salt) {
+    return null;
+  }
   const ip =
     request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
     request.headers.get('x-real-ip') ||
     '';
-  if (!ip) {return null;}
+  if (!ip) {
+    return null;
+  }
   return createHash('sha256')
     .update(salt)
     .update(ip)
@@ -166,7 +170,7 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  const ip = ipHash(request);
+  const ip = await ipHash(request);
   if (await overLimit(author, ip)) {
     return NextResponse.json({ error: 'rate limit' }, { status: 429 });
   }

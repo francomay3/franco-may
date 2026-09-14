@@ -8,21 +8,28 @@ import { Pool } from 'pg';
  * before it runs out of anything else. The global is what survives the
  * module reload that hot reloading and lambda reuse both do.
  *
- * POSTGRES_URL is the pooled connection string Vercel already sets for this
- * project's database -- the same one the baby-name app uses. Nothing new was
- * provisioned: this app's tables are all prefixed `fl_`, so the two share a
- * database without sharing anything else.
+ * DATABASE_URL is a Neon project reached directly rather than through
+ * Vercel's marketplace, which keeps the database portable: moving this
+ * service somewhere else one day is a change of one variable, not of a
+ * billing relationship. Every table it uses is prefixed `fl_`.
  *
- * It has to be the POOLED url and not POSTGRES_URL_NON_POOLING. A direct
+ * It has to be the POOLED url -- the host with `-pooler` in it. A direct
  * connection works in development and runs the database out of connections
  * in production, for the reason above.
+ *
+ * Note for anyone debugging this from a laptop: port 5432 is blocked on some
+ * networks, including behind a corporate security agent. The connection is
+ * accepted and then reset the instant the Postgres handshake goes out, which
+ * reads as ECONNRESET and looks exactly like a dead database. Neon's
+ * SQL-over-HTTP endpoint on 443 works from anywhere -- see
+ * scripts/apply-fl-schema.cjs, which uses it for that reason.
  */
 const globalForDb = globalThis as unknown as { flPool?: Pool };
 
 export const pool =
   globalForDb.flPool ??
   new Pool({
-    connectionString: process.env.POSTGRES_URL ?? process.env.DATABASE_URL,
+    connectionString: process.env.DATABASE_URL ?? process.env.POSTGRES_URL,
     max: 3,
     idleTimeoutMillis: 10_000,
     connectionTimeoutMillis: 5_000,
