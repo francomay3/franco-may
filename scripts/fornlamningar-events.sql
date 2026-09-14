@@ -1,5 +1,12 @@
 -- The sync log for the fornlämningar app. Run once against the database.
 --
+--   psql "$POSTGRES_URL_NON_POOLING" -f scripts/fornlamningar-events.sql
+--
+-- Against the database this project already has, not a new one. Every table
+-- here is prefixed `fl_` so it sits beside the other app's tables without
+-- touching them. Use the NON-pooled url for DDL: a pooler can route the
+-- statements of one script to different sessions.
+--
 -- One append-only table plus a counter row. Everything a user contributes is
 -- an event; the app replays them into its local SQLite. Nothing here is ever
 -- updated or deleted, so a retraction is itself an event

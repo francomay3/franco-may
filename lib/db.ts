@@ -8,16 +8,21 @@ import { Pool } from 'pg';
  * before it runs out of anything else. The global is what survives the
  * module reload that hot reloading and lambda reuse both do.
  *
- * DATABASE_URL must be a POOLED connection string (Neon's `-pooler` host, or
- * Supabase's port 6543). A direct connection works in development and falls
- * over in production for the reason above.
+ * POSTGRES_URL is the pooled connection string Vercel already sets for this
+ * project's database -- the same one the baby-name app uses. Nothing new was
+ * provisioned: this app's tables are all prefixed `fl_`, so the two share a
+ * database without sharing anything else.
+ *
+ * It has to be the POOLED url and not POSTGRES_URL_NON_POOLING. A direct
+ * connection works in development and runs the database out of connections
+ * in production, for the reason above.
  */
 const globalForDb = globalThis as unknown as { flPool?: Pool };
 
 export const pool =
   globalForDb.flPool ??
   new Pool({
-    connectionString: process.env.DATABASE_URL,
+    connectionString: process.env.POSTGRES_URL ?? process.env.DATABASE_URL,
     max: 3,
     idleTimeoutMillis: 10_000,
     connectionTimeoutMillis: 5_000,
