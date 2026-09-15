@@ -2,6 +2,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -14,6 +15,7 @@
 [data-testid='map'] {
   [role='dialog'] {
     background: var(--mantine-color-body) !important;
+
     .gm-style-iw-chr {
       display: none !important;
     }

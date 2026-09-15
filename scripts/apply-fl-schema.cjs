@@ -39,12 +39,19 @@ function statements(sql) {
 }
 
 (async () => {
-  const url =
-    process.env.DATABASE_URL ??
-    process.env.POSTGRES_URL ??
-    envFromLocal('DATABASE_URL') ??
-    envFromLocal('POSTGRES_URL');
-  if (!url) throw new Error('no DATABASE_URL');
+  // DATABASE_URL only. There used to be a POSTGRES_URL fallback, left over
+  // from Vercel's first Neon integration, and it was a trap rather than a
+  // convenience: that project was deleted, its credential stayed behind in
+  // .env.local, and the fallback quietly aimed migrations at a database that
+  // no longer exists. The failure is "password authentication failed for
+  // user 'default'", which reads as a wrong password and not as a wrong
+  // database -- it cost two debugging rounds. Both the variable and the
+  // fallback are gone now.
+  const url = process.env.DATABASE_URL ?? envFromLocal('DATABASE_URL');
+  if (!url)
+    throw new Error(
+      'no DATABASE_URL -- run `vercel env pull .env.local` in this repo'
+    );
   const endpoint = `https://${new URL(url).hostname}/sql`;
 
   const run = async (query, params = []) => {

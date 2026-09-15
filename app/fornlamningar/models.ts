@@ -1,6 +1,6 @@
 import z from 'zod';
 
-export const zodPointFeature = z.object({
+const zodPointFeature = z.object({
   geometry: z.object({
     coordinates: z.tuple([z.number(), z.number()]),
   }),
@@ -35,7 +35,7 @@ export const isPointFeature = (feature: unknown): feature is PointFeature => {
   return true;
 };
 
-export const zodTileMetadata = z.object({
+const zodTileMetadata = z.object({
   name: z.string(),
   description: z.string(),
   version: z.string(),

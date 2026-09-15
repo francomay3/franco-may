@@ -13,6 +13,12 @@ import { Pool } from 'pg';
  * service somewhere else one day is a change of one variable, not of a
  * billing relationship. Every table it uses is prefixed `fl_`.
  *
+ * DATABASE_URL and nothing else. The POSTGRES_URL fallback that used to sit
+ * here came from Vercel's first Neon integration, and leaving it in means a
+ * future integration can silently point this service at a different database
+ * by adding a variable nobody read -- which is how the deleted first project
+ * kept answering migrations after it was gone.
+ *
  * It has to be the POOLED url -- the host with `-pooler` in it. A direct
  * connection works in development and runs the database out of connections
  * in production, for the reason above.
@@ -29,7 +35,7 @@ const globalForDb = globalThis as unknown as { flPool?: Pool };
 export const pool =
   globalForDb.flPool ??
   new Pool({
-    connectionString: process.env.DATABASE_URL ?? process.env.POSTGRES_URL,
+    connectionString: process.env.DATABASE_URL,
     max: 3,
     idleTimeoutMillis: 10_000,
     connectionTimeoutMillis: 5_000,

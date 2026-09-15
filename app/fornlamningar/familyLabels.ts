@@ -10,7 +10,7 @@
  * Keyed by the ids in FILTER_FAMILIES. A missing id falls back to the id
  * itself, which is ugly but visible -- better than an empty checkbox label.
  */
-export const FAMILY_LABEL: Record<string, string> = {
+const FAMILY_LABEL: Record<string, string> = {
   graves: "Graves & burial grounds",
   rockart: "Rune stones & rock art",
   forts: "Forts & castles",
