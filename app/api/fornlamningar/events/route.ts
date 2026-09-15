@@ -21,7 +21,13 @@ import { pool, tx } from '@/lib/db';
  * an id that can be minted again in a second.
  */
 
-const ANONYMOUS_KINDS = new Set(['rating', 'visit', 'favourite', 'sign']);
+const ANONYMOUS_KINDS = new Set([
+  'rating',
+  'visit',
+  'favourite',
+  'sign',
+  'presence',
+]);
 const ACCOUNT_KINDS = new Set([
   'comment',
   'comment_delete',
@@ -111,6 +117,18 @@ const payloadSchemas: Record<string, z.ZodTypeAny> = {
     .refine((p) => p.answer !== undefined || p.has_sign !== undefined, {
       message: 'a sign event carries answer or has_sign',
     }),
+  // "Have you been here?" -- the answer that gates rating and sign on the
+  // phone. Anonymous for the same reason a visit is: it is a statement about
+  // the author, not about anybody else.
+  //
+  // `had_visit` is whether the phone's GPS agreed at the time, and the pair
+  // is kept rather than collapsed because the DISAGREEMENT is the valuable
+  // case: been = false with a recorded visit is a site somebody walked within
+  // fifty metres of and never saw, which is close to the strongest negative
+  // this app can collect.
+  presence: z
+    .object({ been: z.boolean(), had_visit: z.boolean() })
+    .loose(),
   favourite: z.object({ on: z.boolean() }).loose(),
   comment: z.object({ body: z.string().trim().min(1).max(2000) }).loose(),
   comment_delete: z.object({ target_event_id: uuid }).loose(),
