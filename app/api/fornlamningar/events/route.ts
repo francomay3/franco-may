@@ -21,7 +21,7 @@ import { pool, tx } from '@/lib/db';
  * an id that can be minted again in a second.
  */
 
-const ANONYMOUS_KINDS = new Set(['rating', 'visit', 'favourite']);
+const ANONYMOUS_KINDS = new Set(['rating', 'visit', 'favourite', 'sign']);
 const ACCOUNT_KINDS = new Set([
   'comment',
   'comment_delete',
@@ -56,8 +56,32 @@ const bodySchema = z.object({
  * today breaks every reader's sync tomorrow.
  */
 const payloadSchemas: Record<string, z.ZodTypeAny> = {
-  rating: z.object({ stars: z.number().int().min(1).max(5) }).loose(),
-  visit: z.object({}).loose(),
+  // `visited` is the phone saying the author had been to the place. It is
+  // optional because ratings written before visits existed genuinely do not
+  // know, and unknown is not the same as false.
+  rating: z
+    .object({
+      stars: z.number().int().min(1).max(5),
+      visited: z.boolean().optional(),
+    })
+    .loose(),
+  // distance_m and accuracy_m are what make a visit worth anything: the 50 m
+  // radius the phone applies is a guess, and keeping both numbers means it
+  // can be tightened later over rows already collected. Bounded generously
+  // rather than at 50, so a client that loosens its own radius does not start
+  // getting 400s from a server that was never asked about it.
+  visit: z
+    .object({
+      distance_m: z.number().min(0).max(100_000),
+      accuracy_m: z.number().min(0).max(100_000).nullable().optional(),
+    })
+    .loose(),
+  // Anonymous, and that is a deliberate exception to the rule above it: a
+  // sign either exists or does not, so a wrong answer is corrected by the
+  // next visitor rather than being someone's speech. The register knows this
+  // for 105 places out of 251,014, which is why it is worth collecting at
+  // all.
+  sign: z.object({ has_sign: z.boolean() }).loose(),
   favourite: z.object({ on: z.boolean() }).loose(),
   comment: z.object({ body: z.string().trim().min(1).max(2000) }).loose(),
   comment_delete: z.object({ target_event_id: uuid }).loose(),
