@@ -59,12 +59,28 @@ const payloadSchemas: Record<string, z.ZodTypeAny> = {
   // `visited` is the phone saying the author had been to the place. It is
   // optional because ratings written before visits existed genuinely do not
   // know, and unknown is not the same as false.
+  //
+  // Exactly ONE of `stars` and `not_found`, enforced rather than trusted. A
+  // rating is one answer in one of two shapes: a score from one to five, or
+  // "I could not find it". They are not the same statement -- one star means
+  // the place is not worth recommending, the flag means there was nothing to
+  // judge -- so a row carrying both is a row no reader can interpret, and one
+  // carrying neither is an answer with no content. The phone's CHECK
+  // constraint says the same thing; see the note above about why both say it.
+  //
+  // `stars` stays optional in the object and the pairing is a refinement, so
+  // the clients already in the field keep validating: they send `{stars}`,
+  // which is still exactly one of the two.
   rating: z
     .object({
-      stars: z.number().int().min(1).max(5),
+      stars: z.number().int().min(1).max(5).optional(),
+      not_found: z.literal(true).optional(),
       visited: z.boolean().optional(),
     })
-    .loose(),
+    .loose()
+    .refine((p) => (p.stars === undefined) !== (p.not_found === undefined), {
+      message: "a rating carries either stars or not_found, never both",
+    }),
   // distance_m and accuracy_m are what make a visit worth anything: the 50 m
   // radius the phone applies is a guess, and keeping both numbers means it
   // can be tightened later over rows already collected. Bounded generously
@@ -81,7 +97,20 @@ const payloadSchemas: Record<string, z.ZodTypeAny> = {
   // next visitor rather than being someone's speech. The register knows this
   // for 105 places out of 251,014, which is why it is worth collecting at
   // all.
-  sign: z.object({ has_sign: z.boolean() }).loose(),
+  // Three-valued, because 'unsure' is an answer: the person was there and
+  // could not tell, and a sign nobody can find is a sign that does nothing.
+  // `has_sign` stays accepted on its own so the clients already in the field
+  // keep validating, and is sent alongside `answer` by newer ones for yes and
+  // no -- but never for unsure, which has no boolean to be.
+  sign: z
+    .object({
+      answer: z.enum(['yes', 'no', 'unsure']).optional(),
+      has_sign: z.boolean().optional(),
+    })
+    .loose()
+    .refine((p) => p.answer !== undefined || p.has_sign !== undefined, {
+      message: 'a sign event carries answer or has_sign',
+    }),
   favourite: z.object({ on: z.boolean() }).loose(),
   comment: z.object({ body: z.string().trim().min(1).max(2000) }).loose(),
   comment_delete: z.object({ target_event_id: uuid }).loose(),
