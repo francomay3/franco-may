@@ -150,6 +150,90 @@ async function ipHash(request: NextRequest): Promise<string | null> {
 }
 
 /**
+ * The salt that turns an author id into the pseudonym other clients see.
+ *
+ * Its own value and its own cache, not shared with ip_salt, because the two
+ * have opposite lifetimes: ip_salt could be rotated tomorrow and cost nothing
+ * but an hour of rate-limit counts, while rotating this one resets every
+ * reader's idea of who said what. Sharing one value would mean a rotation
+ * intended for the cheap purpose silently performing the expensive one.
+ */
+let authorSaltCache: string | null = null;
+
+async function authorSalt(): Promise<string | null> {
+  if (authorSaltCache) {
+    return authorSaltCache;
+  }
+  const { rows } = await pool.query<{ value: string }>(
+    "SELECT value FROM fl_config WHERE key = 'author_salt'"
+  );
+  authorSaltCache = rows[0]?.value ?? null;
+  return authorSaltCache;
+}
+
+/**
+ * The id of an author as OTHER clients are allowed to see it.
+ *
+ * THE RAW AUTHOR ID IS A CREDENTIAL, and it used to be handed out here. An
+ * author id in `X-Author-Id` is the entire proof of who you are, so echoing
+ * other people's back in the feed gave every syncing device the write
+ * credentials of everyone who had contributed before it: enough to rate in
+ * their name, to burn their rate limit, and -- once comments exist -- to
+ * delete their words, because comment_delete checks that the author matches
+ * and the attacker would be holding exactly that author.
+ *
+ * A salted hash instead. Stable, so "one vote per author" still works for
+ * readers; irreversible, so it is not a credential. Truncated to 32 hex
+ * characters, which is 128 bits: far past any collision worth worrying about
+ * at this scale, and short enough to be cheap to store on every phone.
+ *
+ * Returns null when the salt cannot be read, and the caller then FAILS the
+ * request rather than serving events without an author. Degrading looks like
+ * the safer option and is not: the reader's cursor advances past whatever it
+ * was sent, so a window served without authors is a window that can never be
+ * fetched again. Those events would be silently lost from every aggregate,
+ * for good. A 500 is retried; a gap is not.
+ */
+/**
+ * A payload with the author's id taken out of it.
+ *
+ * The same leak as publicAuthor, through a second door. The phone builds each
+ * payload with `author` inside it as well as in the header, and payload
+ * schemas are `.loose()` so the extra key is stored verbatim -- which means
+ * hashing the top-level author while serving the payload untouched would have
+ * published the very credential the hash exists to hide. Every event already
+ * in the database has one of these, so this has to strip on READ and not only
+ * refuse on write.
+ *
+ * `event_id` and `uuid` come out too. They are not secret -- they are
+ * alongside the payload as real columns -- but a duplicate that readers might
+ * start trusting is a second source of truth waiting to disagree with the
+ * first.
+ */
+function cleanPayload(payload: unknown): Record<string, unknown> {
+  if (!payload || typeof payload !== 'object') {
+    return {};
+  }
+  const { author: _a, event_id: _e, uuid: _u, ...rest } = payload as Record<
+    string,
+    unknown
+  >;
+  return rest;
+}
+
+async function publicAuthor(author: string): Promise<string | null> {
+  const salt = await authorSalt();
+  if (!salt) {
+    return null;
+  }
+  return createHash('sha256')
+    .update(salt)
+    .update(author)
+    .digest('hex')
+    .slice(0, 32);
+}
+
+/**
  * Is this author allowed to write at all?
  *
  * Counted in Postgres and not in a Map, because every serverless instance has
@@ -246,7 +330,11 @@ export async function POST(request: NextRequest) {
             e.kind,
             e.uuid,
             author,
-            JSON.stringify(e.payload),
+            // Stored without the author id the phone puts inside it. The
+            // read side strips it too, for the rows written before this, but
+            // not writing it in the first place is what stops the database
+            // from being a list of write credentials.
+            JSON.stringify(cleanPayload(e.payload)),
             e.client_ts ?? null,
             ip,
           ]
@@ -306,6 +394,23 @@ export async function GET(request: NextRequest) {
     const seq = rows.length
       ? Number(rows[rows.length - 1].seq)
       : Number(head[0]?.v ?? since);
+
+    // Hashed once per DISTINCT author rather than once per row: a window of
+    // 500 events from a handful of contributors is a handful of hashes.
+    const pseudonyms = new Map<string, string>();
+    for (const r of rows) {
+      if (pseudonyms.has(r.author)) {
+        continue;
+      }
+      const pub = await publicAuthor(r.author);
+      if (!pub) {
+        // See publicAuthor: never serve a window with authors missing.
+        console.error('fl_events read: author_salt unavailable');
+        return NextResponse.json({ error: 'server error' }, { status: 500 });
+      }
+      pseudonyms.set(r.author, pub);
+    }
+
     return NextResponse.json({
       seq,
       events: rows.map(r => ({
@@ -313,9 +418,12 @@ export async function GET(request: NextRequest) {
         event_id: r.event_id,
         kind: r.kind,
         uuid: r.place_uuid,
-        author: r.author,
+        // NOT r.author: that value is the author's write credential. See
+        // publicAuthor.
+        author: pseudonyms.get(r.author),
         server_ts: new Date(r.server_ts).toISOString(),
-        payload: r.payload,
+        // Stripped of the author id it also carries. See cleanPayload.
+        payload: cleanPayload(r.payload),
       })),
     });
   } catch (e) {

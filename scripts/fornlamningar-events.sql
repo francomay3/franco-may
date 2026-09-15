@@ -90,3 +90,18 @@ CREATE TABLE IF NOT EXISTS fl_config (
 INSERT INTO fl_config (key, value)
 VALUES ('ip_salt', encode(gen_random_bytes(32), 'hex'))
 ON CONFLICT (key) DO NOTHING;
+
+-- The salt that turns an author id into the pseudonym other clients see.
+--
+-- IT MUST NEVER CHANGE once events exist. Unlike ip_salt, which only has to
+-- make two requests from one address group together for an hour, this value
+-- decides identity: rotate it and every reader's idea of who said what is
+-- reset, so "one vote per author" silently starts counting old and new
+-- pseudonyms as two different people.
+--
+-- Generated here rather than read from an environment variable, for the same
+-- reason as ip_salt: there is nothing to copy between environments, nothing
+-- to forget, and no value that exists outside the database it protects.
+INSERT INTO fl_config (key, value)
+VALUES ('author_salt', encode(gen_random_bytes(32), 'hex'))
+ON CONFLICT (key) DO NOTHING;
