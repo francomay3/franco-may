@@ -226,11 +226,46 @@ async function publicAuthor(author: string): Promise<string | null> {
   if (!salt) {
     return null;
   }
-  return createHash('sha256')
-    .update(salt)
-    .update(author)
-    .digest('hex')
-    .slice(0, 32);
+  return createHash('sha256').update(salt).update(author).digest('hex').slice(0, 32);
+}
+
+/**
+ * Pseudonyms for a set of author ids, with an account's devices sharing one.
+ *
+ * THIS IS WHERE TWO PHONES BECOME ONE PERSON. The canonical id is the account
+ * when the device has been linked to one, and the device id otherwise, and
+ * only then is it hashed. So a reader counting "one vote per author" counts
+ * one vote for someone who rated from their phone and their tablet -- without
+ * a single event being rewritten, and without the device-to-account link ever
+ * leaving the server, which matters because that link contains a write
+ * credential.
+ *
+ * One query for the whole window rather than one per author. It is not
+ * cached: a link created a second ago has to take effect on the next read, and
+ * a per-instance cache would leave some serverless instances grouping an
+ * account's devices and others not, which is a difference nobody could debug
+ * from the outside.
+ */
+async function publicAuthors(
+  authors: string[]
+): Promise<Map<string, string> | null> {
+  const out = new Map<string, string>();
+  if (!authors.length) {
+    return out;
+  }
+  const { rows } = await pool.query<{ device: string; account: string }>(
+    'SELECT device, account FROM fl_account_devices WHERE device = ANY($1)',
+    [authors]
+  );
+  const accountOf = new Map(rows.map(r => [r.device, r.account]));
+  for (const a of authors) {
+    const pub = await publicAuthor(accountOf.get(a) ?? a);
+    if (!pub) {
+      return null;
+    }
+    out.set(a, pub);
+  }
+  return out;
 }
 
 /**
@@ -395,24 +430,26 @@ export async function GET(request: NextRequest) {
       ? Number(rows[rows.length - 1].seq)
       : Number(head[0]?.v ?? since);
 
-    // Hashed once per DISTINCT author rather than once per row: a window of
-    // 500 events from a handful of contributors is a handful of hashes.
-    const pseudonyms = new Map<string, string>();
-    for (const r of rows) {
-      if (pseudonyms.has(r.author)) {
-        continue;
-      }
-      const pub = await publicAuthor(r.author);
-      if (!pub) {
-        // See publicAuthor: never serve a window with authors missing.
-        console.error('fl_events read: author_salt unavailable');
-        return NextResponse.json({ error: 'server error' }, { status: 500 });
-      }
-      pseudonyms.set(r.author, pub);
+    // Resolved once for the DISTINCT authors in the window, plus the caller,
+    // rather than once per row: 500 events from a handful of contributors is
+    // a handful of hashes and one query.
+    const distinct = [...new Set([...rows.map(r => r.author), author])];
+    const pseudonyms = await publicAuthors(distinct);
+    if (!pseudonyms) {
+      // See publicAuthor: never serve a window with authors missing.
+      console.error('fl_events read: author_salt unavailable');
+      return NextResponse.json({ error: 'server error' }, { status: 500 });
     }
 
     return NextResponse.json({
       seq,
+      // The caller's OWN pseudonym, which it cannot work out for itself
+      // because it does not have the salt. The phone needs it to recognise
+      // its own contributions among the ones it downloads: a second device on
+      // the same account will pull the first device's events, and without
+      // this it would count its own person twice -- its local rows are keyed
+      // by its raw device id, the downloaded ones by the shared pseudonym.
+      me: pseudonyms.get(author),
       events: rows.map(r => ({
         seq: Number(r.seq),
         event_id: r.event_id,

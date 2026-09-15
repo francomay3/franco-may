@@ -64,15 +64,42 @@ CREATE TABLE IF NOT EXISTS fl_event_seq (
 );
 INSERT INTO fl_event_seq (id, v) VALUES (1, 0) ON CONFLICT DO NOTHING;
 
--- Accounts, once sign-in exists. `device_ids` is the list of anonymous ids
--- this account has adopted, which is how contributions made before signing
--- in keep belonging to the person who made them.
+-- Accounts, once sign-in exists. `id` is the Firebase uid.
 CREATE TABLE IF NOT EXISTS fl_accounts (
   id         TEXT PRIMARY KEY,
   provider   TEXT NOT NULL,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   device_ids TEXT[] NOT NULL DEFAULT '{}'
 );
+
+-- Which anonymous device ids belong to which account.
+--
+-- This used to be the `device_ids` array on fl_accounts above, and it is a
+-- table now because the query that matters runs the other way. Every read of
+-- the feed has to turn an event's author into the pseudonym its account
+-- shares, so the lookup is device -> account, on every distinct author in the
+-- window. An array needs a scan for that; a primary key does not. The column
+-- is dropped below rather than kept in step, because two places holding one
+-- fact is two places that can disagree.
+--
+-- THE DEVICE IS THE PRIMARY KEY, so a device belongs to at most one account,
+-- while an account may hold many devices. Signing in on a second phone adds a
+-- row; it never moves an event. That is what keeps the log append-only: the
+-- events made before signing in keep the author they were written with, and
+-- the grouping happens at read time.
+--
+-- THIS TABLE IS NEVER SERVED. It maps a public account id to a device id, and
+-- the device id is a write credential -- publishing the link would undo the
+-- pseudonym entirely. It exists only to be joined against, server-side.
+CREATE TABLE IF NOT EXISTS fl_account_devices (
+  device    TEXT PRIMARY KEY,
+  account   TEXT NOT NULL REFERENCES fl_accounts(id) ON DELETE CASCADE,
+  linked_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS fl_account_devices_account
+  ON fl_account_devices(account);
+
+ALTER TABLE fl_accounts DROP COLUMN IF EXISTS device_ids;
 
 -- A place for values the code needs and nobody should have to set.
 --
