@@ -10,25 +10,65 @@ import { pool, tx } from '@/lib/db';
  * API, and it is deliberately the whole API: the phone holds the state and
  * this is a durable, ordered mailbox between phones.
  *
- * WHAT ANONYMOUS DEVICES MAY WRITE. A device id is 122 bits of
- * cryptographic randomness, so it cannot be guessed -- it is a bearer secret
- * and travels in a header, never in a URL where it would land in access
- * logs. So the question is not "can we trust this id" but "what should an
- * unaccountable author be able to publish". The line drawn here is *does
- * anyone else read it*: a rating is one number that gets averaged, while a
- * comment or a photo appears in front of other people and can be abusive,
- * defamatory or illegal. Those need an account that can be banned, not just
- * an id that can be minted again in a second.
+ * WRITING NEEDS AN ACCOUNT; READING DOES NOT. The POST requires that the
+ * calling device be linked to one (see /link); the GET is open, because the
+ * map has to show everybody's averages to everybody.
+ *
+ * THAT IS A REVERSAL, and the reasoning is worth keeping. A device id is 122
+ * bits of cryptographic randomness, so it cannot be guessed -- a bearer
+ * secret, travelling in a header and never in a URL where it would land in
+ * access logs. The old line was drawn at *does anyone else read it*: a
+ * rating is one number that gets averaged, a comment appears in front of
+ * people, so comments needed an account and ratings did not.
+ *
+ * What that missed is that AN ANONYMOUS ID IS MINTED, NOT HELD. Anyone can
+ * generate a fresh uuid as often as they like, so a per-author rate limit is
+ * decorative, and "two independent visitors agree" -- the rule the app wants
+ * before it tells anybody a place has no sign -- is one person with a loop.
+ * Neither of those was ever a statement about content; both are statements
+ * about identity, and an anonymous id cannot make them.
+ *
+ * A Google account is not unforgeable either, but it costs something to mint
+ * at scale and it can be banned, which is the whole difference.
+ *
+ * NOTHING BECOMES UNUSABLE WITHOUT SIGNING IN. Rating, favouriting, visiting
+ * and answering are all recorded on the phone and shown back to their author
+ * with no account at all; the queue simply holds them until there is one. The
+ * device id is still the author -- signing in adopts it rather than replacing
+ * it -- so a contribution made before signing in publishes afterwards under
+ * the same author, and nothing has to be migrated.
  */
 
-const ANONYMOUS_KINDS = new Set([
+/** Every kind a client may post. All of them now require an account. */
+const KINDS = new Set([
   'rating',
   'visit',
   'favourite',
   'sign',
   'presence',
+  'comment',
+  'comment_delete',
+  'photo',
+  'photo_delete',
 ]);
-const ACCOUNT_KINDS = new Set([
+
+/**
+ * Kinds that are still refused even WITH an account, for a second reason.
+ *
+ * The account requirement replaces the old anonymous/account split, and that
+ * would by itself have opened comments and photos -- which were never
+ * blocked only for want of an account. They are things other people read,
+ * and there is no way to take one down: no moderation queue, no report
+ * button, no deletion path but this endpoint's own retraction, and for
+ * photos no storage either. Accepting them today would mean the first
+ * abusive comment has nowhere to go.
+ *
+ * So the two reasons stay two reasons. This set empties when moderation
+ * exists, and not before; the `reason` in the response says which of the two
+ * refusals a client is looking at, so the app can tell "sign in" from "not
+ * built yet".
+ */
+const UNMODERATED_KINDS = new Set([
   'comment',
   'comment_delete',
   'photo',
@@ -382,14 +422,35 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'bad request body' }, { status: 400 });
   }
 
+  // PUBLISHING NEEDS AN ACCOUNT, checked once for the request rather than per
+  // row: it is a property of the caller, not of what they sent.
+  //
+  // `reason` is what the app matches on. The prose is for a human reading a
+  // log, and matching on it would break the day somebody rewords it.
+  //
+  // THE ROWS ARE NOT HELD AGAINST ON THIS PATH. A phone with a queue and no
+  // account has done nothing wrong and its contributions have to survive
+  // until it has one -- see flush() in the app, which does not count this
+  // refusal against a row's attempts.
+  const { rows: link } = await pool.query(
+    'SELECT account FROM fl_account_devices WHERE device = $1',
+    [author]
+  );
+  if (!link.length) {
+    return NextResponse.json(
+      { error: 'sign in to publish', reason: 'account_required' },
+      { status: 403 }
+    );
+  }
+
   for (const e of body.events) {
-    if (ACCOUNT_KINDS.has(e.kind)) {
-      // Sign-in does not exist yet, so this is the honest answer rather than
-      // accepting content nobody can be held to. The app does not send these
-      // kinds; a client that does gets told why.
+    if (UNMODERATED_KINDS.has(e.kind)) {
+      // An account is not the missing piece here -- moderation is. See
+      // UNMODERATED_KINDS.
       return NextResponse.json(
         {
-          error: `kind "${e.kind}" requires a signed-in account`,
+          error: `kind "${e.kind}" cannot be published until there is a way to moderate it`,
+          reason: 'unmoderated',
           kind: e.kind,
         },
         { status: 403 }
@@ -401,7 +462,7 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-    if (!ANONYMOUS_KINDS.has(e.kind)) {
+    if (!KINDS.has(e.kind)) {
       return NextResponse.json(
         { error: `unknown kind "${e.kind}"` },
         { status: 400 }

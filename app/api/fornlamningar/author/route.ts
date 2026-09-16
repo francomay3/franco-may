@@ -73,38 +73,49 @@ export async function DELETE(request: NextRequest) {
   // nobody can ask about again, and publishing without deleting leaves the
   // server serving rows it has announced as withdrawn. Either half alone is
   // worse than a retry.
+  // AND THE DELETE COMES FIRST, WHICH IS ALSO THE AUTHORISATION.
+  //
+  // This route does NOT require the caller to be signed in, unlike the POST
+  // of events -- an unlinked device has published nothing under the new rule,
+  // but it still has a local database, and a "forget me" it cannot complete
+  // is worse than the bug this route was fixing: the app does not wipe itself
+  // unless the server succeeded, so a 403 here would mean an anonymous person
+  // can never be forgotten at all.
+  //
+  // That leaves one hole -- anybody could mint a uuid and make us write a
+  // tombstone for an author with no rows. Closed by ORDER rather than by a
+  // permission: delete first, and publish only if something was actually
+  // deleted. An author with nothing to erase produces no event, so there is
+  // nothing to spam the log with, and the tombstone never announces a
+  // withdrawal that withdraws nothing.
   const deleted = await tx(async c => {
-    // The counter's row lock and the numbers it hands out, exactly as the
-    // POST of events does it. See scripts/fornlamningar-events.sql for why
-    // this is not a bigserial.
-    const { rows } = await c.query<{ v: string }>(
-      'UPDATE fl_event_seq SET v = v + 1 WHERE id = 1 RETURNING v',
-      []
-    );
-    const seq = Number(rows[0].v);
-
-    await c.query(
-      `INSERT INTO fl_events
-         (seq, event_id, kind, place_uuid, author, payload)
-       VALUES ($1, $2, 'author_erased', '*', $3, '{}'::jsonb)`,
-      [seq, crypto.randomUUID(), author]
-    );
-
-    // Everything else this author published, and NOT the row just written --
-    // which is why the tombstone goes in first and is excluded by kind
-    // rather than by id: one predicate, and no chance of a future column
-    // making the two disagree.
-    //
-    // `place_uuid = '*'` on the tombstone because there is no place. No
-    // constraint requires it; an explicit marker is easier to read in a
-    // table dump than an empty string, and impossible to confuse with a
-    // uuid.
+    // `place_uuid = '*'` on the tombstone below because there is no place. No
+    // constraint requires it; an explicit marker is easier to read in a table
+    // dump than an empty string, and impossible to confuse with a uuid.
     const gone = await c.query(
       "DELETE FROM fl_events WHERE author = $1 AND kind <> 'author_erased'",
       [author]
     );
+    const count = gone.rowCount ?? 0;
+
+    if (count > 0) {
+      // The counter's row lock and the number it hands out, exactly as the
+      // POST of events does it. See scripts/fornlamningar-events.sql for why
+      // this is not a bigserial.
+      const { rows } = await c.query<{ v: string }>(
+        'UPDATE fl_event_seq SET v = v + 1 WHERE id = 1 RETURNING v',
+        []
+      );
+      await c.query(
+        `INSERT INTO fl_events
+           (seq, event_id, kind, place_uuid, author, payload)
+         VALUES ($1, $2, 'author_erased', '*', $3, '{}'::jsonb)`,
+        [Number(rows[0].v), crypto.randomUUID(), author]
+      );
+    }
+
     await c.query('DELETE FROM fl_account_devices WHERE device = $1', [author]);
-    return gone.rowCount ?? 0;
+    return count;
   });
 
   // The count is reported because the phone shows it: "nothing to delete" and
