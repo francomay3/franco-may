@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { pool } from '@/lib/db';
+import { tx } from '@/lib/db';
 
 /**
  * DELETE everything an author has published. The server half of "Glöm mig".
@@ -30,6 +30,27 @@ import { pool } from '@/lib/db';
  * The link row goes with the events. Leaving it would keep a mapping from a
  * discarded device id to a live account, which is a record of the person we
  * were asked to forget.
+ *
+ * AND A DELETION IS AN EVENT, which is the part this route got wrong for a
+ * while. `DELETE FROM fl_events` removes the rows from the server and tells
+ * NOBODY: the log is append-only for its readers, so every phone that had
+ * already synced still holds the erased author's ratings in its own SQLite,
+ * with its cursor far past them -- and those ratings went on counting in
+ * everybody else's average for ever. That is worse than having no button,
+ * because it looks like erasure and is not one.
+ *
+ * So the erasure is published first, as `author_erased`, and the physical
+ * delete follows. `applyRemote` in the app deletes every local row by that
+ * author when it sees one. scripts/fornlamningar-events.sql said this all
+ * along -- a retraction is an event -- and this endpoint was the one place
+ * that skipped its own rule.
+ *
+ * THE TOMBSTONE KEEPS THE AUTHOR ID, and that is deliberate rather than an
+ * oversight in an erasure route. It is the only field it has, and it is what
+ * lets the read path derive the same pseudonym the other phones filed those
+ * rows under -- without it the event names nobody and deletes nothing. The
+ * id itself is a random 122 bits that the phone discards in the next step,
+ * so what survives is a handle to no device, no account and no rows.
  */
 
 const uuid = z.string().uuid();
@@ -44,19 +65,51 @@ export async function DELETE(request: NextRequest) {
     );
   }
 
-  // One statement each, not a transaction: they are independent deletions and
-  // a half-done erasure is better than a refused one -- the caller can retry,
-  // and a retry deletes whatever is left.
-  const events = await pool.query('DELETE FROM fl_events WHERE author = $1', [
-    author,
-  ]);
-  await pool.query('DELETE FROM fl_account_devices WHERE device = $1', [
-    author,
-  ]);
+  // ONE TRANSACTION, which is a change from the three independent statements
+  // this used to run. The reasoning then was that a half-done erasure beats a
+  // refused one. That holds while the steps are only deletions; it stops
+  // holding the moment one of them is a PUBLICATION. Deleting the rows
+  // without publishing the tombstone leaves the other phones holding data
+  // nobody can ask about again, and publishing without deleting leaves the
+  // server serving rows it has announced as withdrawn. Either half alone is
+  // worse than a retry.
+  const deleted = await tx(async c => {
+    // The counter's row lock and the numbers it hands out, exactly as the
+    // POST of events does it. See scripts/fornlamningar-events.sql for why
+    // this is not a bigserial.
+    const { rows } = await c.query<{ v: string }>(
+      'UPDATE fl_event_seq SET v = v + 1 WHERE id = 1 RETURNING v',
+      []
+    );
+    const seq = Number(rows[0].v);
+
+    await c.query(
+      `INSERT INTO fl_events
+         (seq, event_id, kind, place_uuid, author, payload)
+       VALUES ($1, $2, 'author_erased', '*', $3, '{}'::jsonb)`,
+      [seq, crypto.randomUUID(), author]
+    );
+
+    // Everything else this author published, and NOT the row just written --
+    // which is why the tombstone goes in first and is excluded by kind
+    // rather than by id: one predicate, and no chance of a future column
+    // making the two disagree.
+    //
+    // `place_uuid = '*'` on the tombstone because there is no place. No
+    // constraint requires it; an explicit marker is easier to read in a
+    // table dump than an empty string, and impossible to confuse with a
+    // uuid.
+    const gone = await c.query(
+      "DELETE FROM fl_events WHERE author = $1 AND kind <> 'author_erased'",
+      [author]
+    );
+    await c.query('DELETE FROM fl_account_devices WHERE device = $1', [author]);
+    return gone.rowCount ?? 0;
+  });
 
   // The count is reported because the phone shows it: "nothing to delete" and
   // "deleted 14 things" are different enough to be worth saying, and a person
   // who just asked to be erased deserves to be told what happened rather than
   // a spinner that stops.
-  return NextResponse.json({ ok: true, deleted: events.rowCount ?? 0 });
+  return NextResponse.json({ ok: true, deleted });
 }

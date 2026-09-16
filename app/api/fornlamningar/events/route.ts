@@ -35,6 +35,18 @@ const ACCOUNT_KINDS = new Set([
   'photo_delete',
 ]);
 
+/**
+ * Kinds only the SERVER writes, and no client may post.
+ *
+ * `author_erased` is the retraction the author route emits: a row saying
+ * "everything by this author is withdrawn", which is how an erasure reaches
+ * the phones that already replicated the rows. It is in neither set above,
+ * so the POST path rejects it with 400 "unknown kind" like any other kind a
+ * client has no business sending -- listed here so that is a decision rather
+ * than an omission. The GET serves it like anything else, which is the point.
+ */
+const SERVER_KINDS = new Set(['author_erased']);
+
 /** Events per author per hour, and per IP per hour. */
 const AUTHOR_LIMIT = 200;
 const IP_LIMIT = 600;
@@ -364,6 +376,12 @@ export async function POST(request: NextRequest) {
         { status: 403 }
       );
     }
+    if (SERVER_KINDS.has(e.kind)) {
+      return NextResponse.json(
+        { error: `kind "${e.kind}" is written by the server only` },
+        { status: 400 }
+      );
+    }
     if (!ANONYMOUS_KINDS.has(e.kind)) {
       return NextResponse.json(
         { error: `unknown kind "${e.kind}"` },
@@ -456,6 +474,26 @@ export async function GET(request: NextRequest) {
   const { since, limit } = parsed.data;
 
   try {
+    // THE COUNTER IS READ FIRST, AND THE ORDER IS THE WHOLE CORRECTNESS
+    // ARGUMENT. These are two queries with no transaction around them, so
+    // something can commit between them; which way that hurts depends
+    // entirely on which one goes first.
+    //
+    // Reading the events first was wrong. If the window came back empty --
+    // it held only the caller's own events, or nothing at all -- the cursor
+    // was set to the counter read AFTERWARDS, so an event committed by
+    // another author in between was jumped over and never sent to this
+    // device again. Silent, permanent, and exactly the case the counter was
+    // there to prevent.
+    //
+    // This way round the cursor can only ever lag. If rows come back, it is
+    // the last row actually handed over. If none do, it is a value read
+    // BEFORE anyone could have looked, so anything committed since is still
+    // `> cursor` and arrives in the next window. No transaction and no
+    // FOR SHARE needed: lagging is free, skipping is not.
+    const { rows: head } = await pool.query<{ v: string }>(
+      'SELECT v FROM fl_event_seq WHERE id = 1'
+    );
     // The caller's own events are dropped HERE and not on the phone, so a
     // device does not re-download everything it wrote itself, on every
     // device the account owns, forever.
@@ -466,12 +504,6 @@ export async function GET(request: NextRequest) {
        ORDER BY seq
        LIMIT $3`,
       [since, author, limit]
-    );
-    // The cursor advances to the newest row the caller has actually seen, or
-    // -- when the window held only its own events -- to the newest row that
-    // exists, so the same empty window is not asked for again.
-    const { rows: head } = await pool.query<{ v: string }>(
-      'SELECT v FROM fl_event_seq WHERE id = 1'
     );
     const seq = rows.length
       ? Number(rows[rows.length - 1].seq)
