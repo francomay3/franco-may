@@ -108,6 +108,25 @@ const payloadSchemas: Record<string, z.ZodTypeAny> = {
     .object({
       distance_m: z.number().min(0).max(100_000),
       accuracy_m: z.number().min(0).max(100_000).nullable().optional(),
+      // THE DAY THE AUTHOR'S PHONE SAYS IT WAS, in its own timezone.
+      //
+      // Here because only that phone knows. We stamp `server_ts` in UTC,
+      // and a reader deriving the day from it files a Swedish evening walk
+      // after ten under tomorrow -- which matters because the phones
+      // deduplicate visits per author per place per DAY, so two devices
+      // were using two different calendars. The server cannot fix it: it
+      // does not know the timezone and must not guess it from an IP.
+      //
+      // Optional, because every client in the field today sends nothing and
+      // keeps working. Validated as a plain calendar day rather than
+      // accepted as a string: readers put it in a UNIQUE index, so a client
+      // sending rubbish would get to decide what counts as a duplicate of
+      // what. Not range-checked beyond the shape -- a wrong day costs its
+      // own author a deduplication and nobody else anything.
+      visit_day: z
+        .string()
+        .regex(/^\d{4}-\d{2}-\d{2}$/)
+        .optional(),
     })
     .loose(),
   // Anonymous, and that is a deliberate exception to the rule above it: a
