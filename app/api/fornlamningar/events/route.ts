@@ -2,6 +2,7 @@ import { createHash } from 'crypto';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { pool, tx } from '@/lib/db';
+import { cleanPayload, publicAuthors } from '@/lib/fl-authors';
 
 /**
  * The sync endpoint for the fornlämningar app.
@@ -55,25 +56,26 @@ const KINDS = new Set([
 /**
  * Kinds that are still refused even WITH an account, for a second reason.
  *
- * The account requirement replaces the old anonymous/account split, and that
- * would by itself have opened comments and photos -- which were never
- * blocked only for want of an account. They are things other people read,
- * and there is no way to take one down: no moderation queue, no report
- * button, no deletion path but this endpoint's own retraction, and for
- * photos no storage either. Accepting them today would mean the first
- * abusive comment has nowhere to go.
+ * This held comments as well until moderation existed. It does now, and
+ * comments are POST-moderated: they publish immediately and a bad one is
+ * withdrawn with `comment_removed`. That is not a shortcut -- EU hosting law
+ * does not require review before publication. What it requires is being
+ * reachable and acting on a notice, and the safe harbour in the DSA (art. 6)
+ * turns on acting expeditiously once you know, not on knowing first. So the
+ * cost of pre-moderating text was a comment that takes hours to appear
+ * because nobody was looking, which is a comment nobody writes twice.
  *
- * So the two reasons stay two reasons. This set empties when moderation
- * exists, and not before; the `reason` in the response says which of the two
- * refusals a client is looking at, so the app can tell "sign in" from "not
- * built yet".
+ * PHOTOS STAY, and the asymmetry is the whole point rather than an
+ * inconsistency. An image carries an obligation text does not -- child sexual
+ * abuse material is not a "remove it when told" regime -- so for photos the
+ * window between posting and review is exactly what must not exist. They get
+ * a real queue when they get built, and there is no storage for them yet
+ * either.
+ *
+ * The `reason` in the response still says which refusal a client is looking
+ * at, so the app can tell "sign in" from "not built yet".
  */
-const UNMODERATED_KINDS = new Set([
-  'comment',
-  'comment_delete',
-  'photo',
-  'photo_delete',
-]);
+const UNMODERATED_KINDS = new Set(['photo', 'photo_delete']);
 
 /**
  * Kinds only the SERVER writes, and no client may post.
@@ -84,8 +86,17 @@ const UNMODERATED_KINDS = new Set([
  * so the POST path rejects it with 400 "unknown kind" like any other kind a
  * client has no business sending -- listed here so that is a decision rather
  * than an omission. The GET serves it like anything else, which is the point.
+ *
+ * `comment_removed` is the same shape for one comment: the moderation route
+ * emits it, every phone hides that comment when it syncs, and no client may
+ * forge one. A MODERATION DECISION HAS TO BE AN EVENT and cannot be a column
+ * on the row it is about -- the log is append-only and each phone reads it
+ * from a cursor, so a comment that arrived at seq 500 has already been
+ * replicated by everyone past 500, and flipping a flag on it reaches nobody.
+ * That is also why `comment_delete` (the author withdrawing their own) works
+ * the way it does.
  */
-const SERVER_KINDS = new Set(['author_erased']);
+const SERVER_KINDS = new Set(['author_erased', 'comment_removed']);
 
 /** Events per author per hour, and per IP per hour. */
 const AUTHOR_LIMIT = 200;
@@ -136,8 +147,8 @@ const payloadSchemas: Record<string, z.ZodTypeAny> = {
       visited: z.boolean().optional(),
     })
     .loose()
-    .refine((p) => (p.stars === undefined) !== (p.not_found === undefined), {
-      message: "a rating carries either stars or not_found, never both",
+    .refine(p => (p.stars === undefined) !== (p.not_found === undefined), {
+      message: 'a rating carries either stars or not_found, never both',
     }),
   // distance_m and accuracy_m are what make a visit worth anything: the 50 m
   // radius the phone applies is a guess, and keeping both numbers means it
@@ -185,7 +196,7 @@ const payloadSchemas: Record<string, z.ZodTypeAny> = {
       has_sign: z.boolean().optional(),
     })
     .loose()
-    .refine((p) => p.answer !== undefined || p.has_sign !== undefined, {
+    .refine(p => p.answer !== undefined || p.has_sign !== undefined, {
       message: 'a sign event carries answer or has_sign',
     }),
   // "Have you been here?" -- the answer that gates rating and sign on the
@@ -197,9 +208,7 @@ const payloadSchemas: Record<string, z.ZodTypeAny> = {
   // case: been = false with a recorded visit is a site somebody walked within
   // fifty metres of and never saw, which is close to the strongest negative
   // this app can collect.
-  presence: z
-    .object({ been: z.boolean(), had_visit: z.boolean() })
-    .loose(),
+  presence: z.object({ been: z.boolean(), had_visit: z.boolean() }).loose(),
   favourite: z.object({ on: z.boolean() }).loose(),
   comment: z.object({ body: z.string().trim().min(1).max(2000) }).loose(),
   comment_delete: z.object({ target_event_id: uuid }).loose(),
@@ -265,125 +274,6 @@ async function ipHash(request: NextRequest): Promise<string | null> {
     .update(ip)
     .digest('hex')
     .slice(0, 32);
-}
-
-/**
- * The salt that turns an author id into the pseudonym other clients see.
- *
- * Its own value and its own cache, not shared with ip_salt, because the two
- * have opposite lifetimes: ip_salt could be rotated tomorrow and cost nothing
- * but an hour of rate-limit counts, while rotating this one resets every
- * reader's idea of who said what. Sharing one value would mean a rotation
- * intended for the cheap purpose silently performing the expensive one.
- */
-let authorSaltCache: string | null = null;
-
-async function authorSalt(): Promise<string | null> {
-  if (authorSaltCache) {
-    return authorSaltCache;
-  }
-  const { rows } = await pool.query<{ value: string }>(
-    "SELECT value FROM fl_config WHERE key = 'author_salt'"
-  );
-  authorSaltCache = rows[0]?.value ?? null;
-  return authorSaltCache;
-}
-
-/**
- * The id of an author as OTHER clients are allowed to see it.
- *
- * THE RAW AUTHOR ID IS A CREDENTIAL, and it used to be handed out here. An
- * author id in `X-Author-Id` is the entire proof of who you are, so echoing
- * other people's back in the feed gave every syncing device the write
- * credentials of everyone who had contributed before it: enough to rate in
- * their name, to burn their rate limit, and -- once comments exist -- to
- * delete their words, because comment_delete checks that the author matches
- * and the attacker would be holding exactly that author.
- *
- * A salted hash instead. Stable, so "one vote per author" still works for
- * readers; irreversible, so it is not a credential. Truncated to 32 hex
- * characters, which is 128 bits: far past any collision worth worrying about
- * at this scale, and short enough to be cheap to store on every phone.
- *
- * Returns null when the salt cannot be read, and the caller then FAILS the
- * request rather than serving events without an author. Degrading looks like
- * the safer option and is not: the reader's cursor advances past whatever it
- * was sent, so a window served without authors is a window that can never be
- * fetched again. Those events would be silently lost from every aggregate,
- * for good. A 500 is retried; a gap is not.
- */
-/**
- * A payload with the author's id taken out of it.
- *
- * The same leak as publicAuthor, through a second door. The phone builds each
- * payload with `author` inside it as well as in the header, and payload
- * schemas are `.loose()` so the extra key is stored verbatim -- which means
- * hashing the top-level author while serving the payload untouched would have
- * published the very credential the hash exists to hide. Every event already
- * in the database has one of these, so this has to strip on READ and not only
- * refuse on write.
- *
- * `event_id` and `uuid` come out too. They are not secret -- they are
- * alongside the payload as real columns -- but a duplicate that readers might
- * start trusting is a second source of truth waiting to disagree with the
- * first.
- */
-function cleanPayload(payload: unknown): Record<string, unknown> {
-  if (!payload || typeof payload !== 'object') {
-    return {};
-  }
-  const { author: _a, event_id: _e, uuid: _u, ...rest } = payload as Record<
-    string,
-    unknown
-  >;
-  return rest;
-}
-
-async function publicAuthor(author: string): Promise<string | null> {
-  const salt = await authorSalt();
-  if (!salt) {
-    return null;
-  }
-  return createHash('sha256').update(salt).update(author).digest('hex').slice(0, 32);
-}
-
-/**
- * Pseudonyms for a set of author ids, with an account's devices sharing one.
- *
- * THIS IS WHERE TWO PHONES BECOME ONE PERSON. The canonical id is the account
- * when the device has been linked to one, and the device id otherwise, and
- * only then is it hashed. So a reader counting "one vote per author" counts
- * one vote for someone who rated from their phone and their tablet -- without
- * a single event being rewritten, and without the device-to-account link ever
- * leaving the server, which matters because that link contains a write
- * credential.
- *
- * One query for the whole window rather than one per author. It is not
- * cached: a link created a second ago has to take effect on the next read, and
- * a per-instance cache would leave some serverless instances grouping an
- * account's devices and others not, which is a difference nobody could debug
- * from the outside.
- */
-async function publicAuthors(
-  authors: string[]
-): Promise<Map<string, string> | null> {
-  const out = new Map<string, string>();
-  if (!authors.length) {
-    return out;
-  }
-  const { rows } = await pool.query<{ device: string; account: string }>(
-    'SELECT device, account FROM fl_account_devices WHERE device = ANY($1)',
-    [authors]
-  );
-  const accountOf = new Map(rows.map(r => [r.device, r.account]));
-  for (const a of authors) {
-    const pub = await publicAuthor(accountOf.get(a) ?? a);
-    if (!pub) {
-      return null;
-    }
-    out.set(a, pub);
-  }
-  return out;
 }
 
 /**

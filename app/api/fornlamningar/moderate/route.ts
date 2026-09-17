@@ -1,0 +1,222 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { z } from 'zod';
+import { isAdmin, uidOf } from '@/lib/admin';
+import { pool, tx } from '@/lib/db';
+import { cleanPayload, publicAuthor } from '@/lib/fl-authors';
+
+/**
+ * The moderation surface. Read the recent comments, withdraw a bad one.
+ *
+ * POST-MODERATION, AND THAT IS A LEGAL READING AS MUCH AS A PRODUCT ONE. EU
+ * hosting law does not require review before publication: the safe harbour
+ * (DSA art. 6, previously the e-Commerce Directive art. 14) turns on acting
+ * expeditiously once you have actual knowledge, and art. 7 exists so that
+ * looking voluntarily does not cost you it. What is required is being
+ * reachable -- a notice-and-action route -- and being able to take something
+ * down. This is the taking-down half.
+ *
+ * So the normal state of this page is DOING NOTHING. It is a feed of what was
+ * published, newest first, and the only action is `hide`. Nothing waits for
+ * approval, nothing is delayed, and a comment is live the moment its author
+ * writes it.
+ *
+ * WHY A REMOVAL IS AN EVENT AND NOT A COLUMN. The log is append-only and each
+ * phone reads it from a cursor. A comment that arrived at seq 500 has already
+ * been replicated by every device past 500, so setting `hidden = true` on
+ * that row reaches nobody: the phones holding it will never ask for it again.
+ * `comment_removed` gets a fresh seq, so it travels the same path the comment
+ * did, to the same devices.
+ *
+ * 404 AND NOT 403 for anyone who is not an admin. Telling a stranger that an
+ * endpoint exists but they may not use it is free reconnaissance, and this is
+ * the one route in the service whose existence is worth hiding. The bootstrap
+ * case is the single exception below, and it reveals only the caller's own id
+ * to the caller.
+ */
+
+const actionSchema = z.object({
+  action: z.literal('hide'),
+  /** The comment's own event_id, which the feed below hands out. */
+  event_id: z.string().uuid(),
+  /** Why, for the record. Not shown to anybody yet. */
+  note: z.string().max(500).optional(),
+});
+
+/** How many recent comments to show. Small on purpose: this is a feed to skim. */
+const WINDOW = 100;
+
+/**
+ * The author a moderation event is filed under, and it is NOT the commenter.
+ *
+ * This matters more than it looks. The events GET drops the caller's OWN
+ * events -- `author <> $2` -- so that a device does not re-download
+ * everything it wrote. File the removal under the commenter and that person
+ * is the one device on earth that never receives it: their comment would go
+ * on showing on their own phone, for ever, while it was gone everywhere else.
+ *
+ * The nil uuid because it is a shape every reader already accepts and one no
+ * device can ever be issued. It also means the "forget me" route, which
+ * deletes `WHERE author = $1`, cannot take moderation decisions with it.
+ */
+const MODERATOR = '00000000-0000-0000-0000-000000000000';
+
+export async function GET(request: NextRequest) {
+  // The bootstrap: a valid token that is not on the list gets told its own
+  // uid, because the list cannot be filled in before its first sign-in and
+  // knowing your own id grants nothing. An INVALID token gets the 404 that
+  // everybody else gets.
+  if (!(await isAdmin(request))) {
+    const uid = await uidOf(request);
+    if (uid) {
+      return NextResponse.json(
+        {
+          error: 'not an admin',
+          reason: 'not_listed',
+          uid,
+          hint: 'add this uid to FL_ADMIN_UIDS',
+        },
+        { status: 403 }
+      );
+    }
+    return NextResponse.json({ error: 'not found' }, { status: 404 });
+  }
+
+  try {
+    // Comments, newest first, with the removals that already apply to them.
+    //
+    // LEFT JOIN rather than a second query, so a comment already withdrawn
+    // still SHOWS -- greyed out, in the client -- instead of vanishing. A
+    // moderation log where the decisions disappear is one where you cannot
+    // tell "nobody has looked at this" from "somebody looked and allowed it".
+    const { rows } = await pool.query(
+      `SELECT c.seq, c.event_id, c.place_uuid, c.author, c.payload,
+              c.server_ts,
+              r.server_ts AS removed_at
+         FROM fl_events c
+         LEFT JOIN fl_events r
+                ON r.kind = 'comment_removed'
+               AND r.payload->>'target_event_id' = c.event_id::text
+        WHERE c.kind = 'comment'
+        ORDER BY c.seq DESC
+        LIMIT $1`,
+      [WINDOW]
+    );
+
+    // The pseudonym, NOT the raw author id, even here. That value is a write
+    // credential rather than a name, so who may see one does not depend on
+    // how trusted the viewer is. The pseudonym is enough for everything this
+    // page needs: recognising that two comments are the same person.
+    const out = [];
+    for (const r of rows) {
+      const author = await publicAuthor(r.author);
+      out.push({
+        seq: Number(r.seq),
+        event_id: r.event_id,
+        place_uuid: r.place_uuid,
+        author,
+        body: (cleanPayload(r.payload).body as string) ?? '',
+        created_at: new Date(r.server_ts).toISOString(),
+        removed_at: r.removed_at ? new Date(r.removed_at).toISOString() : null,
+      });
+    }
+
+    return NextResponse.json({
+      comments: out,
+      // Photos are not accepted yet, so there is nothing to queue. Reported
+      // explicitly rather than left out, so the page can say "not built" and
+      // not "nothing to do", which are different facts.
+      photos: { accepted: false, pending: [] },
+    });
+  } catch (e) {
+    console.error('moderation read failed', e);
+    return NextResponse.json({ error: 'server error' }, { status: 500 });
+  }
+}
+
+export async function POST(request: NextRequest) {
+  if (!(await isAdmin(request))) {
+    return NextResponse.json({ error: 'not found' }, { status: 404 });
+  }
+
+  let raw: unknown;
+  try {
+    raw = await request.json();
+  } catch {
+    return NextResponse.json(
+      { error: 'expected a JSON body' },
+      { status: 400 }
+    );
+  }
+  const parsed = actionSchema.safeParse(raw);
+  if (!parsed.success) {
+    return NextResponse.json(
+      { error: parsed.error.issues[0]?.message ?? 'bad request' },
+      { status: 400 }
+    );
+  }
+  const { event_id, note } = parsed.data;
+
+  try {
+    const result = await tx(async c => {
+      // The comment has to exist. A removal that names nothing would be a
+      // row every phone applies to no comment, and it would sit in the log
+      // for ever looking like a decision somebody made.
+      //
+      // Unlike comment_delete, the phone does NOT check the author here:
+      // comment_delete is the author withdrawing their own words, so the
+      // phone verifies that locally and a compromised server cannot make one
+      // person delete another's. A removal is the opposite case by
+      // definition -- somebody else's words -- and it is safe only because
+      // comment_removed is in SERVER_KINDS and no client can post one.
+      const { rows: target } = await c.query(
+        "SELECT 1 FROM fl_events WHERE event_id = $1 AND kind = 'comment'",
+        [event_id]
+      );
+      if (!target.length) {
+        return { status: 404 as const };
+      }
+
+      // Idempotent: hiding twice is one removal. A double tap on a phone with
+      // a slow connection is the ordinary way this happens, and a second
+      // event would be a second row saying the same thing for ever.
+      const { rows: already } = await c.query(
+        `SELECT 1 FROM fl_events
+          WHERE kind = 'comment_removed'
+            AND payload->>'target_event_id' = $1`,
+        [event_id]
+      );
+      if (already.length) {
+        return { status: 200 as const, already: true };
+      }
+
+      // The counter's row lock and the number it hands out, exactly as the
+      // events POST does it. See scripts/fornlamningar-events.sql for why
+      // this is not a bigserial.
+      const { rows: seq } = await c.query<{ v: string }>(
+        'UPDATE fl_event_seq SET v = v + 1 WHERE id = 1 RETURNING v'
+      );
+      await c.query(
+        `INSERT INTO fl_events
+           (seq, event_id, kind, place_uuid, author, payload)
+         SELECT $1, $2, 'comment_removed', place_uuid, $3, $4::jsonb
+           FROM fl_events WHERE event_id = $5 AND kind = 'comment'`,
+        [
+          Number(seq[0].v),
+          crypto.randomUUID(),
+          MODERATOR,
+          JSON.stringify({ target_event_id: event_id, note: note ?? null }),
+          event_id,
+        ]
+      );
+      return { status: 200 as const, already: false };
+    });
+
+    if (result.status === 404) {
+      return NextResponse.json({ error: 'no such comment' }, { status: 404 });
+    }
+    return NextResponse.json({ ok: true, already: result.already });
+  } catch (e) {
+    console.error('moderation write failed', e);
+    return NextResponse.json({ error: 'server error' }, { status: 500 });
+  }
+}

@@ -1,0 +1,267 @@
+'use client';
+
+import React, { useCallback, useEffect, useState } from 'react';
+import {
+  Alert,
+  Badge,
+  Button,
+  Card,
+  Code,
+  Group,
+  Loader,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core';
+import { currentToken, signIn, signOut } from './auth';
+
+/**
+ * Moderation: read what was published, hide what should not have been.
+ *
+ * THE NORMAL OUTCOME OF OPENING THIS PAGE IS DOING NOTHING. Comments publish
+ * immediately -- EU hosting law asks that you be reachable and act on a
+ * notice, not that you read everything first -- so this is a feed to skim,
+ * not a queue to clear. There is no "approve": the only button is Hide.
+ *
+ * A hidden comment STAYS IN THE LIST, greyed. A moderation log where
+ * decisions disappear cannot tell "nobody has looked at this" from "somebody
+ * looked and allowed it", which is the only question the page exists to
+ * answer.
+ *
+ * The token is fetched per request rather than held in state: Firebase ID
+ * tokens expire in an hour and the SDK refreshes them silently, so asking is
+ * both shorter and more correct than caching.
+ */
+
+type Comment = {
+  seq: number;
+  event_id: string;
+  place_uuid: string;
+  author: string | null;
+  body: string;
+  created_at: string;
+  removed_at: string | null;
+};
+
+type Feed = {
+  comments: Comment[];
+  photos: { accepted: boolean; pending: unknown[] };
+};
+
+type State =
+  | { at: 'loading' }
+  | { at: 'anon' }
+  | { at: 'not-listed'; uid: string }
+  | { at: 'error'; message: string }
+  | { at: 'ready'; feed: Feed };
+
+export default function ModerationPage() {
+  const [state, setState] = useState<State>({ at: 'loading' });
+  const [busy, setBusy] = useState<string | null>(null);
+
+  const load = useCallback(async (token: string | null) => {
+    if (!token) {
+      setState({ at: 'anon' });
+      return;
+    }
+    try {
+      const res = await fetch('/api/fornlamningar/moderate', {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (res.status === 403) {
+        // The bootstrap: a real Google account that is not on the list yet.
+        // The server hands back the uid so it can be pasted into the
+        // variable, which is the only way to fill a list that gates its own
+        // first use.
+        const body = await res.json();
+        setState({ at: 'not-listed', uid: String(body.uid ?? '') });
+        return;
+      }
+      if (!res.ok) {
+        // 404 included, which is what a stranger gets. Shown as-is rather
+        // than explained, because explaining it is the reconnaissance the
+        // 404 exists to avoid.
+        setState({ at: 'error', message: `${res.status}` });
+        return;
+      }
+      setState({ at: 'ready', feed: (await res.json()) as Feed });
+    } catch (e) {
+      setState({
+        at: 'error',
+        message: e instanceof Error ? e.message : 'failed',
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    void currentToken().then(load);
+  }, [load]);
+
+  const hide = useCallback(
+    async (eventId: string) => {
+      setBusy(eventId);
+      try {
+        const token = await currentToken();
+        const res = await fetch('/api/fornlamningar/moderate', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ action: 'hide', event_id: eventId }),
+        });
+        if (!res.ok) {
+          setState({ at: 'error', message: `hide failed: ${res.status}` });
+          return;
+        }
+        // Re-read rather than patch the row in place. The server decides what
+        // a removal looks like -- including that hiding twice is one
+        // removal -- and a local guess at the new state is a second answer
+        // that can be wrong.
+        await load(token);
+      } finally {
+        setBusy(null);
+      }
+    },
+    [load]
+  );
+
+  if (state.at === 'loading') {
+    return (
+      <Group>
+        <Loader size="sm" />
+        <Text>Checking…</Text>
+      </Group>
+    );
+  }
+
+  if (state.at === 'anon') {
+    return (
+      <Stack align="flex-start">
+        <Title order={2}>Moderation</Title>
+        <Button onClick={() => void signIn().then(load)}>
+          Sign in with Google
+        </Button>
+      </Stack>
+    );
+  }
+
+  if (state.at === 'not-listed') {
+    return (
+      <Stack align="flex-start">
+        <Title order={2}>Moderation</Title>
+        <Alert title="Signed in, but not a moderator" color="yellow">
+          <Text size="sm">
+            Add this uid to <Code>FL_ADMIN_UIDS</Code> in the project&apos;s
+            environment variables, redeploy, and reload.
+          </Text>
+          <Code block mt="sm">
+            {state.uid}
+          </Code>
+        </Alert>
+        <Button
+          variant="subtle"
+          onClick={() => void signOut().then(() => load(null))}
+        >
+          Sign out
+        </Button>
+      </Stack>
+    );
+  }
+
+  if (state.at === 'error') {
+    return (
+      <Stack align="flex-start">
+        <Alert color="red" title="Could not load">
+          {state.message}
+        </Alert>
+        <Button
+          variant="subtle"
+          onClick={() => void signOut().then(() => load(null))}
+        >
+          Sign out
+        </Button>
+      </Stack>
+    );
+  }
+
+  const { comments, photos } = state.feed;
+
+  return (
+    <Stack>
+      <Group justify="space-between">
+        <Title order={2}>Moderation</Title>
+        <Button
+          variant="subtle"
+          size="xs"
+          onClick={() => void signOut().then(() => load(null))}
+        >
+          Sign out
+        </Button>
+      </Group>
+
+      <Title order={4}>Comments</Title>
+      {comments.length === 0 ? (
+        <Text c="dimmed" size="sm">
+          Nobody has commented yet.
+        </Text>
+      ) : (
+        <Stack gap="xs">
+          {comments.map(c => (
+            <Card
+              key={c.event_id}
+              withBorder
+              padding="sm"
+              opacity={c.removed_at ? 0.5 : 1}
+            >
+              <Group justify="space-between" align="flex-start" wrap="nowrap">
+                <Stack gap={2} style={{ minWidth: 0 }}>
+                  <Text size="sm" style={{ whiteSpace: 'pre-wrap' }}>
+                    {c.body}
+                  </Text>
+                  <Text size="xs" c="dimmed">
+                    {new Date(c.created_at).toLocaleString('sv-SE')} ·{' '}
+                    {/* The pseudonym, not the device id: that value is a write
+                        credential, and being the moderator does not change
+                        what it is. Enough to see that two comments are the
+                        same person. */}
+                    {c.author?.slice(0, 8) ?? 'unknown'} · {c.place_uuid}
+                  </Text>
+                </Stack>
+                {c.removed_at ? (
+                  <Badge color="gray" variant="light">
+                    hidden
+                  </Badge>
+                ) : (
+                  <Button
+                    size="xs"
+                    variant="light"
+                    color="red"
+                    loading={busy === c.event_id}
+                    onClick={() => void hide(c.event_id)}
+                  >
+                    Hide
+                  </Button>
+                )}
+              </Group>
+            </Card>
+          ))}
+        </Stack>
+      )}
+
+      <Title order={4} mt="md">
+        Photos
+      </Title>
+      {/* "Not accepted yet" and "nothing to do" are different facts, and the
+          endpoint reports which one this is rather than sending an empty
+          list for both. Photos will be PRE-moderated when they exist --
+          unlike text, an image carries obligations that a take-it-down-later
+          rule does not cover. */}
+      <Text c="dimmed" size="sm">
+        {photos.accepted
+          ? `${photos.pending.length} waiting`
+          : 'Not accepted yet. When they are, they will wait here for approval before anybody else sees them.'}
+      </Text>
+    </Stack>
+  );
+}
