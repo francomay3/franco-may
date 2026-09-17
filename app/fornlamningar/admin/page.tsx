@@ -13,7 +13,13 @@ import {
   Text,
   Title,
 } from '@mantine/core';
-import { currentToken, signIn, signOut } from './auth';
+import {
+  currentToken,
+  errorCode,
+  redirectToken,
+  signIn,
+  signOut,
+} from './auth';
 
 /**
  * Moderation: read what was published, hide what should not have been.
@@ -50,10 +56,41 @@ type Feed = {
 
 type State =
   | { at: 'loading' }
-  | { at: 'anon' }
+  | { at: 'anon'; signinError?: string }
   | { at: 'not-listed'; uid: string }
   | { at: 'error'; message: string }
   | { at: 'ready'; feed: Feed };
+
+/**
+ * What a Firebase sign-in error actually means, for the two that happen.
+ *
+ * WHY THIS EXISTS AT ALL: the first version of this page swallowed sign-in
+ * errors -- `void signIn().then(load)` with no catch -- so a failed sign-in
+ * left the button sitting there and said nothing. The popup opened, Google
+ * signed you in, the window closed, and the page had not changed. That is a
+ * worse bug than whatever it was hiding, because it makes the real cause
+ * unreachable without opening the browser console.
+ */
+function explain(code: string | null): string {
+  switch (code) {
+    case 'auth/unauthorized-domain':
+      return (
+        "This site is not in the Firebase project's Authorized domains. " +
+        'Firebase console -> Authentication -> Settings -> Authorized ' +
+        "domains, and add this page's host. The popup opens and then " +
+        'bounces: the handler rejects the origin, not the account.'
+      );
+    case 'auth/operation-not-allowed':
+      return (
+        'Google sign-in is not enabled for this Firebase project. ' +
+        'Console -> Authentication -> Sign-in method.'
+      );
+    case 'auth/popup-closed-by-user':
+      return 'The sign-in window was closed before it finished.';
+    default:
+      return code ?? 'Sign-in failed.';
+  }
+}
 
 export default function ModerationPage() {
   const [state, setState] = useState<State>({ at: 'loading' });
@@ -94,7 +131,17 @@ export default function ModerationPage() {
   }, []);
 
   useEffect(() => {
-    void currentToken().then(load);
+    void (async () => {
+      try {
+        // The redirect result FIRST: it is what completes a sign-in that went
+        // the long way round, and asking for the current user before it can
+        // answer null for somebody halfway through one.
+        const token = (await redirectToken()) ?? (await currentToken());
+        await load(token);
+      } catch (e) {
+        setState({ at: 'anon', signinError: explain(errorCode(e)) });
+      }
+    })();
   }, [load]);
 
   const hide = useCallback(
@@ -136,12 +183,28 @@ export default function ModerationPage() {
   }
 
   if (state.at === 'anon') {
+    const start = async () => {
+      setState({ at: 'loading' });
+      try {
+        const token = await signIn();
+        // null means a redirect is under way: the page is about to be
+        // replaced, so there is nothing to do but leave the spinner up.
+        if (token !== null) {
+          await load(token);
+        }
+      } catch (e) {
+        setState({ at: 'anon', signinError: explain(errorCode(e)) });
+      }
+    };
     return (
       <Stack align="flex-start">
         <Title order={2}>Moderation</Title>
-        <Button onClick={() => void signIn().then(load)}>
-          Sign in with Google
-        </Button>
+        {state.signinError ? (
+          <Alert color="red" title="Sign-in failed" maw={640}>
+            {state.signinError}
+          </Alert>
+        ) : null}
+        <Button onClick={() => void start()}>Sign in with Google</Button>
       </Stack>
     );
   }

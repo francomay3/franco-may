@@ -16,13 +16,24 @@ import { verifyFirebaseToken } from '@/lib/firebase-token';
  * to any other provider changes it. The uid is stable for the life of the
  * account, which is what an authorisation list needs.
  *
- * FL_ADMIN_UIDS is a comma-separated list. Absent or empty means NOBODY is an
- * admin, which is the right way to fail: a missing variable must not open the
- * door. That is also the bootstrap problem -- the first sign-in cannot know
- * its own uid -- and it is solved in the page rather than here: an
- * unrecognised but VALID token gets its uid shown back to it, so it can be
- * pasted into the variable. Knowing your own uid grants nothing.
+ * FL_ADMIN_UIDS is a comma-separated list, and it ADDS to the one below
+ * rather than replacing it. Empty or absent is therefore not "nobody", which
+ * was the earlier design and was the wrong kind of careful: it made the
+ * feature depend on a variable being set in a dashboard, and a deploy that
+ * forgot it would look like a bug in the sign-in.
+ *
+ * A UID IN SOURCE IS NOT A LEAK. It authorises nothing on its own -- it only
+ * matches against a Firebase token this server verified against Google's
+ * keys, which nobody else can mint for this account. It is a name, not a key,
+ * and the repository is Franco's own site.
+ *
+ * The bootstrap stays for anyone added later: an unrecognised but VALID token
+ * gets its own uid shown back to it, so it can be pasted into the variable.
+ * Knowing your own uid grants nothing either.
  */
+
+/** Franco. See above for why this is in the file and not in a dashboard. */
+const OWNER = 'vQCtnlYDZPa5uilEqDT8IVwA5V92';
 export async function isAdmin(request: NextRequest): Promise<boolean> {
   const user = await verifyFirebaseToken(request.headers.get('authorization'));
   if (!user) {
@@ -44,10 +55,11 @@ export async function uidOf(request: NextRequest): Promise<string | null> {
 }
 
 function adminUids(): Set<string> {
-  return new Set(
-    (process.env.FL_ADMIN_UIDS ?? '')
+  return new Set([
+    OWNER,
+    ...(process.env.FL_ADMIN_UIDS ?? '')
       .split(',')
       .map(s => s.trim())
-      .filter(Boolean)
-  );
+      .filter(Boolean),
+  ]);
 }

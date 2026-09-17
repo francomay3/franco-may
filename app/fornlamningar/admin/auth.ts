@@ -44,19 +44,84 @@ async function auth(): Promise<Auth> {
 }
 
 /**
- * Sign in with Google and return the ID token.
+ * Firebase's own error code, or null if this was not a Firebase error.
  *
- * A popup rather than a redirect. A redirect loses the page's state and
- * comes back through a callback that has to be handled; for a page whose
- * whole job is one list and one button, the popup is the shorter path and
- * the failure mode -- the browser blocked it -- is one the user can see and
- * fix.
+ * The code is the only part of these errors worth showing: the messages are
+ * long and end in a link, and the code is what says which console step was
+ * missed.
  */
-export async function signIn(): Promise<string> {
+export function errorCode(e: unknown): string | null {
+  if (e && typeof e === 'object' && 'code' in e) {
+    return String((e as { code: unknown }).code);
+  }
+  return null;
+}
+
+/**
+ * Popup failures that are about the POPUP and not about the account.
+ *
+ * Each of these means "this browser would not let the popup talk back", and
+ * the answer to all of them is the same: go the long way round with a
+ * redirect. Notably `popup-closed-by-user` is NOT here -- somebody who closed
+ * the window meant to cancel, and bouncing them out of the page for it would
+ * be the opposite of what they asked. Neither is
+ * `auth/unauthorized-domain`: a redirect fails on exactly the same check,
+ * after throwing the page away first.
+ */
+const POPUP_FAILED = new Set([
+  'auth/popup-blocked',
+  'auth/cancelled-popup-request',
+  'auth/operation-not-supported-in-this-environment',
+  'auth/web-storage-unsupported',
+]);
+
+/**
+ * Sign in with Google. Returns the ID token, or null if a redirect started.
+ *
+ * A POPUP FIRST, because it keeps the page: for a page whose whole job is one
+ * list and one button, coming back through a callback is more machinery than
+ * the feature.
+ *
+ * A REDIRECT WHEN THE POPUP CANNOT WORK, which is not hypothetical. A
+ * cross-origin-opener-policy header on the hosting page stops the popup from
+ * reaching back to its opener, and the symptom is not an error anybody would
+ * recognise: the window opens, Google signs you in, the window closes and
+ * the page has not changed. A browser blocking popups outright looks the
+ * same.
+ *
+ * Returning null rather than throwing, because a redirect is not a failure:
+ * the caller has nothing to do except let the navigation happen, and the
+ * answer arrives from `redirectToken()` on the way back.
+ */
+export async function signIn(): Promise<string | null> {
   const a = await auth();
-  const { GoogleAuthProvider, signInWithPopup } = await import('firebase/auth');
-  const cred = await signInWithPopup(a, new GoogleAuthProvider());
-  return cred.user.getIdToken();
+  const { GoogleAuthProvider, signInWithPopup, signInWithRedirect } =
+    await import('firebase/auth');
+  try {
+    const cred = await signInWithPopup(a, new GoogleAuthProvider());
+    return cred.user.getIdToken();
+  } catch (e) {
+    if (!POPUP_FAILED.has(errorCode(e) ?? '')) {
+      throw e;
+    }
+    await signInWithRedirect(a, new GoogleAuthProvider());
+    return null;
+  }
+}
+
+/**
+ * The token from a redirect sign-in, if this load is the way back from one.
+ *
+ * Null on an ordinary load, which is the common case, so this is safe to call
+ * on every mount. It has to be called BEFORE trusting `currentToken`: the
+ * redirect result is what completes the sign-in, and asking for the current
+ * user first can answer null for somebody who is halfway through one.
+ */
+export async function redirectToken(): Promise<string | null> {
+  const a = await auth();
+  const { getRedirectResult } = await import('firebase/auth');
+  const cred = await getRedirectResult(a);
+  return cred ? cred.user.getIdToken() : null;
 }
 
 export async function signOut(): Promise<void> {
