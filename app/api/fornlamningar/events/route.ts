@@ -322,7 +322,7 @@ export async function POST(request: NextRequest) {
   // account has done nothing wrong and its contributions have to survive
   // until it has one -- see flush() in the app, which does not count this
   // refusal against a row's attempts.
-  const { rows: link } = await pool.query(
+  const { rows: link } = await pool.query<{ account: string }>(
     'SELECT account FROM fl_account_devices WHERE device = $1',
     [author]
   );
@@ -367,6 +367,39 @@ export async function POST(request: NextRequest) {
         },
         { status: 400 }
       );
+    }
+    // A RETRACTION HAS TO BE YOUR OWN, and until now only the phones checked
+    // that. applyRemote does `UPDATE comments ... AND author = ?`, so a
+    // forged comment_delete already had no effect on anybody's database --
+    // but the whole protection lived in the clients, and the log would still
+    // have accepted a row asserting something false. The next reader that
+    // does not happen to implement the same check inherits the hole.
+    //
+    // Own by ACCOUNT and not by device, because two phones on one account are
+    // one person: somebody who comments from their phone must be able to
+    // delete it from their tablet, which is exactly what the pseudonym in the
+    // feed already tells every reader.
+    if (e.kind === 'comment_delete') {
+      const target = (e.payload as { target_event_id?: string })
+        .target_event_id;
+      const { rows: own } = await pool.query(
+        `SELECT 1
+           FROM fl_events t
+           LEFT JOIN fl_account_devices d ON d.device = t.author
+          WHERE t.event_id = $1
+            AND t.kind = 'comment'
+            AND COALESCE(d.account, t.author) = $2`,
+        [target, link[0].account ?? author]
+      );
+      if (!own.length) {
+        return NextResponse.json(
+          {
+            error: 'a comment can only be retracted by its author',
+            event_id: e.event_id,
+          },
+          { status: 403 }
+        );
+      }
     }
   }
 

@@ -132,3 +132,53 @@ ON CONFLICT (key) DO NOTHING;
 INSERT INTO fl_config (key, value)
 VALUES ('author_salt', encode(gen_random_bytes(32), 'hex'))
 ON CONFLICT (key) DO NOTHING;
+
+-- ---------------------------------------------------------------------------
+-- fl_reports: somebody telling us that something published here is wrong.
+--
+-- THIS IS THE OBLIGATORY HALF. Comments are post-moderated, which EU hosting
+-- law allows -- the safe harbour (DSA art. 6) turns on acting expeditiously
+-- once you have actual knowledge, not on reading everything first. What it
+-- does NOT make optional is art. 16: a hosting service must offer a way for
+-- anyone to notify it of illegal content, and that duty has no
+-- micro-enterprise exemption. Without this, "we take it down when told" has
+-- no channel to be told through.
+--
+-- NOT IN fl_events, and that is the distinction the whole log rests on.
+-- fl_events holds what somebody PUBLISHED: rows every phone replicates,
+-- because they are things other visitors need. A report is addressed to us,
+-- it names a person, and it must reach nobody else -- publishing "this
+-- comment was reported" would hand every device a way to smear a
+-- contribution with no decision behind it.
+--
+-- NO ACCOUNT REQUIRED, deliberately, and unlike commenting. Requiring
+-- somebody to sign up before they can tell you about illegal content would
+-- defeat the point of the duty; a report costs us a read and nothing else,
+-- so the worst an abuser gets is our attention.
+--
+-- `reporter` is the device id, kept so repeat reports from one device can be
+-- recognised and so a report can be withdrawn. It is never served: like
+-- every author id in this schema it is a write credential.
+CREATE TABLE IF NOT EXISTS fl_reports (
+  id         BIGSERIAL PRIMARY KEY,
+  -- What is being reported. 'comment' today; 'photo' and 'place' when they
+  -- exist, which is why this is a column and not implied by the table.
+  kind       TEXT NOT NULL,
+  -- The event being reported, when there is one.
+  target     UUID,
+  place_uuid TEXT,
+  reporter   TEXT NOT NULL,
+  -- A small fixed set, so a report can be counted and sorted rather than
+  -- only read. The free text is separate and optional.
+  reason     TEXT NOT NULL,
+  note       TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  -- When a human decided. NULL means it is still waiting, which is the only
+  -- query this table really has to answer.
+  handled_at TIMESTAMPTZ,
+  -- One report per device per target: a second tap is the same report, and
+  -- counting distinct reporters is the only thing the number is good for.
+  UNIQUE (reporter, kind, target)
+);
+CREATE INDEX IF NOT EXISTS fl_reports_open
+  ON fl_reports (created_at DESC) WHERE handled_at IS NULL;

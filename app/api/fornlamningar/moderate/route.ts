@@ -35,7 +35,12 @@ import { cleanPayload, publicAuthor } from '@/lib/fl-authors';
  */
 
 const actionSchema = z.object({
-  action: z.literal('hide'),
+  // `keep` is not a no-op: it marks the reports handled without touching the
+  // comment. Without it, the only way to get a wrongly-reported comment off
+  // the top of the page would be to delete it, which is the opposite
+  // decision. A moderation queue where "this is fine" is unrepresentable
+  // pushes you towards removing things.
+  action: z.enum(['hide', 'keep']),
   /** The comment's own event_id, which the feed below hands out. */
   event_id: z.string().uuid(),
   /** Why, for the record. Not shown to anybody yet. */
@@ -91,13 +96,30 @@ export async function GET(request: NextRequest) {
     const { rows } = await pool.query(
       `SELECT c.seq, c.event_id, c.place_uuid, c.author, c.payload,
               c.server_ts,
-              r.server_ts AS removed_at
+              r.server_ts AS removed_at,
+              rep.n AS reports,
+              rep.reasons,
+              rep.notes
          FROM fl_events c
          LEFT JOIN fl_events r
                 ON r.kind = 'comment_removed'
                AND r.payload->>'target_event_id' = c.event_id::text
+         LEFT JOIN (
+           SELECT target,
+                  count(*) AS n,
+                  string_agg(DISTINCT reason, ', ') AS reasons,
+                  string_agg(note, ' | ') FILTER (WHERE note IS NOT NULL)
+                    AS notes
+             FROM fl_reports
+            WHERE kind = 'comment' AND handled_at IS NULL
+            GROUP BY target
+         ) rep ON rep.target = c.event_id
         WHERE c.kind = 'comment'
-        ORDER BY c.seq DESC
+        -- REPORTED FIRST, then newest. The page is a feed to skim and the
+        -- reports are the only thing on it that somebody is waiting for an
+        -- answer to; leaving them in date order would mean a report from
+        -- last week sits below a hundred harmless comments from today.
+        ORDER BY (rep.n IS NOT NULL) DESC, c.seq DESC
         LIMIT $1`,
       [WINDOW]
     );
@@ -154,7 +176,21 @@ export async function POST(request: NextRequest) {
       { status: 400 }
     );
   }
-  const { event_id, note } = parsed.data;
+  const { action, event_id, note } = parsed.data;
+
+  if (action === 'keep') {
+    try {
+      const { rowCount } = await pool.query(
+        `UPDATE fl_reports SET handled_at = now()
+          WHERE kind = 'comment' AND target = $1 AND handled_at IS NULL`,
+        [event_id]
+      );
+      return NextResponse.json({ ok: true, handled: rowCount ?? 0 });
+    } catch (e) {
+      console.error('moderation keep failed', e);
+      return NextResponse.json({ error: 'server error' }, { status: 500 });
+    }
+  }
 
   try {
     const result = await tx(async c => {
@@ -207,6 +243,15 @@ export async function POST(request: NextRequest) {
           JSON.stringify({ target_event_id: event_id, note: note ?? null }),
           event_id,
         ]
+      );
+      // The reports about it are settled by the same act. Left open, they
+      // would keep a comment that has already been dealt with pinned to the
+      // top of the page -- and "still waiting" is the only thing this
+      // column is for.
+      await c.query(
+        `UPDATE fl_reports SET handled_at = now()
+          WHERE kind = 'comment' AND target = $1 AND handled_at IS NULL`,
+        [event_id]
       );
       return { status: 200 as const, already: false };
     });

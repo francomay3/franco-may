@@ -47,6 +47,9 @@ type Comment = {
   body: string;
   created_at: string;
   removed_at: string | null;
+  reports: number;
+  reasons: string | null;
+  notes: string | null;
 };
 
 type Feed = {
@@ -144,8 +147,8 @@ export default function ModerationPage() {
     })();
   }, [load]);
 
-  const hide = useCallback(
-    async (eventId: string) => {
+  const act = useCallback(
+    async (eventId: string, action: 'hide' | 'keep') => {
       setBusy(eventId);
       try {
         const token = await currentToken();
@@ -155,10 +158,10 @@ export default function ModerationPage() {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify({ action: 'hide', event_id: eventId }),
+          body: JSON.stringify({ action, event_id: eventId }),
         });
         if (!res.ok) {
-          setState({ at: 'error', message: `hide failed: ${res.status}` });
+          setState({ at: 'error', message: `${action} failed: ${res.status}` });
           return;
         }
         // Re-read rather than patch the row in place. The server decides what
@@ -279,6 +282,17 @@ export default function ModerationPage() {
             >
               <Group justify="space-between" align="flex-start" wrap="nowrap">
                 <Stack gap={2} style={{ minWidth: 0 }}>
+                  {c.reports > 0 ? (
+                    <Text size="xs" c="red" fw={600}>
+                      {c.reports} report{c.reports === 1 ? '' : 's'}:{' '}
+                      {c.reasons}
+                      {/* The reporters' own words, which are often the only
+                          thing that explains why a comment that reads fine is
+                          not -- a name, a private detail, something only
+                          somebody who knows the place would catch. */}
+                      {c.notes ? ` — ${c.notes}` : ''}
+                    </Text>
+                  ) : null}
                   <Text size="sm" style={{ whiteSpace: 'pre-wrap' }}>
                     {c.body}
                   </Text>
@@ -296,15 +310,33 @@ export default function ModerationPage() {
                     hidden
                   </Badge>
                 ) : (
-                  <Button
-                    size="xs"
-                    variant="light"
-                    color="red"
-                    loading={busy === c.event_id}
-                    onClick={() => void hide(c.event_id)}
-                  >
-                    Hide
-                  </Button>
+                  <Group gap="xs" wrap="nowrap">
+                    {/* KEEP IS NOT A NO-OP and it is offered only where it
+                        means something: it marks the reports handled without
+                        touching the comment. A queue where "this is fine"
+                        cannot be expressed pushes you towards removing
+                        things, because removing is the only way to make a
+                        report go away. */}
+                    {c.reports > 0 ? (
+                      <Button
+                        size="xs"
+                        variant="subtle"
+                        loading={busy === c.event_id}
+                        onClick={() => void act(c.event_id, 'keep')}
+                      >
+                        Keep
+                      </Button>
+                    ) : null}
+                    <Button
+                      size="xs"
+                      variant="light"
+                      color="red"
+                      loading={busy === c.event_id}
+                      onClick={() => void act(c.event_id, 'hide')}
+                    >
+                      Hide
+                    </Button>
+                  </Group>
                 )}
               </Group>
             </Card>
