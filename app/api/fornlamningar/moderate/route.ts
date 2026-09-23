@@ -34,18 +34,28 @@ import { cleanPayload, publicAuthor } from '@/lib/fl-authors';
  * to the caller.
  */
 
-const actionSchema = z.object({
-  // `keep` is not a no-op: it marks the reports handled without touching the
-  // comment. Without it, the only way to get a wrongly-reported comment off
-  // the top of the page would be to delete it, which is the opposite
-  // decision. A moderation queue where "this is fine" is unrepresentable
-  // pushes you towards removing things.
-  action: z.enum(['hide', 'keep', 'approve', 'reject']),
-  /** The comment's own event_id, which the feed below hands out. */
-  event_id: z.string().uuid(),
-  /** Why, for the record. Not shown to anybody yet. */
-  note: z.string().max(500).optional(),
-});
+const actionSchema = z
+  .object({
+    // `keep` is not a no-op: it marks the reports handled without touching the
+    // comment. Without it, the only way to get a wrongly-reported comment off
+    // the top of the page would be to delete it, which is the opposite
+    // decision. A moderation queue where "this is fine" is unrepresentable
+    // pushes you towards removing things.
+    //
+    // `accept` is keep for a comment nobody reported: it stays published and
+    // leaves this feed. A later report brings it back.
+    action: z.enum(['hide', 'keep', 'accept', 'approve', 'reject']),
+    /** The comment's own event_id, which the feed below hands out. */
+    event_id: z.string().uuid().optional(),
+    /** Accept takes several. The others still take one. */
+    event_ids: z.array(z.string().uuid()).max(200).optional(),
+    /** Why, for the record. Not shown to anybody yet. */
+    note: z.string().max(500).optional(),
+  })
+  .refine(
+    v => (v.action === 'accept' ? (v.event_ids?.length ?? 0) > 0 : !!v.event_id),
+    { message: 'missing event' }
+  );
 
 /** How many recent comments to show. Small on purpose: this is a feed to skim. */
 const WINDOW = 100;
@@ -115,6 +125,19 @@ export async function GET(request: NextRequest) {
             GROUP BY target
          ) rep ON rep.target = c.event_id
         WHERE c.kind = 'comment'
+          -- Seen and allowed comments leave the feed. An open report brings
+          -- one back, which is the only reason to look at it again. A
+          -- comment already hidden stays out too: that decision is made.
+          AND (
+            rep.n IS NOT NULL
+            OR (
+              r.server_ts IS NULL
+              AND NOT EXISTS (
+                SELECT 1 FROM fl_comment_accept a
+                 WHERE a.event_id = c.event_id
+              )
+            )
+          )
         -- REPORTED FIRST, then newest. The page is a feed to skim and the
         -- reports are the only thing on it that somebody is waiting for an
         -- answer to; leaving them in date order would mean a report from
@@ -139,6 +162,9 @@ export async function GET(request: NextRequest) {
         body: (cleanPayload(r.payload).body as string) ?? '',
         created_at: new Date(r.server_ts).toISOString(),
         removed_at: r.removed_at ? new Date(r.removed_at).toISOString() : null,
+        reports: Number(r.reports ?? 0),
+        reasons: r.reasons ?? null,
+        notes: r.notes ?? null,
       });
     }
 
@@ -190,7 +216,34 @@ export async function POST(request: NextRequest) {
       { status: 400 }
     );
   }
-  const { action, event_id, note } = parsed.data;
+  const { action, event_id, event_ids, note } = parsed.data;
+
+  if (action === 'accept') {
+    try {
+      const ids = event_ids ?? [];
+      await pool.query(
+        `INSERT INTO fl_comment_accept (event_id)
+         SELECT event_id FROM fl_events
+          WHERE kind = 'comment' AND event_id = ANY($1::uuid[])
+         ON CONFLICT DO NOTHING`,
+        [ids]
+      );
+      await pool.query(
+        `UPDATE fl_reports SET handled_at = now()
+          WHERE kind = 'comment' AND target = ANY($1::uuid[])
+            AND handled_at IS NULL`,
+        [ids]
+      );
+      return NextResponse.json({ ok: true, accepted: ids.length });
+    } catch (e) {
+      console.error('moderation accept failed', e);
+      return NextResponse.json({ error: 'server error' }, { status: 500 });
+    }
+  }
+
+  if (!event_id) {
+    return NextResponse.json({ error: 'missing event' }, { status: 400 });
+  }
 
   if (action === 'approve' || action === 'reject') {
     try {

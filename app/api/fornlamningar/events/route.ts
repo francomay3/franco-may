@@ -105,7 +105,11 @@ function photoObjectUrl(eventId: string): string {
  * That is also why `comment_delete` (the author withdrawing their own) works
  * the way it does.
  */
-const SERVER_KINDS = new Set(['author_erased', 'comment_removed']);
+const SERVER_KINDS = new Set([
+  'author_erased',
+  'comment_removed',
+  'photo_removed',
+]);
 
 /** Events per author per hour, and per IP per hour. */
 const AUTHOR_LIMIT = 200;

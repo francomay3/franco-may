@@ -1,16 +1,19 @@
 'use client';
 
 import React, { useCallback, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   Alert,
   Badge,
   Button,
   Card,
+  Checkbox,
   Code,
   Group,
   Loader,
   Stack,
   Text,
+  TextInput,
   Title,
 } from '@mantine/core';
 import {
@@ -28,7 +31,11 @@ import {
  * THE NORMAL OUTCOME OF OPENING THIS PAGE IS DOING NOTHING. Comments publish
  * immediately -- EU hosting law asks that you be reachable and act on a
  * notice, not that you read everything first -- so this is a feed to skim,
- * not a queue to clear. There is no "approve": the only button is Hide.
+ * not a queue to clear. There is no "approve".
+ *
+ * Accept means "I have seen this, leave it published, and stop showing it
+ * here." A later report brings that comment back. Hide is the one that
+ * takes it down.
  *
  * A hidden comment STAYS IN THE LIST, greyed. A moderation log where
  * decisions disappear cannot tell "nobody has looked at this" from "somebody
@@ -105,8 +112,11 @@ function explain(code: string | null): string {
 }
 
 export default function ModerationPage() {
+  const router = useRouter();
   const [state, setState] = useState<State>({ at: 'loading' });
   const [busy, setBusy] = useState<string | null>(null);
+  const [picked, setPicked] = useState<Set<string>>(new Set());
+  const [placeQuery, setPlaceQuery] = useState('');
 
   const load = useCallback(async (token: string | null) => {
     if (!token) {
@@ -178,12 +188,44 @@ export default function ModerationPage() {
         // removal -- and a local guess at the new state is a second answer
         // that can be wrong.
         await load(token);
+        setPicked(new Set());
       } finally {
         setBusy(null);
       }
     },
     [load]
   );
+
+  const acceptPicked = useCallback(async () => {
+    const ids = [...picked];
+    if (!ids.length) return;
+    setBusy('accept');
+    try {
+      const token = await currentToken();
+      const res = await fetch('/api/fornlamningar/moderate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ action: 'accept', event_ids: ids }),
+      });
+      if (!res.ok) {
+        setState({ at: 'error', message: `accept failed: ${res.status}` });
+        return;
+      }
+      setPicked(new Set());
+      await load(token);
+    } finally {
+      setBusy(null);
+    }
+  }, [picked, load]);
+
+  const openPlace = () => {
+    const q = placeQuery.trim();
+    if (!q) return;
+    router.push(`/fornlamningar/admin/${encodeURIComponent(q)}`);
+  };
 
   if (state.at === 'loading') {
     return (
@@ -275,10 +317,59 @@ export default function ModerationPage() {
         </Button>
       </Group>
 
-      <Title order={4}>Comments</Title>
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          openPlace();
+        }}
+      >
+        <Group align="flex-end" gap="xs">
+          <TextInput
+            label="Place"
+            placeholder="L1997:4707"
+            value={placeQuery}
+            onChange={e => setPlaceQuery(e.currentTarget.value)}
+            style={{ flex: 1, maxWidth: 360 }}
+          />
+          <Button type="submit" variant="light">
+            Open
+          </Button>
+        </Group>
+      </form>
+
+      <Group justify="space-between">
+        <Title order={4}>Comments</Title>
+        <Group gap="sm">
+          {comments.length > 0 ? (
+            <Checkbox
+              label="All"
+              checked={
+                comments.length > 0 &&
+                comments.every(c => picked.has(c.event_id))
+              }
+              onChange={e => {
+                setPicked(
+                  e.currentTarget.checked
+                    ? new Set(comments.map(c => c.event_id))
+                    : new Set()
+                );
+              }}
+            />
+          ) : null}
+          <Button
+            size="xs"
+            disabled={picked.size === 0}
+            loading={busy === 'accept'}
+            onClick={() => void acceptPicked()}
+          >
+            Accept
+          </Button>
+        </Group>
+      </Group>
       {comments.length === 0 ? (
         <Text c="dimmed" size="sm">
-          Nobody has commented yet.
+          Nothing waiting. Accepted comments stay published and leave this
+          list. A report brings one back.
         </Text>
       ) : (
         <Stack gap="xs">
@@ -290,7 +381,20 @@ export default function ModerationPage() {
               opacity={c.removed_at ? 0.5 : 1}
             >
               <Group justify="space-between" align="flex-start" wrap="nowrap">
-                <Stack gap={2} style={{ minWidth: 0 }}>
+                <Checkbox
+                  mt={4}
+                  checked={picked.has(c.event_id)}
+                  onChange={e => {
+                    setPicked(prev => {
+                      const next = new Set(prev);
+                      if (e.currentTarget.checked) next.add(c.event_id);
+                      else next.delete(c.event_id);
+                      return next;
+                    });
+                  }}
+                  aria-label="Select comment"
+                />
+                <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
                   {c.reports > 0 ? (
                     <Text size="xs" c="red" fw={600}>
                       {c.reports} report{c.reports === 1 ? '' : 's'}:{' '}
@@ -311,7 +415,20 @@ export default function ModerationPage() {
                         credential, and being the moderator does not change
                         what it is. Enough to see that two comments are the
                         same person. */}
-                    {c.author?.slice(0, 8) ?? 'unknown'} · {c.place_uuid}
+                    {c.author?.slice(0, 8) ?? 'unknown'} ·{' '}
+                    <Text
+                      span
+                      size="xs"
+                      c="dimmed"
+                      style={{ cursor: 'pointer', textDecoration: 'underline' }}
+                      onClick={() =>
+                        router.push(
+                          `/fornlamningar/admin/${encodeURIComponent(c.place_uuid)}`
+                        )
+                      }
+                    >
+                      {c.place_uuid}
+                    </Text>
                   </Text>
                 </Stack>
                 {c.removed_at ? (
@@ -402,6 +519,11 @@ function PendingPhotoCard({
       try {
         const { ref, getBytes } = await import('firebase/storage');
         const object = ref(await photoStorage(), PHOTO_PATH(photo.event_id));
+        // getBytes is a browser request to the bucket. The rules already
+        // allow this admin to read; what fails without storage.cors.json
+        // applied to the bucket is the browser, which drops the 200
+        // because the response has no Access-Control-Allow-Origin.
+        // Nothing in the environment supplies that header.
         const bytes = await getBytes(object);
         if (dead) return;
         objectUrl = URL.createObjectURL(

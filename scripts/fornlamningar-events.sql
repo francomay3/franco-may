@@ -183,6 +183,19 @@ CREATE TABLE IF NOT EXISTS fl_reports (
 CREATE INDEX IF NOT EXISTS fl_reports_open
   ON fl_reports (created_at DESC) WHERE handled_at IS NULL;
 
+-- Comments a moderator has accepted.
+--
+-- Accepting does not publish anything and does not hide the comment from
+-- visitors. It records that this person has seen it, so the moderation feed
+-- can stop showing it. An open report brings it back: the feed shows a
+-- comment when it has not been accepted, or when a report is still waiting.
+-- Not an event, for the same reason a report is not an event: phones have
+-- nothing to replicate. The comment was already published.
+CREATE TABLE IF NOT EXISTS fl_comment_accept (
+  event_id    UUID PRIMARY KEY,
+  accepted_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
 -- Photos waiting for a person to look at them.
 --
 -- They are NOT in fl_events yet. A photo in the public log is a photo every
