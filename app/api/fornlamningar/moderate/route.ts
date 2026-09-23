@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { isAdmin, uidOf } from '@/lib/admin';
 import { pool, tx } from '@/lib/db';
 import { cleanPayload, publicAuthor } from '@/lib/fl-authors';
+import { withdrawPhoto } from '@/lib/withdraw-photo';
 
 /**
  * The moderation surface. Read the recent comments, withdraw a bad one.
@@ -174,9 +175,14 @@ export async function GET(request: NextRequest) {
         accepted: true,
         pending: (
           await pool.query(
-            `SELECT event_id, place_uuid, payload, created_at
-               FROM fl_photo_queue
-              ORDER BY created_at ASC
+            `SELECT q.event_id, q.place_uuid, q.payload, q.created_at
+               FROM fl_photo_queue q
+              WHERE NOT EXISTS (
+                SELECT 1 FROM fl_events r
+                 WHERE r.kind = 'photo_removed'
+                   AND r.payload->>'target_event_id' = q.event_id::text
+              )
+              ORDER BY q.created_at ASC
               LIMIT $1`,
             [WINDOW]
           )
@@ -248,11 +254,10 @@ export async function POST(request: NextRequest) {
   if (action === 'approve' || action === 'reject') {
     try {
       if (action === 'reject') {
-        const { rowCount } = await pool.query(
-          'DELETE FROM fl_photo_queue WHERE event_id = $1',
-          [event_id]
-        );
-        return NextResponse.json({ ok: true, removed: rowCount ?? 0 });
+        // Same event as deleting a published photo. The queue row stays;
+        // the removal is what the photographer's phone reads.
+        await tx(c => withdrawPhoto(c, event_id));
+        return NextResponse.json({ ok: true });
       }
       const result = await tx(async c => {
         const { rows: queued } = await c.query(

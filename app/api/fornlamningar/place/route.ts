@@ -6,6 +6,7 @@ import { isAdmin } from '@/lib/admin';
 import { pool, tx } from '@/lib/db';
 import { cleanPayload, publicAuthor } from '@/lib/fl-authors';
 import { placeUuidOf } from '@/lib/lamning';
+import { withdrawPhoto } from '@/lib/withdraw-photo';
 
 /**
  * One place, for the moderator: what was published there, and the register
@@ -15,8 +16,6 @@ import { placeUuidOf } from '@/lib/lamning';
  * register number; the uuid is what the phone stores. Both resolve here.
  * See lib/lamning.ts for why those are not the same string.
  */
-
-const MODERATOR = '00000000-0000-0000-0000-000000000000';
 
 type Desc = {
   title?: string;
@@ -73,9 +72,15 @@ export async function GET(request: NextRequest) {
         [uuid]
       ),
       pool.query(
-        `SELECT event_id, payload, created_at
-           FROM fl_photo_queue WHERE place_uuid = $1
-          ORDER BY created_at`,
+        `SELECT q.event_id, q.payload, q.created_at
+           FROM fl_photo_queue q
+          WHERE q.place_uuid = $1
+            AND NOT EXISTS (
+              SELECT 1 FROM fl_events r
+               WHERE r.kind = 'photo_removed'
+                 AND r.payload->>'target_event_id' = q.event_id::text
+            )
+          ORDER BY q.created_at`,
         [uuid]
       ),
       pool.query(
@@ -157,46 +162,7 @@ export async function POST(request: NextRequest) {
   const { event_id } = parsed.data;
 
   try {
-    await tx(async c => {
-      const { rows: already } = await c.query(
-        `SELECT 1 FROM fl_events
-          WHERE kind = 'photo_removed'
-            AND payload->>'target_event_id' = $1`,
-        [event_id]
-      );
-      // Read the place before the queue row is gone. A photo that never
-      // left the queue still needs the removal: the uploader's phone has a
-      // local row under this id and will not drop it unless one arrives.
-      const { rows: place } = await c.query(
-        `SELECT place_uuid FROM fl_photo_queue WHERE event_id = $1
-         UNION ALL
-         SELECT place_uuid FROM fl_events
-          WHERE event_id = $1 AND kind = 'photo'
-         LIMIT 1`,
-        [event_id]
-      );
-      await c.query('DELETE FROM fl_photo_queue WHERE event_id = $1', [
-        event_id,
-      ]);
-      if (already.length) return;
-      const placeUuid = place[0]?.place_uuid;
-      if (!placeUuid) return;
-      const { rows: seq } = await c.query<{ v: string }>(
-        'UPDATE fl_event_seq SET v = v + 1 WHERE id = 1 RETURNING v'
-      );
-      await c.query(
-        `INSERT INTO fl_events
-           (seq, event_id, kind, place_uuid, author, payload)
-         VALUES ($1, $2, 'photo_removed', $3, $4, $5)`,
-        [
-          Number(seq[0].v),
-          crypto.randomUUID(),
-          placeUuid,
-          MODERATOR,
-          JSON.stringify({ target_event_id: event_id }),
-        ]
-      );
-    });
+    await tx(c => withdrawPhoto(c, event_id));
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error('photo delete failed', e);
