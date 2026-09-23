@@ -182,3 +182,19 @@ CREATE TABLE IF NOT EXISTS fl_reports (
 );
 CREATE INDEX IF NOT EXISTS fl_reports_open
   ON fl_reports (created_at DESC) WHERE handled_at IS NULL;
+
+-- Photos waiting for a person to look at them.
+--
+-- They are NOT in fl_events yet. A photo in the public log is a photo every
+-- phone will show, and an image has to be reviewed before that happens.
+-- Approving inserts the row into fl_events (and only then does it get a
+-- seq); rejecting deletes it here. The file itself is in Firebase Storage,
+-- not in this table.
+CREATE TABLE IF NOT EXISTS fl_photo_queue (
+  event_id   UUID        PRIMARY KEY,
+  place_uuid TEXT        NOT NULL,
+  author     TEXT        NOT NULL,
+  payload    JSONB       NOT NULL,
+  client_ts  TIMESTAMPTZ,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);

@@ -1,0 +1,45 @@
+rules_version = '2';
+
+// Visitor photos. The console copy of this file is not the source: deploy
+// it with `firebase deploy --only storage --project fornlamningar`.
+//
+// A file is private until its metadata says approved. Download URLs bypass
+// these rules, so nothing in the app or the admin page may mint one -- the
+// public address is the rules URL (.../o/photos%2F<id>.jpg?alt=media), which
+// stays a 403 until approval.
+//
+// The admin uid is the same one as lib/admin.ts. It authorises nothing by
+// itself; the request still has to carry a Firebase token for that account.
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.uid == 'vQCtnlYDZPa5uilEqDT8IVwA5V92';
+    }
+
+    match /photos/{file} {
+      allow read: if resource.metadata.approved == 'true'
+        || isAdmin()
+        || (request.auth != null
+            && request.auth.uid == resource.metadata.owner);
+
+      allow create: if request.auth != null
+        && request.auth.uid == request.resource.metadata.owner
+        && request.resource.metadata.approved == 'false'
+        && request.resource.contentType == 'image/jpeg'
+        && request.resource.size < 2 * 1024 * 1024
+        && file.matches('^[0-9a-fA-F-]{36}\\.jpg$');
+
+      // Approval flips the metadata and nothing else. The bytes stay the
+      // bytes the phone uploaded.
+      allow update: if isAdmin()
+        && request.resource.size == resource.size
+        && request.resource.contentType == resource.contentType
+        && request.resource.metadata.approved == 'true'
+        && request.resource.metadata.owner == resource.metadata.owner;
+
+      allow delete: if isAdmin();
+    }
+  }
+}

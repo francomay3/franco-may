@@ -65,17 +65,26 @@ const KINDS = new Set([
  * cost of pre-moderating text was a comment that takes hours to appear
  * because nobody was looking, which is a comment nobody writes twice.
  *
- * PHOTOS STAY, and the asymmetry is the whole point rather than an
- * inconsistency. An image carries an obligation text does not -- child sexual
- * abuse material is not a "remove it when told" regime -- so for photos the
- * window between posting and review is exactly what must not exist. They get
- * a real queue when they get built, and there is no storage for them yet
- * either.
+ * PHOTO DELETES STAY. A photo itself is accepted, but it does not enter the
+ * public log: it waits in fl_photo_queue until a person approves it. An
+ * image carries an obligation text does not -- child sexual abuse material
+ * is not a "remove it when told" regime -- so the window between posting
+ * and review is exactly what must not exist for anyone but the author.
+ * Deleting a photo is not built, and a client must not be able to assert
+ * one.
  *
  * The `reason` in the response still says which refusal a client is looking
  * at, so the app can tell "sign in" from "not built yet".
  */
-const UNMODERATED_KINDS = new Set(['photo', 'photo_delete']);
+const UNMODERATED_KINDS = new Set(['photo_delete']);
+
+const PHOTO_BUCKET = 'fornlamningar.firebasestorage.app';
+
+/** The rules URL for a photo. A download token is never part of it. */
+function photoObjectUrl(eventId: string): string {
+  const path = `photos/${eventId}.jpg`;
+  return `https://firebasestorage.googleapis.com/v0/b/${PHOTO_BUCKET}/o/${encodeURIComponent(path)}?alt=media`;
+}
 
 /**
  * Kinds only the SERVER writes, and no client may post.
@@ -334,6 +343,15 @@ export async function POST(request: NextRequest) {
   }
 
   for (const e of body.events) {
+    if (e.kind === 'photo' && e.payload.url !== photoObjectUrl(e.event_id)) {
+      return NextResponse.json(
+        {
+          error: 'a photo url has to be this bucket and this event',
+          event_id: e.event_id,
+        },
+        { status: 400 }
+      );
+    }
     if (UNMODERATED_KINDS.has(e.kind)) {
       // An account is not the missing piece here -- moderation is. See
       // UNMODERATED_KINDS.
@@ -410,18 +428,41 @@ export async function POST(request: NextRequest) {
 
   try {
     const seq = await tx(async c => {
+      // Photos wait. They are stored, the phone may drop them from its
+      // outbox, and they get a seq only when somebody approves them -- a
+      // seq is what makes every other phone download the row.
+      let last = 0;
+      const publishing = body.events.filter(e => e.kind !== 'photo');
+      for (const e of body.events) {
+        if (e.kind !== 'photo') continue;
+        await c.query(
+          `INSERT INTO fl_photo_queue
+             (event_id, place_uuid, author, payload, client_ts)
+           VALUES ($1, $2, $3, $4, $5)
+           ON CONFLICT (event_id) DO NOTHING`,
+          [
+            e.event_id,
+            e.uuid,
+            author,
+            JSON.stringify(cleanPayload(e.payload)),
+            e.client_ts ?? null,
+          ]
+        );
+      }
+      if (!publishing.length) return last;
+
       // Take the counter's row lock, then insert with the numbers it hands
       // out, all in this transaction. See scripts/fornlamningar-events.sql
       // for why this is not a bigserial.
-      const n = body.events.length;
+      const n = publishing.length;
       const { rows } = await c.query<{ v: string }>(
         'UPDATE fl_event_seq SET v = v + $1 WHERE id = 1 RETURNING v',
         [n]
       );
-      const last = Number(rows[0].v);
+      last = Number(rows[0].v);
       const first = last - n + 1;
       for (let i = 0; i < n; i++) {
-        const e = body.events[i];
+        const e = publishing[i];
         await c.query(
           `INSERT INTO fl_events
              (seq, event_id, kind, place_uuid, author, payload, client_ts, ip_hash)

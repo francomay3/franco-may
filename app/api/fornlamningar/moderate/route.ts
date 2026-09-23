@@ -40,7 +40,7 @@ const actionSchema = z.object({
   // the top of the page would be to delete it, which is the opposite
   // decision. A moderation queue where "this is fine" is unrepresentable
   // pushes you towards removing things.
-  action: z.enum(['hide', 'keep']),
+  action: z.enum(['hide', 'keep', 'approve', 'reject']),
   /** The comment's own event_id, which the feed below hands out. */
   event_id: z.string().uuid(),
   /** Why, for the record. Not shown to anybody yet. */
@@ -144,10 +144,24 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({
       comments: out,
-      // Photos are not accepted yet, so there is nothing to queue. Reported
-      // explicitly rather than left out, so the page can say "not built" and
-      // not "nothing to do", which are different facts.
-      photos: { accepted: false, pending: [] },
+      photos: {
+        accepted: true,
+        pending: (
+          await pool.query(
+            `SELECT event_id, place_uuid, payload, created_at
+               FROM fl_photo_queue
+              ORDER BY created_at ASC
+              LIMIT $1`,
+            [WINDOW]
+          )
+        ).rows.map(r => ({
+          event_id: r.event_id,
+          place_uuid: r.place_uuid,
+          width: r.payload?.width ?? null,
+          height: r.payload?.height ?? null,
+          created_at: new Date(r.created_at).toISOString(),
+        })),
+      },
     });
   } catch (e) {
     console.error('moderation read failed', e);
@@ -177,6 +191,61 @@ export async function POST(request: NextRequest) {
     );
   }
   const { action, event_id, note } = parsed.data;
+
+  if (action === 'approve' || action === 'reject') {
+    try {
+      if (action === 'reject') {
+        const { rowCount } = await pool.query(
+          'DELETE FROM fl_photo_queue WHERE event_id = $1',
+          [event_id]
+        );
+        return NextResponse.json({ ok: true, removed: rowCount ?? 0 });
+      }
+      const result = await tx(async c => {
+        const { rows: queued } = await c.query(
+          `SELECT place_uuid, author, payload, client_ts
+             FROM fl_photo_queue WHERE event_id = $1`,
+          [event_id]
+        );
+        if (!queued.length) {
+          const { rows: published } = await c.query(
+            `SELECT 1 FROM fl_events WHERE event_id = $1 AND kind = 'photo'`,
+            [event_id]
+          );
+          return { status: published.length ? 200 : 404, already: true };
+        }
+        const row = queued[0];
+        const { rows: seq } = await c.query<{ v: string }>(
+          'UPDATE fl_event_seq SET v = v + 1 WHERE id = 1 RETURNING v'
+        );
+        await c.query(
+          `INSERT INTO fl_events
+             (seq, event_id, kind, place_uuid, author, payload, client_ts)
+           VALUES ($1, $2, 'photo', $3, $4, $5, $6)
+           ON CONFLICT (event_id) DO NOTHING`,
+          [
+            Number(seq[0].v),
+            event_id,
+            row.place_uuid,
+            row.author,
+            JSON.stringify(row.payload),
+            row.client_ts,
+          ]
+        );
+        await c.query('DELETE FROM fl_photo_queue WHERE event_id = $1', [
+          event_id,
+        ]);
+        return { status: 200, already: false };
+      });
+      if (result.status === 404) {
+        return NextResponse.json({ error: 'no such photo' }, { status: 404 });
+      }
+      return NextResponse.json({ ok: true, already: result.already });
+    } catch (e) {
+      console.error('photo moderation failed', e);
+      return NextResponse.json({ error: 'server error' }, { status: 500 });
+    }
+  }
 
   if (action === 'keep') {
     try {

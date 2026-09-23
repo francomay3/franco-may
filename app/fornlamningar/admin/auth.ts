@@ -43,6 +43,15 @@ async function auth(): Promise<Auth> {
   return authPromise;
 }
 
+/** The storage bucket, on the same app instance as sign-in. */
+export async function photoStorage(): Promise<
+  import('firebase/storage').FirebaseStorage
+> {
+  const a = await auth();
+  const { getStorage } = await import('firebase/storage');
+  return getStorage(a.app);
+}
+
 /**
  * Firebase's own error code, or null if this was not a Firebase error.
  *

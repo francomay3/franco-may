@@ -16,6 +16,7 @@ import {
 import {
   currentToken,
   errorCode,
+  photoStorage,
   redirectToken,
   signIn,
   signOut,
@@ -52,9 +53,17 @@ type Comment = {
   notes: string | null;
 };
 
+type PendingPhoto = {
+  event_id: string;
+  place_uuid: string;
+  width: number | null;
+  height: number | null;
+  created_at: string;
+};
+
 type Feed = {
   comments: Comment[];
-  photos: { accepted: boolean; pending: unknown[] };
+  photos: { accepted: boolean; pending: PendingPhoto[] };
 };
 
 type State =
@@ -148,7 +157,7 @@ export default function ModerationPage() {
   }, [load]);
 
   const act = useCallback(
-    async (eventId: string, action: 'hide' | 'keep') => {
+    async (eventId: string, action: 'hide' | 'keep' | 'approve' | 'reject') => {
       setBusy(eventId);
       try {
         const token = await currentToken();
@@ -347,16 +356,140 @@ export default function ModerationPage() {
       <Title order={4} mt="md">
         Photos
       </Title>
-      {/* "Not accepted yet" and "nothing to do" are different facts, and the
-          endpoint reports which one this is rather than sending an empty
-          list for both. Photos will be PRE-moderated when they exist --
-          unlike text, an image carries obligations that a take-it-down-later
-          rule does not cover. */}
-      <Text c="dimmed" size="sm">
-        {photos.accepted
-          ? `${photos.pending.length} waiting`
-          : 'Not accepted yet. When they are, they will wait here for approval before anybody else sees them.'}
-      </Text>
+      {photos.pending.length === 0 ? (
+        <Text c="dimmed" size="sm">
+          Nothing waiting. A photo stays here until you approve it, and nobody
+          else can see the file before that.
+        </Text>
+      ) : (
+        <Stack gap="xs">
+          {photos.pending.map(p => (
+            <PendingPhotoCard
+              key={p.event_id}
+              photo={p}
+              busy={busy === p.event_id}
+              onApprove={() => act(p.event_id, 'approve')}
+              onReject={() => act(p.event_id, 'reject')}
+            />
+          ))}
+        </Stack>
+      )}
     </Stack>
+  );
+}
+
+const PHOTO_PATH = (id: string) => `photos/${id}.jpg`;
+
+function PendingPhotoCard({
+  photo,
+  busy,
+  onApprove,
+  onReject,
+}: {
+  photo: PendingPhoto;
+  busy: boolean;
+  onApprove: () => Promise<void>;
+  onReject: () => Promise<void>;
+}) {
+  const [url, setUrl] = useState<string | null>(null);
+  const [missing, setMissing] = useState(false);
+  const [working, setWorking] = useState<'approve' | 'reject' | null>(null);
+
+  useEffect(() => {
+    let dead = false;
+    let objectUrl: string | null = null;
+    void (async () => {
+      try {
+        const { ref, getBytes } = await import('firebase/storage');
+        const object = ref(await photoStorage(), PHOTO_PATH(photo.event_id));
+        const bytes = await getBytes(object);
+        if (dead) return;
+        objectUrl = URL.createObjectURL(
+          new Blob([bytes], { type: 'image/jpeg' })
+        );
+        setUrl(objectUrl);
+      } catch {
+        if (!dead) setMissing(true);
+      }
+    })();
+    return () => {
+      dead = true;
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
+    };
+  }, [photo.event_id]);
+
+  const approve = async () => {
+    setWorking('approve');
+    try {
+      const { ref, getMetadata, updateMetadata } = await import(
+        'firebase/storage'
+      );
+      const object = ref(await photoStorage(), PHOTO_PATH(photo.event_id));
+      const meta = await getMetadata(object);
+      await updateMetadata(object, {
+        customMetadata: { ...meta.customMetadata, approved: 'true' },
+      });
+      await onApprove();
+    } finally {
+      setWorking(null);
+    }
+  };
+
+  const reject = async () => {
+    setWorking('reject');
+    try {
+      const { ref, deleteObject } = await import('firebase/storage');
+      const object = ref(await photoStorage(), PHOTO_PATH(photo.event_id));
+      await deleteObject(object).catch(() => undefined);
+      await onReject();
+    } finally {
+      setWorking(null);
+    }
+  };
+
+  return (
+    <Card withBorder padding="sm">
+      <Group align="flex-start" wrap="nowrap">
+        {url ? (
+          // The bytes came through the admin's own token. A public URL
+          // would be a 403, which is the point of the rule.
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={url}
+            alt=""
+            style={{ width: 120, height: 90, objectFit: 'cover' }}
+          />
+        ) : (
+          <Text size="xs" c="dimmed" w={120}>
+            {missing ? 'File missing' : 'Loading…'}
+          </Text>
+        )}
+        <Stack gap={2} style={{ flex: 1, minWidth: 0 }}>
+          <Text size="xs" c="dimmed">
+            {new Date(photo.created_at).toLocaleString('sv-SE')} ·{' '}
+            {photo.place_uuid}
+          </Text>
+          <Group gap="xs">
+            <Button
+              size="xs"
+              loading={busy || working === 'approve'}
+              disabled={missing}
+              onClick={() => void approve()}
+            >
+              Approve
+            </Button>
+            <Button
+              size="xs"
+              variant="light"
+              color="red"
+              loading={busy || working === 'reject'}
+              onClick={() => void reject()}
+            >
+              Reject
+            </Button>
+          </Group>
+        </Stack>
+      </Group>
+    </Card>
   );
 }
