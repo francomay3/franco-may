@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import './admin.css';
 
 /**
  * Its own layout, for two reasons.
@@ -24,8 +25,8 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div style={{ height: '100%', overflowY: 'auto', padding: '1.5rem' }}>
-      {children}
+    <div className="fl-admin">
+      <div className="fl-admin-inner">{children}</div>
     </div>
   );
 }

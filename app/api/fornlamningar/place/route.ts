@@ -6,6 +6,7 @@ import { isAdmin } from '@/lib/admin';
 import { pool, tx } from '@/lib/db';
 import { cleanPayload, publicAuthor } from '@/lib/fl-authors';
 import { placeUuidOf } from '@/lib/lamning';
+import { placeCoord } from '@/lib/place-coords';
 import { withdrawPhoto } from '@/lib/withdraw-photo';
 
 /**
@@ -58,6 +59,7 @@ export async function GET(request: NextRequest) {
   }
 
   const desc = description(uuid);
+  const coord = placeCoord(uuid);
   const [{ rows: comments }, { rows: pending }, { rows: published }] =
     await Promise.all([
       pool.query(
@@ -126,6 +128,8 @@ export async function GET(request: NextRequest) {
     title: desc?.title ?? null,
     content: desc?.content ?? null,
     fornsok: `https://app.raa.se/open/fornsok/lamning/${uuid}`,
+    lon: coord?.[0] ?? null,
+    lat: coord?.[1] ?? null,
     sources: (desc?.images ?? []).map(img => ({
       file: img.f ?? '',
       by: img.by ?? null,

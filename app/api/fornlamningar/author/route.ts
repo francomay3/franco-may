@@ -1,126 +1,245 @@
+import { readFileSync } from 'fs';
+import { join } from 'path';
 import { NextRequest, NextResponse } from 'next/server';
-import { z } from 'zod';
-import { tx } from '@/lib/db';
+import { isAdmin } from '@/lib/admin';
+import { pool } from '@/lib/db';
+import { cleanPayload, publicAuthor } from '@/lib/fl-authors';
 
 /**
- * DELETE everything an author has published. The server half of "Glöm mig".
+ * One contributor, for the moderator.
  *
- * WHY THIS EXISTS AT ALL, given that the log is append-only. Append-only is a
- * rule about how the app treats facts, not a promise to a person that their
- * contributions are permanent whether they like it or not. Deleting the local
- * copy while the published rows stay is the worst of the three outcomes: it
- * looks like erasure and is not one, and afterwards nobody can even find the
- * rows again -- the device id was the only handle on them, and it has just
- * been thrown away. So this is called BEFORE the phone discards its id, and
- * the phone does not wipe itself unless this succeeded.
+ * The id in the query is the pseudonym the comment list already shows, not
+ * the author id. That value is a write credential -- see publicAuthor -- so
+ * this route resolves the pseudonym back to the rows and never sends the
+ * credential out again. A short prefix is accepted when only one person
+ * matches, because the list prints eight characters.
  *
- * AUTHORISATION IS THE ID ITSELF, and that is the same trust model the writes
- * already use: a device id is 122 bits of randomness, it is a bearer secret,
- * and whoever holds it can already publish as this author. Being able to
- * delete as them is more destructive, but it is not a wider door -- and the
- * header, never a query string, for the reason the POST route explains.
- *
- * THIS DEVICE ONLY, even for a signed-in person with two phones. The link
- * table could be followed to find the other device and erase it too, and for
- * a strict reading of erasure it probably should be. It deliberately is not
- * yet: one device's secret would then destroy data written on another, and
- * the dialog that triggers this is standing on one phone and can honestly
- * promise only what that phone did. The other phone has the same button.
- *
- * The link row goes with the events. Leaving it would keep a mapping from a
- * discarded device id to a live account, which is a record of the person we
- * were asked to forget.
- *
- * AND A DELETION IS AN EVENT, which is the part this route got wrong for a
- * while. `DELETE FROM fl_events` removes the rows from the server and tells
- * NOBODY: the log is append-only for its readers, so every phone that had
- * already synced still holds the erased author's ratings in its own SQLite,
- * with its cursor far past them -- and those ratings went on counting in
- * everybody else's average for ever. That is worse than having no button,
- * because it looks like erasure and is not one.
- *
- * So the erasure is published first, as `author_erased`, and the physical
- * delete follows. `applyRemote` in the app deletes every local row by that
- * author when it sees one. scripts/fornlamningar-events.sql said this all
- * along -- a retraction is an event -- and this endpoint was the one place
- * that skipped its own rule.
- *
- * THE TOMBSTONE KEEPS THE AUTHOR ID, and that is deliberate rather than an
- * oversight in an erasure route. It is the only field it has, and it is what
- * lets the read path derive the same pseudonym the other phones filed those
- * rows under -- without it the event names nobody and deletes nothing. The
- * id itself is a random 122 bits that the phone discards in the next step,
- * so what survives is a handle to no device, no account and no rows.
+ * What comes back is what that person has said and where. Comments and
+ * photos are the things they published. Places are the ones they answered
+ * about: a confirmed visit, a rating, or a sign. A "no" with no visit is
+ * not a place they went to and is left out.
  */
 
-const uuid = z.string().uuid();
+type Desc = { title?: string };
 
-export async function DELETE(request: NextRequest) {
-  const id = request.headers.get('x-author-id');
-  const author = id && uuid.safeParse(id).success ? id : null;
-  if (!author) {
-    return NextResponse.json(
-      { error: 'missing or malformed X-Author-Id' },
-      { status: 401 }
-    );
+const shards = new Map<string, Record<string, Desc>>();
+
+function placeTitle(uuid: string): string | null {
+  const shard = uuid.slice(0, 2).toLowerCase();
+  let bag = shards.get(shard);
+  if (!bag) {
+    try {
+      bag = JSON.parse(
+        readFileSync(
+          join(process.cwd(), 'public', 'descriptions', `${shard}.json`),
+          'utf8'
+        )
+      ) as Record<string, Desc>;
+    } catch {
+      bag = {};
+    }
+    shards.set(shard, bag);
+  }
+  return bag[uuid]?.title ?? null;
+}
+
+const HEX = /^[0-9a-f]{8,32}$/i;
+
+async function resolveAuthors(pub: string): Promise<string[] | null> {
+  const { rows } = await pool.query<{ author: string }>(
+    `SELECT DISTINCT author FROM fl_events
+     UNION
+     SELECT DISTINCT author FROM fl_photo_queue`
+  );
+  const want = pub.toLowerCase();
+  const hits: string[] = [];
+  for (const row of rows) {
+    const hash = await publicAuthor(row.author);
+    if (!hash) return null;
+    if (hash === want || (want.length < 32 && hash.startsWith(want))) {
+      hits.push(row.author);
+    }
+  }
+  return hits;
+}
+
+export async function GET(request: NextRequest) {
+  if (!(await isAdmin(request))) {
+    return NextResponse.json({ error: 'not found' }, { status: 404 });
+  }
+  const id = request.nextUrl.searchParams.get('id')?.trim() ?? '';
+  if (!HEX.test(id)) {
+    return NextResponse.json({ error: 'bad id' }, { status: 400 });
   }
 
-  // ONE TRANSACTION, which is a change from the three independent statements
-  // this used to run. The reasoning then was that a half-done erasure beats a
-  // refused one. That holds while the steps are only deletions; it stops
-  // holding the moment one of them is a PUBLICATION. Deleting the rows
-  // without publishing the tombstone leaves the other phones holding data
-  // nobody can ask about again, and publishing without deleting leaves the
-  // server serving rows it has announced as withdrawn. Either half alone is
-  // worse than a retry.
-  // AND THE DELETE COMES FIRST, WHICH IS ALSO THE AUTHORISATION.
-  //
-  // This route does NOT require the caller to be signed in, unlike the POST
-  // of events -- an unlinked device has published nothing under the new rule,
-  // but it still has a local database, and a "forget me" it cannot complete
-  // is worse than the bug this route was fixing: the app does not wipe itself
-  // unless the server succeeded, so a 403 here would mean an anonymous person
-  // can never be forgotten at all.
-  //
-  // That leaves one hole -- anybody could mint a uuid and make us write a
-  // tombstone for an author with no rows. Closed by ORDER rather than by a
-  // permission: delete first, and publish only if something was actually
-  // deleted. An author with nothing to erase produces no event, so there is
-  // nothing to spam the log with, and the tombstone never announces a
-  // withdrawal that withdraws nothing.
-  const deleted = await tx(async c => {
-    // `place_uuid = '*'` on the tombstone below because there is no place. No
-    // constraint requires it; an explicit marker is easier to read in a table
-    // dump than an empty string, and impossible to confuse with a uuid.
-    const gone = await c.query(
-      "DELETE FROM fl_events WHERE author = $1 AND kind <> 'author_erased'",
+  let authors: string[] | null;
+  try {
+    authors = await resolveAuthors(id);
+  } catch (e) {
+    console.error('author lookup failed', e);
+    return NextResponse.json({ error: 'server error' }, { status: 500 });
+  }
+  if (authors === null) {
+    return NextResponse.json({ error: 'server error' }, { status: 500 });
+  }
+  if (authors.length !== 1) {
+    return NextResponse.json(
+      { error: authors.length ? 'ambiguous' : 'not found' },
+      { status: authors.length ? 409 : 404 }
+    );
+  }
+  const author = authors[0];
+  const shown = await publicAuthor(author);
+  if (!shown) {
+    return NextResponse.json({ error: 'server error' }, { status: 500 });
+  }
+
+  try {
+    const [
+      { rows: comments },
+      { rows: photos },
+      { rows: queued },
+      { rows: answers },
+    ] = await Promise.all([
+      pool.query(
+        `SELECT c.event_id, c.place_uuid, c.payload, c.server_ts,
+                  r.server_ts AS removed_at
+             FROM fl_events c
+             LEFT JOIN fl_events r
+                    ON r.kind = 'comment_removed'
+                   AND r.payload->>'target_event_id' = c.event_id::text
+            WHERE c.author = $1 AND c.kind = 'comment'
+            ORDER BY c.seq DESC
+            LIMIT 80`,
+        [author]
+      ),
+      pool.query(
+        `SELECT e.event_id, e.place_uuid, e.server_ts
+             FROM fl_events e
+            WHERE e.author = $1 AND e.kind = 'photo'
+              AND NOT EXISTS (
+                SELECT 1 FROM fl_events r
+                 WHERE r.kind = 'photo_removed'
+                   AND r.payload->>'target_event_id' = e.event_id::text
+              )
+            ORDER BY e.seq DESC`,
+        [author]
+      ),
+      pool.query(
+        `SELECT q.event_id, q.place_uuid, q.created_at
+             FROM fl_photo_queue q
+            WHERE q.author = $1
+              AND NOT EXISTS (
+                SELECT 1 FROM fl_events r
+                 WHERE r.kind = 'photo_removed'
+                   AND r.payload->>'target_event_id' = q.event_id::text
+              )
+            ORDER BY q.created_at DESC`,
+        [author]
+      ),
+      pool.query(
+        `SELECT DISTINCT ON (place_uuid, kind)
+                  kind, place_uuid, payload, server_ts
+             FROM fl_events
+            WHERE author = $1
+              AND kind IN ('presence', 'visit', 'rating', 'sign')
+            ORDER BY place_uuid, kind, seq DESC`,
+        [author]
+      ),
+    ]);
+
+    const { rows: commentCount } = await pool.query<{ n: string }>(
+      `SELECT count(*)::int AS n FROM fl_events
+        WHERE author = $1 AND kind = 'comment'`,
       [author]
     );
-    const count = gone.rowCount ?? 0;
 
-    if (count > 0) {
-      // The counter's row lock and the number it hands out, exactly as the
-      // POST of events does it. See scripts/fornlamningar-events.sql for why
-      // this is not a bigserial.
-      const { rows } = await c.query<{ v: string }>(
-        'UPDATE fl_event_seq SET v = v + 1 WHERE id = 1 RETURNING v',
-        []
-      );
-      await c.query(
-        `INSERT INTO fl_events
-           (seq, event_id, kind, place_uuid, author, payload)
-         VALUES ($1, $2, 'author_erased', '*', $3, '{}'::jsonb)`,
-        [Number(rows[0].v), crypto.randomUUID(), author]
-      );
+    type Place = {
+      place_uuid: string;
+      title: string | null;
+      been: boolean | null;
+      stars: number | null;
+      not_found: boolean;
+      sign: string | null;
+      last_at: string;
+    };
+    const places = new Map<string, Place>();
+    const touch = (uuid: string, at: Date) => {
+      let row = places.get(uuid);
+      if (!row) {
+        row = {
+          place_uuid: uuid,
+          title: placeTitle(uuid),
+          been: null,
+          stars: null,
+          not_found: false,
+          sign: null,
+          last_at: at.toISOString(),
+        };
+        places.set(uuid, row);
+      }
+      if (at.toISOString() > row.last_at) row.last_at = at.toISOString();
+      return row;
+    };
+
+    for (const r of answers) {
+      const at = new Date(r.server_ts);
+      const payload = cleanPayload(r.payload);
+      if (r.kind === 'visit') {
+        touch(r.place_uuid, at).been = true;
+      } else if (r.kind === 'presence') {
+        const row = touch(r.place_uuid, at);
+        if (payload.been === true) row.been = true;
+        else if (payload.been === false && row.been !== true) row.been = false;
+      } else if (r.kind === 'rating') {
+        const row = touch(r.place_uuid, at);
+        if (payload.not_found === true) row.not_found = true;
+        else if (typeof payload.stars === 'number') row.stars = payload.stars;
+      } else if (r.kind === 'sign' && typeof payload.answer === 'string') {
+        touch(r.place_uuid, at).sign = payload.answer;
+      }
     }
 
-    await c.query('DELETE FROM fl_account_devices WHERE device = $1', [author]);
-    return count;
-  });
+    const placeList = [...places.values()]
+      .filter(p => p.been === true || p.stars !== null || p.not_found || p.sign)
+      .sort((a, b) => (a.last_at < b.last_at ? 1 : -1));
 
-  // The count is reported because the phone shows it: "nothing to delete" and
-  // "deleted 14 things" are different enough to be worth saying, and a person
-  // who just asked to be erased deserves to be told what happened rather than
-  // a spinner that stops.
-  return NextResponse.json({ ok: true, deleted });
+    return NextResponse.json({
+      id: shown,
+      comments: {
+        total: Number(commentCount[0]?.n ?? comments.length),
+        items: comments.map(r => ({
+          event_id: r.event_id,
+          place_uuid: r.place_uuid,
+          title: placeTitle(r.place_uuid),
+          body: (cleanPayload(r.payload).body as string) ?? '',
+          created_at: new Date(r.server_ts).toISOString(),
+          removed_at: r.removed_at
+            ? new Date(r.removed_at).toISOString()
+            : null,
+        })),
+      },
+      photos: [
+        ...queued.map(r => ({
+          event_id: r.event_id,
+          place_uuid: r.place_uuid,
+          title: placeTitle(r.place_uuid),
+          status: 'pending' as const,
+          created_at: new Date(r.created_at).toISOString(),
+        })),
+        ...photos.map(r => ({
+          event_id: r.event_id,
+          place_uuid: r.place_uuid,
+          title: placeTitle(r.place_uuid),
+          status: 'published' as const,
+          created_at: new Date(r.server_ts).toISOString(),
+        })),
+      ],
+      places: placeList.slice(0, 120),
+      places_total: placeList.length,
+    });
+  } catch (e) {
+    console.error('author read failed', e);
+    return NextResponse.json({ error: 'server error' }, { status: 500 });
+  }
 }

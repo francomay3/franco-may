@@ -3,17 +3,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import {
-  Alert,
-  Badge,
-  Button,
-  Card,
-  Group,
-  Loader,
-  Stack,
-  Text,
-  Title,
-} from '@mantine/core';
+import { Alert, Button, Group, Loader, Text } from '@mantine/core';
+import { IconArrowLeft, IconTrash } from '@tabler/icons-react';
 import {
   currentToken,
   errorCode,
@@ -22,12 +13,17 @@ import {
   signIn,
   signOut,
 } from '../auth';
+import { PlaceMap } from '../PlaceMap';
+import { ConfirmDialog, IdLink } from '../ui';
 
 /**
  * One place. The id in the path is a register number or the uuid the app
  * uses; the API resolves either. Photos can be removed from here. Comments
- * can be hidden. The description and its image credits are what was
+ * can be taken down. The description and its image credits are what was
  * published with the place, not something this page edits.
+ *
+ * "Sources" is those credited photographs, not a Wikipedia article. A place
+ * with no picture on its description has an empty list, which is most of them.
  */
 
 type Place = {
@@ -36,7 +32,14 @@ type Place = {
   title: string | null;
   content: string | null;
   fornsok: string | null;
-  sources: { file: string; by: string | null; lic: string | null; page: string | null }[];
+  lon: number | null;
+  lat: number | null;
+  sources: {
+    file: string;
+    by: string | null;
+    lic: string | null;
+    page: string | null;
+  }[];
   comments: {
     event_id: string;
     author: string | null;
@@ -53,6 +56,21 @@ type Place = {
   }[];
 };
 
+type Pending =
+  | { kind: 'comment'; id: string }
+  | { kind: 'photo'; id: string }
+  | null;
+
+function commonsThumb(file: string): string {
+  let name = file;
+  try {
+    name = decodeURIComponent(file);
+  } catch {
+    name = file;
+  }
+  return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(name)}?width=640`;
+}
+
 export default function PlaceAdminPage() {
   const params = useParams<{ featureid: string }>();
   const id = decodeURIComponent(params.featureid ?? '');
@@ -60,19 +78,23 @@ export default function PlaceAdminPage() {
   const [place, setPlace] = useState<Place | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
+  const [pending, setPending] = useState<Pending>(null);
 
-  const load = useCallback(async (t: string) => {
-    const res = await fetch(
-      `/api/fornlamningar/place?id=${encodeURIComponent(id)}`,
-      { headers: { Authorization: `Bearer ${t}` } }
-    );
-    if (!res.ok) {
-      setError(`${res.status}`);
-      return;
-    }
-    setPlace((await res.json()) as Place);
-    setError(null);
-  }, [id]);
+  const load = useCallback(
+    async (t: string) => {
+      const res = await fetch(
+        `/api/fornlamningar/place?id=${encodeURIComponent(id)}`,
+        { headers: { Authorization: `Bearer ${t}` } }
+      );
+      if (!res.ok) {
+        setError(`${res.status}`);
+        return;
+      }
+      setPlace((await res.json()) as Place);
+      setError(null);
+    },
+    [id]
+  );
 
   useEffect(() => {
     void (async () => {
@@ -102,6 +124,7 @@ export default function PlaceAdminPage() {
         setError(`hide failed: ${res.status}`);
         return;
       }
+      setPending(null);
       await load(token);
     } finally {
       setBusy(null);
@@ -127,6 +150,7 @@ export default function PlaceAdminPage() {
         setError(`delete failed: ${res.status}`);
         return;
       }
+      setPending(null);
       await load(token);
     } finally {
       setBusy(null);
@@ -144,11 +168,18 @@ export default function PlaceAdminPage() {
 
   if (!token) {
     return (
-      <Stack align="flex-start">
-        <Title order={2}>Place</Title>
-        {error ? <Alert color="red">{error}</Alert> : null}
-        <Button onClick={() => void signIn()}>Sign in with Google</Button>
-      </Stack>
+      <div>
+        <p className="fl-kicker">Place</p>
+        <h1 className="fl-title">Sign in</h1>
+        {error ? (
+          <Alert color="red" mt="md">
+            {error}
+          </Alert>
+        ) : null}
+        <Button mt="md" radius="xl" color="dark" onClick={() => void signIn()}>
+          Sign in with Google
+        </Button>
+      </div>
     );
   }
 
@@ -163,134 +194,210 @@ export default function PlaceAdminPage() {
     );
   }
 
+  const confirming = pending !== null;
+
   return (
-    <Stack maw={720}>
-      <Group justify="space-between">
-        <Title order={2}>{place.title ?? id}</Title>
-        <Button
-          variant="subtle"
-          size="xs"
+    <div>
+      <Link href="/fornlamningar/admin" className="fl-back">
+        <IconArrowLeft size={16} />
+        Moderation
+      </Link>
+      <header className="fl-top">
+        <div>
+          <p className="fl-kicker">Place</p>
+          <h1 className="fl-title">{place.title ?? id}</h1>
+          <p className="fl-sub">
+            {id}
+            {place.uuid && place.uuid !== id ? ` · ${place.uuid}` : ''}
+          </p>
+        </div>
+        <button
+          type="button"
+          className="fl-quiet"
           onClick={() => void signOut().then(() => setToken(null))}
         >
           Sign out
-        </Button>
-      </Group>
-      <Text size="sm">
-        <Link href="/fornlamningar/admin">Moderation</Link>
-        {' · '}
-        {id}
-        {place.uuid && place.uuid !== id ? ` · ${place.uuid}` : ''}
-      </Text>
+        </button>
+      </header>
+
       {!place.uuid ? (
         <Alert color="yellow">No place with that id.</Alert>
       ) : (
         <>
-          {place.fornsok ? (
-            <Text size="sm">
+          <div className="fl-links">
+            {place.fornsok ? (
               <a href={place.fornsok} target="_blank" rel="noreferrer">
                 Fornsök
               </a>
-            </Text>
-          ) : null}
+            ) : null}
+            {place.lat != null && place.lon != null ? (
+              <a
+                href={`https://www.google.com/maps?q=${place.lat},${place.lon}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Google Maps
+              </a>
+            ) : null}
+          </div>
+
+          {place.lat != null && place.lon != null ? (
+            <PlaceMap lon={place.lon} lat={place.lat} />
+          ) : (
+            <p className="fl-empty">No coordinate for this place.</p>
+          )}
+
           {place.content ? (
-            <Text size="sm" style={{ whiteSpace: 'pre-wrap' }}>
-              {place.content}
-            </Text>
+            <p className="fl-prose">{place.content}</p>
           ) : (
-            <Text size="sm" c="dimmed">
-              No description published for this place.
-            </Text>
+            <p className="fl-empty">No description published for this place.</p>
           )}
 
-          <Title order={4}>Sources</Title>
+          <div className="fl-section">
+            <h2>Photographs</h2>
+          </div>
           {place.sources.length === 0 ? (
-            <Text size="sm" c="dimmed">
-              No images on the description.
-            </Text>
+            <p className="fl-empty">
+              No credited photograph on this description. A Wikipedia article,
+              when there is one, is not listed here.
+            </p>
           ) : (
-            <Stack gap={4}>
-              {place.sources.map(s => (
-                <Text key={s.file} size="sm">
-                  {s.page ? (
-                    <a href={s.page} target="_blank" rel="noreferrer">
-                      {s.file}
-                    </a>
-                  ) : (
-                    s.file
-                  )}
-                  {s.by ? ` — ${s.by}` : ''}
-                  {s.lic ? `, ${s.lic}` : ''}
-                </Text>
-              ))}
-            </Stack>
+            <div className="fl-sources">
+              {place.sources.map(s => {
+                const card = (
+                  <>
+                    {s.file ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={commonsThumb(s.file)} alt="" />
+                    ) : null}
+                    <div>
+                      <strong>{s.file || 'Photograph'}</strong>
+                      <span>
+                        {[s.by, s.lic].filter(Boolean).join(' · ') ||
+                          'No credit'}
+                      </span>
+                    </div>
+                  </>
+                );
+                return s.page ? (
+                  <a
+                    key={s.file}
+                    className="fl-source"
+                    href={s.page}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {card}
+                  </a>
+                ) : (
+                  <div key={s.file} className="fl-source">
+                    {card}
+                  </div>
+                );
+              })}
+            </div>
           )}
 
-          <Title order={4}>Photos</Title>
+          <div className="fl-section">
+            <h2>Visitor photos</h2>
+          </div>
           {place.photos.length === 0 ? (
-            <Text size="sm" c="dimmed">
-              No visitor photos.
-            </Text>
+            <p className="fl-empty">No visitor photos.</p>
           ) : (
-            <Stack gap="xs">
+            <div className="fl-photos">
               {place.photos.map(p => (
                 <PhotoRow
                   key={p.event_id}
                   photo={p}
                   busy={busy === p.event_id}
-                  onDelete={() => void removePhoto(p.event_id)}
+                  onDelete={() => setPending({ kind: 'photo', id: p.event_id })}
                 />
               ))}
-            </Stack>
+            </div>
           )}
 
-          <Title order={4}>Comments</Title>
+          <div className="fl-section">
+            <h2>Comments</h2>
+          </div>
           {place.comments.length === 0 ? (
-            <Text size="sm" c="dimmed">
-              No comments.
-            </Text>
+            <p className="fl-empty">No comments.</p>
           ) : (
-            <Stack gap="xs">
+            <div className="fl-list">
               {place.comments.map(c => (
-                <Card
+                <article
                   key={c.event_id}
-                  withBorder
-                  padding="sm"
-                  opacity={c.removed_at ? 0.5 : 1}
+                  className={`fl-card fl-comment${c.removed_at ? ' is-hidden' : ''}`}
                 >
-                  <Group justify="space-between" align="flex-start" wrap="nowrap">
-                    <Stack gap={2} style={{ minWidth: 0 }}>
-                      <Text size="sm" style={{ whiteSpace: 'pre-wrap' }}>
-                        {c.body}
-                      </Text>
-                      <Text size="xs" c="dimmed">
-                        {new Date(c.created_at).toLocaleString('sv-SE')} ·{' '}
-                        {c.author?.slice(0, 8) ?? 'unknown'}
-                      </Text>
-                    </Stack>
-                    {c.removed_at ? (
-                      <Badge color="gray" variant="light">
-                        hidden
-                      </Badge>
-                    ) : (
-                      <Button
-                        size="xs"
-                        variant="light"
-                        color="red"
-                        loading={busy === c.event_id}
-                        onClick={() => void hide(c.event_id)}
-                      >
-                        Hide
-                      </Button>
-                    )}
-                  </Group>
-                </Card>
+                  <div className="fl-comment-main">
+                    <p className="fl-body">{c.body}</p>
+                    <div className="fl-meta">
+                      <span>
+                        {new Date(c.created_at).toLocaleString('sv-SE')}
+                      </span>
+                      {c.author ? (
+                        <IdLink
+                          kind="User"
+                          id={c.author}
+                          href={`/fornlamningar/admin/user/${c.author}`}
+                        />
+                      ) : (
+                        <span>User unknown</span>
+                      )}
+                      <span className="fl-actions">
+                        {c.removed_at ? (
+                          <span className="fl-pill">Hidden</span>
+                        ) : (
+                          <button
+                            type="button"
+                            className="fl-icon"
+                            aria-label="Take this comment down"
+                            disabled={busy === c.event_id}
+                            onClick={() =>
+                              setPending({ kind: 'comment', id: c.event_id })
+                            }
+                          >
+                            <IconTrash size={18} />
+                          </button>
+                        )}
+                      </span>
+                    </div>
+                  </div>
+                </article>
               ))}
-            </Stack>
+            </div>
           )}
         </>
       )}
-      {error ? <Alert color="red">{error}</Alert> : null}
-    </Stack>
+      {error ? (
+        <Alert color="red" mt="md">
+          {error}
+        </Alert>
+      ) : null}
+
+      <ConfirmDialog
+        opened={confirming}
+        title={
+          pending?.kind === 'photo'
+            ? 'Delete this photo?'
+            : 'Take this comment down?'
+        }
+        body={
+          pending?.kind === 'photo'
+            ? 'It is removed from the place and from the phone that uploaded it. The file in storage goes too.'
+            : 'Visitors stop seeing it, including on the phone that wrote it. It stays on this page, marked hidden.'
+        }
+        confirmLabel={pending?.kind === 'photo' ? 'Delete' : 'Take down'}
+        busy={busy !== null}
+        onClose={() => {
+          if (!busy) setPending(null);
+        }}
+        onConfirm={() => {
+          if (!pending) return;
+          if (pending.kind === 'photo') void removePhoto(pending.id);
+          else void hide(pending.id);
+        }}
+      />
+    </div>
   );
 }
 
@@ -311,10 +418,15 @@ function PhotoRow({
     void (async () => {
       try {
         const { ref, getBytes } = await import('firebase/storage');
-        const object = ref(await photoStorage(), `photos/${photo.event_id}.jpg`);
+        const object = ref(
+          await photoStorage(),
+          `photos/${photo.event_id}.jpg`
+        );
         const bytes = await getBytes(object);
         if (dead) return;
-        objectUrl = URL.createObjectURL(new Blob([bytes], { type: 'image/jpeg' }));
+        objectUrl = URL.createObjectURL(
+          new Blob([bytes], { type: 'image/jpeg' })
+        );
         setUrl(objectUrl);
       } catch {
         if (!dead) setUrl(null);
@@ -327,38 +439,34 @@ function PhotoRow({
   }, [photo.event_id]);
 
   return (
-    <Card withBorder padding="sm">
-      <Group align="flex-start" wrap="nowrap">
-        {url ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={url}
-            alt=""
-            style={{ width: 120, height: 90, objectFit: 'cover' }}
-          />
-        ) : (
-          <Text size="xs" c="dimmed" w={120}>
-            No file
-          </Text>
-        )}
-        <Stack gap={2}>
-          <Badge variant="light" w="fit-content">
-            {photo.status}
-          </Badge>
-          <Text size="xs" c="dimmed">
-            {new Date(photo.created_at).toLocaleString('sv-SE')}
-          </Text>
-          <Button
-            size="xs"
-            color="red"
-            variant="light"
-            loading={busy}
-            onClick={onDelete}
+    <article className="fl-photo">
+      {url ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={url} alt="" />
+      ) : (
+        <div className="fl-photo-missing">No file</div>
+      )}
+      <footer>
+        <div>
+          <span
+            className={`fl-pill${photo.status === 'published' ? ' is-ok' : ''}`}
           >
-            Delete
-          </Button>
-        </Stack>
-      </Group>
-    </Card>
+            {photo.status}
+          </span>
+          <div className="fl-count">
+            {new Date(photo.created_at).toLocaleString('sv-SE')}
+          </div>
+        </div>
+        <button
+          type="button"
+          className="fl-icon"
+          aria-label="Delete photo"
+          disabled={busy}
+          onClick={onDelete}
+        >
+          <IconTrash size={18} />
+        </button>
+      </footer>
+    </article>
   );
 }

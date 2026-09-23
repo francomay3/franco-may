@@ -169,8 +169,36 @@ export async function GET(request: NextRequest) {
       });
     }
 
+    // The page only shows a window. Without the total, accepting that window
+    // refills it with the next comments and looks like the click did nothing.
+    const { rows: waitingRows } = await pool.query(
+      `SELECT count(*)::int AS n
+         FROM fl_events c
+         LEFT JOIN fl_events r
+                ON r.kind = 'comment_removed'
+               AND r.payload->>'target_event_id' = c.event_id::text
+         LEFT JOIN (
+           SELECT target, count(*) AS n
+             FROM fl_reports
+            WHERE kind = 'comment' AND handled_at IS NULL
+            GROUP BY target
+         ) rep ON rep.target = c.event_id
+        WHERE c.kind = 'comment'
+          AND (
+            rep.n IS NOT NULL
+            OR (
+              r.server_ts IS NULL
+              AND NOT EXISTS (
+                SELECT 1 FROM fl_comment_accept a
+                 WHERE a.event_id = c.event_id
+              )
+            )
+          )`
+    );
+
     return NextResponse.json({
       comments: out,
+      waiting: Number(waitingRows[0]?.n ?? out.length),
       photos: {
         accepted: true,
         pending: (

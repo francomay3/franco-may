@@ -4,18 +4,15 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import {
   Alert,
-  Badge,
   Button,
-  Card,
   Checkbox,
   Code,
   Group,
   Loader,
   Stack,
   Text,
-  TextInput,
-  Title,
 } from '@mantine/core';
+import { IconTrash } from '@tabler/icons-react';
 import {
   currentToken,
   errorCode,
@@ -24,6 +21,7 @@ import {
   signIn,
   signOut,
 } from './auth';
+import { ConfirmDialog, IdLink } from './ui';
 
 /**
  * Moderation: read what was published, hide what should not have been.
@@ -70,6 +68,8 @@ type PendingPhoto = {
 
 type Feed = {
   comments: Comment[];
+  /** Comments still in the feed, including the ones past this page. */
+  waiting?: number;
   photos: { accepted: boolean; pending: PendingPhoto[] };
 };
 
@@ -117,6 +117,8 @@ export default function ModerationPage() {
   const [busy, setBusy] = useState<string | null>(null);
   const [picked, setPicked] = useState<Set<string>>(new Set());
   const [placeQuery, setPlaceQuery] = useState('');
+  const [note, setNote] = useState<string | null>(null);
+  const [confirmHide, setConfirmHide] = useState<string | null>(null);
 
   const load = useCallback(async (token: string | null) => {
     if (!token) {
@@ -214,6 +216,10 @@ export default function ModerationPage() {
         setState({ at: 'error', message: `accept failed: ${res.status}` });
         return;
       }
+      const body = (await res.json()) as { accepted?: number };
+      setNote(
+        `Accepted ${body.accepted ?? ids.length}. They stay published and leave this list.`
+      );
       setPicked(new Set());
       await load(token);
     } finally {
@@ -252,13 +258,16 @@ export default function ModerationPage() {
     };
     return (
       <Stack align="flex-start">
-        <Title order={2}>Moderation</Title>
+        <p className="fl-kicker">Fornkoll</p>
+        <h1 className="fl-title">Moderation</h1>
         {state.signinError ? (
           <Alert color="red" title="Sign-in failed" maw={640}>
             {state.signinError}
           </Alert>
         ) : null}
-        <Button onClick={() => void start()}>Sign in with Google</Button>
+        <Button mt="md" radius="xl" color="dark" onClick={() => void start()}>
+          Sign in with Google
+        </Button>
       </Stack>
     );
   }
@@ -266,7 +275,8 @@ export default function ModerationPage() {
   if (state.at === 'not-listed') {
     return (
       <Stack align="flex-start">
-        <Title order={2}>Moderation</Title>
+        <p className="fl-kicker">Fornkoll</p>
+        <h1 className="fl-title">Moderation</h1>
         <Alert title="Signed in, but not a moderator" color="yellow">
           <Text size="sm">
             Add this uid to <Code>FL_ADMIN_UIDS</Code> in the project&apos;s
@@ -289,6 +299,8 @@ export default function ModerationPage() {
   if (state.at === 'error') {
     return (
       <Stack align="flex-start">
+        <p className="fl-kicker">Fornkoll</p>
+        <h1 className="fl-title">Moderation</h1>
         <Alert color="red" title="Could not load">
           {state.message}
         </Alert>
@@ -305,40 +317,49 @@ export default function ModerationPage() {
   const { comments, photos } = state.feed;
 
   return (
-    <Stack>
-      <Group justify="space-between">
-        <Title order={2}>Moderation</Title>
-        <Button
-          variant="subtle"
-          size="xs"
+    <div>
+      <header className="fl-top">
+        <div>
+          <p className="fl-kicker">Fornkoll</p>
+          <h1 className="fl-title">Moderation</h1>
+        </div>
+        <button
+          type="button"
+          className="fl-quiet"
           onClick={() => void signOut().then(() => load(null))}
         >
           Sign out
-        </Button>
-      </Group>
+        </button>
+      </header>
 
       <form
+        className="fl-search"
         onSubmit={e => {
           e.preventDefault();
           openPlace();
         }}
       >
-        <Group align="flex-end" gap="xs">
-          <TextInput
-            label="Place"
-            placeholder="L1997:4707"
-            value={placeQuery}
-            onChange={e => setPlaceQuery(e.currentTarget.value)}
-            style={{ flex: 1, maxWidth: 360 }}
-          />
-          <Button type="submit" variant="light">
-            Open
-          </Button>
-        </Group>
+        <input
+          aria-label="Place"
+          placeholder="Open a place, L1997:4707"
+          value={placeQuery}
+          onChange={e => setPlaceQuery(e.currentTarget.value)}
+        />
+        <Button type="submit" radius="xl" color="dark" size="sm">
+          Open
+        </Button>
       </form>
 
-      <Group justify="space-between">
-        <Title order={4}>Comments</Title>
+      <div className="fl-section">
+        <div>
+          <h2>Comments</h2>
+          <p className="fl-count">
+            {comments.length} shown
+            {typeof state.feed.waiting === 'number'
+              ? ` · ${state.feed.waiting} waiting`
+              : ''}
+          </p>
+        </div>
         <Group gap="sm">
           {comments.length > 0 ? (
             <Checkbox
@@ -348,16 +369,17 @@ export default function ModerationPage() {
                 comments.every(c => picked.has(c.event_id))
               }
               onChange={e => {
+                const on = e.currentTarget.checked;
                 setPicked(
-                  e.currentTarget.checked
-                    ? new Set(comments.map(c => c.event_id))
-                    : new Set()
+                  on ? new Set(comments.map(c => c.event_id)) : new Set()
                 );
               }}
             />
           ) : null}
           <Button
-            size="xs"
+            radius="xl"
+            color="dark"
+            size="sm"
             disabled={picked.size === 0}
             loading={busy === 'accept'}
             onClick={() => void acceptPicked()}
@@ -365,121 +387,103 @@ export default function ModerationPage() {
             Accept
           </Button>
         </Group>
-      </Group>
+      </div>
+      {note ? <p className="fl-note">{note}</p> : null}
       {comments.length === 0 ? (
-        <Text c="dimmed" size="sm">
-          Nothing waiting. Accepted comments stay published and leave this
-          list. A report brings one back.
-        </Text>
+        <p className="fl-empty">
+          Nothing waiting. Accepted comments stay published and leave this list.
+          A report brings one back.
+        </p>
       ) : (
-        <Stack gap="xs">
+        <div className="fl-list">
           {comments.map(c => (
-            <Card
+            <article
               key={c.event_id}
-              withBorder
-              padding="sm"
-              opacity={c.removed_at ? 0.5 : 1}
+              className={`fl-card fl-comment${c.removed_at ? ' is-hidden' : ''}`}
             >
-              <Group justify="space-between" align="flex-start" wrap="nowrap">
-                <Checkbox
-                  mt={4}
-                  checked={picked.has(c.event_id)}
-                  onChange={e => {
-                    setPicked(prev => {
-                      const next = new Set(prev);
-                      if (e.currentTarget.checked) next.add(c.event_id);
-                      else next.delete(c.event_id);
-                      return next;
-                    });
-                  }}
-                  aria-label="Select comment"
-                />
-                <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
-                  {c.reports > 0 ? (
-                    <Text size="xs" c="red" fw={600}>
-                      {c.reports} report{c.reports === 1 ? '' : 's'}:{' '}
-                      {c.reasons}
-                      {/* The reporters' own words, which are often the only
-                          thing that explains why a comment that reads fine is
-                          not -- a name, a private detail, something only
-                          somebody who knows the place would catch. */}
-                      {c.notes ? ` — ${c.notes}` : ''}
-                    </Text>
-                  ) : null}
-                  <Text size="sm" style={{ whiteSpace: 'pre-wrap' }}>
-                    {c.body}
-                  </Text>
-                  <Text size="xs" c="dimmed">
-                    {new Date(c.created_at).toLocaleString('sv-SE')} ·{' '}
-                    {/* The pseudonym, not the device id: that value is a write
-                        credential, and being the moderator does not change
-                        what it is. Enough to see that two comments are the
-                        same person. */}
-                    {c.author?.slice(0, 8) ?? 'unknown'} ·{' '}
-                    <Text
-                      span
-                      size="xs"
-                      c="dimmed"
-                      style={{ cursor: 'pointer', textDecoration: 'underline' }}
-                      onClick={() =>
-                        router.push(
-                          `/fornlamningar/admin/${encodeURIComponent(c.place_uuid)}`
-                        )
-                      }
-                    >
-                      {c.place_uuid}
-                    </Text>
-                  </Text>
-                </Stack>
-                {c.removed_at ? (
-                  <Badge color="gray" variant="light">
-                    hidden
-                  </Badge>
-                ) : (
-                  <Group gap="xs" wrap="nowrap">
-                    {/* KEEP IS NOT A NO-OP and it is offered only where it
-                        means something: it marks the reports handled without
-                        touching the comment. A queue where "this is fine"
-                        cannot be expressed pushes you towards removing
-                        things, because removing is the only way to make a
-                        report go away. */}
-                    {c.reports > 0 ? (
-                      <Button
-                        size="xs"
-                        variant="subtle"
-                        loading={busy === c.event_id}
-                        onClick={() => void act(c.event_id, 'keep')}
-                      >
-                        Keep
-                      </Button>
-                    ) : null}
-                    <Button
-                      size="xs"
-                      variant="light"
-                      color="red"
-                      loading={busy === c.event_id}
-                      onClick={() => void act(c.event_id, 'hide')}
-                    >
-                      Hide
-                    </Button>
-                  </Group>
-                )}
-              </Group>
-            </Card>
+              <Checkbox
+                mt={4}
+                checked={picked.has(c.event_id)}
+                onChange={e => {
+                  const on = e.currentTarget.checked;
+                  setPicked(prev => {
+                    const next = new Set(prev);
+                    if (on) next.add(c.event_id);
+                    else next.delete(c.event_id);
+                    return next;
+                  });
+                }}
+                aria-label="Select comment"
+              />
+              <div className="fl-comment-main">
+                {c.reports > 0 ? (
+                  <p className="fl-report">
+                    {c.reports} report{c.reports === 1 ? '' : 's'}: {c.reasons}
+                    {c.notes ? ` — ${c.notes}` : ''}
+                  </p>
+                ) : null}
+                <p className="fl-body">{c.body}</p>
+                <div className="fl-meta">
+                  <span>{new Date(c.created_at).toLocaleString('sv-SE')}</span>
+                  {c.author ? (
+                    <IdLink
+                      kind="User"
+                      id={c.author}
+                      href={`/fornlamningar/admin/user/${c.author}`}
+                    />
+                  ) : (
+                    <span>User unknown</span>
+                  )}
+                  <IdLink
+                    kind="Place"
+                    id={c.place_uuid}
+                    href={`/fornlamningar/admin/${encodeURIComponent(c.place_uuid)}`}
+                  />
+                  <span className="fl-actions">
+                    {c.removed_at ? (
+                      <span className="fl-pill">Hidden</span>
+                    ) : (
+                      <>
+                        {c.reports > 0 ? (
+                          <Button
+                            size="xs"
+                            variant="subtle"
+                            radius="xl"
+                            loading={busy === c.event_id}
+                            onClick={() => void act(c.event_id, 'keep')}
+                          >
+                            Keep
+                          </Button>
+                        ) : null}
+                        <button
+                          type="button"
+                          className="fl-icon"
+                          aria-label="Take this comment down"
+                          disabled={busy === c.event_id}
+                          onClick={() => setConfirmHide(c.event_id)}
+                        >
+                          <IconTrash size={18} />
+                        </button>
+                      </>
+                    )}
+                  </span>
+                </div>
+              </div>
+            </article>
           ))}
-        </Stack>
+        </div>
       )}
 
-      <Title order={4} mt="md">
-        Photos
-      </Title>
+      <div className="fl-section">
+        <h2>Photos</h2>
+      </div>
       {photos.pending.length === 0 ? (
-        <Text c="dimmed" size="sm">
+        <p className="fl-empty">
           Nothing waiting. A photo stays here until you approve it, and nobody
           else can see the file before that.
-        </Text>
+        </p>
       ) : (
-        <Stack gap="xs">
+        <div className="fl-photos">
           {photos.pending.map(p => (
             <PendingPhotoCard
               key={p.event_id}
@@ -487,11 +491,31 @@ export default function ModerationPage() {
               busy={busy === p.event_id}
               onApprove={() => act(p.event_id, 'approve')}
               onReject={() => act(p.event_id, 'reject')}
+              onOpen={() =>
+                router.push(
+                  `/fornlamningar/admin/${encodeURIComponent(p.place_uuid)}`
+                )
+              }
             />
           ))}
-        </Stack>
+        </div>
       )}
-    </Stack>
+
+      <ConfirmDialog
+        opened={confirmHide !== null}
+        title="Take this comment down?"
+        body="Visitors stop seeing it, including on the phone that wrote it. It stays on the place page, marked hidden."
+        confirmLabel="Take down"
+        busy={busy !== null && busy === confirmHide}
+        onClose={() => {
+          if (busy !== confirmHide) setConfirmHide(null);
+        }}
+        onConfirm={() => {
+          if (!confirmHide) return;
+          void act(confirmHide, 'hide').then(() => setConfirmHide(null));
+        }}
+      />
+    </div>
   );
 }
 
@@ -502,15 +526,18 @@ function PendingPhotoCard({
   busy,
   onApprove,
   onReject,
+  onOpen,
 }: {
   photo: PendingPhoto;
   busy: boolean;
   onApprove: () => Promise<void>;
   onReject: () => Promise<void>;
+  onOpen: () => void;
 }) {
   const [url, setUrl] = useState<string | null>(null);
   const [missing, setMissing] = useState(false);
   const [working, setWorking] = useState<'approve' | 'reject' | null>(null);
+  const [confirm, setConfirm] = useState(false);
 
   useEffect(() => {
     let dead = false;
@@ -570,48 +597,66 @@ function PendingPhotoCard({
   };
 
   return (
-    <Card withBorder padding="sm">
-      <Group align="flex-start" wrap="nowrap">
-        {url ? (
-          // The bytes came through the admin's own token. A public URL
-          // would be a 403, which is the point of the rule.
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={url}
-            alt=""
-            style={{ width: 120, height: 90, objectFit: 'cover' }}
-          />
-        ) : (
-          <Text size="xs" c="dimmed" w={120}>
-            {missing ? 'File missing' : 'Loading…'}
-          </Text>
-        )}
-        <Stack gap={2} style={{ flex: 1, minWidth: 0 }}>
-          <Text size="xs" c="dimmed">
-            {new Date(photo.created_at).toLocaleString('sv-SE')} ·{' '}
-            {photo.place_uuid}
-          </Text>
-          <Group gap="xs">
-            <Button
-              size="xs"
-              loading={busy || working === 'approve'}
-              disabled={missing}
-              onClick={() => void approve()}
-            >
-              Approve
-            </Button>
-            <Button
-              size="xs"
-              variant="light"
-              color="red"
-              loading={busy || working === 'reject'}
-              onClick={() => void reject()}
-            >
-              Reject
-            </Button>
-          </Group>
-        </Stack>
-      </Group>
-    </Card>
+    <article className="fl-photo">
+      {url ? (
+        // The bytes came through the admin's own token. A public URL
+        // would be a 403, which is the point of the rule.
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={url} alt="" />
+      ) : (
+        <div className="fl-photo-missing">
+          {missing ? 'File missing' : 'Loading…'}
+        </div>
+      )}
+      <footer>
+        <div>
+          <button
+            type="button"
+            className="fl-quiet"
+            style={{ padding: 0 }}
+            onClick={onOpen}
+          >
+            Open place
+          </button>
+          <div className="fl-count">
+            {new Date(photo.created_at).toLocaleString('sv-SE')}
+          </div>
+        </div>
+        <Group gap={6}>
+          <Button
+            size="xs"
+            radius="xl"
+            color="dark"
+            loading={busy || working === 'approve'}
+            disabled={missing}
+            onClick={() => void approve()}
+          >
+            Approve
+          </Button>
+          <button
+            type="button"
+            className="fl-icon"
+            aria-label="Reject photo"
+            disabled={busy || working === 'reject'}
+            onClick={() => setConfirm(true)}
+          >
+            <IconTrash size={18} />
+          </button>
+        </Group>
+      </footer>
+      <ConfirmDialog
+        opened={confirm}
+        title="Reject this photo?"
+        body="It will not be published. The file is deleted, and the phone that uploaded it drops the photo on the next sync."
+        confirmLabel="Reject"
+        busy={working === 'reject'}
+        onClose={() => {
+          if (working !== 'reject') setConfirm(false);
+        }}
+        onConfirm={() => {
+          void reject().finally(() => setConfirm(false));
+        }}
+      />
+    </article>
   );
 }
