@@ -15,6 +15,7 @@ import {
 } from '../auth';
 import { PlaceMap } from '../PlaceMap';
 import { ConfirmDialog, IdLink } from '../ui';
+import DescriptionText from '../../DescriptionText';
 
 /**
  * One place. The id in the path is a register number or the uuid the app
@@ -286,7 +287,7 @@ export default function PlaceAdminPage() {
           )}
 
           {place.content ? (
-            <p className="fl-prose">{place.content}</p>
+            <DescriptionText className="fl-prose" content={place.content} />
           ) : (
             <p className="fl-empty">No description published for this place.</p>
           )}
