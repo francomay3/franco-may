@@ -545,10 +545,16 @@ export async function GET(request: NextRequest) {
     // The caller's own events are dropped HERE and not on the phone, so a
     // device does not re-download everything it wrote itself, on every
     // device the account owns, forever.
+    //
+    // ONLY THE ONES IT POSTED. A row the phone sent carries client_ts; a
+    // row written into the table directly under this device's id -- an
+    // import -- does not, and that phone has never seen it. Dropping those
+    // too hid 1,606 ratings and 1,461 comments from the only person they
+    // belong to.
     const { rows } = await pool.query(
       `SELECT seq, event_id, kind, place_uuid, author, payload, server_ts
        FROM fl_events
-       WHERE seq > $1 AND author <> $2
+       WHERE seq > $1 AND (author <> $2 OR client_ts IS NULL)
        ORDER BY seq
        LIMIT $3`,
       [since, author, limit]

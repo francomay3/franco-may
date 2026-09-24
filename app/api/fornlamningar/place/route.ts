@@ -60,8 +60,12 @@ export async function GET(request: NextRequest) {
 
   const desc = description(uuid);
   const coord = placeCoord(uuid);
-  const [{ rows: comments }, { rows: pending }, { rows: published }] =
-    await Promise.all([
+  const [
+    { rows: comments },
+    { rows: pending },
+    { rows: published },
+    { rows: texts },
+  ] = await Promise.all([
       pool.query(
         `SELECT c.event_id, c.author, c.payload, c.server_ts,
                 r.server_ts AS removed_at
@@ -97,6 +101,14 @@ export async function GET(request: NextRequest) {
           ORDER BY e.seq`,
         [uuid]
       ),
+      pool.query(
+        `SELECT source_id, kind, lang, title, body, author, publisher,
+                licence, url, trust, used, fetched_at
+           FROM fl_sources
+          WHERE place_uuid = $1
+          ORDER BY used DESC, trust DESC NULLS LAST, source_id`,
+        [uuid]
+      ),
     ]);
 
   const commentOut = [];
@@ -130,6 +142,20 @@ export async function GET(request: NextRequest) {
     fornsok: `https://app.raa.se/open/fornsok/lamning/${uuid}`,
     lon: coord?.[0] ?? null,
     lat: coord?.[1] ?? null,
+    texts: texts.map(r => ({
+      source_id: Number(r.source_id),
+      kind: r.kind,
+      lang: r.lang,
+      title: r.title,
+      body: r.body,
+      author: r.author,
+      publisher: r.publisher,
+      licence: r.licence,
+      url: r.url,
+      trust: r.trust,
+      used: r.used,
+      fetched_at: r.fetched_at,
+    })),
     sources: (desc?.images ?? []).map(img => ({
       file: img.f ?? '',
       by: img.by ?? null,

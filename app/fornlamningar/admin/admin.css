@@ -360,6 +360,49 @@
   white-space: pre-wrap;
 }
 
+.fl-text-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.fl-text-head strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.fl-text-body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.fl-text-body.is-clipped {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fl-text-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.fl-text-foot span {
+  flex: 1;
+  min-width: 0;
+}
+
 .fl-sources {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));

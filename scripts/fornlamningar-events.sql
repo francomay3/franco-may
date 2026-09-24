@@ -211,3 +211,38 @@ CREATE TABLE IF NOT EXISTS fl_photo_queue (
   client_ts  TIMESTAMPTZ,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+-- What each published description was written from.
+--
+-- A copy of the pipeline's `sources` table in places.sqlite, cut to the
+-- places a release carries, so a moderator looking at a bad description can
+-- see what the model was given without the laptop that built it. The
+-- pipeline is the owner; this is replaced wholesale by
+-- scripts/load-fl-sources.cjs and nothing here writes to it.
+--
+-- Keyed by (place_uuid, source_id) and not by source_id: a source belongs to
+-- a cluster, and `place_uuid` is the uuid the release published the cluster
+-- under, which is the id the admin page and the phone both have.
+--
+-- `used` is the pipeline's generation_sources: the rows that went into the
+-- Swedish prompt. A source that is here and not used is one the payload
+-- trimmed, which is itself worth seeing.
+CREATE TABLE IF NOT EXISTS fl_sources (
+  place_uuid  TEXT    NOT NULL,
+  source_id   BIGINT  NOT NULL,
+  cluster_id  TEXT    NOT NULL,
+  kind        TEXT    NOT NULL,
+  lang        TEXT,
+  title       TEXT,
+  body        TEXT    NOT NULL,
+  author      TEXT,
+  publisher   TEXT,
+  licence     TEXT,
+  licence_url TEXT,
+  url         TEXT,
+  trust       REAL,
+  used        BOOLEAN NOT NULL DEFAULT false,
+  fetched_at  TEXT,
+  generation  INTEGER NOT NULL,
+  PRIMARY KEY (place_uuid, source_id)
+);

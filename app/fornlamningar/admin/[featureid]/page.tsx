@@ -22,9 +22,26 @@ import { ConfirmDialog, IdLink } from '../ui';
  * can be taken down. The description and its image credits are what was
  * published with the place, not something this page edits.
  *
- * "Sources" is those credited photographs, not a Wikipedia article. A place
- * with no picture on its description has an empty list, which is most of them.
+ * "Sources" is every text the pipeline held for the place -- register,
+ * Wikipedia, county pages and PDFs, recorded tradition -- from fl_sources.
+ * The ones marked "used" went into the prompt. "Photographs" is the credited
+ * images, which most places have none of.
  */
+
+type SourceText = {
+  source_id: number;
+  kind: string;
+  lang: string | null;
+  title: string | null;
+  body: string;
+  author: string | null;
+  publisher: string | null;
+  licence: string | null;
+  url: string | null;
+  trust: number | null;
+  used: boolean;
+  fetched_at: string | null;
+};
 
 type Place = {
   query: string;
@@ -34,6 +51,7 @@ type Place = {
   fornsok: string | null;
   lon: number | null;
   lat: number | null;
+  texts: SourceText[];
   sources: {
     file: string;
     by: string | null;
@@ -254,13 +272,25 @@ export default function PlaceAdminPage() {
           )}
 
           <div className="fl-section">
+            <h2>Sources</h2>
+          </div>
+          {place.texts.length === 0 ? (
+            <p className="fl-empty">
+              No source text for this place in the published release.
+            </p>
+          ) : (
+            <div className="fl-list">
+              {place.texts.map(s => (
+                <SourceCard key={s.source_id} source={s} />
+              ))}
+            </div>
+          )}
+
+          <div className="fl-section">
             <h2>Photographs</h2>
           </div>
           {place.sources.length === 0 ? (
-            <p className="fl-empty">
-              No credited photograph on this description. A Wikipedia article,
-              when there is one, is not listed here.
-            </p>
+            <p className="fl-empty">No credited photograph on this description.</p>
           ) : (
             <div className="fl-sources">
               {place.sources.map(s => {
@@ -398,6 +428,60 @@ export default function PlaceAdminPage() {
         }}
       />
     </div>
+  );
+}
+
+const KIND_LABEL: Record<string, string> = {
+  register: 'Register',
+  register_parts: 'Register, parts',
+  register_vegetation: 'Register, vegetation',
+  tradition: 'Tradition',
+  wikipedia: 'Wikipedia',
+  user_comment: 'Visitor comment',
+  county_attr: 'County, attribute',
+  county_page: 'County web page',
+  county_programme: 'County programme',
+  county_plan: 'County plan',
+  county_pdf: 'County PDF',
+};
+
+/**
+ * Collapsed past a few lines: a register text can run to pages, and the
+ * point of the list is to see at a glance what the model had.
+ */
+function SourceCard({ source: s }: { source: SourceText }) {
+  const [open, setOpen] = useState(false);
+  const long = s.body.length > 420;
+  const credit = [s.publisher, s.author, s.licence, s.lang]
+    .filter(Boolean)
+    .join(' · ');
+  return (
+    <article className="fl-card fl-text">
+      <div className="fl-text-head">
+        <span className="fl-pill">{KIND_LABEL[s.kind] ?? s.kind}</span>
+        {s.used ? <span className="fl-pill is-ok">Used</span> : null}
+        {s.title ? <strong>{s.title}</strong> : null}
+      </div>
+      <p className={`fl-text-body${long && !open ? ' is-clipped' : ''}`}>
+        {s.body}
+      </p>
+      <div className="fl-text-foot">
+        <span>
+          {credit}
+          {` · ${s.body.length.toLocaleString()} chars`}
+        </span>
+        {long ? (
+          <button type="button" className="fl-quiet" onClick={() => setOpen(!open)}>
+            {open ? 'Less' : 'More'}
+          </button>
+        ) : null}
+        {s.url ? (
+          <a href={s.url} target="_blank" rel="noreferrer">
+            Open
+          </a>
+        ) : null}
+      </div>
+    </article>
   );
 }
 
