@@ -65,6 +65,7 @@ export async function GET(request: NextRequest) {
     { rows: pending },
     { rows: published },
     { rows: texts },
+    { rows: added },
   ] = await Promise.all([
       pool.query(
         `SELECT c.event_id, c.author, c.payload, c.server_ts,
@@ -109,7 +110,19 @@ export async function GET(request: NextRequest) {
           ORDER BY used DESC, trust DESC NULLS LAST, source_id`,
         [uuid]
       ),
+      pool.query(
+        `SELECT id, kind, lang, title, body, publisher, licence, url,
+                created_at
+           FROM fl_sources_added
+          WHERE place_uuid = $1 AND removed_at IS NULL
+          ORDER BY id`,
+        [uuid]
+      ),
     ]);
+  // Once the pipeline has taken an added source in, it comes back in
+  // fl_sources too. Listed once, as the pipeline's, which is the one the
+  // description can actually have used.
+  const known = new Set(texts.map(r => r.url).filter(Boolean));
 
   const commentOut = [];
   for (const r of comments) {
@@ -142,8 +155,27 @@ export async function GET(request: NextRequest) {
     fornsok: `https://app.raa.se/open/fornsok/lamning/${uuid}`,
     lon: coord?.[0] ?? null,
     lat: coord?.[1] ?? null,
-    texts: texts.map(r => ({
+    texts: [
+      ...added
+        .filter(r => !r.url || !known.has(r.url))
+        .map(r => ({
+          source_id: -Number(r.id),
+          added_id: Number(r.id),
+          kind: r.kind,
+          lang: r.lang,
+          title: r.title,
+          body: r.body,
+          author: null,
+          publisher: r.publisher,
+          licence: r.licence,
+          url: r.url,
+          trust: null,
+          used: false,
+          fetched_at: new Date(r.created_at).toISOString(),
+        })),
+      ...texts.map(r => ({
       source_id: Number(r.source_id),
+      added_id: null,
       kind: r.kind,
       lang: r.lang,
       title: r.title,
@@ -156,6 +188,7 @@ export async function GET(request: NextRequest) {
       used: r.used,
       fetched_at: r.fetched_at,
     })),
+    ],
     sources: (desc?.images ?? []).map(img => ({
       file: img.f ?? '',
       by: img.by ?? null,

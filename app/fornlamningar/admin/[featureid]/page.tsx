@@ -30,6 +30,8 @@ import { ConfirmDialog, IdLink } from '../ui';
 
 type SourceText = {
   source_id: number;
+  /** Set when a person added it here; the id to take it back with. */
+  added_id: number | null;
   kind: string;
   lang: string | null;
   title: string | null;
@@ -175,6 +177,24 @@ export default function PlaceAdminPage() {
     }
   };
 
+  const sourceCall = async (payload: object): Promise<string | null> => {
+    if (!token) return 'Not signed in';
+    const res = await fetch('/api/fornlamningar/sources', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) {
+      const body = (await res.json().catch(() => ({}))) as { error?: string };
+      return body.error ?? `failed: ${res.status}`;
+    }
+    await load(token);
+    return null;
+  };
+
   if (!token && !error) {
     return (
       <Group>
@@ -281,10 +301,23 @@ export default function PlaceAdminPage() {
           ) : (
             <div className="fl-list">
               {place.texts.map(s => (
-                <SourceCard key={s.source_id} source={s} />
+                <SourceCard
+                  key={s.source_id}
+                  source={s}
+                  onRemove={
+                    s.added_id
+                      ? () => void sourceCall({ action: 'remove', id: s.added_id })
+                      : undefined
+                  }
+                />
               ))}
             </div>
           )}
+          <AddSource
+            onAdd={fields =>
+              sourceCall({ action: 'add', place: place.uuid ?? id, ...fields })
+            }
+          />
 
           <div className="fl-section">
             <h2>Photographs</h2>
@@ -443,13 +476,21 @@ const KIND_LABEL: Record<string, string> = {
   county_programme: 'County programme',
   county_plan: 'County plan',
   county_pdf: 'County PDF',
+  web: 'Web page',
+  web_page: 'Web page',
 };
 
 /**
  * Collapsed past a few lines: a register text can run to pages, and the
  * point of the list is to see at a glance what the model had.
  */
-function SourceCard({ source: s }: { source: SourceText }) {
+function SourceCard({
+  source: s,
+  onRemove,
+}: {
+  source: SourceText;
+  onRemove?: () => void;
+}) {
   const [open, setOpen] = useState(false);
   const long = s.body.length > 420;
   const credit = [s.publisher, s.author, s.licence, s.lang]
@@ -460,6 +501,7 @@ function SourceCard({ source: s }: { source: SourceText }) {
       <div className="fl-text-head">
         <span className="fl-pill">{KIND_LABEL[s.kind] ?? s.kind}</span>
         {s.used ? <span className="fl-pill is-ok">Used</span> : null}
+        {s.added_id ? <span className="fl-pill">Added by hand</span> : null}
         {s.title ? <strong>{s.title}</strong> : null}
       </div>
       <p className={`fl-text-body${long && !open ? ' is-clipped' : ''}`}>
@@ -480,8 +522,93 @@ function SourceCard({ source: s }: { source: SourceText }) {
             Open
           </a>
         ) : null}
+        {onRemove ? (
+          <button type="button" className="fl-quiet" onClick={onRemove}>
+            Remove
+          </button>
+        ) : null}
       </div>
     </article>
+  );
+}
+
+const WIKI_URL = /^https?:\/\/[a-z-]+\.(m\.)?wikipedia\.org\/wiki\//i;
+
+/**
+ * A Wikipedia link is enough: the server fetches the whole article. Any
+ * other page needs its text pasted, so the box for it only opens when the
+ * link is not Wikipedia -- asking for text the server is about to fetch
+ * would be asking for a copy nobody should have to make.
+ */
+function AddSource({
+  onAdd,
+}: {
+  onAdd: (f: { url?: string; title?: string; body?: string }) => Promise<string | null>;
+}) {
+  const [url, setUrl] = useState('');
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const wiki = WIKI_URL.test(url.trim());
+  const ready = wiki || body.trim().length >= 40;
+
+  const submit = async () => {
+    setBusy(true);
+    setError(null);
+    const err = await onAdd({
+      url: url.trim() || undefined,
+      title: wiki ? undefined : title.trim() || undefined,
+      body: wiki ? undefined : body.trim() || undefined,
+    });
+    setBusy(false);
+    if (err) {
+      setError(err);
+      return;
+    }
+    setUrl('');
+    setTitle('');
+    setBody('');
+  };
+
+  return (
+    <form
+      className="fl-card fl-add-source"
+      onSubmit={e => {
+        e.preventDefault();
+        if (ready && !busy) void submit();
+      }}
+    >
+      <strong>Add a source</strong>
+      <input
+        type="url"
+        placeholder="https://sv.wikipedia.org/wiki/…  or any page"
+        value={url}
+        onChange={e => setUrl(e.target.value)}
+      />
+      {!wiki ? (
+        <>
+          <input
+            type="text"
+            placeholder="Title (optional)"
+            value={title}
+            onChange={e => setTitle(e.target.value)}
+          />
+          <textarea
+            placeholder="Paste the text of the page. Only Wikipedia links are fetched for you."
+            rows={5}
+            value={body}
+            onChange={e => setBody(e.target.value)}
+          />
+        </>
+      ) : (
+        <span className="fl-add-hint">The whole article is fetched when you add it.</span>
+      )}
+      {error ? <span className="fl-add-error">{error}</span> : null}
+      <button type="submit" className="fl-add-button" disabled={!ready || busy}>
+        {busy ? 'Adding…' : 'Add source'}
+      </button>
+    </form>
   );
 }
 

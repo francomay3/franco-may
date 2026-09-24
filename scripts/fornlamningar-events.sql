@@ -246,3 +246,37 @@ CREATE TABLE IF NOT EXISTS fl_sources (
   generation  INTEGER NOT NULL,
   PRIMARY KEY (place_uuid, source_id)
 );
+
+-- Sources a person added by hand, which the pipeline did not find.
+--
+-- Hunehals is the case this is for: sv.wikipedia has the article, and
+-- nothing links it to the register -- no Wikidata sitelink, no list entry
+-- -- so no crawl ever will. The pipeline reads this table
+-- (scripts/export-fl-added-sources.cjs -> build_sources.py) and from then
+-- on the row is an ordinary source in places.sqlite, and so in fl_sources.
+--
+-- Its own table and not rows in fl_sources, because fl_sources is replaced
+-- wholesale on every release load and a hand-added row there would be gone
+-- the next time.
+--
+-- `added_by` is the admin's uid today. The endpoint is written so a
+-- signed-in visitor can use it later; `status` is what keeps that safe --
+-- anything not from an admin would arrive 'pending'.
+CREATE TABLE IF NOT EXISTS fl_sources_added (
+  id          BIGSERIAL PRIMARY KEY,
+  place_uuid  TEXT        NOT NULL,
+  kind        TEXT        NOT NULL,
+  lang        TEXT,
+  title       TEXT,
+  body        TEXT        NOT NULL,
+  publisher   TEXT,
+  licence     TEXT,
+  licence_url TEXT,
+  url         TEXT,
+  added_by    TEXT        NOT NULL,
+  status      TEXT        NOT NULL DEFAULT 'published',
+  created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
+  removed_at  TIMESTAMPTZ
+);
+CREATE INDEX IF NOT EXISTS fl_sources_added_place
+  ON fl_sources_added (place_uuid);

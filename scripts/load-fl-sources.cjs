@@ -74,9 +74,18 @@ function envFromLocal(key) {
     );
     process.stdout.write(`\r${Math.min(i + BATCH, rows.length)}/${rows.length}`);
   }
+  // By key and not by generation: a rebuild of the sources inside one
+  // release -- a Wikipedia lead replaced by the whole article -- keeps the
+  // generation and still retires rows.
+  const keys = rows.map(r => ({ place_uuid: r.place_uuid, source_id: r.source_id }));
   const gone = await run(
-    'DELETE FROM fl_sources WHERE generation <> $1 RETURNING 1',
-    [generation]
+    `DELETE FROM fl_sources f
+      WHERE NOT EXISTS (
+        SELECT 1 FROM jsonb_to_recordset($1::jsonb)
+                      AS k(place_uuid text, source_id bigint)
+         WHERE k.place_uuid = f.place_uuid AND k.source_id = f.source_id)
+      RETURNING 1`,
+    [JSON.stringify(keys)]
   );
   const [{ n, places }] = await run(
     'SELECT count(*) AS n, count(DISTINCT place_uuid) AS places FROM fl_sources'

@@ -403,6 +403,52 @@
   min-width: 0;
 }
 
+.fl-add-source {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: -16px 0 32px;
+}
+
+.fl-add-source input,
+.fl-add-source textarea {
+  font: inherit;
+  font-size: 14px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  color: inherit;
+}
+
+.fl-add-hint {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.fl-add-error {
+  color: var(--danger);
+  font-size: 13px;
+}
+
+.fl-add-button {
+  align-self: flex-start;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 7px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink, #222);
+  color: var(--paper, #fff);
+  cursor: pointer;
+}
+
+.fl-add-button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
 .fl-sources {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
