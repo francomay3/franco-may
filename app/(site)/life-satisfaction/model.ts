@@ -155,20 +155,58 @@ export function scoreLifeSatisfaction(
   };
 }
 
+/** How people usually describe their lives, on a 0–100 line. Not a norm for this quiz. */
+export const USUAL_LIFE_SATISFACTION = 62;
+
+const READING_ERROR = 0.04;
+
+export function readingBand(ratings: number[], items: LifeItem[] = LIFE_ITEMS) {
+  const span = items.reduce((sum, item) => sum + Math.abs(item.r) * STEP, 0);
+  const wobble = ratings.reduce(
+    (sum, rating) => sum + READING_ERROR * Math.abs(rating - NEUTRAL),
+    0
+  );
+  const points = span === 0 ? 0 : (50 * wobble) / span;
+  return Math.max(2, Math.round(points * 10) / 10);
+}
+
+export const RESULT_RANGES = [
+  {
+    max: 35,
+    label: 'Low',
+    text: 'Your answers line up with the phrases that usually travel with a harder stretch. This is not a diagnosis. It means the traits you recognized are the ones that, on the chart, go with lower life satisfaction. The middle of this test is 50, which is what you would score by answering “somewhat” to every phrase.',
+  },
+  {
+    max: 45,
+    label: 'Below the middle',
+    text: 'You sit a little under the line you would get by answering “somewhat” to everything. A few of the heavier phrases pulled the index down more than the lighter ones pulled it up. People who rate their life directly usually land higher than this, in the low 60s.',
+  },
+  {
+    max: 55,
+    label: 'Around the middle',
+    text: 'Close to a mixed picture. Fifty is the score for answering “somewhat” on every phrase, and you are near that line: the phrases that lift life satisfaction and the ones that weigh on it roughly cancelled out. Most people, asked straight out, place themselves a bit higher than this.',
+  },
+  {
+    max: 70,
+    label: 'Fairly satisfied',
+    text: 'You landed on the comfortable side of the middle. Fifty would mean “somewhat” on every phrase; you recognized yourself more often in the phrases that go with a good day-to-day life. That is also where most people place themselves when they rate life directly: above the middle, short of the top.',
+  },
+  {
+    max: 101,
+    label: 'High',
+    text: 'A strong tilt toward the phrases that travel with high life satisfaction. You recognized yourself in energy, ease, and getting on with people more than in the draining ones. On a direct “how is your life?” question, this is the upper end of where people usually answer.',
+  },
+] as const;
+
+export function interpretation(index: number) {
+  return (
+    RESULT_RANGES.find(range => index < range.max) ??
+    RESULT_RANGES[RESULT_RANGES.length - 1]
+  );
+}
+
 export function indexLabel(index: number) {
-  if (index < 35) {
-    return 'Baja';
-  }
-  if (index < 45) {
-    return 'Por debajo del medio';
-  }
-  if (index < 55) {
-    return 'En el medio';
-  }
-  if (index < 70) {
-    return 'Alta';
-  }
-  return 'Muy alta';
+  return interpretation(index).label;
 }
 
 export function movers(score: LifeScore, count = 6) {

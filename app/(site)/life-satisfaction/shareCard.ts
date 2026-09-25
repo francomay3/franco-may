@@ -1,4 +1,9 @@
-import { indexLabel, type LifeScore, movers } from './model';
+import {
+  indexLabel,
+  type LifeScore,
+  movers,
+  USUAL_LIFE_SATISFACTION,
+} from './model';
 
 const WIDTH = 1080;
 const HEIGHT = 1350;
@@ -53,29 +58,32 @@ export function drawShareCard(score: LifeScore) {
   ctx.fillStyle = '#1c1915';
   ctx.font = '600 34px Georgia, serif';
   ctx.textAlign = 'left';
-  ctx.fillText('Índice de satisfacción de vida', 96, 140);
+  ctx.fillText('Life satisfaction index', 96, 120);
 
-  ctx.font = '700 168px Georgia, serif';
-  ctx.fillText(score.index.toFixed(0), 96, 340);
-  ctx.font = '42px Georgia, serif';
+  ctx.font = '700 148px Georgia, serif';
+  ctx.fillText(score.index.toFixed(0), 96, 290);
+  ctx.font = '40px Georgia, serif';
   ctx.fillStyle = '#6b6458';
-  ctx.fillText(`/ 100  ·  ${indexLabel(score.index)}`, 360, 320);
+  ctx.fillText(indexLabel(score.index), 360, 270);
+
+  drawCurve(ctx, score.index);
 
   ctx.fillStyle = '#1c1915';
   ctx.font = '32px Georgia, serif';
-  ctx.fillText('Lo que más mueve el índice', 96, 460);
+  ctx.textAlign = 'left';
+  ctx.fillText('What moved it', 96, 620);
 
-  const { up, down } = movers(score, 5);
+  const { up, down } = movers(score, 3);
   const max = Math.max(
     ...[...up, ...down].map(item => Math.abs(item.contribution)),
     0.01
   );
 
   up.forEach((item, index) => {
-    bar(ctx, item.text, item.contribution, max, 500 + index * 72, '#1f4fd8');
+    bar(ctx, item.text, item.contribution, max, 660 + index * 72, '#1f4fd8');
   });
   down.forEach((item, index) => {
-    bar(ctx, item.text, item.contribution, max, 900 + index * 72, '#b42318');
+    bar(ctx, item.text, item.contribution, max, 960 + index * 72, '#b42318');
   });
 
   ctx.fillStyle = '#8a8378';
@@ -83,6 +91,74 @@ export function drawShareCard(score: LifeScore) {
   ctx.fillText('franco-may.com/life-satisfaction', 96, 1280);
 
   return canvas;
+}
+
+function drawCurve(ctx: CanvasRenderingContext2D, index: number) {
+  const left = 96;
+  const right = 984;
+  const baseline = 500;
+  const mean = USUAL_LIFE_SATISFACTION;
+  const sd = 14;
+  const xOf = (value: number) => left + (value / 100) * (right - left);
+  const density = (value: number) =>
+    Math.exp(-0.5 * ((value - mean) / sd) ** 2);
+  const peak = density(mean);
+  const yOf = (value: number) => baseline - (density(value) / peak) * 140;
+
+  ctx.beginPath();
+  for (let value = 0; value <= 100; value += 1) {
+    const x = xOf(value);
+    const y = yOf(value);
+    if (value === 0) {
+      ctx.moveTo(x, y);
+    } else {
+      ctx.lineTo(x, y);
+    }
+  }
+  ctx.lineTo(xOf(100), baseline);
+  ctx.lineTo(xOf(0), baseline);
+  ctx.closePath();
+  ctx.fillStyle = '#d7e4ff';
+  ctx.fill();
+
+  ctx.beginPath();
+  for (let value = 0; value <= 100; value += 1) {
+    const x = xOf(value);
+    const y = yOf(value);
+    if (value === 0) {
+      ctx.moveTo(x, y);
+    } else {
+      ctx.lineTo(x, y);
+    }
+  }
+  ctx.strokeStyle = '#1f4fd8';
+  ctx.lineWidth = 4;
+  ctx.stroke();
+
+  const youX = xOf(index);
+  ctx.beginPath();
+  ctx.moveTo(youX, 340);
+  ctx.lineTo(youX, baseline);
+  ctx.strokeStyle = '#1c1915';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(youX, yOf(index), 8, 0, Math.PI * 2);
+  ctx.fillStyle = '#1c1915';
+  ctx.fill();
+
+  ctx.fillStyle = '#6b6458';
+  ctx.font = '24px Georgia, serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('0', left, 540);
+  ctx.textAlign = 'center';
+  ctx.fillText('50', xOf(50), 540);
+  ctx.fillText('usual', xOf(mean), 540);
+  ctx.textAlign = 'right';
+  ctx.fillText('100', right, 540);
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#1c1915';
+  ctx.fillText('You', youX, 330);
 }
 
 export async function shareCardFile(score: LifeScore) {

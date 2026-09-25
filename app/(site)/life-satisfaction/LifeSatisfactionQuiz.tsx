@@ -14,20 +14,23 @@ import {
 import { SITE_CONFIG } from '@/utils/constants';
 import {
   indexLabel,
+  interpretation,
   LIFE_ITEMS,
   movers,
+  readingBand,
   scoreLifeSatisfaction,
+  USUAL_LIFE_SATISFACTION,
   type LifeScore,
 } from './model';
 import { shareCardFile } from './shareCard';
 
 const STORAGE_KEY = 'life-satisfaction-answers';
 const SCALE = [
-  { value: 1, label: 'Nada' },
-  { value: 2, label: 'Poco' },
-  { value: 3, label: 'Algo' },
-  { value: 4, label: 'Bastante' },
-  { value: 5, label: 'Totalmente' },
+  { value: 1, label: 'Not me' },
+  { value: 2, label: 'A little' },
+  { value: 3, label: 'Somewhat' },
+  { value: 4, label: 'Mostly' },
+  { value: 5, label: 'Very much' },
 ];
 
 type Phase = 'intro' | 'quiz' | 'result';
@@ -57,9 +60,9 @@ function shareText(score: LifeScore) {
   const upLine = up.map(item => item.text).join('; ');
   const downLine = down.map(item => item.text).join('; ');
   return [
-    `Mi índice de satisfacción de vida: ${score.index.toFixed(0)}/100 (${indexLabel(score.index)}).`,
-    upLine ? `Lo que más lo sube: ${upLine}.` : '',
-    downLine ? `Lo que más lo baja: ${downLine}.` : '',
+    `My life satisfaction index: ${score.index.toFixed(0)}/100 (${indexLabel(score.index)}).`,
+    upLine ? `Pulled up by: ${upLine}.` : '',
+    downLine ? `Pulled down by: ${downLine}.` : '',
     `${SITE_CONFIG.url}/life-satisfaction`,
   ]
     .filter(Boolean)
@@ -161,7 +164,7 @@ export function LifeSatisfactionQuiz() {
         await navigator.share({
           files: [file],
           text,
-          title: 'Índice de satisfacción de vida',
+          title: 'Life satisfaction index',
         });
         return;
       }
@@ -180,7 +183,7 @@ export function LifeSatisfactionQuiz() {
       if (error instanceof DOMException && error.name === 'AbortError') {
         return;
       }
-      setShareError('No se pudo armar la tarjeta. Probá de nuevo.');
+      setShareError('Could not build the card. Try again.');
     } finally {
       setSharing(false);
     }
@@ -190,65 +193,56 @@ export function LifeSatisfactionQuiz() {
     return (
       <Stack gap="lg" maw={560} mx="auto">
         <Title order={1} ta="center">
-          Satisfacción de vida
+          Life satisfaction
         </Title>
         <Text>
-          Cada frase del gráfico tiene una correlación con la satisfacción de
-          vida. Marcá del 1 al 5 cuánto te identificás. El índice suma esa
-          correlación por lo que te alejaste del punto medio.
+          Each phrase on the chart has a correlation with life satisfaction.
+          Mark 1 to 5 for how much it sounds like you. The index adds that
+          correlation times how far you sat from “somewhat”.
         </Text>
         <Text c="dimmed" size="sm">
-          Un 5 en una frase que va con alta satisfacción sube el índice. Un 5 en
-          una que va con baja satisfacción lo baja. El 3 no mueve nada. 50 es el
-          punto medio, no un promedio de la población.
+          A 5 on a phrase that goes with high satisfaction raises the index. A 5
+          on one that goes with low satisfaction lowers it. A 3 does nothing. 50
+          is that neutral line, not a population average.
         </Text>
         <Button size="lg" onClick={() => setPhase('quiz')}>
-          {answeredCount > 0 ? 'Seguir' : 'Empezar'}
+          {answeredCount > 0 ? 'Continue' : 'Start'}
         </Button>
         <Text c="dimmed" size="sm" ta="center">
-          {LIFE_ITEMS.length} frases · teclas 1–5
+          {LIFE_ITEMS.length} phrases · keys 1–5
         </Text>
       </Stack>
     );
   }
 
   if (phase === 'result' && score) {
-    const spread = movers(score, 6);
-    const maxMove = Math.max(
-      ...score.items.map(item => Math.abs(item.contribution)),
-      0.01
-    );
+    const spread = movers(score, 5);
+    const band = readingBand(score.items.map(item => item.rating));
+    const reading = interpretation(score.index);
     return (
       <Stack gap="xl" maw={640} mx="auto">
         <Stack gap={4} ta="center">
           <Text size="sm" tt="uppercase" fw={600} c="dimmed">
-            Índice
+            Index
           </Text>
           <Title order={1} fz={72} lh={1}>
             {score.index.toFixed(0)}
           </Title>
-          <Text size="lg">{indexLabel(score.index)} de 100</Text>
+          <Text size="lg">{reading.label}</Text>
         </Stack>
 
-        <Box>
-          <Text fw={600} mb="xs">
-            Spread
-          </Text>
-          <Text size="sm" c="dimmed" mb="md">
-            Cada barra es cuánto movió esa frase el índice: correlación × (tu
-            respuesta − 3). Azul sube, rojo baja.
-          </Text>
-          <SpreadChart items={score.items} maxMove={maxMove} />
-        </Box>
+        <ScoreCurve index={score.index} band={band} />
+
+        <Text>{reading.text}</Text>
 
         <Group align="flex-start" grow>
-          <MoverList title="Sube" items={spread.up} color="blue" />
-          <MoverList title="Baja" items={spread.down} color="red" />
+          <MoverList title="Pulls up" items={spread.up} color="blue" />
+          <MoverList title="Pulls down" items={spread.down} color="red" />
         </Group>
 
         <Stack gap="sm">
           <Button size="lg" loading={sharing} onClick={share}>
-            Compartir por WhatsApp
+            Share on WhatsApp
           </Button>
           {shareError ? (
             <Text c="red" size="sm">
@@ -256,7 +250,7 @@ export function LifeSatisfactionQuiz() {
             </Text>
           ) : null}
           <Button variant="subtle" onClick={restart}>
-            Hacerlo de nuevo
+            Take it again
           </Button>
         </Stack>
       </Stack>
@@ -268,17 +262,17 @@ export function LifeSatisfactionQuiz() {
       <Stack gap={6}>
         <Group justify="space-between">
           <Text size="sm" c="dimmed">
-            {step + 1} de {LIFE_ITEMS.length}
+            {step + 1} of {LIFE_ITEMS.length}
           </Text>
           <Text size="sm" c="dimmed">
-            {answeredCount} respondidas
+            {answeredCount} answered
           </Text>
         </Group>
         <Progress
           value={((step + 1) / LIFE_ITEMS.length) * 100}
           size="sm"
           radius="xl"
-          aria-label="Progreso"
+          aria-label="Progress"
         />
       </Stack>
 
@@ -326,63 +320,137 @@ export function LifeSatisfactionQuiz() {
           disabled={step === 0}
           onClick={() => setStep(index => index - 1)}
         >
-          Atrás
+          Back
         </Button>
         <Button variant="subtle" onClick={() => setPhase('intro')}>
-          Pausa
+          Pause
         </Button>
       </Group>
     </Stack>
   );
 }
 
-function SpreadChart({
-  items,
-  maxMove,
-}: {
-  items: LifeScore['items'];
-  maxMove: number;
-}) {
-  const ordered = [...items].sort((a, b) => b.contribution - a.contribution);
+const CURVE_SD = 14;
+
+function ScoreCurve({ index, band }: { index: number; band: number }) {
+  const width = 640;
+  const height = 200;
+  const padX = 16;
+  const baseline = 156;
+  const xOf = (value: number) => padX + (value / 100) * (width - padX * 2);
+  const density = (value: number) =>
+    Math.exp(-0.5 * ((value - USUAL_LIFE_SATISFACTION) / CURVE_SD) ** 2);
+  const peak = density(USUAL_LIFE_SATISFACTION);
+  const yOf = (value: number) => baseline - (density(value) / peak) * 120;
+  const curve = Array.from({ length: 101 }, (_, value) => {
+    const x = xOf(value);
+    const y = yOf(value);
+    return `${value === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${y.toFixed(1)}`;
+  }).join(' ');
+  const youX = xOf(index);
+  const low = Math.max(0, index - band);
+  const high = Math.min(100, index + band);
+
   return (
-    <Stack gap={6}>
-      {ordered.map(item => {
-        const width = `${(Math.abs(item.contribution) / maxMove) * 50}%`;
-        const up = item.contribution >= 0;
-        return (
-          <Box key={item.id}>
-            <Text size="xs" lineClamp={1} mb={2}>
-              {item.text}
-            </Text>
-            <Box style={{ position: 'relative', height: 8 }}>
-              <Box
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  height: 8,
-                  width,
-                  borderRadius: 99,
-                  background: up
-                    ? 'var(--mantine-color-blue-6)'
-                    : 'var(--mantine-color-red-6)',
-                  [up ? 'left' : 'right']: '50%',
-                }}
-              />
-              <Box
-                style={{
-                  position: 'absolute',
-                  left: '50%',
-                  top: -2,
-                  width: 1,
-                  height: 12,
-                  background: 'var(--mantine-color-dimmed)',
-                }}
-              />
-            </Box>
-          </Box>
-        );
-      })}
-    </Stack>
+    <Box>
+      <svg
+        viewBox={`0 0 ${width} ${height}`}
+        width="100%"
+        role="img"
+        aria-label={`Your index is ${index.toFixed(0)}, usual answers sit near ${USUAL_LIFE_SATISFACTION}`}
+      >
+        <path
+          d={`${curve} L ${xOf(100)} ${baseline} L ${xOf(0)} ${baseline} Z`}
+          fill="var(--mantine-color-blue-light)"
+        />
+        <path
+          d={curve}
+          fill="none"
+          stroke="var(--mantine-color-blue-6)"
+          strokeWidth="2.5"
+        />
+        <rect
+          x={xOf(low)}
+          y={36}
+          width={Math.max(xOf(high) - xOf(low), 2)}
+          height={baseline - 36}
+          fill="var(--mantine-color-blue-6)"
+          opacity="0.18"
+        />
+        <line
+          x1={xOf(USUAL_LIFE_SATISFACTION)}
+          x2={xOf(USUAL_LIFE_SATISFACTION)}
+          y1={yOf(USUAL_LIFE_SATISFACTION)}
+          y2={baseline}
+          stroke="var(--mantine-color-dimmed)"
+          strokeDasharray="4 4"
+        />
+        <line
+          x1={youX}
+          x2={youX}
+          y1={28}
+          y2={baseline}
+          stroke="var(--mantine-color-text)"
+          strokeWidth="2"
+        />
+        <circle
+          cx={youX}
+          cy={yOf(index)}
+          r="6"
+          fill="var(--mantine-color-text)"
+        />
+        <text
+          x={youX}
+          y={18}
+          textAnchor="middle"
+          fill="var(--mantine-color-text)"
+          fontSize="14"
+          fontFamily="Georgia, serif"
+        >
+          You
+        </text>
+        <text
+          x={xOf(0)}
+          y={178}
+          fill="var(--mantine-color-dimmed)"
+          fontSize="12"
+        >
+          0
+        </text>
+        <text
+          x={xOf(50)}
+          y={178}
+          textAnchor="middle"
+          fill="var(--mantine-color-dimmed)"
+          fontSize="12"
+        >
+          50
+        </text>
+        <text
+          x={xOf(USUAL_LIFE_SATISFACTION)}
+          y={178}
+          textAnchor="middle"
+          fill="var(--mantine-color-dimmed)"
+          fontSize="12"
+        >
+          usual
+        </text>
+        <text
+          x={xOf(100)}
+          y={178}
+          textAnchor="end"
+          fill="var(--mantine-color-dimmed)"
+          fontSize="12"
+        >
+          100
+        </text>
+      </svg>
+      <Text size="sm" c="dimmed">
+        The hill is where people usually place themselves when they rate life
+        directly. The shaded stripe is the wiggle from reading the correlations
+        off the chart, about ±{band.toFixed(0)} points.
+      </Text>
+    </Box>
   );
 }
 

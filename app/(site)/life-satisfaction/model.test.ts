@@ -1,4 +1,9 @@
-import { LIFE_ITEMS, scoreLifeSatisfaction } from './model';
+import {
+  interpretation,
+  LIFE_ITEMS,
+  readingBand,
+  scoreLifeSatisfaction,
+} from './model';
 
 describe('scoreLifeSatisfaction', () => {
   it('sits at 50 when every answer is the midpoint', () => {
@@ -14,6 +19,16 @@ describe('scoreLifeSatisfaction', () => {
   it('reaches 0 when answers run against the correlations', () => {
     const ratings = LIFE_ITEMS.map(item => (item.r > 0 ? 1 : 5));
     expect(scoreLifeSatisfaction(ratings).index).toBe(0);
+  });
+
+  it('keeps 69 in the fairly-satisfied band', () => {
+    expect(interpretation(69).label).toBe('Fairly satisfied');
+  });
+
+  it('gives a small reading band, not a second score', () => {
+    const band = readingBand(LIFE_ITEMS.map(() => 5));
+    expect(band).toBeGreaterThanOrEqual(2);
+    expect(band).toBeLessThan(15);
   });
 
   it('lets a stronger correlation move the index more than a weaker one', () => {

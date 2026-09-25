@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { LifeSatisfactionQuiz } from './LifeSatisfactionQuiz';
 
 export const metadata: Metadata = {
-  title: 'Satisfacción de vida',
+  title: 'Life satisfaction',
   description:
-    'Un índice de satisfacción de vida a partir de cuánto te identificás con cada frase del gráfico.',
+    'A life satisfaction index from how much you recognize yourself in each phrase on the chart.',
 };
 
 export default function LifeSatisfactionPage() {
