@@ -39,6 +39,18 @@ export type PlaceDescription = {
    * typology ("usually Iron Age"), so it can be rendered as-is.
    */
   period?: { text: string; basis: 'stated' | 'typology' };
+  /**
+   * Credited photographs published with the place. `src` is a finished URL
+   * (archive photos). A Commons file is just `f`, and the popup builds the
+   * thumbnail itself.
+   */
+  images?: {
+    f?: string;
+    src?: string;
+    by?: string;
+    lic?: string;
+    page?: string;
+  }[];
 };
 
 /** "23 m across · 2.7 m high" */
