@@ -3,6 +3,7 @@ import {
   IconBuilding,
   IconHome2,
   IconMail,
+  IconMoodSmile,
 } from '@tabler/icons-react';
 
 type NavLink = {
@@ -31,6 +32,11 @@ export const NAV_LINKS: Record<string, NavLink> = {
     label: 'Fornlamningar',
     href: '/fornlamningar',
     icon: <IconBuilding size={16} stroke={1.5} />,
+  },
+  lifeSatisfaction: {
+    label: 'Life satisfaction',
+    href: '/life-satisfaction',
+    icon: <IconMoodSmile size={16} stroke={1.5} />,
   },
 };
 
