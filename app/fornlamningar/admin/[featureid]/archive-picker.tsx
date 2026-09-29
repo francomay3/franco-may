@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 export type ArchivePhoto = {
   source: string;
@@ -45,8 +45,9 @@ export function ArchivePicker({
   photos: ArchivePhoto[];
 }) {
   const [photos, setPhotos] = useState(initial);
-  const [page, setPage] = useState(1);
+  const [visible, setVisible] = useState(PAGE);
   const [onlyMarked, setOnlyMarked] = useState(false);
+  const sentinel = useRef<HTMLDivElement>(null);
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -55,11 +56,26 @@ export function ArchivePicker({
     () => (onlyMarked ? photos.filter(p => p.prioritized) : photos),
     [onlyMarked, photos]
   );
-  const pages = Math.max(1, Math.ceil(shown.length / PAGE));
-  const pageNow = Math.min(page, pages);
-  const slice = shown.slice((pageNow - 1) * PAGE, pageNow * PAGE);
-  const from = shown.length === 0 ? 0 : (pageNow - 1) * PAGE + 1;
-  const to = Math.min(pageNow * PAGE, shown.length);
+  const slice = shown.slice(0, visible);
+  const more = slice.length < shown.length;
+
+  useEffect(() => {
+    const node = sentinel.current;
+    if (!node || !more) {
+      return;
+    }
+    const root = node.closest('.fl-admin');
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+          setVisible(n => n + PAGE);
+        }
+      },
+      { root: root instanceof Element ? root : null, rootMargin: '480px' }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [more, shown.length, visible]);
 
   const toggle = async (photo: ArchivePhoto) => {
     const key = keyOf(photo);
@@ -109,32 +125,14 @@ export function ArchivePicker({
           aria-pressed={onlyMarked}
           onClick={() => {
             setOnlyMarked(v => !v);
-            setPage(1);
+            setVisible(PAGE);
           }}
         >
           {onlyMarked ? 'Show all' : 'Show prioritized'}
         </button>
-        {pages > 1 ? (
-          <span>
-            <button
-              type="button"
-              className="fl-pick-filter"
-              disabled={pageNow <= 1}
-              onClick={() => setPage(pageNow - 1)}
-            >
-              Previous
-            </button>
-            <span className="fl-pick-range">
-              {from}–{to} of {shown.length}
-            </span>
-            <button
-              type="button"
-              className="fl-pick-filter"
-              disabled={pageNow >= pages}
-              onClick={() => setPage(pageNow + 1)}
-            >
-              Next
-            </button>
+        {more ? (
+          <span className="fl-pick-range">
+            {slice.length} of {shown.length}
           </span>
         ) : null}
       </div>
@@ -184,6 +182,7 @@ export function ArchivePicker({
           })}
         </div>
       )}
+      {more ? <div ref={sentinel} className="fl-pick-more" /> : null}
     </div>
   );
 }

@@ -5,41 +5,62 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@mantine/core';
 
 /**
- * One search for the admin. Enter opens a place when the query is an id or
- * the only hit, and the results page otherwise. The decision is the search
- * route's; this only sends the text there.
+ * On the sites table this is a live filter: the parent owns the text.
+ * Elsewhere, Enter opens the table with that text already filtering it.
  */
-export function SearchBox({ initial = '' }: { initial?: string }) {
+export function SearchBox({
+  value,
+  onChange,
+  initial = '',
+}: {
+  value?: string;
+  onChange?: (value: string) => void;
+  initial?: string;
+}) {
   const router = useRouter();
-  const [query, setQuery] = useState(initial);
+  const [local, setLocal] = useState(initial);
+  const text = value ?? local;
 
   useEffect(() => {
-    setQuery(initial);
-  }, [initial]);
+    if (value === undefined) {
+      setLocal(initial);
+    }
+  }, [initial, value]);
 
   return (
     <form
       className="fl-search"
       onSubmit={e => {
         e.preventDefault();
-        const q = query.trim();
-        if (!q) {
+        if (onChange) {
           return;
         }
+        const q = text.trim();
         router.push(
-          `/fornlamningar/admin/sites/search?q=${encodeURIComponent(q)}`
+          q
+            ? `/fornlamningar/admin/sites?q=${encodeURIComponent(q)}`
+            : '/fornlamningar/admin/sites'
         );
       }}
     >
       <input
-        aria-label="Search places"
-        placeholder="Name, description or id"
-        value={query}
-        onChange={e => setQuery(e.currentTarget.value)}
+        aria-label={onChange ? 'Filter places' : 'Search places'}
+        placeholder="Name, type or id"
+        value={text}
+        onChange={e => {
+          const next = e.currentTarget.value;
+          if (onChange) {
+            onChange(next);
+            return;
+          }
+          setLocal(next);
+        }}
       />
-      <Button type="submit" radius="xl" color="dark" size="sm">
-        Search
-      </Button>
+      {onChange ? null : (
+        <Button type="submit" radius="xl" color="dark" size="sm">
+          Search
+        </Button>
+      )}
     </form>
   );
 }

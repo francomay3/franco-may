@@ -27,7 +27,11 @@ import { pool } from '@/lib/db';
 export type PlaceRow = {
   id: string;
   name: string;
+  /** Register type, the lämningstyp, when the tile has one. */
+  kind: string;
   photos: number;
+  /** At least one archive photograph marked prioritized. */
+  prioritized: boolean;
   sources: number;
   rating: number | null;
   votes: number;
@@ -40,7 +44,8 @@ type Desc = { title?: string; images?: unknown };
 let published: Map<string, { name: string; photos: number | null }> | null =
   null;
 let archiveFromDb: Map<string, number> | null = null;
-let modelStars: Map<string, number> | null = null;
+let tileCache: Map<string, { stars: number | null; kind: string }> | null =
+  null;
 
 function publishedPlaces() {
   if (published) {
@@ -104,14 +109,14 @@ function picturesInDb(): Map<string, number> {
   return map;
 }
 
-function appStars(): Map<string, number> {
-  if (modelStars) {
-    return modelStars;
+function tiles(): Map<string, { stars: number | null; kind: string }> {
+  if (tileCache) {
+    return tileCache;
   }
-  const map = new Map<string, number>();
+  const map = new Map<string, { stars: number | null; kind: string }>();
   const root = join(process.cwd(), 'public', 'tiles', '14');
   if (!existsSync(root)) {
-    modelStars = map;
+    tileCache = map;
     return map;
   }
   const walk = (dir: string) => {
@@ -131,14 +136,25 @@ function appStars(): Map<string, number> {
       }
       for (let i = 0; i < layer.length; i++) {
         const props = layer.feature(i).properties;
-        if (typeof props.uuid === 'string' && typeof props.stars === 'number') {
-          map.set(props.uuid, props.stars);
+        if (typeof props.uuid !== 'string') {
+          continue;
         }
+        const prev = map.get(props.uuid);
+        map.set(props.uuid, {
+          stars:
+            typeof props.stars === 'number'
+              ? props.stars
+              : (prev?.stars ?? null),
+          kind:
+            typeof props.class === 'string' && props.class
+              ? props.class
+              : (prev?.kind ?? ''),
+        });
       }
     }
   };
   walk(root);
-  modelStars = map;
+  tileCache = map;
   return map;
 }
 
@@ -146,7 +162,9 @@ function blank(id: string, name = ''): PlaceRow {
   return {
     id,
     name,
+    kind: '',
     photos: 0,
+    prioritized: false,
     sources: 0,
     rating: null,
     votes: 0,
@@ -157,6 +175,8 @@ function blank(id: string, name = ''): PlaceRow {
 
 type Count = { place_uuid: string; n: string };
 type Rated = { place_uuid: string; rating: string; votes: string };
+type HeldRow = { place_uuid: string; n: string; marked: string };
+type Held = { n: number; marked: number };
 
 function missingTable(err: unknown): boolean {
   return (
@@ -167,12 +187,21 @@ function missingTable(err: unknown): boolean {
   );
 }
 
-async function photoCounts(): Promise<Map<string, number> | null> {
+async function photoCounts(): Promise<Map<string, Held> | null> {
   try {
-    const { rows } = await pool.query<Count>(
-      `SELECT place_uuid, count(*) AS n FROM fl_photos GROUP BY place_uuid`
+    const { rows } = await pool.query<HeldRow>(
+      `SELECT place_uuid,
+              count(*) AS n,
+              count(*) FILTER (WHERE prioritized) AS marked
+         FROM fl_photos
+        GROUP BY place_uuid`
     );
-    return new Map(rows.map(r => [r.place_uuid, Number(r.n)]));
+    return new Map(
+      rows.map(r => [
+        r.place_uuid,
+        { n: Number(r.n), marked: Number(r.marked) },
+      ])
+    );
   } catch (err) {
     if (missingTable(err)) {
       return null;
@@ -183,23 +212,27 @@ async function photoCounts(): Promise<Map<string, number> | null> {
 
 export async function placeRows(): Promise<PlaceRow[]> {
   const pictures = picturesInDb();
-  const stars = appStars();
+  const tile = tiles();
   const held = await photoCounts();
   const byId = new Map<string, PlaceRow>();
-  const photosOf = (id: string, shipped: number | null) =>
-    held ? (held.get(id) ?? 0) : (shipped ?? pictures.get(id) ?? 0);
+  const fill = (row: PlaceRow, shipped: number | null) => {
+    const info = held?.get(row.id);
+    const fromTile = tile.get(row.id);
+    row.photos = info ? info.n : (shipped ?? pictures.get(row.id) ?? 0);
+    row.prioritized = (info?.marked ?? 0) > 0;
+    row.kind = fromTile?.kind ?? '';
+    row.estimate = fromTile?.stars ?? null;
+  };
   for (const [id, desc] of publishedPlaces()) {
     const row = blank(id, desc.name);
-    row.photos = photosOf(id, desc.photos);
-    row.estimate = stars.get(id) ?? null;
+    fill(row, desc.photos);
     byId.set(id, row);
   }
   const ensure = (id: string) => {
     let row = byId.get(id);
     if (!row) {
       row = blank(id);
-      row.photos = photosOf(id, null);
-      row.estimate = stars.get(id) ?? null;
+      fill(row, null);
       byId.set(id, row);
     }
     return row;
