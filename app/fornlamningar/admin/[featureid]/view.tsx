@@ -3,7 +3,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { Alert, Button, Group, Loader, Text } from '@mantine/core';
+import { Alert, Button, Group, Loader, Rating, Text } from '@mantine/core';
 import { IconArrowLeft, IconTrash } from '@tabler/icons-react';
 import {
   currentToken,
@@ -28,7 +28,9 @@ import { ArchivePicker, type ArchivePhoto } from './archive-picker';
  * Wikipedia, county pages and PDFs, recorded tradition -- from fl_sources.
  * The ones marked "used" went into the prompt. "Photographs" is every
  * picture held for the place. Prioritizing one puts it first when the app
- * next chooses its six.
+ * next chooses its six. "Not interesting" puts the place on the list the
+ * pipeline trains against. "Your rating" is the score under this account,
+ * which is the one the app averages.
  */
 
 type SourceText = {
@@ -78,12 +80,25 @@ type Place = {
     height: number | null;
     created_at: string;
   }[];
+  /** On the list the pipeline trains against, as not worth the trip. */
+  uninteresting: boolean;
+  /** `mine` is the score under this account. `average` is what the app shows. */
+  rating: { mine: number | null; average: number | null; votes: number };
 };
 
 type Pending =
   | { kind: 'comment'; id: string }
   | { kind: 'photo'; id: string }
   | null;
+
+function ratingLine(rating: Place['rating'] | undefined): string {
+  if (!rating || rating.average == null || rating.votes === 0) {
+    return 'Yours is the rating the app will show.';
+  }
+  const avg = rating.average.toFixed(1);
+  const n = rating.votes === 1 ? '1 rating' : `${rating.votes} ratings`;
+  return `The app shows ${avg} from ${n}.`;
+}
 
 function commonsThumb(file: string): string {
   let name = file;
@@ -182,6 +197,79 @@ export default function PlaceAdminPage() {
       }
       setPending(null);
       await load(token);
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  const setStars = async (stars: number) => {
+    if (!token || !place?.uuid || stars < 1 || stars > 5) {
+      return;
+    }
+    if (place.rating.mine === stars) {
+      return;
+    }
+    setBusy('rating');
+    try {
+      const res = await fetch('/api/fornlamningar/place', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          action: 'rate',
+          place: place.uuid,
+          stars,
+        }),
+      });
+      if (!res.ok) {
+        setError(`could not update: ${res.status}`);
+        return;
+      }
+      const body = (await res.json()) as Place['rating'];
+      setPlace(current =>
+        current
+          ? {
+              ...current,
+              rating: {
+                mine: body.mine,
+                average: body.average,
+                votes: body.votes,
+              },
+            }
+          : current
+      );
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  const markUninteresting = async (on: boolean) => {
+    if (!token || !place?.uuid) {
+      return;
+    }
+    setBusy('interest');
+    try {
+      const res = await fetch('/api/fornlamningar/place', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          action: 'uninteresting',
+          place: place.uuid,
+          uninteresting: on,
+        }),
+      });
+      if (!res.ok) {
+        setError(`could not update: ${res.status}`);
+        return;
+      }
+      setPlace(current =>
+        current ? { ...current, uninteresting: on } : current
+      );
     } finally {
       setBusy(null);
     }
@@ -289,6 +377,37 @@ export default function PlaceAdminPage() {
                 Google Maps
               </a>
             ) : null}
+          </div>
+
+          <div className="fl-rating">
+            <span className="fl-rating-label">Your rating</span>
+            <Rating
+              value={place.rating?.mine ?? 0}
+              count={5}
+              color="yellow"
+              readOnly={busy === 'rating'}
+              onChange={value => void setStars(value)}
+            />
+            <p className="fl-sub">{ratingLine(place.rating)}</p>
+          </div>
+
+          <div className="fl-interest">
+            <Button
+              radius="xl"
+              color="dark"
+              variant={place.uninteresting ? 'filled' : 'default'}
+              size="sm"
+              loading={busy === 'interest'}
+              aria-pressed={place.uninteresting}
+              onClick={() => void markUninteresting(!place.uninteresting)}
+            >
+              Not interesting
+            </Button>
+            <p className="fl-sub">
+              {place.uninteresting
+                ? 'On the list the pipeline trains against. Click again to take it off.'
+                : 'Puts this place on the list of sites that are not worth the trip. The pipeline trains against that list.'}
+            </p>
           </div>
 
           {place.lat != null && place.lon != null ? (

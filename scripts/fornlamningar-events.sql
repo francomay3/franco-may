@@ -312,3 +312,17 @@ CREATE TABLE IF NOT EXISTS fl_photos (
 );
 CREATE INDEX IF NOT EXISTS fl_photos_place
   ON fl_photos (place_uuid, ord);
+
+-- Places a person has marked not worth the trip.
+--
+-- The pipeline reads this table (scripts/export-fl-uninteresting.cjs ->
+-- build_labels.py) and trains against the list: each row is a label of
+-- zero, and it outranks a Wikipedia article on the same place. A reload
+-- of anything else must not clear it. The file the pipeline reads is the
+-- whole truth, so taking a mark off here takes the place out of the next
+-- fit.
+CREATE TABLE IF NOT EXISTS fl_uninteresting (
+  place_uuid  TEXT        PRIMARY KEY,
+  flagged_by  TEXT        NOT NULL,
+  created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+);

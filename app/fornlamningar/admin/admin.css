@@ -281,6 +281,36 @@
   border-color: var(--accent);
 }
 
+.fl-rating {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin: 0 0 14px;
+}
+
+.fl-rating-label {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.fl-rating .fl-sub {
+  margin: 0;
+}
+
+.fl-interest {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 14px;
+  margin: -8px 0 18px;
+}
+
+.fl-interest .fl-sub {
+  margin: 0;
+  max-width: 46em;
+}
+
 .fl-meta a:any-link {
   color: inherit;
   text-underline-offset: 2px;
@@ -787,10 +817,19 @@
   font-weight: 600;
 }
 
-.fl-types {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: 8px 14px;
-  max-height: 360px;
-  overflow: auto;
+.fl-families {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fl-family-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fl-family-label img {
+  display: block;
+  flex-shrink: 0;
 }

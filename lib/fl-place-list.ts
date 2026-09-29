@@ -29,9 +29,13 @@ export type PlaceRow = {
   name: string;
   /** Register type, the lämningstyp, when the tile has one. */
   kind: string;
+  /** The app's filter group for that type: graves, forts, rockart, … */
+  family: string;
   photos: number;
   /** At least one archive photograph marked prioritized. */
   prioritized: boolean;
+  /** Marked not worth the trip. The pipeline trains against these. */
+  uninteresting: boolean;
   sources: number;
   rating: number | null;
   votes: number;
@@ -44,8 +48,10 @@ type Desc = { title?: string; images?: unknown };
 let published: Map<string, { name: string; photos: number | null }> | null =
   null;
 let archiveFromDb: Map<string, number> | null = null;
-let tileCache: Map<string, { stars: number | null; kind: string }> | null =
-  null;
+let tileCache: Map<
+  string,
+  { stars: number | null; kind: string; family: string }
+> | null = null;
 
 function publishedPlaces() {
   if (published) {
@@ -109,11 +115,17 @@ function picturesInDb(): Map<string, number> {
   return map;
 }
 
-function tiles(): Map<string, { stars: number | null; kind: string }> {
+function tiles(): Map<
+  string,
+  { stars: number | null; kind: string; family: string }
+> {
   if (tileCache) {
     return tileCache;
   }
-  const map = new Map<string, { stars: number | null; kind: string }>();
+  const map = new Map<
+    string,
+    { stars: number | null; kind: string; family: string }
+  >();
   const root = join(process.cwd(), 'public', 'tiles', '14');
   if (!existsSync(root)) {
     tileCache = map;
@@ -149,6 +161,10 @@ function tiles(): Map<string, { stars: number | null; kind: string }> {
             typeof props.class === 'string' && props.class
               ? props.class
               : (prev?.kind ?? ''),
+          family:
+            typeof props.family === 'string' && props.family
+              ? props.family
+              : (prev?.family ?? ''),
         });
       }
     }
@@ -163,8 +179,10 @@ function blank(id: string, name = ''): PlaceRow {
     id,
     name,
     kind: '',
+    family: '',
     photos: 0,
     prioritized: false,
+    uninteresting: false,
     sources: 0,
     rating: null,
     votes: 0,
@@ -210,17 +228,33 @@ async function photoCounts(): Promise<Map<string, Held> | null> {
   }
 }
 
+async function uninterestingIds(): Promise<Set<string>> {
+  try {
+    const { rows } = await pool.query<{ place_uuid: string }>(
+      `SELECT place_uuid FROM fl_uninteresting`
+    );
+    return new Set(rows.map(r => r.place_uuid));
+  } catch (err) {
+    if (missingTable(err)) {
+      return new Set();
+    }
+    throw err;
+  }
+}
+
 export async function placeRows(): Promise<PlaceRow[]> {
   const pictures = picturesInDb();
   const tile = tiles();
-  const held = await photoCounts();
+  const [held, dull] = await Promise.all([photoCounts(), uninterestingIds()]);
   const byId = new Map<string, PlaceRow>();
   const fill = (row: PlaceRow, shipped: number | null) => {
     const info = held?.get(row.id);
     const fromTile = tile.get(row.id);
     row.photos = info ? info.n : (shipped ?? pictures.get(row.id) ?? 0);
     row.prioritized = (info?.marked ?? 0) > 0;
+    row.uninteresting = dull.has(row.id);
     row.kind = fromTile?.kind ?? '';
+    row.family = fromTile?.family ?? '';
     row.estimate = fromTile?.stars ?? null;
   };
   for (const [id, desc] of publishedPlaces()) {

@@ -5,6 +5,8 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { Alert, Button, Checkbox, Modal } from '@mantine/core';
 import { DataTable, type DataTableSortStatus } from 'mantine-datatable';
 import 'mantine-datatable/styles.css';
+import { FILTER_FAMILIES } from '../../filterFamilies';
+import { familyLabel } from '../../familyLabels';
 import { AdminGate } from '../gate';
 import { SearchBox } from '../search-box';
 
@@ -26,8 +28,10 @@ type PlaceRow = {
   id: string;
   name: string;
   kind: string;
+  family: string;
   photos: number;
   prioritized: boolean;
+  uninteresting: boolean;
   sources: number;
   rating: number | null;
   votes: number;
@@ -137,17 +141,9 @@ function SiteTable({ token }: { token: string }) {
   const [q, setQ] = useState(params.get('q') ?? '');
   const [over6, setOver6] = useState(params.get('over6') === '1');
   const [noPriority, setNoPriority] = useState(params.get('unmarked') === '1');
-  const [kinds, setKinds] = useState<string[]>(() =>
-    (params.get('types') ?? '')
-      .split('|')
-      .filter(Boolean)
-      .map(s => {
-        try {
-          return decodeURIComponent(s);
-        } catch {
-          return s;
-        }
-      })
+  const [onlyDull, setOnlyDull] = useState(params.get('uninteresting') === '1');
+  const [families, setFamilies] = useState<string[]>(() =>
+    (params.get('families') ?? '').split('|').filter(Boolean)
   );
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [idHit, setIdHit] = useState<string | null>(null);
@@ -235,8 +231,11 @@ function SiteTable({ token }: { token: string }) {
     if (noPriority) {
       p.set('unmarked', '1');
     }
-    if (kinds.length) {
-      p.set('types', kinds.map(encodeURIComponent).join('|'));
+    if (onlyDull) {
+      p.set('uninteresting', '1');
+    }
+    if (families.length) {
+      p.set('families', families.join('|'));
     }
     const next = p.toString();
     const current = window.location.search.replace(/^\?/, '');
@@ -247,22 +246,35 @@ function SiteTable({ token }: { token: string }) {
         next ? `?${next}` : window.location.pathname
       );
     }
-  }, [q, over6, noPriority, kinds]);
+  }, [q, over6, noPriority, onlyDull, families]);
 
-  const typeChoices = useMemo(() => {
+  const familyChoices = useMemo(() => {
     const counts = new Map<string, number>();
     for (const row of rows ?? []) {
-      if (!row.kind) {
+      if (!row.family) {
         continue;
       }
-      counts.set(row.kind, (counts.get(row.kind) ?? 0) + 1);
+      counts.set(row.family, (counts.get(row.family) ?? 0) + 1);
     }
-    return [...counts.entries()].sort((a, b) => a[0].localeCompare(b[0], 'sv'));
+    const known = new Set(FILTER_FAMILIES.map(f => f.id));
+    const listed = FILTER_FAMILIES.filter(f => (counts.get(f.id) ?? 0) > 0).map(
+      f => ({
+        id: f.id,
+        icon: f.icon,
+        count: counts.get(f.id) ?? 0,
+      })
+    );
+    for (const [id, count] of counts) {
+      if (!known.has(id)) {
+        listed.push({ id, icon: 'unknown', count });
+      }
+    }
+    return listed;
   }, [rows]);
 
   const filtered = useMemo(() => {
     const needle = fold(q.trim());
-    const picked = new Set(kinds);
+    const picked = new Set(families);
     return (rows ?? []).filter(row => {
       if (over6 && row.photos <= 6) {
         return false;
@@ -270,7 +282,10 @@ function SiteTable({ token }: { token: string }) {
       if (noPriority && row.prioritized) {
         return false;
       }
-      if (picked.size > 0 && !picked.has(row.kind)) {
+      if (onlyDull && !row.uninteresting) {
+        return false;
+      }
+      if (picked.size > 0 && !picked.has(row.family)) {
         return false;
       }
       if (!needle) {
@@ -282,15 +297,19 @@ function SiteTable({ token }: { token: string }) {
       return (
         fold(row.name).includes(needle) ||
         row.id.startsWith(needle) ||
-        fold(row.kind).includes(needle)
+        fold(row.kind).includes(needle) ||
+        fold(familyLabel(row.family)).includes(needle)
       );
     });
-  }, [rows, q, over6, noPriority, kinds, idHit]);
+  }, [rows, q, over6, noPriority, onlyDull, families, idHit]);
 
   const sorted = useMemo(() => ordered(filtered, sort), [filtered, sort]);
   const pageRows = sorted.slice((page - 1) * PAGE, page * PAGE);
   const filterCount =
-    (over6 ? 1 : 0) + (noPriority ? 1 : 0) + (kinds.length > 0 ? 1 : 0);
+    (over6 ? 1 : 0) +
+    (noPriority ? 1 : 0) +
+    (onlyDull ? 1 : 0) +
+    (families.length > 0 ? 1 : 0);
 
   const cell = (id: string, children: React.ReactNode) => (
     <RowLink id={id} onOpen={() => router.push(placeHref(id))}>
@@ -328,7 +347,7 @@ function SiteTable({ token }: { token: string }) {
         opened={filtersOpen}
         onClose={() => setFiltersOpen(false)}
         title="Filters"
-        size="lg"
+        size="md"
         radius="md"
       >
         <div className="fl-filter-flags">
@@ -348,15 +367,23 @@ function SiteTable({ token }: { token: string }) {
               setPage(1);
             }}
           />
+          <Checkbox
+            label="Not interesting"
+            checked={onlyDull}
+            onChange={e => {
+              setOnlyDull(e.currentTarget.checked);
+              setPage(1);
+            }}
+          />
         </div>
         <div className="fl-filter-head">
           <p className="fl-filter-title">Type</p>
-          {kinds.length > 0 ? (
+          {families.length > 0 ? (
             <button
               type="button"
               className="fl-pick-filter"
               onClick={() => {
-                setKinds([]);
+                setFamilies([]);
                 setPage(1);
               }}
             >
@@ -364,17 +391,29 @@ function SiteTable({ token }: { token: string }) {
             </button>
           ) : null}
         </div>
-        <div className="fl-types">
-          {typeChoices.map(([name, count]) => (
+        <div className="fl-families">
+          {familyChoices.map(family => (
             <Checkbox
-              key={name}
-              label={`${name} (${count})`}
-              checked={kinds.includes(name)}
+              key={family.id}
+              label={
+                <span className="fl-family-label">
+                  <img
+                    src={`/fornlamningar-icons/svg/${family.icon}.svg`}
+                    alt=""
+                    width={22}
+                    height={22}
+                  />
+                  <span>
+                    {familyLabel(family.id)} ({family.count})
+                  </span>
+                </span>
+              }
+              checked={families.includes(family.id)}
               onChange={() => {
-                setKinds(prev =>
-                  prev.includes(name)
-                    ? prev.filter(k => k !== name)
-                    : [...prev, name]
+                setFamilies(prev =>
+                  prev.includes(family.id)
+                    ? prev.filter(id => id !== family.id)
+                    : [...prev, family.id]
                 );
                 setPage(1);
               }}

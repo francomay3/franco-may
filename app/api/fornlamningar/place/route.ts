@@ -2,7 +2,7 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { isAdmin } from '@/lib/admin';
+import { isAdmin, uidOf } from '@/lib/admin';
 import { pool, tx } from '@/lib/db';
 import { cleanPayload, publicAuthor } from '@/lib/fl-authors';
 import { placeUuidOf } from '@/lib/lamning';
@@ -65,6 +65,72 @@ type ArchiveRow = {
   prioritized: boolean;
 };
 
+type RatingView = {
+  /** This admin's own score, the latest one under their account. */
+  mine: number | null;
+  /** What the app shows: the mean, one vote per person. */
+  average: number | null;
+  votes: number;
+};
+
+/**
+ * The ratings the app is averaging for this place, and which of them is
+ * the caller's.
+ *
+ * A person who rated from two phones is one vote. The devices stay as
+ * separate authors in the log; the account they were linked to is the
+ * person, which is the same collapse the phone does when it syncs.
+ */
+function ratingOf(uuid: string, uid: string): Promise<RatingView> {
+  return pool
+    .query<{ payload: { stars?: unknown }; mine: boolean }>(
+      `WITH latest AS (
+         SELECT DISTINCT ON (e.author)
+                e.author, e.seq, e.payload
+           FROM fl_events e
+          WHERE e.place_uuid = $1 AND e.kind = 'rating'
+            AND NOT EXISTS (
+              SELECT 1 FROM fl_events d
+               WHERE d.kind = 'rating_delete'
+                 AND d.payload->>'target_event_id' = e.event_id::text
+            )
+          ORDER BY e.author, e.seq DESC
+       )
+       SELECT DISTINCT ON (COALESCE(d.account, l.author))
+              l.payload,
+              (COALESCE(d.account, l.author) = $2) AS mine
+         FROM latest l
+         LEFT JOIN fl_account_devices d ON d.device = l.author
+        ORDER BY COALESCE(d.account, l.author), l.seq DESC`,
+      [uuid, uid]
+    )
+    .then(r => {
+      const scored = r.rows.flatMap(row => {
+        const stars = row.payload?.stars;
+        return typeof stars === 'number' ? [{ stars, mine: row.mine }] : [];
+      });
+      const mine = scored.find(row => row.mine)?.stars ?? null;
+      const votes = scored.length;
+      const average =
+        votes > 0
+          ? scored.reduce((sum, row) => sum + row.stars, 0) / votes
+          : null;
+      return { mine, average, votes };
+    });
+}
+
+function uninterestingOf(uuid: string) {
+  return pool
+    .query(`SELECT 1 FROM fl_uninteresting WHERE place_uuid = $1`, [uuid])
+    .then(r => r.rows.length > 0)
+    .catch(err => {
+      if (missingTable(err)) {
+        return false;
+      }
+      throw err;
+    });
+}
+
 function archiveOf(uuid: string) {
   return pool
     .query<ArchiveRow>(
@@ -98,6 +164,7 @@ export async function GET(request: NextRequest) {
 
   const desc = description(uuid);
   const coord = placeCoord(uuid);
+  const uid = await uidOf(request);
   const [
     { rows: comments },
     { rows: pending },
@@ -105,6 +172,8 @@ export async function GET(request: NextRequest) {
     { rows: texts },
     { rows: added },
     archive,
+    uninteresting,
+    rating,
   ] = await Promise.all([
     pool.query(
       `SELECT c.event_id, c.author, c.payload, c.server_ts,
@@ -158,6 +227,10 @@ export async function GET(request: NextRequest) {
       [uuid]
     ),
     archiveOf(uuid),
+    uninterestingOf(uuid),
+    uid
+      ? ratingOf(uuid, uid)
+      : Promise.resolve({ mine: null, average: null, votes: 0 }),
   ]);
   // Once the pipeline has taken an added source in, it comes back in
   // fl_sources too. Listed once, as the pipeline's, which is the one the
@@ -235,6 +308,8 @@ export async function GET(request: NextRequest) {
       lic: img.lic ?? null,
       page: img.page ?? null,
     })),
+    uninteresting,
+    rating,
     archive: archive.map(r => ({
       source: r.source,
       file: r.file,
@@ -264,6 +339,16 @@ const bodySchema = z.discriminatedUnion('action', [
     source: z.string().min(1).max(64),
     file: z.string().min(1).max(2000),
     prioritized: z.boolean(),
+  }),
+  z.object({
+    action: z.literal('uninteresting'),
+    place: z.string().min(1),
+    uninteresting: z.boolean(),
+  }),
+  z.object({
+    action: z.literal('rate'),
+    place: z.string().min(1),
+    stars: z.number().int().min(1).max(5),
   }),
 ]);
 
@@ -303,6 +388,87 @@ export async function POST(request: NextRequest) {
       );
     }
     return NextResponse.json({ ok: true, prioritized });
+  }
+  if (parsed.data.action === 'uninteresting') {
+    const uuid = placeUuidOf(parsed.data.place);
+    if (!uuid) {
+      return NextResponse.json({ error: 'unknown place' }, { status: 400 });
+    }
+    const uid = await uidOf(request);
+    if (!uid) {
+      return NextResponse.json({ error: 'not found' }, { status: 404 });
+    }
+    if (parsed.data.uninteresting) {
+      await pool.query(
+        `INSERT INTO fl_uninteresting (place_uuid, flagged_by)
+         VALUES ($1, $2)
+         ON CONFLICT (place_uuid) DO NOTHING`,
+        [uuid, uid]
+      );
+    } else {
+      await pool.query(`DELETE FROM fl_uninteresting WHERE place_uuid = $1`, [
+        uuid,
+      ]);
+    }
+    return NextResponse.json({
+      ok: true,
+      uninteresting: parsed.data.uninteresting,
+    });
+  }
+  if (parsed.data.action === 'rate') {
+    const uuid = placeUuidOf(parsed.data.place);
+    if (!uuid) {
+      return NextResponse.json({ error: 'unknown place' }, { status: 400 });
+    }
+    const uid = await uidOf(request);
+    if (!uid) {
+      return NextResponse.json({ error: 'not found' }, { status: 404 });
+    }
+    const { stars } = parsed.data;
+    const { rows: prev } = await pool.query<{
+      author: string;
+      payload: { visited?: unknown };
+    }>(
+      `SELECT e.author, e.payload
+         FROM fl_events e
+         LEFT JOIN fl_account_devices d ON d.device = e.author
+        WHERE e.place_uuid = $1 AND e.kind = 'rating'
+          AND COALESCE(d.account, e.author) = $2
+          AND NOT EXISTS (
+            SELECT 1 FROM fl_events x
+             WHERE x.kind = 'rating_delete'
+               AND x.payload->>'target_event_id' = e.event_id::text
+          )
+        ORDER BY e.seq DESC
+        LIMIT 1`,
+      [uuid, uid]
+    );
+    // Same author as the rating already under this account, so the new
+    // row replaces it instead of counting as a second person. No
+    // client_ts: a row this server writes has to reach the phone that
+    // filed the previous one, and the sync drops a device's own events
+    // only when that device sent them.
+    const payload: { stars: number; visited?: boolean } = { stars };
+    if (typeof prev[0]?.payload?.visited === 'boolean') {
+      payload.visited = prev[0].payload.visited;
+    }
+    await tx(async c => {
+      const { rows: seq } = await c.query<{ v: string }>(
+        'UPDATE fl_event_seq SET v = v + 1 WHERE id = 1 RETURNING v'
+      );
+      await c.query(
+        `INSERT INTO fl_events (seq, event_id, kind, place_uuid, author, payload)
+         VALUES ($1, $2, 'rating', $3, $4, $5)`,
+        [
+          Number(seq[0].v),
+          crypto.randomUUID(),
+          uuid,
+          prev[0]?.author ?? uid,
+          JSON.stringify(payload),
+        ]
+      );
+    });
+    return NextResponse.json({ ok: true, ...(await ratingOf(uuid, uid)) });
   }
   const { event_id } = parsed.data;
 
