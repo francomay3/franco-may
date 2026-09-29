@@ -1,5 +1,6 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'fs';
 import { join } from 'path';
+import { gunzipSync } from 'zlib';
 import { DatabaseSync } from 'node:sqlite';
 import { VectorTile } from '@mapbox/vector-tile';
 import Pbf from 'pbf';
@@ -20,8 +21,9 @@ import { pool } from '@/lib/db';
  * description shipped.
  *
  * Rating is the visitors' mean, the same number the app draws once anyone
- * has answered, and `votes` is how many gave a score. Estimate is the app's
- * own 1-5 stars, which is what the sheet shows until that first answer.
+ * has answered, and `votes` is how many gave a score. Score is the raw
+ * number the algorithm calculated. Estimate is that number as the app's
+ * 1-5 stars, which is what the sheet shows until that first answer.
  */
 
 export type PlaceRow = {
@@ -39,6 +41,8 @@ export type PlaceRow = {
   sources: number;
   rating: number | null;
   votes: number;
+  /** score_full, the number the fit produced. Null when this place has none. */
+  score: number | null;
   estimate: number | null;
   comments: number;
 };
@@ -52,6 +56,7 @@ let tileCache: Map<
   string,
   { stars: number | null; kind: string; family: string }
 > | null = null;
+let scoreCache: Map<string, number> | null = null;
 
 function publishedPlaces() {
   if (published) {
@@ -174,6 +179,34 @@ function tiles(): Map<
   return map;
 }
 
+function modelScores(): Map<string, number> {
+  if (scoreCache) {
+    return scoreCache;
+  }
+  const map = new Map<string, number>();
+  const path = join(process.cwd(), 'data', 'place-scores.txt.gz');
+  if (!existsSync(path)) {
+    scoreCache = map;
+    return map;
+  }
+  const raw = gunzipSync(readFileSync(path)).toString('utf8');
+  for (const line of raw.split('\n')) {
+    if (!line) {
+      continue;
+    }
+    const space = line.indexOf(' ');
+    if (space < 1) {
+      continue;
+    }
+    const n = Number(line.slice(space + 1));
+    if (Number.isFinite(n)) {
+      map.set(line.slice(0, space), n);
+    }
+  }
+  scoreCache = map;
+  return map;
+}
+
 function blank(id: string, name = ''): PlaceRow {
   return {
     id,
@@ -186,6 +219,7 @@ function blank(id: string, name = ''): PlaceRow {
     sources: 0,
     rating: null,
     votes: 0,
+    score: null,
     estimate: null,
     comments: 0,
   };
@@ -255,6 +289,7 @@ export async function placeRows(): Promise<PlaceRow[]> {
     row.uninteresting = dull.has(row.id);
     row.kind = fromTile?.kind ?? '';
     row.family = fromTile?.family ?? '';
+    row.score = modelScores().get(row.id) ?? null;
     row.estimate = fromTile?.stars ?? null;
   };
   for (const [id, desc] of publishedPlaces()) {

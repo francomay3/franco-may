@@ -326,3 +326,43 @@ CREATE TABLE IF NOT EXISTS fl_uninteresting (
   flagged_by  TEXT        NOT NULL,
   created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+-- A note, written in the admin, that something about a place is wrong.
+--
+-- The words are the reason ("this place is in the wrong category").
+-- corrected_at means that was fixed and the note stays as a record of it.
+-- Deleting the row forgets it. scripts/export-fl-flags.cjs writes every
+-- row, so a later pass can work through the ones still open. A reload of
+-- photographs or sources must not clear this table.
+CREATE TABLE IF NOT EXISTS fl_place_flags (
+  id            BIGSERIAL   PRIMARY KEY,
+  place_uuid    TEXT        NOT NULL,
+  note          TEXT        NOT NULL,
+  created_by    TEXT        NOT NULL,
+  created_at    TIMESTAMPTZ NOT NULL DEFAULT now(),
+  corrected_at  TIMESTAMPTZ,
+  corrected_by  TEXT
+);
+CREATE INDEX IF NOT EXISTS fl_place_flags_place
+  ON fl_place_flags (place_uuid, created_at DESC);
+CREATE INDEX IF NOT EXISTS fl_place_flags_open
+  ON fl_place_flags (created_at)
+  WHERE corrected_at IS NULL;
+
+-- Where a person dragged the pin.
+--
+-- The pipeline reads this table (scripts/export-fl-pin-overrides.cjs ->
+-- build_clusters.py) and stands the pin there instead of on the
+-- representative site's own coordinate. The cluster's mean, which the
+-- score was fitted against, is left where the algorithm put it. A reload
+-- of photographs or sources must not clear this table. The file the
+-- pipeline reads is the whole truth, so clearing a row here puts the pin
+-- back on the calculated point at the next run.
+CREATE TABLE IF NOT EXISTS fl_pin_overrides (
+  place_uuid  TEXT             PRIMARY KEY,
+  lon         DOUBLE PRECISION NOT NULL,
+  lat         DOUBLE PRECISION NOT NULL,
+  set_by      TEXT             NOT NULL,
+  created_at  TIMESTAMPTZ      NOT NULL DEFAULT now(),
+  updated_at  TIMESTAMPTZ      NOT NULL DEFAULT now()
+);

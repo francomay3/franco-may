@@ -35,17 +35,10 @@ type PlaceRow = {
   sources: number;
   rating: number | null;
   votes: number;
+  score: number | null;
   estimate: number | null;
   comments: number;
 };
-
-function fold(s: string): string {
-  return s.normalize('NFD').replace(/\p{M}/gu, '').toLocaleLowerCase('sv');
-}
-
-function looksLikeId(q: string): boolean {
-  return /^[0-9a-f-]{8,}$/i.test(q) || /\d+:\d+/.test(q);
-}
 
 function placeHref(id: string): string {
   return `/fornlamningar/admin/${id}`;
@@ -146,7 +139,10 @@ function SiteTable({ token }: { token: string }) {
     (params.get('families') ?? '').split('|').filter(Boolean)
   );
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const [idHit, setIdHit] = useState<string | null>(null);
+  // Null while a query is in flight. The order is the search rank: a literal
+  // title, then a fuzzy title, then the same two for the description, in
+  // Swedish and in English.
+  const [hits, setHits] = useState<string[] | null>(null);
 
   useEffect(() => {
     let gone = false;
@@ -178,10 +174,11 @@ function SiteTable({ token }: { token: string }) {
 
   useEffect(() => {
     const needle = q.trim();
-    if (!looksLikeId(needle)) {
-      setIdHit(null);
+    if (!needle) {
+      setHits(null);
       return;
     }
+    setHits(null);
     let gone = false;
     const wait = setTimeout(() => {
       void (async () => {
@@ -201,15 +198,13 @@ function SiteTable({ token }: { token: string }) {
             return;
           }
           if (body.redirect) {
-            setIdHit(body.redirect);
-          } else if (body.hits?.length === 1) {
-            setIdHit(body.hits[0].id);
+            setHits([body.redirect]);
           } else {
-            setIdHit(null);
+            setHits((body.hits ?? []).map(hit => hit.id));
           }
         } catch {
           if (!gone) {
-            setIdHit(null);
+            setHits([]);
           }
         }
       })();
@@ -273,8 +268,9 @@ function SiteTable({ token }: { token: string }) {
   }, [rows]);
 
   const filtered = useMemo(() => {
-    const needle = fold(q.trim());
+    const needle = q.trim();
     const picked = new Set(families);
+    const matched = needle ? new Set(hits ?? []) : null;
     return (rows ?? []).filter(row => {
       if (over6 && row.photos <= 6) {
         return false;
@@ -288,22 +284,24 @@ function SiteTable({ token }: { token: string }) {
       if (picked.size > 0 && !picked.has(row.family)) {
         return false;
       }
-      if (!needle) {
-        return true;
+      if (matched && !matched.has(row.id)) {
+        return false;
       }
-      if (idHit && row.id === idHit) {
-        return true;
-      }
-      return (
-        fold(row.name).includes(needle) ||
-        row.id.startsWith(needle) ||
-        fold(row.kind).includes(needle) ||
-        fold(familyLabel(row.family)).includes(needle)
-      );
+      return true;
     });
-  }, [rows, q, over6, noPriority, onlyDull, families, idHit]);
+  }, [rows, q, over6, noPriority, onlyDull, families, hits]);
 
-  const sorted = useMemo(() => ordered(filtered, sort), [filtered, sort]);
+  const sorted = useMemo(() => {
+    if (q.trim() && hits) {
+      const order = new Map(hits.map((id, i) => [id, i]));
+      return [...filtered].sort(
+        (a, b) =>
+          (order.get(a.id) ?? hits.length) - (order.get(b.id) ?? hits.length) ||
+          a.id.localeCompare(b.id)
+      );
+    }
+    return ordered(filtered, sort);
+  }, [filtered, sort, q, hits]);
   const pageRows = sorted.slice((page - 1) * PAGE, page * PAGE);
   const filterCount =
     (over6 ? 1 : 0) +
@@ -321,7 +319,8 @@ function SiteTable({ token }: { token: string }) {
     <div className="fl-sites">
       <p className="fl-sub fl-sites-note">
         Photos is every photograph held for the place. The app receives at most
-        six of them. Rating is what visitors gave, and how many. Estimate is the
+        six of them. Rating is what visitors gave, and how many. Score is the
+        number the algorithm calculated. Estimate is that number as the
         app&apos;s own stars, which is what the app shows until somebody rates
         the place.
       </p>
@@ -429,9 +428,11 @@ function SiteTable({ token }: { token: string }) {
         <>
           <p className="fl-count">
             {rows
-              ? filterCount > 0 || q.trim()
-                ? `${sorted.length.toLocaleString('sv-SE')} of ${rows.length.toLocaleString('sv-SE')} places`
-                : `${sorted.length.toLocaleString('sv-SE')} places`
+              ? q.trim() && hits === null
+                ? 'Searching…'
+                : filterCount > 0 || q.trim()
+                  ? `${sorted.length.toLocaleString('sv-SE')} of ${rows.length.toLocaleString('sv-SE')} places`
+                  : `${sorted.length.toLocaleString('sv-SE')} places`
               : 'Loading…'}
           </p>
           <DataTable
@@ -440,7 +441,7 @@ function SiteTable({ token }: { token: string }) {
             striped
             highlightOnHover
             minHeight={240}
-            fetching={rows === null}
+            fetching={rows === null || (q.trim() !== '' && hits === null)}
             records={pageRows}
             totalRecords={sorted.length}
             recordsPerPage={PAGE}
@@ -491,6 +492,14 @@ function SiteTable({ token }: { token: string }) {
                     id,
                     rating == null ? '—' : `${rating.toFixed(1)} · ${votes}`
                   ),
+              },
+              {
+                accessor: 'score',
+                title: 'Score',
+                sortable: true,
+                textAlign: 'right',
+                render: ({ id, score }) =>
+                  cell(id, score == null ? '—' : score.toFixed(2)),
               },
               {
                 accessor: 'estimate',

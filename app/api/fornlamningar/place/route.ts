@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { isAdmin, uidOf } from '@/lib/admin';
 import { pool, tx } from '@/lib/db';
 import { cleanPayload, publicAuthor } from '@/lib/fl-authors';
+import { flagsForPlace } from '@/lib/fl-flags';
 import { placeUuidOf } from '@/lib/lamning';
 import { placeCoord } from '@/lib/place-coords';
 import { withdrawPhoto } from '@/lib/withdraw-photo';
@@ -119,6 +120,27 @@ function ratingOf(uuid: string, uid: string): Promise<RatingView> {
     });
 }
 
+function pinOverrideOf(uuid: string) {
+  return pool
+    .query<{ lon: number; lat: number }>(
+      `SELECT lon, lat FROM fl_pin_overrides WHERE place_uuid = $1`,
+      [uuid]
+    )
+    .then(r => {
+      const row = r.rows[0];
+      if (!row) {
+        return null;
+      }
+      return { lon: Number(row.lon), lat: Number(row.lat) };
+    })
+    .catch(err => {
+      if (missingTable(err)) {
+        return null;
+      }
+      throw err;
+    });
+}
+
 function uninterestingOf(uuid: string) {
   return pool
     .query(`SELECT 1 FROM fl_uninteresting WHERE place_uuid = $1`, [uuid])
@@ -174,6 +196,8 @@ export async function GET(request: NextRequest) {
     archive,
     uninteresting,
     rating,
+    flags,
+    pinOverride,
   ] = await Promise.all([
     pool.query(
       `SELECT c.event_id, c.author, c.payload, c.server_ts,
@@ -231,6 +255,8 @@ export async function GET(request: NextRequest) {
     uid
       ? ratingOf(uuid, uid)
       : Promise.resolve({ mine: null, average: null, votes: 0 }),
+    flagsForPlace(uuid),
+    pinOverrideOf(uuid),
   ]);
   // Once the pipeline has taken an added source in, it comes back in
   // fl_sources too. Listed once, as the pipeline's, which is the one the
@@ -266,8 +292,10 @@ export async function GET(request: NextRequest) {
     title: desc?.title ?? null,
     content: desc?.content ?? null,
     fornsok: `https://app.raa.se/open/fornsok/lamning/${uuid}`,
-    lon: coord?.[0] ?? null,
-    lat: coord?.[1] ?? null,
+    lon: pinOverride?.lon ?? coord?.[0] ?? null,
+    lat: pinOverride?.lat ?? coord?.[1] ?? null,
+    calculated: coord == null ? null : { lon: coord[0], lat: coord[1] },
+    pin_override: pinOverride,
     texts: [
       ...added
         .filter(r => !r.url || !known.has(r.url))
@@ -310,6 +338,7 @@ export async function GET(request: NextRequest) {
     })),
     uninteresting,
     rating,
+    flags,
     archive: archive.map(r => ({
       source: r.source,
       file: r.file,
@@ -349,6 +378,16 @@ const bodySchema = z.discriminatedUnion('action', [
     action: z.literal('rate'),
     place: z.string().min(1),
     stars: z.number().int().min(1).max(5),
+  }),
+  z.object({
+    action: z.literal('set_pin'),
+    place: z.string().min(1),
+    lon: z.number().gte(-180).lte(180),
+    lat: z.number().gte(-90).lte(90),
+  }),
+  z.object({
+    action: z.literal('clear_pin'),
+    place: z.string().min(1),
   }),
 ]);
 
@@ -413,6 +452,46 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       ok: true,
       uninteresting: parsed.data.uninteresting,
+    });
+  }
+  if (parsed.data.action === 'set_pin' || parsed.data.action === 'clear_pin') {
+    const uuid = placeUuidOf(parsed.data.place);
+    if (!uuid) {
+      return NextResponse.json({ error: 'unknown place' }, { status: 400 });
+    }
+    const uid = await uidOf(request);
+    if (!uid) {
+      return NextResponse.json({ error: 'not found' }, { status: 404 });
+    }
+    if (parsed.data.action === 'clear_pin') {
+      await pool.query(`DELETE FROM fl_pin_overrides WHERE place_uuid = $1`, [
+        uuid,
+      ]);
+      const coord = placeCoord(uuid);
+      return NextResponse.json({
+        ok: true,
+        lon: coord?.[0] ?? null,
+        lat: coord?.[1] ?? null,
+        pin_override: null,
+      });
+    }
+    const lon = Math.round(parsed.data.lon * 1e6) / 1e6;
+    const lat = Math.round(parsed.data.lat * 1e6) / 1e6;
+    await pool.query(
+      `INSERT INTO fl_pin_overrides (place_uuid, lon, lat, set_by)
+       VALUES ($1, $2, $3, $4)
+       ON CONFLICT (place_uuid) DO UPDATE SET
+         lon = EXCLUDED.lon,
+         lat = EXCLUDED.lat,
+         set_by = EXCLUDED.set_by,
+         updated_at = now()`,
+      [uuid, lon, lat, uid]
+    );
+    return NextResponse.json({
+      ok: true,
+      lon,
+      lat,
+      pin_override: { lon, lat },
     });
   }
   if (parsed.data.action === 'rate') {

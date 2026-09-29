@@ -251,10 +251,29 @@
 
 .fl-map {
   height: 280px;
-  margin: 0 0 18px;
+  margin: 0 0 8px;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--line);
+}
+
+.fl-pin {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 14px;
+  margin: 0 0 18px;
+}
+
+.fl-pin .fl-sub {
+  margin: 0;
+  max-width: 46em;
+}
+
+.fl-quiet:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 
 .fl-links {
@@ -309,6 +328,93 @@
 .fl-interest .fl-sub {
   margin: 0;
   max-width: 46em;
+}
+
+.fl-flags {
+  margin: 0 0 22px;
+}
+
+.fl-flags h2 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.fl-flags > .fl-sub {
+  margin: 4px 0 12px;
+  max-width: 46em;
+}
+
+.fl-flag {
+  margin-bottom: 10px;
+}
+
+.fl-flag.is-done {
+  opacity: 0.55;
+}
+
+.fl-flag-note {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.fl-flag .fl-sub {
+  margin: 6px 0 0;
+}
+
+.fl-flag-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.fl-flag-actions button {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: inherit;
+  cursor: pointer;
+}
+
+.fl-flag-actions button.is-danger {
+  color: var(--danger);
+  background: transparent;
+}
+
+.fl-flag-actions button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.fl-flag-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.fl-flag-place {
+  display: block;
+  margin-bottom: 6px;
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.fl-flag-place:hover {
+  color: var(--accent);
 }
 
 .fl-meta a:any-link {
@@ -453,7 +559,8 @@
 }
 
 .fl-add-source input,
-.fl-add-source textarea {
+.fl-add-source textarea,
+.fl-flag-form textarea {
   font: inherit;
   font-size: 14px;
   padding: 8px 10px;

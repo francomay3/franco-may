@@ -3,7 +3,15 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { Alert, Button, Group, Loader, Rating, Text } from '@mantine/core';
+import {
+  Alert,
+  Button,
+  Checkbox,
+  Group,
+  Loader,
+  Rating,
+  Text,
+} from '@mantine/core';
 import { IconArrowLeft, IconTrash } from '@tabler/icons-react';
 import {
   currentToken,
@@ -30,7 +38,9 @@ import { ArchivePicker, type ArchivePhoto } from './archive-picker';
  * picture held for the place. Prioritizing one puts it first when the app
  * next chooses its six. "Not interesting" puts the place on the list the
  * pipeline trains against. "Your rating" is the score under this account,
- * which is the one the app averages.
+ * which is the one the app averages. A flag is a note that something
+ * about the place is wrong; marking it corrected keeps the note, and
+ * deleting it forgets it.
  */
 
 type SourceText = {
@@ -58,6 +68,10 @@ type Place = {
   fornsok: string | null;
   lon: number | null;
   lat: number | null;
+  /** The algorithm's point. Present when the map knows this place. */
+  calculated: { lon: number; lat: number } | null;
+  /** Set when a person dragged the pin. The app uses this after the pipeline. */
+  pin_override: { lon: number; lat: number } | null;
   texts: SourceText[];
   sources: {
     file: string;
@@ -84,12 +98,50 @@ type Place = {
   uninteresting: boolean;
   /** `mine` is the score under this account. `average` is what the app shows. */
   rating: { mine: number | null; average: number | null; votes: number };
+  /** Notes that something here is wrong. `corrected_at` means it was fixed. */
+  flags: {
+    id: string;
+    note: string;
+    created_at: string;
+    corrected_at: string | null;
+  }[];
 };
 
 type Pending =
   | { kind: 'comment'; id: string }
   | { kind: 'photo'; id: string }
+  | { kind: 'flag'; id: string }
   | null;
+
+function confirmCopy(pending: Pending): {
+  title: string;
+  body: string;
+  label: string;
+} {
+  if (pending?.kind === 'photo') {
+    return {
+      title: 'Delete this photo?',
+      body: 'It is removed from the place and from the phone that uploaded it. The file in storage goes too.',
+      label: 'Delete',
+    };
+  }
+  if (pending?.kind === 'flag') {
+    return {
+      title: 'Delete this flag?',
+      body: 'The note is removed. Marking it corrected keeps it, as a record that it was fixed.',
+      label: 'Delete',
+    };
+  }
+  return {
+    title: 'Take this comment down?',
+    body: 'Visitors stop seeing it, including on the phone that wrote it. It stays on this page, marked hidden.',
+    label: 'Take down',
+  };
+}
+
+function flagWhen(iso: string): string {
+  return iso.slice(0, 16).replace('T', ' ');
+}
 
 function ratingLine(rating: Place['rating'] | undefined): string {
   if (!rating || rating.average == null || rating.votes === 0) {
@@ -118,6 +170,7 @@ export default function PlaceAdminPage() {
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
   const [pending, setPending] = useState<Pending>(null);
+  const [flagNote, setFlagNote] = useState('');
 
   const load = useCallback(
     async (t: string) => {
@@ -275,6 +328,136 @@ export default function PlaceAdminPage() {
     }
   };
 
+  const flagCall = async (payload: {
+    action: 'add' | 'correct' | 'delete';
+    id?: string;
+    place?: string;
+    note?: string;
+  }) => {
+    if (!token || !place?.uuid) {
+      return;
+    }
+    setBusy(`flag:${payload.action}`);
+    try {
+      const res = await fetch('/api/fornlamningar/flags', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        setError(`could not update the flag: ${res.status}`);
+        return;
+      }
+      setPending(null);
+      if (payload.action === 'add') {
+        setFlagNote('');
+      }
+      await load(token);
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  const movePin = async (lon: number, lat: number) => {
+    if (!token || !place?.uuid) {
+      return;
+    }
+    const prevLon = place.lon;
+    const prevLat = place.lat;
+    const prevOverride = place.pin_override;
+    setPlace(current => (current ? { ...current, lon, lat } : current));
+    setBusy('pin');
+    try {
+      const res = await fetch('/api/fornlamningar/place', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          action: 'set_pin',
+          place: place.uuid,
+          lon,
+          lat,
+        }),
+      });
+      if (!res.ok) {
+        setError(`could not move the pin: ${res.status}`);
+        setPlace(current =>
+          current
+            ? {
+                ...current,
+                lon: prevLon,
+                lat: prevLat,
+                pin_override: prevOverride,
+              }
+            : current
+        );
+        return;
+      }
+      const body = (await res.json()) as {
+        lon: number;
+        lat: number;
+        pin_override: Place['pin_override'];
+      };
+      setPlace(current =>
+        current
+          ? {
+              ...current,
+              lon: body.lon,
+              lat: body.lat,
+              pin_override: body.pin_override,
+            }
+          : current
+      );
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  const clearPin = async () => {
+    if (!token || !place?.uuid) {
+      return;
+    }
+    setBusy('pin');
+    try {
+      const res = await fetch('/api/fornlamningar/place', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          action: 'clear_pin',
+          place: place.uuid,
+        }),
+      });
+      if (!res.ok) {
+        setError(`could not reset the pin: ${res.status}`);
+        return;
+      }
+      const body = (await res.json()) as {
+        lon: number | null;
+        lat: number | null;
+      };
+      setPlace(current =>
+        current
+          ? {
+              ...current,
+              lon: body.lon,
+              lat: body.lat,
+              pin_override: null,
+            }
+          : current
+      );
+    } finally {
+      setBusy(null);
+    }
+  };
+
   const sourceCall = async (payload: object): Promise<string | null> => {
     if (!token) {
       return 'Not signed in';
@@ -392,26 +575,122 @@ export default function PlaceAdminPage() {
           </div>
 
           <div className="fl-interest">
-            <Button
-              radius="xl"
-              color="dark"
-              variant={place.uninteresting ? 'filled' : 'default'}
-              size="sm"
-              loading={busy === 'interest'}
-              aria-pressed={place.uninteresting}
-              onClick={() => void markUninteresting(!place.uninteresting)}
-            >
-              Not interesting
-            </Button>
+            <Checkbox
+              label="Not interesting"
+              checked={place.uninteresting}
+              disabled={busy === 'interest'}
+              onChange={e => void markUninteresting(e.currentTarget.checked)}
+            />
             <p className="fl-sub">
               {place.uninteresting
-                ? 'On the list the pipeline trains against. Click again to take it off.'
-                : 'Puts this place on the list of sites that are not worth the trip. The pipeline trains against that list.'}
+                ? 'On the list the pipeline trains against.'
+                : 'Puts this place on the list of sites that are not worth the trip.'}
             </p>
           </div>
 
+          <div className="fl-flags">
+            <h2>Flags</h2>
+            <p className="fl-sub">
+              A note on what is wrong with this place. Open notes are the list
+              to work through.
+            </p>
+            {place.flags.map(flag => (
+              <article
+                key={flag.id}
+                className={
+                  flag.corrected_at
+                    ? 'fl-card fl-flag is-done'
+                    : 'fl-card fl-flag'
+                }
+              >
+                <p className="fl-flag-note">{flag.note}</p>
+                <p className="fl-sub">
+                  {flagWhen(flag.created_at)}
+                  {flag.corrected_at
+                    ? ` · Corrected ${flagWhen(flag.corrected_at)}`
+                    : ''}
+                </p>
+                <div className="fl-flag-actions">
+                  {flag.corrected_at ? null : (
+                    <button
+                      type="button"
+                      disabled={busy?.startsWith('flag:') === true}
+                      onClick={() =>
+                        void flagCall({ action: 'correct', id: flag.id })
+                      }
+                    >
+                      Mark corrected
+                    </button>
+                  )}
+                  <button
+                    type="button"
+                    className="is-danger"
+                    disabled={busy?.startsWith('flag:') === true}
+                    onClick={() => setPending({ kind: 'flag', id: flag.id })}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </article>
+            ))}
+            <form
+              className="fl-flag-form"
+              onSubmit={e => {
+                e.preventDefault();
+                if (flagNote.trim() && busy?.startsWith('flag:') !== true) {
+                  void flagCall({
+                    action: 'add',
+                    place: place.uuid,
+                    note: flagNote.trim(),
+                  });
+                }
+              }}
+            >
+              <textarea
+                placeholder="This place is in the wrong category"
+                rows={3}
+                maxLength={2000}
+                value={flagNote}
+                onChange={e => setFlagNote(e.target.value)}
+              />
+              <button
+                type="submit"
+                className="fl-add-button"
+                disabled={
+                  !flagNote.trim() || busy?.startsWith('flag:') === true
+                }
+              >
+                {busy === 'flag:add' ? 'Saving…' : 'Flag'}
+              </button>
+            </form>
+          </div>
+
           {place.lat != null && place.lon != null ? (
-            <PlaceMap lon={place.lon} lat={place.lat} />
+            <>
+              <PlaceMap
+                lon={place.lon}
+                lat={place.lat}
+                draggable={busy !== 'pin'}
+                onMove={(lon, lat) => void movePin(lon, lat)}
+              />
+              <div className="fl-pin">
+                <p className="fl-sub">
+                  {place.pin_override
+                    ? 'Forced position. After the next pipeline run the app stands here.'
+                    : 'Drag the pin to where it should stand. After the next pipeline run the app uses it.'}
+                </p>
+                {place.pin_override ? (
+                  <button
+                    type="button"
+                    className="fl-quiet"
+                    disabled={busy === 'pin'}
+                    onClick={() => void clearPin()}
+                  >
+                    Reset pin
+                  </button>
+                ) : null}
+              </div>
+            </>
           ) : (
             <p className="fl-empty">No coordinate for this place.</p>
           )}
@@ -577,17 +856,9 @@ export default function PlaceAdminPage() {
 
       <ConfirmDialog
         opened={confirming}
-        title={
-          pending?.kind === 'photo'
-            ? 'Delete this photo?'
-            : 'Take this comment down?'
-        }
-        body={
-          pending?.kind === 'photo'
-            ? 'It is removed from the place and from the phone that uploaded it. The file in storage goes too.'
-            : 'Visitors stop seeing it, including on the phone that wrote it. It stays on this page, marked hidden.'
-        }
-        confirmLabel={pending?.kind === 'photo' ? 'Delete' : 'Take down'}
+        title={confirmCopy(pending).title}
+        body={confirmCopy(pending).body}
+        confirmLabel={confirmCopy(pending).label}
         busy={busy !== null}
         onClose={() => {
           if (!busy) {
@@ -600,6 +871,8 @@ export default function PlaceAdminPage() {
           }
           if (pending.kind === 'photo') {
             void removePhoto(pending.id);
+          } else if (pending.kind === 'flag') {
+            void flagCall({ action: 'delete', id: pending.id });
           } else {
             void hide(pending.id);
           }

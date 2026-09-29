@@ -10,13 +10,19 @@ export default function AdminHome() {
       <nav className="fl-nav">
         <Link className="fl-nav-card" href="/fornlamningar/admin/moderation">
           <span className="fl-nav-title">Moderation</span>
-          <span className="fl-nav-note">Comments and photos waiting for a look.</span>
+          <span className="fl-nav-note">
+            Comments and photos waiting for a look.
+          </span>
         </Link>
         <Link className="fl-nav-card" href="/fornlamningar/admin/sites">
           <span className="fl-nav-title">Sites</span>
           <span className="fl-nav-note">
             Every published place, with photos, sources and ratings.
           </span>
+        </Link>
+        <Link className="fl-nav-card" href="/fornlamningar/admin/flags">
+          <span className="fl-nav-title">Flags</span>
+          <span className="fl-nav-note">Notes on places that need a fix.</span>
         </Link>
         <Link className="fl-nav-card" href="/fornlamningar/admin/map">
           <span className="fl-nav-title">Map</span>
