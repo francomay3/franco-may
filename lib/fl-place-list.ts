@@ -14,11 +14,10 @@ import { pool } from '@/lib/db';
  * -- otherwise sorting by those columns would hide the only rows that make
  * the column worth having.
  *
- * Photos are every picture on the place: the archive photographs shipped
- * with the description, plus the ones a visitor sent. The deployed
- * description JSON does not carry the archive list -- that rides in the
- * English descriptions database -- so a count taken from the JSON alone is
- * zero for every row.
+ * Photos are every photograph held for the place, in fl_photos, plus the
+ * ones a visitor sent. The app still receives at most six of the archive.
+ * Until that catalog is loaded, the count falls back to the pictures the
+ * description shipped.
  *
  * Rating is the visitors' mean, the same number the app draws once anyone
  * has answered, and `votes` is how many gave a score. Estimate is the app's
@@ -159,13 +158,39 @@ function blank(id: string, name = ''): PlaceRow {
 type Count = { place_uuid: string; n: string };
 type Rated = { place_uuid: string; rating: string; votes: string };
 
+function missingTable(err: unknown): boolean {
+  return (
+    typeof err === 'object' &&
+    err !== null &&
+    'code' in err &&
+    (err as { code?: string }).code === '42P01'
+  );
+}
+
+async function photoCounts(): Promise<Map<string, number> | null> {
+  try {
+    const { rows } = await pool.query<Count>(
+      `SELECT place_uuid, count(*) AS n FROM fl_photos GROUP BY place_uuid`
+    );
+    return new Map(rows.map(r => [r.place_uuid, Number(r.n)]));
+  } catch (err) {
+    if (missingTable(err)) {
+      return null;
+    }
+    throw err;
+  }
+}
+
 export async function placeRows(): Promise<PlaceRow[]> {
   const pictures = picturesInDb();
   const stars = appStars();
+  const held = await photoCounts();
   const byId = new Map<string, PlaceRow>();
+  const photosOf = (id: string, shipped: number | null) =>
+    held ? (held.get(id) ?? 0) : (shipped ?? pictures.get(id) ?? 0);
   for (const [id, desc] of publishedPlaces()) {
     const row = blank(id, desc.name);
-    row.photos = desc.photos ?? pictures.get(id) ?? 0;
+    row.photos = photosOf(id, desc.photos);
     row.estimate = stars.get(id) ?? null;
     byId.set(id, row);
   }
@@ -173,7 +198,7 @@ export async function placeRows(): Promise<PlaceRow[]> {
     let row = byId.get(id);
     if (!row) {
       row = blank(id);
-      row.photos = pictures.get(id) ?? 0;
+      row.photos = photosOf(id, null);
       row.estimate = stars.get(id) ?? null;
       byId.set(id, row);
     }

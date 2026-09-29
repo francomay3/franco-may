@@ -16,6 +16,7 @@ import {
 import { PlaceMap } from '../PlaceMap';
 import { ConfirmDialog, IdLink } from '../ui';
 import DescriptionText from '../../DescriptionText';
+import { ArchivePicker, type ArchivePhoto } from './archive-picker';
 
 /**
  * One place. The id in the path is a register number or the uuid the app
@@ -25,8 +26,9 @@ import DescriptionText from '../../DescriptionText';
  *
  * "Sources" is every text the pipeline held for the place -- register,
  * Wikipedia, county pages and PDFs, recorded tradition -- from fl_sources.
- * The ones marked "used" went into the prompt. "Photographs" is the credited
- * images, which most places have none of.
+ * The ones marked "used" went into the prompt. "Photographs" is every
+ * picture held for the place. Prioritizing one puts it first when the app
+ * next chooses its six.
  */
 
 type SourceText = {
@@ -61,6 +63,7 @@ type Place = {
     lic: string | null;
     page: string | null;
   }[];
+  archive: ArchivePhoto[];
   comments: {
     event_id: string;
     author: string | null;
@@ -332,10 +335,14 @@ export default function PlaceAdminPage() {
           <div className="fl-section">
             <h2>Photographs</h2>
           </div>
-          {place.sources.length === 0 ? (
-            <p className="fl-empty">
-              No credited photograph on this description.
-            </p>
+          {(place.archive ?? []).length > 0 && place.uuid ? (
+            <ArchivePicker
+              uuid={place.uuid}
+              token={token}
+              photos={place.archive}
+            />
+          ) : place.sources.length === 0 ? (
+            <p className="fl-empty">No photograph held for this place.</p>
           ) : (
             <div className="fl-sources">
               {place.sources.map(s => {

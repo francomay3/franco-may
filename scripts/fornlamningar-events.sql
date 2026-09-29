@@ -280,3 +280,35 @@ CREATE TABLE IF NOT EXISTS fl_sources_added (
 );
 CREATE INDEX IF NOT EXISTS fl_sources_added_place
   ON fl_sources_added (place_uuid);
+
+-- Every photograph we hold for a place, whether or not the app shows it.
+--
+-- The app receives at most six. This table is the rest of the drawer: the
+-- archive, Commons, and the nearby guesses, so a person can look at them
+-- and mark the ones that actually show the place. `prioritized` is that
+-- mark. It defaults to false, and a reload of the catalog must not clear
+-- it -- scripts/load-fl-photos.cjs upserts the picture and leaves the flag
+-- alone. The pipeline reads the trues
+-- (scripts/export-fl-photo-priority.cjs) and puts them first when it
+-- chooses the six.
+--
+-- Keyed by the representative uuid, which is the id the admin page and the
+-- phone both use. `file` is the archive URI or the Commons File: name, the
+-- same string the images table has, so a later crawl still matches.
+-- `load_id` is only the loader's watermark.
+CREATE TABLE IF NOT EXISTS fl_photos (
+  place_uuid  TEXT    NOT NULL,
+  source      TEXT    NOT NULL,
+  file        TEXT    NOT NULL,
+  cluster_id  TEXT    NOT NULL,
+  thumb       TEXT    NOT NULL,
+  page        TEXT,
+  author      TEXT,
+  licence     TEXT,
+  ord         INTEGER NOT NULL,
+  prioritized BOOLEAN NOT NULL DEFAULT false,
+  load_id     TEXT,
+  PRIMARY KEY (place_uuid, source, file)
+);
+CREATE INDEX IF NOT EXISTS fl_photos_place
+  ON fl_photos (place_uuid, ord);

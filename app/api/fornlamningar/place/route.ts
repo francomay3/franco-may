@@ -45,6 +45,44 @@ function description(uuid: string): Desc | null {
   return bag[uuid] ?? null;
 }
 
+function missingTable(err: unknown): boolean {
+  return (
+    typeof err === 'object' &&
+    err !== null &&
+    'code' in err &&
+    (err as { code?: string }).code === '42P01'
+  );
+}
+
+type ArchiveRow = {
+  source: string;
+  file: string;
+  thumb: string;
+  page: string | null;
+  author: string | null;
+  licence: string | null;
+  ord: number;
+  prioritized: boolean;
+};
+
+function archiveOf(uuid: string) {
+  return pool
+    .query<ArchiveRow>(
+      `SELECT source, file, thumb, page, author, licence, ord, prioritized
+         FROM fl_photos
+        WHERE place_uuid = $1
+        ORDER BY ord`,
+      [uuid]
+    )
+    .then(r => r.rows)
+    .catch(err => {
+      if (missingTable(err)) {
+        return [] as ArchiveRow[];
+      }
+      throw err;
+    });
+}
+
 export async function GET(request: NextRequest) {
   if (!(await isAdmin(request))) {
     return NextResponse.json({ error: 'not found' }, { status: 404 });
@@ -66,9 +104,10 @@ export async function GET(request: NextRequest) {
     { rows: published },
     { rows: texts },
     { rows: added },
+    archive,
   ] = await Promise.all([
-      pool.query(
-        `SELECT c.event_id, c.author, c.payload, c.server_ts,
+    pool.query(
+      `SELECT c.event_id, c.author, c.payload, c.server_ts,
                 r.server_ts AS removed_at
            FROM fl_events c
            LEFT JOIN fl_events r
@@ -76,10 +115,10 @@ export async function GET(request: NextRequest) {
                  AND r.payload->>'target_event_id' = c.event_id::text
           WHERE c.kind = 'comment' AND c.place_uuid = $1
           ORDER BY c.seq DESC`,
-        [uuid]
-      ),
-      pool.query(
-        `SELECT q.event_id, q.payload, q.created_at
+      [uuid]
+    ),
+    pool.query(
+      `SELECT q.event_id, q.payload, q.created_at
            FROM fl_photo_queue q
           WHERE q.place_uuid = $1
             AND NOT EXISTS (
@@ -88,10 +127,10 @@ export async function GET(request: NextRequest) {
                  AND r.payload->>'target_event_id' = q.event_id::text
             )
           ORDER BY q.created_at`,
-        [uuid]
-      ),
-      pool.query(
-        `SELECT e.event_id, e.payload, e.server_ts
+      [uuid]
+    ),
+    pool.query(
+      `SELECT e.event_id, e.payload, e.server_ts
            FROM fl_events e
           WHERE e.kind = 'photo' AND e.place_uuid = $1
             AND NOT EXISTS (
@@ -100,25 +139,26 @@ export async function GET(request: NextRequest) {
                  AND r.payload->>'target_event_id' = e.event_id::text
             )
           ORDER BY e.seq`,
-        [uuid]
-      ),
-      pool.query(
-        `SELECT source_id, kind, lang, title, body, author, publisher,
+      [uuid]
+    ),
+    pool.query(
+      `SELECT source_id, kind, lang, title, body, author, publisher,
                 licence, url, trust, used, fetched_at
            FROM fl_sources
           WHERE place_uuid = $1
           ORDER BY used DESC, trust DESC NULLS LAST, source_id`,
-        [uuid]
-      ),
-      pool.query(
-        `SELECT id, kind, lang, title, body, publisher, licence, url,
+      [uuid]
+    ),
+    pool.query(
+      `SELECT id, kind, lang, title, body, publisher, licence, url,
                 created_at
            FROM fl_sources_added
           WHERE place_uuid = $1 AND removed_at IS NULL
           ORDER BY id`,
-        [uuid]
-      ),
-    ]);
+      [uuid]
+    ),
+    archiveOf(uuid),
+  ]);
   // Once the pipeline has taken an added source in, it comes back in
   // fl_sources too. Listed once, as the pipeline's, which is the one the
   // description can actually have used.
@@ -174,26 +214,36 @@ export async function GET(request: NextRequest) {
           fetched_at: new Date(r.created_at).toISOString(),
         })),
       ...texts.map(r => ({
-      source_id: Number(r.source_id),
-      added_id: null,
-      kind: r.kind,
-      lang: r.lang,
-      title: r.title,
-      body: r.body,
-      author: r.author,
-      publisher: r.publisher,
-      licence: r.licence,
-      url: r.url,
-      trust: r.trust,
-      used: r.used,
-      fetched_at: r.fetched_at,
-    })),
+        source_id: Number(r.source_id),
+        added_id: null,
+        kind: r.kind,
+        lang: r.lang,
+        title: r.title,
+        body: r.body,
+        author: r.author,
+        publisher: r.publisher,
+        licence: r.licence,
+        url: r.url,
+        trust: r.trust,
+        used: r.used,
+        fetched_at: r.fetched_at,
+      })),
     ],
     sources: (desc?.images ?? []).map(img => ({
       file: img.f ?? '',
       by: img.by ?? null,
       lic: img.lic ?? null,
       page: img.page ?? null,
+    })),
+    archive: archive.map(r => ({
+      source: r.source,
+      file: r.file,
+      thumb: r.thumb,
+      page: r.page,
+      author: r.author,
+      licence: r.licence,
+      ord: Number(r.ord),
+      prioritized: r.prioritized,
     })),
     comments: commentOut,
     photos: [
@@ -203,10 +253,19 @@ export async function GET(request: NextRequest) {
   });
 }
 
-const deleteSchema = z.object({
-  action: z.literal('delete_photo'),
-  event_id: z.string().uuid(),
-});
+const bodySchema = z.discriminatedUnion('action', [
+  z.object({
+    action: z.literal('delete_photo'),
+    event_id: z.string().uuid(),
+  }),
+  z.object({
+    action: z.literal('prioritize_photo'),
+    place: z.string().min(1),
+    source: z.string().min(1).max(64),
+    file: z.string().min(1).max(2000),
+    prioritized: z.boolean(),
+  }),
+]);
 
 export async function POST(request: NextRequest) {
   if (!(await isAdmin(request))) {
@@ -216,11 +275,34 @@ export async function POST(request: NextRequest) {
   try {
     raw = await request.json();
   } catch {
-    return NextResponse.json({ error: 'expected a JSON body' }, { status: 400 });
+    return NextResponse.json(
+      { error: 'expected a JSON body' },
+      { status: 400 }
+    );
   }
-  const parsed = deleteSchema.safeParse(raw);
+  const parsed = bodySchema.safeParse(raw);
   if (!parsed.success) {
     return NextResponse.json({ error: 'bad request' }, { status: 400 });
+  }
+  if (parsed.data.action === 'prioritize_photo') {
+    const uuid = placeUuidOf(parsed.data.place);
+    if (!uuid) {
+      return NextResponse.json({ error: 'unknown place' }, { status: 400 });
+    }
+    const { source, file, prioritized } = parsed.data;
+    const updated = await pool.query(
+      `UPDATE fl_photos
+          SET prioritized = $4
+        WHERE place_uuid = $1 AND source = $2 AND file = $3`,
+      [uuid, source, file, prioritized]
+    );
+    if (!updated.rowCount) {
+      return NextResponse.json(
+        { error: 'unknown photograph' },
+        { status: 400 }
+      );
+    }
+    return NextResponse.json({ ok: true, prioritized });
   }
   const { event_id } = parsed.data;
 

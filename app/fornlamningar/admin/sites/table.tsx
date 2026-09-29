@@ -94,9 +94,10 @@ function SiteTable({ token }: { token: string }) {
   return (
     <div className="fl-sites">
       <p className="fl-sub fl-sites-note">
-        Photos are every picture on the place, archive and visitor. Rating is
-        what visitors gave, and how many. Estimate is the app&apos;s own stars,
-        which is what the app shows until somebody rates the place.
+        Photos is every photograph held for the place. The app receives at most
+        six of them. Rating is what visitors gave, and how many. Estimate is the
+        app&apos;s own stars, which is what the app shows until somebody rates
+        the place.
       </p>
       <SearchBox />
       {error ? (
