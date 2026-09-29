@@ -8,6 +8,15 @@ const withBundleAnalyzer = bundleAnalyzer({
 export default withBundleAnalyzer({
   reactStrictMode: false,
   experimental: { optimizePackageImports: ['@mantine/core', '@mantine/hooks'] },
+  // The search route reads these with readdir/readFile, which the tracer
+  // does not follow. Without this the deployed function has no texts.
+  outputFileTracingIncludes: {
+    '/api/fornlamningar/search': [
+      './data/descriptions.en.db',
+      './data/lamning-index.txt.gz',
+      './public/descriptions/**/*',
+    ],
+  },
 
   async headers() {
     return [

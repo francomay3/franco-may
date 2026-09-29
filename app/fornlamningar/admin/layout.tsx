@@ -9,13 +9,13 @@ import './admin.css';
  * `overflow: hidden` -- which is right for a map and wrong for a list that
  * has to scroll. This puts a scrolling container back inside it.
  *
- * And `noindex`: a moderation page in a search index is an invitation, and
+ * And `noindex`: an admin page in a search index is an invitation, and
  * the endpoints behind it answer 404 rather than 403 for the same reason.
  * Nothing here is reachable without a token, but not being catalogued is
  * free.
  */
 export const metadata: Metadata = {
-  title: 'Moderation',
+  title: 'Admin · Fornkoll',
   robots: { index: false, follow: false },
 };
 
