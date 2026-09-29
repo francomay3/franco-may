@@ -2,7 +2,7 @@
 
 import React, { useEffect, useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Alert, Button, Checkbox, Modal, Table } from '@mantine/core';
+import { Alert, Button, Checkbox, Modal } from '@mantine/core';
 import { DataTable, type DataTableSortStatus } from 'mantine-datatable';
 import 'mantine-datatable/styles.css';
 import { AdminGate } from '../gate';
@@ -13,9 +13,11 @@ import { SearchBox } from '../search-box';
  * filtering the rows is a few lines because that is the part this library
  * leaves to the caller: it never reorders `records` on its own.
  *
- * A row is not a link, and the page scrolls, so the wheel button starts a
- * scroll instead of opening anything. The middle button is handled here:
- * it opens the place in a new tab.
+ * The wheel button opens the place in a new tab and leaves this one in
+ * front. That only happens for a real link: window.open() would switch to
+ * the new tab. The page scrolls, so a wheel click would otherwise start
+ * scrolling; the overflow is held still for that press, and the browser
+ * opens the tab itself.
  */
 
 const PAGE = 50;
@@ -43,6 +45,60 @@ function looksLikeId(q: string): boolean {
 
 function placeHref(id: string): string {
   return `/fornlamningar/admin/${id}`;
+}
+
+function suspendAutoscroll(node: Element) {
+  const scroller = node.closest('.fl-admin');
+  if (!(scroller instanceof HTMLElement)) {
+    return;
+  }
+  const top = scroller.scrollTop;
+  const prev = scroller.style.overflow;
+  scroller.style.overflow = 'hidden';
+  scroller.scrollTop = top;
+  const restore = () => {
+    scroller.style.overflow = prev;
+    scroller.scrollTop = top;
+    window.removeEventListener('mouseup', restore, true);
+  };
+  window.addEventListener('mouseup', restore, true);
+}
+
+function RowLink({
+  id,
+  onOpen,
+  children,
+}: {
+  id: string;
+  onOpen: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={placeHref(id)}
+      className="fl-row-link"
+      onMouseDown={event => {
+        if (event.button === 1) {
+          suspendAutoscroll(event.currentTarget);
+        }
+      }}
+      onClick={event => {
+        if (
+          event.button !== 0 ||
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey
+        ) {
+          return;
+        }
+        event.preventDefault();
+        onOpen();
+      }}
+    >
+      {children}
+    </a>
+  );
 }
 
 function ordered(rows: PlaceRow[], sort: DataTableSortStatus<PlaceRow>) {
@@ -80,7 +136,7 @@ function SiteTable({ token }: { token: string }) {
   });
   const [q, setQ] = useState(params.get('q') ?? '');
   const [over6, setOver6] = useState(params.get('over6') === '1');
-  const [markedOnly, setMarkedOnly] = useState(params.get('marked') === '1');
+  const [noPriority, setNoPriority] = useState(params.get('unmarked') === '1');
   const [kinds, setKinds] = useState<string[]>(() =>
     (params.get('types') ?? '')
       .split('|')
@@ -176,8 +232,8 @@ function SiteTable({ token }: { token: string }) {
     if (over6) {
       p.set('over6', '1');
     }
-    if (markedOnly) {
-      p.set('marked', '1');
+    if (noPriority) {
+      p.set('unmarked', '1');
     }
     if (kinds.length) {
       p.set('types', kinds.map(encodeURIComponent).join('|'));
@@ -191,7 +247,7 @@ function SiteTable({ token }: { token: string }) {
         next ? `?${next}` : window.location.pathname
       );
     }
-  }, [q, over6, markedOnly, kinds]);
+  }, [q, over6, noPriority, kinds]);
 
   const typeChoices = useMemo(() => {
     const counts = new Map<string, number>();
@@ -211,7 +267,7 @@ function SiteTable({ token }: { token: string }) {
       if (over6 && row.photos <= 6) {
         return false;
       }
-      if (markedOnly && !row.prioritized) {
+      if (noPriority && row.prioritized) {
         return false;
       }
       if (picked.size > 0 && !picked.has(row.kind)) {
@@ -229,16 +285,18 @@ function SiteTable({ token }: { token: string }) {
         fold(row.kind).includes(needle)
       );
     });
-  }, [rows, q, over6, markedOnly, kinds, idHit]);
+  }, [rows, q, over6, noPriority, kinds, idHit]);
 
   const sorted = useMemo(() => ordered(filtered, sort), [filtered, sort]);
   const pageRows = sorted.slice((page - 1) * PAGE, page * PAGE);
   const filterCount =
-    (over6 ? 1 : 0) + (markedOnly ? 1 : 0) + (kinds.length > 0 ? 1 : 0);
+    (over6 ? 1 : 0) + (noPriority ? 1 : 0) + (kinds.length > 0 ? 1 : 0);
 
-  const openNewTab = (id: string) => {
-    window.open(placeHref(id), '_blank', 'noopener,noreferrer');
-  };
+  const cell = (id: string, children: React.ReactNode) => (
+    <RowLink id={id} onOpen={() => router.push(placeHref(id))}>
+      {children}
+    </RowLink>
+  );
 
   return (
     <div className="fl-sites">
@@ -283,10 +341,10 @@ function SiteTable({ token }: { token: string }) {
             }}
           />
           <Checkbox
-            label="Has prioritized photos"
-            checked={markedOnly}
+            label="No prioritized photos"
+            checked={noPriority}
             onChange={e => {
-              setMarkedOnly(e.currentTarget.checked);
+              setNoPriority(e.currentTarget.checked);
               setPage(1);
             }}
           />
@@ -355,76 +413,59 @@ function SiteTable({ token }: { token: string }) {
               setPage(1);
             }}
             rowClassName="fl-row"
-            onRowClick={({ record, event }) => {
-              if (event.button !== 0) {
-                return;
-              }
-              router.push(placeHref(record.id));
-            }}
-            rowFactory={({ record, rowProps, children, expandedElement }) => (
-              <>
-                <Table.Tr
-                  {...rowProps}
-                  onMouseDown={event => {
-                    if (event.button !== 1) {
-                      return;
-                    }
-                    event.preventDefault();
-                    openNewTab(record.id);
-                  }}
-                >
-                  {children}
-                </Table.Tr>
-                {expandedElement}
-              </>
-            )}
             columns={[
               {
                 accessor: 'name',
                 title: 'Name',
                 sortable: true,
                 width: '28%',
-                render: ({ name }) => name || '—',
+                render: ({ id, name }) => cell(id, name || '—'),
               },
               {
                 accessor: 'id',
                 title: 'Id',
                 sortable: true,
                 width: 120,
-                render: ({ id }) => id.slice(0, 8),
+                render: ({ id }) => cell(id, id.slice(0, 8)),
               },
               {
                 accessor: 'photos',
                 title: 'Photos',
                 sortable: true,
                 textAlign: 'right',
+                render: ({ id, photos }) => cell(id, photos),
               },
               {
                 accessor: 'sources',
                 title: 'Sources',
                 sortable: true,
                 textAlign: 'right',
+                render: ({ id, sources }) => cell(id, sources),
               },
               {
                 accessor: 'rating',
                 title: 'Rating',
                 sortable: true,
                 textAlign: 'right',
-                render: ({ rating, votes }) =>
-                  rating == null ? '—' : `${rating.toFixed(1)} · ${votes}`,
+                render: ({ id, rating, votes }) =>
+                  cell(
+                    id,
+                    rating == null ? '—' : `${rating.toFixed(1)} · ${votes}`
+                  ),
               },
               {
                 accessor: 'estimate',
                 title: 'Estimate',
                 sortable: true,
                 textAlign: 'right',
-                render: ({ estimate }) => estimate ?? '—',
+                render: ({ id, estimate }) => cell(id, estimate ?? '—'),
               },
               {
                 accessor: 'comments',
                 title: 'Comments',
                 sortable: true,
                 textAlign: 'right',
+                render: ({ id, comments }) => cell(id, comments),
               },
             ]}
           />
