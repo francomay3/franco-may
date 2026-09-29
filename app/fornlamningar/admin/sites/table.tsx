@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Alert, Button, Checkbox, Modal } from '@mantine/core';
+import { IconCheck } from '@tabler/icons-react';
 import { DataTable, type DataTableSortStatus } from 'mantine-datatable';
 import 'mantine-datatable/styles.css';
 import { FILTER_FAMILIES } from '../../filterFamilies';
@@ -62,19 +63,26 @@ function suspendAutoscroll(node: Element) {
   window.addEventListener('mouseup', restore, true);
 }
 
+function verifiedTip(iso: string): string {
+  return `Verified ${iso.slice(0, 16).replace('T', ' ')}`;
+}
+
 function RowLink({
   id,
   onOpen,
+  title,
   children,
 }: {
   id: string;
   onOpen: () => void;
+  title?: string;
   children: React.ReactNode;
 }) {
   return (
     <a
       href={placeHref(id)}
       className="fl-row-link"
+      title={title}
       onMouseDown={event => {
         if (event.button === 1) {
           suspendAutoscroll(event.currentTarget);
@@ -353,8 +361,8 @@ function SiteTable({ token }: { token: string }) {
     (verifiedBefore ? 1 : 0) +
     (families.length > 0 ? 1 : 0);
 
-  const cell = (id: string, children: React.ReactNode) => (
-    <RowLink id={id} onOpen={() => router.push(placeHref(id))}>
+  const cell = (id: string, children: React.ReactNode, title?: string) => (
+    <RowLink id={id} title={title} onOpen={() => router.push(placeHref(id))}>
       {children}
     </RowLink>
   );
@@ -364,9 +372,7 @@ function SiteTable({ token }: { token: string }) {
       <p className="fl-sub fl-sites-note">
         Photos is every photograph held for the place. The app receives at most
         six of them. Rating is what visitors gave, and how many. Score is the
-        number the algorithm calculated. Estimate is that number as the
-        app&apos;s own stars, which is what the app shows until somebody rates
-        the place.
+        number the algorithm calculated.
       </p>
       <div className="fl-sites-tools">
         <SearchBox
@@ -527,15 +533,7 @@ function SiteTable({ token }: { token: string }) {
                 accessor: 'name',
                 title: 'Name',
                 sortable: true,
-                width: '28%',
                 render: ({ id, name }) => cell(id, name || '—'),
-              },
-              {
-                accessor: 'id',
-                title: 'Id',
-                sortable: true,
-                width: 120,
-                render: ({ id }) => cell(id, id.slice(0, 8)),
               },
               {
                 accessor: 'photos',
@@ -571,18 +569,21 @@ function SiteTable({ token }: { token: string }) {
                   cell(id, score == null ? '—' : score.toFixed(2)),
               },
               {
-                accessor: 'estimate',
-                title: 'Estimate',
+                accessor: 'verified_at',
+                title: '',
                 sortable: true,
-                textAlign: 'right',
-                render: ({ id, estimate }) => cell(id, estimate ?? '—'),
-              },
-              {
-                accessor: 'comments',
-                title: 'Comments',
-                sortable: true,
-                textAlign: 'right',
-                render: ({ id, comments }) => cell(id, comments),
+                width: 48,
+                textAlign: 'center',
+                render: ({ id, verified_at }) =>
+                  cell(
+                    id,
+                    verified_at ? (
+                      <span className="fl-mark">
+                        <IconCheck size={18} stroke={2.5} />
+                      </span>
+                    ) : null,
+                    verified_at ? verifiedTip(verified_at) : undefined
+                  ),
               },
             ]}
           />

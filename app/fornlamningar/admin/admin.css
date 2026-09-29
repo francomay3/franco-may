@@ -924,6 +924,11 @@
   text-decoration: none;
 }
 
+.fl-mark {
+  display: inline-flex;
+  color: var(--ok);
+}
+
 .fl-row-link::after {
   content: '';
   position: absolute;
