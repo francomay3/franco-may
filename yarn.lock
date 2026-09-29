@@ -2537,7 +2537,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mapbox/vector-tile@npm:^2.0.4":
+"@mapbox/vector-tile@npm:2.0.4, @mapbox/vector-tile@npm:^2.0.4":
   version: 2.0.4
   resolution: "@mapbox/vector-tile@npm:2.0.4"
   dependencies:
@@ -7875,6 +7875,7 @@ __metadata:
     "@hookform/resolvers": "npm:^5.2.1"
     "@mantine/core": "npm:8.2.8"
     "@mantine/hooks": "npm:8.2.8"
+    "@mapbox/vector-tile": "npm:2.0.4"
     "@next/bundle-analyzer": "npm:^15.5.2"
     "@tabler/icons-react": "npm:^3.34.1"
     "@tanstack/react-query": "npm:^5.86.0"
@@ -7906,6 +7907,7 @@ __metadata:
     maplibre-gl: "npm:^5.7.0"
     next: "npm:16.3.4"
     nodemailer: "npm:^7.0.6"
+    pbf: "npm:4.0.1"
     pg: "npm:^8"
     postcss: "npm:^8.5.6"
     postcss-preset-mantine: "npm:1.18.0"
@@ -8727,7 +8729,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pbf@npm:^4.0.1":
+"pbf@npm:4.0.1, pbf@npm:^4.0.1":
   version: 4.0.1
   resolution: "pbf@npm:4.0.1"
   dependencies:

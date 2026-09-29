@@ -16,6 +16,11 @@ export default withBundleAnalyzer({
       './data/lamning-index.txt.gz',
       './public/descriptions/**/*',
     ],
+    '/api/fornlamningar/places': [
+      './data/descriptions.en.db',
+      './public/descriptions/**/*',
+      './public/tiles/14/**/*',
+    ],
   },
 
   async headers() {

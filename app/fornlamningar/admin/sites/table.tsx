@@ -20,10 +20,10 @@ type PlaceRow = {
   id: string;
   name: string;
   photos: number;
-  uploads: number;
   sources: number;
   rating: number | null;
   votes: number;
+  estimate: number | null;
   comments: number;
 };
 
@@ -94,9 +94,9 @@ function SiteTable({ token }: { token: string }) {
   return (
     <div className="fl-sites">
       <p className="fl-sub fl-sites-note">
-        Photos are the pictures published with the description. Uploads are
-        photos a visitor sent. Rating is the average of the star votes that are
-        still standing.
+        Photos are every picture on the place, archive and visitor. Rating is
+        what visitors gave, and how many. Estimate is the app&apos;s own stars,
+        which is what the app shows until somebody rates the place.
       </p>
       <SearchBox />
       {error ? (
@@ -152,12 +152,6 @@ function SiteTable({ token }: { token: string }) {
                 textAlign: 'right',
               },
               {
-                accessor: 'uploads',
-                title: 'Uploads',
-                sortable: true,
-                textAlign: 'right',
-              },
-              {
                 accessor: 'sources',
                 title: 'Sources',
                 sortable: true,
@@ -168,14 +162,15 @@ function SiteTable({ token }: { token: string }) {
                 title: 'Rating',
                 sortable: true,
                 textAlign: 'right',
-                render: ({ rating }) =>
-                  rating == null ? '—' : rating.toFixed(1),
+                render: ({ rating, votes }) =>
+                  rating == null ? '—' : `${rating.toFixed(1)} · ${votes}`,
               },
               {
-                accessor: 'votes',
-                title: 'Votes',
+                accessor: 'estimate',
+                title: 'Estimate',
                 sortable: true,
                 textAlign: 'right',
+                render: ({ estimate }) => estimate ?? '—',
               },
               {
                 accessor: 'comments',

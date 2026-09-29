@@ -1,43 +1,54 @@
-import { readdirSync, readFileSync } from 'fs';
+import { existsSync, readdirSync, readFileSync, statSync } from 'fs';
 import { join } from 'path';
+import { DatabaseSync } from 'node:sqlite';
+import { VectorTile } from '@mapbox/vector-tile';
+import Pbf from 'pbf';
 import { pool } from '@/lib/db';
 
 /**
  * One row per place the admin list can show.
  *
- * The name and the photo count come from the published descriptions, which
- * is the set of places that have a page. A place with no description still
- * appears when somebody has rated it, commented, sent a photo, or when a
- * source was stored for it -- otherwise sorting by those columns would hide
- * the only rows that make the column worth having.
+ * The name comes from the published descriptions, which is the set of places
+ * that have a page. A place with no description still appears when somebody
+ * has rated it, commented, sent a photo, or when a source was stored for it
+ * -- otherwise sorting by those columns would hide the only rows that make
+ * the column worth having.
  *
- * Photos are the pictures published with the description. Uploads are the
- * ones a visitor sent, waiting or already on the place. They are different
- * piles, and a single total would make a place with six archive pictures
- * look like a place where six people sent one.
+ * Photos are every picture on the place: the archive photographs shipped
+ * with the description, plus the ones a visitor sent. The deployed
+ * description JSON does not carry the archive list -- that rides in the
+ * English descriptions database -- so a count taken from the JSON alone is
+ * zero for every row.
+ *
+ * Rating is the visitors' mean, the same number the app draws once anyone
+ * has answered, and `votes` is how many gave a score. Estimate is the app's
+ * own 1-5 stars, which is what the sheet shows until that first answer.
  */
 
 export type PlaceRow = {
   id: string;
   name: string;
   photos: number;
-  uploads: number;
   sources: number;
   rating: number | null;
   votes: number;
+  estimate: number | null;
   comments: number;
 };
 
 type Desc = { title?: string; images?: unknown };
 
-let published: Map<string, { name: string; photos: number }> | null = null;
+let published: Map<string, { name: string; photos: number | null }> | null =
+  null;
+let archiveFromDb: Map<string, number> | null = null;
+let modelStars: Map<string, number> | null = null;
 
 function publishedPlaces() {
   if (published) {
     return published;
   }
   const dir = join(process.cwd(), 'public', 'descriptions');
-  const map = new Map<string, { name: string; photos: number }>();
+  const map = new Map<string, { name: string; photos: number | null }>();
   for (const file of readdirSync(dir)) {
     if (!file.endsWith('.json')) {
       continue;
@@ -49,7 +60,9 @@ function publishedPlaces() {
     for (const [id, desc] of Object.entries(bag)) {
       map.set(id, {
         name: desc.title?.trim() || '',
-        photos: Array.isArray(desc.images) ? desc.images.length : 0,
+        // Absent means the file never carried pictures, not that there are
+        // none. The database fills those in.
+        photos: Array.isArray(desc.images) ? desc.images.length : null,
       });
     }
   }
@@ -57,15 +70,88 @@ function publishedPlaces() {
   return map;
 }
 
-function blank(id: string, name = '', photos = 0): PlaceRow {
+function picturesInDb(): Map<string, number> {
+  if (archiveFromDb) {
+    return archiveFromDb;
+  }
+  const map = new Map<string, number>();
+  const path = join(process.cwd(), 'data', 'descriptions.en.db');
+  if (!existsSync(path)) {
+    archiveFromDb = map;
+    return map;
+  }
+  const db = new DatabaseSync(path, { readOnly: true });
+  try {
+    const rows = db
+      .prepare(
+        `SELECT uuid, images FROM descriptions
+          WHERE images IS NOT NULL AND images <> ''`
+      )
+      .all() as { uuid: string; images: string }[];
+    for (const row of rows) {
+      try {
+        const parsed = JSON.parse(row.images) as unknown;
+        if (Array.isArray(parsed)) {
+          map.set(row.uuid, parsed.length);
+        }
+      } catch {
+        // A row that will not parse is a row with no pictures to count.
+      }
+    }
+  } finally {
+    db.close();
+  }
+  archiveFromDb = map;
+  return map;
+}
+
+function appStars(): Map<string, number> {
+  if (modelStars) {
+    return modelStars;
+  }
+  const map = new Map<string, number>();
+  const root = join(process.cwd(), 'public', 'tiles', '14');
+  if (!existsSync(root)) {
+    modelStars = map;
+    return map;
+  }
+  const walk = (dir: string) => {
+    for (const name of readdirSync(dir)) {
+      const path = join(dir, name);
+      if (statSync(path).isDirectory()) {
+        walk(path);
+        continue;
+      }
+      if (!name.endsWith('.pbf')) {
+        continue;
+      }
+      const tile = new VectorTile(new Pbf(readFileSync(path)));
+      const layer = tile.layers.archaeological_sites;
+      if (!layer) {
+        continue;
+      }
+      for (let i = 0; i < layer.length; i++) {
+        const props = layer.feature(i).properties;
+        if (typeof props.uuid === 'string' && typeof props.stars === 'number') {
+          map.set(props.uuid, props.stars);
+        }
+      }
+    }
+  };
+  walk(root);
+  modelStars = map;
+  return map;
+}
+
+function blank(id: string, name = ''): PlaceRow {
   return {
     id,
     name,
-    photos,
-    uploads: 0,
+    photos: 0,
     sources: 0,
     rating: null,
     votes: 0,
+    estimate: null,
     comments: 0,
   };
 }
@@ -74,14 +160,21 @@ type Count = { place_uuid: string; n: string };
 type Rated = { place_uuid: string; rating: string; votes: string };
 
 export async function placeRows(): Promise<PlaceRow[]> {
+  const pictures = picturesInDb();
+  const stars = appStars();
   const byId = new Map<string, PlaceRow>();
   for (const [id, desc] of publishedPlaces()) {
-    byId.set(id, blank(id, desc.name, desc.photos));
+    const row = blank(id, desc.name);
+    row.photos = desc.photos ?? pictures.get(id) ?? 0;
+    row.estimate = stars.get(id) ?? null;
+    byId.set(id, row);
   }
   const ensure = (id: string) => {
     let row = byId.get(id);
     if (!row) {
       row = blank(id);
+      row.photos = pictures.get(id) ?? 0;
+      row.estimate = stars.get(id) ?? null;
       byId.set(id, row);
     }
     return row;
@@ -106,18 +199,26 @@ export async function placeRows(): Promise<PlaceRow[]> {
         GROUP BY place_uuid`
     ),
     pool.query<Rated>(
-      `SELECT e.place_uuid,
-              round(avg((e.payload->>'stars')::numeric), 2) AS rating,
-              count(*) AS votes
-         FROM fl_events e
-        WHERE e.kind = 'rating'
-          AND e.payload ? 'stars'
-          AND NOT EXISTS (
-            SELECT 1 FROM fl_events d
-             WHERE d.kind = 'rating_delete'
-               AND d.payload->>'target_event_id' = e.event_id::text
-          )
-        GROUP BY e.place_uuid`
+      `SELECT place_uuid,
+              round(avg(stars), 2) AS rating,
+              count(stars) AS votes
+         FROM (
+           SELECT DISTINCT ON (e.place_uuid, e.author)
+                  e.place_uuid,
+                  CASE WHEN e.payload ? 'stars'
+                       THEN (e.payload->>'stars')::numeric
+                  END AS stars
+             FROM fl_events e
+            WHERE e.kind = 'rating'
+              AND NOT EXISTS (
+                SELECT 1 FROM fl_events d
+                 WHERE d.kind = 'rating_delete'
+                   AND d.payload->>'target_event_id' = e.event_id::text
+              )
+            ORDER BY e.place_uuid, e.author, e.seq DESC
+         ) latest
+        GROUP BY place_uuid
+       HAVING count(stars) > 0`
     ),
     pool.query<Count>(
       `SELECT c.place_uuid, count(*) AS n
@@ -166,7 +267,7 @@ export async function placeRows(): Promise<PlaceRow[]> {
     ensure(r.place_uuid).comments = Number(r.n);
   }
   for (const r of uploads.rows) {
-    ensure(r.place_uuid).uploads = Number(r.n);
+    ensure(r.place_uuid).photos += Number(r.n);
   }
 
   return [...byId.values()];
