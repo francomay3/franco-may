@@ -307,11 +307,28 @@ CREATE TABLE IF NOT EXISTS fl_photos (
   licence     TEXT,
   ord         INTEGER NOT NULL,
   prioritized BOOLEAN NOT NULL DEFAULT false,
+  -- Out of the six, the same way an unmarked nearby photograph is. A
+  -- reload of the catalog must not clear it. The pipeline reads the
+  -- trues (scripts/export-fl-photo-skips.cjs).
+  skipped     BOOLEAN NOT NULL DEFAULT false,
   load_id     TEXT,
   PRIMARY KEY (place_uuid, source, file)
 );
 CREATE INDEX IF NOT EXISTS fl_photos_place
   ON fl_photos (place_uuid, ord);
+-- The table above already exists in databases created before `skipped`.
+ALTER TABLE fl_photos ADD COLUMN IF NOT EXISTS skipped BOOLEAN NOT NULL DEFAULT false;
+
+-- The moment a person signed off a place in the admin.
+--
+-- Clicking again moves the timestamp forward. Clearing the row forgets
+-- it. The sites list filters on this: never signed off, or signed off
+-- before a chosen moment.
+CREATE TABLE IF NOT EXISTS fl_verified (
+  place_uuid   TEXT        PRIMARY KEY,
+  verified_at  TIMESTAMPTZ NOT NULL,
+  verified_by  TEXT        NOT NULL
+);
 
 -- Places a person has marked not worth the trip.
 --

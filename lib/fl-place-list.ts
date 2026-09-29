@@ -38,6 +38,8 @@ export type PlaceRow = {
   prioritized: boolean;
   /** Marked not worth the trip. The pipeline trains against these. */
   uninteresting: boolean;
+  /** When the place was signed off in the admin. */
+  verified_at: string | null;
   sources: number;
   rating: number | null;
   votes: number;
@@ -216,6 +218,7 @@ function blank(id: string, name = ''): PlaceRow {
     photos: 0,
     prioritized: false,
     uninteresting: false,
+    verified_at: null,
     sources: 0,
     rating: null,
     votes: 0,
@@ -262,6 +265,23 @@ async function photoCounts(): Promise<Map<string, Held> | null> {
   }
 }
 
+async function verifiedAt(): Promise<Map<string, string>> {
+  try {
+    const { rows } = await pool.query<{
+      place_uuid: string;
+      verified_at: Date;
+    }>(`SELECT place_uuid, verified_at FROM fl_verified`);
+    return new Map(
+      rows.map(r => [r.place_uuid, new Date(r.verified_at).toISOString()])
+    );
+  } catch (err) {
+    if (missingTable(err)) {
+      return new Map();
+    }
+    throw err;
+  }
+}
+
 async function uninterestingIds(): Promise<Set<string>> {
   try {
     const { rows } = await pool.query<{ place_uuid: string }>(
@@ -279,7 +299,11 @@ async function uninterestingIds(): Promise<Set<string>> {
 export async function placeRows(): Promise<PlaceRow[]> {
   const pictures = picturesInDb();
   const tile = tiles();
-  const [held, dull] = await Promise.all([photoCounts(), uninterestingIds()]);
+  const [held, dull, signed] = await Promise.all([
+    photoCounts(),
+    uninterestingIds(),
+    verifiedAt(),
+  ]);
   const byId = new Map<string, PlaceRow>();
   const fill = (row: PlaceRow, shipped: number | null) => {
     const info = held?.get(row.id);
@@ -287,6 +311,7 @@ export async function placeRows(): Promise<PlaceRow[]> {
     row.photos = info ? info.n : (shipped ?? pictures.get(row.id) ?? 0);
     row.prioritized = (info?.marked ?? 0) > 0;
     row.uninteresting = dull.has(row.id);
+    row.verified_at = signed.get(row.id) ?? null;
     row.kind = fromTile?.kind ?? '';
     row.family = fromTile?.family ?? '';
     row.score = modelScores().get(row.id) ?? null;

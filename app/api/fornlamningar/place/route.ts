@@ -64,6 +64,7 @@ type ArchiveRow = {
   licence: string | null;
   ord: number;
   prioritized: boolean;
+  skipped: boolean;
 };
 
 type RatingView = {
@@ -153,10 +154,28 @@ function uninterestingOf(uuid: string) {
     });
 }
 
+function verifiedAt(uuid: string) {
+  return pool
+    .query<{ verified_at: Date }>(
+      `SELECT verified_at FROM fl_verified WHERE place_uuid = $1`,
+      [uuid]
+    )
+    .then(r =>
+      r.rows[0] ? new Date(r.rows[0].verified_at).toISOString() : null
+    )
+    .catch(err => {
+      if (missingTable(err)) {
+        return null;
+      }
+      throw err;
+    });
+}
+
 function archiveOf(uuid: string) {
   return pool
     .query<ArchiveRow>(
-      `SELECT source, file, thumb, page, author, licence, ord, prioritized
+      `SELECT source, file, thumb, page, author, licence, ord,
+              prioritized, skipped
          FROM fl_photos
         WHERE place_uuid = $1
         ORDER BY ord`,
@@ -198,6 +217,7 @@ export async function GET(request: NextRequest) {
     rating,
     flags,
     pinOverride,
+    verified,
   ] = await Promise.all([
     pool.query(
       `SELECT c.event_id, c.author, c.payload, c.server_ts,
@@ -257,6 +277,7 @@ export async function GET(request: NextRequest) {
       : Promise.resolve({ mine: null, average: null, votes: 0 }),
     flagsForPlace(uuid),
     pinOverrideOf(uuid),
+    verifiedAt(uuid),
   ]);
   // Once the pipeline has taken an added source in, it comes back in
   // fl_sources too. Listed once, as the pipeline's, which is the one the
@@ -296,6 +317,7 @@ export async function GET(request: NextRequest) {
     lat: pinOverride?.lat ?? coord?.[1] ?? null,
     calculated: coord == null ? null : { lon: coord[0], lat: coord[1] },
     pin_override: pinOverride,
+    verified_at: verified,
     texts: [
       ...added
         .filter(r => !r.url || !known.has(r.url))
@@ -348,6 +370,7 @@ export async function GET(request: NextRequest) {
       licence: r.licence,
       ord: Number(r.ord),
       prioritized: r.prioritized,
+      skipped: r.skipped,
     })),
     comments: commentOut,
     photos: [
@@ -368,6 +391,21 @@ const bodySchema = z.discriminatedUnion('action', [
     source: z.string().min(1).max(64),
     file: z.string().min(1).max(2000),
     prioritized: z.boolean(),
+  }),
+  z.object({
+    action: z.literal('skip_photo'),
+    place: z.string().min(1),
+    source: z.string().min(1).max(64),
+    file: z.string().min(1).max(2000),
+    skipped: z.boolean(),
+  }),
+  z.object({
+    action: z.literal('verify'),
+    place: z.string().min(1),
+  }),
+  z.object({
+    action: z.literal('clear_verified'),
+    place: z.string().min(1),
   }),
   z.object({
     action: z.literal('uninteresting'),
@@ -416,7 +454,8 @@ export async function POST(request: NextRequest) {
     const { source, file, prioritized } = parsed.data;
     const updated = await pool.query(
       `UPDATE fl_photos
-          SET prioritized = $4
+          SET prioritized = $4,
+              skipped = CASE WHEN $4 THEN false ELSE skipped END
         WHERE place_uuid = $1 AND source = $2 AND file = $3`,
       [uuid, source, file, prioritized]
     );
@@ -426,7 +465,66 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-    return NextResponse.json({ ok: true, prioritized });
+    return NextResponse.json({
+      ok: true,
+      prioritized,
+      skipped: prioritized ? false : undefined,
+    });
+  }
+  if (parsed.data.action === 'skip_photo') {
+    const uuid = placeUuidOf(parsed.data.place);
+    if (!uuid) {
+      return NextResponse.json({ error: 'unknown place' }, { status: 400 });
+    }
+    const { source, file, skipped } = parsed.data;
+    const updated = await pool.query(
+      `UPDATE fl_photos
+          SET skipped = $4,
+              prioritized = CASE WHEN $4 THEN false ELSE prioritized END
+        WHERE place_uuid = $1 AND source = $2 AND file = $3`,
+      [uuid, source, file, skipped]
+    );
+    if (!updated.rowCount) {
+      return NextResponse.json(
+        { error: 'unknown photograph' },
+        { status: 400 }
+      );
+    }
+    return NextResponse.json({
+      ok: true,
+      skipped,
+      prioritized: skipped ? false : undefined,
+    });
+  }
+  if (
+    parsed.data.action === 'verify' ||
+    parsed.data.action === 'clear_verified'
+  ) {
+    const uuid = placeUuidOf(parsed.data.place);
+    if (!uuid) {
+      return NextResponse.json({ error: 'unknown place' }, { status: 400 });
+    }
+    const uid = await uidOf(request);
+    if (!uid) {
+      return NextResponse.json({ error: 'not found' }, { status: 404 });
+    }
+    if (parsed.data.action === 'clear_verified') {
+      await pool.query(`DELETE FROM fl_verified WHERE place_uuid = $1`, [uuid]);
+      return NextResponse.json({ ok: true, verified_at: null });
+    }
+    const { rows } = await pool.query<{ verified_at: Date }>(
+      `INSERT INTO fl_verified (place_uuid, verified_at, verified_by)
+       VALUES ($1, now(), $2)
+       ON CONFLICT (place_uuid) DO UPDATE SET
+         verified_at = now(),
+         verified_by = EXCLUDED.verified_by
+       RETURNING verified_at`,
+      [uuid, uid]
+    );
+    return NextResponse.json({
+      ok: true,
+      verified_at: new Date(rows[0].verified_at).toISOString(),
+    });
   }
   if (parsed.data.action === 'uninteresting') {
     const uuid = placeUuidOf(parsed.data.place);

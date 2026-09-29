@@ -96,6 +96,8 @@ type Place = {
   }[];
   /** On the list the pipeline trains against, as not worth the trip. */
   uninteresting: boolean;
+  /** When this place was signed off. Null until then. */
+  verified_at: string | null;
   /** `mine` is the score under this account. `average` is what the app shows. */
   rating: { mine: number | null; average: number | null; votes: number };
   /** Notes that something here is wrong. `corrected_at` means it was fixed. */
@@ -458,6 +460,36 @@ export default function PlaceAdminPage() {
     }
   };
 
+  const markVerified = async (on: boolean) => {
+    if (!token || !place?.uuid) {
+      return;
+    }
+    setBusy('verified');
+    try {
+      const res = await fetch('/api/fornlamningar/place', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          action: on ? 'verify' : 'clear_verified',
+          place: place.uuid,
+        }),
+      });
+      if (!res.ok) {
+        setError(`could not update: ${res.status}`);
+        return;
+      }
+      const body = (await res.json()) as { verified_at: string | null };
+      setPlace(current =>
+        current ? { ...current, verified_at: body.verified_at } : current
+      );
+    } finally {
+      setBusy(null);
+    }
+  };
+
   const sourceCall = async (payload: object): Promise<string | null> => {
     if (!token) {
       return 'Not signed in';
@@ -586,6 +618,32 @@ export default function PlaceAdminPage() {
                 ? 'On the list the pipeline trains against.'
                 : 'Puts this place on the list of sites that are not worth the trip.'}
             </p>
+          </div>
+
+          <div className="fl-verified">
+            <button
+              type="button"
+              className="fl-add-button"
+              disabled={busy === 'verified'}
+              onClick={() => void markVerified(true)}
+            >
+              {place.verified_at ? 'Verify again' : 'Mark verified'}
+            </button>
+            <p className="fl-sub">
+              {place.verified_at
+                ? `Verified ${flagWhen(place.verified_at)}.`
+                : 'Stamps this moment, once the photos, sources and rating are in order.'}
+            </p>
+            {place.verified_at ? (
+              <button
+                type="button"
+                className="fl-quiet"
+                disabled={busy === 'verified'}
+                onClick={() => void markVerified(false)}
+              >
+                Clear
+              </button>
+            ) : null}
           </div>
 
           <div className="fl-flags">

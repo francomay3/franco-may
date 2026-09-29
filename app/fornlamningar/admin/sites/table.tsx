@@ -32,6 +32,7 @@ type PlaceRow = {
   photos: number;
   prioritized: boolean;
   uninteresting: boolean;
+  verified_at: string | null;
   sources: number;
   rating: number | null;
   votes: number;
@@ -135,6 +136,12 @@ function SiteTable({ token }: { token: string }) {
   const [over6, setOver6] = useState(params.get('over6') === '1');
   const [noPriority, setNoPriority] = useState(params.get('unmarked') === '1');
   const [onlyDull, setOnlyDull] = useState(params.get('uninteresting') === '1');
+  const [unverified, setUnverified] = useState(
+    params.get('unverified') === '1'
+  );
+  const [verifiedBefore, setVerifiedBefore] = useState(
+    params.get('before') ?? ''
+  );
   const [families, setFamilies] = useState<string[]>(() =>
     (params.get('families') ?? '').split('|').filter(Boolean)
   );
@@ -229,6 +236,12 @@ function SiteTable({ token }: { token: string }) {
     if (onlyDull) {
       p.set('uninteresting', '1');
     }
+    if (unverified) {
+      p.set('unverified', '1');
+    }
+    if (verifiedBefore) {
+      p.set('before', verifiedBefore);
+    }
     if (families.length) {
       p.set('families', families.join('|'));
     }
@@ -241,7 +254,7 @@ function SiteTable({ token }: { token: string }) {
         next ? `?${next}` : window.location.pathname
       );
     }
-  }, [q, over6, noPriority, onlyDull, families]);
+  }, [q, over6, noPriority, onlyDull, unverified, verifiedBefore, families]);
 
   const familyChoices = useMemo(() => {
     const counts = new Map<string, number>();
@@ -281,6 +294,25 @@ function SiteTable({ token }: { token: string }) {
       if (onlyDull && !row.uninteresting) {
         return false;
       }
+      const signed = row.verified_at
+        ? new Date(row.verified_at).getTime()
+        : null;
+      const cutoff = verifiedBefore ? new Date(verifiedBefore).getTime() : null;
+      const stale =
+        cutoff != null &&
+        Number.isFinite(cutoff) &&
+        signed != null &&
+        signed < cutoff;
+      const never = signed == null;
+      if (unverified && Number.isFinite(cutoff ?? NaN)) {
+        if (!never && !stale) {
+          return false;
+        }
+      } else if (unverified && !never) {
+        return false;
+      } else if (cutoff != null && Number.isFinite(cutoff) && !stale) {
+        return false;
+      }
       if (picked.size > 0 && !picked.has(row.family)) {
         return false;
       }
@@ -289,7 +321,17 @@ function SiteTable({ token }: { token: string }) {
       }
       return true;
     });
-  }, [rows, q, over6, noPriority, onlyDull, families, hits]);
+  }, [
+    rows,
+    q,
+    over6,
+    noPriority,
+    onlyDull,
+    unverified,
+    verifiedBefore,
+    families,
+    hits,
+  ]);
 
   const sorted = useMemo(() => {
     if (q.trim() && hits) {
@@ -307,6 +349,8 @@ function SiteTable({ token }: { token: string }) {
     (over6 ? 1 : 0) +
     (noPriority ? 1 : 0) +
     (onlyDull ? 1 : 0) +
+    (unverified ? 1 : 0) +
+    (verifiedBefore ? 1 : 0) +
     (families.length > 0 ? 1 : 0);
 
   const cell = (id: string, children: React.ReactNode) => (
@@ -374,7 +418,32 @@ function SiteTable({ token }: { token: string }) {
               setPage(1);
             }}
           />
+          <Checkbox
+            label="Not verified"
+            checked={unverified}
+            onChange={e => {
+              setUnverified(e.currentTarget.checked);
+              setPage(1);
+            }}
+          />
         </div>
+        <label className="fl-filter-date">
+          <span>Verified before</span>
+          <input
+            type="datetime-local"
+            value={verifiedBefore}
+            onChange={e => {
+              setVerifiedBefore(e.currentTarget.value);
+              setPage(1);
+            }}
+          />
+          <span className="fl-add-hint">
+            Places signed off before this time.
+            {unverified
+              ? ' With Not verified, both are the ones due for another look.'
+              : ''}
+          </span>
+        </label>
         <div className="fl-filter-head">
           <p className="fl-filter-title">Type</p>
           {families.length > 0 ? (

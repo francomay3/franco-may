@@ -11,11 +11,16 @@ export type ArchivePhoto = {
   licence: string | null;
   ord: number;
   prioritized: boolean;
+  /** Out of the six. The same exclusion as an unmarked nearby photograph. */
+  skipped: boolean;
 };
 
 const PAGE = 24;
 
-function sourceLabel(source: string): string {
+function sourceLabel(source: string, skipped: boolean): string {
+  if (skipped) {
+    return 'Skip';
+  }
   if (source === 'commons_geosearch') {
     return 'Nearby';
   }
@@ -47,14 +52,25 @@ export function ArchivePicker({
   const [photos, setPhotos] = useState(initial);
   const [visible, setVisible] = useState(PAGE);
   const [onlyMarked, setOnlyMarked] = useState(false);
+  const [hideSkipped, setHideSkipped] = useState(false);
   const sentinel = useRef<HTMLDivElement>(null);
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const marked = photos.filter(p => p.prioritized).length;
+  const skipped = photos.filter(p => p.skipped).length;
   const shown = useMemo(
-    () => (onlyMarked ? photos.filter(p => p.prioritized) : photos),
-    [onlyMarked, photos]
+    () =>
+      photos.filter(p => {
+        if (onlyMarked && !p.prioritized) {
+          return false;
+        }
+        if (hideSkipped && p.skipped) {
+          return false;
+        }
+        return true;
+      }),
+    [hideSkipped, onlyMarked, photos]
   );
   const slice = shown.slice(0, visible);
   const more = slice.length < shown.length;
@@ -77,13 +93,17 @@ export function ArchivePicker({
     return () => observer.disconnect();
   }, [more, shown.length, visible]);
 
-  const toggle = async (photo: ArchivePhoto) => {
+  const save = async (
+    photo: ArchivePhoto,
+    action: 'prioritize_photo' | 'skip_photo',
+    next: { prioritized: boolean; skipped: boolean }
+  ) => {
     const key = keyOf(photo);
-    const next = !photo.prioritized;
+    const prev = { prioritized: photo.prioritized, skipped: photo.skipped };
     setBusy(key);
     setError(null);
     setPhotos(list =>
-      list.map(p => (keyOf(p) === key ? { ...p, prioritized: next } : p))
+      list.map(p => (keyOf(p) === key ? { ...p, ...next } : p))
     );
     try {
       const res = await fetch('/api/fornlamningar/place', {
@@ -93,16 +113,17 @@ export function ArchivePicker({
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          action: 'prioritize_photo',
+          action,
           place: uuid,
           source: photo.source,
           file: photo.file,
-          prioritized: next,
+          prioritized: next.prioritized,
+          skipped: next.skipped,
         }),
       });
       if (!res.ok) {
         setPhotos(list =>
-          list.map(p => (keyOf(p) === key ? { ...p, prioritized: !next } : p))
+          list.map(p => (keyOf(p) === key ? { ...p, ...prev } : p))
         );
         setError(`Could not save (${res.status})`);
       }
@@ -114,9 +135,9 @@ export function ArchivePicker({
   return (
     <div className="fl-pick">
       <p className="fl-sub">
-        {photos.length} photographs, {marked} prioritized. The app still
-        receives six, and the prioritized ones go first. Mark the ones that show
-        the place clearly.
+        {photos.length} photographs, {marked} prioritized, {skipped} skipped.
+        The app still receives six. Skipped photographs stay out. Prioritized
+        ones go first.
       </p>
       <div className="fl-pick-nav">
         <button
@@ -130,6 +151,17 @@ export function ArchivePicker({
         >
           {onlyMarked ? 'Show all' : 'Show prioritized'}
         </button>
+        <button
+          type="button"
+          className="fl-pick-filter"
+          aria-pressed={hideSkipped}
+          onClick={() => {
+            setHideSkipped(v => !v);
+            setVisible(PAGE);
+          }}
+        >
+          {hideSkipped ? 'Show skipped' : 'Hide skipped'}
+        </button>
         {more ? (
           <span className="fl-pick-range">
             {slice.length} of {shown.length}
@@ -138,7 +170,7 @@ export function ArchivePicker({
       </div>
       {error ? <p className="fl-empty">{error}</p> : null}
       {slice.length === 0 ? (
-        <p className="fl-empty">None prioritized yet.</p>
+        <p className="fl-empty">No photographs in this view.</p>
       ) : (
         <div className="fl-pick-grid">
           {slice.map(photo => {
@@ -150,21 +182,44 @@ export function ArchivePicker({
               <article
                 key={key}
                 className={
-                  photo.prioritized ? 'fl-pick-card is-on' : 'fl-pick-card'
+                  photo.skipped
+                    ? 'fl-pick-card is-skip'
+                    : photo.prioritized
+                      ? 'fl-pick-card is-on'
+                      : 'fl-pick-card'
                 }
               >
                 <img src={photo.thumb} alt="" loading="lazy" decoding="async" />
                 <div>
-                  <span>{sourceLabel(photo.source)}</span>
+                  <span>{sourceLabel(photo.source, photo.skipped)}</span>
                   <span>{credit}</span>
                   <button
                     type="button"
                     className="fl-pick-toggle"
                     aria-pressed={photo.prioritized}
                     disabled={busy === key}
-                    onClick={() => void toggle(photo)}
+                    onClick={() =>
+                      void save(photo, 'prioritize_photo', {
+                        prioritized: !photo.prioritized,
+                        skipped: photo.prioritized ? photo.skipped : false,
+                      })
+                    }
                   >
                     {photo.prioritized ? 'Prioritized' : 'Prioritize'}
+                  </button>
+                  <button
+                    type="button"
+                    className="fl-pick-toggle is-skip"
+                    aria-pressed={photo.skipped}
+                    disabled={busy === key}
+                    onClick={() =>
+                      void save(photo, 'skip_photo', {
+                        skipped: !photo.skipped,
+                        prioritized: photo.skipped ? photo.prioritized : false,
+                      })
+                    }
+                  >
+                    {photo.skipped ? 'Skipped' : 'Skip'}
                   </button>
                   {photo.page ? (
                     <a
