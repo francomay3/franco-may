@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Alert, Group, Loader, Pagination, Text } from '@mantine/core';
 import { AdminGate } from '../../gate';
@@ -117,7 +116,7 @@ function Results({ token }: { token: string }) {
           </p>
           <div className="fl-hits">
             {pageHits.map(hit => (
-              <Link
+              <a
                 key={hit.id}
                 href={`/fornlamningar/admin/${hit.id}`}
                 className="fl-hit"
@@ -129,7 +128,7 @@ function Results({ token }: { token: string }) {
                 {hit.snippet ? (
                   <p className="fl-hit-snippet">{hit.snippet}</p>
                 ) : null}
-              </Link>
+              </a>
             ))}
           </div>
           {pages > 1 ? (
