@@ -637,10 +637,15 @@ export default function PlaceAdminPage() {
               className="fl-flag-form"
               onSubmit={e => {
                 e.preventDefault();
-                if (flagNote.trim() && busy?.startsWith('flag:') !== true) {
+                const uuid = place.uuid;
+                if (
+                  flagNote.trim() &&
+                  uuid &&
+                  busy?.startsWith('flag:') !== true
+                ) {
                   void flagCall({
                     action: 'add',
-                    place: place.uuid,
+                    place: uuid,
                     note: flagNote.trim(),
                   });
                 }
