@@ -1,9 +1,14 @@
 'use client';
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Button, Loader } from '@mantine/core';
-import { Map, Marker, NavigationControl } from '@vis.gl/react-maplibre';
+import {
+  Map,
+  Marker,
+  NavigationControl,
+  type MapRef,
+} from '@vis.gl/react-maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { AdminGate } from '../gate';
 import DescriptionText from '../../DescriptionText';
@@ -156,22 +161,36 @@ function GlanceMap({
 }: {
   points: { lon: number; lat: number; color: string }[];
 }) {
+  const ref = useRef<MapRef>(null);
+  const lon = points.reduce((s, p) => s + p.lon, 0) / (points.length || 1);
+  const lat = points.reduce((s, p) => s + p.lat, 0) / (points.length || 1);
+  const zoom = points.length <= 1 ? 16 : 14;
+  const view = `${lon.toFixed(5)},${lat.toFixed(5)},${zoom}`;
+
+  const move = useCallback(() => {
+    ref.current?.jumpTo({ center: [lon, lat], zoom });
+  }, [lon, lat, zoom]);
+
+  useEffect(() => {
+    move();
+  }, [move]);
+
   if (!points.length) {
     return null;
   }
-  const lon = points.reduce((s, p) => s + p.lon, 0) / points.length;
-  const lat = points.reduce((s, p) => s + p.lat, 0) / points.length;
-  const zoom = points.length === 1 ? 16 : 14;
   return (
     <div className="fl-map fl-compare-map">
       <Map
+        ref={ref}
+        key={view}
         initialViewState={{ longitude: lon, latitude: lat, zoom }}
+        onLoad={move}
         mapStyle={STYLE}
         style={{ width: '100%', height: '100%' }}
       >
         {points.map(p => (
           <Marker
-            key={`${p.lon},${p.lat},${p.color}`}
+            key={`${p.color}:${p.lon}:${p.lat}`}
             longitude={p.lon}
             latitude={p.lat}
             color={p.color}
@@ -198,11 +217,16 @@ function Column({
   showMap: boolean;
   onPrioritize: () => void;
 }) {
-  const title = place?.title || side.name || side.id;
-  const photos = shots(place);
-  const text = lead(place?.content ?? null);
-  const lon = place?.lon ?? side.lon;
-  const lat = place?.lat ?? side.lat;
+  const title =
+    place?.uuid === side.id
+      ? place.title || side.name || side.id
+      : side.name || side.id;
+  const photos = place?.uuid === side.id ? shots(place) : [];
+  const text = place?.uuid === side.id ? lead(place.content) : '';
+  const lon =
+    place?.uuid === side.id && place.lon != null ? place.lon : side.lon;
+  const lat =
+    place?.uuid === side.id && place.lat != null ? place.lat : side.lat;
   const putFirst = async (source: string, file: string) => {
     const res = await fetch('/api/fornlamningar/place', {
       method: 'POST',
@@ -223,7 +247,7 @@ function Column({
     }
   };
   return (
-    <article className="fl-compare-col">
+    <article className="fl-compare-col" key={side.id}>
       <header>
         <h2 className="fl-compare-name">{title}</h2>
         {side.kind ? <p className="fl-sub">{side.kind}</p> : null}
@@ -239,8 +263,11 @@ function Column({
         <p className="fl-empty">No photograph held for this place.</p>
       ) : (
         <div className="fl-sources">
-          {photos.map(p => (
-            <div key={p.src} className="fl-source">
+          {photos.map((p, i) => (
+            <div
+              key={`${side.id}:${p.file ?? p.src}:${i}`}
+              className="fl-source"
+            >
               <img src={p.src} alt="" />
               {p.source && p.file ? (
                 <div>
@@ -274,6 +301,10 @@ function CompareBody({ token }: { token: string }) {
   const [reveal, setReveal] = useState<Reveal | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const shown = useRef<{ left: string; right: string }>({
+    left: '',
+    right: '',
+  });
 
   const loadPlace = useCallback(
     async (id: string) => {
@@ -285,6 +316,12 @@ function CompareBody({ token }: { token: string }) {
         return;
       }
       const body = (await res.json()) as Place;
+      if (shown.current.left !== id && shown.current.right !== id) {
+        return;
+      }
+      if (body.uuid && body.uuid !== id) {
+        return;
+      }
       setPlaces(prev => ({ ...prev, [id]: body }));
     },
     [token]
@@ -292,7 +329,9 @@ function CompareBody({ token }: { token: string }) {
 
   const applyPair = useCallback(
     (body: Pair) => {
+      shown.current = { left: body.left.id, right: body.right.id };
       setPair(body);
+      setPlaces({});
       void loadPlace(body.left.id);
       void loadPlace(body.right.id);
     },
@@ -387,6 +426,7 @@ function CompareBody({ token }: { token: string }) {
       {error ? <p className="fl-empty">{error}</p> : null}
       <div className="fl-compare-grid">
         <Column
+          key={pair.left.id}
           side={pair.left}
           place={leftPlace}
           token={token}
@@ -395,6 +435,7 @@ function CompareBody({ token }: { token: string }) {
           onPrioritize={() => void loadPlace(pair.left.id)}
         />
         <Column
+          key={pair.right.id}
           side={pair.right}
           place={rightPlace}
           token={token}

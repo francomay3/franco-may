@@ -61,10 +61,11 @@ function stats(list: Vote[]) {
   return { votes: list.length - skips, skips };
 }
 
-function nextPair(list: Vote[]) {
+function nextPair(list: Vote[], hidden: Set<string>) {
   const { sites, byId, mean, std } = comparePool();
   const fit = fitVotes(byId, list, mean, std);
-  const pair = pickPair(sites, list, fit);
+  const open = sites.filter(s => !hidden.has(s.id));
+  const pair = pickPair(open, list, fit);
   if (!pair) {
     return null;
   }
@@ -73,6 +74,20 @@ function nextPair(list: Vote[]) {
     right: card(pair[1].id),
     ...stats(list),
   };
+}
+
+async function uninteresting(): Promise<Set<string>> {
+  try {
+    const { rows } = await pool.query<{ place_uuid: string }>(
+      `SELECT place_uuid FROM fl_uninteresting`
+    );
+    return new Set(rows.map(r => r.place_uuid));
+  } catch (err) {
+    if (missingTable(err)) {
+      return new Set();
+    }
+    throw err;
+  }
 }
 
 export async function GET(request: NextRequest) {
@@ -89,7 +104,7 @@ export async function GET(request: NextRequest) {
   }
   try {
     const list = await votes();
-    const body = nextPair(list);
+    const body = nextPair(list, await uninteresting());
     if (!body?.left || !body.right) {
       return NextResponse.json({ error: 'no pair left' }, { status: 404 });
     }
@@ -199,7 +214,7 @@ export async function POST(request: NextRequest) {
     right: right.id,
     outcome: parsed.data.outcome,
   };
-  const following = nextPair([...list, stored]);
+  const following = nextPair([...list, stored], await uninteresting());
   return NextResponse.json({
     pLeft: belief.pLeft,
     basis: belief.basis,
