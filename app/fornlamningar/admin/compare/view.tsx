@@ -13,8 +13,8 @@ import DescriptionText from '../../DescriptionText';
  *
  * The probability is not on the screen while the pair is open. It comes
  * back with the vote, about the pair just judged, and the next pair is
- * already fitted with that vote included. Skip stores the pair and does
- * not train.
+ * already fitted with that vote included. A tie says the two are equal and
+ * trains. Skip stores the pair and does not.
  */
 
 type Side = {
@@ -37,7 +37,7 @@ type Reveal = {
   basis: 'prior' | 'votes';
   leftName: string;
   rightName: string;
-  outcome: 'left' | 'right' | 'skip';
+  outcome: 'left' | 'right' | 'tie' | 'skip';
 };
 
 type ArchivePhoto = {
@@ -143,6 +143,9 @@ function revealCopy(r: Reveal): string {
   const had = `${who} had ${name || 'one side'} at ${pct}%.`;
   if (r.outcome === 'skip') {
     return `Skipped. ${had}`;
+  }
+  if (r.outcome === 'tie') {
+    return `Tie. ${had}`;
   }
   const picked = r.outcome === 'left' ? r.leftName : r.rightName;
   return `You picked ${picked || 'that side'}. ${had}`;
@@ -374,8 +377,8 @@ function CompareBody({ token }: { token: string }) {
   return (
     <div className="fl-compare">
       <p className="fl-sub fl-compare-note">
-        Which of these two is more striking at a glance. Skip when there is not
-        enough to tell. {pair.votes} judged
+        Which of these two is more striking at a glance. Tie when they are
+        equal, skip when there is not enough to tell. {pair.votes} judged
         {pair.skips ? `, ${pair.skips} skipped` : ''}.
       </p>
       {reveal ? (
@@ -415,6 +418,15 @@ function CompareBody({ token }: { token: string }) {
           {leftTitle}
         </Button>
         <Button
+          className="fl-compare-quiet"
+          variant="default"
+          disabled={busy}
+          onClick={() => void vote('tie')}
+        >
+          Tie
+        </Button>
+        <Button
+          className="fl-compare-quiet"
           variant="default"
           disabled={busy}
           onClick={() => void vote('skip')}

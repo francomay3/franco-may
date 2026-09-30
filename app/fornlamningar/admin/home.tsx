@@ -23,7 +23,8 @@ export default function AdminHome() {
         <Link className="fl-nav-card" href="/fornlamningar/admin/compare">
           <span className="fl-nav-title">Compare</span>
           <span className="fl-nav-note">
-            Which of two places is more striking. Skip when you cannot tell.
+            Which of two places is more striking. Tie when they match, skip when
+            you cannot tell.
           </span>
         </Link>
         <Link className="fl-nav-card" href="/fornlamningar/admin/flags">

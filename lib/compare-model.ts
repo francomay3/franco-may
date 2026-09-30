@@ -5,7 +5,8 @@
  * current score: with no votes, that is the whole prediction, pulled toward
  * an even chance so a gap in the old score does not read as certainty.
  * The learned layer is a logistic on the difference of signals, fitted only
- * on decisive votes. A skip is stored and never becomes a row of that fit.
+ * on decisive votes. A tie is a vote that the two are equal. A skip is
+ * stored and never becomes a row of that fit.
  *
  * Visitors and Wikipedia reads are not in the signal list. The first is
  * the label the big score already over-fit. The second is how the top of
@@ -60,7 +61,7 @@ export type CompareSite = {
 export type Vote = {
   left: string;
   right: string;
-  outcome: 'left' | 'right' | 'skip';
+  outcome: 'left' | 'right' | 'tie' | 'skip';
 };
 
 export type Basis = 'prior' | 'votes';
@@ -182,7 +183,7 @@ export function fitVotes(
     const a = z(left.f, mean, std);
     const b = z(right.f, mean, std);
     X.push(a.map((value, j) => value - b[j]));
-    y.push(v.outcome === 'left' ? 1 : 0);
+    y.push(v.outcome === 'left' ? 1 : v.outcome === 'tie' ? 0.5 : 0);
   }
   if (X.length < 2) {
     return null;
@@ -230,11 +231,28 @@ export function pairKey(a: string, b: string): string {
   return a < b ? `${a}|${b}` : `${b}|${a}`;
 }
 
+/** How many recent comparisons a site sits out. One outlier was otherwise the best partner for every neighbour, and it stayed on screen. */
+const REST_FOR = 8;
+
+function present(
+  a: CompareSite,
+  b: CompareSite
+): [CompareSite, CompareSite] {
+  const key = pairKey(a.id, b.id);
+  let h = 0;
+  for (let i = 0; i < key.length; i++) {
+    h = (Math.imul(h, 33) + key.charCodeAt(i)) >>> 0;
+  }
+  return h % 2 === 0 ? [a, b] : [b, a];
+}
+
 /**
  * A pair close in the current score, where the score and the glance signals
  * disagree. Once the learned layer is allowed to speak, pairs it is unsure
- * about are preferred. The same pair is never asked twice. Nothing here is
- * random, so a refresh before voting shows the same one.
+ * about are preferred. The same pair is never asked twice, and a site that
+ * was just shown sits out the next few so the screen changes. Nothing here
+ * is random, so a refresh before voting shows the same one. Which side a
+ * place stands on is fixed for that pair and is not "the higher score".
  */
 export function pickPair(
   sites: CompareSite[],
@@ -245,39 +263,45 @@ export function pickPair(
     return null;
   }
   const used = new Set(votes.map(v => pairKey(v.left, v.right)));
-  const last = votes.length ? votes[votes.length - 1] : null;
-  const recent = new Set(last ? [last.left, last.right] : []);
   const n = decisiveCount(votes);
   const order = [...sites].sort((a, b) => a.score - b.score);
-  let best: [CompareSite, CompareSite] | null = null;
-  let bestQ = -1;
-  for (let i = 0; i < order.length; i++) {
-    for (let k = 1; k <= 20 && i + k < order.length; k++) {
-      const a = order[i];
-      const b = order[i + k];
-      const gap = b.score - a.score;
-      if (gap > 6) {
-        break;
-      }
-      if (used.has(pairKey(a.id, b.id))) {
-        continue;
-      }
-      const close = 1 / (1 + gap);
-      const disagree = Math.abs(a.residual - b.residual);
-      let q = close * (0.35 + disagree);
-      if (n >= VOTES_BEFORE_LEARNED && fit) {
-        const p = predict(a, b, votes, fit).pLeft;
-        const unsure = 1 - Math.abs(2 * p - 1);
-        q = close * (0.25 + unsure) + 0.2 * disagree;
-      }
-      if (recent.has(a.id) || recent.has(b.id)) {
-        q *= 0.2;
-      }
-      if (q > bestQ) {
-        bestQ = q;
-        best = [a, b];
+  const search = (rest: number) => {
+    const resting = new Set<string>();
+    for (const v of votes.slice(-rest)) {
+      resting.add(v.left);
+      resting.add(v.right);
+    }
+    let best: [CompareSite, CompareSite] | null = null;
+    let bestQ = -1;
+    for (let i = 0; i < order.length; i++) {
+      for (let k = 1; k <= 20 && i + k < order.length; k++) {
+        const a = order[i];
+        const b = order[i + k];
+        if (resting.has(a.id) || resting.has(b.id)) {
+          continue;
+        }
+        const gap = b.score - a.score;
+        if (gap > 6) {
+          break;
+        }
+        if (used.has(pairKey(a.id, b.id))) {
+          continue;
+        }
+        const close = 1 / (1 + gap);
+        const disagree = Math.abs(a.residual - b.residual);
+        let q = close * (0.35 + disagree);
+        if (n >= VOTES_BEFORE_LEARNED && fit) {
+          const p = predict(a, b, votes, fit).pLeft;
+          const unsure = 1 - Math.abs(2 * p - 1);
+          q = close * (0.25 + unsure) + 0.2 * disagree;
+        }
+        if (q > bestQ) {
+          bestQ = q;
+          best = present(a, b);
+        }
       }
     }
-  }
-  return best;
+    return best;
+  };
+  return search(REST_FOR) ?? search(0);
 }

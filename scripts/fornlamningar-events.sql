@@ -369,6 +369,7 @@ CREATE INDEX IF NOT EXISTS fl_place_flags_open
 -- One glance comparison from the admin tinder.
 --
 -- outcome is relative to the side that was on the left of the screen.
+-- 'tie' means the two are equally striking, and that vote trains.
 -- 'skip' means there was not enough to judge: the row is kept so the same
 -- pair is not asked again, and it is not a vote the ranker trains on.
 -- p_left is what the model said BEFORE this row existed, so the number
@@ -380,13 +381,20 @@ CREATE TABLE IF NOT EXISTS fl_comparisons (
   pair_hi     TEXT             NOT NULL,
   left_uuid   TEXT             NOT NULL,
   right_uuid  TEXT             NOT NULL,
-  outcome     TEXT             NOT NULL CHECK (outcome IN ('left', 'right', 'skip')),
+  outcome     TEXT             NOT NULL CHECK (outcome IN ('left', 'right', 'tie', 'skip')),
   p_left      DOUBLE PRECISION,
   basis       TEXT,
   created_by  TEXT             NOT NULL,
   created_at  TIMESTAMPTZ      NOT NULL DEFAULT now(),
   UNIQUE (pair_lo, pair_hi)
 );
+
+-- The check above is whatever the table was created with. Dropping and
+-- adding it is what lets a database from before 'tie' accept the new value,
+-- and running it twice is the same statement both times.
+ALTER TABLE fl_comparisons DROP CONSTRAINT IF EXISTS fl_comparisons_outcome_check;
+ALTER TABLE fl_comparisons ADD CONSTRAINT fl_comparisons_outcome_check
+  CHECK (outcome IN ('left', 'right', 'tie', 'skip'));
 
 -- Where a person dragged the pin.
 --

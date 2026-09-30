@@ -10,13 +10,14 @@ import { pool } from '@/lib/db';
  *
  * The probability in the response was computed before the vote was inserted,
  * so the number is what the model believed going in. The following pair is
- * chosen with the vote included. A skip is stored and left out of the fit.
+ * chosen with the vote included. A tie trains as an equal pair. A skip is
+ * stored and left out of the fit.
  */
 
 type Row = {
   left_uuid: string;
   right_uuid: string;
-  outcome: 'left' | 'right' | 'skip';
+  outcome: 'left' | 'right' | 'tie' | 'skip';
 };
 
 function missingTable(err: unknown): boolean {
@@ -107,7 +108,7 @@ export async function GET(request: NextRequest) {
 const bodySchema = z.object({
   left: z.string().uuid(),
   right: z.string().uuid(),
-  outcome: z.enum(['left', 'right', 'skip']),
+  outcome: z.enum(['left', 'right', 'tie', 'skip']),
 });
 
 export async function POST(request: NextRequest) {

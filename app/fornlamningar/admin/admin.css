@@ -783,6 +783,10 @@
   min-width: 0;
 }
 
+.fl-compare-bar .fl-compare-quiet {
+  flex: 0 0 auto;
+}
+
 .fl-compare-bar .mantine-Button-label {
   overflow: hidden;
   text-overflow: ellipsis;
