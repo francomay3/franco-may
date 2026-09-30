@@ -20,6 +20,12 @@ export default function AdminHome() {
             Every published place, with photos, sources and ratings.
           </span>
         </Link>
+        <Link className="fl-nav-card" href="/fornlamningar/admin/compare">
+          <span className="fl-nav-title">Compare</span>
+          <span className="fl-nav-note">
+            Which of two places is more striking. Skip when you cannot tell.
+          </span>
+        </Link>
         <Link className="fl-nav-card" href="/fornlamningar/admin/flags">
           <span className="fl-nav-title">Flags</span>
           <span className="fl-nav-note">Notes on places that need a fix.</span>

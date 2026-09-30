@@ -366,6 +366,28 @@ CREATE INDEX IF NOT EXISTS fl_place_flags_open
   ON fl_place_flags (created_at)
   WHERE corrected_at IS NULL;
 
+-- One glance comparison from the admin tinder.
+--
+-- outcome is relative to the side that was on the left of the screen.
+-- 'skip' means there was not enough to judge: the row is kept so the same
+-- pair is not asked again, and it is not a vote the ranker trains on.
+-- p_left is what the model said BEFORE this row existed, so the number
+-- Franco saw is not a fit that already knew his answer. A reload of
+-- photographs or sources must not clear this table.
+CREATE TABLE IF NOT EXISTS fl_comparisons (
+  id          BIGSERIAL        PRIMARY KEY,
+  pair_lo     TEXT             NOT NULL,
+  pair_hi     TEXT             NOT NULL,
+  left_uuid   TEXT             NOT NULL,
+  right_uuid  TEXT             NOT NULL,
+  outcome     TEXT             NOT NULL CHECK (outcome IN ('left', 'right', 'skip')),
+  p_left      DOUBLE PRECISION,
+  basis       TEXT,
+  created_by  TEXT             NOT NULL,
+  created_at  TIMESTAMPTZ      NOT NULL DEFAULT now(),
+  UNIQUE (pair_lo, pair_hi)
+);
+
 -- Where a person dragged the pin.
 --
 -- The pipeline reads this table (scripts/export-fl-pin-overrides.cjs ->

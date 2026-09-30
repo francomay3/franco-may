@@ -140,6 +140,9 @@ function SiteTable({ token }: { token: string }) {
     columnAccessor: 'name',
     direction: 'asc',
   });
+  // A fresh query is listed by search rank. A click on a column header
+  // sorts those same rows; the next edit of the query goes back to rank.
+  const [columnSort, setColumnSort] = useState(false);
   const [q, setQ] = useState(params.get('q') ?? '');
   const [over6, setOver6] = useState(params.get('over6') === '1');
   const [noPriority, setNoPriority] = useState(params.get('unmarked') === '1');
@@ -342,7 +345,7 @@ function SiteTable({ token }: { token: string }) {
   ]);
 
   const sorted = useMemo(() => {
-    if (q.trim() && hits) {
+    if (!columnSort && q.trim() && hits) {
       const order = new Map(hits.map((id, i) => [id, i]));
       return [...filtered].sort(
         (a, b) =>
@@ -351,7 +354,7 @@ function SiteTable({ token }: { token: string }) {
       );
     }
     return ordered(filtered, sort);
-  }, [filtered, sort, q, hits]);
+  }, [filtered, sort, q, hits, columnSort]);
   const pageRows = sorted.slice((page - 1) * PAGE, page * PAGE);
   const filterCount =
     (over6 ? 1 : 0) +
@@ -379,6 +382,7 @@ function SiteTable({ token }: { token: string }) {
           value={q}
           onChange={value => {
             setQ(value);
+            setColumnSort(false);
             setPage(1);
           }}
         />
@@ -522,8 +526,13 @@ function SiteTable({ token }: { token: string }) {
             recordsPerPage={PAGE}
             page={page}
             onPageChange={setPage}
-            sortStatus={sort}
+            sortStatus={
+              !columnSort && q.trim()
+                ? { columnAccessor: 'rank', direction: 'asc' }
+                : sort
+            }
             onSortStatusChange={next => {
+              setColumnSort(true);
               setSort(next);
               setPage(1);
             }}
