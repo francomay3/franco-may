@@ -141,19 +141,19 @@ function shots(place: Place | null): {
 }
 
 function revealCopy(r: Reveal): string {
+  const lead =
+    r.outcome === 'skip'
+      ? 'Skipped.'
+      : r.outcome === 'tie'
+        ? 'Tie.'
+        : `You picked ${(r.outcome === 'left' ? r.leftName : r.rightName) || 'that side'}.`;
+  if (r.basis !== 'votes') {
+    return `${lead} Not enough votes yet to call a side.`;
+  }
   const favoredLeft = r.pLeft >= 0.5;
   const name = favoredLeft ? r.leftName : r.rightName;
   const pct = Math.round(100 * (favoredLeft ? r.pLeft : 1 - r.pLeft));
-  const who = r.basis === 'votes' ? 'Your votes' : 'The current rank';
-  const had = `${who} had ${name || 'one side'} at ${pct}%.`;
-  if (r.outcome === 'skip') {
-    return `Skipped. ${had}`;
-  }
-  if (r.outcome === 'tie') {
-    return `Tie. ${had}`;
-  }
-  const picked = r.outcome === 'left' ? r.leftName : r.rightName;
-  return `You picked ${picked || 'that side'}. ${had}`;
+  return `${lead} Your votes had ${name || 'one side'} at ${pct}%.`;
 }
 
 function GlanceMap({

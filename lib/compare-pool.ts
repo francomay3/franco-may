@@ -33,7 +33,7 @@ function load(): ComparePool {
   const header = JSON.parse(lines[0]) as { v?: number; features?: string[] };
   const names = header.features ?? [];
   if (
-    header.v !== 1 ||
+    header.v !== 2 ||
     names.length !== FEATURES.length ||
     names.some((name, i) => name !== FEATURES[i])
   ) {
