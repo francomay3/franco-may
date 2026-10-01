@@ -413,3 +413,19 @@ CREATE TABLE IF NOT EXISTS fl_pin_overrides (
   created_at  TIMESTAMPTZ      NOT NULL DEFAULT now(),
   updated_at  TIMESTAMPTZ      NOT NULL DEFAULT now()
 );
+
+-- The title a person typed on the place page.
+--
+-- The pipeline reads this table (scripts/export-fl-title-overrides.cjs ->
+-- build_clusters.py and build_tiles.py) and uses it as the place's name,
+-- ahead of the hand list and the generated heading. A reload of
+-- photographs or sources must not clear this table. The file the pipeline
+-- reads is the whole truth, so clearing a row here puts the published
+-- title back at the next run.
+CREATE TABLE IF NOT EXISTS fl_title_overrides (
+  place_uuid  TEXT        PRIMARY KEY,
+  title       TEXT        NOT NULL,
+  set_by      TEXT        NOT NULL,
+  created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+);

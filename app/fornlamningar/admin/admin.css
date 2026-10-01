@@ -78,6 +78,27 @@
   letter-spacing: -0.03em;
 }
 
+.fl-title-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.fl-title-form input {
+  flex: 1 1 16em;
+  min-width: 0;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+
 .fl-sub {
   margin: 8px 0 0;
   color: var(--muted);

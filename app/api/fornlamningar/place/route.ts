@@ -121,6 +121,21 @@ function ratingOf(uuid: string, uid: string): Promise<RatingView> {
     });
 }
 
+function titleOverrideOf(uuid: string) {
+  return pool
+    .query<{ title: string }>(
+      `SELECT title FROM fl_title_overrides WHERE place_uuid = $1`,
+      [uuid]
+    )
+    .then(r => r.rows[0]?.title ?? null)
+    .catch(err => {
+      if (missingTable(err)) {
+        return null;
+      }
+      throw err;
+    });
+}
+
 function pinOverrideOf(uuid: string) {
   return pool
     .query<{ lon: number; lat: number }>(
@@ -217,6 +232,7 @@ export async function GET(request: NextRequest) {
     rating,
     flags,
     pinOverride,
+    titleOverride,
     verified,
   ] = await Promise.all([
     pool.query(
@@ -277,6 +293,7 @@ export async function GET(request: NextRequest) {
       : Promise.resolve({ mine: null, average: null, votes: 0 }),
     flagsForPlace(uuid),
     pinOverrideOf(uuid),
+    titleOverrideOf(uuid),
     verifiedAt(uuid),
   ]);
   // Once the pipeline has taken an added source in, it comes back in
@@ -310,7 +327,8 @@ export async function GET(request: NextRequest) {
   return NextResponse.json({
     query,
     uuid,
-    title: desc?.title ?? null,
+    title: titleOverride ?? desc?.title ?? null,
+    title_override: titleOverride,
     content: desc?.content ?? null,
     fornsok: `https://app.raa.se/open/fornsok/lamning/${uuid}`,
     lon: pinOverride?.lon ?? coord?.[0] ?? null,
@@ -425,6 +443,15 @@ const bodySchema = z.discriminatedUnion('action', [
   }),
   z.object({
     action: z.literal('clear_pin'),
+    place: z.string().min(1),
+  }),
+  z.object({
+    action: z.literal('set_title'),
+    place: z.string().min(1),
+    title: z.string().trim().min(1).max(200),
+  }),
+  z.object({
+    action: z.literal('clear_title'),
     place: z.string().min(1),
   }),
 ]);
@@ -590,6 +617,44 @@ export async function POST(request: NextRequest) {
       lon,
       lat,
       pin_override: { lon, lat },
+    });
+  }
+  if (
+    parsed.data.action === 'set_title' ||
+    parsed.data.action === 'clear_title'
+  ) {
+    const uuid = placeUuidOf(parsed.data.place);
+    if (!uuid) {
+      return NextResponse.json({ error: 'unknown place' }, { status: 400 });
+    }
+    const uid = await uidOf(request);
+    if (!uid) {
+      return NextResponse.json({ error: 'not found' }, { status: 404 });
+    }
+    if (parsed.data.action === 'clear_title') {
+      await pool.query(`DELETE FROM fl_title_overrides WHERE place_uuid = $1`, [
+        uuid,
+      ]);
+      return NextResponse.json({
+        ok: true,
+        title: description(uuid)?.title ?? null,
+        title_override: null,
+      });
+    }
+    const title = parsed.data.title.replace(/\s+/g, ' ');
+    await pool.query(
+      `INSERT INTO fl_title_overrides (place_uuid, title, set_by)
+       VALUES ($1, $2, $3)
+       ON CONFLICT (place_uuid) DO UPDATE SET
+         title = EXCLUDED.title,
+         set_by = EXCLUDED.set_by,
+         updated_at = now()`,
+      [uuid, title, uid]
+    );
+    return NextResponse.json({
+      ok: true,
+      title,
+      title_override: title,
     });
   }
   if (parsed.data.action === 'rate') {

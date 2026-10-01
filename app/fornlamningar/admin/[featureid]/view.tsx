@@ -72,6 +72,8 @@ type Place = {
   calculated: { lon: number; lat: number } | null;
   /** Set when a person dragged the pin. The app uses this after the pipeline. */
   pin_override: { lon: number; lat: number } | null;
+  /** Set when a person typed a title. The app uses this after the pipeline. */
+  title_override: string | null;
   texts: SourceText[];
   sources: {
     file: string;
@@ -173,6 +175,7 @@ export default function PlaceAdminPage() {
   const [busy, setBusy] = useState<string | null>(null);
   const [pending, setPending] = useState<Pending>(null);
   const [flagNote, setFlagNote] = useState('');
+  const [titleDraft, setTitleDraft] = useState('');
 
   const load = useCallback(
     async (t: string) => {
@@ -184,7 +187,9 @@ export default function PlaceAdminPage() {
         setError(`${res.status}`);
         return;
       }
-      setPlace((await res.json()) as Place);
+      const body = (await res.json()) as Place;
+      setPlace(body);
+      setTitleDraft(body.title ?? '');
       setError(null);
     },
     [id]
@@ -358,6 +363,47 @@ export default function PlaceAdminPage() {
         setFlagNote('');
       }
       await load(token);
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  const saveTitle = async (next: string | null) => {
+    if (!token || !place?.uuid) {
+      return;
+    }
+    setBusy('title');
+    try {
+      const res = await fetch('/api/fornlamningar/place', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(
+          next
+            ? { action: 'set_title', place: place.uuid, title: next }
+            : { action: 'clear_title', place: place.uuid }
+        ),
+      });
+      if (!res.ok) {
+        setError(`could not save the title: ${res.status}`);
+        return;
+      }
+      const body = (await res.json()) as {
+        title: string | null;
+        title_override: string | null;
+      };
+      setPlace(current =>
+        current
+          ? {
+              ...current,
+              title: body.title,
+              title_override: body.title_override,
+            }
+          : current
+      );
+      setTitleDraft(body.title ?? '');
     } finally {
       setBusy(null);
     }
@@ -559,6 +605,50 @@ export default function PlaceAdminPage() {
         <div>
           <p className="fl-kicker">Place</p>
           <h1 className="fl-title">{place.title ?? id}</h1>
+          <form
+            className="fl-title-form"
+            onSubmit={e => {
+              e.preventDefault();
+              const next = titleDraft.trim().replace(/\s+/g, ' ');
+              if (next && next !== place.title) {
+                void saveTitle(next);
+              }
+            }}
+          >
+            <input
+              aria-label="Title"
+              value={titleDraft}
+              maxLength={200}
+              disabled={busy === 'title'}
+              onChange={e => setTitleDraft(e.target.value)}
+            />
+            <button
+              type="submit"
+              className="fl-add-button"
+              disabled={
+                busy === 'title' ||
+                !titleDraft.trim() ||
+                titleDraft.trim().replace(/\s+/g, ' ') === (place.title ?? '')
+              }
+            >
+              {busy === 'title' ? 'Saving…' : 'Save title'}
+            </button>
+            {place.title_override ? (
+              <button
+                type="button"
+                className="fl-quiet"
+                disabled={busy === 'title'}
+                onClick={() => void saveTitle(null)}
+              >
+                Reset title
+              </button>
+            ) : null}
+          </form>
+          <p className="fl-sub">
+            {place.title_override
+              ? 'Forced title. After the next pipeline run the app uses it.'
+              : 'Saving replaces the published title. The app picks it up on the next pipeline run.'}
+          </p>
           <p className="fl-sub">
             {id}
             {place.uuid && place.uuid !== id ? ` · ${place.uuid}` : ''}
@@ -810,7 +900,6 @@ export default function PlaceAdminPage() {
                 const card = (
                   <>
                     {s.file ? (
-                      // eslint-disable-next-line @next/next/no-img-element
                       <img src={commonsThumb(s.file)} alt="" />
                     ) : null}
                     <div>
@@ -1150,10 +1239,7 @@ function PhotoRow({
 
   return (
     <article className="fl-photo">
-      {url ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={url} alt="" />
-      ) : (
+      {url ? <img src={url} alt="" /> : (
         <div className="fl-photo-missing">No file</div>
       )}
       <footer>
