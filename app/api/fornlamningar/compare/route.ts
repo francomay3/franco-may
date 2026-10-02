@@ -76,6 +76,29 @@ function nextPair(list: Vote[], hidden: Set<string>) {
   };
 }
 
+async function aside(): Promise<Set<string>> {
+  try {
+    const { rows } = await pool.query<{ place_uuid: string }>(
+      `SELECT place_uuid FROM fl_compare_aside`
+    );
+    return new Set(rows.map(r => r.place_uuid));
+  } catch (err) {
+    if (missingTable(err)) {
+      return new Set();
+    }
+    throw err;
+  }
+}
+
+/** Out of the queue: not worth the trip, or set aside for lack of anything to judge. */
+async function hiddenPlaces(): Promise<Set<string>> {
+  const [dull, held] = await Promise.all([uninteresting(), aside()]);
+  for (const id of held) {
+    dull.add(id);
+  }
+  return dull;
+}
+
 async function uninteresting(): Promise<Set<string>> {
   try {
     const { rows } = await pool.query<{ place_uuid: string }>(
@@ -104,7 +127,7 @@ export async function GET(request: NextRequest) {
   }
   try {
     const list = await votes();
-    const body = nextPair(list, await uninteresting());
+    const body = nextPair(list, await hiddenPlaces());
     if (!body?.left || !body.right) {
       return NextResponse.json({ error: 'no pair left' }, { status: 404 });
     }
@@ -120,10 +143,15 @@ export async function GET(request: NextRequest) {
   }
 }
 
-const bodySchema = z.object({
+const voteSchema = z.object({
   left: z.string().uuid(),
   right: z.string().uuid(),
   outcome: z.enum(['left', 'right', 'tie', 'skip']),
+});
+
+const asideSchema = z.object({
+  action: z.literal('aside'),
+  place: z.string().uuid(),
 });
 
 export async function POST(request: NextRequest) {
@@ -143,7 +171,54 @@ export async function POST(request: NextRequest) {
       { status: 400 }
     );
   }
-  const parsed = bodySchema.safeParse(raw);
+  const holding = asideSchema.safeParse(raw);
+  if (holding.success) {
+    let loaded;
+    try {
+      loaded = comparePool();
+    } catch {
+      return NextResponse.json(
+        { error: 'compare pool is not built' },
+        { status: 503 }
+      );
+    }
+    if (!loaded.byId.has(holding.data.place)) {
+      return NextResponse.json({ error: 'unknown place' }, { status: 400 });
+    }
+    try {
+      await pool.query(
+        `INSERT INTO fl_compare_aside (place_uuid, created_by)
+         VALUES ($1, $2)
+         ON CONFLICT (place_uuid) DO NOTHING`,
+        [holding.data.place, uid]
+      );
+    } catch (err) {
+      if (missingTable(err)) {
+        return NextResponse.json(
+          { error: 'fl_compare_aside is not created' },
+          { status: 503 }
+        );
+      }
+      throw err;
+    }
+    let list: Vote[];
+    try {
+      list = await votes();
+    } catch (err) {
+      if (missingTable(err)) {
+        return NextResponse.json(
+          { error: 'fl_comparisons is not created' },
+          { status: 503 }
+        );
+      }
+      throw err;
+    }
+    return NextResponse.json({
+      next: nextPair(list, await hiddenPlaces()),
+    });
+  }
+
+  const parsed = voteSchema.safeParse(raw);
   if (!parsed.success || parsed.data.left === parsed.data.right) {
     return NextResponse.json({ error: 'bad request' }, { status: 400 });
   }
@@ -214,7 +289,7 @@ export async function POST(request: NextRequest) {
     right: right.id,
     outcome: parsed.data.outcome,
   };
-  const following = nextPair([...list, stored], await uninteresting());
+  const following = nextPair([...list, stored], await hiddenPlaces());
   return NextResponse.json({
     pLeft: belief.pLeft,
     basis: belief.basis,

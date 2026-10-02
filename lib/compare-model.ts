@@ -318,10 +318,26 @@ function featureGap(a: Placed, b: Placed): number {
  * disagree, so a systematic mistake gets a chance to be corrected. Sure
  * pairs alone would only confirm the guess. The same pair is never asked
  * twice, and a site that was just shown sits out the next few so the
- * screen changes. Nothing here is random, so a refresh before voting
- * shows the same one. Which side a place stands on is fixed for that pair
- * and is not "the higher score".
+ * screen changes. Runestones are down-weighted: they look alike, so a
+ * pair of them rarely teaches anything, and one of them is asked less
+ * often than another kind. Nothing here is random, so a refresh before
+ * voting shows the same one. Which side a place stands on is fixed for
+ * that pair and is not "the higher score".
  */
+
+/** A runestone against anything is a duller question than two different kinds. */
+function runeWeight(a: CompareSite, b: CompareSite): number {
+  const ar = a.kind === 'Runristning';
+  const br = b.kind === 'Runristning';
+  if (ar && br) {
+    return 0.04;
+  }
+  if (ar || br) {
+    return 0.45;
+  }
+  return 1;
+}
+
 export function pickPair(
   sites: CompareSite[],
   votes: Vote[],
@@ -361,9 +377,11 @@ export function pickPair(
         const lean = Math.abs(2 * p - 1);
         const contra = contradiction(a, b);
         const gap = featureGap(a, b);
-        const q = sure
-          ? lean * (0.3 + Math.min(contra, 2))
-          : (1 - lean) * (0.35 + Math.min(gap, 1.5)) + 0.45 * contra;
+        const q =
+          (sure
+            ? lean * (0.3 + Math.min(contra, 2))
+            : (1 - lean) * (0.35 + Math.min(gap, 1.5)) + 0.45 * contra) *
+          runeWeight(a.site, b.site);
         if (q > bestQ) {
           bestQ = q;
           best = present(a.site, b.site);

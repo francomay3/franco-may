@@ -436,6 +436,18 @@ ALTER TABLE fl_comparisons DROP CONSTRAINT IF EXISTS fl_comparisons_outcome_chec
 ALTER TABLE fl_comparisons ADD CONSTRAINT fl_comparisons_outcome_check
   CHECK (outcome IN ('left', 'right', 'tie', 'skip'));
 
+-- A place taken out of the compare tinder.
+--
+-- Skip only retires the pair, so a place there is not enough to judge
+-- comes back with a new partner. This retires the place. It is not a
+-- vote that the place is dull: fl_uninteresting is that list, and the
+-- pipeline trains on it. Nothing downstream reads this table.
+CREATE TABLE IF NOT EXISTS fl_compare_aside (
+  place_uuid  TEXT        PRIMARY KEY,
+  created_by  TEXT        NOT NULL,
+  created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
 -- Where a person dragged the pin.
 --
 -- The pipeline reads this table (scripts/export-fl-pin-overrides.cjs ->

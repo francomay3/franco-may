@@ -19,7 +19,8 @@ import DescriptionText from '../../DescriptionText';
  * The probability is not on the screen while the pair is open. It comes
  * back with the vote, about the pair just judged, and the next pair is
  * already fitted with that vote included. A tie says the two are equal and
- * trains. Skip stores the pair and does not.
+ * trains. Skip stores the pair and does not. Leave out retires one place
+ * from later matches, which is not a vote about it.
  */
 
 type Side = {
@@ -208,14 +209,18 @@ function Column({
   token,
   color,
   showMap,
+  busy,
   onPrioritize,
+  onAside,
 }: {
   side: Side;
   place: Place | null;
   token: string;
   color: string;
   showMap: boolean;
+  busy: boolean;
   onPrioritize: () => void;
+  onAside: () => void;
 }) {
   const title =
     place?.uuid === side.id
@@ -258,6 +263,14 @@ function Column({
         >
           Open the place
         </Link>
+        <button
+          type="button"
+          className="fl-compare-aside"
+          disabled={busy}
+          onClick={onAside}
+        >
+          Leave out
+        </button>
       </header>
       {photos.length === 0 ? (
         <p className="fl-empty">No photograph held for this place.</p>
@@ -351,6 +364,38 @@ function CompareBody({ token }: { token: string }) {
     })();
   }, [token, applyPair]);
 
+  const leaveOut = async (id: string) => {
+    if (!pair || busy) {
+      return;
+    }
+    setBusy(true);
+    setError(null);
+    try {
+      const res = await fetch('/api/fornlamningar/compare', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ action: 'aside', place: id }),
+      });
+      if (!res.ok) {
+        setError(`${res.status}`);
+        return;
+      }
+      const body = (await res.json()) as { next: Pair | null };
+      setReveal(null);
+      if (body.next?.left && body.next.right) {
+        applyPair(body.next);
+      } else {
+        setPair(null);
+        setError('No pair left.');
+      }
+    } finally {
+      setBusy(false);
+    }
+  };
+
   const vote = async (outcome: Reveal['outcome']) => {
     if (!pair || busy) {
       return;
@@ -417,7 +462,8 @@ function CompareBody({ token }: { token: string }) {
     <div className="fl-compare">
       <p className="fl-sub fl-compare-note">
         Which of these two is more striking at a glance. Tie when they are
-        equal, skip when there is not enough to tell. {pair.votes} judged
+        equal, skip when this pair is unclear. Leave out drops one place
+        from later matches. {pair.votes} judged
         {pair.skips ? `, ${pair.skips} skipped` : ''}.
       </p>
       {reveal ? (
@@ -432,7 +478,9 @@ function CompareBody({ token }: { token: string }) {
           token={token}
           color="#8f3d2b"
           showMap={!together}
+          busy={busy}
           onPrioritize={() => void loadPlace(pair.left.id)}
+          onAside={() => void leaveOut(pair.left.id)}
         />
         <Column
           key={pair.right.id}
@@ -441,7 +489,9 @@ function CompareBody({ token }: { token: string }) {
           token={token}
           color="#1f6b45"
           showMap={!together}
+          busy={busy}
           onPrioritize={() => void loadPlace(pair.right.id)}
+          onAside={() => void leaveOut(pair.right.id)}
         />
         {together ? (
           <div className="fl-compare-span">
