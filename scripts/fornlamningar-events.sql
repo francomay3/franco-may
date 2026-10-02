@@ -319,6 +319,46 @@ CREATE INDEX IF NOT EXISTS fl_photos_place
 -- The table above already exists in databases created before `skipped`.
 ALTER TABLE fl_photos ADD COLUMN IF NOT EXISTS skipped BOOLEAN NOT NULL DEFAULT false;
 
+-- Photographs a person added on the admin page.
+--
+-- `fl_photos` is replaced on every catalog load, so a row written only
+-- there would be gone the next time. This table is the one that survives,
+-- the same way `fl_sources_added` survives a source reload. The pipeline
+-- reads it (scripts/export-fl-added-photos.cjs) and copies the rows into
+-- places.sqlite. Until that run, they are only in the admin drawer.
+--
+-- `source` is `hand` (a Commons file someone pasted) or `geosearch` (the
+-- nearby search, the same 500 m Commons query the crawl runs). The
+-- pipeline stores those as `commons_hand` and `commons_geosearch`. A
+-- hand-added file ships. A nearby one ships only once someone prioritizes
+-- it, which is the rule the app already has for that source.
+--
+-- A removed row stays, so the nearby search does not bring the same file
+-- back. Taking it back is `removed_at`, not a delete.
+CREATE TABLE IF NOT EXISTS fl_photos_added (
+  id           BIGSERIAL PRIMARY KEY,
+  place_uuid   TEXT        NOT NULL,
+  source       TEXT        NOT NULL,
+  file         TEXT        NOT NULL,
+  thumb        TEXT        NOT NULL,
+  page         TEXT,
+  author       TEXT,
+  licence      TEXT,
+  licence_url  TEXT,
+  image_url    TEXT,
+  width        INTEGER,
+  height       INTEGER,
+  distance_m   REAL,
+  added_by     TEXT        NOT NULL,
+  prioritized  BOOLEAN     NOT NULL DEFAULT false,
+  skipped      BOOLEAN     NOT NULL DEFAULT false,
+  created_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
+  removed_at   TIMESTAMPTZ,
+  UNIQUE (place_uuid, source, file)
+);
+CREATE INDEX IF NOT EXISTS fl_photos_added_place
+  ON fl_photos_added (place_uuid);
+
 -- The moment a person signed off a place in the admin.
 --
 -- Clicking again moves the timestamp forward. Clearing the row forgets

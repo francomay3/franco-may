@@ -592,6 +592,29 @@
   margin: -16px 0 32px;
 }
 
+.fl-photo-tools {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.fl-photo-tools input {
+  font: inherit;
+  font-size: 14px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  color: inherit;
+}
+
+.fl-photo-tools-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .fl-add-source input,
 .fl-add-source textarea,
 .fl-flag-form textarea {

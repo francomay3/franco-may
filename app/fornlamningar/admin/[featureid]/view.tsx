@@ -25,6 +25,7 @@ import { PlaceMap } from '../PlaceMap';
 import { ConfirmDialog, IdLink } from '../ui';
 import DescriptionText from '../../DescriptionText';
 import { ArchivePicker, type ArchivePhoto } from './archive-picker';
+import { PhotoTools } from './photo-tools';
 
 /**
  * One place. The id in the path is a register number or the uuid the app
@@ -35,12 +36,12 @@ import { ArchivePicker, type ArchivePhoto } from './archive-picker';
  * "Sources" is every text the pipeline held for the place -- register,
  * Wikipedia, county pages and PDFs, recorded tradition -- from fl_sources.
  * The ones marked "used" went into the prompt. "Photographs" is every
- * picture held for the place. Prioritizing one puts it first when the app
- * next chooses its six. "Not interesting" puts the place on the list the
- * pipeline trains against. "Your rating" is the score under this account,
- * which is the one the app averages. A flag is a note that something
- * about the place is wrong; marking it corrected keeps the note, and
- * deleting it forgets it.
+ * picture held for the place, plus any added here by hand or by the nearby
+ * search. Prioritizing one puts it first when the app next chooses its six.
+ * "Not interesting" puts the place on the list the pipeline trains against.
+ * "Your rating" is the score under this account, which is the one the app
+ * averages. A flag is a note that something about the place is wrong;
+ * marking it corrected keeps the note, and deleting it forgets it.
  */
 
 type SourceText = {
@@ -886,6 +887,13 @@ export default function PlaceAdminPage() {
           <div className="fl-section">
             <h2>Photographs</h2>
           </div>
+          {place.uuid ? (
+            <PhotoTools
+              uuid={place.uuid}
+              token={token}
+              onChange={() => void load(token)}
+            />
+          ) : null}
           {(place.archive ?? []).length > 0 && place.uuid ? (
             <ArchivePicker
               uuid={place.uuid}

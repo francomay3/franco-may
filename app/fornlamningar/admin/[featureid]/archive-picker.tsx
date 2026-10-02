@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { ConfirmDialog } from '../ui';
 
 export type ArchivePhoto = {
   source: string;
@@ -13,6 +14,8 @@ export type ArchivePhoto = {
   prioritized: boolean;
   /** Out of the six. The same exclusion as an unmarked nearby photograph. */
   skipped: boolean;
+  /** Added on this page. The catalog load does not know it yet, so it can be taken back. */
+  added?: boolean;
 };
 
 const PAGE = 24;
@@ -23,6 +26,9 @@ function sourceLabel(source: string, skipped: boolean): string {
   }
   if (source === 'commons_geosearch') {
     return 'Nearby';
+  }
+  if (source === 'commons_hand') {
+    return 'Added';
   }
   if (source === 'arkiv') {
     return 'Archive';
@@ -51,11 +57,16 @@ export function ArchivePicker({
 }) {
   const [photos, setPhotos] = useState(initial);
   const [visible, setVisible] = useState(PAGE);
+  const [removing, setRemoving] = useState<ArchivePhoto | null>(null);
   const [onlyMarked, setOnlyMarked] = useState(false);
   const [hideSkipped, setHideSkipped] = useState(false);
   const sentinel = useRef<HTMLDivElement>(null);
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    setPhotos(initial);
+  }, [initial]);
 
   const marked = photos.filter(p => p.prioritized).length;
   const skipped = photos.filter(p => p.skipped).length;
@@ -127,6 +138,35 @@ export function ArchivePicker({
         );
         setError(`Could not save (${res.status})`);
       }
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  const remove = async (photo: ArchivePhoto) => {
+    const key = keyOf(photo);
+    setBusy(key);
+    setError(null);
+    try {
+      const res = await fetch('/api/fornlamningar/photos', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          action: 'remove',
+          place: uuid,
+          source: photo.source,
+          file: photo.file,
+        }),
+      });
+      if (!res.ok) {
+        setError(`Could not remove (${res.status})`);
+        return;
+      }
+      setPhotos(list => list.filter(p => keyOf(p) !== key));
+      setRemoving(null);
     } finally {
       setBusy(null);
     }
@@ -231,6 +271,16 @@ export function ArchivePicker({
                       Open
                     </a>
                   ) : null}
+                  {photo.added ? (
+                    <button
+                      type="button"
+                      className="fl-pick-open"
+                      disabled={busy === key}
+                      onClick={() => setRemoving(photo)}
+                    >
+                      Remove
+                    </button>
+                  ) : null}
                 </div>
               </article>
             );
@@ -238,6 +288,23 @@ export function ArchivePicker({
         </div>
       )}
       {more ? <div ref={sentinel} className="fl-pick-more" /> : null}
+      <ConfirmDialog
+        opened={removing !== null}
+        title="Remove this photograph?"
+        body="It leaves the drawer. If the app is already showing it, skip it too."
+        confirmLabel="Remove"
+        busy={busy !== null}
+        onClose={() => {
+          if (!busy) {
+            setRemoving(null);
+          }
+        }}
+        onConfirm={() => {
+          if (removing) {
+            void remove(removing);
+          }
+        }}
+      />
     </div>
   );
 }

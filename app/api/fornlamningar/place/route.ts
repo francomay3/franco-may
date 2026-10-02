@@ -65,6 +65,14 @@ type ArchiveRow = {
   ord: number;
   prioritized: boolean;
   skipped: boolean;
+  /** True when this row is only in fl_photos_added, so it can be taken back. */
+  added: boolean;
+};
+
+/** The name the drawer and the pipeline use for a hand-added source. */
+const ADDED_SOURCE: Record<string, string> = {
+  hand: 'commons_hand',
+  geosearch: 'commons_geosearch',
 };
 
 type RatingView = {
@@ -187,8 +195,8 @@ function verifiedAt(uuid: string) {
 }
 
 function archiveOf(uuid: string) {
-  return pool
-    .query<ArchiveRow>(
+  const catalog = pool
+    .query<Omit<ArchiveRow, 'added'>>(
       `SELECT source, file, thumb, page, author, licence, ord,
               prioritized, skipped
          FROM fl_photos
@@ -199,10 +207,73 @@ function archiveOf(uuid: string) {
     .then(r => r.rows)
     .catch(err => {
       if (missingTable(err)) {
-        return [] as ArchiveRow[];
+        return [] as Omit<ArchiveRow, 'added'>[];
       }
       throw err;
     });
+  const added = pool
+    .query<{
+      source: string;
+      file: string;
+      thumb: string;
+      page: string | null;
+      author: string | null;
+      licence: string | null;
+      prioritized: boolean;
+      skipped: boolean;
+    }>(
+      `SELECT source, file, thumb, page, author, licence,
+              prioritized, skipped
+         FROM fl_photos_added
+        WHERE place_uuid = $1 AND removed_at IS NULL
+        ORDER BY id`,
+      [uuid]
+    )
+    .then(r => r.rows)
+    .catch(err => {
+      if (missingTable(err)) {
+        return [];
+      }
+      throw err;
+    });
+  return Promise.all([catalog, added]).then(([rows, extra]) => {
+    const out: ArchiveRow[] = rows.map(r => ({ ...r, added: false }));
+    const byKey = new Map(out.map(r => [`${r.source}\0${r.file}`, r]));
+    // Ahead of the catalog, so a file just added is on the first page.
+    let ord = -extra.length;
+    for (const r of extra) {
+      const source = ADDED_SOURCE[r.source] ?? r.source;
+      const key = `${source}\0${r.file}`;
+      const prev = byKey.get(key);
+      if (prev) {
+        // The catalog copy is the one the pipeline already has. The mark
+        // a person set before that copy existed still counts.
+        prev.prioritized = prev.prioritized || r.prioritized;
+        prev.skipped = prev.skipped || r.skipped;
+        if (prev.skipped) {
+          prev.prioritized = false;
+        }
+        continue;
+      }
+      const row: ArchiveRow = {
+        source,
+        file: r.file,
+        thumb: r.thumb,
+        page: r.page,
+        author: r.author,
+        licence: r.licence,
+        ord,
+        prioritized: r.prioritized,
+        skipped: r.skipped,
+        added: true,
+      };
+      ord += 1;
+      byKey.set(key, row);
+      out.push(row);
+    }
+    out.sort((a, b) => a.ord - b.ord);
+    return out;
+  });
 }
 
 export async function GET(request: NextRequest) {
@@ -389,6 +460,7 @@ export async function GET(request: NextRequest) {
       ord: Number(r.ord),
       prioritized: r.prioritized,
       skipped: r.skipped,
+      added: r.added,
     })),
     comments: commentOut,
     photos: [
@@ -396,6 +468,68 @@ export async function GET(request: NextRequest) {
       ...published.map(r => photo(r, 'published', new Date(r.server_ts))),
     ],
   });
+}
+
+const STORED_SOURCE: Record<string, string> = {
+  commons_hand: 'hand',
+  commons_geosearch: 'geosearch',
+};
+
+/**
+ * A mark lands on the catalog row and, when the file was added here, on
+ * that row too. Either one is enough: the catalog is what a later export
+ * already knows, and the added row is what survives until that export.
+ */
+async function markPhoto(
+  uuid: string,
+  source: string,
+  file: string,
+  mark: {
+    prioritized?: boolean;
+    skipped?: boolean;
+    clearSkipped?: boolean;
+    clearPrioritized?: boolean;
+  }
+): Promise<boolean> {
+  const catalog = await pool.query(
+    `UPDATE fl_photos
+        SET prioritized = COALESCE($4, prioritized),
+            skipped = COALESCE($5, skipped)
+      WHERE place_uuid = $1 AND source = $2 AND file = $3`,
+    [
+      uuid,
+      source,
+      file,
+      mark.prioritized ?? (mark.clearPrioritized ? false : null),
+      mark.skipped ?? (mark.clearSkipped ? false : null),
+    ]
+  );
+  const stored = STORED_SOURCE[source];
+  if (!stored) {
+    return (catalog.rowCount ?? 0) > 0;
+  }
+  const added = await pool
+    .query(
+      `UPDATE fl_photos_added
+          SET prioritized = COALESCE($4, prioritized),
+              skipped = COALESCE($5, skipped)
+        WHERE place_uuid = $1 AND source = $2 AND file = $3
+          AND removed_at IS NULL`,
+      [
+        uuid,
+        stored,
+        file,
+        mark.prioritized ?? (mark.clearPrioritized ? false : null),
+        mark.skipped ?? (mark.clearSkipped ? false : null),
+      ]
+    )
+    .catch(err => {
+      if (missingTable(err)) {
+        return { rowCount: 0 };
+      }
+      throw err;
+    });
+  return (catalog.rowCount ?? 0) > 0 || (added.rowCount ?? 0) > 0;
 }
 
 const bodySchema = z.discriminatedUnion('action', [
@@ -479,14 +613,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'unknown place' }, { status: 400 });
     }
     const { source, file, prioritized } = parsed.data;
-    const updated = await pool.query(
-      `UPDATE fl_photos
-          SET prioritized = $4,
-              skipped = CASE WHEN $4 THEN false ELSE skipped END
-        WHERE place_uuid = $1 AND source = $2 AND file = $3`,
-      [uuid, source, file, prioritized]
-    );
-    if (!updated.rowCount) {
+    const hit = await markPhoto(uuid, source, file, {
+      prioritized,
+      clearSkipped: prioritized,
+    });
+    if (!hit) {
       return NextResponse.json(
         { error: 'unknown photograph' },
         { status: 400 }
@@ -504,14 +635,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'unknown place' }, { status: 400 });
     }
     const { source, file, skipped } = parsed.data;
-    const updated = await pool.query(
-      `UPDATE fl_photos
-          SET skipped = $4,
-              prioritized = CASE WHEN $4 THEN false ELSE prioritized END
-        WHERE place_uuid = $1 AND source = $2 AND file = $3`,
-      [uuid, source, file, skipped]
-    );
-    if (!updated.rowCount) {
+    const hit = await markPhoto(uuid, source, file, {
+      skipped,
+      clearPrioritized: skipped,
+    });
+    if (!hit) {
       return NextResponse.json(
         { error: 'unknown photograph' },
         { status: 400 }
