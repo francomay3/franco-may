@@ -30,6 +30,9 @@ function sourceLabel(source: string, skipped: boolean): string {
   if (source === 'commons_hand') {
     return 'Added';
   }
+  if (source === 'paste') {
+    return 'Pasted';
+  }
   if (source === 'arkiv') {
     return 'Archive';
   }

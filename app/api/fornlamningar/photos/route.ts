@@ -19,6 +19,14 @@ import { placeCoord } from '@/lib/place-coords';
  * fl_photos, and a photograph written only there would not survive it.
  */
 
+const PHOTO_BUCKET = 'fornlamningar.firebasestorage.app';
+
+/** The rules URL for a photo. A download token is never part of it. */
+function pastedPhotoUrl(id: string): string {
+  const path = `photos/${id}.jpg`;
+  return `https://firebasestorage.googleapis.com/v0/b/${PHOTO_BUCKET}/o/${encodeURIComponent(path)}?alt=media`;
+}
+
 const UA = 'fornkoll/1.0 (https://franco-may.com)';
 const COMMONS = 'https://commons.wikimedia.org/w/api.php';
 /** Same radius and page size as crawl_wikimedia.fetch_nearby. */
@@ -34,6 +42,13 @@ const bodySchema = z.discriminatedUnion('action', [
   z.object({
     action: z.literal('nearby'),
     place: z.string().min(1),
+  }),
+  z.object({
+    action: z.literal('paste'),
+    place: z.string().min(1),
+    id: z.string().uuid(),
+    width: z.number().int().positive().max(8000).optional(),
+    height: z.number().int().positive().max(8000).optional(),
   }),
   z.object({
     action: z.literal('remove'),
@@ -258,7 +273,7 @@ async function held(uuid: string): Promise<Set<string>> {
 async function insertPhoto(
   uuid: string,
   uid: string,
-  source: 'hand' | 'geosearch',
+  source: 'hand' | 'geosearch' | 'paste',
   file: CommonsFile,
   distance: number | null,
   prioritized: boolean
@@ -343,7 +358,9 @@ export async function POST(request: NextRequest) {
         ? 'hand'
         : parsed.data.source === 'commons_geosearch'
           ? 'geosearch'
-          : null;
+          : parsed.data.source === 'paste'
+            ? 'paste'
+            : null;
     if (!source) {
       return NextResponse.json(
         { error: 'only a photograph added here can be removed' },
@@ -449,6 +466,40 @@ export async function POST(request: NextRequest) {
     // only when someone marks it.
     await insertPhoto(uuid, uid, 'hand', file, null, true);
     return NextResponse.json({ ok: true, file: file.file });
+  }
+
+  if (parsed.data.action === 'paste') {
+    const id = parsed.data.id;
+    const name = `${id}.jpg`;
+    const url = pastedPhotoUrl(id);
+    const known = await held(uuid);
+    if (known.has(name.toLowerCase())) {
+      return NextResponse.json(
+        { error: 'That photograph is already in the drawer' },
+        { status: 422 }
+      );
+    }
+    // The bytes are already in storage, approved, under this id. A pasted
+    // photo is the person saying this is the place, so it starts prioritized.
+    await insertPhoto(
+      uuid,
+      uid,
+      'paste',
+      {
+        file: name,
+        thumb: url,
+        page: null,
+        author: null,
+        licence: null,
+        licence_url: null,
+        image_url: url,
+        width: parsed.data.width ?? null,
+        height: parsed.data.height ?? null,
+      },
+      null,
+      true
+    );
+    return NextResponse.json({ ok: true, file: name });
   }
 
   const coord = await coordOf(uuid);

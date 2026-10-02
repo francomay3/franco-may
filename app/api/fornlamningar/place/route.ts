@@ -473,6 +473,7 @@ export async function GET(request: NextRequest) {
 const STORED_SOURCE: Record<string, string> = {
   commons_hand: 'hand',
   commons_geosearch: 'geosearch',
+  paste: 'paste',
 };
 
 /**
