@@ -1,5 +1,5 @@
-МНx
-archaeological_sites(─ uuidlabelclassfamilyscorestars"
+ЕСx
+archaeological_sites(─ uuidlabelclassfamilyscorestarsphoto"
 Bro"
 Borg"
 Hц╤g"
@@ -11,30 +11,29 @@
 Sц╤ 3"
 Sц╤ 7"
 Sц╤ 8"
+U 102"
+U 107"
 U 114"
 U 118"
-U 131"
+U 143"
 U 147"
 U 150"
-U 163"
+U 154"
+U 160"
 U 171"
-U 257"
 U 267"
+U 276"
+U 279"
 U 604"
-U 611"
+U 608"
 U 612"
 U 616"
-U 620"
 U 621"
-U 622"
-U 624"
 U 625"
 U 632"
 forts"
 Borgen"
-Bystan"
 Sц╤ 10"
-Sц╤ 15"
 Sц╤ 16"
 Sц╤ 20"
 Sц╤ 22"
@@ -43,29 +42,32 @@
 Sц╤ 26"
 Sц╤ 31"
 Sц╤ 32"
+Sц╤ 33"
 Sц╤ 37"
 Sц╤ 39"
 Sц╤ 40"
 graves"	
+Bro (2)"	
 Hц╓gnad"	
 Kloster"	
 Skansen"	
 Sц╤ 125"	
 Sц╤ 126"	
-Sц╤ 129"	
 Sц╤ 130"	
 Sц╤ 132"	
 Sц╤ 133"	
-Sц╤ 134"	
+Sц╤ 137"	
 Sц╤ 141"	
 Sц╤ 142"	
 Sц╤ 143"	
 Sц╤ 144"	
 Sц╤ 151"	
 Sц╤ 154"	
+Sц╤ 155"	
 Sц╤ 158"	
 Sц╤ 159"	
 Sц╤ 165"	
+Sц╤ 170"	
 Sц╤ 171"	
 Sц╤ 172"	
 Sц╤ 174"	
@@ -83,28 +85,24 @@
 Sц╤ 218"	
 Sц╤ 221"	
 Sц╤ 222"	
-Sц╤ 224"	
 Sц╤ 227"	
 Sц╤ 229"	
-Sц╤ 231"	
+Sц╤ 233"	
 Sц╤ 239"	
+Sц╤ 240"	
 Sц╤ 241"	
-Sц╤ 242"	
 Sц╤ 245"	
 Sц╤ 246"	
 Sц╤ 248"	
 Sц╤ 250"	
 Sц╤ 251"	
 Sц╤ 254"	
-Sц╤ 259"	
 Sц╤ 260"	
-Sц╤ 261"	
-Sц╤ 264"	
+Sц╤ 262"	
 Sц╤ 265"	
 Sц╤ 268"	
 Sц╤ 269"	
 Sц╤ 270"	
-Sц╤ 273"	
 Sц╤ 275"	
 Sц╤ 279"	
 Sц╤ 321"	
@@ -115,13 +113,16 @@
 Sц╤ 345"	
 Sц╤ 346"	
 Sц╤ 347"	
-Sц╤ 348"	
-Sц╤ 349"	
 Sц╤ 351"	
 Sц╤ 370"	
+farming"	
 rockart"
 
 Fornborg"
+
+Fruц╔ker"
+
+Gullbron"
 
 Hц╤g (2)"
 
@@ -130,11 +131,13 @@
 industry"
 
 maritime"
+	Broby bro"
 	Fornudden"
 	Fц╓rdvц╓g"
 	Gravfц╓lt"
 	Gц╔seborg"
 	Hemlanden"
+	Jagbacken"
 	Kyrkkulla"
 	Offerkast"
 	Rц╤saring"
@@ -146,9 +149,15 @@
 
 Alsnц╤ hus"
 
+Borgs hage"
+
 Fiskelц╓ge"
 
+Galgbacken"
+
 Galgstenen"
+
+Garnisonen"
 
 Grц╤neborg"
 
@@ -170,13 +179,17 @@ U THS10;58"
 
 Vц╓gmц╓rke"
 
-settlement"
+settlement"
+
+ц└ttehagen"
+Assurs sten"
 Biskopstuna"
 Brott/tц╓kt"
+Dike/rц╓nna"
 Gravhц╓gnad"
 Gruvomrц╔de"
-Hamnomrц╔de"
 Hyttomrц╔de"
+Hц╓gnad (2)"
 Karlebyborg"
 Kungshц╤gen"
 Kц╓mstaborg"
@@ -194,13 +207,12 @@ settlement"
 Hilleshц╤gen"
 Hingstbacken"
 Jц╓ttekyrkan"
+Kalles klimp"
 Kammarstenen"
 Kyrka/kapell"
 Lundby skans"
 Minnesmц╓rke"
 U ATA5735/59"
-U Fv1959;188"
-U Fv1972;172"
 ц└ngbystenen"
 ц√nskestenen"
 "Skansberget""
@@ -210,6 +222,7 @@ settlement"
 Gravfц╓lt (3)"
 Hц╓llristning"
 Kappla kц╓lla"
+Mickels backe"
 Stensц╓ttning"
 Stora Skansen"
 Sц╤ SB1965;19"
@@ -219,23 +232,23 @@ settlement"
 Hц╓gnadssystem"
 Hц╤gbergsbacke"
 Ingjaldshц╤gen"
-Kummelbystenen"
 Kung Eriks Hus"
 Kymlingestenen"
 Smideslц╓mning"
-Sц╤ ATA4207/71"
 Sц╤ Fv1948;298"
 Sц╤ Fv1959;262"
 Sц╤ Fv1971;207"
+Sц╤ Fv1971;208"
 ц┘sa gravfц╓lt"
 Fц╓stning/skans"
 Gravhц╓gnad (3)"
 Hamnanlц╓ggning"
-Helgedomsbacken"
 Jarlabankes bro"
 Karl XI:s skans"
+Kolsunds brygga"
 Runristning (2)"
 Runristning (3)"
+Stridsvц╓rn (2)"
 Stridsvц╓rn (3)"
 Vallanlц╓ggning"
 ц└rja ц╤dekyrka"
@@ -254,29 +267,28 @@ settlement"
 Jordbro gravfц╓lt"
 Kung Haralds hц╤g"
 Mц╤rtsjц╤ ringmur"
-Skesta gamla tomt"
 Slagstaristningen"
 Stensц╓ttning (2)"
 Stensц╓ttning (3)"
 Stensц╓ttning (4)"
 Vц╔rby gamla tomt"
 Boplatsomrц╔de (6)"
-Ersdala gamla tomt"
 Hammarby gravfц╓lt"
 Hundhamra fornborg"
 Hц╓gnadssystem (2)"
 Prinsens gravbacke"
-Stadsvall/stadsmur"
-Visц╓ttra fornborg"
+Snuggastenen U 100"
 Sankt Eskils kц╓lla"
 Skansberget i Vidja"
 Smц╔industriomrц╔de"
+Borgen pц╔ Ansholmen"
 Bornц╤stenen/Sц╤ 303"
 Brц╔falls gamla tomt"
 Brц╤tastenen/Sц╤ 292"
 Danvikens kyrkogц╔rd"
 Kц╓lla med tradition"
 Lц╓genhetsbebyggelse"
+Sankt Holingers hц╤g"
 Skц╓rvsta gamla tomt"
 Starrsц╓tters gruvor"
 Stensц╓ttra fornborg"
@@ -297,25 +309,27 @@ settlement"
 Upplands runinskrifter 21"
 Upplands runinskrifter 30"
 Upplands runinskrifter 32"
-Upplands runinskrifter 46"
-Norrgastenen/Sц╤ SB1965;20"
+Upplands runinskrifter 47"
+Upplands runinskrifter 48"
+Upplands runinskrifter 90"
 Rotebro skans / stridsborg"
-Upplands runinskrifter 203"
 Upplands runinskrifter 208"
 Upplands runinskrifter 210"
 Upplands runinskrifter 211"
 Grav markerad av sten/block"
 Militц╓r anlц╓ggning ц╤vrig"
-Nolingestenen/Sц╤ Fv1954;20" 
+Nolingestenen/Sц╤ Fv1954;20"
+Grav- och boplatsomrц╔de (2)" 
 Fornlц╓mningsliknande bildning"!
 Grav markerad av sten/block (3)"!
-Sц╤dermanlands runinskrifter 27""
+bergaholm gravfц╓lt med runsten""
  Ristning, medeltid/historisk tid""
  Sц╤dermanlands runinskrifter 288""
  Sц╤dermanlands runinskrifter 289""
  Sц╤dermanlands runinskrifter 296""
  Sц╤dermanlands runinskrifter 297""
  Sц╤dermanlands runinskrifter 305""
+ Sц╤dermanlands runinskrifter 307""
  Sц╤dermanlands runinskrifter 308""
  Sц╤dermanlands runinskrifter 344""
  Sц╤dermanlands runinskrifter 381"#
@@ -323,9 +337,7 @@ settlement"
 #Omrц╔de med militц╓ra anlц╓ggningar"&
 $00088bec-9c4d-41cf-8332-e98757948824"&
 $00238fa5-76e9-4099-a99e-cdb1ca639d2a"&
-$0038e412-673c-4cf8-89e5-fb8bfc7e9105"&
 $01be1424-9f80-4889-ae1a-98a8b459c031"&
-$01cffc32-13e2-45d9-a8e2-f0394285a87b"&
 $01e709fe-d5b7-4764-9c30-a0e5a41402be"&
 $0228e0fa-aa38-4c66-b7c5-e345587fef5a"&
 $022c3d45-5426-4f26-a198-51d64dc734f2"&
@@ -338,21 +350,24 @@ $040a8ccf-0d50-4024-908b-efcc9fdcb742"&
 $042c81ad-1d5b-4e11-810b-480cce54343d"&
 $04aadb78-5045-4b8b-832a-df2241d5797e"&
 $04c3e573-15ab-4235-83c4-67c09158bc24"&
-$04cb5e58-085d-4beb-be51-60c3d3d10765"&
 $04f6baeb-f0dd-440d-93a8-fd75f5fecf2b"&
 $05ae288b-ec6f-460b-b737-693694974e2c"&
 $062540a6-3280-4170-acbf-7664d074a536"&
-$062a6d98-5107-4238-a8a4-83ccdbae5435"&
+$068a04af-70ee-4ad3-9014-a26a32d96fe0"&
+$08604fb5-240a-433c-a105-a246db7f3629"&
 $088571d8-075e-4a4b-a474-43c58d4ca0a6"&
+$08ac2582-596c-4603-a068-f8deb8c5f5d3"&
 $08b46e36-e518-435e-86cf-cfeec30696ed"&
+$08d97015-1d0f-4923-bb68-44421270fd2a"&
 $091e33c4-a92b-44f5-b827-fc44a75b6ab3"&
 $09730b3e-98b1-4e7e-bc69-1b10910ed0a4"&
+$0982c81f-1476-4ef6-964b-98daf3b314e1"&
 $09f4ca6e-554e-4638-8645-3f151d2d7068"&
 $0a189ebf-be29-4dcc-803f-e09c292a7c4f"&
+$0a2c6af4-77f7-461f-9df5-d456f7cdd800"&
 $0a62dd67-193d-425a-8a68-38c86d0ca570"&
-$0ab36bdd-2793-4ad3-8ccc-dd7adc1e020e"&
-$0b19b9f4-ea66-46b6-b667-1e395b5e7bfa"&
 $0b90907b-cbf6-47f7-b58f-0882e3f613ff"&
+$0b9f7a28-79c1-4f42-8658-b8fca6ad04a1"&
 $0c146cb6-9f24-49c8-8588-3cb11274a8fc"&
 $0c19a1b2-6d17-4414-b5a9-ab5c7049ddbe"&
 $0c68e6ee-e259-4b3c-a928-b317c756183f"&
@@ -361,117 +376,112 @@ $0d3652e8-82c9-4e85-876b-fe21865924fb"&
 $0dd0d07f-9ecb-4b8f-b93d-11e506219b2f"&
 $0e7dd32c-1c6e-45b2-862f-1fbfad352b4c"&
 $0e7f2ecd-e535-4212-8bc3-579464bd7e33"&
+$0e9f8c3b-f26a-4ae5-8f1f-fe0be82fdc22"&
 $0efbdecb-0e5e-4ed7-b787-cf66f96843e7"&
-$0efebeae-6932-442e-b312-39158248bcaa"&
 $0f3880af-ba4a-48ce-9ed6-7f00d5d70577"&
-$0fa9d0f7-b648-4e56-9f80-83d4f9ec39c7"&
 $0fbf4f73-ff68-482d-8a1f-191f52620f3c"&
 $10414568-08bc-4733-acfa-9c4165f28920"&
+$10935f55-2a2b-41b1-a41a-66fb77757738"&
 $1227a52b-48ec-492b-956e-07a389f29df4"&
-$131836b7-703d-47c2-9f8a-0e44adf4ed50"&
 $14527d64-991e-4fc1-b8ff-6c499aee5e72"&
 $14cfbc8d-40ad-4013-8694-9c891b01be2c"&
+$150778f4-1170-4ee8-ad48-9403f4dae01a"&
 $15278887-7725-491a-ae2e-38a99d5b2584"&
 $15552db7-8d00-48ca-ac0f-0437314464ea"&
-$1569d349-4a4a-4bc5-a07c-2d0202520c3b"&
 $156d53b6-b702-4486-ae2e-52f2dc245bf7"&
 $157a676c-06be-4679-8053-7d9aa662aadb"&
+$15bd753c-5c9c-4d3b-9058-4c1d7c86dc19"&
+$15f5d4ce-229b-49d0-9f0b-49e1b224570c"&
 $160adfd3-1367-4701-85fc-da91ec9e6f26"&
 $160c807f-da4e-4131-9c40-07534b6ec777"&
 $165e28cb-1ee2-45f3-83cc-294d9361f19f"&
 $166456ba-dc99-406b-976f-29edd2d251e6"&
 $167654a8-02a5-4a15-8ba2-d1a7dc790241"&
+$16eeae57-9119-40e2-92de-e25d756380c4"&
 $16fc4f90-f539-49f0-aec3-aa497c792b33"&
+$17c3512c-037e-46f4-a66a-03577c7b89f7"&
 $18f6851d-3edb-45d2-8f15-7c9a8d276892"&
 $18f7bd7c-17e0-4b31-b7b1-7847445d11c5"&
+$19736f0a-913c-4447-bea1-4a271f64166b"&
+$19cb6df2-c5e7-448d-bdf6-301cf90f8d8c"&
 $19cc89a8-de46-4843-9ec5-b528b1705110"&
+$1a03be04-a1a8-46dc-8a90-63727e13e887"&
 $1a41b1e4-e3db-432b-9524-3c080daca2c1"&
 $1aae9720-91b4-4a8e-8b8e-89a86380ddbe"&
 $1b4317f6-5262-4bde-964c-72798c0293b8"&
-$1ba8d946-0af0-46e4-8cbd-310218c1a0e9"&
 $1c741b90-e040-4cdf-ba99-301b2ba04dfe"&
 $1ce5371c-490e-4a90-8bcd-67b901d4b27f"&
 $1db1d849-fed0-412a-a67a-bf8289d7e04b"&
 $1dfeb386-359a-435d-a079-95495fe3a6bd"&
 $1e20e468-418c-460b-8ed1-3d036cd3b217"&
 $1e8bc788-6fab-4c3c-9686-14f416cea295"&
-$1fc3a555-7d80-473b-a5be-54df56ea0068"&
-$2035b574-d109-46c1-9996-948a828bca73"&
+$1ea98f51-c018-4dc1-8fd0-69770e45bdc7"&
+$1f5028e6-a3bb-49e9-be1b-8e4e2e578f58"&
 $207d206c-3f8c-423d-b891-1c78ef9d5307"&
-$20ce6baa-791b-415b-901a-9c37a48f32ae"&
 $20d18dfd-be23-4097-ac78-2c9ea4b7d04f"&
+$211cd614-8a89-481a-b1fe-c92e88919e75"&
 $21302fdc-1002-4f10-b5c4-927eac8c69cb"&
 $218d08dd-0fb8-44ad-8c94-366af60acd5b"&
 $2216fbfb-67f5-4046-a757-43d2792c9f41"&
 $22cf01d4-848a-4e87-8e8f-82b87b1452c4"&
 $234b29bd-2109-4d7f-8baa-8346a8a43226"&
+$238a77af-61d4-4ce0-aae2-840225710fde"&
 $24521d17-fd14-4929-b612-cbc0409391d6"&
 $24e778c6-1480-4603-8235-0009df461af6"&
-$258c5d69-2cf0-4958-832f-008cfdb6dd81"&
 $25bc3e0b-d0f1-4648-939a-735f5ea283d2"&
-$26916cb8-58f9-4c68-8201-dfdfe6a1ae7e"&
 $26c6103a-68f3-4f6a-abe4-4ce543ba355a"&
 $26d4db33-219f-4599-a830-43cc6eb77b0a"&
 $29e945e7-e593-4c94-8958-d932900a838f"&
+$2a4c3183-9262-418d-a337-f753b30b50e9"&
 $2a71f38f-217a-4864-9609-0a60092946e9"&
+$2a96ed19-6a26-4a1e-be3a-447db87ec702"&
 $2ab14aeb-8ef9-4597-b19a-435e655d676a"&
 $2ac7d04e-48b0-4630-887e-247581f4f679"&
-$2b0bdd36-cf80-4e92-9827-852bfd256fcb"&
 $2b1259a2-7f59-4f60-860f-74093b80562d"&
 $2c05c401-393f-4148-98e4-7f9eb7d3e52c"&
 $2cb2d9dc-0319-43b6-adc1-59e27666d29a"&
 $2d1da13b-0659-4916-bbc5-076360231da8"&
-$2d2f5e66-df5b-47bb-96fd-a6bdef93b1c1"&
-$2d538c93-0001-4c08-97be-b651229dd311"&
+$2dbcc3ef-2b4a-48af-8b46-c2182170b0d0"&
 $2ed0abd8-a470-40bf-9035-50fd2b79dd10"&
-$2f16e770-4e27-4b10-bdaa-ff111c64ec64"&
 $2f412d48-74cc-4d49-8b55-1b65f303841b"&
 $2f695459-7810-4602-9949-e866b86c1c1a"&
 $2fb70558-047c-4f38-b62d-54282013bf49"&
-$31d33132-313a-4025-bb44-0fe4ba0ef0b0"&
+$2fbd8b03-ed85-4b66-b1bf-5edfba54d118"&
+$30e03488-5a71-4d9e-977e-b126b35090db"&
 $324c9606-74c8-43ab-bd8b-4bf853bde412"&
 $3295f21f-3239-453c-9538-cf4faa1264de"&
 $32ed9840-c612-48df-b994-d128470d4c5c"&
 $33b91158-11ef-491d-8147-cfdf26012a1f"&
-$33c20795-d314-4a25-a7cf-0e4c96a845ac"&
-$34c2098c-8a4a-4d93-873c-f303a883c284"&
-$34fb20b7-d3f8-447d-9323-f21795b45e4e"&
+$34689aea-c203-472e-a43f-4bb4b5276c14"&
 $35bfae6a-118e-4bac-b0b3-9755fb81390c"&
 $36b14302-ad0c-4fce-ada1-2113dfd5fd46"&
-$370ea09c-8afb-4965-940f-6d6f0738dafb"&
+$37e1a66d-dd9f-4442-bb16-081e4049a4f7"&
 $3883ea68-4706-4022-aef3-3ce2b728442a"&
-$38ea709c-3cf1-450b-af58-744fcc3da140"&
 $392baa2a-13a7-42fe-9cde-f46c65d0fa0c"&
 $3c72db39-bd0c-4449-ba40-329ab55456e2"&
 $3caffe11-1d2c-4ed0-8849-cd18c3e39c4d"&
 $3cda677b-2de1-49d6-af1b-4decf7043927"&
-$3d4d948e-85e1-4990-b8a1-fa0ce247ac41"&
 $3e1697f9-f6b4-48fd-baf8-e5c3720d5517"&
 $3e49be2d-ca45-4a50-ad33-ea7796f3b280"&
 $3e4a7644-efa3-4a2b-8403-fe52272918b5"&
 $3e70c56c-4dc9-46c4-981d-57b7d166b900"&
-$3fbe7d1b-9943-44fe-a6a3-9cb9cb51683b"&
+$3e9d82b1-1a6e-4a86-abad-9f09f30812cb"&
 $4025aea6-5bb1-4d94-a4a0-74724a266627"&
-$40bb2ffb-815a-4547-94a7-a6c74bf139d2"&
 $414d8a5a-b40d-4899-b61e-b9ae14333539"&
-$41bfec3a-ec7d-4b6f-a242-0f6f395767a9"&
 $41c2ddf1-264c-4481-ac7d-7bb4d2b13378"&
-$42d8d828-4edf-42c2-9795-d62a163bc713"&
 $42e5ab32-8bc1-4f49-b78f-82ebbd764ee8"&
+$43d65533-2609-4339-a0f8-3c5a690d73ab"&
 $43dd963d-cb34-43ba-95c0-b046f0bf593b"&
 $43e9f3ce-29c1-4a13-943d-bbb54348912d"&
 $448ebb54-9872-4cd7-8d85-6ed6559c5f86"&
 $449828c4-8907-4c63-955c-a7d854045dff"&
 $45030e0f-22bd-4cab-818a-797647562a8a"&
-$473b16d6-ef1f-40a3-9695-c796811e9cef"&
 $4820f692-8c0b-4945-afb7-ce726e8b3084"&
-$48ae250c-7d63-48c4-9fb7-fbc6cb68fa85"&
 $48d049db-5052-4849-ae40-bfae0798092f"&
 $48e89da6-c81d-4d7f-afdf-0a3e9ff776ae"&
 $4915c458-a1dd-4353-8d2b-7684b8a08bcc"&
 $4966df7e-dd69-4e68-8868-668b87b49efb"&
 $497c05a4-2586-4840-a7c6-549fc7929261"&
-$49918144-d75e-4f26-91b2-107edfb6e900"&
 $49d4b56d-0601-494a-a7c0-5e11f58ad86f"&
 $49f060c6-4222-4f2f-a058-6ce46fb8d66a"&
 $49ffcb50-ed5d-47f1-832d-8dc36037a1de"&
@@ -479,21 +489,20 @@ $4a0e57a6-ecd9-40dd-8dd7-5062c106ede4"&
 $4a369de7-8a20-4681-b2a7-03679e9b2433"&
 $4a7add9a-a71b-4dc0-bd03-9f9d109cba3b"&
 $4a8bda8f-99b4-4905-8bd2-38f956c05602"&
-$4afecb34-0528-464d-be38-c0f4746baca5"&
 $4b1d1a52-2e97-4adc-b7f8-5c9cbec7ee0c"&
-$4c1cd989-c2ac-4074-aa3e-6eb5d1c3a8cb"&
+$4c65452e-0675-4e56-8be9-fb4740296426"&
 $4ca41d23-4198-4cbc-8eeb-41c769db08db"&
 $4ce61b68-3976-4d18-9905-3030c434294b"&
 $4cf2c0bb-c178-43a8-9eac-e7c64c924473"&
 $4d5ab268-c026-46a3-aa6d-d19c5a3fbc11"&
 $4d7b4666-3769-4fa8-9842-abfcee789eac"&
-$4e45842b-bd6e-4bc8-9a3e-cffd758d31c9"&
 $4f54d0a4-f570-4838-bcdd-bd01327336a3"&
+$4f61177d-8334-4a13-a8fb-4750fdceac5c"&
 $4fa261ef-ef86-4c18-adb7-f8a55840b27a"&
 $50734aab-4479-4d48-83f5-aa33dc23e72b"&
+$518d1740-0e4f-46f0-8b6a-893ec0303dcd"&
 $51a1ff69-aa93-465b-9c5c-36b1aca3244b"&
-$51b6cc5e-640d-49fc-ac1b-f44940726c0c"&
-$529421e3-5d6b-449c-84e7-8057ab03cd47"&
+$51da558c-2cc7-4829-b504-f39b036a085d"&
 $5299176b-d3c3-4057-acf0-4516ef3aa392"&
 $52ac929a-1921-4d35-914a-4dd214a88d6c"&
 $532a7433-269d-4a37-8d2c-d7a1563f374f"&
@@ -501,70 +510,73 @@ $53510346-8526-4ce3-9132-e94559c42544"&
 $5365decd-e3f7-4359-a50b-dc5b15006c65"&
 $536f0884-1bd3-4b11-98fe-18a8a70d2eb8"&
 $53afe9d7-e586-4019-87d3-5e11262c6707"&
-$543c4e65-b4ac-43df-88fb-472bf9a1d154"&
+$53cf5a0d-6c5b-4a90-978b-2fabe612fff2"&
+$54a1ae4c-3fd5-4768-9dd3-e6400822489c"&
 $5554f378-7d47-41c6-aa99-22c1c31cfbc2"&
-$555ffd21-53eb-4536-8edd-293ae0318f43"&
 $55645693-145b-4ff2-bc6c-f863d5f1fab3"&
 $5589d54d-a4be-4ec3-b9b6-1711e661c263"&
-$562392ca-9110-4873-8773-70e54c19824b"&
+$5592e51f-85a1-4ca6-bb2d-0e2fbb28fba2"&
 $56423801-b686-49f0-8527-358a25c186a2"&
+$572f6f52-5c63-49a9-8ab2-d190d4dbbe59"&
 $5736781d-e779-4bb7-ba9e-75b7a630d98e"&
 $57527f3c-2840-4c96-ae19-bbbcd5d4cf71"&
 $585380f8-4d97-4789-a03f-aed3b5b426ea"&
 $59ae097d-f607-4fa3-ba30-5ab945512dc9"&
 $59c57e2c-44cd-4e39-a103-d807921971dc"&
-$5c252665-82d2-41c0-a009-af3694e7521f"&
+$5a5d6890-5b16-41d9-9e89-b4c32e64d0a0"&
+$5c126863-d891-44ea-b008-ef3686698a1f"&
 $5c385d0a-e08f-46b4-a33b-f738d5ee68be"&
 $5cc9c832-486b-4b7c-89fd-a0ce0d8328d2"&
+$5d58f952-dabd-4a6a-8094-f3a5596b3c12"&
 $5de346cd-2732-4bf5-a3c7-f25365ef52d4"&
+$5deae4d7-3ef1-45b4-ad02-1e714582e31a"&
 $5fc14909-d014-467f-bbdd-28938e1eb400"&
 $605d572a-6310-4171-a0b6-52830d647210"&
 $6076550d-dd7c-451d-a474-fdeb0e7ac98d"&
 $612f1a08-2de9-4852-9139-71175900c2c5"&
 $616e6899-7565-417a-a329-37b1955d741b"&
 $61788c5d-7cc2-450d-a163-dab36cad0bcf"&
-$618e7319-780d-4f44-887e-43b01b01d584"&
+$61c1ffe8-2173-4b25-8093-da1474fa85ee"&
 $61ddf05e-baa6-4806-b295-9cbe2fafe619"&
 $61eac7ed-ef3d-47d9-8842-fa7d3a626dff"&
 $621a7640-8708-4e2c-8526-5ce1333998e2"&
-$62729034-ebe4-4c0b-87b8-ab1ea60d6a48"&
 $62f1f624-b0a0-40a0-bb91-cf37cba5724d"&
+$63b9197e-29cc-444f-84bb-b7329d460f6e"&
 $64d40e23-0768-46a1-9572-1ba4f549e5d5"&
-$64d7971a-c9db-4984-a8fb-889f0d3fef77"&
 $64d8819c-05dc-4099-900b-d86e813ee7fe"&
 $651613ce-458a-4148-b33b-4363b4feac0d"&
-$65272e84-fff9-4fd4-97d9-4167a898c028"&
 $666caa3f-8f40-43d0-a42c-d3f2c4a77bf3"&
 $669fd3a5-5584-455d-a2a3-03d79591623e"&
 $66f45fc2-98f1-4105-bb47-8deef72c70f3"&
 $67bc6a7e-9510-45ee-aae9-331439b97ebd"&
+$68fd2afd-d1f4-43dd-b98d-2b5028e31cfb"&
+$68ff704e-6a0b-4db6-836b-287cfa5b75d3"&
+$6b304f2d-325b-4bff-8b23-5a7de0d87224"&
 $6b6e2a7e-63c7-4d78-abc2-cd57adcadc92"&
 $6b9cdfad-05b6-4015-b4d4-e44cb47a0232"&
 $6bae775a-efd7-4464-a763-970f8a77b7e3"&
+$6bdde9e4-08e0-400e-9265-47fa2f338307"&
 $6cd097f9-13f3-44da-a08d-4af6d6d97b06"&
 $6cd8a710-736a-40b2-8dca-d3b809da334b"&
 $6d037931-189e-4591-863d-eed7726b5760"&
 $6d13b00f-2ebb-438f-985d-9e7264352f9d"&
-$6dc7e9ba-2c23-4c6c-a0c0-2c774ec73d95"&
 $6e19fe35-89bb-4aa8-b537-e67f726287ad"&
 $6e7df75a-8ad1-47ce-bcdb-c4720a3c3bed"&
-$6e8c7348-b305-4367-ac80-30da9a4d2636"&
 $6f6be397-1867-4e99-a1de-1996a1442e35"&
 $6fa744ed-d3ec-4736-b3a1-aaf2e90026ac"&
-$706605e8-c62e-48be-8d41-2fef53b19803"&
-$708c08d6-2621-4ace-bdd3-e896b26b125c"&
 $7112ec5f-2ee0-4645-a422-e77cfe357f35"&
 $71680929-0f75-4968-9d0e-dbff900a4753"&
-$717ced39-bc9d-45ec-a87f-7053203caa1b"&
 $71b845d6-4f3c-4b8d-ba82-d9836b93cbf6"&
 $71c9f946-1117-461a-a871-928356baa678"&
+$732f6f10-843c-4345-ba37-53f43e8c68b0"&
 $738c2553-b43e-4f48-8887-ddb32bb322e7"&
 $739e2663-eb0e-4501-8f00-62afc01efe79"&
 $73cd31f5-5181-40c0-9636-0e428fd7ce30"&
-$73f1633f-4422-442c-9c9a-ba91aa20cef5"&
 $74b57af4-15ba-408c-b45a-56f889c489d0"&
 $74d9ca9a-b444-4125-8a8b-6bee655eeaae"&
+$74e0765c-682f-44d5-a7c2-b97a3c5aa12c"&
 $74fd65e8-3b75-4cfd-b4d7-f999de4cff7a"&
+$7518f50a-22ea-4308-ab18-9b00a8528a69"&
 $756c075e-7843-4663-bb78-8adeffde959f"&
 $76f1621a-e4e3-497e-8677-d9ddfb3a1726"&
 $7836730b-c2da-408b-bd34-827db83b3db5"&
@@ -577,88 +589,83 @@ $7b0fb6cf-94c3-4eae-9b62-03927366400a"&
 $7b2aabb3-0efe-40b8-9e44-48d7b0f108d4"&
 $7b304b64-e55a-4d0a-8d87-b783a5ad1f79"&
 $7ba79f96-cf6a-42d2-9f50-f9f31f6f7405"&
-$7d5aaf66-f600-4bdd-a5dd-a90429aee30a"&
+$7d47bc79-663d-49e1-9a84-895d061fe4fe"&
+$7dddd757-84cc-4cd5-bdaa-d9d8bf76a231"&
 $7e2589f7-e5e3-47d5-a15b-9a990c2adc2e"&
-$7e2e6c55-26f1-4564-986f-659d58efd340"&
 $7e36e565-37c6-46fe-97b1-c2dd0e4940d9"&
-$7e9e5fea-e062-43ba-96c3-442e111dc936"&
+$7eaab0f7-01ed-4cbf-b897-f779c38e01f1"&
+$7ef2e3af-3163-4c91-980f-fd0e871c7fa6"&
+$7f006376-f8c3-4515-88ea-0e1629aba248"&
 $7fbd9075-6775-44ec-b8a9-442f19c796e6"&
 $804c6e5f-8281-4951-8e6a-b218d922adfc"&
 $805fc56d-0498-4da7-b177-07d173515bc3"&
 $812d8874-d44c-4fc2-9ace-6d3f69f61024"&
+$81952a7d-dcef-454f-838e-7413bd1e439d"&
+$81ae610e-41ee-4902-905c-f3f5c153e6f0"&
 $822d8015-1aa2-4949-9e7a-a21f263a1c76"&
 $82c91b0e-de0c-48d1-88dc-67c985521125"&
 $83b971ac-86e6-41ec-8b95-9fe84f171d8f"&
 $83c63e8f-0003-452e-849f-f256a78ed352"&
 $83ea20bb-4349-45ca-aa7a-91cb23820930"&
-$847b52dc-4877-43ae-9d00-c645af536838"&
 $84818a27-ca59-4a4c-855d-79f6098a55bf"&
-$84a06af3-096d-45fa-b591-ab512889ec7c"&
 $84c4d611-4fa7-4b38-a14a-a741d7c6a6f4"&
-$85de964c-38cd-491e-9db4-1cbf83b8b5ae"&
 $8620b1dc-bdd5-4a7e-8a22-e73b971c59e9"&
 $8656b72d-58af-4b2f-8791-348b901a0eb7"&
+$86e0abcb-210a-4b21-a1df-b2d7b96865b3"&
 $86f2a2ca-4f78-43d6-802e-69c5c2457bb4"&
 $86f425cf-30c9-4099-a6ae-95e38ca5b1b8"&
 $870da5a9-4d86-45af-8048-99a76c26c79f"&
 $8720ad2a-1cad-4980-b03e-31f8292fd47e"&
+$87367fd2-a8d1-4950-8fd6-316a0445f6ad"&
 $87982d6b-ea15-4707-94f2-44df93fa850f"&
-$8799132d-ad06-4e09-ad5f-6ecf6222db51"&
 $88ac8737-cfee-4ddc-829b-8cab1446e3fb"&
 $88ecc7c9-543d-4790-9d8e-818f89e922bb"&
 $89156a27-22dd-4553-a24a-737eea742aa9"&
 $8919b385-7269-43fc-9eb7-46d73738cfcb"&
+$89bc8f8d-76d5-48cd-8e57-781a55d9dcc8"&
 $8a0b3484-f6bf-4701-847a-b006975b3e64"&
 $8a47b8c0-e07f-4bc7-aab8-26882b2cb004"&
-$8ae36574-5fc2-4127-bae5-a60638910598"&
 $8b9185cc-6d0f-44de-bc65-a8f6aa2314c3"&
 $8c2e7e20-a2cd-44d0-87a6-cb7b194fd522"&
 $8c9ef5c4-a935-435d-848a-b9e387c79c94"&
 $8cf4e466-b439-49c5-9d57-8f5e71b8c81a"&
 $8da5787b-1e76-4382-a534-b73c1b2a4bb3"&
+$8fcbd9ca-de85-4c6b-84c2-b678cc913dd2"&
 $90d5e435-c8a2-4dcb-b083-9a85b05e7fbf"&
 $90ec6f8e-2290-4a05-a019-a7c80ad1d8ca"&
 $91401261-19e4-4aa8-9b1b-ce02141dbcfe"&
 $91dd92f1-3f05-4098-99b7-00feae6d8b53"&
-$91ebf0f3-7dbd-41f6-9e41-d8323e583e42"&
 $928c4bbd-bdef-43e1-b2c1-059196d308f8"&
 $92932390-0360-420d-9570-294be902201b"&
 $92b23f1f-8e55-4ec2-8154-399bd326df84"&
 $92f02390-3e22-4a92-b30a-bbb3078349b5"&
 $9338ee07-61d3-4322-b2b9-8711d08d1b38"&
+$9407d7e0-92a6-40f5-a86c-db1d7ba9512d"&
 $95673c72-65b5-4a4a-8157-3a4d99a64604"&
-$9606e4cf-ec61-41a7-9466-84b111f2258a"&
-$96272dc1-f328-4f01-8b69-5a74ddbc57a2"&
-$9882ffac-2c9b-4319-99a5-873fc4e42327"&
-$99383df6-de5c-4605-ad9f-2918c1ad4187"&
-$9968cc4e-d724-4740-ad4d-e242fe8086aa"&
-$9968ea8f-fdcb-4fae-b55a-85775ddf804e"&
+$96c7f1cf-e42d-4f89-91b9-66c15e8332b2"&
 $99ad0d89-7fec-4e1a-abbf-64f7c5326ffc"&
+$9a171037-aa22-4c2f-8d48-434f840232f8"&
 $9a2b0eb6-94d4-4214-a107-adaaff7816c3"&
-$9a456c21-2032-4cf6-9071-abf402c10ca2"&
-$9ac53172-52e5-4721-94de-e0b12ee38973"&
-$9b159dac-3f25-4806-9010-b84c5e079713"&
-$9b8c0784-967d-42a0-9886-5c642aa5458b"&
 $9d216daf-91ee-4daf-9086-cb6c1a8a40fb"&
 $9d2d4a85-0e98-4005-9f95-eafaeb37bd1d"&
 $9da5fcbc-e784-4d37-836d-bc8936a4aeb0"&
-$9dd06290-ff9c-41a7-83a3-255a7e47c117"&
 $9e42d7c8-97ac-4331-9b06-5f74d485cb95"&
 $a12a60bd-3f6a-49bb-8961-5530ecb2618f"&
-$a181a37e-525f-44e2-b702-5c0dc2df6d47"&
 $a1a529fb-9afd-4591-8ee7-ce71e1817b5b"&
+$a1aff73b-b65f-4af0-a83b-6b8fe0b208ec"&
 $a1d42204-8bbe-4491-a338-fc111e285d4e"&
+$a212b8e5-3277-422d-849f-a23fbe55f19a"&
 $a2a6452e-4e05-40c8-b7d8-bf12062d5b91"&
 $a2d53370-26b1-463e-b78a-655f056722c4"&
+$a2dc2dc0-a325-48a8-a313-982c149272f6"&
 $a40c8572-7276-421e-9798-d1313a785dc3"&
 $a44a6441-f125-424b-affc-4ce7b88eb6f4"&
+$a4bc29a0-6844-45f3-8e17-5b05c2190389"&
 $a57f1373-d489-4218-8b74-3e16b1e29e16"&
 $a59c2d3c-9888-4e70-bfe9-89f752d0c5c8"&
 $a5b2127e-2b85-4e46-96e9-e0b674aaccf9"&
 $a5d094c5-0f53-41b8-9176-b668443b789e"&
-$a5e2b5c3-6710-4b9c-87b2-bcc4419bcbfd"&
 $a64fc90e-c57d-4a73-8403-1c16af5ec8f2"&
-$a6803354-39cd-4d7e-ad05-6f1639b93366"&
 $a6ab37ac-8019-4ab2-9bc3-4d03b7c053e3"&
 $a6b68687-7542-44d7-880b-8c384ae99bbd"&
 $a747af38-eaba-4c95-adbd-e60e081ecd45"&
@@ -671,40 +678,41 @@ $aa8165d7-67bc-44b1-857c-d8fceb40a0f8"&
 $aaa6a9ed-0da5-4797-aac0-533d86316498"&
 $aabdda66-cfef-4e61-9b51-d999bbded092"&
 $aacf98b7-e9f1-47ba-b60e-d8db2fe54259"&
-$ac8e2f77-7e19-49da-8ac7-0ee253d527ba"&
 $ae312306-7971-4109-9f0e-67986050e12f"&
 $aeb1b1d9-8d79-44fd-a88c-d0917c3bd1f5"&
+$afa83327-f828-4a3d-a219-e577a9bfe91b"&
 $b02e5969-7f1c-4d42-83ad-61b1b1f085da"&
 $b04d1fd3-8a37-4675-8e87-d832c264a0eb"&
+$b09bc24d-632c-49c6-85bd-5612dad91e9a"&
 $b0b89610-609a-4d2b-a84d-41037ebcd76b"&
 $b0bb94e4-6640-4dc7-8f03-600d543a301a"&
 $b0d4058f-14f2-4b80-ad8f-0f6463062125"&
 $b25bfc76-50c8-419b-a79d-f91feae65e87"&
 $b25de939-fd9c-4fd2-a796-0864025af289"&
+$b3018081-037f-4520-bd32-7ef991d8a410"&
 $b3b16dce-030d-41bf-903d-f7240365a715"&
 $b3c26bda-7617-4529-8039-7f7aa6f93fd7"&
+$b4272bcb-7427-4122-8410-0684501fd40c"&
 $b475e211-572a-4d31-a302-cb7f5b5f3c7b"&
 $b48b472f-20ec-4300-80bb-221901bd464e"&
 $b4f6c798-f4c7-4f7f-beb0-61ee2c1aaf15"&
-$b4f8e0e2-c291-4576-973b-060b5fa2673c"&
 $b5650578-ab04-4106-a0cf-56940d718b85"&
-$b5be2fc8-f0c2-4191-92d7-3fa35fcfe4c3"&
 $b6025c4a-1b59-4704-be92-4202cc0cdbc3"&
-$b6342f30-3d04-4b2e-8881-c993f972ece5"&
 $b6ef59b0-4e5c-433e-885a-f951b4ad92fc"&
-$b6f5568b-ae7e-4b4d-9036-f68fa436fa62"&
+$b794a8ed-6d69-4aad-8d0c-27e83f7db613"&
 $b7996374-503d-4cac-884f-0f149fb7939d"&
 $b86f180f-773f-4f07-bfe8-e3961b02a7c5"&
 $b8f74ec8-14d3-4d65-867f-5c15a3a0f0f7"&
 $b92b4fce-54ca-43c7-9189-b1bf769feb1a"&
 $b9891dc1-7444-46d1-8075-83a4381f3814"&
-$b9f5146e-c297-4d55-ae96-85432c8bfe69"&
 $ba744438-0220-4d5c-a0d3-1669c4b6cfa8"&
 $bab84849-05b3-4818-bd06-66e1cab3035f"&
 $bb26f7cc-1547-45bc-9866-abeeca03b21d"&
 $bb3319c0-ae63-4fd2-ab85-06ff0e30d934"&
 $bb40739c-db74-4d87-a08b-f0acc42476a1"&
 $bb558395-9984-4136-a2cd-70937ed670f3"&
+$bbc205c4-d941-4b00-a0a4-e617eea67ff0"&
+$bcfc7c64-2376-49cd-b982-8a4cbb48bd80"&
 $bd6297c2-b2ac-4571-9ea9-38790bba2989"&
 $bd7f20a5-9651-439b-898b-a5c0b8955878"&
 $bd9fdf64-30dd-4047-89d5-7b149daa04fa"&
@@ -712,9 +720,10 @@ $bdbf2db8-34f3-467f-94b3-bb24d3fc04df"&
 $be79fa38-12e4-4baf-90da-b217aa9371d4"&
 $bfe7ce05-4694-437d-999d-17ef00d8ecbd"&
 $c0b58a44-5ca4-4a69-b95e-151e0ff76af4"&
+$c0e0c77e-1eee-418d-b24e-057f7f1cdabf"&
+$c136557f-8b65-47ed-822c-6431aa92459c"&
 $c18e9a5b-2ffb-4b65-95e0-fef2abce3666"&
 $c1c76117-4ceb-4bc7-b475-dc2474e3a11b"&
-$c2640ad6-0d89-407d-bd7f-07c4949f810e"&
 $c2d6e555-d553-442d-bcb3-17fc550a4e37"&
 $c32ffb46-27ca-4aae-b67b-89ee05903365"&
 $c353ca05-4f0f-4055-9620-5ab6c2204441"&
@@ -723,8 +732,9 @@ $c3de1bf2-b6d8-40a1-b0a5-52ef35cf4b15"&
 $c4e94891-ed64-403d-873a-2f0c0dafeece"&
 $c4f4e3f9-e62b-4bee-adc1-cb207110adb9"&
 $c51d7a51-9583-40af-96f5-69ebe924f4b8"&
+$c5812689-084b-4a16-9bef-f923d8eabf34"&
 $c5a830b2-caea-42ae-b459-4f0d474e2eab"&
-$c6c51b4f-0411-4b4b-ac64-83aacfc76693"&
+$c6bbba46-e787-42ab-866b-c7a3568c7162"&
 $c759e7f1-499c-4048-a7b7-d5f89eeb2694"&
 $c7922c7e-75b5-46d9-9c70-ed6cb8e82a71"&
 $c7c361e8-fff9-4170-bd25-40aa7a810d27"&
@@ -732,37 +742,31 @@ $c92cf7d6-f3e6-4bc2-86ad-edf0ce89f453"&
 $c98cd7c5-8ad2-41f0-a2e1-7464e6ec7e6a"&
 $c9988fd5-3920-4669-abba-7a43c8f16671"&
 $ca6caf74-4bb2-420e-99a1-1111b7e9f26b"&
+$ca880ae9-b55b-4532-be83-a4597178f608"&
+$cacf11b8-1d1f-4a7a-b302-dfd67270c778"&
 $cbcaf5f6-fa47-4655-a34a-66cac0f591f3"&
 $cc98f681-174b-46ca-8f83-881ee8ef6403"&
 $cc9ed628-6704-44f9-b623-a0b80e790bdc"&
 $cccec048-3429-48ad-b7eb-ace8817a8c30"&
 $cd3eacd3-7806-416b-be10-7ad4ee5f4806"&
 $ce626a97-f1cb-4574-bdbb-e9bf30838233"&
-$ce932efe-5825-47f7-996e-4e798111abc5"&
 $cf7da8ae-f7ef-4373-ab42-55e937950495"&
 $cfbe6013-c17b-4a78-8e5c-b505d149e40b"&
-$d002d509-9584-4119-b246-496b1ecdf32b"&
 $d01aa94c-cc74-4841-80bf-32e71c640ac3"&
-$d0225747-b0aa-4bfe-ba2f-83bc1df56c89"&
 $d0442ea3-91ba-4280-94dd-19ed448e5d4d"&
 $d04f3f3f-beb0-4872-817b-8edd5fd12171"&
 $d27c0d57-841a-47a1-9de3-a1147030df33"&
 $d2fbbced-c1a1-4d2d-8838-342ca128ed62"&
 $d39ac67a-121e-475f-84c7-92d8f2a7bf5b"&
-$d46a717c-0f18-417b-95a2-39b2ae471e71"&
 $d486881b-660d-4987-861c-df8616909efa"&
-$d49a3eb7-1580-4f15-9bcc-b63bb3011de5"&
-$d5413b1b-7376-4be5-8097-546fccfdb0d3"&
 $d5a3d578-edec-4842-8c14-75a5113cf5df"&
-$d656c93c-7eba-4c6e-bcd0-849f19e82e33"&
 $d6c85980-a182-4e91-9c2d-54c4e51b0d51"&
 $d701bb3c-aa5a-4d53-8efb-be1f10a3e5ad"&
-$d75badaa-b2cd-4fc3-b09f-c5be74311c15"&
 $d792a68f-4197-49e2-9bba-0cfb1c8d8fec"&
 $d7d9ecea-f1de-4594-86b6-7180c3dd0755"&
 $d7fa8081-2c06-4b13-8db1-d9d704d84234"&
-$d7fbbb8e-5b4d-45bd-91e1-ae827f07b22e"&
 $d8e2fc7d-8f70-41b4-9a5e-1308a188f9cc"&
+$d953efb0-699f-4524-b06a-cc7bb4dd1fb0"&
 $d965dc12-3ce0-4916-93c8-d467288ebc96"&
 $d9977d89-65dc-470b-83f9-388543dd1520"&
 $da4e7938-ddd2-4c17-96ea-e175201bae10"&
@@ -773,13 +777,13 @@ $db3ee07e-9ece-460f-90c7-eccebe092326"&
 $db67b740-e238-451f-b99b-8331e8dfb88f"&
 $db8a751a-5f70-4bda-a552-37cc90b55b68"&
 $dba59bca-4270-45b6-89c4-47a986f83aa1"&
-$dbb43ccc-5a4f-4d7b-b110-e34f9627083c"&
 $dbddaaa0-c6e7-47e7-aab2-7c87a7014879"&
+$dbe5cf8e-f401-46df-84fd-3b625f3e5e86"&
 $dc6cd720-c85f-4ffb-9659-3cad34930fde"&
 $dcc183e4-f49e-4e5e-a5b5-21bd1a6b1a95"&
 $ddbbed6d-de1c-493d-af08-ae91b6525531"&
 $de6f71bc-d943-45ae-9f71-0f628664a584"&
-$dede5542-fcdf-4c02-92a3-06f50400675a"&
+$df2f861a-a62e-4d92-a488-eccc8fdd9d0d"&
 $df6f9449-1361-409e-9cfb-0369f9985927"&
 $df72c517-81cc-4520-945d-c09f8cfa731f"&
 $df949750-d63f-4363-82ec-fe448eeecccc"&
@@ -788,8 +792,8 @@ $e03cfc1a-800a-4bbb-955e-eebcd59fba60"&
 $e0f260a1-5b9e-43a1-b8b1-d5e19ea25cb8"&
 $e270662b-ebf8-4414-b643-7a1ca641be41"&
 $e2ac26ae-14d1-430e-8043-0e49a43e02c2"&
+$e2cc049b-b9a3-4ac2-9f0d-b9a86f7bab86"&
 $e2e5a82d-7e21-4f1d-b9e6-dd995a968b4f"&
-$e2e8afc8-e404-4ce8-b169-498bbcce52af"&
 $e3082809-d395-4eb8-a556-90d7a94440aa"&
 $e3383b52-3e4c-4e67-9324-a16aea0fe545"&
 $e5325481-2bc0-4b7f-83b2-b2e362e5182d"&
@@ -802,739 +806,1074 @@ $e84f8b6a-a5f9-4a59-a2a6-02f70fe0d1ef"&
 $e86275bf-91a4-4364-ba98-82bf49a84e3f"&
 $e869f024-2a60-4d05-baca-c921a2de3e33"&
 $e89e76dd-2804-4726-9b68-a8c1deebb988"&
-$e909c945-19e1-49a6-b581-a8eb36aa03bb"&
 $e948ce47-58ed-40cf-861a-34b006839465"&
 $ea6b5edc-b139-40d7-978e-0f89c01a7107"&
+$eb20a3bb-880a-4faa-9d26-14cc211c5387"&
 $ebdfbf19-921c-4353-ae8e-9b99ee77a0ff"&
+$ebf8c548-a4b4-4ceb-ab85-cf4ecbb51fd4"&
 $ec9eba58-8efc-4c19-bcf9-7ca58ea04c9b"&
+$edc3725a-c899-4a26-a10b-1d33454254d7"&
 $edcb7cc8-5e51-495e-b0a6-56776d648af6"&
 $edd41007-c808-40cc-833b-5888495d8d75"&
 $ee31d3b9-e588-4284-8f61-f860776e9d36"&
-$eea277f5-6a7d-4a24-bbad-0273758e3d3a"&
 $eedc30a3-cf08-43cc-801c-f2a973badb36"&
-$ef78ec6b-cc44-4bb1-80c6-0f8d8ac5dc7d"&
-$efc21776-224f-491b-836b-381e2a452336"&
 $f0addbd2-7f6b-4834-bd07-bbcb1cfc6eac"&
-$f0d1ec47-97db-4b38-85de-01d2acfb13e7"&
 $f14892b6-c191-47a2-8bf1-608226848e03"&
 $f1746e62-7472-4e72-8b97-145566e8a607"&
 $f1e6eb0a-25e9-4873-ad99-8529aa764f19"&
 $f2b9e94e-7bce-4e58-8faa-4ee15706b481"&
-$f2c1a408-b1de-4dbe-a1e8-98994d66786f"&
+$f369c85e-9540-46b3-b4cc-ee8cbba584d5"&
 $f394b0b1-b52a-4ae7-be9d-4afc1ef8e0d0"&
 $f3f5e255-5adc-44c8-9f77-922e9cbef900"&
-$f4ae13f8-2e9f-4152-8364-e6cf7a3a17a9"&
+$f52ea4ff-07c3-4507-a4b0-f5b74a02df79"&
 $f5a90fbd-13ed-4eb5-af89-7cd890b65087"&
 $f5b36461-6bad-47de-b740-4079e5705264"&
 $f6688027-2a08-4b16-9e7d-2a71c186cf2a"&
-$f6aad18d-0758-464b-9507-525872ae1a2a"&
 $f6f3c44f-f924-41f9-a75c-d3723d215af5"&
 $f8a3204d-d129-4472-b33e-07210715f893"&
+$f939688c-03fa-423e-b908-8f29f91fb081"&
+$f9827c29-a5ec-4040-88df-5ad22558ff80"&
 $f9876034-8f64-4471-aca3-3c2777de34d8"&
 $f9a6d5db-d5df-4d5c-b8c7-e55e7ee84327"&
+$fa5d4b68-22fa-4318-8797-5a59e3969041"&
+$fada354d-e23c-4c4a-91fe-1b7345d148f0"&
 $fba4cabe-0a0b-4197-9cef-9153097f9205"&
 $fbbfa008-92d5-45e6-a800-1c3e847c8dc5"&
 $fbc25040-1d58-46c6-8460-d3ebb200f266"&
+$fc511d65-24a5-4bd2-969c-96ce6d9a5fe2"&
 $fd05ac99-7ab0-49d4-beb3-c7cd147e6d41"&
 $fd1de80a-9190-4435-a5fa-28422d85fc1d"&
-$fd65f27b-7b23-411c-9606-0442234e3304"&
 $fe507875-fb0b-48d7-95af-d4bfb5063658"&
 $fe748bc2-5992-4433-9fce-841bc3b53472"&
+$fe981cb1-c763-46ed-a382-8c7f6c715e9d"&
 $feb78039-703a-4698-a22d-358717d6a36d"&
-$fefedcc5-a52f-4586-9e5d-f1ac2be6c4e6"&
+$ff3fa163-b60a-4fec-aa17-28a06fa4e50d"&
 $ff79a070-1939-40fd-be2f-4c78490d9734"&
 $ffcce6c7-323a-4f23-88c3-92f805294a73"'
 %Husgrund, fц╤rhistorisk/medeltida (3)")
+'Omrц╔de med militц╓ra anlц╓ggningar (2)")
 'Omrц╔de med militц╓ra anlц╓ggningar (3)"9
-7Naturfц╤remц╔l/-bildning med bruk, tradition eller namn"  B"  8A"  ;B"  CB"  jB"  uB"  {B"  └A"  ∙B"  ≥B"  ÷B"  ╔B"  ╣B"  ╨A"  йA"  п@"  зA" ─┤B" ─▐B" ─⌡B" ─║B" ─╔B" ─╛B" ─╢B" ─╥B" ─╨B" ─╫B"	
-вёp=*C@"	
-вёp=*J@"	
-вёp=JJ@"	
-вёp=JK@"	
-вёp=JM@"	
-вёp=jD@"	
-вёp=┼%@"	
-вёp=┼-@"	
-вёp=┼K@"	
-вёp=╙I@"	
-вёp=йK@"	╝GАzU@"	╝GАzX@"	╝GАz7@"	╝GАzR@"	╝GАzU@"	╝GАz$V@"	╝GАzDT@"	╝GАzT:@"	╝GАzdU@"	╝GАz■3@"	╝GАz╓X@"	╝GАz╢S@"	╝GАzдR@"	╝GАzдU@"	╝GАzДX@"	╝GАzТX@"	┘КQ╦7@"	┘КQ╦;@"	┘КQ╦R@"	┘КQ╦W@"	┘КQ╦У?"	┘КQ╦.X@"	┘КQ╦>R@"	┘КQ╦NW@"	┘КQ╦^T@"	┘КQ╦nP@"	┘КQ╦nQ@"	┘КQ╦nS@"	┘КQ╦·:@"	┘КQ╦·U@"	┘КQ╦╬T@"	┘КQ╦нW@"	┘КQ╦чU@"	┘КQ╦НT@"	┘КQ╦ЧP@"	┘КQ╦ЧR@"	)\▐бУ@@"	)\▐бУF@"	)\▐бУ(#@"	)\▐бУHK@"	)\▐бУHL@"	)\▐бУhJ@"	)\▐бУhM@"	)\▐бУ┬B@"	)\▐бУ┬O@"	)\▐бУ╗,@"	)\▐бУ╗J@"	)\▐бУхM@"	)\▐бУХI@"	)\▐бУХL@"	33333U@"	33333X@"	33333B@"	33333E@"	33333O@"	33333T@"	33333#R@"	333333@"	333333,@"	3333332@"	333333<@"	333333S@"	333333T@"	333333К?"	33333SN@"	33333SQ@"	33333SR@"	33333SV@"	33333cP@"	33333cQ@"	33333cU@"	33333s1@"	33333s<@"	33333sL@"	33333┐U@"	33333⌠H@"	33333⌠M@"	33333⌠P@"	33333ёS@"	33333Ё8@"	33333ЁB@"	33333ЁN@"	33333ЁV@"	33333ЁX@"	33333сF@"	33333сH@"	33333сV@"	33333ЦS@"	33333С2@"	33333С>@"	33333СG@"	33333СK@"	=
-вёp@@"	=
-вёp=/@"	=
-вёp=A@"	=
-вёp]@@"	=
-вёp]I@"	=
-вёp]J@"	=
-вёp]O@"	=
+7Naturfц╤remц╔l/-bildning med bruk, tradition eller namn"  B"  =B"  aB"  kB"  lA"  ┘B"  ├A"  ┬@"  ²B"  ║B"  ь@"  БA" ──B" ─│B" ─▄B" ─▐B" ─▓B" ─≤B" ─⌡B" ─║B" ─╚B" ─бB"	
+вёp=
+F@"	
+вёp=
+О?"	
+вёp=*D@"	
+вёp=J@@"	
+вёp=JB@"	
+вёp=JL@"	
+вёp=┼D@"	
+вёp=┼I@"	
+вёp=┼O@"	
+вёp=╙O@"	
+вёp=йA@"	
+вёp=йI@"	
+вёp=ЙJ@"	
+вёp=ЙK@"	╝GАzQ@"	╝GАz@"	╝GАz;@"	╝GАzQ@"	╝GАzЗ?"	╝GАz$S@"	╝GАz$U@"	╝GАzDS@"	╝GАzDU@"	╝GАzT5@"	╝GАzT6@"	╝GАztQ@"	╝GАz└Q@"	╝GАz╓P@"	╝GАz╓Q@"	╝GАz╓S@"	╝GАz╓X@"	╝GАz╢R@"	╝GАz╢X@"	╝GАzдP@"	╝GАzдS@"	╝GАzдX@"	╝GАzтW@"	╝GАzтX@"	╝GАzТP@"	╝GАzТR@"	┘КQ╦X@"	┘КQ╦@"	┘КQ╦7@"	┘КQ╦X@"	┘КQ╦Щ?"	┘КQ╦.R@"	┘КQ╦.S@"	┘КQ╦>Q@"	┘КQ╦>S@"	┘КQ╦^Q@"	┘КQ╦nS@"	┘КQ╦~Q@"	┘КQ╦~R@"	┘КQ╦▌T@"	┘КQ╦·0@"	┘КQ╦·Q@"	┘КQ╦нX@"	┘КQ╦ч4@"	┘КQ╦ч;@"	┘КQ╦чQ@"	┘КQ╦ЧQ@"	┘КQ╦ЧS@"	┘КQ╦ЧU@"	┘КQ╦ЧW@"	)\▐бУA@"	)\▐бУ(@"	)\▐бУ(@"	)\▐бУ(@@"	)\▐бУ(F@"	)\▐бУ(J@"	)\▐бУHG@"	)\▐бУhG@"	)\▐бУ┬O@"	)\▐бУ╗)@"	)\▐бУ╗+@"	)\▐бУ╗G@"	)\▐бУ╗O@"	)\▐бУхK@"	)\▐бУХG@"	)\▐бУХI@"	33333R@"	33333S@"	33333C@"	33333P@"	33333Q@"	33333#S@"	33333#T@"	333333@"	333333@"	333333@"	3333334@"	333333N@"	33333CP@"	33333ST@"	33333cQ@"	33333cR@"	33333cS@"	33333sF@"	33333sI@"	33333sK@"	33333sX@"	33333┐S@"	33333⌠@@"	33333Ё @"	33333Ё#@"	33333Ё%@"	33333Ё+@"	33333Ё-@"	33333Ё.@"	33333Ё/@"	33333Ё9@"	33333ЁG@"	33333ЁK@"	33333ЁR@"	33333ЁS@"	33333цP@"	33333цS@"	33333сB@"	33333сS@"	33333С:@"	33333СL@"	=
+вёpG@"	=
+вёp=@@"	=
+вёp=B@"	=
+вёp=D@"	=
+вёp=H@"	=
+вёp]E@"	=
+вёp]L@"	=
+вёp]M@"	=
+вёp}A@"	=
 вёp}D@"	=
-вёp}M@"	=
-вёp²D@"	=
-вёp²G@"	=
-вёp²O@"	=
-вёp╫B@"	=
-вёp╫D@"	=
-вёp╫E@"	=
-вёp╫J@"	=
+вёp²N@"	=
+вёp╫ @"	=
+вёp╫G@"	=
 вёp╫M@"	=
-вёpщK@"	=
-вёpЩL@"	HАz╝Q@"	HАz╝U@"	HАz╝V@"	HАz╝R@"	HАz╝U@"	HАz╝W@"	HАz╝'U@"	HАz╝7W@"	HАz╝GP@"	HАz╝GU@"	HАz╝GX@"	HАz╝WP@"	HАz╝WS@"	HАz╝WW@"	HАz╝wV@"	HАz╝┤1@"	HАz╝┤5@"	HАz╝┤;@"	HАz╝┤T@"	HАz╝≈S@"	HАz╝╖V@"	HАz╝╖W@"	HАz╝гR@"	HАz╝гW@"	HАz╝вW@"	R╦┘К1@"	R╦┘К3@"	R╦┘К7@"	R╦┘К=@"	R╦┘К!W@"	R╦┘К1S@"	R╦┘КQ@"	R╦┘КQ2@"	R╦┘КQ8@"	R╦┘КQ<@"	R╦┘КQW@"	R╦┘КqQ@"	R╦┘К│V@"	R╦┘К▒W@"	R╦┘К║U@"	R╦┘К║W@"	R╦┘К╠R@"	R╦┘КаU@"	R╦┘КяS@"	R╦┘КАV@"	R╦┘КЯU@"	\▐бУ(H@"	\▐бУ(J@"	\▐бУ(<C@"	\▐бУ(<D@"	\▐бУ(<M@"	\▐бУ(<O@"	\▐бУ(\ @"	\▐бУ(\F@"	\▐бУ(\G@"	\▐бУ(\J@"	\▐бУ(\L@"	\▐бУ(|B@"	\▐бУ(°I@"	\▐бУ(°L@"	\▐бУ(╪H@"	\▐бУ(╪J@"	\▐бУ(эH@"	\▐бУ(ЭG@"	fffffG@"	fffffP@"	fffff&A@"	fffff&B@"	fffff&H@"	fffff&T@"	fffff&V@"	fffffVQ@"	fffffVS@"	fffffVT@"	ffffff2@"	ffffffF@"	ffffffR@"	ffffffS@"	fffffvW@"	fffff├H@"	fffff├N@"	fffff├T@"	fffff√T@"	fffff╕C@"	fffff╤X@"	fffffфF@"	fffffфJ@"	fffffфX@"	fffffФX@"	fffffЖV@"	q=
-вёD@"	q=
-вёL@"	q=
+вёpЩK@"	=
+вёpЩL@"	=
+вёpЩM@"	HАz╝1@"	HАz╝4@"	HАz╝5@"	HАz╝P@"	HАz╝R@"	HАz╝'X@"	HАz╝GR@"	HАz╝GS@"	HАz╝WS@"	HАz╝gS@"	HАz╝┤R@"	HАz╝┤T@"	HАz╝≈R@"	HАz╝╖S@"	HАz╝г7@"	HАz╝г:@"	HАz╝г;@"	HАz╝гS@"	HАz╝вS@"	R╦┘КS@"	R╦┘К9@"	R╦┘К1Q@"	R╦┘К1S@"	R╦┘КAX@"	R╦┘КQ@"	R╦┘КQ@"	R╦┘КQP@"	R╦┘КQЬ?"	R╦┘КqP@"	R╦┘К│S@"	R╦┘К│X@"	R╦┘К║X@"	R╦┘КаQ@"	R╦┘КаR@"	R╦┘КАP@"	\▐бУ(K@"	\▐бУ(M@"	\▐бУ(\	@"	\▐бУ(\$@"	\▐бУ(\O@"	\▐бУ(|O@"	\▐бУ(°I@"	\▐бУ(°N@"	\▐бУ(╪J@"	\▐бУ(╪O@"	\▐бУ(э @"	\▐бУ(э"@"	\▐бУ(э#@"	\▐бУ(эG@"	\▐бУ(эK@"	fffffJ@"	fffffX@"	fffffR@"	fffffV@"	fffffX@"	fffff&5@"	fffff&L@"	fffff&O@"	fffff6T@"	fffff6X@"	fffffFD@"	fffffFN@"	ffffff@"	ffffff$@"	ffffff)@"	ffffff-@"	ffffff2@"	ffffffO@"	ffffffS@"	fffffvQ@"	fffff├R@"	fffff√R@"	fffff√V@"	fffff╕<@"	fffff╕A@"	fffff╤S@"	fffffфO@"	fffffфP@"	fffffфR@"	fffffФ$@"	fffffФ1@"	fffffФ3@"	fffffФI@"	fffffФO@"	fffffЖR@"	q=
+вёM@"	q=
+вё0I@"	q=
 вё0N@"	q=
-вё0O@"	q=
-вёPI@"	q=
-вёPM@"	q=
-вёp @"	q=
-вёpF@"	q=
-вёpJ@"	q=
-вёpM@"	q=
-вёpМ?"	q=
-вё░@@"	q=
-вё░H@"	q=
-вё░L@"	q=
-вё╟B@"	q=
-вё╟H@"	q=
-вё╟M@"	q=
-вёпF@"	q=
-вёпK@"	q=
-вёПC@"	q=
-вёПD@"	q=
-вёПK@"	{╝GА
-P@"	{╝GА
-T@"	{╝GА
-X@"	{╝GАS@"	{╝GАW@"	{╝GА:1@"	{╝GА:P@"	{╝GА:W@"	{╝GАZQ@"	{╝GАZT@"	{╝GАZW@"	{╝GАjP@"	{╝GАjT@"	{╝GАz@"	{╝GА X@"	{╝GА╙Q@"	{╝GА╙V@"	{╝GА╨>@"	{╝GА╨U@"	{╝GАйS@"	{╝GАйW@"	{╝GАзT@"	{╝GАЙR@"	{╝GАЙV@"	{╝GАЗU@"	┘КQ╦9@"	┘КQ╦Q@"	┘КQ╦%P@"	┘КQ╦ES@"	┘КQ╦UT@"	┘КQ╦UW@"	┘КQ╦eR@"	┘КQ╦┘>@"	┘КQ╦┘S@"	┘КQ╦┘В?"	┘КQ╦╔S@"	┘КQ╦╔U@"	┘КQ╦╔W@"	┘КQ╦╣P@"	┘КQ╦╣S@"	┘КQ╦╣U@"	┘КQ╦е1@"	┘КQ╦е5@"	┘КQ╦уP@"	┘КQ╦уR@"	┘КQ╦УR@"	┘КQ╦УU@"	▐бУ(\#@"	▐бУ(\A@"	▐бУ(\J@"	▐бУ(\/H@"	▐бУ(\/M@"	▐бУ(\oJ@"	▐бУ(\▐A@"	▐бУ(\▐B@"	▐бУ(\▐D@"	▐бУ(\▐J@"	▐бУ(\ОM@"	 ≥≥≥≥	T@"	 ≥≥≥≥-@"	 ≥≥≥≥.@"	 ≥≥≥≥5@"	 ≥≥≥≥H@"	 ≥≥≥≥J@"	 ≥≥≥≥R@"	 ≥≥≥≥9O@"	 ≥≥≥≥9P@"	 ≥≥≥≥IR@"	 ≥≥≥≥IT@"	 ≥≥≥≥IV@"	 ≥≥≥≥IX@"	 ≥≥≥≥YW@"	 ≥≥≥≥iR@"	 ≥≥≥≥yM@"	 ≥≥≥≥yP@"	 ≥≥≥≥┴X@"	 ≥≥≥≥≥@"	 ≥≥≥≥≥@"	 ≥≥≥≥≥%@"	 ≥≥≥≥≥'@"	 ≥≥≥≥≥+@"	 ≥≥≥≥≥.@"	 ≥≥≥≥≥C@"	 ≥≥≥≥≥M@"	 ≥≥≥≥≥X@"	 ≥≥≥≥≥Щ?"	 ≥≥≥≥╘T@"	 ≥≥≥≥╘U@"	 ≥≥≥≥╧G@"	 ≥≥≥≥╧J@"	 ≥≥≥≥╧S@"	 ≥≥≥≥иQ@"	 ≥≥≥≥иX@"	 ≥≥≥≥ы=@"	 ≥≥≥≥ыT@"	 ≥≥≥≥ыW@"	 ≥≥≥≥ыX@"	 ≥≥≥≥ЫA@"	 ≥≥≥≥ЫO@"	╓p=
-вG@"	╓p=
-вcA@"	╓p=
-вcE@"	╓p=
-вё@"	╓p=
-вё@"	╓p=
-вё'@"	╓p=
-вёA@"	╓p=
-вцL@"	╝GАzP@"	╝GАzV@"	╝GАzW@"	╝GАz.W@"	╝GАzNX@"	╝GАz^U@"	╝GАzn6@"	╝GАznW@"	╝GАz~V@"	╝GАz▌P@"	╝GАz·X@"	╝GАz╝1@"	╝GАz╝R@"	╝GАzнT@"	╝GАzчX@"	╝GАzНW@"	╝GАzЧR@"	╦┘КQV@"	╦┘КQP@"	╦┘КQR@"	╦┘КQU@"	╦┘КQ(T@"	╦┘КQ(X@"	╦┘КQ8<@"	╦┘КQhQ@"	╦┘КQx8@"	╦┘КQxR@"	╦┘КQxU@"	╦┘КQ┬P@"	╦┘КQ┬T@"	╦┘КQ≤Q@"	╦┘КQ≤U@"	╦┘КQ≤V@"	╦┘КQ╗U@"	╦┘КQ╦P@"	╦┘КQЬ=@"	цУ(\▐K@"	цУ(\▐"G@"	цУ(\▐B @"	цУ(\▐BA@"	цУ(\▐BL@"	цУ(\▐BN@"	цУ(\▐BO@"	цУ(\▐bJ@"	цУ(\▐┌E@"	цУ(\▐╒K@"	цУ(\▐╒M@"	цУ(\▐╒O@"	цУ(\▐б!@"	цУ(\▐бF@"	млллл6@"	млллл8@"	млллл?@"	мллллS@"	мллллW@"	млллл,I@"	млллл,J@"	млллл,V@"	млллл<P@"	млллл<T@"	мллллLE@"	мллллLX@"	мллллlV@"	млллл▄8@"	млллл▄>@"	млллл▄C@"	млллл▄H@"	млллл▄U@"	млллл°P@"	млллл°V@"	млллл╛C@"	млллл╛L@"	млллл╛R@"	млллл╛V@"	млллл╪U@"	млллл╪W@"	мллллл
-@"	мллллл@"	мллллл:@"	млллллE@"	мллллЛD@"	мллллЛH@"	мллллЛU@"	мллллЭS@"	мллллЭW@"	вёp=
-A@"	вёp=
-K@"	вёp=
-7D@"	вёp=
-7N@"	вёp=
-W)@"	вёp=
-WF@"	вёp=
-WG@"	вёp=
-WK@"	вёp=
-wD@"	вёp=
-wK@"	вёp=
-wM@"	вёp=
-≈N@"	вёp=
-≈O@"	Аz╝GS@"	Аz╝GV@"	Аz╝GW@"	Аz╝G1V@"	Аz╝GAS@"	Аz╝GQT@"	Аz╝GQU@"	Аz╝Ga<@"	Аz╝G│T@"	Аz╝G║1@"	Аz╝G║8@"	Аz╝G║P@"	Аz╝G║S@"	Аz╝G╠T@"	Аz╝G╠U@"	Аz╝GА=@"	Аz╝GАQ@"	Аz╝GАS@"	Аz╝GАV@"	Аz╝GЯS@"	ЛQ╦┘W@"	ЛQ╦┘V@"	ЛQ╦┘+8@"	ЛQ╦┘+T@"	ЛQ╦┘KQ@"	ЛQ╦┘KT@"	ЛQ╦┘KV@"	ЛQ╦┘[U@"	ЛQ╦┘[V@"	ЛQ╦┘k;@"	ЛQ╦┘kT@"	ЛQ╦┘▀U@"	ЛQ╦┘▀W@"	ЛQ╦┘⌡U@"	ЛQ╦┘╚9@"	ЛQ╦┘╩W@"	ЛQ╦┘шW@"	ЛQ╦┘КЩ?"	ЛQ╦┘ШQ@"	ЛQ╦┘ШR@"	Ж(\▐б5D@"	Ж(\▐б5O@"	Ж(\▐бUO@"	Ж(\▐б∙@@"	Ж(\▐б∙H@"	Ж(\▐буI@"	Ж(\▐буN@"	Ж(\▐бУ@"	Ж(\▐бУO@" " " " " " 	" " " *" 3" S" T" V Ю.Яц
-"	╨5╛ ╧╩.╘ц
-"	┬· Ц┴░.Пц
-"	Ь)Х ▓╪.╨	ц
-"	р.Й ≈█x║	ц
-"	Ф/э м╪.²	ц
-"	≤.┌3 Ь╩.╗ц
-"	·2д ОЗx╔ц
-"	Ф5э ├║║w╣ц
-"	й6& е╩.Лц
-"	√"Х ╥║².╤	ц
-"	▄╤; ─в║wоц
-"	ч!л ╒÷.∙	ц
-"	▄1Ф	 П╒x▄	ц
-"	Н└* зx╟	ц
-"	└П, ▓╩.И	ц
-"	лЮ └ч.┤	ц
-"	░1П ф╗.шц
-"	з
-ь: жС.Вц
-"	╡*д ╓.б	ц
-"	└9╕ н╠xцц
-"	л╗0 ХёёwЦц
-"	Ж0■ ≤`║w∙ц
-"	═;т# П.─
-ц
-"	┬╤  ┘║║w╩	ц
-"	ф/ф ²╩.╡
-ц
-"	≤╗ ъ╩.═	ц
-"	Б─ ╞у~┴Иц
-"	┬6  х┤░.│ц
-"	╡"░ Ф╩.уц
-"	ЙТ> Я╪.Хц
-"	─6╨% б╔.В	ц
-"	Фх °╩.╠
-ц
-"	х╝. ┘Южц
-"	Б)Й в╩.Фц
-"	├-╬ Щ║wФц
-"	╒#ж ▌┌.Ыц
-"	╗+т и║wВц
-"	й╝ ╪▌.╝
-ц
-"	юю ▓║w÷ц
-"	╡5ж ╞╩.Ё	ц
-"	√Д Ц╫╫wкц
-"	н4т ╦яя┬	ц
-"	╡4Р ╖╫╫wчц
-"	Х╛$ ЦЦ╡.ъц
-"	╪└ чW║wТц
-"	Н3┼, з║wуц
-"	┌ R ╜∙║wЫц
-"	╕%╟ █d║wхц
-"	л<Н" Д1яьц
-"	╗%Ь* ©║║w╞	ц
-"	б30 ║Л╫wНц
-"	╟,╙ эААУц
-"	Л4  ┬в║w╝	ц
-"	Э0╟ ╙╩.ец
-"	╝.х ┬║║wжц
-"	ф6" │^║w░
-ц
-"	п,■3 рxxБ	ц
-"	╓>Р э└x╒
-ц
-"	Й2л ф©©.╙ц
-"	╤;ч ░┼Атц
-"	┬д ЗТxьц
-"	Н)▄ хв║wЩц
-"	Ж
-Р@ ╟.═
-ц
-"	Ч4т нК.╦ц
-"	э-╒ Йxx╢ц
-"	╡.╢ ╗║wУ	ц
-"	ж.l ▀яяяц
-"	Ь6═ ╚╖яЕц
-"	Р$╕& Ы╗║wхц
-"	√*├ ь╨~┴Я	ц
-"	═9} Ё║║wл	ц
-"	╢3D ц.сц
-"	▓8Ь └xxЖц
-"	╓(п Ь║w╢	б
-"	┬2З Жe║wъб
-"	╓:╡ ⌡╣║wЙ	б
-"	Р.Р ├;║w╙
-б
-"	ж≤9 И@║w╔б
-"	х╒; А_║w╗
-б
-"	╬-ю1 Ы°║w├	б
-"	Ф:] к.▒
-б
-"	ю6╒' Ч╡╡.Е	б
-"	 4≤ чн║w≈б
-"	з9·$ Оо║wГб
-"	Ф@х И4║wё
-б
-"	╓╝7 Д8║w▐
-б
-"	чЗ6 ┌║w╜	б
-"	П"З Мl║w╫	б
-"	хн ║║wсб
-"	э4╝ гв║wыб
-"	╟1х ╕	║wОб
-"	хЖ' Ю.Чб
-"	т3╤ Фb║wЧ	б
-"	┬;ж% ЕL║w┌б
-"	Рт юr║wОб
-"	√!├% ▄║wШб
-"	▌н' П╫╫wЖ	б
-"	┌>н  ·K║wсб
-"	╕Ч	 █D║wИб
-"	Бй ╓ш╟┬°
-б
-"	ь╓ ╣n║w≤	б
-"	╛
-ж  F║wм	б
-"	╗╡ оY║wЕб
-"	б6╦' фi║wЬб
-"	 · ╦v║wЪб
-"	ЮЧ6 а║w╞
-б
-"	·1╬ █p║wк	б
-"	Ф!П( ┬Трб
-"	Т)Ю ╜o║wО	б
-"	┬!╬! й[║w╜
-б
-"	н5√& Бc║w╛б
-"	╝:Х# ╫Х░.к
-б
-"	Ф8Т# Ю<║wг	б
-"	╪Т< ╝7║wЙб
-"	╓Й7  ║w╗б
-"	╨"ж ╥п.╠	б
-"	╕Ь ┴║║w╘
-б
-"	─5k ┌.■
-б
-"	Ю3й ъ■║wзб
-"	Н$   ╒║wвб
-"	з╤4 Н║wю	б
-"	╙.Ю ▒S║wуб
-"	Э-▌+ ╨в║wФб
-"	эa ╩3║wрб
-"	Л╬< Х║║wБб
-"	╡@  ш┼x■б
-"	╢4■! ╝║wй
-б
-"	ю2ь ╢.┐б
-"	╙1л зв║wжб
-"	┼,Т ■≈║w÷	б
-"	Э+├# ².╧	б
-"	б.╬ ÷╢║wи
-б
-"	╢/= щs║w─б
-"	й ╟* ър .⌡
-б
-"	▌'╗ ╙.яб
-"	Ф╛) ╦T║w≈	б
-"	ь)й0 ы║║wгб
-"	й3  О║wёб
-"	▓3▄ Щ▀xи	б
-"	т5┼ й:║wЦб
-"	░д: тa║w╒б
-"	Н:т% ╬╩.√
-б
-"	╓/Л
- ВC║w╛
-б
-"	╢╕; ТЁ║wмб
-"	 -╟ к∙║wЗб
-"	≤6├	 н║wйб
-"	╛(▄ Р║w б
-"	Ю4├ √\║wчб
-"	╪.░4 ▀╫╫w⌠
-б
-"	ж1Х ∙║║w╖
-б
-"	╢2e ╤"║w┘	б
-"	▌ч' ж▓░.Хб
-"	й+° ═©©.Г	б
-"	╝4э ■q║w═б
-"	Р ╤% ⌠М©.пб
-"	х=ь шU║w╔
-б
-"	└+≤. оV║wа	б
-"	╓.ж+ м6║w√б
-"	Д┌7 А║║w≥б
-"	э*┼ √└.бб
-"	ф╦ Съ╡.Шб
-"	├Aж ©║║wЪ	б
-"	ХР> ≈.║
-б
-"	Х-╓ ■*║w╧б
-"	╙Б2 ≈.÷
-б
-"	Н%Т в║║wфб
-"	ЙТ> ж.Эб
-"	╓8Н э.тб
-"	╒9П ▓║║w⌡	б
-"	╛Ь@ Н©©.Хб
-"	эл5 Уг.Мб
-"	нФ	 ╡║║wДб
-"	х6" ё≥║w╟б
-"	П: Я. 
-б
-"	Й0·	 Е.Дб
-"	ч ╛ ▒║wБб
-"	╗(▌ ╩║║wоб
-"	╕:■& Р╒xЩб
-"	Э(■4 ы═x·б
-"	З╛ ▐.щб
-"	Р)З ╔O║w≥б
-"	╝╤ ╧╧║wщб
-"	Ь░ У╒x▓
-б
-"	п▄ ⌡²².÷б
-"	 
-░6 ╚╔².Об
+вёPB@"	q=
+вёp@"	q=
+вёp%@"	q=
+вёp/@"	q=
+вёpE@"	q=
+вёpH@"	q=
+вёpL@"	q=
+вёpN@"	q=
+вё░F@"	q=
+вё╟K@"	q=
+вёпA@"	q=
+вёпH@"	q=
+вёП#@"	q=
+вёП$@"	q=
+вёПI@"	{╝GА
+S@"	{╝GА*R@"	{╝GА:4@"	{╝GА:P@"	{╝GА:R@"	{╝GАJQ@"	{╝GАJR@"	{╝GАz@"	{╝GАz>@"	{╝GАz?@"	{╝GАzR@"	{╝GАzV@"	{╝GАzX@"	{╝GА┼R@"	{╝GА┼X@"	{╝GА P@"	{╝GА X@"	{╝GА╙Q@"	{╝GА╙R@"	{╝GА╨2@"	{╝GА╨;@"	{╝GАйR@"	{╝GАйS@"	{╝GАзP@"	{╝GАзS@"	{╝GАЗ6@"	{╝GАЗQ@"	{╝GАЗT@"	┘КQ╦4@"	┘КQ╦>@"	┘КQ╦P@"	┘КQ╦Q@"	┘КQ╦R@"	┘КQ╦X@"	┘КQ╦5X@"	┘КQ╦E0@"	┘КQ╦E:@"	┘КQ╦E<@"	┘КQ╦EQ@"	┘КQ╦ES@"	┘КQ╦ET@"	┘КQ╦eR@"	┘КQ╦eS@"	┘КQ╦┘@"	┘КQ╦┘8@"	┘КQ╦┘:@"	┘КQ╦┘?@"	┘КQ╦┘В?"	┘КQ╦┘Ш?"	┘КQ╦∙Q@"	┘КQ╦е7@"	┘КQ╦еP@"	┘КQ╦еR@"	▐бУ(\"@"	▐бУ(\.@"	▐бУ(\@@"	▐бУ(\I@"	▐бУ(\J@"	▐бУ(\/H@"	▐бУ(\OD@"	▐бУ(\OE@"	▐бУ(\▐+@"	▐бУ(\▐-@"	▐бУ(\╞A@"	▐бУ(\оG@"	▐бУ(\оJ@"	 ≥≥≥≥*@"	 ≥≥≥≥I@"	 ≥≥≥≥9R@"	 ≥≥≥≥IX@"	 ≥≥≥≥Y8@"	 ≥≥≥≥YT@"	 ≥≥≥≥YX@"	 ≥≥≥≥yS@"	 ≥≥≥≥┴X@"	 ≥≥≥≥≥@"	 ≥≥≥≥≥@"	 ≥≥≥≥≥)@"	 ≥≥≥≥≥?@"	 ≥≥≥≥≥P@"	 ≥≥≥≥╘R@"	 ≥≥≥≥╧J@"	 ≥≥≥≥╧Q@"	 ≥≥≥≥╧R@"	 ≥≥≥≥ы;@"	 ≥≥≥≥ыQ@"	 ≥≥≥≥ыX@"	 ≥≥≥≥ИP@"	 ≥≥≥≥ЫB@"	╓p=
+вD@"	╓p=
+вN@"	╓p=
+в#&@"	╓p=
+в#.@"	╓p=
+в#O@"	╓p=
+вCK@"	╓p=
+в┐@@"	╓p=
+вёO@"	╓p=
+вёю?"	╓p=
+вЦI@"	╓p=
+вЦO@"	╝GАzR@"	╝GАzS@"	╝GАzP@"	╝GАz.Q@"	╝GАz>P@"	╝GАz>Q@"	╝GАzNX@"	╝GАz^P@"	╝GАzn<@"	╝GАznS@"	╝GАznX@"	╝GАz~S@"	╝GАz▌P@"	╝GАz·Q@"	╝GАz╝@"	╝GАz╝@"	╝GАz╝R@"	╝GАz╬Q@"	╝GАz╬X@"	╝GАzН1@"	╝GАzН=@"	╝GАzНR@"	╝GАzЧQ@"	╦┘КQX@"	╦┘КQ87@"	╦┘КQHP@"	╦┘КQXP@"	╦┘КQXS@"	╦┘КQxR@"	╦┘КQ┬S@"	╦┘КQ┬U@"	╦┘КQ≤Q@"	╦┘КQ≤T@"	╦┘КQ╦4@"	╦┘КQ╦Ч?"	╦┘КQхP@"	╦┘КQьQ@"	╦┘КQХS@"	╦┘КQЬ0@"	╦┘КQЬ6@"	╦┘КQЬ;@"	цУ(\▐B @"	цУ(\▐B.@"	цУ(\▐BA@"	цУ(\▐BK@"	цУ(\▐BO@"	цУ(\▐bL@"	цУ(\▐bN@"	цУ(\▐┌C@"	цУ(\▐┌J@"	цУ(\▐┌K@"	цУ(\▐╒B@"	цУ(\▐╒C@"	цУ(\▐бE@"	цУ(\▐бO@"	цУ(\▐БA@"	цУ(\▐БM@"	млллл4@"	млллл8@"	млллл;@"	мллллC@"	мллллF@"	мллллX@"	млллл<S@"	мллллLF@"	мллллLN@"	мллллLQ@"	мллллLS@"	млллл\P@"	млллл\S@"	мллллlA@"	млллл|Q@"	млллл▄I@"	млллл╛C@"	млллл╛T@"	млллл╪S@"	мллллл@"	мллллл@"	мллллл@"	мллллл+@"	мллллл6@"	мллллл:@"	мллллл>@"	млллллO@"	млллллЛ?"	млллллТ?"	мллллэQ@"	мллллЛE@"	мллллЛO@"	мллллЭR@"	вёp=
+7L@"	вёp=
+W @"	вёp=
+W!@"	вёp=
+W.@"	вёp=
+WM@"	вёp=
+≈@@"	вёp=
+≈E@"	вёp=
+╥K@"	вёp=
+в&@"	вёp=
+в*@"	вёp=
+вA@"	вёp=
+вB@"	вёp=
+вN@"	Аz╝GS@"	Аz╝G!R@"	Аz╝GAX@"	Аz╝GQP@"	Аz╝Ga:@"	Аz╝Ga;@"	Аz╝GaP@"	Аz╝GaQ@"	Аz╝GaX@"	Аz╝GqP@"	Аz╝G║0@"	Аz╝G║:@"	Аz╝G║=@"	Аz╝G║X@"	Аz╝G╠Q@"	Аz╝G╠R@"	Аz╝G╠S@"	Аz╝GаP@"	Аz╝GЯS@"	ЛQ╦┘S@"	ЛQ╦┘T@"	ЛQ╦┘+8@"	ЛQ╦┘+S@"	ЛQ╦┘+X@"	ЛQ╦┘k6@"	ЛQ╦┘k7@"	ЛQ╦┘▀X@"	ЛQ╦┘⌡X@"	ЛQ╦┘╚7@"	ЛQ╦┘кQ@"	ЛQ╦┘кR@"	ЛQ╦┘К7@"	ЛQ╦┘ШR@"	Ж(\▐б5E@"	Ж(\▐бUI@"	Ж(\▐бuN@"	Ж(\▐б╣D@"	Ж(\▐б╣N@"	Ж(\▐бУ@"	Ж(\▐бУ@"	Ж(\▐бУ@@"	Ж(\▐бУG@" " " " " " " " C" H" L" Q" a ├Г 	╫
+╧
+"	Б)Й ■╗╗tЬ╫
+╧
+"	╡6Ю П╗╗t▀╫
+╧
+"	═"Ч ·▀ХЖ╫
+╧
+"	┬д ■)╗t╨	╫
+╧
+"	╙Б2 б≈╗tС╪
+╧
+"	нФ Д.Я╪
+╧
+"	╒9П И>╗tЭ╪
+╧
+"	РЗ7 ЙЦЦ.°
+╪
+╧
+"	└7┌ ┐йХ╙
+╪
+╧
+"	Д2П- ▄ввт╪
+╧
+"	Ь6═ ╚─u╘
+╪
+╧
+"	╟(П ╕Рцtр╪
+╧
+"	╟,╙ Х.▌	╪
+╧
+"	ч ╛ цО√.Ш╪
+╧
+"	Ф8Т# юк╗tп╪
+╧
+"	Чл ≥┘.╥╪
+╧
+"	ф╦ ╙.╡	╪
+╧
+"	Ф╛) АЙ╨.≈
+╪
+╧
+"	╪└ ф@╗t▄	╪
+╧
+"	┌Н; и╗tр╪
+╧
+"	▓4╤ ╬ЦЦ.╝	╪
+╧
+"	э6√ ю·┴	╪
+╧
+"	э@П ЬЫuТ╪
+╧
+"	Н)▄ К▐√.▒
+╪
+╧
+"	Ь)Х ░Ыд
+╪
+╧
+"	Т)Ю иа.≤╪
+╧
+"	√"Х кЭ╗tФ╪
+╧
+"	╟1х ╔Тф.╕
+╪
+╧
+"	╕+Р х≥╗tБ╪
+╧
+"	д#Ф ╫ж.Ч╪
+╧
+"	╕Ь ©▓.©	╪
+╧
+"	юю █²╗t⌠╪
+╧
+"	·"╛ Ш╪╗tШ╪
+╧
+"	ь.╪ мG╗tФ	╪
+╧
+"	╟╢ АX╗t░╪
+╧
+"	Н3┼, ▓┐╗tЕ╪
+╧
+"	■.■' ыЬ.▓╪
+╧
+"	╡*д  ╞Б╦┴В╪
+╧
+"	ь╓ Щ╔╪
+╧
+"	рЛ  дд╦┴о╪
+╧
+"	Зл@ ╧пцt▓╪
+╧
+"	√1ь з▄1┴▒╪
+╧
+"	Йх  ╓╦╦┴ф	╪
+╧
+"	╝х, в┤.я╪
+╧
+"	э-╒ ┌uИ╪
+╧
+"	б▄ ╚░uГ╪
+╧
+"	╤Э ²▄.ъ╪
+╧
+"	╬▄ ╝з~┼Р	╪
+╧
+"	┬6  ╛гuх	╩
+╧
+"	Х  ▄00⌡┬╩
+"	т/≤ ┼╗╗tХ╩
+╧
+"	Т&╢ ╪ЪЪz▀	╩
+"	х2└ Р┬Л⌡╟╩
+"	┼+з Ь|╗tЛ╩
+╧
+"	√5з ╔∙uц
+╩
+"	°9╨  ╤Сф.≈╩
+╧
+"	╕/╢ ╪│.п╩
+╧
+"	Ют л█√.╘╩
+╧
+"	╡"░ ┴Е.ф╩
+╧
+"	░1П ╒.ё
+╩
+╧
+"	б.╬ ╥╘╗t░╩
+╧
+"	Ф%З ╞.║
+╩
+"	т,├ зЖЛ⌡м	╩
+"	х-· ⌡╗╗tэ╩
+╧
+"	═'й г╛.О╩
+╧
+"	Фх °,╗tи╩
+╧
+"	х╦5 ш╢╢⌡з╩
+"	╪▌ ┌╗╗tН╩
+╧
+"	┬#Р ╡f╗tУ╩
+╧
+"	Э=э  └ццtг╩
+"	╢└ Д°.С	╩
+"	ф/▓ л÷÷z╗╩
+╧
+"	·П ╙╨╣е╩
+"	Ю6З ─.÷
+╩
+"	ф:╝ ф╡╗tЙ╩
+╧
+"	Б ╪ бААП╩
+╧
+"	°/б А.е╩
+╧
+"	ф/х ╗╛ё.е	╩
+╧
 "	▓
-╓6 ы.еб
-"	р0Х с╘║wдб
-"	≤"б ╚─xА	б
-"	╟(П Ё©©.▌
-б
-"	╓:Й Йy.┘б
-"	л╢ пz.╪	б
-"	Ю"Т Шx╣
-б
-"	б▄ Ю.Нб
-"	Ю0д ш.вб
-"	Ф2╓ пи.Мб
-"	Й3н ÷©©.Гб
-"	Б7┬ │.Нб
-"	ь6≤ с╩.Зб
-"	╒1П Д.╦	б
-"	Ч4┼ Б.Т	б
-"	■3╓ Э╒xдб
-"	░8н ·ь║wф	б
-"	╬/┬ Э┘.┴	б
-"	Ж)■ л.²б
-"	Т0х М░░.Юб
-"	╗5э щ.╓б
-"	┬:ь з╫╫w└	б
-"	п6ч О.Ьб
-"	П;ж ╘║w б
-"	√═0 лГ╫wТб
-"	─#╬ ╔.│	б
-"	╡Р ╗╩.©	б
-"	┌1Н ─Н©.тб
-"	з#╗ Й.Еб
-"	Л+ж л]║w╢
-б
-"	─1≤/ ▄.нб
-"	┬'┼ в╘║w·
-б
-"	╤:Й └.°	б
-"	чн ╛)║wпб
-"	ЮЖ2 уB║wй	б
-"	 ╢9 А░░.Уа
-"	≤)╦ я╫╫wЭа
-"	─$н чt.д	а
-"	З Э) ╡╫╫w╖а
-"	Й4╪ ╣ээ.иа
-"	╬"■ Э╫╫w≤а
-"	╬4Б щяяёа
-"	п?Ж ²жя╕
-а
-"	·8р И9║wша
-"	°
-├6 Н╫╫wяа
-"	╝3ч ╤О©.└а
-"	╨)┌ д//≈ма
-"	ж0п ╫?║wЛа
-"	┌Н; ╕.н	а
-"	╢/т
- ╢░░.Га
-"	╪ч6 Ч²².≥
-а
-"	╙3t ╤ээ.П	а
-"	э6√ ≥Ьx╞а
-"	├2З Ф>║w╣	а
-"	РЗ7 ⌡j║wх	а
-"	°· С.▀	а
-"	▄л
- ┐#║wШа
-"	░╪( В╦xла
-"	ч-─ ╗в║w╕а
-"	░<ь лЫ─┬эа
-"	■─ Щm║wыа
-"	╛├ ДA║wФ	а
-"	└
-√8 КФ╫wга
-"	╨-╪ а⌠║w┐	а
-"	д#Ф ╪.эа
-"	т╒ ь.╬	а
-"	ф/х ┤ээ.▓а
-"	ь7Р ╕.╛	а
-"	Ь<■ шМ©.аа
-"	ХЧ> ≥xxё	а
-"	╡ж еЪэ.╬
-а
-"	н8Б м══ш	а
-"	ь6╤ ╜юxиа
-"	Х  ▄ы╓█
-а
-"	Р6ж уZ║w▌а
-"	Н4░' ╬··ба
-"	Н3Ф ц║║wда
-"	Э.▌ │.╦
-а
-"	═,■1 ┐┤ж	а
-"	╨!═ Ш
-║w└а
-"	╕р% ч╨╜┌	а
-"	Н6╕ ╠яя╥
-а
-"	Д?П ²©©.╝а
-"	Ч,╒ ╘.≤а
-"	т,├ ╢.╪
-а
-"	д5Э ЖH║wЁа
-"	┬░ ╬u║wаа
-"	╦Н'  ⌡║w▄
-а
-"	Д9 ┤ёА║а
-"	п3▄, ╧│.╒а
-"	Ют Йxxу	а
-"	─2н ╟╓╓└
-а
-"	▓6н в├0┬╜а
-"	Йх д╜╜За
-"	╗8· ┼▐▐{▒а
-"	п	ч ┘Н©.на
-"	■,╕ ▒Q║w╩а
-"	▄,Б0 ╚ДД┬з	а
-"	╟7■ Ё╓║w■	а
-"	ф+Ж ╟g║w╝а
-"	Э=э  Лбб≈фа
-"	▄/п иxx┼	а
-"	х,╕ Ёй╫w▀
-а
-"	√1ь ╢╝x╢а
-"	╓▓ ╪Н©.▄а
-"	ь6п ЪФ╫w╟а
-"	░-╕
- ▌╔║wша
-"	╟,╛ ╕║wюа
-"	╪=ж ╓Йx┐а
-"	─	╦ ┼©©.Та
-"	╤=й ╒.па
-"	╗≤6 х≥≥{⌠а
-"	·П ©▒║w╚	а
-"	нФ °║║wС	а
-"	▌>▓ ≥╓╓▄а
-"	╤3° ╝≤x╦а
-"	═/л ╘║║w╚а
-"	╝З@ цБ─┬┴а
-"	ф6═ ╠╧╛≈┼а
-"	╢.Й ╔╫╫wт	а
-"	╕.Т ╜╩╩┬╛а
-"	<т3 жЕЕ≈╫а
-"	Р0Л рёёwюа
-"	П4╬ Ш.оа
-"	Ч6√ иE║w╫а
-"	╟╢ ры╓Аа
-"	▄5ч ⌠Ч║wы	а
-"	■.■' Е.ъа
-"	т5═ ∙▄╩┬┼
-а
-"	х8Й# Эь║w┬
-а
-"	ь0╬ и╥┐┬за
-"	─3Ч а╙┐┬┴а
-"	р(└ │.┌
-а
-"	ф:╝ ╟M║wп	а
-"	й╝ щ.╖а
-"	▓.╢ Ыь║wма
-"	 /Х Ы║w▌а
-"	р'└ о┘║w 	а
-"	·/╒$ ┐Яб≈░а
-"	Б%√ ╧≤Ыа
-"	э@П ╝ ВЁа
-"	тЮ ╞──┬Уа
-"	Л1Й ╣▌║w▀а
-"	╗/Д Лxxв	а
-"	ю , ╥а║wца
-"	╡;╒" Н╫╫w┬а
-"	ь&╛ ▌√║wыа
-"	Р+┼ ╠xxД	а
-"	·+╨ ╖h║wьа
-"	Ж;Ж# я.─а
-"	╓Ж ─║║w─	а
-"	▄9р ≥.Ра
-"	Т0┬ ╛▄║w▓а
-"	√)╙ ┘цА╩
-а
-"	Д2П- ╟╛╛≈Юа
-"	·/Ч ╖┬┬|▀а
-"	√7Т ≤,║wх
-а
-"	х╦5 Цв║wба
-"	▄9y ╖xx╞а
-"	·+х& Ч//≈Ц	а
-"	т/≤ Ф2║wЩ	а
-"	н╤: ≈╡╡.▐а
-"	■8■ ╤ШШ{╥а
-"	х2└ ÷.█а
-"	ф╒6 б╙║w╨а
-"	Б ╪ ╡ЩЕ≈╨
-а
-"	Тх> яПЕ≈╜а
-"	х-· ©╬╟┬╥а
-"	Зл@ ╠%║wН	а
-"	Ж#ч/ г.═а
-"	╢+Д, гf║w©а
-"	п9Ф  ё-║wСа
-"	░╨6 е{∙а
-"	╓1Ж ╥║║wЪа
-"	Ф%З ▀║║wЪа
-"	╡6Ю Б.░а
-"	■:н ═.╪а
-"	бч Г║║w≥	а
-"	┌7╤ М╤║wха
-"	ь.╪ Т=║w╬а
-"	 ░; ╝&║w┤а
-"	╡≤5 ║╕║w┤
-а
-"	╬'Н  Пxxя	а
-"	═	Б √xx▒а
-"	ю!д1 ░G║w╓	а
-"	бй см║w╤а
-"	т2┌- р║║w╪а
-"	ч'╤ ф.╕а
-"	н*° ╛I║wщ	а
-"	═▄ ÷╫╫w╡а
-"	Х6# ВN║w°а
-"	╬╡ Е5║w├а
-"	·┼9 Гxx├
-а
-"	Н╓ ЩX║w┤а
-"	Ь4╤% ё╟╟┬Ш	а
-"	╝х, Сk║wла
-"	бэ	 ЖJ║wь	а
-"	Йб ⌡.╕	а
-"	Зн	 ░⌠│≈Х	а
-"	▄-═  ┼ ║w≈а
-"	Й:▌ Л║║wг
-а
-"	═"Ч Л╞©.©а
-"	жб# п║wЭ	а
-"	╙)Ф а║║wка
-"	─+▌ Ш.га
-"	ЗЧ ▒$║wЬа
-"	З┼, ╨░.еа
-"	■
-з Уxx┴
-а
-"	Д.╨! уИ.эа
-"	й%э Ё.┌а
-"	°Н ╔.┐
-а
-"	°Й ┤²²{╤
-а
-"	Фз8 К.╚а
-"	Л4╟* ╩Э║w╬ю
-"	Х&ч Г.Р	ю
-"	╢≤ ∙т.╓ю
-"	ж-Ю й║║w⌠	ю
+╓6 ┼.╦╩
+"	ь0·	 Ы.З╩
+"	Ч6√ тЩ┘┴Ё	╩
+"	■─ е│╗t█	╩
+╧
+"	Х&ч ╢┌Л⌡о╩
+"	Тх> Э.┘╩
+╧
+"	╓з Т u╠	╩
+╧
+"	─╓ Ф╩╣Ф╩
+"	Н6╕ °┐.║╩
+╧
+"	╗+т ╗╕.Н╩
+╧
+"	▄1Ф	 ╞╗tЁ╩
+╧
+"	▓.л е.М	╩
+"	ю+Ь ╒╗╗tц	╩
+╧
+"	ф6$ У╗╗tЕ╩
+╧
+"	╦$Д ©ввК	╩
+╧
+"	╡4Р хщ╗tД╩
+╧
+"	╤/╗ Л╗╗tК╩
+╧
+"	┌7╤ н.Х╩
+"	┼1б ≥.┐╩
+"	Н.Й т√вГ	╩
+"	Б6р ▄╗tС╩
+╧
+"	Ь3Т Ы╨╣│╩
+"	Э3Л Я╕√.╔
+╩
+"	╟0ю Ъч╗tФ╩
+╧
+"	ь0╬ ┴щ╗t╗╩
+╧
+"	Э0╟ п╗╗tн╩
+╧
 "	р.▌
- Ях║wМ	ю
-"	╨1п
- С╚║w│ю
-"	х$З ▄║║wвю
-"	═'й ░.йю
-"	┼Э4 йR║w╡ю
-"	╟*З) Зф.╧ю
-"	ч╬ °.Вю
-"	Э┌ ▌·x█ю
-"	ПЧ ·╩.┼ю
-"	Т▓ И║w■ю
-"	╦G ╨█√ю
+ ъъ╚╘	╩
+"	р5п ╚╗╗t╒
+╩
+╧
+"	Р/п И╜┘┴д╩
+"	Э!╢ ▀∙∙z╓╩
+╧
+"	п	ч ╫▒П╩
+╧
 "	┬
-} ┼.╒	ю
-"	Х╝ ╙+║w╙	ю
-"	┬°2 ЖЖю
-"	рЛ мН©.╔	ю
-"	Б@Ч Ъ╫╫wс	ю
-"	тд ▐╫╫wюю
-"	Х+╟ ▐.⌠ю
-"	·ф └║║w│
-ю
-"	┬#Р ∙.Яю
-"	└,Х0 т.╧
-ю
-"	≤5┌' ═.╤ю
-"	╓╬ ┌.аю
-"	н╝ ┐'║w╪ю
-"	╦П5 ╤╖║w╬ю
-"	н+Ф# ┴Ж.├ю
-"	?Ю0 ┬P║wЮ	ю
-"	╢*╟, ╒.╩ю
-"	жз ⌠.рю
-"	┌<╨# ╙▒xЛ	ю
-"	°9╨  к(║wАю
-"	┼Э6 ▀÷║wо	ю
-"	п+Ь! ц▐.²
-ю
-"	ю$2 Ъ.·	ю
-"	╒╗ З.Мю
-"	Лн: ю.╙ю
-"	▄-╡
- ┴║║w∙
-ю
-"	Т&╢ ╨║║wСю
-"	чт> В║║wц	ю
-"	╦$Д я┬┬|·ю
-"	╛9З А╫╫wБю
-"	╙+п дxx╚
-ю
-"	╓*Д3 ╒.лю
-"	▓6 ≤щщ┴Сю
-"	ЖН< ▐║║wЗ	ю
-"	З·8 ╘.Чю
-"	╛╗4 ┌кк{Ию
-"	Т╝ ХФ╫w╟
-ю
-"	л0Ф ьxйю
-"	Лж б▀▀|зю
-"	╗$╬@ Р.╠ю
-"	ю@╤ Ьл║w≤
-ю
-"	д'╨! ъ.К	ю
-"	З:Q Р.е	ю
-"	╕д4 б║║wРю
-"	■═ ╫д║w╓
-ю
-"	Чл о√√┴ъ	ю
-"	■Л6 д©©.ию
-"	╟Ю5 ╫╫╫wРю
-"	ю5╤ Х┌Е≈Дю
-"	┼+з У┐⌡{Лю
-"	╗┌  ╞xx╡	ю
-"	╓)б+ Ч.ч	ю
-"	Т:_ у.Кю
-"	й@э √╛.Аю
-"	п%Р ТxЧю
-"	─╓ кззКю
-"	√:^ ╣!║wКю
-"	ь╦* ю.╨ю
-"	Р3Б ≤.⌡ю
-"	ж*Р. е.Яю
-"	╢#д ║.²ю
-"	▓7ж
- ╦.Йю
-"	Й8╕ ╛.╥	ю
-"	╤?░ т.≈
-ю
-"	д5Ж н▓яЮю
-"	Б6р ■.╘ю
-"	╒@б Т╫╫wфю
-"	╨?▓ ╥.Йю
-"	╝/% ы°°|цю
-"	ю!· эЕЕ≈©ю
-"	Ьн К╕─┬▓	ю
-"	Э!╢ Я╫╫wЩю
-"	╛?═ ь╛╛≈ч©
-"	╪▌ ╩ззЭ©
-"	°/б ╢.▐©
-"	х)Т" Ь░░.°©
-"	╡7 ╞╫╫wф
-©
-"	з0Ф К╫╫w▒	©
-"	Ж6й ═Уе≈е
-©
-"	Ж.· Г//≈┘
-©
-"	°6┬ ┴}.╘	©
-"	н;д ╪ЕЕ≈░	©
-"	л5Э ё  ┴╫©
+} м└Ц.▐
+╩
+╧
+"	н8Б ┐╘uб
+╩
+╧
+"	п▄ й00⌡│
+╩
+╧
+"	ж0п ╩╚╗t╞
+╩
+╧
+"	ф+Ж ыо.╠╩
+╧
+"	Й3н З╘uЗ╩
+╧
+"	░8н ≤≈├⌡╫	╩
+"	▄-═  ┘.╜
+╩
+"	Т:_ ≤╗tы╩
+╧
+"	п3╟  .╚╩
+╧
+"	Н%Т О.Ь╩
+╧
+"	Й0·	 ЕХХЧ╩
+╧
+"	Л4  ▒.≈	╩
+╧
+"	Ю3й ╦w╗tР╩
+╧
+"	Д4q ▌╗╗tд╩
+╧
+"	х0╙ А u·
+╩
+"	Лж е·╗t╦	╩
+╧
+"	Л,ч	 ▌╔uж╩
+"	ПЧ Жuu■	╩
+"	Д.╨! р╫└┴И╩
+"	─3Ч ╧!╗t╓╩
+╧
+"	ь╦* Ы╘uя╩
+╧
+"	Э(■4 М╗tГ╩
+╧
+"	▓3▄ э╖uё╩
+"	З╛ ╘  ┼┤╩
 "	Й
-· г╚x▐	©
-"	б	╗ ├╫╫wщ©
-"	╢└ ├.┬©
-"	╢└* ю.П©
-"	ю+Ь М■xд
-©
-"	 ░	 с├.э	©
-"	Л!Т- ·.╠©
-"	▓9 Ъ.┘©
-"	Л!б) З.р	©
-"	б─ х.н©
-"	Б&≤ ╠╫╫wк©
-"	╝;╬ ╦╜.▌	©
+· ∙▐╪┴н╩
+"	х8Й# ъ.д	╩
+╧
+"	т3╤ ┘uuМ╩
+╧
+"	╓(п ┼╗╗t╡╩
+╧
+"	ф/ф Дuuм╩
+"	Н╓ ╢╗╗tй╩
+╧
+"	┌1Й Е.Ц╩
+"	б:▓ ╦╗tх╩
+╧
+"	з.■ Ъ╗t┬	╩
+╧
+"	╢/7 кИ┘┴─╩
+"	ф6═ Бь║.е╩
+╧
+"	▌'╗ ╒Ё.░
+╩
+"	п%Р м²╗t▒╩
+╧
+"	Ж+┼ ш╙╙t╗	╩
+"	П4╬ ╛╗tА╩
+╧
+"	╪=ж ─╨╨.Д╩
+╧
+"	 4≤ Гщ╗tё╩
+╧
+"	▄9y ╖/ ┼а
+╩
+"	Д)ч ┐Z╗t▐╩
+╧
+"	Ь4╤% С°╗t╬	╩
+╧
+"	Т+┼ ТJ╗tч╩
+╧
+"	┬░ ┐яяzл╩
+"	Т╝ ыЛЛ⌡▌╩
+"	Р0Л ЗМцtЧ	╩
+"	Ж:┐ ╩.≥	╩
+╧
+"	д5Э Ы╬uл	╩
+╧
+"	ч-─ ∙Ю╚╛
+╩
+"	Р6ж Л╗tЩ╩
+╧
+"	╙.Ю √.╧	╩
+"	╒@б Эн.√	╩
+╧
+"	нФ	 Вццt²
+╩
+"	Ж6й ┘.у╩
+"	°?░ ╩ЦЦ.О╩
+╧
+"	╬"■ Р.┼╩
+"	╡6$ ╡╗t╣	╩
+╧
+"	ж.l К√√.г	╩
+╧
+"	╗5э ф╗╗tУ╩
+╧
+"	─+▌ ▀╗╗tк╩
+╧
+"	й6& Ж.М╩
+"	П.╟ ├╗╗t├╩
+╧
+"	ф6" ш╠╗tО	╩
+╧
+"	≤"б У8╗t╒╩
+╧
+"	√
+√6 ╜ццtЛ╩
+╧
+"	Х╛$ Г╢╢⌡╠╩
+"	╪▓ ─╒╗t√
+╩
+╧
+"	Ф:] ╧╢╢⌡└╩
+"	·/Ч ▓ввЙ	╩
+"	Н?З ≥шви╩
+╧
+"	·8р в╧uЙ╩
+"	л╗0 С┴╒z┌╩
+"	╗┌  ╖.╜	╩
+╧
+"	Ь<■ Б2вР╩
+╧
+"	╗%Ь* ЪY╗t╚	╩
+╧
+"	·8▄% М9╗tД╩
+╧
+"	°
+├6 °фф.╖╩
+╧
+"	╝4э ²╚╚Ц╩
+"	╤3° ё.А╩
+╧
+"	▓6 жа.Ы╩
+╧
+"	╒1П ▌╗╗t⌡	╩
+╧
+"	▄9р ╦uuЪ╩
+"	·+╨ Ё⌡╗tш╩
+╧
+"	╕%╟ а╓╓к	╩
+"	Н3Ф В╞╗t╙╩
+╧
+"	√*├ Ж─.В╩
+"	3╦ УuuТ╩
+╧
+"	╡.╢ Х ╗tф╩
+╧
+"	Н$  й╞.═
+╩
+╧
+"	з
+ь: Е┤.ю
+╩
+"	н2╨ ъ┼uН╩
+╧
+"	Й2л ╔.б╩
+╧
+"	Ю,д	 Ё╗tс╩
+╧
+"	√═0 лz⌠	╩
+"	╓1Ж Хuu╢	╩
+╧
+"	─2н ╢▌К┴Ы╩
+"	╟7■ ╝Сф.≤
+╩
+╧
+"	б;р з╗╗t∙
+╩
+╧
+"	ч'╤ щу╗t╞	╩
+"	≤-√2 яэы{Л	╩
+╧
+"	Ьн ║ццtб	╩
+"	╕.Т ╪.В╩
+╧
+"	╙1л ах╗t▓
+╩
+╧
+"	╡;╒" Нuuа	╩
+"	═	Б ╡.╞╩
+"	╤?░ ░╗t╛	╩
+╧
+"	╡5ж Ф┌.г╩
+╧
+"	пж Еввй╩
+"	п?Ж ═ёё.╙	╩
+╧
+"	 
+░6 Юццt╕╩
+"	╙+п ²uuи╩
+╧
+"	╡ж хuuЮ╩
+"	╓*Д3 ╨╣uБ╩
+╧
+"	╓▓ ╓.─
+╩
+"	ж*Р. ░.╟╩
+"	б3ю чс╗t╖	╩
+╧
+"	з9·$ йфф.Ш	╩
+╧
+"	╤;ч с╖╖╘╩
+╧
+"	ь6╤ ╞╗╗tч	╩
+╧
+"	Н3х оe╗t┴╩
+╧
+"	п9Ф  ╙Яuэ╩
+"	─	╦ ъ≤√.÷╩
+╧
+"	й+° Яццt╓	╩
+"	╛?═ Иv.ш╩
+"	▄%Ч  Н≤u⌡╩
+"	 ░	 Шuu┘╩
+"	╡?╙ █c╗t═╩
+╧
+"	л<Н" бТф.└╩
+╧
+"	ь6п ╢.у	╩
+"	Р.┼ ╠╝в√╩
+╧
+"	Р$╕& Я00⌡║	╩
+"	°6┬  M╗t▌
+╩
+╧
+"	╕Ч	 ┼╗t╢
+╨
+╧
+"	▌н' ┌.ж╨
+╧
+"	ь6≤ Шk╗t┤╨
+╧
+"	╛├ ╠╧╢⌡╡
+╨
+"	╢.Й Шццt╪╨
+"	╨?▓ пб.в	╨
+╧
+"	≤.┌3 ё⌠uИ	╨
+╧
+"	Ф/э ╤╗t ╨
+╧
+"	ю2ь ╥.╝╨
+╧
+"	°+≤ х⌠.╢╨
+"	ю$2 ╔.·	╨
+╧
+"	└9╕ Ъццtэ╨
+╧
+"	┌>н  СA╗tЮ	╨
+╧
+"	х╒; ╒.ы╨
+╧
+"	╢/т
+ ТЧuю╨
+╧
+"	Ф5э Йии⌡с╨
+"	▄/п д.├
+╨
+"	Р3Б ≈Мцt│╨
+"	д"Т ▒}.╡╨
+"	н;д ч.ш╨
+╧
+"	Ф2╓ Щ.к╨
+"	б─ ÷╤╙t╩╨
+╧
+"	Н4╙ Ье.ж	╨
+╧
+"	ч▌ и.р╨
+"	╢#д Ж.ь╨
+"	Ю6З ф╠└┴┌
+╨
+"	р(└ ⌠фф.∙╨
+╧
+"	╤=й ═.©╨
+╧
+"	т.л └┬з╨
+╧
+"	╨!═ ё▌▌{Ю╨
+╧
+"	√7Т Ёццt▌╨
+"	╝;╬ ▀▒u═╨
+╧
+"	т5┼ ┌=╗t┴
+╨
+╧
+"	 ░; √╗╗tц╨
+╧
+"	─5k Ю.╬╨
+╧
+"	┬:ь г.з	╨
+╧
+"	▓8Ь  ┬Ви⌡╤╨
+╧
+"	Б%√ ·╗t╒	╨
+╧
+"	╨"ж ╥%╗tт	╨
+╧
+"	╡≤5 │м.─╨
+"	ч╬ ▐.ъ╨
+╧
+"	П,╓
+ Нx.┘	╨
+╧
+"	л╢ Бццt┬╨
+╧
+"	п6ч ©©╗t∙	╨
+╧
+"	Ь░ чП.ы	╨
+"	й%э к╡u≤╨
+"	б	╗ щццtЩ╨
+╧
+"	┬5┌ ╖ццt▐╨
+"	├5┌ ©╚╚ц╨
+"	П8╟ ╥uu╒╨
+"	╓)б+ ╨ццt╞╨
+╧
+"	Й4╪ б╢.╕	╨
 "	Z 
- ╬╫╫w█	©
-"	ь8э ─.Ы	©
-"	З#╝ Ббб≈⌡©
-"	■/Ж ╡.П©
-"	√?н ┤.╫
-©
-"	°?░ ╓РЕ≈Ь	©
-"	°&╕ т╫╫w╗	©
-"	й7Ф$ █.╖	©
-"	╪	Т ⌠.Ё
-©
-"	▌?° ╣══√	©
-"	┬5┌ °╫╫wЦ©
-"	РБ ╗.Ж©
-"	Ч5Б п║².╣©
-"	╝ь* ╡сс|║©
-"	Н╨
+ ≈ццtч╨
+"	Х+╟ шx.├╨
+"	─:╬ ▐╙ХП	╨
+╧
+"	п3▄, оuuз╨
+╧
+"	х,╕ цццt╣╨
+"	ю5╤ ╨ццt╠
+╨
+"	ч6 ╜÷uЁ╨
+"	═/л Ь╥ф.┤	╨
+"	жб# уuuЭ╨
+╧
+"	╓>Р Щццtю╨
+"	тд цНцt╨╨
+"	ь"Ж Ц░uп╨
+╧
+"	╢4■! М.Ч╨
+"	╢,╨ ⌠╗t╦
+╨
+╧
+"	╗(▌ Бu║╨
+╧
+"	└П, ╠┘┘┴█╨
+"	Л1Й Ц.└	╨
+╧
+"	╨5╛ ⌡uuь╨
+"	ю!д1  ≈ДД┼б╨
+╧
+"	ЖН< ⌠.·╨
+"	Р0 ╤.╬╨
+"	х)Т" Юа. ╨
+╧
+"	├-╬ ┴├.≥╨
+╧
+"	Ж)■ ю╓0⌡л╨
+"	ч/╓ ■ЦЦ.╫╨
+╧
+"	ь7Р ╜╪╪┴╢╨
+"	<т3 ⌡*╗tХ	╨
+╧
+"	Юэ2 ╧╕√.≈╨
+"	≤@° ╠uuЕ	╨
+"	·+х& Ё√√.с╨
+╧
+"	╪ч6 н.Ъ	╨
+"	н*° ║Зл⌡щ	╨
+"	Ж.· жx.┬
+╨
+╧
+"	╨ж Оццt╧╨
+╧
+"	ь&╛ ┤Ш.я╨
+"	?Ю0 ▓.─	╨
+╧
+"	╡╡ ХСф.╟
+╨
+╧
+"	й5─ ы▌▌{Ё
+╨
+"	╛9З ╝а.ы╨
+╧
+"	┌1Н  ╔╗tу╨
+╧
+"	п+Ь! р  ┼Ъ╨
+"	■Л6 Щфф.≥╨
+╧
+"	эл5 ÷-╗tо╨
+╧
+"	░╨6 П.у╨
+╧
+"	▄л
+ ╡фф.²	╨
+╧
+"	╓:Й ╝ццtЯ	╨
+╧
+"	─Х3 я'╗tэ	╨
+╧
+"	┼Э6 └╗t╫╨
+╧
+"	й( эю~┼ь	╨
+╧
+"	═9} ю■.╔╨
+"	■
+з ╗h╗tД	╨
+╧
+"	°· ╦.°	╨
+"	э8Х ╣K╗t█
+╨
+╧
+"	═▄ с.х╨
+"	┼&┌ О5╗tш	╨
+╧
+"	·┼9 ╓.╣╨
+"	бч ∙.в╨
+"	▌?° ч.н╨
+"	й@э │&╗tъ	╨
+╧
+"	╦П5 ═а.▄
+╨
+"	Т▓ У.©╨
+╧
+"	┬╤  Мuuщ╨
+"	ю , Га.┐	╨
+╧
+"	Б─ ╨Уф.╖╨
+╧
+"	╨)┌ нg╗tт╨
+╧
+"	 · Л══sН	╨
+"	Н1╤ ▐а.с	╨
+╧
+"	йП ┴ццt⌠╨
+╧
+"	ж1Х Ч.╥
+╨
+"	З#╝ ▒.┤
+╨
+╧
+"	┼;  Йа.╧╨
+╧
+"	ЙТ> дщ╗tё	╨
+╧
+"	эa щ.ж╨
+"	≤5┌' К╗╗tм╨
+╧
+"	╡@  ╜.√╨
+╧
+"	╗≤6 ь.Ш╨
+╧
+"	└╡6 лфф.▓	╨
+"	╟Ю5 ╫.Р╨
+"	Йп ╕.м╨
+"	╗д з╟╗tЗ	╨
+╧
+"	╤:Й ·.л╨
+"	жз ╟+╗tА╨
+╧
+"	┬°2 уТф.╪	╨
+"	Б@Ч у.⌡
+╨
+"	·7  к┘┘┴╕╨
+╧
+"	з;┼ у╗t╟	╨
+╧
+"	╙)Ф пццtИ╨
+"	Э7╕' Ч
+╗tх╨
+╧
+"	╕р% ╟O╗tп	╨
+╧
+"	й╝ П╘u█╨
+╧
+"	Н└* Ю.≤	╨
+╧
+"	╓8Н ≤.М╨
+"	Х╝ ║а.ь╨
+╧
+"	х╝. ⌠Тф.■
+╨
+╧
+"	■,╕ ┬.Ц╨
+"	Лн: ╣.Ц	╨
+"	нэ о≥╗tй╨
+╧
+"	≤6├	  .Ы	╨
+"	┌<╨# п.Л╨
+"	╢+Д, ⌡фф. 
+╨
+╧
+"	Б7┬ о.Я╨
+"	Ю1б м.⌠
+╨
+"	≥╛
+ ЛB╗tХ╨
+╧
+"	└
+√8 Тb╗tа╨
+╧
+"	Т;√& ╤а.Я╨
+╧
+"	√Д ФМцtП╨
+╧
+"	л0Ф Й`╗t┼	╨
+╧
+"	╬-ю1 ≤.╓
+╨
+"	Зн	 Эёё.Б	╨
+╧
+"	╙3t │Ё╗t╝
+╨
+╧
+"	х$З сy.К╨
+╧
+"	Ю"Т │╟╗tЖ╨
+╧
+"	ч!л ж6╗t╚
+╨
+╧
+"	Д┌7 ├Тф.╗
+╨
+╧
+"	з#╗ ╬╗╗tю	╨
+╧
+"	╕:■& ▐.Щ╨
+╧
+"	═,■1 й.щ╨
+"	═╢( вр╗tо	╨
+╧
+"	т2┌- ╙а.Ь	╨
+╧
+"	≤╗ ╘.╖
+╨
+"	Э┌ К╗tК╨
+╧
+"	√02 ЧP╗tЙ╨
+╧
+"	╬╡ ┤x.■╨
+"	ЛЧ ┤_╗tъ╨
+╧
+"	п,■3 █.©
+╨
+"	╒╗ Вб.▄╨
+╧
+"	─6╨% П3╗tи	╨
+╧
+"	н╤: ╣l╗tф╨
+╧
+"	╛
+ж ╗щ╗t╜╨
+╧
+"	░<ь с.А	╨
+╧
+"	ю6╒' РФ╨.ч╨
+╧
+"	├Aж ─.Ю╨
+"	╕д4 °.╝╨
+╧
+"	Х-╓ а4╗tв╧
+╧
+"	Л╬< ь▀╗t÷╧
+╧
+"	·/╒$ ЦСф.╩	╧
+╧
+"	ХЧ> └d╗t╜╧
+╧
+"	╓:╡ ╓.щ╧
+"	╛╗4 ╕.╬
+╧
+"	╦6╓ ≥б.н	╧
+╧
+"	р.Й ╛╜╗tц╧
+╧
+"	╬'Н  ═.≥
+╧
+"	╟)ф р^╗t┴╧
+╧
+"	─1≤/ █I╗tГ╧
+╧
+"	бй ÷S╗tю╧
+╧
+"	▄,Б0 э┤.╦╧
+"	Л!Т- З╗t©╧
+╧
+"	┬2З Чт╗t┘
+╧
+╧
+"	Ф@х т.р	╧
+"	╓Ж ь╗ё.═	╧
+"	╝ь* ∙R╗tЗ╧
+╧
+"	╢*╟, ²╗╗t╬╧
+╧
+"	З·8 ≈.┌	╧
+"	└,Х0 ца.а╧
+╧
+"	┬· г██{·╧
+"	╗$╬@ ╚Q╗tВ	╧
+╧
+"	╝╤ жццt╫╧
+╧
+"	─$н ╬.²╧
+"	Й8╕ ╥$╗t│	╧
+╧
+"	Ж#ч/ ╕.▀
+╧
+"	°Й И<╗t├	╧
+╧
+"	╪Т< ╘▓╗t°╧
+╧
+"	√)╙ ВL╗t▒	╧
+╧
+"	Йб ·H╗t²╧
+╧
+"	╗╡ ╘╗╗t┼
+╧
+╧
+"	╝З@ и╗╗t÷	╧
+╧
+"	■═ Фа.╪╧
+╧
+"	З Э) ░.╥╧
+"	·ф а╗╗tб╧
+╧
+"	чт> ё.╛╧
+"	ф╒6 √]╗t°╧
+╧
+"	╪.░4 ьD╗t┐╧
+╧
+"	 ╢9 ╫■╗tа╧
+╧
+"	╗/Д ╣.▄╧
+"	°Н ▄╛╗t╩╧
+╧
+"	╟,╛ ╪╝╗t▀╧
+╧
+"	н+Ф# Зi╗tЫ╧
+╧
+"	бэ	 Г╗t└
+╧
+╧
+"	╦G нT╗t┼╧
+╧
+"	╟*З) эa╗tв╧
+╧
+"	Н:т% яC╗t╨╧
+╧
+"	Ж
+Р@ ╛(╗t┐
+╧
+╧
+"	ЮЖ2 СМцtя	╧
+"	╢Р ■╗╗tЭ╧
+╧
+"	╛Ь@ р:╗tЖ	╧
+╧
+"	░д: ▌#╗t⌡╧
+╧
+"	З┼, щV╗tЖ╧
+╧
+"	└+≤. ▒.╛╧
+"	┼Э4 ╟	╗tО╧
+╧
+"	хЖ' Э╗t╚╧
+╧
+"	р'└ дq╗tг╧
+╧
+"	╦Н' ┘E╗t╥	╧
+╧
+"	╢╕; Р╩╗tУ╧
+╧
+"	 -╟ НW╗t░	╧
+╧
+"	·.х+ ÷╗╗t╙╧
+╧
+"	▌>▓ ЦN╗tБ╧
+╧
+"	Рт Яj╗tУ	╧
+╧
+"	хн ╖║╗tТ	╧
+╧
+"	Д9 г╗╗tк╧
+╧
+"	ХР> Д╗╗tд╧
+╧
+"	э*┼ в[╗t╤	╧
+╧
+"	Н4░' ╟7╗t▐	╧
+╧
+"	╓Й7 ┬═╗t╤
+╧
+╧
+"	Й:▌ т\╗t∙╧
+╧
+"	н5√& ├?╗t■╧
+╧
+"	▓─= ╩U╗t┌╧
+╧
+"	ь)й0 ║o╗t╣
+╧
+╧
+"	Р ╤% ▓"╗t╤╧
+╧
+"	░╪( еp╗tй	╧
+╧
+"	√!├% ╤m╗tЪ╧
+╧
+"	┬!╬! я╗tТ╧
+╧
+"	й╝ ╬╗ё.Е╧
+╧
+"	▄╤; О.Ь╧
+"	Л4╟* ╦r╗tС╧
+╧
+"	ЮЧ6 ┬ёёzЩ	╧
+"	Фз8 ┤;╗tт╧
+╧
+"	ж≤9 ▀n╗tЭ	╧
+╧
+"	Ф!П( √F╗t╔	╧
+╧
+"	Бй

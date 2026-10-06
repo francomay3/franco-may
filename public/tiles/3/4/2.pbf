@@ -1,5 +1,5 @@
-†”x
-archaeological_sites(Ä uuidlabelclassfamilyscorestars"
+≤ÿx
+archaeological_sites(Ä uuidlabelclassfamilyscorestarsphoto"
 Bro"
 Fyr"
 Mon"
@@ -8,22 +8,24 @@
 misc"
 B√∂le"
 H√§rd"
+Kanal"
 Kvarn"
 R√∂se"
-U 922"
-U 947"
+U 932"
+U 961"
 Viste"
 forts"
-Borgen"
+DR 284"
+Fossum"
 F√§bod"
 H√§lle"
 H√∂gom"
-Korset"
-Parken"
-Rummet"
-S√∂ 79"
+Lill√∂"
+S√∂ 86"
 graves"
-√Öngen"	
+√Öngen"
+√ñdarv"
+√ñl 39"	
 Boplats"	
 Faxehus"	
 Fyr (2)"	
@@ -36,54 +38,62 @@
 rockart"	
 √ñvrigt"
 
+Brahehus"
+
+Dagsh√∂g"
+
 Dammvall"
 
 Edaskans"
 
 Fornborg"
 
-Gillh√∂g"
-
 Gruvh√•l"
 
-H√∂g (2)"
+H√∂garna"
 
-H√∂g (6)"
+Kastalen"
 
-Kyrkstad"
+Labyrint"
 
-Spetalen"
+Lagaholm"
+
+Lindholm"
 
 S√∂rhamn"
 
+Tomtning"
+
 Tumlehed"
+
+Vitlycke"
 
 industry"
 
 maritime"
-	Borgaholm"
 	Borgan√§s"
+	Bredar√∂r"
 	F√§rdv√§g"
 	Gravf√§lt"
-	Gripeberg"
-	Gr√∂nh√∂g"
+	H√∂ge bro"
 	Kausb√∂le"
-	Kvarn (2)"
 	Lidekvarn"
-	Ljungh√∂g"
-	Malm√∂hus"
 	Offerkast"
-	Rumlaborg"
+	Rallbanan"
 	R√∂se (2)"
-	R√∂se (5)"
+	R√∂se (3)"
 	Saxholmen"
-	Snaveborg"
 	Sofiendal"
-	Ulah√∂gen"
+	Svindalen"
+	Varv/slip"
+	Vepr√∂set"
 	religious"
-	transport"
+	transport"
+	√Ös skans"
 
-Beritsholm"
+Alunbruket"
+
+Aspeberget"
 
 Borgberget"
 
@@ -93,11 +103,7 @@ Fiskel√§ge"
 
 F√§bod (2)"
 
-Galgberget"
-
-G√§lakvist"
-
-H√∂rneborg"
+Gubb√•kern"
 
 Kolabacken"
 
@@ -107,793 +113,787 @@ L√§gsta√•n"
 
 Rots skans"
 
+Ryssgraven"
+
+R√∂kstenen"
+
 Sj√∂m√§rke"
 
 Stadslager"
 
-Store h√∂g"
-
 Storgruvan"
 
-Varggropen"
+Sunds bruk"
 
-Vettberget"
+Tingsflisa"
+
+Valsg√§rde"
+
+Varggropen"
 
 V√§gm√§rke"
 
 settlement"
-Axmarh√∂gen"
-Bergaberget"
+Ales stenar"
+Anunds h√∂g"
 Biblioteket"
 Bielkr√∂set"
 Bl√§stplats"
+Braheholmen"
 Dike/r√§nna"
 Domarlunden"
 Droppstenen"
 F√•ngstgrop"
+Gammplatsen"
+Gladsaxehus"
+Glysas grav"
+Grav √∂vrig"
 Gruvomr√•de"
-Grytah√∂gen"
+Hamnomr√•de"
 Hyttomr√•de"
-H√§sthallen"
 Kalkugn (2)"
 Kanalm√§rke"
-Kronob√§cks"
 Kungsh√∂gen"
-Pyssestenen"
+Kungsstenen"
 Runristning"
+Sala gruvby"
 Salsta borg"
-Skansberget"
+Sandby borg"
+Sm√∂rh√•lan"
 Stenskeppet"
 Stridsv√§rn"
-S√§nke h√∂g"
+Str√∂boh√∂g"
 Tarsta berg"
-Tegelkyrkan"
-Tj√§rbacken"
 Trindborgen"
-Trollr√∂set"
 Tr√§genborg"
+Tulleh√∂gen"
+Uranienborg"
 √ñvrigt (8)"
 Bildristning"
+Borgarberget"
 Bure kloster"
+B√•tl√§nning"
 Duveds skans"
-Fornborg (3)"
 Glasindustri"
 Gr√§nsm√§rke"
+Gr√•da kanal"
 Hyttl√§mning"
 J√§rpskansen"
-Kopparverket"
+J√§ttestenen"
 Kyrka/kapell"
-Lumbers h√∂g"
 L√•ng√∂ bruk"
 Minnesm√§rke"
-Mj√∂lkstenen"
-Mysinge h√∂g"
-Randens h√∂g"
+Olsbrostenen"
+Ottarsh√∂gen"
+Roma kloster"
+S:t Drottens"
 Sangish√∂gen"
+Stenkistgrav"
 Stj√§rneborg"
 Stockg√§rdan"
 Terrassering"
 Tibrandsholm"
-Tr√§industri"
-Vacksundsmon"
-[[Kastelle]]"
+Vacksundsmon"
 Arn√§s backen"
 Batteribacken"
-Bro stajnkalm"
-Dye domarring"
+Edsholms borg"
+Eketorps borg"
 Fr√∂s√∂ skans"
-F√§rdv√§g (2)"
-F√§rdv√§g (3)"
-Gamla Skogsby"
+Fr√∂s√∂stenen"
+Gamla Uppsala"
 Gl√∂sah√§llen"
 Gravf√§lt (2)"
+Gravf√§lt (3)"
 Gravf√§lt (4)"
+Gr√•d√∂ skans"
 Hammaromr√•de"
-Hermannekulle"
 H√§llm√•lning"
 H√§llristning"
 J√§tter√∂sena"
 Kappla k√§lla"
+Karlevistenen"
 L√•ng√• skans"
+Mj√§lleborgen"
+Polhemshjulet"
+Rogstaklippen"
+Rya kyrkoruin"
 R√§kneh√§llan"
-Samlingsplats"
-Sj√∂sa gruvor"
-Skan√∂rs borg"
 Stens√§ttning"
-Timmelestenen"
-Triberga borg"
+Tjelvars grav"
+Torpa stenhus"
+Visby ringmur"
+Vreta Kloster"
+V√§tterydshed"
 Boplatsomr√•de"
-Botvidst√§ppan"
-Fallets fornby"
+Brattfors bruk"
+Frostbo F√§bod"
+Hagbards galge"
+Hav√§ngsd√∂sen"
+H√§gnadssystem"
+J√§ttendalarna"
+Kalkugnsruiner"
 Kauparver√∂set"
-Lerviks k√§lla"
-Ryds kyrkoruin"
+Ledbergsstenen"
+Nydala kloster"
 R√∂jningsr√∂se"
-Sj√∂nevadsborg"
+Skansen Kronan"
+Smidesl√§mning"
 Stadslager (3)"
 Stenkammargrav"
-Tingstuk√§llan"
+Visborgs slott"
+(H√∂nsta backe)"
 1-4) Br√§ndskog"
+Bohus f√§stning"
+Dike/r√§nna (3)"
 Espin√§rah√∂gen"
 F√§stning/skans"
-Gamla √Ñlvsborg"
 Ganns √∂dekyrka"
+Greby gravf√§lt"
 Hamnanl√§ggning"
-Holms gravf√§lt"
+Hedningah√§llan"
 Hyttomr√•de (2)"
 Jarlabankes bro"
-Kemisk industri"
+Kolsunds brygga"
 K√•rb√∂le skans"
+N√§s slottsruin"
 Pappersindustri"
 Ristj√§lsgruvor"
 Runristning (2)"
-Runristning (4)"
-Runstensb√§clen"
+Sankt Pers ruin"
+Saxholmens borg"
 Skinnlipsstenen"
-U 970 och U 969"
-Vallanl√§ggning"
-[[Gammplatsen]]"
+Sm√•landsstenar"
+Vallanl√§ggning"
+Alvastra kloster"
 Begravningsplats"
-Bildristning (2)"
 F√§rdv√§gssystem"
 Gr√§nsm√§rke (2)"
 Gustavforshyttan"
-Hyttl√§mning (2)"
-H√∂nshylte skans"
+Herrevadskloster"
+Karl XI-stenarna"
 Kyrka/kapell (2)"
 Kyrka/kapell (3)"
 Kyrkhamns kapell"
 Minnesm√§rke (2)"
-Sit Nicolai ruin"
+Pilane gravf√§lt"
+Rysskyrkog√•rden"
+Sankt Eriks borg"
 Slott/herres√§te"
-Svartsj√∂b√§cken"
-Terrassering (5)"
-V√•gbro fornborg"
-√Ñtteh√∂gskullen"
-Avr√§ttningsplats"
+Stenkistgrav (2)"
+Sverkerskapellet"
+Terrassering (5)"
 Bytomt/g√•rdstomt"
-H√§llm√•lning (3)"
+D√•rskilds h√∂gar"
 H√§llristning (2)"
 H√§llristning (3)"
 H√§llristning (4)"
+Kung Bj√∂rns h√∂g"
+Laboratorieholmen"
 M√•nstorps gavlar"
-Naglums kyrkoruin"
 Nordmarksgruvorna"
 Sankt Olavs valar"
 Sankt Olofs kyrka"
 Sankt Olovs kyrka"
+Sigurdsristningen"
+Skansens s√•gruin"
 Sm√∂rstackastenen"
 Stenkrets/stenrad"
-Stens√§ttning (2)"
+Stens√§ttning (3)"
 Stens√§ttning (4)"
+Trellebergs slott"
 √ñratj√§rnbodarna"
 √ñvraby kyrkoruin"
-Boplatsomr√•de (3)"
 F√•ngstgropssystem"
+H√∂gby gamla kyrka"
+Karl X Gustavs mur"
 Krankm√•rtenh√∂gen"
-Kung Tryggves grav"
-Kvissle kapellruin"
 Livsmedelsindustri"
-Mogetorpsboplatsen"
-S:t Pers kyrkoruin"
-Sankt Knuts kapell"
+Ryska kyrkog√•rden"
 Skansen Leionstedt"
-Stadsvall/stadsmur"
-Stenkammargrav (2)"
+Stadsvall/stadsmur"
 Bl√§stbruksl√§mning"
-Bro Stajnk√§llingar"
-Brobergs gamla tomt"
-Skansberget i Vidja"
+Fridarve gamla tomt"
+Landskrona Citadell"
+Pappersindustri (2)"
 Sm√•industriomr√•de"
-S√∂derby gamla tomt"
-Begravningsplats (2)"
+Ytterby gamla kyrka"
+√Ñdelfors guldgruva"
+√Önstas gamla kyrka"
 Begravningsplats (3)"
+Borgholms slottsruin"
+Br√§nnbottengruvorna"
 Eda gamla kyrkog√•rd"
+Gamla J√§rsbergsbron"
+Gudmundr√• kyrkoruin"
 K√§lla med tradition"
-L√§genhetsbebyggelse"
+L√§genhetsbebyggelse"
+L√∂ppinge soldattorp"
+Sankta Britas kapell"
 1) Kung Bj√∂rns kyrka"
-Engelska kyrkog√•rden"
 Fartygs-/b√•tl√§mning"
 Gamla kyrkan, Kyrkmon"
-Gladisvall kyrkogrund"
+Gr√§fsn√§s slottsruin"
 Gudsberga klosterruin"
+J√§rsbergsstenen/Vr 1"
+Kronobergs slottsruin"
 Riseberga klosterruin"
-Stenkrets/stenrad (3)"
+Stegeborgs slottsruin"
 √ñrsk√§rskyrkog√•rden"
-Bj√∂rkviks gamla kyrka"
-Nordingr√• gamla kyrka"
-Silbojokks silverhytta"
-Sn√∂sb√§cks gamla tomt"
-Dragsboheden, Dragsbron"
+Edsleskogs gamla kyrka"
+Fr√∂backen/Frejsbacken"
+Kungs√§ters gamla tomt"
+Lemmestr√∂ gamla kyrka"
+Odendisastenen / Vs 24"
+Repl√∂sastenen / Sm 35"
+S:t Nikolaus kyrkoruin"
+Saivaara sten√•ldersby"
+Silbojokks silverhytta"
+Falsterbohus slottsruin"
 Husgrund, historisk tid"
 Hytt- och hammaromr√•de"
-Skansberget i Segeltorp"
-Uppfordringsanl√§ggning"
-Upp√•krastenen / DR 266"
-[[H√§rlanda kyrkoruin]]"
+S:ta Katarina kyrkoruin"
 Grav- och boplatsomr√•de"
 Lidens gamla kyrka (=Us)"
 Metallindustri/j√§rnbruk"
-Sankt Johannes kyrkoruin"
-Stora Rytterne kyrkoruin"
+Tullstorpstenen / DR 271"
+Fr√§nnarpsh√§llristningen"
 F√•ngstanl√§ggning √∂vrig"
-Svenskgraven, Danskgraven"
+Sankt Ingrids klosterruin"
+Tyko Brahes pappersm√∂lla"
+Ytterl√§nn√§s gamla kyrka"
 √Ödals-Lidens gamla kyrka"
-Bergsh√∂jden, Rudskl√§tten"
 Fartygs-/b√•tl√§mning (11)"
+Karlsv√§rds f√§stningsruin"
 Medelpads runinskrifter 10"
-Grav markerad av sten/block"
 Kompassros/v√§derstreckspil"
-Milit√§r anl√§ggning √∂vrig"
-Skattmans√∂ bruksl√§mningar"
-Metallindustri/j√§rnbruk (2)"
-Omr√•de med fossil √•kermark"
-G√§striklands runinskrifter 1"
-V√§stra Karabystenen / DR 321" 
+Lybers h√∂g (Lerb√§cksh√∂g)"
+Milit√§r anl√§ggning √∂vrig"
+Omr√•de med fossil √•kermark"
+Park-/tr√§dg√•rdsanl√§ggning" 
 Fornl√§mningsliknande bildning" 
-H√§llm√•lningarna p√• Flatruet"!
-Grav markerad av sten/block (2)""
+G√§striklands runinskrifter 13" 
+H√§llm√•lningarna p√• Flatruet""
  Omr√•de med skogsbruksl√§mningar""
- Ristning, medeltid/historisk tid"#
+ Ristning, medeltid/historisk tid""
+ Struve Geodetic Arc - Per√§vaara"#
 !Husgrund, f√∂rhistorisk/medeltida"%
 #Omr√•de med milit√§ra anl√§ggningar"&
 $000a5354-2e94-402d-92fd-f742d8a8fec1"&
 $000f25bc-6068-435b-aedf-d3dfdb1a8156"&
-$00429dca-376a-4585-a732-32ad54048c95"&
 $00582b7c-69f2-4f33-af99-75ff0fe97fc1"&
 $009b41e4-9829-4884-ba31-34a96841289e"&
-$017cd300-0036-433e-943b-406d9bf81e0b"&
+$0125e5be-ab39-48cd-b7dd-fde89725b63f"&
+$01503934-7c0c-49c7-9d0f-bc1936a863cc"&
+$01de72ff-24ba-4a5d-8155-ec5139db66d4"&
+$02215d42-8e86-44ae-ad86-61f93c8631d5"&
 $024e6289-4845-4c6d-9d2e-4b049e72b9ff"&
-$03f99e84-b6c7-41b7-a45e-2cf76df8f0c3"&
+$02537123-3804-496e-8345-5cb44e2fc64a"&
 $04a53073-78dc-4662-99b1-d2f17b5f0410"&
 $04b13476-5016-4669-9247-38a1222a6f91"&
-$05645fd2-139e-43fb-b749-bf330f4722d8"&
+$04f245cc-9c45-48e3-a3e7-1cba9cc2045c"&
+$04f58491-0ff7-43c0-96c4-349721fb5855"&
 $062540a6-3280-4170-acbf-7664d074a536"&
 $065f1628-7a89-4779-b347-5b2d29ecbb97"&
 $069172bc-52e2-4bf7-802e-8c9a9558c962"&
-$07062496-1b47-4a19-8857-a1f6529a3975"&
-$071d37c3-e1ee-4368-8a85-311b2a386ea5"&
+$077b862c-f977-48ca-9fe9-e85d33a15e74"&
 $07ad8de9-2232-498f-9571-bac90a8e32f2"&
 $08467e90-f35c-42a8-a041-4f613b473589"&
-$088571d8-075e-4a4b-a474-43c58d4ca0a6"&
+$086d9c79-2742-4844-9fc8-f040103d6530"&
 $08864e2e-42c2-44f8-a134-0117bbfc4fb7"&
-$08f9a118-ea92-4992-8959-fae54cb12498"&
+$08c446f6-5b53-49df-8537-cca82a9f5148"&
+$08ed7dfe-d778-45ad-b29e-3d8dded28ec0"&
 $09b0f550-0ef7-4e02-8185-414fe6b18ec9"&
-$09f4ca6e-554e-4638-8645-3f151d2d7068"&
-$09fcdfb8-42a7-45a0-8112-bb40c670bdf4"&
 $0a79254b-f421-4170-b050-89153fb4b682"&
 $0aa55da5-380d-4ae5-86dc-5234dfa61818"&
 $0af59e9b-6134-4765-b9d0-20609e713fd0"&
 $0bfbae01-ba61-4044-ad14-cc0087b1aa01"&
-$0c35aa19-7191-4ca3-b7c1-fc5066c5688f"&
-$0d4f0198-8682-4113-84b2-98b07f66ab6c"&
-$0d6462a0-d181-48e2-9195-13c3bf54a27a"&
-$0df10720-3f39-459e-ab3c-e72de035a1aa"&
-$0df54bc0-6378-4593-bfe2-2bb13d7e931d"&
+$0d1d4953-bf94-4d69-a8d6-656689e8d502"&
 $0e67001c-ba4b-404a-bed5-fa9afce141d6"&
-$0e9b120e-0cda-47e0-ba53-774122601c58"&
-$0e9f6c8b-4885-49f4-9ea7-476f2dd2ea7e"&
-$0ec68691-6d2a-450b-8cc4-34cc424bbd23"&
 $0eff9823-a14e-4f2f-b8da-8f935ac141aa"&
-$0f0cec57-8d4f-4eb0-adf6-9bbaeaceea1b"&
-$0f1fae87-2479-420f-a57b-90de7b690cd2"&
-$10c6faf5-57f2-4cef-8fd8-64685f5c8638"&
-$10ce7e2f-052d-42b3-a5be-e01d4d5b67a6"&
+$0ff4b842-4c6c-4b42-a101-eea039aa79ab"&
+$10fd3cb1-9657-41a1-a6ad-40599b25a96b"&
+$10fda35c-4648-4e2f-a42d-57aee6cd23d0"&
 $11751eeb-0cff-4e7d-8e3b-0f9e6f8124d9"&
-$11b64b1c-4c7a-4b8d-89fa-a721c570382f"&
-$1201e750-50de-4c71-a6fa-361def099b19"&
-$12947c8a-9ded-47c6-9f0a-0ac3b842c0f2"&
+$11b9e2a3-d93b-4a7d-a5ec-087f14752826"&
+$12c7514f-09ce-418e-bfdb-dfab8e123a1e"&
 $13161ef1-4e53-4314-bbd6-0b1df183d428"&
 $1372f6ef-a328-4d34-914d-8c031550f018"&
 $138f056b-15cd-49a1-9912-be1ddc1e5505"&
 $13b1a647-0ac0-4920-a0db-37a05b249ae4"&
 $144f1851-a194-4f6c-8509-516fd306671d"&
-$14ade5ae-3ebf-4cfd-b8ec-4d978f6f47d8"&
 $14faffdd-d983-437c-909a-caaf887e09dc"&
-$151af792-9d54-4c2d-b204-62145e42fb10"&
-$153a7aae-ce6a-48aa-b478-b8acc27a36c5"&
 $156cdb20-dd75-4b63-8899-1b9fbee0f4b8"&
-$16c6355d-0571-4d04-b9ec-125ca67d0166"&
+$1587c767-6d84-4773-badd-873fdbe3dd29"&
+$1597170a-d48d-42e1-a948-06e247660322"&
+$17099484-bf70-413d-baf3-45a341d90da0"&
+$1812cf11-c284-4a5e-8d1d-4fbc6d5722e9"&
+$188845af-ad53-4d12-84d1-2a65e9f2c455"&
 $188868fd-224e-4e0b-af5a-7e8ccb7dc657"&
 $1a47b3de-3171-49ef-b1c3-59febf87db8a"&
 $1a90e641-5049-4e05-ac46-8705ce6ef8f9"&
-$1b705afb-f4ee-406b-bd8c-d2188e6c01f5"&
-$1c13d1d1-86c4-4be8-b6ad-41eb64bab18a"&
+$1bd30ad5-4587-4d05-92a1-1cc650035dbd"&
 $1c50f900-29a4-414b-89ee-1ee2296f1d1d"&
+$1ca3828a-d4da-4c8c-87a1-161745336b14"&
 $1d09dcd4-4946-4a40-8564-1dae0c5bdc67"&
-$1da6023a-34c5-4aff-a65b-88a6979d3aae"&
-$1f0c3342-f9c0-42df-b9f1-8a1935486eb9"&
-$2060b294-4b0a-4f9c-b4f1-c11a75a3e918"&
-$2079aa5f-f62a-4f11-957f-7e30a4a1f9eb"&
-$208fb2c2-4439-4f3c-b94b-8f61da194052"&
-$20a79c92-fa73-4455-a08e-dc6e0bc1a1ed"&
+$1dafd210-b1f7-4e25-8c43-5726237a4808"&
+$1de74e7f-c403-42d9-bb54-bcd44e5312be"&
+$1eb588a9-eefc-42f8-acdd-0ad7b5bf6d33"&
+$2074916a-fd1f-42ba-8c80-e38891bc0485"&
+$20afd3ea-f8ee-4841-8f0a-28ad3582d2bd"&
+$20fdb6d7-d99b-44b7-93d0-e2d78220a43a"&
+$215320fc-f8b4-4a20-9386-892f20fcb96b"&
+$218d08dd-0fb8-44ad-8c94-366af60acd5b"&
 $221583d5-7b19-45db-af3a-e2ebe469232e"&
-$23018e9b-95f9-48be-a0b2-25374a0186ba"&
-$235d73c1-2d47-46d6-8634-b48b665f5479"&
+$221903fe-1e09-44a2-b39e-b2cf4a1a0686"&
+$237f22b6-9d9a-47d8-872f-1101e3c676e9"&
 $23d50ef6-336b-48c2-bf7b-4f3574a83e90"&
+$2421c56c-0c74-450f-8438-bded6186472c"&
+$248b0af7-8b19-476c-853b-856856c992a9"&
+$257068c5-8b5f-4c3e-926a-dbd60b223c49"&
 $25cfd91e-416d-4d0b-aad5-1df9ef32aa43"&
 $268d8acc-da76-42ac-bafe-408badeb0b6e"&
-$271a6d05-c02f-4d22-b609-a6785c3683d7"&
-$2762ba9d-1c7b-46ed-b8dd-1deaee453938"&
-$27b1ac72-0089-4046-a668-fda0a5aa6933"&
+$26b673c1-9be9-44a1-91cf-e713aa2fa971"&
+$27f8a0f7-8e02-42d0-9367-5ef05c85f241"&
 $27f9c8e5-0dad-42ee-a884-bb492a7277de"&
+$28e8d0d3-8f9d-4a58-850b-d275e7a7f28b"&
 $29206e5f-f6c7-476b-ad00-6ef0cba66b0d"&
-$2ac6ef51-62df-4bed-b497-4fca3b59a526"&
+$29e5e9a4-777a-405f-b19e-e5c5ed9cba67"&
 $2b2a35fd-0738-4308-88f3-0e1ea4a94a61"&
 $2b3e781b-7bb3-46fb-acc0-f590558460fc"&
-$2bbe9269-e817-4ad7-a6c6-975190282af5"&
+$2b6ff6d7-c65a-437e-91ea-1385ddf54864"&
 $2c391e84-16b1-462f-97d2-c6e48cdbba20"&
+$2d839d55-6cc9-4f7c-b05d-9eb65288e786"&
+$2d89ffb1-d64e-4099-b03b-0d42539cc048"&
 $2ddfd569-710e-4db6-b8f6-5f3d5e469757"&
-$2dfe146b-09e9-4295-9696-8b0940cabc1c"&
 $2e0f3000-1878-4474-b9ca-e599daf5c39d"&
 $2e701fa0-614f-46e5-b5b3-cb4991ba0c99"&
 $2e76c968-41c4-4abf-9f4a-dc3fb8473d02"&
-$2e8d812e-664a-44ed-aa2c-3d851be2c2c4"&
-$2ee75908-c035-4f4f-94a2-46250b0fc319"&
 $2f0ede11-748a-49a1-b533-b690f6e8f286"&
 $2f40e132-ef82-4550-8eb9-c5002b322995"&
-$2f695459-7810-4602-9949-e866b86c1c1a"&
-$3027f625-3035-4eff-9c9d-eadb967a27a4"&
 $309b44f6-0554-400b-8e27-2e770312e160"&
-$31f8f7f2-8dfd-4123-9edc-d8f425dc1698"&
+$30bc5309-5290-4cb5-a5b8-18e565b57624"&
 $3222b923-1257-4c29-9b7a-a77a249af04f"&
 $3228637c-4f59-43e0-bec4-d25deaba3719"&
 $336498e9-2efd-448d-abe1-4432bd391602"&
-$34b2f37e-d7f0-44c9-b55e-da86bb5a5eea"&
+$337fca50-526a-4247-b5ff-1828ccdc3460"&
+$338b5117-5f20-4049-8f16-fd43ba0f7dd9"&
+$339b046d-5b0f-4f62-a10e-8036e224a42f"&
 $358ad75a-5438-4ffd-8c99-af36c61d25e0"&
+$3597c9b1-4ed5-43d8-865a-c8d6a3f1ba3d"&
+$35a1d1eb-49c6-4648-9833-9f922112006c"&
 $35b855bf-ad95-4daf-a614-ec0cd4155861"&
-$35be0114-2d1e-4a80-aa8b-190b53e2fd34"&
 $36037c2e-fa00-4351-a507-364e4e73e4c1"&
-$361c1c26-4c83-4216-a116-340e524af512"&
 $3637fd13-663a-4ff5-b1e2-38ea3f8774f9"&
-$3645afbc-f4aa-4cc0-991e-42e128c40122"&
-$367ba2e6-22cc-4bc2-9f28-3395d4d2354e"&
 $372386f2-c25b-424b-a794-ca7a1c36dd09"&
 $37339012-b637-4690-a796-28c2e6f923d9"&
 $377eb401-f9b8-4665-b04b-fc565153a8cd"&
-$37e9f5a0-d809-4e0a-aa87-14fcdfd796d2"&
+$382c2e97-cdcc-40be-82eb-893d11bf4abc"&
+$3860a45b-ada7-439b-b497-4fba73cff36c"&
+$38865332-52ba-473a-a9f8-417428fe1a29"&
 $388d337e-49b6-4f49-a945-c974efd6c54d"&
-$38c53934-9871-4fa5-9a0a-ab913a9f31ba"&
-$3928649b-d7ef-48f8-b11a-eb78d2fe9d3b"&
-$398e2845-c330-45d9-92cd-b1920de42d79"&
-$3a126a43-5310-445b-92f6-1b7571ee2ce6"&
-$3a1e9407-c39d-40b0-b661-07f9c0fe907c"&
 $3aae7d5a-c3d5-44af-8180-2164b82b8c44"&
-$3acbf7b3-879a-40d4-bd51-be4d6268bd1d"&
-$3bfe49f3-18f3-425f-8bbd-66fb0ecf7b22"&
-$3c229d25-7988-4d36-b9b8-5f7116db3850"&
+$3adb5df8-337b-40f3-b70f-124f5574cf2f"&
+$3b14c17d-4b07-42af-8a32-37631d20439d"&
+$3b881b82-1d77-487f-9940-cddc98d9d1e6"&
+$3c977c02-00e7-4f1c-b2d1-eaf76521c3ac"&
 $3ca5a221-da38-440f-8d96-2ad8d4bd759c"&
 $3cc77e29-cab4-43b3-ad48-8e5444a029b3"&
-$3cded29f-273d-4213-afce-90a77d777a12"&
 $3ce7a28f-752c-414d-b4c8-6693b6961a36"&
-$3e40f530-2fc9-4477-b870-47c97de3d19b"&
+$3e2a231d-443b-47f6-ad5f-5cc0cbcf0ad2"&
 $3e8d56e2-1c96-4b4f-80f1-8a9ebd0c729a"&
 $3e990b63-edee-4240-a6f9-527d2681b833"&
 $3ec21fff-bf30-4c3e-a5c9-f24da33089fa"&
-$3f046639-77aa-4e7b-a777-4615a330862d"&
-$3fcd49e4-865a-461e-b7cc-66a996c40006"&
+$3f8910e8-e766-4312-973c-7a6a5fe87c86"&
 $3ff0936c-1acc-45c3-9723-8a54ae952c9a"&
 $401055fc-e795-4e2c-8e34-c45dfde18e61"&
-$40d981bb-88cf-468b-9f97-cebc2e4a768a"&
+$407656bc-e9cc-4ead-938a-90f485a720e7"&
 $413ac953-3a98-4b09-a408-933acf368cb3"&
-$41530f34-a828-4cd4-8948-9890eec1c4cb"&
-$4202d62e-7ad1-41fa-a16f-db442cd3fdf0"&
-$42d8d828-4edf-42c2-9795-d62a163bc713"&
+$42e5ab32-8bc1-4f49-b78f-82ebbd764ee8"&
+$4300fb56-1824-42a6-b1f2-36aa0c77632e"&
 $438f9359-815f-43d6-baa8-7b06dd8c34cd"&
 $43be860b-c542-430b-80c8-e51b8fba9b93"&
-$443e42ed-bbb2-48ce-906c-648ce9d16c9b"&
+$43c72581-c204-4b17-8754-73d361607684"&
+$44d55842-0a44-4e37-a4f5-5ae7279e328b"&
 $45135300-02e9-403a-a3ac-390edfc0947a"&
 $4521ba13-2519-457a-b2d6-e05775679fd4"&
-$45363e1e-0682-4656-a364-707cd96c306c"&
-$4583d704-77ed-48a6-bc90-b7f6ef55fe84"&
 $45f86eb2-f859-492d-809d-2f2ab45850b0"&
 $4620d8c6-3e86-4ceb-939c-1095b7b77a46"&
 $462dbece-1d48-4af6-9590-6adf52f130cd"&
-$463bb97e-83b5-4de5-b3f9-a14be580d8ef"&
-$4722c1f9-f84f-43e1-863a-a58c3e56b7f6"&
 $4729fd40-1959-4c13-9511-50a3587d7741"&
 $47afa4fd-e51f-4aa6-ab84-af434bc78a93"&
 $4849e581-5bfa-4ff0-80a1-7df71653c017"&
 $48d049db-5052-4849-ae40-bfae0798092f"&
-$48fe7b75-118c-4471-a4da-49d1440feeea"&
-$4a4b45bd-b723-4d97-8fb0-6ee633b21562"&
-$4a67b610-e036-4957-a7a0-475e5fa19e9a"&
-$4ab48386-3e4c-481b-b60f-2c42c8ea4b1d"&
-$4af2c558-350f-4817-8ebd-c6445e5f8344"&
+$49063a2d-5b54-4bea-8e92-896d2d928beb"&
+$49b3a334-b2af-4a45-a828-828f9825268d"&
+$4a1b6ca4-e078-4949-9b2c-b3a800261dbc"&
+$4a3005a9-1cee-48bb-a1e3-96196bc85434"&
 $4b428277-4f40-4b90-9f26-c0015a7ea61a"&
 $4b629041-520f-4dec-8a3e-d76d1cec7770"&
-$4bd3a00f-731b-4055-b6d8-71b01bcd9e12"&
-$4caac6da-949d-49f9-a0b0-2f5e5edb8a7d"&
-$4ce875e2-3788-48af-9b36-9c6d86dd5b54"&
+$4ba3d116-59f2-4c59-8286-13cdc9dd7be8"&
+$4bfce83d-5a60-4c45-9dc6-7ee544961174"&
+$4c65452e-0675-4e56-8be9-fb4740296426"&
+$4de1d281-d163-449e-a611-5e15e7dc6560"&
 $4e5c35af-473e-425f-8a2d-0a1c2dbbaeef"&
 $4e786999-e67f-4488-a130-68346c66fee9"&
+$4f0a3bcd-4343-41aa-87c7-7dc99aaa6dd7"&
+$4fb364e3-4fbd-4853-976c-8d43383a3f4d"&
 $5081bc72-1a3e-4e28-8886-1368fd1c9b40"&
 $512b9bc0-3f31-4a21-ac80-5ffe7b17dc84"&
 $513bc786-2d6b-49cf-b2dc-dbe94bc08463"&
-$51a1ff69-aa93-465b-9c5c-36b1aca3244b"&
+$51527152-ac2a-48f5-b29c-173ba914df1d"&
 $51a5589c-8727-4d88-8cb7-3ae3decdf1c6"&
-$524ef1c9-acd0-405a-a467-6074481d81c3"&
+$51d38017-a84d-434f-9ad5-d3161924038e"&
 $52adc29d-d4f0-4552-ac82-7d62fa67197c"&
-$5315e059-a0cb-44ff-b826-f57141b319e6"&
-$536f0884-1bd3-4b11-98fe-18a8a70d2eb8"&
 $53ee6f8a-245b-4dc0-8390-9bb1defebd2d"&
 $53fe2c8d-95d3-4509-b63d-2815a3c2e09c"&
+$54817bf4-b9eb-4d35-bc77-e7c92543f342"&
+$556eb858-18e4-41dd-b873-2d458cec3d40"&
+$55c70997-e76b-480b-8073-903aebd7abc9"&
+$569014f4-0d08-4337-84b3-2b216cc89550"&
 $56d9e911-5c76-4483-8b66-69f01118227a"&
 $56f64fe8-85b0-4fca-9341-174055f5e873"&
-$57ddde8d-9845-411c-b0ec-f242e8d45d46"&
+$572f6f52-5c63-49a9-8ab2-d190d4dbbe59"&
+$57c8918c-b1af-43c2-b871-2263366cd2f0"&
 $585b2c46-c9da-48a2-8bac-f5f3706728b5"&
 $58a8a79d-8621-49b5-9cae-0880046fc003"&
 $5938c607-a980-43a5-83be-864d3cda7596"&
-$596f1230-26cf-47e1-85c3-5c60527f6183"&
+$593a6b71-49fd-4bb3-b9a3-868d24ec6080"&
+$59ae097d-f607-4fa3-ba30-5ab945512dc9"&
+$5a21174c-45f0-4495-ae65-b336104efff2"&
 $5a83f56e-0bb6-4d97-8250-38ad3994a884"&
-$5b87005c-a756-43c2-96df-9c25d6230b5d"&
-$5c385d0a-e08f-46b4-a33b-f738d5ee68be"&
+$5bf3a639-0b8c-4ffe-9fc4-a7a6f3736402"&
 $5c46ce59-9ccc-4454-9bab-cd0ded7ac205"&
 $5d1c2189-48c8-42c6-809a-6f52a55815af"&
 $5e5e05af-2451-4437-9ef0-ceccdb819265"&
 $5e82f922-28e5-49ac-bc39-1eb115419a1e"&
-$5ee9bdf9-1f65-4808-876d-92b807c235a3"&
-$5f28d0b3-e616-42ac-9eff-70510ef62a19"&
-$5f3b3694-23e7-4fec-9c63-11912d1af768"&
-$5f7ae6c6-ad7c-4dfa-9b43-ea85e4ed0ff9"&
-$5fb92672-09ce-4839-8a49-e15b8d119500"&
-$60772c10-3cf1-4da5-9e61-4aa434f7e063"&
-$61bc482d-1c99-4e2e-95fd-c429bbda3755"&
+$5ee56b07-dc2c-487c-ab1f-f1458e5582ab"&
+$5f58bf91-9f1f-4f94-b06e-717eb4976374"&
+$61c2dadb-19f6-4280-a8a5-3b59969548f8"&
 $6288b08a-0d09-4576-82bd-1c0d070181a7"&
+$62aff8ad-03fe-46cb-8280-dab4ca8b4f43"&
+$62db225a-e154-4ea8-beda-430d11366899"&
+$638fd2b0-46a7-464c-a618-5aa77054e6f3"&
 $63d9456c-42e2-444b-a886-7f73a61484e7"&
-$63e7080b-3c54-4d2c-9699-2c42ef374c94"&
-$644946fb-ae3e-4d4e-be67-41f85ff247de"&
-$65dcf25d-9cae-453a-9d60-77518ee42677"&
+$63e68fb2-93e8-4a75-97d1-0cc6781fd25d"&
+$64ff42e8-5a6b-4f0f-b25b-b98536c97087"&
+$66437c6b-c393-405e-a3e8-a71d2e2a558c"&
+$6670859a-32bb-4fe0-aef6-01bba04fe086"&
 $66f94fea-c0b1-44b0-876d-0da20098e133"&
+$6705577f-e99b-4f86-8d01-b6748ffd82b8"&
 $6795fd0e-b333-447d-98cd-dbd1330aa65c"&
-$67bc6a7e-9510-45ee-aae9-331439b97ebd"&
-$67d5703f-17c2-48bc-813f-315499711e6e"&
 $686aa535-c654-485d-bfc7-f88b71e1005f"&
 $68b70c89-4538-49b8-9213-fda82e49c371"&
-$6941e767-d426-449c-a0b5-4dbb38a68365"&
-$6a0e0bf0-182a-4902-8d65-521a6da0498e"&
+$68f85768-dd84-43ad-b4f7-a7bfa64d9fcd"&
+$69318059-e898-4309-9e74-3ec0496307f6"&
+$69c2b6a1-f5a8-4625-bdd1-da4d76466aba"&
 $6a50335b-2350-4a53-8cd4-8e2fcd7a989e"&
+$6a5db2ce-79e8-4a5a-a75c-e90015af0626"&
 $6aa4566f-a9d1-40a8-9401-3cbc65909284"&
 $6b8676b1-71d5-4e6f-84b4-9b492165e79b"&
-$6b9aa80c-e1dc-4fb3-8266-08a5365767b7"&
-$6bf1ec91-cfb0-4390-9930-a3a1b6567392"&
 $6c3dafee-a2da-4b0e-bd24-2f3c2c0a2783"&
 $6c7e8145-6abb-4d38-8349-92a2f25ff88d"&
+$6c961143-f63e-45e7-815d-a209c22bec1e"&
+$6cd8a710-736a-40b2-8dca-d3b809da334b"&
 $6ce501b0-fece-4016-a90a-afd692b3a8a0"&
-$6d112318-f6cd-4dcf-aedc-dc804c827c3b"&
-$6e3b61c6-3181-4dc3-a3ea-dd5780485ee3"&
-$6e561abe-1fa4-4d84-bba1-5d9f855e08e1"&
+$6d9b46a0-c383-4688-82b2-7ae30826942b"&
 $6ecedac1-c66c-4579-9799-58bbf0c7db45"&
-$6f241177-b098-437d-9d3e-b753eb166e1a"&
-$6f7a0a48-34f9-4443-aae1-d80f7990cefc"&
-$6ff79f36-7279-4c40-9614-3f2d3408fa42"&
+$6f166c91-0361-4691-9c92-032ea69662ef"&
 $70766866-97ec-4326-a43a-33127e185250"&
 $70e27f8e-5c6d-4f78-9d4b-368650c8b8e6"&
-$71a39045-7345-4a04-ab81-98fcddec5b85"&
 $71d96e8d-7a8b-4cd8-a39c-0bf127f38eb4"&
-$7207dddb-bd82-49ca-980d-d55f035284be"&
-$7212b6a4-9fc0-4d4b-bc2d-0fb16f6f5c4e"&
+$72482835-f705-4358-b410-63fc1646d31b"&
 $7376b6b0-5e8c-4abe-8bb9-fa819b01672e"&
 $73888310-0bb4-4737-8f6f-da0d16e1f576"&
-$748618a2-e1a6-4e8c-bf01-08ddc5bbcc2f"&
+$7444bc01-c61b-4cf7-b463-3283055c899e"&
 $7496643e-f185-471e-a653-a5f4daf8d3a2"&
-$74fabc64-d574-44bf-a747-a062c6d6a387"&
-$75521885-58a2-481e-a5d1-152ef37627cc"&
-$761ef2d3-4337-4437-8ee5-4bd1c56315fe"&
-$76f8aa4c-f44b-4bc8-9821-0568a36f000e"&
-$7709ae5a-6511-40bb-83ba-bcf44e819169"&
-$779f3cca-7fc1-4db4-9505-8c8e0341f91b"&
-$783ddd73-9443-435b-ac08-a7804aba1e63"&
+$778adc6b-e315-469d-b114-60425830805d"&
+$79121272-21ce-48e4-8827-f5f77bf0ec3d"&
 $7917dc4c-1946-4330-a1e8-7a4e5e37f916"&
-$7945c533-a2d4-450a-9a77-f7d847af3068"&
 $79df7a27-6404-43ee-b34e-9aec9fb917d8"&
+$79f862a2-eae7-4e65-896e-e27b016d0f89"&
 $7a0454d1-5c21-422d-beb5-ff1b37389f27"&
-$7a1a235c-07f4-49ef-b2c8-33c74cc05470"&
-$7a7b1446-cacb-4008-b124-30148b8ef85c"&
-$7ab4dca8-65bf-4a96-8456-aa73013d6eba"&
+$7ab489c4-a65a-4745-bc2a-3572cf16f9ec"&
 $7c2ce87f-f020-48c4-a2ed-da38846835a3"&
+$7cd03fde-087d-42a4-9f46-6bd2aa8380b4"&
 $7d0a24a1-88ab-47a0-a18b-dce9d0df1e5b"&
-$7d43ed5c-eba8-43bc-bf9e-2c38bd949b9e"&
-$7def1719-57b7-487f-a490-8ed06de8b72e"&
+$7d5ad41f-aa5f-43af-a811-5b554026b8d2"&
 $7ecfae92-c4cb-4971-b3bf-e51cad266c67"&
 $7f1738c3-89f7-4505-a342-e68345688987"&
-$7f922c2d-6dc5-4d39-88cb-d98842791317"&
-$7fe10c17-8ef9-44ce-bafa-8530411f8d7c"&
-$810f777a-0a7d-4ad5-97ad-83b5a1a76155"&
-$827b005b-7d39-43f6-8f72-48f6160ea5c1"&
+$7fcc4530-d942-4d20-aee3-25b403252086"&
+$815a7ccd-9c0f-44ae-b1f9-e1975b8c3aff"&
+$8268e86c-f2e8-40c6-b1e6-372661a4ede7"&
 $8296b85b-dae0-41ee-b137-6592ac496688"&
 $82abaa9b-b9d4-4113-9f9c-4804bb39062c"&
 $830492e5-da87-4d14-91c0-83b5e2798d87"&
-$83b971ac-86e6-41ec-8b95-9fe84f171d8f"&
-$84095225-4a96-4011-a2a3-ad49a72e158d"&
+$83e0cdb9-e761-4864-b821-e0b515066b18"&
+$83ef6391-85a5-44a9-ba97-b9f5e6dea84e"&
+$83fdef53-bf5d-4f3a-a79e-fadd83c091e9"&
 $84bd6e76-be12-4b61-a803-df545fc1965b"&
-$84dc8073-0434-4abf-9ab0-75be7658ac90"&
-$85567b77-1c66-4b0d-b06d-d2ee4a2521cf"&
-$87c7912e-1ebd-4ee0-a3d8-5bcc5740d652"&
+$850241df-4e4b-448c-84b3-f9255adbcf4f"&
+$859bbebb-505c-4264-98b5-58140f046c12"&
+$86cf53bf-9060-4252-ba1b-a64dbc413f01"&
+$86f2d611-c19a-44bd-977f-ca49172b9a1e"&
+$87394220-ae04-473b-8c8f-bc8475ce805c"&
 $87ca78d2-151c-431f-9b18-1e7ab17d8622"&
-$88043759-68f3-4d8a-b010-fc8b732ff710"&
-$8848c4b2-61df-44b6-962d-0fd3ea1380ab"&
+$88035b14-b9db-48b0-9417-e4d8090f2b20"&
+$880ee6a7-b25b-4c5e-8fcb-cd35d19ad4f1"&
+$88cafe74-5a2b-43da-a0f6-9d83aa4e2e04"&
 $896b3af3-8b03-4a2c-8d20-e324e6051178"&
 $8977811b-380e-4d2d-9071-e59edf2a1405"&
-$8b804979-7e4c-4e76-998a-8dbd018d4852"&
-$8bcfcde0-b2e5-49b9-9861-cdcdebe1cc97"&
+$89ba764f-c636-4dd6-a0ac-e0425f1863db"&
+$89f43219-0751-42c5-91cf-32e8543a7a7e"&
+$8afff956-4310-4405-a18f-4d3ffb055e8d"&
+$8b1a5861-c474-475e-9ab4-ebc54fc002a1"&
 $8d32ee6c-a0a5-4976-b6ff-aa1aa10d01fb"&
-$8d643fe7-efcf-448c-b833-2f149eb1bc38"&
-$8d6bf607-6be8-4dc5-a967-3bc6e7f35405"&
 $8db0173f-242e-4c23-a412-c4a86c46d02a"&
-$8db5f098-921a-492b-84a2-7e7dade23b2c"&
-$8e52350a-0ebd-4d8f-ba2b-e58c6bd91c67"&
 $8ea99a54-a180-447b-8cec-d34c4cbb9c4a"&
 $8f23971b-52d7-490c-be08-8d0ee065840d"&
+$8f8faeee-f84c-44a6-842e-246504f358d0"&
 $8fb64e49-33ac-4592-ac6d-6ce4b2eca257"&
 $9070a042-dd3f-4b16-8609-83c070c170eb"&
 $913c3c4d-ca3a-4f14-bedd-daae41a84546"&
 $915900cc-8fa0-43d0-a360-7262aa72c8d6"&
-$9212e366-2442-44e3-89bb-02d33cdc8870"&
-$9244881d-8af2-4d6e-ba5f-fbf2c1ea6a78"&
+$918f6b0a-d214-4530-b55a-c9da395f6ae8"&
+$91f3c7ae-db4d-41d4-8db8-e7d4a13fad8b"&
 $92926a9b-2743-4280-88d9-45138d43c076"&
+$92b23f1f-8e55-4ec2-8154-399bd326df84"&
+$92d3ccb0-8209-4a30-a66d-59a4ffd627c4"&
 $9364fb23-fcba-4c8c-bcf7-581f17621c9c"&
 $93dc8975-136f-4346-b907-4890bacc5233"&
-$9439467c-a694-4698-9995-2fd1f40836c6"&
 $94ab41a7-4292-410a-a91e-918060aad59a"&
+$9513c0ce-c98e-4291-a0e0-1017842847bd"&
 $95eaaaff-7882-43f8-af70-ff7f92028d17"&
 $9655e65c-a4e4-4e2c-b2fb-ec07624894c3"&
 $9674a64b-6925-4e51-86cf-707d55f8459d"&
 $969151f4-c2aa-4230-810c-fda91fe3f285"&
-$96b9f0ff-8e60-4e2c-b65d-3cc1015e053d"&
+$9833b9b1-5b83-4cd0-88ab-0dbd4badcdb1"&
+$987fd9d8-15d9-4559-8248-76e7a226d2fb"&
 $98873387-546d-40bf-914a-04aa91e29c8c"&
 $98b0c28e-3f59-459e-ab74-2c7c788b3edd"&
 $99729972-57ab-425f-aee8-efe43c844251"&
-$99f21a47-763a-4da3-8f71-5a26cf3402a4"&
-$9a130609-f71d-4192-8964-920f34a7ab97"&
-$9ab72c3a-5e6b-42c3-9656-19f8e82c291a"&
+$997d9f09-2226-4ba0-8b41-df0f32bac3f6"&
+$9a943040-d59b-4443-a734-fe3c91370636"&
 $9ac9f44e-90b5-4637-b38c-13d9c6948d92"&
 $9b445f64-ef61-4015-ba29-7e4c7e11ce4d"&
+$9be59f75-5260-4025-bb06-b1360fc1fffd"&
 $9d1c4ebe-9939-400c-a99e-2cec050011a5"&
-$9d33aaf4-48cb-414c-9fcb-c84495e0dd1b"&
-$9d4ac611-3074-4536-aa7a-1380cb618a71"&
-$9e42d7c8-97ac-4331-9b06-5f74d485cb95"&
-$9f427af7-440a-48e9-8ae4-de80ee31c81a"&
-$Ristning, medeltid/historisk tid (2)"&
+$9eac214c-8752-447b-8764-3f8d0f0c9e5a"&
+$9fa65fa4-094b-4600-94d8-4f4172bbcfd8"&
+$9ffd08a7-0c86-4426-bccc-d52fe2a6a030"&
 $Ristning, medeltid/historisk tid (4)"&
+$a01b7e9a-ee81-4389-9cf4-1c99de7c4086"&
 $a0596e66-b1a6-48a5-a23c-ee1a165c214c"&
-$a112522c-213a-4112-b598-825076197ffa"&
-$a1642fe9-7de3-4904-a994-c2345fe3e7a7"&
 $a1a4d71e-6f11-4559-8d26-0bcab6cda1d2"&
-$a3f68202-0b57-4931-9e11-0aa0e065b947"&
+$a20345df-7304-469e-b9d9-47e4b82d14ce"&
+$a211f7da-1348-4aeb-863f-cb155c9b0ba0"&
 $a59c745a-47ab-4fa7-acb8-5b329cbf7407"&
-$a6512ae4-a412-499a-b073-0313e81c640e"&
-$a6ab37ac-8019-4ab2-9bc3-4d03b7c053e3"&
+$a629abe6-fe51-4b16-86d2-d449d1134ac8"&
+$a649c85d-40e3-4855-9109-797d498634f8"&
 $a7c32139-24b7-4d09-a5eb-1bdc8312f9f0"&
 $a805264e-1f0f-4016-9e14-d92c36189cee"&
 $a833d41c-ff03-4791-8fbe-a9ad3f3983cd"&
-$a8652836-89b7-49f9-8956-373426e47809"&
-$a9002ece-d3b4-442d-adf2-85cb4241d70e"&
-$a91e5ca7-527a-4d6e-aa1f-96f4ffd0d589"&
-$a95cf948-3348-4f94-8a11-3877f49e2463"&
+$a8846304-e2c8-4d3c-8307-c8bd91a520ba"&
+$a8b5bd71-0422-4ad9-a1ba-0872e3ebf817"&
 $aa667aa8-3305-4c57-89d8-a5007d3bae7e"&
-$aa736c14-9992-4c36-85f7-b4449a9dba8a"&
-$aabdda66-cfef-4e61-9b51-d999bbded092"&
+$aa73dce8-ce75-4a32-85b4-d5c18a6b5eaa"&
+$aaa7e605-fe9e-4fbb-b2a4-83bdaec79ae4"&
 $ab45002a-6f0a-4ce9-a6e5-5202c5ccbe34"&
 $ab766cd1-d19a-4e12-b1bd-389062c74268"&
-$abda4d9a-8132-4f4a-a158-bf3887dd3301"&
-$ac05d5e5-d973-4289-985b-5a4f27d79ff5"&
-$ac61481c-d248-40f1-8830-98b967b4e419"&
+$abdc0cd5-3e88-4a22-8102-30b515d440f7"&
 $ad65761d-eaa3-48e7-b88d-38bc47b7d22c"&
-$aeb8bbd7-9fa2-446f-9dd3-6a24138be7b6"&
-$b154eb4f-6790-49e7-8eef-a7af88b0496e"&
-$b185c25c-a226-4438-8b48-96455f73250b"&
-$b18f9394-b534-4b97-b737-757c0ded00ac"&
+$af15f61b-708f-4393-bc00-c358318d9069"&
+$b008b156-a141-4b26-855e-e14f59d8e16d"&
+$b12e3609-e3c8-40ce-9508-e86879ecab8c"&
+$b15bfcdf-218a-440d-b91f-617ad26c68f3"&
 $b1fb8324-28ed-48ec-8875-5c2481145f3d"&
-$b27bf4df-1d1e-460e-b392-b1bad048877f"&
 $b2d76298-7fa2-457d-9ab4-24934a8b410b"&
 $b326bcbf-06bb-4083-845f-50aa8a443809"&
+$b3f57428-67b1-47f5-b8d1-3adf1195192d"&
 $b40734f0-1d40-47b2-b008-b24741e2dbb0"&
 $b580094f-0711-4dc4-a260-5a2bdbaf2a8c"&
-$b5a2d3af-080f-49cb-b0d5-a6341710b2a3"&
-$b5faa21f-1bbf-4082-b435-c9cd3fb486d7"&
 $b697378a-6fa6-4dea-bc49-6a46eebc2820"&
-$b82c6aaa-9614-412e-a7fc-4069e22b97ae"&
+$b708da66-5600-48bf-8860-72b09f0d7da5"&
+$b75ca138-9157-4194-8eb5-d0d8c18eb9c9"&
 $b8586580-cb90-4c8a-8a88-02c00e41e0de"&
 $b85f8ffb-1afe-4a42-a804-f3771202ce1b"&
+$b8947d14-0597-4f25-a76b-85d9bd3104d8"&
+$b8a1d12f-6c73-4ff4-b406-6d11ff0f86c7"&
 $b966c41f-1a45-400e-97e6-e08253138ebf"&
 $b99de218-2f93-4acf-bb57-9bc276d5c16c"&
 $ba21b7f2-f11b-4227-9573-91231b65f2eb"&
-$bab43a45-f5bb-44de-845f-1bbca04f5d33"&
-$bcbb7c06-05b4-429c-9e09-4079c1331071"&
-$bd81c620-b0fb-44cf-8166-74fb47778574"&
+$bb22666e-7d30-4410-9880-854486ad2b46"&
+$bd2bed97-12c4-49a7-bd02-ef1479736a51"&
 $be3d0119-852a-48fc-8c2b-69f5f97765b1"&
-$be7d4c1d-3ad8-450a-90be-a6154f086cab"&
 $bfdd5154-05a8-4db4-a746-129a79cf66c0"&
-$c05bc5c2-4ce1-486f-bf8f-7cccb58c17ce"&
 $c081a06d-4298-4a6b-b633-1ad5dcb68967"&
-$c0cb0a53-fd82-4e5d-80d6-3e56be75a932"&
-$c0d2f44a-e0af-4476-bfff-e0a1898909bd"&
-$c14464d7-415c-4405-a92b-861a42d4cf7f"&
-$c2760929-cf26-441f-bca8-6296f8364578"&
+$c0d749c6-9cd7-40b1-ba03-a37a09236d92"&
+$c17a164a-f8c3-4ccc-a061-950ca5f71e3c"&
+$c2068a07-d26b-48b6-b825-b2a2e8a40690"&
 $c29efc98-baa7-44eb-a2c4-3602a5d8f30b"&
 $c2dfaccb-1c56-486d-9d45-f0f150f01893"&
 $c34b4f76-226f-403a-aecb-295cb9d7deda"&
-$c3caeefe-b484-4997-be2c-174f9e5d46b2"&
-$c47a372b-2ed6-48e9-aef6-39b1908eaf77"&
-$c4852de8-342b-4b5a-a6c6-316719f69682"&
+$c41e7c1f-fb01-4855-959c-a5f5cbd54a53"&
+$c4521944-aea8-43c3-a9e5-6d313376fc6a"&
+$c46f60e6-bfba-4962-bda2-8da7dc11d41e"&
+$c4a9621b-888a-4453-b3de-e53bb9ddcbca"&
 $c4baa601-3f87-466f-9203-c8e8a45aa5f2"&
 $c4ea96b1-cf08-4a65-85d8-b667512755ee"&
-$c5f1fab5-6672-4b00-a112-da1955235b42"&
+$c5e76834-e015-4ec3-bf80-118211a7a977"&
+$c624ec5e-69fb-44d4-b566-ea4dede093c6"&
 $c6dabbed-c061-4b8e-80ec-90592807fb53"&
 $c71372b2-77f3-403f-ba9f-0adaf473c10e"&
 $c78745e7-2edd-4521-88ad-c0e6f46ce20b"&
-$c7d7638f-f099-4eac-9d4b-6983f09dd806"&
-$c7e06bd7-671c-47fc-93ff-83ff85260008"&
+$c7a5a1ad-cc9a-4e3e-80a0-27c0334ca6d4"&
 $c7e75bef-f20e-4cb8-a39f-8bab05cdc7f4"&
 $c8303bcb-a88a-49bd-aefc-c0d10d277545"&
-$c9c0be16-2bdb-4af0-92c5-bcdb8cd80fa1"&
+$c983279e-c3e7-4969-ac77-9629630c813f"&
 $ca855d45-442a-4a95-87bf-37e8e06378fc"&
-$caab1041-2ec3-4b4e-bcaf-fc38420fdf1f"&
-$cb8d6c0e-2171-4a63-846a-3b9e37d63e65"&
-$cce00ad0-34b7-4a23-9244-70f27bf88d35"&
+$cb7f8403-4ec6-4081-966b-a04285105fb4"&
+$ccb8a712-4999-4a6e-9664-038040e34405"&
+$cd12c723-63f2-4e1c-bdc9-a9dadfc0dfc2"&
 $cd3eacd3-7806-416b-be10-7ad4ee5f4806"&
-$ce5bcca9-6f45-43d6-b5bd-6b24797ae816"&
-$d0b40a21-83c0-4491-939b-c2200d71f360"&
-$d0b527e9-01e1-49b5-95a4-e51c7e7cc2ed"&
-$d14f7f18-d5eb-4e39-9661-c0548497917f"&
+$cd71d383-a307-45d1-891a-310f8e37d36a"&
+$ce39f095-a246-40b6-9c25-7fa82601127e"&
+$cfe2656d-9f99-4081-a1d6-bced06277322"&
+$cfea2d40-218a-4d59-819c-931b0eadf50f"&
+$d0322cbb-475b-4b9d-8958-baa455ab6d0b"&
+$d154244a-60f9-4468-bb64-de7f69f42f2b"&
 $d159ec84-47c4-44e9-9d64-d3374c7775f7"&
-$d18c1835-ee3a-468a-b661-0b6950038d71"&
-$d30fcc15-081a-4c29-bfc0-d95f2620eab4"&
-$d33a0cd1-25d6-449a-a05b-6f9403de4cdc"&
-$d458acff-af4e-47d0-984e-04b73ad2efba"&
+$d1f52dbc-317e-47a9-bf9c-ea7fca7dc9c7"&
+$d1f7ab6c-1723-4265-97bc-37a62a77d195"&
+$d29924bd-2adb-43c2-ac93-0da5bb8a732c"&
+$d31cb987-323c-4f4d-a1dc-5aa999f2e168"&
+$d36c4f8d-807a-442d-91dd-b8ea14c571fd"&
+$d40fbd38-c4b8-4cd8-a56a-f2a6c233d3fe"&
 $d45ee799-b588-4baa-800a-2e82eb3a7eb9"&
-$d4c3ea0b-6055-4e5b-a60a-71a5381d5201"&
-$d520e0af-25f4-40f6-88bb-2d4e86988c11"&
-$d57033d7-3a21-49f4-8351-8cb806a4ebaa"&
-$d57d1081-8ec2-411c-8a5c-c76cc62dee0a"&
+$d48f9430-a0bb-430d-bfea-68f929ac7ddb"&
+$d4a0b9fe-c9db-489a-b9cf-6a3cc9f1e124"&
+$d4e16ab8-8fb3-4892-a3e7-6ce58068c1c0"&
 $d595c4f7-2d66-492c-828b-2d8e94a1c3b6"&
-$d6f801bc-667d-4ce1-995a-9ccf01fded4a"&
+$d671937c-4360-4c86-b0e0-5f7a4d9e3db4"&
 $d7236aaf-c967-42be-a5a8-24022a644b41"&
-$da5be17a-f40b-41d3-93b6-617f8430d051"&
+$d91ea3e1-f6d1-463d-8a33-62df6035484c"&
+$da6b748f-f7ba-4ca4-bbf4-1703d0833e92"&
 $da780a25-f756-405e-9697-2c761b95869e"&
-$dab93c56-ea29-485b-9f72-b7df9fe5b9dc"&
 $db4a5963-48b6-41d9-bdbd-589a559a9266"&
+$db5b5c07-3980-45e1-91cb-5d1838441bfa"&
+$db97e525-bc74-49e5-bb29-cf6ad144e84c"&
 $dbb93ba0-1d1b-448c-ba54-915c1298cfca"&
+$dbe547ac-f62c-4809-aca1-5065f78e0a77"&
 $dc0846e0-4259-4f0b-a43f-05548f0dc7c4"&
 $dc67b078-607b-4299-95e4-0a278896b557"&
-$dd4d951f-5614-4743-b672-97e1d5105afe"&
+$dcf09857-45b1-4c43-b95c-55f482d888c2"&
 $e01891f2-0c18-4360-bd20-bbf3516d8451"&
-$e046ea9d-da0f-4ca3-bc3f-452079f7b83b"&
+$e1970e16-3d15-49d3-ab95-171f210e8d4d"&
 $e1f178cd-75cf-4c7f-88b5-7caf1488546c"&
-$e26c1784-9986-4021-a4be-9c6e0a9e6eef"&
+$e242ce2b-f2b2-41da-be84-54c9651563ae"&
+$e2e5051f-4d52-4d70-99f8-8bd0678cc852"&
 $e3070537-de5f-4f8d-a3ae-293305d2ce37"&
-$e3218552-9732-425d-aa05-19c90680411b"&
-$e37333eb-e3c1-4a70-93dd-fe4a43b5f192"&
-$e3ded603-c52a-4d75-b163-06f258e5b90e"&
 $e3f88499-fc93-4e5b-962d-9fa9a8a515f8"&
+$e41594df-f209-44c7-bcd4-489e9a4f7079"&
 $e440a4b3-6327-4c25-a880-d69da6cdebe2"&
+$e4456341-871f-4853-8612-abe542b98799"&
+$e507d65e-6b4e-49d8-8472-11d86deb0586"&
 $e535b53f-05c0-473f-be96-ed6096d33237"&
-$e5550914-0e72-40be-b610-1177971e1e81"&
 $e5a692d5-67db-4818-9822-f57f0e2041dd"&
+$e5ab0f3b-cbfb-4662-846f-77dac5983793"&
 $e5b8e5c4-cb61-4010-ab7b-1dc6cc24168d"&
+$e6c6c6c4-027c-4452-bb19-64195d60122f"&
+$e755ef77-f5d4-4a7f-9b71-9771c63b9462"&
 $e8d49291-589a-4243-a645-bb3408464175"&
 $e8e0d5c7-5c97-46b0-80f4-e6d49faa4fee"&
+$e95dcaf6-efc9-4352-a4cc-10195399058d"&
 $e95f9a06-3c6b-4b20-ae74-15ff2b994385"&
+$ea5a3fd5-9cec-4d05-8ccf-f3c87fe8f113"&
+$eb7eed28-fa65-4faf-9bf3-8a204dbf13a6"&
+$eb9ca578-1d0e-4f55-a44e-0ce2a9103fa4"&
 $ebd6c11a-b38a-46da-a5ad-025fa1a4944d"&
 $ecab40ff-393b-45e2-a360-4f56be89694e"&
 $ecb20d69-a241-4efb-b62b-8b4a81416daf"&
 $ed254987-9d13-4a1c-a697-d45dce5db425"&
+$ed2a6705-2c0a-4d6b-be9e-566c6fd22683"&
+$ed2dd006-ce66-4b3f-a2fe-9c3765e06dda"&
+$ed58bf62-5182-4b39-a0fc-98917bb7ae83"&
+$ed968cc2-ac03-42d8-a9ef-f7de291af1a3"&
 $edaf7942-61e6-41cc-9f52-cfeac04557c9"&
-$ee123b23-3b1f-4485-9904-eafead23151e"&
-$ee3a45cf-0049-4043-bd50-234eda702b24"&
-$ee3dce76-9637-438b-b6b8-e48a0624a119"&
-$eee10a40-538b-453f-a352-d26d3d2bfe3a"&
-$eef4f32f-9af4-42ea-a75d-d90f80f0b482"&
+$ee3585fb-3b39-4bca-8bae-d39f9e70c035"&
 $ef7fc1dc-da5a-4de7-8532-e9486370156d"&
+$efba1fb8-48d4-4c53-8594-8429953b8168"&
 $f0ec3104-4b1e-4f9b-b107-553494b4370c"&
 $f1736b9e-6469-49a9-8341-5125888fd95a"&
 $f1f035e7-8d99-4fd1-afce-cf97552548ef"&
-$f2834145-1e00-47cd-993f-5f4ba54b1693"&
 $f34d2d5b-512f-407e-8941-a298322400af"&
-$f3a2ee0d-beaa-44dd-ad56-141e395e6135"&
-$f4531019-602a-4cd5-88f0-7de7604c27af"&
 $f4942d0a-173a-4aa4-a298-c002a36e8794"&
-$f524d37b-2eb5-4851-8c66-6159c310d715"&
-$f6688027-2a08-4b16-9e7d-2a71c186cf2a"&
-$f6f06f59-924c-442e-aa52-affcdf9789a6"&
-$f70c3fff-a9c6-46d9-8ada-ef94337c7a21"&
-$f712b0d4-710d-4a5a-bc6b-f4e498626816"&
-$f8aa1d35-27d4-4cf1-935c-3ec85c34ae57"&
-$f8daf745-8fa4-418b-adad-ab6deb5efb8b"&
-$f9b38c59-0c1f-4bfb-b641-3f281d76edad"&
-$fa77a294-90c2-4fab-9cbb-58f45da0374e"&
+$f4be6cfb-d074-4d46-96f6-ecd31502e9d8"&
+$f50a5d14-90eb-4d90-8c34-eb094b29d647"&
+$f51664bc-b08f-40c0-a2f9-aab57909f6d1"&
+$f52d718c-bd5d-4f99-9f93-8b82346af5bc"&
+$f5f4791f-966b-4ea7-857e-25c52b09c463"&
+$f8c28623-d4fc-4d43-bfee-ef3a8ac09f20"&
+$f92ac063-ad54-45ec-bd60-182f39b5489c"&
+$f9adb98e-903e-44a0-abdf-2660c2cdd2dd"&
+$f9b47892-a31f-47bb-8ef8-4f526c2c4c50"&
 $fb903fca-158e-4fe8-bd0d-0e0dd182d55b"&
 $fbc25040-1d58-46c6-8460-d3ebb200f266"&
-$fc616ea7-e1b4-43d6-8d31-b4b72a086f72"&
+$fbc86f86-0684-44f7-a391-b213a318a7d5"&
 $fd021492-dd92-4f9c-bfb5-52fac40344cb"&
 $fd07a1b1-00a3-4fd4-87c7-b01d2f033583"&
+$fd0821fe-398d-4a73-8634-e2fd41500a85"&
 $fdb81ddf-df23-488c-91c9-6803d93daa2d"&
-$ff4a5c0a-ef5f-4fa9-98bf-c7768905a121"'
-%Husgrund, f√∂rhistorisk/medeltida (2)"'
-%Husgrund, f√∂rhistorisk/medeltida (5)"'
-%Husgrund, f√∂rhistorisk/medeltida (8)"-
-+Skomakaren, [[Backa h√§llristningsomr√•de]]"9
-7Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"  B"  B"  (A"  ?B"  GB"  YB"  kB"  yB"  à@"  ùB"  ≠B"  ØB"  πB"  ªB"  ºA"  øB"  ¡B"  «B"  ‘A" ÄáB" Ä†B" Ä£B" ÄßB" ÄªB" Ä¡B" Ä«B"	
-◊£p=
-"@"	
-◊£p=
-'@"	
-◊£p=
-K@"	
-◊£p=*F@"	
-◊£p=*I@"	
-◊£p=*N@"	
-◊£p=jF@"	
-◊£p=jI@"	
-◊£p=ä$@"	
-◊£p=ä)@"	
-◊£p=äC@"	
-◊£p= O@"	ÆG·zV@"	ÆG·z@"	ÆG·z;@"	ÆG·zX@"	ÆG·z$W@"	ÆG·z$X@"	ÆG·z4W@"	ÆG·z4X@"	ÆG·zDQ@"	ÆG·zDR@"	ÆG·zT9@"	ÆG·zT<@"	ÆG·ztV@"	ÆG·zî8@"	ÆG·zîT@"	ÆG·z¥Q@"	ÆG·z¥U@"	ÆG·zƒS@"	ÆG·zƒX@"	ÆG·z‘8@"	ÆG·z‰Q@"	ÆG·z‰V@"	ÆG·z‰W@"	ÆG·zÙV@"	ÆG·zÙX@"	ÖÎQ∏@"	ÖÎQ∏@"	ÖÎQ∏0@"	ÖÎQ∏8@"	ÖÎQ∏U@"	ÖÎQ∏>V@"	ÖÎQ∏NT@"	ÖÎQ∏NX@"	ÖÎQ∏^<@"	ÖÎQ∏^W@"	ÖÎQ∏nT@"	ÖÎQ∏nX@"	ÖÎQ∏éT@"	ÖÎQ∏æW@"	ÖÎQ∏ŒX@"	ÖÎQ∏ﬁ2@"	ÖÎQ∏ﬁ6@"	ÖÎQ∏ﬁ7@"	ÖÎQ∏ﬁ;@"	ÖÎQ∏ﬁR@"	ÖÎQ∏ﬁX@"	ÖÎQ∏ÓV@"	ÖÎQ∏ÓW@"	ÖÎQ∏ÓX@"	ÖÎQ∏˛X@"	)\è¬ıD@"	)\è¬ıN@"	)\è¬ı(
-@"	)\è¬ı(K@"	)\è¬ı(‰?"	)\è¬ıHN@"	)\è¬ıhL@"	)\è¬ı®H@"	)\è¬ı®M@"	)\è¬ı»G@"	)\è¬ı»M@"	33333S@"	33333K@"	33333N@"	33333P@"	333333#@"	3333333@"	3333337@"	333333M@"	333333W@"	333333X@"	33333CX@"	33333SO@"	33333SP@"	33333SX@"	33333cW@"	33333s6@"	33333sC@"	33333sJ@"	33333sN@"	33333sP@"	33333sV@"	33333ÉR@"	33333ÉW@"	33333ÉX@"	33333ìG@"	33333ìS@"	33333ìX@"	33333£T@"	33333≥6@"	33333≥@@"	33333≥R@"	33333≥X@"	33333”@@"	33333”N@"	33333”X@"	33333„R@"	33333Û8@"	=
-◊£pC@"	=
-◊£pL@"	=
-◊£p]M@"	=
-◊£p}E@"	=
-◊£pùK@"	=
-◊£p˝J@"	=
-◊£p˝K@"	H·zÆX@"	H·zÆS@"	H·zÆ'R@"	H·zÆ'S@"	H·zÆ'W@"	H·zÆ'X@"	H·zÆ7S@"	H·zÆG7@"	H·zÆGW@"	H·zÆgX@"	H·zÆßX@"	H·zÆ∑X@"	H·zÆ«;@"	H·zÆ◊P@"	H·zÆ◊W@"	H·zÆ◊X@"	H·zÆÁV@"	H·zÆÁW@"	H·zÆÁX@"	H·zÆ˜T@"	H·zÆ˜W@"	R∏ÖÎ2@"	R∏ÖÎ8@"	R∏ÖÎX@"	R∏ÖÎAX@"	R∏ÖÎQ3@"	R∏ÖÎQ6@"	R∏ÖÎQX@"	R∏ÖÎqS@"	R∏ÖÎÅS@"	R∏ÖÎÅX@"	R∏ÖÎëS@"	R∏ÖÎ±P@"	R∏ÖÎ±X@"	R∏ÖÎ¡S@"	R∏ÖÎ¡W@"	R∏ÖÎ—W@"	R∏ÖÎ·P@"	R∏ÖÎ·S@"	R∏ÖÎ·V@"	R∏ÖÎ·X@"	R∏ÖÎÒX@"	\è¬ı(N@"	\è¬ı(\$@"	\è¬ı(|H@"	\è¬ı(|N@"	\è¬ı(úE@"	\è¬ı(úI@"	\è¬ı(ºO@"	\è¬ı(‹E@"	\è¬ı(‹N@"	\è¬ı(¸J@"	fffffI@"	fffff&F@"	fffff&R@"	fffffFN@"	ffffff(@"	ffffffL@"	fffffvX@"	fffffÜE@"	fffffÜU@"	fffffñU@"	fffffñX@"	fffff¶3@"	fffff¶7@"	fffff¶=@"	fffff¶H@"	fffff¶X@"	fffff∂X@"	fffff∆R@"	fffff∆S@"	fffff∆W@"	fffff÷S@"	fffffÊ4@"	fffffÊH@"	fffffÊL@"	fffffÊS@"	fffffÊW@"	fffffÊX@"	fffffˆQ@"	fffffˆX@"	q=
-◊£J@"	q=
-◊£0G@"	q=
-◊£0L@"	q=
-◊£PF@"	q=
-◊£PH@"	q=
-◊£pA@"	q=
-◊£êF@"	q=
-◊£êH@"	q=
-◊£êK@"	q=
-◊£êN@"	q=
-◊£∞E@"	q=
-◊£–A@"	q=
-◊£–G@"	q=
-◊£–M@"	q=
-◊£!@"	q=
-◊£"@"	{ÆG·
-W@"	{ÆG·X@"	{ÆG·*W@"	{ÆG·:S@"	{ÆG·:T@"	{ÆG·JV@"	{ÆG·JW@"	{ÆG·ZS@"	{ÆG·z@"	{ÆG·zU@"	{ÆG·äS@"	{ÆG·äX@"	{ÆG·öR@"	{ÆG·öS@"	{ÆG·öX@"	{ÆG·∫W@"	{ÆG· X@"	{ÆG·⁄W@"	{ÆG·⁄X@"	{ÆG·ÍU@"	{ÆG·ÍX@"	{ÆG·˙S@"	{ÆG·˙X@"	ÖÎQ∏6@"	ÖÎQ∏9@"	ÖÎQ∏:@"	ÖÎQ∏S@"	ÖÎQ∏X@"	ÖÎQ∏%V@"	ÖÎQ∏%X@"	ÖÎQ∏E3@"	ÖÎQ∏E<@"	ÖÎQ∏EV@"	ÖÎQ∏UX@"	ÖÎQ∏eS@"	ÖÎQ∏eX@"	ÖÎQ∏Ö4@"	ÖÎQ∏ÖW@"	ÖÎQ∏Öˇ?"	ÖÎQ∏ïR@"	ÖÎQ∏ïW@"	ÖÎQ∏µW@"	ÖÎQ∏≈X@"	ÖÎQ∏’X@"	ÖÎQ∏ÂQ@"	ÖÎQ∏ıX@"	è¬ı(\O@"	è¬ı(\è
-@"	è¬ı(\è#@"	è¬ı(\œ@@"	è¬ı(\œK@"	öôôôô6@"	öôôôôA@"	öôôôô9X@"	öôôôôIU@"	öôôôôiS@"	öôôôôiT@"	öôôôôyK@"	öôôôôâT@"	öôôôôâW@"	öôôôôâX@"	öôôôôô7@"	öôôôôô9@"	öôôôôôD@"	öôôôôô˝?"	öôôôô©X@"	öôôôôπQ@"	öôôôôπX@"	öôôôôŸ6@"	öôôôôŸ9@"	öôôôôŸ?@"	öôôôôŸE@"	öôôôôŸX@"	öôôôôÈV@"	öôôôôÈX@"	öôôôô˘L@"	öôôôô˘W@"	öôôôô˘X@"	§p=
-◊B@"	§p=
-◊K@"	§p=
-◊L@"	§p=
-◊CL@"	§p=
-◊cD@"	§p=
-◊cG@"	§p=
-◊cH@"	§p=
-◊„F@"	§p=
-◊„L@"	ÆG·zX@"	ÆG·zNP@"	ÆG·zNR@"	ÆG·z^X@"	ÆG·z~S@"	ÆG·z~U@"	ÆG·z~X@"	ÆG·zéR@"	ÆG·zéV@"	ÆG·zûQ@"	ÆG·zÆ5@"	ÆG·zÆW@"	ÆG·zŒX@"	ÆG·zﬁW@"	ÆG·zÓS@"	ÆG·zÓU@"	ÆG·zÓX@"	ÆG·z˛Q@"	ÆG·z˛X@"	∏ÖÎQX@"	∏ÖÎQ85@"	∏ÖÎQ8W@"	∏ÖÎQHX@"	∏ÖÎQXV@"	∏ÖÎQhT@"	∏ÖÎQhV@"	∏ÖÎQx4@"	∏ÖÎQàV@"	∏ÖÎQ®S@"	∏ÖÎQ»W@"	∏ÖÎQÿU@"	∏ÖÎQÿX@"	∏ÖÎQËX@"	∏ÖÎQ¯R@"	∏ÖÎQ¯W@"	∏ÖÎQ¯X@"	√ı(\èA@"	√ı(\èO@"	√ı(\è"K@"	√ı(\èB)@"	√ı(\èÇN@"	√ı(\èÇO@"	√ı(\è¢O@"	√ı(\è‚G@"	√ı(\è‚H@"	ÕÃÃÃÃR@"	ÕÃÃÃÃX@"	ÕÃÃÃÃP@"	ÕÃÃÃÃT@"	ÕÃÃÃÃU@"	ÕÃÃÃÃ,G@"	ÕÃÃÃÃ,X@"	ÕÃÃÃÃL=@"	ÕÃÃÃÃL@@"	ÕÃÃÃÃLV@"	ÕÃÃÃÃlM@"	ÕÃÃÃÃå2@"	ÕÃÃÃÃåD@"	ÕÃÃÃÃåV@"	ÕÃÃÃÃåX@"	ÕÃÃÃÃúS@"	ÕÃÃÃÃúV@"	ÕÃÃÃÃ¨J@"	ÕÃÃÃÃ¨N@"	ÕÃÃÃÃ¨X@"	ÕÃÃÃÃºX@"	ÕÃÃÃÃÃ@"	ÕÃÃÃÃÃ,@"	ÕÃÃÃÃÃ4@"	ÕÃÃÃÃÃ5@"	ÕÃÃÃÃÃ8@"	ÕÃÃÃÃÃW@"	ÕÃÃÃÃÃ‹?"	ÕÃÃÃÃ‹T@"	ÕÃÃÃÃÏK@"	ÕÃÃÃÃÏX@"	ÕÃÃÃÃ¸X@"	◊£p=
-W"@"	◊£p=
-W+@"	◊£p=
-WO@"	◊£p=
-∑J@"	◊£p=
-∑N@"	◊£p=
-◊"@"	◊£p=
-◊,@"	◊£p=
-◊H@"	◊£p=
-˜@@"	◊£p=
-˜H@"	◊£p=
-˜I@"	·zÆGQ@"	·zÆGW@"	·zÆG!7@"	·zÆG!W@"	·zÆGAW@"	·zÆGqU@"	·zÆGqW@"	·zÆGÅW@"	·zÆGëQ@"	·zÆG—W@"	·zÆG—X@"	·zÆG·5@"	·zÆG·7@"	·zÆG·⁄?"	·zÆGÒX@"	ÏQ∏ÖQ@"	ÏQ∏Ö+7@"	ÏQ∏Ö;X@"	ÏQ∏ÖKR@"	ÏQ∏ÖKW@"	ÏQ∏Ök7@"	ÏQ∏Ök:@"	ÏQ∏ÖkQ@"	ÏQ∏ÖkX@"	ÏQ∏Ö{P@"	ÏQ∏ÖãV@"	ÏQ∏Ö´>@"	ÏQ∏ÖªX@"	ÏQ∏ÖÀW@"	ÏQ∏ÖÀX@"	ÏQ∏Ö€X@"	ÏQ∏ÖÎ6@"	ÏQ∏ÖÎX@"	ÏQ∏Ö˚W@"	ÏQ∏Ö˚X@"	ˆ(\è¬5I@"	ˆ(\è¬5K@"	ˆ(\è¬UN@"	ˆ(\è¬uF@"	ˆ(\è¬uJ@"	ˆ(\è¬ïB@"	ˆ(\è¬µF@"	ˆ(\è¬’G@"	ˆ(\è¬’O@"	ˆ(\è¬ı&@"	ˆ(\è¬ıG@"	ˆ(\è¬ıJ@" " " " " " " " 9" >" [" \" `" c" d €ÿ3È	‡	"	à‹ Õô3Â‡	"	¬Ä Òô3Á‡	"	ˆÑ Áp3°	‡	"	∞Ú üiœ	‡	"	Œ»  €Sî‡	"	Ä¢ ∏ÊÊÀ‡	"	êú œ˛»¯‡	"	òò ¡∑∂Ì‡	"	¯Ñ ûB´‡	"	∏ä  ‚33Ã‡	"	÷÷ ÷ÖçC∆‡	"	§Ñ Î9≤ª	‡	"	ÃÄ  Çô3ß‡	"	ê∆ º33‰‡	"	ˆË ®áÂ‡	"	∏– îk!†	‡	"	î‰ ‘âÊÕ	‡	"	å∆  ·‹û!í‡	"	Ã¸	 »Œ»‡	"	Ùö Üí	ı‡	"	ûé äÇØ‡	"	º ªô3Î‡	"	¿‹ É<≈‡	"	¶‚ ÑÜ3ü‡	"	≤à ±´°·‡	"	∏“ ﬂåÀ	‡	"	 Ç Ì®%ê‡	"	»û èí%∆‡	"	¿⁄ ’ô3Ù‡	"	Ç –∫3¨‡	"	àö Å4%©‡	"	òä ò≈3ì‡	"	ñÜ ˝¡k!∑	‡	"	¯» Î?€‡	"	Ú– Ãô3·‡	"	Ë– Àûû! 	‡	"	∏é –Ké‡	"	éñ öœÅC®‡	"	ò¥ µßû!∆‡	"	ò∏ ∂‹û!Ë	‡	"	¸Œ ≤%%ñ	‡	"	åÜ Œc3»	‡	"	“‚ ¯åû!¡‡	"	¨ê „≤≤®‡	"	ê¯ Ó˙%·‡	"	ÿ˙ Åkk!ê‡	"	⁄Ç ﬂú3æ‡	"	æ∆ Íï	‡	"	æﬁ »k!ø‡	"	Æ≤ ÂìÊß‡	"	ñÆ ﬁ3‡‡	"	∆Ã ˆ¡k!å‡	"	Ü˙ ˜¯x!€‡	"	®à Éq%ã‡	"	Íû ø®k!ê	‡	"	æÚ ÿııâ‡	"	Ë‚ Îm%∫‡	"	∞® ¥‰ÅCà‡	"	îÆ ˝
-k!ª‡	"	äå √&≤€‡	"	¥Ñ  ¥33◊‡	"	»ê …Z%ÿ‡	"	éÃ ÎJŸCƒ	‡	"	Ñí ˙¡k!¶‡	"	§å Ç°‡	"	§Ú °òû!ÿ‡	"	¯ƒ
- ùö3ü‡	"	íê ËÆÆX˛‡	"	¶˛ Ú$∂∏‡	"	ƒö ‰_3‘‡	"	‚‰ ïöÅCÎ‡	"	†à ∫‹û!˚‡	"	í¸ ¶kk!µ‡	"	úË ÿäXæ	‡	"	Üú	 ¢x!≥‡	"	≤¸ ˆ‹û!ª‡	"	Ï‚ ¯jû!˙‡	"	¢Í æÆÅC¶‡	"	‹à ∆√k!à	‡	"	∫» ÷k!¢‡	"	úò ÙCõ‡	"	∂ƒ ƒîk!π‡	"	ÿ§  áÌñû‡	"	‚≤ ‹ÛÅC’‡	"	Œ‹ œ∞ˇ‡	"	êÙ ®åÅC∑‡	"	Ç˙ ∫–ÅC¥‡	"	¬™ ê„ÅCÉ	‡	"	Ú¸ ‘•Ë‡	"	§Ú  ≥ÖÅCù‡	"	⁄˛ ÚâÆXô‡	"	ˆ‡ €ﬂ‘Á	‡	"	ÿ‡  “ï2DŒ	‡	"	ˆê ©¨	 ‡	"	‡ﬁ Õ˘⁄X˜‡	"	™ä õ…x!±‡	"	®Í ∆ÍÅC„‡	"	®“ ±l%Æ‡	"	§ƒ §ûû!Í‡	"	∂Ã  ˝‡ÅC ‡	"	ƒ¨ ùàCù‡	"	òà  ûû!‚‡	"	Ç¨
- ºÅÅCè‡	"	êƒ Éº2D´‡	"	ÿå ÌL¡‡	"	‚æ ΩˇÅC∂	‡	"	¬î ∑´ÆXú	‡	"	∆Ù ™è3…	‡	"	Ç õ‹û!Ú‡	"	ŒÍ  ≥+ÅC‰‡	"	ºê ≥1¿‡	"	¸¢ ã⁄‡	"	‡Ê ´”ÅCç‡	"	éñ •Eß‡	"	ºé  πÜÅC‡‡	"	¯Ç à¶‡	"	†∂ •ãÅCπ‡	"	∆ ëû%£‡	"	Üà ∫á‡	"	§¬ ˙t%¥	‡	"	¸à «ßk!≥	‡	"	ÚÍ ‰=	•‡	"	»‰ øˆ≤ˇ‡	"	åÃ ËÆÆXõ‡	"	àÃ éﬁû!÷‡	"	®   ﬂhÅC¿	‡	"	∞Ë ÀœÅCÑ‡	"	¶˛ ∫“Ñ•‡	"	ˆ ® é-ù!±	‡	"	⁄ˆ ∂.Í‡	"	Äé! ¢Á¶∫‡	"	ÃË ˚eû!˘‡	"	¬ê Ç›û!Ä‡	"	ûæ ß¬k!°‡	"	ää π~~.∏‡	"	Çƒ ëà∞	‡	"	™!∞ √°∂ö‡	"	Ë∏ «)˛‡	"	ä∫ éî∂Æ	‡	"	Ãñ §∂∂Ê	‡	"	˙¢ ™33À‡	"	»Ä Õ@%‚‡	"	íË œÆÆX«‡	"	æé Û>	≠‡	"	»‚ Ì.…‡	"	Çà! ∆¡k!ƒ‡	"	¨Ñ örÅCÂ	‡	"	‚Æ ›ñ2Dí	‡	"	‰¸ ”œÅC›‡	"	º¯  ‰™ù!è	‡	"	∏‹ “C∆	‡	"	†Œ  ºË¶‡	"	¸™	 £œÅC¿ﬂ	"	Ç‡ ÃœÅCÖﬂ	"	ñ‚  ÖÔÅCÓﬂ	"	⁄˙ ‹ïÅCÏﬂ	"	å˙ ◊É»ã	ﬂ	"	öŒ ßâêXÉﬂ	"	à÷ Ï€ù!ûﬂ	"	™ê	 ƒÚÅC“ﬂ	"	Çñ ˇ{%öﬂ	"	à⁄ Ñ¥ﬂ	"	Ú† ÷:‰ﬂ	"	º∏  ≠n3ëﬂ	"	Ä» ˘èÆXôﬂ	"	ˆÙ Í—ÅCÛﬂ	"	™Ú ≤Ì≠!ƒﬂ	"	êé ∏òﬂ	"	òò ∑  D⁄ﬂ	"	∏ñ ∂À}DŸﬂ	"	§‚ ¥˛»⁄ﬂ	"	Ü 	 ≈ûû!áﬂ	"	î∏ ñãÆX≤	ﬂ	"	“Ï øùù!¥ﬂ	"	÷à	 ¥‹û!—ﬂ	"	‡Ê ¸ôÅCÜ	ﬂ	"	†‡ X∞ﬂ	"	¥ ñkk!§ﬂ	"	ÿ® ˇ,H/û	ﬂ	"	éé ﬁ±RXåﬂ	"	˛Œ ›ÅÅC¬ﬂ	"	Ü⁄
- Øùù!Ÿﬂ	"	§ä kk!∏ﬂ	"	î™ ≠(£ﬂ	"	ê¶ ΩÓ≠!◊ﬂ	"	ˆÿ  éX∂ﬂ	"	§§	 È¶¶Ìﬂ	"	ºú ﬁ  D”ﬂ	"	åÙ õõ.Çﬂ	"	‚» ¬†k!Ö	ﬂ	"	º  …Äd.¢ﬂ	"	íö Ïªd.ìﬂ	"	ñÏ ∂õõ.„ﬂ	"	‚» ûÕ~.Èﬂ	"	Ù‘ ˆ§˚.√ﬂ	"	ûí ŒOXÂﬂ	"	Ü†	 ⁄óÆX„ﬂ	"	æÏ Àùù!≈ﬂ	"	˙ Ëó»øﬂ	"	÷ Œ©©XÒﬂ	"	§Ü ¿HH/óﬂ	"	û∫ ˛§b.ë	ﬂ	"	¢é ÛÒÆXãﬂ	"	¸æ ƒdd.äﬂ	"	»Ù ‡WWDºﬂ	"	ö¸ ª∂àﬂ	"	àú ∆õõ.∫ﬂ	"	ƒî ãdd.Ÿﬂ	"	ﬁ∞  Ó	πﬂ	"	˛í ˇ’Xµﬂ	"	Ñ†	 Ö33†ﬂ	"	ÙÓ ⁄·b.Öﬂ	"	åî £Á¶Åﬂ	"	ˆò	 ¬◊£ﬂ	"	¢Í ·ï2D†ﬂ	"	¬¯ â™ÅXûﬂ	"	¥¯ °Yòﬂ	"	¥Ë ı  DÒﬂ	"	Ëÿ ¯¶¶ˆﬂ	"	»‡ ÅHH/îﬂ	"	‡¢ Ú%%‡ﬂ	"	Óÿ Ωé⁄X‚ﬂ	"	Æ‚ ˆùÅCèﬂ	"	Ñ™
- †HH/äﬂ	"	¢˛  Ä»»•ﬂ	"	®  ˘  D‹ﬂ	"	ﬁÿ «53Üﬂ	"	˛Ã ´  D◊ﬂ	"	¿ﬁ ûûû!ø	ﬂ	"	Ä» Á`û!Ωﬂ	"	Ó‚
- õ%%üﬂ	"	Ê¯ ßf.”ﬂ	"	Ää! ¸  DÇ	ﬂ	"	¸˛ ◊.Êﬂ	"	Ää! »ÅÅCÏﬂ	"	úÄ ¬u	™ﬂ	"	¿¿ è  D»ﬂ	"	Ñ‰ óG D¿ﬂ	"	ºﬁ ∞æ∂√ﬂ	"	ËÚ à  Dﬁﬂ	"	ú∂ ﬁ/µ	ﬂ	"	‘‡ Ë  D√	ﬁ	"	∆Ü Ïbb.ºﬁ	"	®¥ ˛≥ÄCº	ﬁ	"	¯Ê ◊  D≠	ﬁ	"	ÇÜ ¬X°ﬁ	"	¬∆ ›ûû!¬ﬁ	"	æ¯ ÍHH/™ﬁ	"	‰“ ∑ëë.Ωﬁ	"	∂¿ Àw"≈	ﬁ	"	ö¬ Í‹û!Ñﬁ	"	Ù‡
- ’ÇX˝ﬁ	"	Çî ëëë.÷ﬁ	"	Úº ”XÑ	ﬁ	"	¨æ √òò.Ùﬁ	"	æ∫ „  Dÿ	ﬁ	"	Æê  ïaa ≥ﬁ	"	ú∫ ˝âÆXÕﬁ	"	“Ï ª©©ˇﬁ	"	⁄Í Ÿgg/˛ﬁ	"	äÚ “Uõ §	ﬁ	"	ú® ≥∂∂¸ﬁ	"	®¿
- ⁄Ãd.ïﬁ	"	“û ™áC¨ﬁ	"	˛– Ñ.˙ﬁ	"	º¸ íññ‰	ﬁ	"	™‚ »HH/œﬁ	"	ﬁ¢ Úòò.íﬁ	"	§û ≈gg/¶	ﬁ	"	àò ƒgg/î	ﬁ	"	¯ ˜WWD˜ﬁ	"	úå £ππ/˝ﬁ	"	Ü® âä» ﬁ	"	÷ú	 €z∂Éﬁ	"	¶¿
- ∞˝»“	ﬁ	"	‚ ı∂Îﬁ	"	ê–
- ÁÑÑ‘ﬁ	"	Ù“ ®F%≠ﬁ	"	Œ˙ °.«ﬁ	"	ƒú ÉœÅCÛﬁ	"	⁄ƒ º»»Áﬁ	"	Ñå çaa ˚ﬁ	"	úÍ Äìì.ﬁ	"	¶Ó Ô  DÓﬁ	"	æÓ –ÈXå	ﬁ	"	¯¢ ügg/îﬁ	"	àÚ ”≠ÄCòﬁ	"	∫÷ ´  D¯ﬁ	"	îÓ ægg/…ﬁ	"	ÄË ﬂ©©XËﬁ	"	ûå ˜çC‘ﬁ	"	Äà Â≠≠!„	ﬁ	"	î™ Œaa Ïﬁ	"	‹ˆ áX÷ﬁ	"	‚∫ üµœﬁ	"	¨!˙ ¸gg/ﬁ	"	Ü ÔWWDóﬁ	"	æ∂  ô[êXŒﬁ	"	æò µgg/úﬁ	"	ñ» P∂ü	ﬁ	"	˙Ü Ù⁄⁄X∞ﬁ	"	∏‹ ìùù!öﬁ	"	∂í	 ¨Õ~.ˆﬁ	"	»‚ È˚˚.∑ﬁ	"	Ñî ‡dd.—	ﬁ	"	‹ê ¶.Èﬁ	"	ºà ä22D˚ﬁ	"	»Ó ñ.ìﬁ	"	é» ‰aa Úﬁ	"	à‘ ôWWD™ﬁ	"	†∂ ≠.Õﬁ	"	ÿº Ó∆∆õﬁ	"	í“  .–ﬁ	"	Êﬁ ¡òò.€	ﬁ	"	å¢ ˛œÅC•	ﬁ	"	ˆ¶ ãçç.ì	ﬁ	"	í ≤üÑ/‘	ﬁ	"	¢ﬁ Ê##Çﬁ	"	ŒÙ ‡Ù∂Óﬁ	"	¬ö ÒÄÄC¨	ﬁ	"	Ãê ˙ÑÑ/Ãﬁ	"	‹Ã ˚œÅCØﬁ	"	÷Ã ìÄÄC–	ﬁ	"	Ã™ Ê7.¨ﬁ	"	‡⁄ ÆÎ©X—ﬁ	"	¬!Œ ÂççC´	ﬁ	"	¬‚  ı©©XÁﬁ	"	êê ‚££Å	ﬁ	"	‹Ã ¢0íﬁ	"	Ê˙ ç‚Q/©	ﬁ	"	≤ñ ‘∏ÅCÌﬁ	"	÷‡ —©©Xﬂﬁ	"	Ú˛ Õ†ÅCıﬁ	"	àÇ Ã8.…ﬁ	"	ä“ ¿V%“ﬁ	"	ÿﬁ ≈Tb.Úﬁ	"	êˆ ˙yC⁄	ﬁ	"	ñ¬ †~~.Ä	ﬁ	"	¨ò ˚≠≠!ëﬁ	"	æÚ Ãdd.◊	ﬁ	"	‚⁄ Â}}D˙ﬁ	"	§Ù  æ¿'.Ôﬁ	"	¬† ˚WWDâﬁ	"	º‘ ∞Â}D—ﬁ	"	í∂  ¡vØÔﬁ	"	¨® Ü≠≠!á	ﬁ	"	Ç"‡ ˜ÅÅC”ﬁ	"	‰Ç ’WWD÷	ﬁ	"	¸ò ˛•ò.Ùﬁ	"	º™ ¯WWD”	ﬁ	"	∆∂ Ô##Æﬁ	"	î …sΩ.Òﬁ	"	êÆ ∏ÑÑ/´ﬁ	"	¥“ ŸØØ“ﬁ	"	‘ öA|.Œﬁ	"	ÿ‡ ÑœÅC≈ﬁ	"	öò ¨}}D¯ﬁ	"	™Ä ©XÀﬁ	"	‚≤ Ÿ¸⁄Xÿﬁ	"	≤î ·Éõ.ôﬁ	"	¸Ú ˘ûû!Ωﬁ	"	îÙ ê©©Xé	ﬁ	"	≤ñ ⁄òò.–ﬁ	"	ﬁ‡ ô.Êﬁ	"	Ä‚ è©©X≤›	"	¥† ±©©XÅ›	"	ﬁé ØúÆXñ›	"	ÃÑ ò∂’	›	"	Íí ÄHH/è›	"	˙– ‘33Ã›	"	‰Ä ”  D˘›	"	∫∏ ú  DÛ›	"	ÊÃ ∞¢¢!≤›	"	Ù“ —ëo˘›	"	æÑ
- œÏÏ ™	›	"	Óæ ÙÑÑ/ë›	"	Ú∞ ù©©XØ›	"	ﬁ– ÊÏÏ é›	"	ò‚ ¨ÏÏ é›	"	∆à ÷\3ä	›	"	Ê∫	 à¶ƒ›	"	¥§ úÏÏ «	›	"	Ó¿ Ÿ  Dﬁ›	"	∂§ ¸∂∂â	›	"	‹¨ îçd.’›	"	® úXø›	"	∏ƒ ±aa ù›	"	ûî µ  Dﬂ›	"	≤÷ î  D©›	"	¸Ú ï  D∂›	"	Ü"º ∏ƒù!‚	›	"	⁄í á¶¶†›	"	¢‚ Ü¥X¬	›	"	Ä÷ ‚aa ó›	"	¢‡ òaa √›	"	˛ö ÛN¶º›	"	¯Ú …©©Xæ›	"	Ú§ ªHH/ñ›	"	íÇ à¶¶ï›	"	Ã¢ ØIX«›	"	àú
- Æ¶¶õ	›	"	ÃÊ Ó¶¶¡›	"	‰Œ
- ‹ÏÏ –›	"	Ãˆ â©©X≥›	"	‡ú „X·	›	"	ÜÑ πÏÏ π	›	"	 ¯ ı¶¶ﬁ›	"	∂“ å¶¶››	"	§‚ ≈¶¶ª›	"	¥‰ Ò¶¶ú›	"	Üº
- ©¨¨¡	›	"	‚¶ óùù!§›	"	 Œ Ä¶¶˜›	"	ﬁ» å  DΩ	›	"	öò π¢¶Ø	›	"	‚º ç  DÃ	›	"	¯é ∑X››	"	ò¨ ø¶¶¬›	"	⁄™ ‡¶¶ç›	"	ñ÷ µ6¶Ä›	"	Úö ’¶¶∑›	"	Ê‘
- „œÅC±›	"	äﬁ
- ¿⁄⁄Xï›	"	ﬁ¸  ·		∏	›	"	»Ä «©©Xö	›	"	Ó⁄ Å¨¨ﬂ›	"	∏∆ ó˚˚.È›	"	ﬁ⁄ ÔÏÏ Ê›	"	Ä¶
- ◊¨¨ô	›	"	¿ê ÿ˜.¢›	"	Çÿ
- ÛÑÑ/Ô›	"	“à ¡]].‹›	"	Ó Æ""∂›	"	†¿ ÜXú›	"	ÓÏ Ö""ˆ›	"	¢å êX‹›	"	Ç+ ‹ùù!ç	›	"	º	 Á  D≤›	"	ê™ Ö££Cœ›	"	∏– ≤^^®	‹	"	∏ê —  Dò	‹	"	®“ Èππ/£	‹	"	º∂  å  D±‹	"	¥Ë —  D¸‹	"	Œî ¿  D’‹	"	˛î √ππ/©‹	"	îÆ ¶xx!Ÿ	‹	"	àÃ Çü;Cê‹	"	¥ò ‚«ÅC∞‹	"	∆» “M/»‹	"	û˛  ˇ  DÆ‹	"	≤¢
- áûû!ı‹	"	ƒ	 §ûû!˝‹	"	˛¶ í  Dß	‹	"	∂“ íoo¢	‹	"	Ú÷ ÿäÆX®‹	"	òÃ Ï  D¸‹	"	¢Œ
- Ùππ/ó	‹	"	¬ Ê÷ãŒ‹	"	ﬁ‘ ˘  Dµ‹	"	í¬ ÈÄÄCÕ‹	"	–¿
- †^^Ü‹	"	¿∞ •**Xñ‹	"	ú' ›  D≠‹	"	‡∫ æ¶¶Ë‹	"	¥{ –øø.§‹	"	îé Ω©©æ‹	"	‘‰ ÒÕ~.Í‹	"	†⁄ ìÆÆXù	‹	"	úÊ äê3∫	‹	"	‹‹
+$ff14b986-6606-44e9-b57f-2000946e8c0c"&
+$ff4a5c0a-ef5f-4fa9-98bf-c7768905a121"&
+$ff4c09ef-8c00-4bac-9e71-1a7e3ee5bce1"'
+%Husgrund, f√∂rhistorisk/medeltida (2)"9
+7Naturf√∂rem√•l/-bildning med bruk, tradition eller namn"  B"  0@"  ?B"  mB"  B"  çB"  úA"  ´B"  µB"  ∑B"  ºA"  øB"  ¡B"  «B" ÄÖB" ÄöB" ÄúB" Ä®B" ÄµB" Ä∂B" Ä∫B" ÄºB" ÄøB" Ä¡B" Ä√B" Ä∆B"	
+◊£p=*G@"	
+◊£p=*H@"	
+◊£p=äG@"	
+◊£p=™D@"	
+◊£p=ÍO@"	ÆG·zT@"	ÆG·zX@"	ÆG·zX@"	ÆG·z4V@"	ÆG·z4X@"	ÆG·zDP@"	ÆG·zTW@"	ÆG·zTX@"	ÆG·zdR@"	ÆG·zdX@"	ÆG·ztP@"	ÆG·zîT@"	ÆG·zîX@"	ÆG·z§X@"	ÆG·z¥Q@"	ÆG·z‘P@"	ÆG·z‘X@"	ÆG·z‰W@"	ÆG·z‰X@"	ÆG·zÙV@"	ÆG·zÙX@"	ÖÎQ∏@"	ÖÎQ∏.V@"	ÖÎQ∏>T@"	ÖÎQ∏>W@"	ÖÎQ∏NS@"	ÖÎQ∏NX@"	ÖÎQ∏^5@"	ÖÎQ∏^X@"	ÖÎQ∏nV@"	ÖÎQ∏~S@"	ÖÎQ∏~X@"	ÖÎQ∏éT@"	ÖÎQ∏éX@"	ÖÎQ∏ûR@"	ÖÎQ∏ûV@"	ÖÎQ∏ûX@"	ÖÎQ∏ÆP@"	ÖÎQ∏ÆR@"	ÖÎQ∏ÆT@"	ÖÎQ∏ÆW@"	ÖÎQ∏ÆX@"	ÖÎQ∏æW@"	ÖÎQ∏æX@"	ÖÎQ∏ŒU@"	ÖÎQ∏ŒX@"	ÖÎQ∏ﬁ:@"	ÖÎQ∏ﬁT@"	ÖÎQ∏ﬁV@"	ÖÎQ∏ÓQ@"	ÖÎQ∏ÓW@"	ÖÎQ∏ÓX@"	ÖÎQ∏˛R@"	ÖÎQ∏˛X@"	)\è¬ıD@"	)\è¬ıHN@"	)\è¬ıàD@"	)\è¬ı®M@"	)\è¬ıËC@"	)\è¬ıËJ@"	)\è¬ıËN@"	)\è¬ıËO@"	33333U@"	33333A@"	33333R@"	33333#P@"	333333O@"	333333S@"	333333T@"	33333CU@"	33333CW@"	33333CX@"	33333SX@"	33333cW@"	33333sJ@"	33333sW@"	33333ÉT@"	33333ÉU@"	33333ÉW@"	33333ìR@"	33333ìX@"	33333£X@"	33333≥@@"	33333≥U@"	33333”K@"	33333”X@"	33333„Q@"	33333Û2@"	33333ÛK@"	33333ÛR@"	33333ÛU@"	33333ÛW@"	33333ÛX@"	=
+◊£pD@"	=
+◊£pΩD@"	H·zÆ9@"	H·zÆQ@"	H·zÆU@"	H·zÆS@"	H·zÆT@"	H·zÆ'V@"	H·zÆ7X@"	H·zÆG<@"	H·zÆG=@"	H·zÆWV@"	H·zÆgP@"	H·zÆgR@"	H·zÆwR@"	H·zÆáP@"	H·zÆáQ@"	H·zÆáS@"	H·zÆáW@"	H·zÆáX@"	H·zÆßX@"	H·zÆ∑T@"	H·zÆ∑V@"	H·zÆ∑W@"	H·zÆ◊Q@"	H·zÆ◊V@"	H·zÆ◊X@"	H·zÆÁX@"	H·zÆ˜X@"	R∏ÖÎT@"	R∏ÖÎX@"	R∏ÖÎ0@"	R∏ÖÎS@"	R∏ÖÎ!P@"	R∏ÖÎ!S@"	R∏ÖÎ!T@"	R∏ÖÎ1R@"	R∏ÖÎQ2@"	R∏ÖÎQX@"	R∏ÖÎaS@"	R∏ÖÎqR@"	R∏ÖÎÅP@"	R∏ÖÎÅT@"	R∏ÖÎë5@"	R∏ÖÎëW@"	R∏ÖÎ±S@"	R∏ÖÎ±X@"	R∏ÖÎ¡X@"	R∏ÖÎ—X@"	R∏ÖÎ·X@"	R∏ÖÎÒU@"	R∏ÖÎÒX@"	\è¬ı(<@@"	\è¬ı(<J@"	\è¬ı(<M@"	\è¬ı(ºI@"	\è¬ı(ºM@"	\è¬ı(‹N@"	fffffG@"	fffffT@"	fffff&S@"	fffff&W@"	fffff&X@"	fffff6U@"	fffffFU@"	fffffVP@"	ffffff@"	ffffff-@"	ffffff8@"	ffffffI@"	ffffffV@"	ffffffX@"	fffffvR@"	fffffvS@"	fffffvX@"	fffffÜX@"	fffffñX@"	fffff¶3@"	fffff¶W@"	fffff∂Q@"	fffff∂X@"	fffff∆M@"	fffff∆O@"	fffff∆X@"	fffff÷V@"	fffff÷X@"	fffffÊX@"	fffffˆQ@"	fffffˆT@"	fffffˆX@"	q=
+◊£0E@"	q=
+◊£0J@"	q=
+◊£pG@"	q=
+◊£êM@"	q=
+◊£∞A@"	q=
+◊£–K@"	{ÆG·
+R@"	{ÆG·
+T@"	{ÆG·*V@"	{ÆG·*W@"	{ÆG·JW@"	{ÆG·ZX@"	{ÆG·jR@"	{ÆG·z@"	{ÆG·zV@"	{ÆG·äT@"	{ÆG·öV@"	{ÆG·™W@"	{ÆG·∫6@"	{ÆG· X@"	{ÆG·⁄W@"	{ÆG·ÍP@"	{ÆG·ÍX@"	{ÆG·˙3@"	{ÆG·˙W@"	{ÆG·˙X@"	ÖÎQ∏S@"	ÖÎQ∏X@"	ÖÎQ∏%U@"	ÖÎQ∏%V@"	ÖÎQ∏5S@"	ÖÎQ∏EP@"	ÖÎQ∏EW@"	ÖÎQ∏UW@"	ÖÎQ∏uR@"	ÖÎQ∏uS@"	ÖÎQ∏uT@"	ÖÎQ∏uX@"	ÖÎQ∏ÖP@"	ÖÎQ∏ÖV@"	ÖÎQ∏ÖX@"	ÖÎQ∏ïW@"	ÖÎQ∏ïX@"	ÖÎQ∏•W@"	ÖÎQ∏•X@"	ÖÎQ∏µT@"	ÖÎQ∏≈;@"	ÖÎQ∏’U@"	ÖÎQ∏’X@"	ÖÎQ∏ÂX@"	ÖÎQ∏ıS@"	ÖÎQ∏ıX@"	è¬ı(\E@"	è¬ı(\/@@"	è¬ı(\/F@"	è¬ı(\OL@"	è¬ı(\oF@"	è¬ı(\oO@"	è¬ı(\ØG@"	è¬ı(\ØM@"	è¬ı(\Ô@@"	è¬ı(\ÔN@"	öôôôô	U@"	öôôôôG@"	öôôôôN@"	öôôôôS@"	öôôôô)W@"	öôôôô9M@"	öôôôô9X@"	öôôôôYT@"	öôôôôYU@"	öôôôôiP@"	öôôôôiV@"	öôôôôiW@"	öôôôôyM@"	öôôôôâV@"	öôôôôâW@"	öôôôôô7@"	öôôôôôU@"	öôôôôôX@"	öôôôô©X@"	öôôôôπB@"	öôôôôπT@"	öôôôôπX@"	öôôôô…P@"	öôôôô…R@"	öôôôô…X@"	öôôôôŸE@"	öôôôôŸO@"	öôôôôŸX@"	öôôôôÈX@"	öôôôô˘C@"	öôôôô˘K@"	öôôôô˘W@"	öôôôô˘X@"	§p=
+◊O@"	§p=
+◊CG@"	§p=
+◊cA@"	ÆG·zT@"	ÆG·zNR@"	ÆG·zNV@"	ÆG·zNW@"	ÆG·z^T@"	ÆG·zn:@"	ÆG·z~X@"	ÆG·zéV@"	ÆG·zéW@"	ÆG·zéX@"	ÆG·zûU@"	ÆG·zÆW@"	ÆG·zÆX@"	ÆG·zæW@"	ÆG·zŒQ@"	ÆG·zŒT@"	ÆG·zŒU@"	ÆG·zŒX@"	ÆG·zﬁW@"	ÆG·zÓX@"	ÆG·z˛R@"	ÆG·z˛T@"	ÆG·z˛V@"	ÆG·z˛W@"	ÆG·z˛X@"	∏ÖÎQ(T@"	∏ÖÎQ(U@"	∏ÖÎQ(V@"	∏ÖÎQ(X@"	∏ÖÎQHV@"	∏ÖÎQXW@"	∏ÖÎQhP@"	∏ÖÎQhS@"	∏ÖÎQhU@"	∏ÖÎQhX@"	∏ÖÎQxT@"	∏ÖÎQxX@"	∏ÖÎQàX@"	∏ÖÎQòR@"	∏ÖÎQòV@"	∏ÖÎQòX@"	∏ÖÎQ®R@"	∏ÖÎQ∏@"	∏ÖÎQ∏5@"	∏ÖÎQ∏T@"	∏ÖÎQ∏X@"	∏ÖÎQ»S@"	∏ÖÎQ»X@"	∏ÖÎQÿS@"	∏ÖÎQÿX@"	∏ÖÎQËW@"	∏ÖÎQËX@"	∏ÖÎQ¯S@"	∏ÖÎQ¯X@"	√ı(\èBF@"	√ı(\è¢L@"	√ı(\è¬&@"	√ı(\è‚O@"	ÕÃÃÃÃ@@"	ÕÃÃÃÃV@"	ÕÃÃÃÃX@"	ÕÃÃÃÃ<Q@"	ÕÃÃÃÃLL@"	ÕÃÃÃÃLW@"	ÕÃÃÃÃ\P@"	ÕÃÃÃÃ\U@"	ÕÃÃÃÃ\X@"	ÕÃÃÃÃlA@"	ÕÃÃÃÃ|S@"	ÕÃÃÃÃ|U@"	ÕÃÃÃÃ|X@"	ÕÃÃÃÃå3@"	ÕÃÃÃÃå?@"	ÕÃÃÃÃåS@"	ÕÃÃÃÃåU@"	ÕÃÃÃÃåW@"	ÕÃÃÃÃåX@"	ÕÃÃÃÃúX@"	ÕÃÃÃÃ¨N@"	ÕÃÃÃÃ¨T@"	ÕÃÃÃÃ¨X@"	ÕÃÃÃÃºU@"	ÕÃÃÃÃÃ@"	ÕÃÃÃÃÃ8@"	ÕÃÃÃÃÃI@"	ÕÃÃÃÃÃX@"	ÕÃÃÃÃÏR@"	ÕÃÃÃÃÏX@"	ÕÃÃÃÃ¸X@"	◊£p=
+7G@"	◊£p=
+7O@"	◊£p=
+wC@"	◊£p=
+wN@"	◊£p=
+◊M@"	·zÆGP@"	·zÆGR@"	·zÆGV@"	·zÆGX@"	·zÆG!S@"	·zÆG!W@"	·zÆG1R@"	·zÆG1V@"	·zÆGQV@"	·zÆGQX@"	·zÆGqX@"	·zÆGëX@"	·zÆG°W@"	·zÆG±T@"	·zÆG±W@"	·zÆG±X@"	·zÆG¡U@"	·zÆG¡X@"	·zÆG·7@"	·zÆG·8@"	·zÆG·;@"	·zÆG·S@"	·zÆG·X@"	·zÆGÒW@"	ÏQ∏Ö+T@"	ÏQ∏ÖKP@"	ÏQ∏ÖKQ@"	ÏQ∏ÖKU@"	ÏQ∏Ö[Q@"	ÏQ∏Ö[U@"	ÏQ∏ÖkU@"	ÏQ∏Ö{W@"	ÏQ∏Ö{X@"	ÏQ∏Ö´9@"	ÏQ∏Ö´X@"	ÏQ∏ÖªQ@"	ÏQ∏ÖÀX@"	ÏQ∏Ö€W@"	ÏQ∏Ö€X@"	ÏQ∏ÖÎT@"	ÏQ∏ÖÎX@"	ÏQ∏Ö˚S@"	ÏQ∏Ö˚X@"	ˆ(\è¬5F@"	ˆ(\è¬5L@"	ˆ(\è¬uK@"	ˆ(\è¬ïD@"	ˆ(\è¬’M@"	ˆ(\è¬ı‡?" " " " " " =" V" W" Y" [" _" b" c" d Ÿ°9˙	Ò	Ì	"	ä˛ Ñ_Ç˙Ò	Ì	"	˛˛  öUt#ˆÒ	Ì	"	Ç∂ àÄÔ∂	Ò	Ì	"	à÷ »ÃÊ	Ò	Ì	"	à  î%ÔïÒ	Ì	"	–à –w)⁄Ò	Ì	"	÷Ç ﬂππì	Ò	Ì	"	⁄˙ ¢ôÔæÒ	Ì	"	÷ò ‹7
+˚Ò	Ì	"	†û  µ∂èØÒ	Ì	"	Çñ ‰3©#ŸÒ	Ì	"	ê® Ê©#°Ò	Ì	"	ò† òJ©#’Ò	Ì	"	ê™ ß·F¯Ò	Ì	"	Ï¥ “ÒÒ	Ì	"	òò ˇ™Ôµ	Ò	Ì	"	ŒÇ ∏[9‰	Ò	Ì	"	àÚ ˝µíÒ	Ì	"	Úí É∑F÷Ò	Ì	"	àÙ €≈œë	Ò	Ì	"	ÄÇ ò`9ΩÒ	Ì	"	÷ﬁ Ãíœ¯Ò	Ì	"	û‡ ÔÿÔ≠Ò	Ì	"	™ú ≈…Ô◊Ò	Ì	"	Äò ¥¯9”Ò	Ì	"	Çí ⁄û)“	Ò	Ì	"	∫÷ ú®≥Ò	Ì	"	ÜÇ ı†t#‚	Ò	Ì	"	Êî éÓ’Ò	Ì	"	®ò ˇ¨t#è	Ò	Ì	"	∞ Åt#ºÒ	Ì	"	‚ò  ÷ßt#˜Ò	Ì	"	é⁄ °√F¨Ò	Ì	"	≤Ç ™tt#’Ò	Ì	"	⁄Ã ı•ÔöÒ	Ì	"	‚Ä ¿ºt#“Ò	Ì	"	îˆ  ≈ˇt#øÒ	Ì	"	‘¢ átt#ÚÒ	Ì	"	àº ò¬t#ÔÒ	Ì	"	¸Ç ›ÊF≥	Ò	Ì	"	Ëö à∏çF‡	Ò	Ì	"	Çñ °íFèÒ	Ì	"	†¿ ø{“Ò	Ì	"	⁄Ñ âççFç	Ò	Ì	"	öº Ó©©#ıÒ	Ì	"	Ç¨
+ ¥©F—Ò	Ì	"	òà ≥ñ∂^Õ	Ò	Ì	"	à÷ Ö/˘	Ò	Ì	"	Ù⁄  ä^Ò	Ì	"	¥ Ô˙Ôœ	Ì	"	ÿ‡  öã		Ì	"	§Ú ÿFÚ	Ì	"	Ëà ŸÌ‚–	Ì	"	∞é ˜FÀ		Ì	"	∞¢ ‰t#Ó	Ì	"	îÑ ∫y9Í	Ì	"	Ä» √6Æ		Ì	"	¸¢ ˆ9ﬁ		Ì	"	∆Ã “µÃ	Ì	"	†˛  ï∂	Ì	"	ä¨ •â‚®	Ì	"	ºû È99“	Ì	"	Ê» ÁøFñ	Ì	"	∫í áΩ»È	Ì	"	òê  ëä^´		Ì	"	∂Í ç(œÀ	Ì	"	ƒö íÆ)Ü		Ì	"	‡ö £t#Ó	Ì	"	Í‡ ´˜©#¶	Ì	"	®   ¸.‚—	Ì	"	»é Œ¡‚ï	Ì	"	ò‹ Í‹çF«		Ì	"	ò‚ ŒïçFÊ	Ì	"	¯Œ ∏Ãt#Á	Ì	"	∞‡ ¡∞t#™		Ì	"	ûÜ è≤çFÉ		Ì	"	Ñî æ◊œµ	"	ËÚ ∂∏9Ì	Ì	"	∏≤ óë§	Ì	"	Ä§ Ò©©#¯		Ì	"	æ¯ Çº≥‰	Ì	"	éî ˝——^‰	Ì	"	¶˛ ”j§		Ì	"	™∆  ‰£9‹		Ì	"	∞∫ Ãt#Ç		Ì	"	äå âÏ9Ï	Ì	"	∏ê ÿ—9°	Ì	"	Ç® Âﬂ9∆		Ì	"	å¥ †±t#æ	Ì	"	† º¶FÄ		Ì	"	˛– ﬁáçFÈ	Ì	"	®“ ôùŒ	Ì	"	–» Ù¥Ç·	Ì	"	“ö Ωr†		Ì	"	Œ»  áAá	Ì	"	Ú– ¨&Ã	Ì	"	¸∂ ∞°çFç	Ì	"	˙™ È–çF»	Ì	"	÷‡ ¨•9≈		Ì	"	íê ’t#ﬂ	Ì	"	Ùÿ Á¨çFå	Ì	"	ﬁ™ ˙Õ®#¿	Ì	"	∏‹ Ûô™	Ì	"	 Ç ≤êt#…	Ì	"	§î ˚¶Ω	Ì	"	ÊÄ ±k≥˙	Ì	"	ê» Ü«‡	Ì	"	‡í  ÏZt#≤	Ì	"	‰ñ í})ö		Ì	"	¸à ≈ó	Ì	"	êö îóçF«	Ì	"	 ‚ ⁄∞)ø		"	öæ ∆±çF∆	Ì	"	ﬁÏ ‚Ñ≥¿	Ì	"	¸™	 ù+9ı	Ì	"	≤ú †ãπî	Ì	"	‚≤ ∏ïŸ	Ì	"	¬» ŸËçF†	"	éÓ ü˝çF”		Ì	"	Ú¸ ÛÒçFº	Ì	"	Í∂ ’§çF˜	Ì	"	⁄˛ ôØçFê		Ì	"	Üÿ  ñççF÷	"	ä¨  ¬ìçF±	"	‚ò  ùËçF	Ì	"	Ê¬ ‘ÈçF·		Ì	"	¬™ „õçFê	Ì	"	¬î èËçF˜		Ì	"	ˆ¶ ◊oo4Ô	Ì	"	»Ù •^Î	Ì	"	Æ˙ ﬁùçFπ	Ì	"	¶˛ ∫¡
+ 		Ì	"	‡ﬁ ´ƒœÌ	"	‚Ñ ◊Á ^È	"	ƒ¯ öoo4ç	"	ﬁ∞ ∆I∂^	Ì	"	™» ÚÂo4ß	"	“û àÍçF»		Ì	"	™Ú Æ		4•	"	ƒú ‚Œ	"	º≤ ¡˛çFª	Ì	"	îÆ ëËçFÊ	"	∞¥ €t#©		Ì	"	û¬ é))»	Ì	"	Óÿ ÆÇÇ#¥	"	Ù† ∑ææ^ì	"	úÿ à€		Ì	"	ä¢ ªBá4ê	"	ÿ‡ §|)≈	Ì	"	Íû Ä©©#é	Ì	"	Œ‰ ®hh"¸	"	˛ö ôñm4ù	Ì	"	Ïﬁ Çë—^À	Ì	"	Ä¯ ëèè∫	Ì	"	˙™ ˝içF·	"	∆» úËçFù		Ì	"	÷Ã ûËçFÜ	Ì	"	îÿ ˆ˚m4ú	"	åî ª,ã	"	§Ñ µY∑4›	"	ÏÃ £ˆ©#Ö	Ì	"	ûæ ˛f9æ	Ì	"	‚‰ ÂP5ﬂ	"	û˛  ˛@
+¡		"	⁄Ó ìÙ9Ù	Ì	"	åÿ î¬çFÿ	Ì	"	Ñ™
+ Ú«W^Ø	Ì	"	˛Œ äççFı	Ì	"	‰Ç é>8Gª	"	ò¿ äoo4ˆ	Ì	"	Ü˛ Æ2®#π	Ì	"	⁄ˆ ∂•9ˆ		Ì	"	îÆ π‘o4∏	"	ÇÓ èèè∏	"	¬ö ÿXm4Æ	"	êˆ êªª4Ë	"	êÚ üËçFå	"	öò €~ƒ!Ö		"	¨® È¿4Â	Ì	"	Ää! ›ççF«	Ì	"	úÄ ‹≈t#£	Ì	"	º  „´çFä	Ì	"	àÇ ®  G‚	"	¯é Ñ§—^ƒ	Ì	"	ˆ‡ îHœË	"	¬é ¯ 9≠	Ì	"	Ó† Ω§—^ƒ		"	Ë‹ —  G‡	"	∏æ Õ: G˚	"	˛à ëø9ı		"	∏¬ ∑O9»	"	∆∞ ◊ÛÛ^√		"	¥é „  G€	"	Œî ‘99Ñ	"	⁄ Ùoo4˘	Ì	"	æÄ í  G©	"	∂¯ Ç——^ô	Ì	"	àÃ Àoo4æ		"	Ù† ËËçFô		Ì	"	º¯  Óππ^ü	"	ﬁú Äàà"‘	"	ò‚ ûËçF´	Ì	"	⁄ƒ Û  GÒ	"	“ˆ —ÈçFÓ	"	í» Ñää4Ã		"	æÑ ˘ËçFÙ		Ì	"	äﬁ
+ ﬂhh"Ø		"	‹ˆ ¶Ω©#ò	Ì	"	˙ˆ πàà"Ë	"	∆à õÑF 	"	ñ¬ ÓççF®		Ì	"	Ü⁄
+ ñœœ#í	"	æÚ Ë¢^Û		Ì	"	Çî ê  G£		"	 à ∞ç‚⁄		"	∏¢ ú  Gˇ	"	¢é  Á  G≠	"	 é §mm4ü		"	™Ù å……!Ÿ		"	ﬁú Î4¬	Ì	"	Ää! πp4◊		Ì	"	Ää! ò∫o4‚	"	àˆ Å  Gä	"	ê™ óìŸ4·	Ì	"	íÏ ˆhh"¯	"	¢‡ ˜t#ò	Ì	"	Ë∏ íŒŒ!∑	"	∏∆ ˝‰àG∫	Ì	"	¶¶ ÍÉ≥¶	"	÷Ñ ñÉ)É	"	Ù¿ ãàà"Û	"	Ä¶
+ ôææ^˙	"	û® á££5„		Ì	"	Ú∞ Ìªª4Ù	"	ﬁ‡ èãœÌ	Ì	"	ê–
+ Ñîî4Œ	Ì	"	Ñî ™  Gä		"	ú∂ ﬂππ^∑	"	§Ü ±a∂^©	Ì	"	æò àà"…		"	Ãˆ Äˆ©#Ï	Ì	"	íê õ’8G≠		Ì	"	ÿå tt#–Ô	Ì	"	‰Ê ì^ÂÔ	"	æ∞ Ú∆∆4ãÔ	"	î‰ ÜllëÔ	"	ÿˆ
+ ‘hh"ÃÔ	"	ûî Ë≠œÅ	Ô	Ì	"	Ë∏ †›“5†Ô	"	Ú– ∞L G‚Ô	"	ºﬁ ’îî4¡Ô	"	 – »àà"‹Ô	"	 ¯ º^âÔ	"	ñ⁄ ï–œ#‘	Ô	"	Ç"‡ Ò))˜Ô	"	Ç¥ ï≈Ô	Ì	"	† úüœ®Ô	Ì	"	Ãñ ªT‚›Ô	"	˛® ˙''!ﬁÔ	"	ŒÙ ø¢©#ÉÔ	Ì	"	¯ƒ
+ “?
+≈Ô	Ì	"	“» √uW^øÔ	"	 ˙ °  GÂ	Ô	"	“ﬁ Œœœí	Ô	Ì	"	®¿
+ £^ÆÔ	"	‚∫ ‹<	4—	Ô	"	ä“ ”ªª4é	Ô	"	å¢ ¶$$å	Ô	Ì	"	¢å ˚ee!œÔ	Ì	"	∏ê ¬√£5∂Ô	Ì	"	¢ﬁ êE9ß	Ô	Ì	"	‰Ç ç““5≥Ô	"	àƒ ÷‚‚„Ô	Ì	"	¯∫	 ›ﬁ®#¢	Ô	Ì	"	⁄í ◊⁄*4ÎÔ	"	¬† …ÎèüÔ	Ì	"	ˆ ® ıG˛Ô	Ì	"	∫º Ö©©#…Ô	Ì	"	º∏  ¢âGµÔ	"	Æ˙ ˘  GﬁÔ	Ì	"	åÙ Õee!öÔ	"	∏ê ì11^àÔ	"	¥î ‚Ü^ﬁÔ	Ì	"	¯¢ ˇààGƒÔ	"	§Ù  ¿dÔ¿	Ô	"	òà ‘˘D5ΩÔ	Ì	"	¶‹ øv)ßÔ	Ì	"	§ƒ Ênn5ñÔ	"	Ê≤ ¯oo4¬Ô	"	‹ê ß  G˘Ô	Ì	"	öò Ãoo4ÚÔ	Ì	"	‹Ë ÛÜœûÔ	Ì	"	¶¿
+ À  G¥	Ô	Ì	"	å™ É““5—Ô	"	º∂  ˘^ÎÔ	"	ÜÑ ·ee!á	Ô	Ì	"	‘‘ É∫‚ÁÔ	Ì	"	÷ ¥K)Ñ	Ô	Ì	"	Œ˙ √““5îÔ	"	Ü® ÕÅœ#∞Ô	Ì	"	ˆÿ ØGÍÔ	Ì	"	 ¯ Ç  GûÔ	"	∞Ë ñ  G Ô	"	ÑÃ ê……!àÔ	Ì	"	»‡  		4ØÔ	Ì	"	®à ¸¿Ÿ4ÕÔ	"	à⁄ …^ﬂÔ	"	Ç˛ ≠¸V5∆Ô	"	≤ñ œ≠—^¬	Ô	"	∏ñ €ßß4ÖÔ	Ì	"	‚» €ª^Ω	Ô	"	Ë∆ â‡‡ÇÔ	"	í“ ˆéß4˘Ô	Ì	"	¸Ú ˙ππ^ˆÔ	"	ûå Óó^õÔ	Ì	"	Üú	 –]]G∫Ô	"	éÊ ¡îî4ÏÔ	"	ê∆ ã““5ﬂ	Ô	Ì	"	¥‘  œÛÛ^ÒÔ	"	ﬁ¸  ∆åå4”Ô	"	†¿ ƒ^´Ô	"	‚≤ ™G≤Ô	"	–Ù ü†ü^ÿ	Ô	Ì	"	∏æ Òú G÷	Ô	"	åÿ ‹ÆÛ^õ	Ô	"	Ü ƒ‚‚•Ô	Ì	"	Íê	 ¯ÖÖ5ëÔ	"	‚⁄ ‡ŸŸ4‘Ô	"	îé óØe!–Ô	"	‘∂ ¢……!¥Ô	"	Ã¢ Ôqq5ÍÔ	"	äÚ ‰\æ"±Ô	"	ú® Ïê4¢Ô	"	Çÿ
+ Ÿee!ÀÔ	"	î≤ ‡  GœÔ	"	‡¸ ¢99√Ô	"	⁄à ƒ∑∑4˝Ô	Ì	"	∂¿ Ì““ÆÔ	"	‘ Ï÷“5û	Ô	Ì	"	ƒæ ÜC…!„Ô	"	ˆŒ
+ Ω®®#’	Ô	Ì	"	§ä ı]]GõÔ	Ì	"	ö¸ ˚éœ Ô	"	¬ö åSœÜÔ	Ì	"	˙Ü Ô®®#√Ô	Ì	"	˙ „  Gº	Ô	Ì	"	®“ çààGƒÔ	"	 ‡ –  GÇÔ	Ì	"	Ü¥ Á§9ó	Ô	Ì	"	Ä∆ ≠qq5™Ô	"	àÚ ˚èè‘Ô	"	Ù“ »ÀÀÙÔ	Ì	"	⁄Í ùMM5µÔ	"	˙– ˛sè∏	Ô	"	∏ä Ù®®#áÔ	Ì	"	º	 æ≥π^€Ô	Ì	"	ƒ!– ©À^πÔ	"	Ä÷ «ı©#ÅÔ	Ì	"	¯® 5€Ô	Ì	"	‘‡  $$¨	Ó	Ì	"	†¿ ›qq5Ú	Ó	"	àò ⁄Ö-∫	Ó	Ì	"	˛¶ ”∆∆#¸Ó	"	Ù“ É]]GºÓ	"	æ∂  •…!ª	Ó	"	¥§ ˜  GÎ	Ó	"	™∫ ØîÛÓ	Ì	"	™!∞ ç……!⁄Ó	"	Üº
+ ˘		4∑Ó	"	Ë¯ ÄÚò!˛Ó	"	ﬁ‘ ‡4©Ó	"	Êﬁ ÏMM5ˇÓ	Ì	"	ﬁ¢ ±®®#∆Ó	Ì	"	∂í	 œò‚ÿÓ	Ì	"	Ü 	 Ú……!øÓ	"	Ê‘
+ ÀÅàGï	Ó	"	í∂  ù99≥Ó	Ì	"	ÙÓ ü0M5ú	Ó	Ì	"	éé ≤åå4Ë	Ó	"	ºà ÷©©#ÿÓ	Ì	"	î∏ ¬;…!ùÓ	"	Úö ∫ œôÓ	"	Íí —”^ÅÓ	"	ò¨ ì™=FÈ	Ó	"	¥ò Â^ÄÓ	Ì	"	¨æ Èå•FèÓ	"	à† ’Ä G◊Ó	"	¬˛ ¨õ9˝Ó	Ì	"	‹‹
+ Ëb9≤	Ó	"	Ê∫	 ∂ŒŸÓ	"	¨!˙ Î……!ÁÓ	"	¥‰ ˙hh"¡Ó	"	à‘ Ø4®Ó	"	é» ©oo4∂Ó	"	Ã⁄ Òúz¬Ó	"	æÑ
+ °……!˛Ó	"	ﬁ» ïöm4‹Ó	"	®∆ ≥  G∑	Ó	"	Ü"º ﬁx—^¿Ó	"	à‰ ã''!ªÓ	"	î åûûF‹Ó	"	Ãê ÖûûF¥Ó	"	–¿
+ ûππ^î	Ó	"	¥† ﬁ≤…!Á	Ó	"	‚º éQ…!≤Ó	"	¯Ú ≤¥o4”Ó	"	® ÜMM5¸Ó	Ì	"	‰“ ©4∞Ó	"	Ä‚ Î  G£Ó	"	Üî öqq5√Ó	"	Ú¯ Ìee!Í	Ó	Ì	"	Ã§ ¿N^˝Ó	"	àú
+ äR^¢Ó	"	Çö	 ÍŒŒ!˚Ó	"	¿ê æMM5◊Ó	Ì	"	§˛  â  GˇÓ	"	¢Œ
+ ˛''!π	Ó	"	Í‹ ÍÕe!ÕÓ	"	∞é Â  G¶Ó	"	˛î ÿ®®#ÄÓ	Ì	"	÷à	 Åee!°	Ó	"	»∂ ⁄ö^›Ó	Ì	"	§§	 £hh"ÑÓ	Ì	"	ú∫ …4∏Ó	Ì	"	ÿº û^óÓ	"	ÓÏ ã]]G÷Ó	"	∆∂ ≠  G±Ó	"	∂“ Ê„„Gò	Ó	"	∫∏ ”  G¶	Ó	"	Ç⁄
+ ˜»»¨Ó	"	‹Ã ·““5´Ó	"	∏Ã µ''!–	Ó	"	Ë¯  ''!™Ó	"	Ë¯ ´´‚ÛÓ	Ì	"	÷ú	 Öı©#„Ó	Ì	"	Ù‡
+ ﬂππ^›	Ó	Ì	"	Ó⁄ ÷ı©#§Ó	Ì	"	‡Ê å  Gœ	Ó	"	í¬ ≥^±	Ó	"	∏ƒ ¸œœ#ÊÓ	Ì	"	î™ ˇg©#Œ	Ó	Ì	"	Ó‚
+ ®——^…Ó	"	∆∆ ¸ı©#∞Ó	Ì	"	Ã¸	 †ûûFéÓ	"	Ã™ Ù
+
+â	Ó	"	»Ä ∑®®#ÕÓ	Ì	"	 Œ ‡àà"‡Ó	"	Óæ ºàà"ìÓ	"	Ó¿ Î  GÔÓ	"	ÿí õhh"•	Ó	Ì	"	úÍ ßîî4¨Ó	"	ﬁ⁄ ·Å$úÌ	Ì	"	ö¬ ‚oo4«Ì	"	‚⁄ õ  G¡Ì	"	≤¢
+ ·MM5ÂÌ	"	íÇ «^ñ	Ì	"	∫ä ¯MM5∞	Ì	"	¯¢ ¶ππ^âÌ	"	‡ú «££5‰Ì	"	¥“ Êcc4à	Ì	"	Ó §tt#⁄Ì	Ì	"	ÿ® ó©©#ßÌ	"	îÙ Ìππ^Ï	Ì	"	Ú§
