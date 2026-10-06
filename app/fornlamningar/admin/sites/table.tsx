@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect, useMemo, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Alert, Button, Checkbox, Modal } from '@mantine/core';
 import { IconCheck } from '@tabler/icons-react';
 import { DataTable, type DataTableSortStatus } from 'mantine-datatable';
@@ -65,6 +65,57 @@ function suspendAutoscroll(node: Element) {
 
 function verifiedTip(iso: string): string {
   return `Verified ${iso.slice(0, 16).replace('T', ' ')}`;
+}
+
+type SiteFilters = {
+  q: string;
+  over6: boolean;
+  unmarked: boolean;
+  uninteresting: boolean;
+  unverified: boolean;
+  before: string;
+  families: string[];
+};
+
+function filtersFromParams(params: {
+  get(name: string): string | null;
+}): SiteFilters {
+  return {
+    q: params.get('q') ?? '',
+    over6: params.get('over6') === '1',
+    unmarked: params.get('unmarked') === '1',
+    uninteresting: params.get('uninteresting') === '1',
+    unverified: params.get('unverified') === '1',
+    before: params.get('before') ?? '',
+    families: (params.get('families') ?? '').split('|').filter(Boolean),
+  };
+}
+
+function filterQuery(filters: SiteFilters): string {
+  const p = new URLSearchParams();
+  const q = filters.q.trim();
+  if (q) {
+    p.set('q', q);
+  }
+  if (filters.over6) {
+    p.set('over6', '1');
+  }
+  if (filters.unmarked) {
+    p.set('unmarked', '1');
+  }
+  if (filters.uninteresting) {
+    p.set('uninteresting', '1');
+  }
+  if (filters.unverified) {
+    p.set('unverified', '1');
+  }
+  if (filters.before) {
+    p.set('before', filters.before);
+  }
+  if (filters.families.length) {
+    p.set('families', filters.families.join('|'));
+  }
+  return p.toString();
 }
 
 function RowLink({
@@ -132,7 +183,9 @@ function ordered(rows: PlaceRow[], sort: DataTableSortStatus<PlaceRow>) {
 
 function SiteTable({ token }: { token: string }) {
   const router = useRouter();
+  const pathname = usePathname();
   const params = useSearchParams();
+  const initial = filtersFromParams(params);
   const [rows, setRows] = useState<PlaceRow[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
@@ -143,19 +196,13 @@ function SiteTable({ token }: { token: string }) {
   // A fresh query is listed by search rank. A click on a column header
   // sorts those same rows; the next edit of the query goes back to rank.
   const [columnSort, setColumnSort] = useState(false);
-  const [q, setQ] = useState(params.get('q') ?? '');
-  const [over6, setOver6] = useState(params.get('over6') === '1');
-  const [noPriority, setNoPriority] = useState(params.get('unmarked') === '1');
-  const [onlyDull, setOnlyDull] = useState(params.get('uninteresting') === '1');
-  const [unverified, setUnverified] = useState(
-    params.get('unverified') === '1'
-  );
-  const [verifiedBefore, setVerifiedBefore] = useState(
-    params.get('before') ?? ''
-  );
-  const [families, setFamilies] = useState<string[]>(() =>
-    (params.get('families') ?? '').split('|').filter(Boolean)
-  );
+  const [q, setQ] = useState(initial.q);
+  const [over6, setOver6] = useState(initial.over6);
+  const [noPriority, setNoPriority] = useState(initial.unmarked);
+  const [onlyDull, setOnlyDull] = useState(initial.uninteresting);
+  const [unverified, setUnverified] = useState(initial.unverified);
+  const [verifiedBefore, setVerifiedBefore] = useState(initial.before);
+  const [families, setFamilies] = useState<string[]>(initial.families);
   const [filtersOpen, setFiltersOpen] = useState(false);
   // Null while a query is in flight. The order is the search rank: a literal
   // title, then a fuzzy title, then the same two for the description, in
@@ -233,39 +280,48 @@ function SiteTable({ token }: { token: string }) {
     };
   }, [q, token]);
 
+  const stateQuery = filterQuery({
+    q,
+    over6,
+    unmarked: noPriority,
+    uninteresting: onlyDull,
+    unverified,
+    before: verifiedBefore,
+    families,
+  });
+  const urlQuery = filterQuery(filtersFromParams(params));
+  // The list used to call history.replaceState itself. That writes the query
+  // into the address bar and drops the history entry Next uses to come back,
+  // so the browser returned to this page with the filters gone. replace
+  // keeps the entry, and a back or forward that lands on another query is
+  // read back into the controls.
+  const seenQuery = useRef({ state: stateQuery, url: urlQuery });
   useEffect(() => {
-    const p = new URLSearchParams();
-    if (q.trim()) {
-      p.set('q', q.trim());
+    const stateChanged = seenQuery.current.state !== stateQuery;
+    const urlChanged = seenQuery.current.url !== urlQuery;
+    seenQuery.current = { state: stateQuery, url: urlQuery };
+    if (stateQuery === urlQuery) {
+      return;
     }
-    if (over6) {
-      p.set('over6', '1');
+    if (stateChanged) {
+      router.replace(stateQuery ? `${pathname}?${stateQuery}` : pathname, {
+        scroll: false,
+      });
+      return;
     }
-    if (noPriority) {
-      p.set('unmarked', '1');
+    if (urlChanged) {
+      const next = filtersFromParams(params);
+      setQ(next.q);
+      setOver6(next.over6);
+      setNoPriority(next.unmarked);
+      setOnlyDull(next.uninteresting);
+      setUnverified(next.unverified);
+      setVerifiedBefore(next.before);
+      setFamilies(next.families);
+      setColumnSort(false);
+      setPage(1);
     }
-    if (onlyDull) {
-      p.set('uninteresting', '1');
-    }
-    if (unverified) {
-      p.set('unverified', '1');
-    }
-    if (verifiedBefore) {
-      p.set('before', verifiedBefore);
-    }
-    if (families.length) {
-      p.set('families', families.join('|'));
-    }
-    const next = p.toString();
-    const current = window.location.search.replace(/^\?/, '');
-    if (next !== current) {
-      window.history.replaceState(
-        null,
-        '',
-        next ? `?${next}` : window.location.pathname
-      );
-    }
-  }, [q, over6, noPriority, onlyDull, unverified, verifiedBefore, families]);
+  }, [stateQuery, urlQuery, pathname, params, router]);
 
   const familyChoices = useMemo(() => {
     const counts = new Map<string, number>();
