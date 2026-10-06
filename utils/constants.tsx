@@ -30,7 +30,7 @@ export const NAV_LINKS: Record<string, NavLink> = {
   },
   fornlamningar: {
     label: 'Fornlamningar',
-    href: '/fornlamningar',
+    href: '/fornlamningar/map',
     icon: <IconBuilding size={16} stroke={1.5} />,
   },
   lifeSatisfaction: {

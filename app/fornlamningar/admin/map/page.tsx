@@ -1,8 +1,5 @@
-import type { Metadata } from 'next';
-import MapPage from './view';
-
-export const metadata: Metadata = { title: 'Map · Fornkoll' };
+import { permanentRedirect } from 'next/navigation';
 
 export default function Page() {
-  return <MapPage />;
+  permanentRedirect('/fornlamningar/map');
 }

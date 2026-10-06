@@ -888,7 +888,10 @@
 }
 
 .fl-nav-card {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 16px;
@@ -896,6 +899,10 @@
   text-decoration: none;
   color: inherit;
   box-shadow: 0 10px 30px rgb(60 36 16 / 4%);
+}
+
+.fl-nav-copy {
+  min-width: 0;
 }
 
 .fl-nav-card:hover {
@@ -914,6 +921,58 @@
   margin-top: 4px;
   color: var(--muted);
   font-size: 14px;
+}
+
+.fl-nav-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  gap: 1px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.25;
+  text-align: right;
+}
+
+.fl-nav-num {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.fl-nav-label {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.fl-nav-stat.is-due .fl-nav-num,
+.fl-nav-stat.is-due .fl-nav-label {
+  color: var(--accent);
+}
+
+.fl-nav-stat.is-pair .fl-nav-label {
+  font-size: 15px;
+  letter-spacing: -0.02em;
+}
+
+.fl-nav-pill {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--ok-soft);
+  color: var(--ok);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.fl-nav-skel {
+  flex-shrink: 0;
+  width: 72px;
+  height: 36px;
+  border-radius: 12px;
+  background: var(--chip);
 }
 
 .fl-hits {
