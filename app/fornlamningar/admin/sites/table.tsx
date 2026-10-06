@@ -374,8 +374,9 @@ function SiteTable({ token }: { token: string }) {
     <div className="fl-sites">
       <p className="fl-sub fl-sites-note">
         Photos is every photograph held for the place. The app receives at most
-        six of them. Rating is what visitors gave, and how many. Score is the
-        number the algorithm calculated.
+        six of them. Rating is what visitors gave, and how many. Score is where
+        the place sits after the comparison model reorders the top 6 000. 100 is
+        first. A dash means the place is outside that list.
       </p>
       <div className="fl-sites-tools">
         <SearchBox

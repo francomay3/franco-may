@@ -1,6 +1,5 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'fs';
 import { join } from 'path';
-import { gunzipSync } from 'zlib';
 import { DatabaseSync } from 'node:sqlite';
 import { VectorTile } from '@mapbox/vector-tile';
 import Pbf from 'pbf';
@@ -21,9 +20,10 @@ import { pool } from '@/lib/db';
  * description shipped.
  *
  * Rating is the visitors' mean, the same number the app draws once anyone
- * has answered, and `votes` is how many gave a score. Score is the raw
- * number the algorithm calculated. Estimate is that number as the app's
- * 1-5 stars, which is what the sheet shows until that first answer.
+ * has answered, and `votes` is how many gave a score. Score is where the
+ * place sits after the comparison model reorders the top 6 000: 100 is
+ * first, and a place outside that list has none. Estimate is the star
+ * band from that same order.
  */
 
 export type PlaceRow = {
@@ -43,7 +43,10 @@ export type PlaceRow = {
   sources: number;
   rating: number | null;
   votes: number;
-  /** score_full, the number the fit produced. Null when this place has none. */
+  /**
+   * Percentile of the post-6k order (stars, then the comparison score).
+   * 100 is first. Null when the place is outside the top 6 000.
+   */
   score: number | null;
   estimate: number | null;
   comments: number;
@@ -54,11 +57,15 @@ type Desc = { title?: string; images?: unknown };
 let published: Map<string, { name: string; photos: number | null }> | null =
   null;
 let archiveFromDb: Map<string, number> | null = null;
-let tileCache: Map<
-  string,
-  { stars: number | null; kind: string; family: string }
-> | null = null;
-let scoreCache: Map<string, number> | null = null;
+type TileInfo = {
+  stars: number | null;
+  kind: string;
+  family: string;
+  /** Percentile of the post-6k order. 100 is first. */
+  score: number | null;
+};
+
+let tileCache: Map<string, TileInfo> | null = null;
 
 function publishedPlaces() {
   if (published) {
@@ -122,17 +129,27 @@ function picturesInDb(): Map<string, number> {
   return map;
 }
 
-function tiles(): Map<
-  string,
-  { stars: number | null; kind: string; family: string }
-> {
+/**
+ * pbf reads floats from a DataView of the underlying ArrayBuffer and ignores
+ * a Buffer's byteOffset. Node's file reads are often slices of a pool, so
+ * the score float comes back as garbage unless the bytes start at offset 0.
+ * Stars and strings are varints and were never affected.
+ */
+function tileBytes(path: string): Uint8Array {
+  const raw = readFileSync(path);
+  if (raw.byteOffset === 0) {
+    return new Uint8Array(raw.buffer, 0, raw.byteLength);
+  }
+  const copy = new Uint8Array(raw.byteLength);
+  copy.set(raw);
+  return copy;
+}
+
+function tiles(): Map<string, TileInfo> {
   if (tileCache) {
     return tileCache;
   }
-  const map = new Map<
-    string,
-    { stars: number | null; kind: string; family: string }
-  >();
+  const map = new Map<string, TileInfo>();
   const root = join(process.cwd(), 'public', 'tiles', '14');
   if (!existsSync(root)) {
     tileCache = map;
@@ -148,7 +165,7 @@ function tiles(): Map<
       if (!name.endsWith('.pbf')) {
         continue;
       }
-      const tile = new VectorTile(new Pbf(readFileSync(path)));
+      const tile = new VectorTile(new Pbf(tileBytes(path)));
       const layer = tile.layers.archaeological_sites;
       if (!layer) {
         continue;
@@ -159,6 +176,7 @@ function tiles(): Map<
           continue;
         }
         const prev = map.get(props.uuid);
+        const score = props.score;
         map.set(props.uuid, {
           stars:
             typeof props.stars === 'number'
@@ -172,40 +190,16 @@ function tiles(): Map<
             typeof props.family === 'string' && props.family
               ? props.family
               : (prev?.family ?? ''),
+          score:
+            typeof score === 'number' && Number.isFinite(score)
+              ? score
+              : (prev?.score ?? null),
         });
       }
     }
   };
   walk(root);
   tileCache = map;
-  return map;
-}
-
-function modelScores(): Map<string, number> {
-  if (scoreCache) {
-    return scoreCache;
-  }
-  const map = new Map<string, number>();
-  const path = join(process.cwd(), 'data', 'place-scores.txt.gz');
-  if (!existsSync(path)) {
-    scoreCache = map;
-    return map;
-  }
-  const raw = gunzipSync(readFileSync(path)).toString('utf8');
-  for (const line of raw.split('\n')) {
-    if (!line) {
-      continue;
-    }
-    const space = line.indexOf(' ');
-    if (space < 1) {
-      continue;
-    }
-    const n = Number(line.slice(space + 1));
-    if (Number.isFinite(n)) {
-      map.set(line.slice(0, space), n);
-    }
-  }
-  scoreCache = map;
   return map;
 }
 
@@ -314,7 +308,7 @@ export async function placeRows(): Promise<PlaceRow[]> {
     row.verified_at = signed.get(row.id) ?? null;
     row.kind = fromTile?.kind ?? '';
     row.family = fromTile?.family ?? '';
-    row.score = modelScores().get(row.id) ?? null;
+    row.score = fromTile?.score ?? null;
     row.estimate = fromTile?.stars ?? null;
   };
   for (const [id, desc] of publishedPlaces()) {
