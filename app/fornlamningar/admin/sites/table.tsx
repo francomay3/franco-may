@@ -67,6 +67,15 @@ function verifiedTip(iso: string): string {
   return `Verified ${iso.slice(0, 16).replace('T', ' ')}`;
 }
 
+const SORT_KEYS = new Set([
+  'name',
+  'photos',
+  'sources',
+  'rating',
+  'score',
+  'verified_at',
+]);
+
 type SiteFilters = {
   q: string;
   over6: boolean;
@@ -75,11 +84,18 @@ type SiteFilters = {
   unverified: boolean;
   before: string;
   families: string[];
+  sort: string;
+  dir: 'asc' | 'desc';
+  // A search lists by match rank until a column header is clicked. That
+  // click has to stay in the query, or coming back shows the rank again.
+  columnSort: boolean;
 };
 
 function filtersFromParams(params: {
   get(name: string): string | null;
 }): SiteFilters {
+  const sort = params.get('sort') ?? '';
+  const columnSort = SORT_KEYS.has(sort);
   return {
     q: params.get('q') ?? '',
     over6: params.get('over6') === '1',
@@ -88,6 +104,9 @@ function filtersFromParams(params: {
     unverified: params.get('unverified') === '1',
     before: params.get('before') ?? '',
     families: (params.get('families') ?? '').split('|').filter(Boolean),
+    sort: columnSort ? sort : 'name',
+    dir: params.get('dir') === 'desc' ? 'desc' : 'asc',
+    columnSort,
   };
 }
 
@@ -114,6 +133,18 @@ function filterQuery(filters: SiteFilters): string {
   }
   if (filters.families.length) {
     p.set('families', filters.families.join('|'));
+  }
+  // Rank is the order a search already implies, and name ascending is the
+  // order of an untouched list. Either one would make the query a copy of
+  // the default, so neither is written.
+  const ranking = filters.q.trim() !== '' && !filters.columnSort;
+  const plain =
+    filters.q.trim() === '' &&
+    filters.sort === 'name' &&
+    filters.dir === 'asc';
+  if (!ranking && !plain) {
+    p.set('sort', filters.sort);
+    p.set('dir', filters.dir);
   }
   return p.toString();
 }
@@ -190,12 +221,12 @@ function SiteTable({ token }: { token: string }) {
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
   const [sort, setSort] = useState<DataTableSortStatus<PlaceRow>>({
-    columnAccessor: 'name',
-    direction: 'asc',
+    columnAccessor: initial.sort,
+    direction: initial.dir,
   });
   // A fresh query is listed by search rank. A click on a column header
   // sorts those same rows; the next edit of the query goes back to rank.
-  const [columnSort, setColumnSort] = useState(false);
+  const [columnSort, setColumnSort] = useState(initial.columnSort);
   const [q, setQ] = useState(initial.q);
   const [over6, setOver6] = useState(initial.over6);
   const [noPriority, setNoPriority] = useState(initial.unmarked);
@@ -288,6 +319,9 @@ function SiteTable({ token }: { token: string }) {
     unverified,
     before: verifiedBefore,
     families,
+    sort: String(sort.columnAccessor),
+    dir: sort.direction,
+    columnSort,
   });
   const urlQuery = filterQuery(filtersFromParams(params));
   // The list used to call history.replaceState itself. That writes the query
@@ -318,7 +352,8 @@ function SiteTable({ token }: { token: string }) {
       setUnverified(next.unverified);
       setVerifiedBefore(next.before);
       setFamilies(next.families);
-      setColumnSort(false);
+      setSort({ columnAccessor: next.sort, direction: next.dir });
+      setColumnSort(next.columnSort);
       setPage(1);
     }
   }, [stateQuery, urlQuery, pathname, params, router]);
