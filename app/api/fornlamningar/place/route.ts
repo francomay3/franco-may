@@ -8,6 +8,7 @@ import { cleanPayload, publicAuthor } from '@/lib/fl-authors';
 import { flagsForPlace } from '@/lib/fl-flags';
 import { placeUuidOf } from '@/lib/lamning';
 import { placeCoord } from '@/lib/place-coords';
+import { placeMunicipality } from '@/lib/place-municipality';
 import { withdrawPhoto } from '@/lib/withdraw-photo';
 
 /**
@@ -404,6 +405,10 @@ export async function GET(request: NextRequest) {
     fornsok: `https://app.raa.se/open/fornsok/lamning/${uuid}`,
     lon: pinOverride?.lon ?? coord?.[0] ?? null,
     lat: pinOverride?.lat ?? coord?.[1] ?? null,
+    /** Register municipality. The desk searches the title together with it. */
+    municipality: placeMunicipality(uuid),
+    /** Maps Embed key. The desk builds the iframe URLs; the key stays off the public bundle. */
+    map_key: process.env.GOOGLE_MAPS_EMBED_API_KEY || null,
     calculated: coord == null ? null : { lon: coord[0], lat: coord[1] },
     pin_override: pinOverride,
     verified_at: verified,

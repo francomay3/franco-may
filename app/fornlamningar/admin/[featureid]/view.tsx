@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import {
   Alert,
   Button,
@@ -21,8 +21,9 @@ import {
   signIn,
   signOut,
 } from '../auth';
-import { PlaceMap } from '../PlaceMap';
+import { loadReview, type ReviewQueue } from '../review-queue';
 import { ConfirmDialog, IdLink } from '../ui';
+import { PlaceDesk } from './desk';
 import DescriptionText from '../../DescriptionText';
 import { ArchivePicker, type ArchivePhoto } from './archive-picker';
 import { PhotoTools } from './photo-tools';
@@ -69,6 +70,10 @@ type Place = {
   fornsok: string | null;
   lon: number | null;
   lat: number | null;
+  /** Register municipality, for the web search next to the title. */
+  municipality: string | null;
+  /** Maps Embed key, when the server has one. */
+  map_key: string | null;
   /** The algorithm's point. Present when the map knows this place. */
   calculated: { lon: number; lat: number } | null;
   /** Set when a person dragged the pin. The app uses this after the pipeline. */
@@ -177,6 +182,10 @@ export default function PlaceAdminPage() {
   const [pending, setPending] = useState<Pending>(null);
   const [flagNote, setFlagNote] = useState('');
   const [titleDraft, setTitleDraft] = useState('');
+  const router = useRouter();
+  const reviewing = useSearchParams().get('review') === '1';
+  const [queue, setQueue] = useState<ReviewQueue | null>(null);
+  const [passDone, setPassDone] = useState(false);
 
   const load = useCallback(
     async (t: string) => {
@@ -209,6 +218,36 @@ export default function PlaceAdminPage() {
       }
     })();
   }, [load]);
+
+  useEffect(() => {
+    setQueue(loadReview());
+    setPassDone(false);
+    document.querySelector('.fl-admin')?.scrollTo({ top: 0 });
+  }, [id]);
+
+  const reviewAt =
+    queue == null
+      ? -1
+      : queue.ids.findIndex(item => item.toLowerCase() === id.toLowerCase());
+  const inPass = reviewing && reviewAt >= 0 && !passDone;
+
+  const advance = () => {
+    const current = queue ?? loadReview();
+    const at =
+      current == null
+        ? -1
+        : current.ids.findIndex(
+            item => item.toLowerCase() === id.toLowerCase()
+          );
+    const next = at >= 0 ? current?.ids[at + 1] : undefined;
+    if (!next) {
+      setPassDone(true);
+      return;
+    }
+    router.push(`/fornlamningar/admin/${encodeURIComponent(next)}?review=1`, {
+      scroll: false,
+    });
+  };
 
   const hide = async (eventId: string) => {
     if (!token) {
@@ -532,6 +571,9 @@ export default function PlaceAdminPage() {
       setPlace(current =>
         current ? { ...current, verified_at: body.verified_at } : current
       );
+      if (on && inPass) {
+        advance();
+      }
     } finally {
       setBusy(null);
     }
@@ -602,6 +644,35 @@ export default function PlaceAdminPage() {
         <IconArrowLeft size={16} />
         Admin
       </Link>
+      {reviewing && reviewAt >= 0 ? (
+        <div className="fl-review">
+          {passDone ? (
+            <>
+              <p>That&apos;s the list.</p>
+              <Link
+                className="fl-review-back"
+                href={queue?.returnHref ?? '/fornlamningar/admin/sites'}
+              >
+                Back to these sites
+              </Link>
+            </>
+          ) : (
+            <>
+              <p>
+                {reviewAt + 1} of {queue?.ids.length.toLocaleString('sv-SE')}
+              </p>
+              <button
+                type="button"
+                className="fl-quiet"
+                disabled={busy !== null}
+                onClick={advance}
+              >
+                Skip
+              </button>
+            </>
+          )}
+        </div>
+      ) : null}
       <header className="fl-top">
         <div>
           <p className="fl-kicker">Place</p>
@@ -667,346 +738,344 @@ export default function PlaceAdminPage() {
       {!place.uuid ? (
         <Alert color="yellow">No place with that id.</Alert>
       ) : (
-        <>
-          <div className="fl-links">
-            {place.fornsok ? (
-              <a href={place.fornsok} target="_blank" rel="noreferrer">
-                Fornsök
-              </a>
-            ) : null}
-            {place.lat != null && place.lon != null ? (
-              <a
-                href={`https://www.google.com/maps?q=${place.lat},${place.lon}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Google Maps
-              </a>
-            ) : null}
-          </div>
+        <div className="fl-desk">
+          <div className="fl-desk-main">
+            <div className="fl-links">
+              {place.fornsok ? (
+                <a href={place.fornsok} target="_blank" rel="noreferrer">
+                  Fornsök
+                </a>
+              ) : null}
+              {place.lat != null && place.lon != null ? (
+                <a
+                  href={`https://www.google.com/maps?q=${place.lat},${place.lon}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Google Maps
+                </a>
+              ) : null}
+            </div>
 
-          <div className="fl-rating">
-            <span className="fl-rating-label">Your rating</span>
-            <Rating
-              value={place.rating?.mine ?? 0}
-              count={5}
-              color="yellow"
-              readOnly={busy === 'rating'}
-              onChange={value => void setStars(value)}
-            />
-            <p className="fl-sub">{ratingLine(place.rating)}</p>
-          </div>
+            <div className="fl-rating">
+              <span className="fl-rating-label">Your rating</span>
+              <Rating
+                value={place.rating?.mine ?? 0}
+                count={5}
+                color="yellow"
+                readOnly={busy === 'rating'}
+                onChange={value => void setStars(value)}
+              />
+              <p className="fl-sub">{ratingLine(place.rating)}</p>
+            </div>
 
-          <div className="fl-interest">
-            <Checkbox
-              label="Not interesting"
-              checked={place.uninteresting}
-              disabled={busy === 'interest'}
-              onChange={e => void markUninteresting(e.currentTarget.checked)}
-            />
-            <p className="fl-sub">
-              {place.uninteresting
-                ? 'On the list the pipeline trains against.'
-                : 'Puts this place on the list of sites that are not worth the trip.'}
-            </p>
-          </div>
+            <div className="fl-interest">
+              <Checkbox
+                label="Not interesting"
+                checked={place.uninteresting}
+                disabled={busy === 'interest'}
+                onChange={e => void markUninteresting(e.currentTarget.checked)}
+              />
+              <p className="fl-sub">
+                {place.uninteresting
+                  ? 'On the list the pipeline trains against.'
+                  : 'Puts this place on the list of sites that are not worth the trip.'}
+              </p>
+            </div>
 
-          <div className="fl-verified">
-            <button
-              type="button"
-              className="fl-add-button"
-              disabled={busy === 'verified'}
-              onClick={() => void markVerified(true)}
-            >
-              {place.verified_at ? 'Verify again' : 'Mark verified'}
-            </button>
-            <p className="fl-sub">
-              {place.verified_at
-                ? `Verified ${flagWhen(place.verified_at)}.`
-                : 'Stamps this moment, once the photos, sources and rating are in order.'}
-            </p>
-            {place.verified_at ? (
+            <div className="fl-verified">
               <button
                 type="button"
-                className="fl-quiet"
+                className="fl-add-button"
                 disabled={busy === 'verified'}
-                onClick={() => void markVerified(false)}
+                onClick={() => void markVerified(true)}
               >
-                Clear
+                {place.verified_at ? 'Verify again' : 'Mark verified'}
               </button>
-            ) : null}
-          </div>
+              <p className="fl-sub">
+                {place.verified_at
+                  ? `Verified ${flagWhen(place.verified_at)}.`
+                  : 'Stamps this moment, once the photos, sources and rating are in order.'}
+                {inPass ? ' Verifying opens the next place.' : ''}
+              </p>
+              {place.verified_at ? (
+                <button
+                  type="button"
+                  className="fl-quiet"
+                  disabled={busy === 'verified'}
+                  onClick={() => void markVerified(false)}
+                >
+                  Clear
+                </button>
+              ) : null}
+            </div>
 
-          <div className="fl-flags">
-            <h2>Flags</h2>
-            <p className="fl-sub">
-              A note on what is wrong with this place. Open notes are the list
-              to work through.
-            </p>
-            {place.flags.map(flag => (
-              <article
-                key={flag.id}
-                className={
-                  flag.corrected_at
-                    ? 'fl-card fl-flag is-done'
-                    : 'fl-card fl-flag'
-                }
-              >
-                <p className="fl-flag-note">{flag.note}</p>
-                <p className="fl-sub">
-                  {flagWhen(flag.created_at)}
-                  {flag.corrected_at
-                    ? ` · Corrected ${flagWhen(flag.corrected_at)}`
-                    : ''}
-                </p>
-                <div className="fl-flag-actions">
-                  {flag.corrected_at ? null : (
+            <div className="fl-flags">
+              <h2>Flags</h2>
+              <p className="fl-sub">
+                A note on what is wrong with this place. Open notes are the list
+                to work through.
+              </p>
+              {place.flags.map(flag => (
+                <article
+                  key={flag.id}
+                  className={
+                    flag.corrected_at
+                      ? 'fl-card fl-flag is-done'
+                      : 'fl-card fl-flag'
+                  }
+                >
+                  <p className="fl-flag-note">{flag.note}</p>
+                  <p className="fl-sub">
+                    {flagWhen(flag.created_at)}
+                    {flag.corrected_at
+                      ? ` · Corrected ${flagWhen(flag.corrected_at)}`
+                      : ''}
+                  </p>
+                  <div className="fl-flag-actions">
+                    {flag.corrected_at ? null : (
+                      <button
+                        type="button"
+                        disabled={busy?.startsWith('flag:') === true}
+                        onClick={() =>
+                          void flagCall({ action: 'correct', id: flag.id })
+                        }
+                      >
+                        Mark corrected
+                      </button>
+                    )}
                     <button
                       type="button"
+                      className="is-danger"
                       disabled={busy?.startsWith('flag:') === true}
-                      onClick={() =>
-                        void flagCall({ action: 'correct', id: flag.id })
-                      }
+                      onClick={() => setPending({ kind: 'flag', id: flag.id })}
                     >
-                      Mark corrected
+                      Delete
                     </button>
-                  )}
-                  <button
-                    type="button"
-                    className="is-danger"
-                    disabled={busy?.startsWith('flag:') === true}
-                    onClick={() => setPending({ kind: 'flag', id: flag.id })}
-                  >
-                    Delete
-                  </button>
-                </div>
-              </article>
-            ))}
-            <form
-              className="fl-flag-form"
-              onSubmit={e => {
-                e.preventDefault();
-                const uuid = place.uuid;
-                if (
-                  flagNote.trim() &&
-                  uuid &&
-                  busy?.startsWith('flag:') !== true
-                ) {
-                  void flagCall({
-                    action: 'add',
-                    place: uuid,
-                    note: flagNote.trim(),
-                  });
-                }
-              }}
-            >
-              <textarea
-                placeholder="This place is in the wrong category"
-                rows={3}
-                maxLength={2000}
-                value={flagNote}
-                onChange={e => setFlagNote(e.target.value)}
-              />
-              <button
-                type="submit"
-                className="fl-add-button"
-                disabled={
-                  !flagNote.trim() || busy?.startsWith('flag:') === true
-                }
-              >
-                {busy === 'flag:add' ? 'Saving…' : 'Flag'}
-              </button>
-            </form>
-          </div>
-
-          {place.lat != null && place.lon != null ? (
-            <>
-              <PlaceMap
-                lon={place.lon}
-                lat={place.lat}
-                draggable={busy !== 'pin'}
-                onMove={(lon, lat) => void movePin(lon, lat)}
-              />
-              <div className="fl-pin">
-                <p className="fl-sub">
-                  {place.pin_override
-                    ? 'Forced position. After the next pipeline run the app stands here.'
-                    : 'Drag the pin to where it should stand. After the next pipeline run the app uses it.'}
-                </p>
-                {place.pin_override ? (
-                  <button
-                    type="button"
-                    className="fl-quiet"
-                    disabled={busy === 'pin'}
-                    onClick={() => void clearPin()}
-                  >
-                    Reset pin
-                  </button>
-                ) : null}
-              </div>
-            </>
-          ) : (
-            <p className="fl-empty">No coordinate for this place.</p>
-          )}
-
-          {place.content ? (
-            <DescriptionText className="fl-prose" content={place.content} />
-          ) : (
-            <p className="fl-empty">No description published for this place.</p>
-          )}
-
-          <div className="fl-section">
-            <h2>Sources</h2>
-          </div>
-          {place.texts.length === 0 ? (
-            <p className="fl-empty">
-              No source text for this place in the published release.
-            </p>
-          ) : (
-            <div className="fl-list">
-              {place.texts.map(s => (
-                <SourceCard
-                  key={s.source_id}
-                  source={s}
-                  onRemove={
-                    s.added_id
-                      ? () =>
-                          void sourceCall({ action: 'remove', id: s.added_id })
-                      : undefined
-                  }
-                />
-              ))}
-            </div>
-          )}
-          <AddSource
-            onAdd={fields =>
-              sourceCall({ action: 'add', place: place.uuid ?? id, ...fields })
-            }
-          />
-
-          <div className="fl-section">
-            <h2>Photographs</h2>
-          </div>
-          {place.uuid ? (
-            <PhotoTools
-              uuid={place.uuid}
-              token={token}
-              onChange={() => void load(token)}
-            />
-          ) : null}
-          {(place.archive ?? []).length > 0 && place.uuid ? (
-            <ArchivePicker
-              uuid={place.uuid}
-              token={token}
-              photos={place.archive}
-            />
-          ) : place.sources.length === 0 ? (
-            <p className="fl-empty">No photograph held for this place.</p>
-          ) : (
-            <div className="fl-sources">
-              {place.sources.map(s => {
-                const card = (
-                  <>
-                    {s.file ? (
-                      <img src={commonsThumb(s.file)} alt="" />
-                    ) : null}
-                    <div>
-                      <strong>{s.file || 'Photograph'}</strong>
-                      <span>
-                        {[s.by, s.lic].filter(Boolean).join(' · ') ||
-                          'No credit'}
-                      </span>
-                    </div>
-                  </>
-                );
-                return s.page ? (
-                  <a
-                    key={s.file}
-                    className="fl-source"
-                    href={s.page}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {card}
-                  </a>
-                ) : (
-                  <div key={s.file} className="fl-source">
-                    {card}
-                  </div>
-                );
-              })}
-            </div>
-          )}
-
-          <div className="fl-section">
-            <h2>Visitor photos</h2>
-          </div>
-          {place.photos.length === 0 ? (
-            <p className="fl-empty">No visitor photos.</p>
-          ) : (
-            <div className="fl-photos">
-              {place.photos.map(p => (
-                <PhotoRow
-                  key={p.event_id}
-                  photo={p}
-                  busy={busy === p.event_id}
-                  onDelete={() => setPending({ kind: 'photo', id: p.event_id })}
-                />
-              ))}
-            </div>
-          )}
-
-          <div className="fl-section">
-            <h2>Comments</h2>
-          </div>
-          {place.comments.length === 0 ? (
-            <p className="fl-empty">No comments.</p>
-          ) : (
-            <div className="fl-list">
-              {place.comments.map(c => (
-                <article
-                  key={c.event_id}
-                  className={`fl-card fl-comment${c.removed_at ? ' is-hidden' : ''}`}
-                >
-                  <div className="fl-comment-main">
-                    <p className="fl-body">{c.body}</p>
-                    <div className="fl-meta">
-                      <span>
-                        {new Date(c.created_at).toLocaleString('sv-SE')}
-                      </span>
-                      {c.author ? (
-                        <IdLink
-                          kind="User"
-                          id={c.author}
-                          href={`/fornlamningar/admin/user/${c.author}`}
-                        />
-                      ) : (
-                        <span>User unknown</span>
-                      )}
-                      <span className="fl-actions">
-                        {c.removed_at ? (
-                          <span className="fl-pill">Hidden</span>
-                        ) : (
-                          <button
-                            type="button"
-                            className="fl-icon"
-                            aria-label="Take this comment down"
-                            disabled={busy === c.event_id}
-                            onClick={() =>
-                              setPending({ kind: 'comment', id: c.event_id })
-                            }
-                          >
-                            <IconTrash size={18} />
-                          </button>
-                        )}
-                      </span>
-                    </div>
                   </div>
                 </article>
               ))}
+              <form
+                className="fl-flag-form"
+                onSubmit={e => {
+                  e.preventDefault();
+                  const uuid = place.uuid;
+                  if (
+                    flagNote.trim() &&
+                    uuid &&
+                    busy?.startsWith('flag:') !== true
+                  ) {
+                    void flagCall({
+                      action: 'add',
+                      place: uuid,
+                      note: flagNote.trim(),
+                    });
+                  }
+                }}
+              >
+                <textarea
+                  placeholder="This place is in the wrong category"
+                  rows={3}
+                  maxLength={2000}
+                  value={flagNote}
+                  onChange={e => setFlagNote(e.target.value)}
+                />
+                <button
+                  type="submit"
+                  className="fl-add-button"
+                  disabled={
+                    !flagNote.trim() || busy?.startsWith('flag:') === true
+                  }
+                >
+                  {busy === 'flag:add' ? 'Saving…' : 'Flag'}
+                </button>
+              </form>
             </div>
-          )}
-        </>
+
+            {place.content ? (
+              <DescriptionText className="fl-prose" content={place.content} />
+            ) : (
+              <p className="fl-empty">
+                No description published for this place.
+              </p>
+            )}
+
+            <div className="fl-section">
+              <h2>Sources</h2>
+            </div>
+            {place.texts.length === 0 ? (
+              <p className="fl-empty">
+                No source text for this place in the published release.
+              </p>
+            ) : (
+              <div className="fl-list">
+                {place.texts.map(s => (
+                  <SourceCard
+                    key={s.source_id}
+                    source={s}
+                    onRemove={
+                      s.added_id
+                        ? () =>
+                            void sourceCall({
+                              action: 'remove',
+                              id: s.added_id,
+                            })
+                        : undefined
+                    }
+                  />
+                ))}
+              </div>
+            )}
+            <AddSource
+              onAdd={fields =>
+                sourceCall({
+                  action: 'add',
+                  place: place.uuid ?? id,
+                  ...fields,
+                })
+              }
+            />
+
+            <div className="fl-section">
+              <h2>Photographs</h2>
+            </div>
+            {place.uuid ? (
+              <PhotoTools
+                uuid={place.uuid}
+                token={token}
+                onChange={() => void load(token)}
+              />
+            ) : null}
+            {(place.archive ?? []).length > 0 && place.uuid ? (
+              <ArchivePicker
+                uuid={place.uuid}
+                token={token}
+                photos={place.archive}
+              />
+            ) : place.sources.length === 0 ? (
+              <p className="fl-empty">No photograph held for this place.</p>
+            ) : (
+              <div className="fl-sources">
+                {place.sources.map(s => {
+                  const card = (
+                    <>
+                      {s.file ? (
+                        <img src={commonsThumb(s.file)} alt="" />
+                      ) : null}
+                      <div>
+                        <strong>{s.file || 'Photograph'}</strong>
+                        <span>
+                          {[s.by, s.lic].filter(Boolean).join(' · ') ||
+                            'No credit'}
+                        </span>
+                      </div>
+                    </>
+                  );
+                  return s.page ? (
+                    <a
+                      key={s.file}
+                      className="fl-source"
+                      href={s.page}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {card}
+                    </a>
+                  ) : (
+                    <div key={s.file} className="fl-source">
+                      {card}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            <div className="fl-section">
+              <h2>Visitor photos</h2>
+            </div>
+            {place.photos.length === 0 ? (
+              <p className="fl-empty">No visitor photos.</p>
+            ) : (
+              <div className="fl-photos">
+                {place.photos.map(p => (
+                  <PhotoRow
+                    key={p.event_id}
+                    photo={p}
+                    busy={busy === p.event_id}
+                    onDelete={() =>
+                      setPending({ kind: 'photo', id: p.event_id })
+                    }
+                  />
+                ))}
+              </div>
+            )}
+
+            <div className="fl-section">
+              <h2>Comments</h2>
+            </div>
+            {place.comments.length === 0 ? (
+              <p className="fl-empty">No comments.</p>
+            ) : (
+              <div className="fl-list">
+                {place.comments.map(c => (
+                  <article
+                    key={c.event_id}
+                    className={`fl-card fl-comment${c.removed_at ? ' is-hidden' : ''}`}
+                  >
+                    <div className="fl-comment-main">
+                      <p className="fl-body">{c.body}</p>
+                      <div className="fl-meta">
+                        <span>
+                          {new Date(c.created_at).toLocaleString('sv-SE')}
+                        </span>
+                        {c.author ? (
+                          <IdLink
+                            kind="User"
+                            id={c.author}
+                            href={`/fornlamningar/admin/user/${c.author}`}
+                          />
+                        ) : (
+                          <span>User unknown</span>
+                        )}
+                        <span className="fl-actions">
+                          {c.removed_at ? (
+                            <span className="fl-pill">Hidden</span>
+                          ) : (
+                            <button
+                              type="button"
+                              className="fl-icon"
+                              aria-label="Take this comment down"
+                              disabled={busy === c.event_id}
+                              onClick={() =>
+                                setPending({ kind: 'comment', id: c.event_id })
+                              }
+                            >
+                              <IconTrash size={18} />
+                            </button>
+                          )}
+                        </span>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            )}
+          </div>
+          <PlaceDesk
+            lat={place.lat}
+            lon={place.lon}
+            mapKey={place.map_key}
+            draggable={busy !== 'pin'}
+            onMove={(lon, lat) => void movePin(lon, lat)}
+            pinForced={place.pin_override != null}
+            pinBusy={busy === 'pin'}
+            onClearPin={() => void clearPin()}
+            token={token}
+            title={place.title}
+            municipality={place.municipality}
+            autoSearch={inPass}
+          />
+        </div>
       )}
       {error ? (
         <Alert color="red" mt="md">
@@ -1247,7 +1316,9 @@ function PhotoRow({
 
   return (
     <article className="fl-photo">
-      {url ? <img src={url} alt="" /> : (
+      {url ? (
+        <img src={url} alt="" />
+      ) : (
         <div className="fl-photo-missing">No file</div>
       )}
       <footer>

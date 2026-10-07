@@ -136,6 +136,7 @@
 
 .fl-sites-tools {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
   margin-bottom: 28px;
@@ -748,6 +749,135 @@
 .fl-admin-inner:has(.fl-pick),
 .fl-admin-inner:has(.fl-compare) {
   max-width: 1120px;
+}
+
+.fl-admin-inner:has(.fl-desk) {
+  max-width: 1180px;
+}
+
+.fl-review {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.fl-review p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.fl-review-back {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.fl-desk {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 28px;
+  align-items: start;
+}
+
+.fl-desk-side {
+  position: sticky;
+  top: 0;
+  max-height: calc(100vh - 24px);
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fl-map-toggle {
+  display: flex;
+  gap: 4px;
+}
+
+.fl-map-toggle button[aria-pressed='true'] {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.fl-embed {
+  display: block;
+  width: 100%;
+  height: 220px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--chip);
+}
+
+.fl-embed-street {
+  height: 260px;
+}
+
+.fl-desk-side .fl-map {
+  height: 180px;
+  margin: 0;
+  flex: none;
+}
+
+.fl-desk-side .fl-pin {
+  margin: 0 0 8px;
+}
+
+.fl-web {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.fl-web input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 12px;
+  padding: 8px 10px;
+  font: inherit;
+  font-size: 13px;
+}
+
+.fl-web-hit {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+  color: inherit;
+  text-decoration: none;
+}
+
+.fl-web-hit strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.fl-web-hit span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+  max-height: 2.8em;
+  overflow: hidden;
+}
+
+@media (width <= 900px) {
+  .fl-desk {
+    grid-template-columns: 1fr;
+  }
+
+  .fl-desk-side {
+    position: static;
+    max-height: none;
+    order: -1;
+  }
 }
 
 .fl-sites-note {

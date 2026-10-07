@@ -20,7 +20,10 @@ const STYLE = {
     satellite: {
       type: 'raster' as const,
       tiles: [
-        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        // Without blankTile=false, a zoom past the local imagery comes back
+        // as a blank jpeg and paints over the last real tile. A 404 lets
+        // MapLibre keep that tile and scale it.
+        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?blankTile=false',
       ],
       tileSize: 256,
       attribution:

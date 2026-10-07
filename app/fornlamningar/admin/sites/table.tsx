@@ -9,6 +9,7 @@ import 'mantine-datatable/styles.css';
 import { FILTER_FAMILIES } from '../../filterFamilies';
 import { familyLabel } from '../../familyLabels';
 import { AdminGate } from '../gate';
+import { saveReview } from '../review-queue';
 import { SearchBox } from '../search-box';
 
 /**
@@ -139,9 +140,7 @@ function filterQuery(filters: SiteFilters): string {
   // the default, so neither is written.
   const ranking = filters.q.trim() !== '' && !filters.columnSort;
   const plain =
-    filters.q.trim() === '' &&
-    filters.sort === 'name' &&
-    filters.dir === 'asc';
+    filters.q.trim() === '' && filters.sort === 'name' && filters.dir === 'asc';
   if (!ranking && !plain) {
     p.set('sort', filters.sort);
     p.set('dir', filters.dir);
@@ -447,6 +446,7 @@ function SiteTable({ token }: { token: string }) {
     return ordered(filtered, sort);
   }, [filtered, sort, q, hits, columnSort]);
   const pageRows = sorted.slice((page - 1) * PAGE, page * PAGE);
+  const rest = sorted.slice((page - 1) * PAGE);
   const filterCount =
     (over6 ? 1 : 0) +
     (noPriority ? 1 : 0) +
@@ -486,6 +486,31 @@ function SiteTable({ token }: { token: string }) {
           onClick={() => setFiltersOpen(true)}
         >
           {filterCount > 0 ? `Filters · ${filterCount}` : 'Filters'}
+        </Button>
+        <Button
+          radius="xl"
+          color="dark"
+          size="sm"
+          disabled={
+            rest.length === 0 ||
+            rows === null ||
+            (q.trim() !== '' && hits === null)
+          }
+          onClick={() => {
+            const first = rest[0];
+            if (!first) {
+              return;
+            }
+            saveReview({
+              ids: rest.map(row => row.id),
+              returnHref: stateQuery ? `${pathname}?${stateQuery}` : pathname,
+            });
+            router.push(
+              `/fornlamningar/admin/${encodeURIComponent(first.id)}?review=1`
+            );
+          }}
+        >
+          {`Review ${rest.length.toLocaleString('sv-SE')}`}
         </Button>
       </div>
       <Modal

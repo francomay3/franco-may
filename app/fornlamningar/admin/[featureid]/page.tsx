@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import type { Metadata } from 'next';
@@ -16,7 +17,12 @@ export async function generateMetadata({
     try {
       const bag = JSON.parse(
         readFileSync(
-          join(process.cwd(), 'public', 'descriptions', `${uuid.slice(0, 2)}.json`),
+          join(
+            process.cwd(),
+            'public',
+            'descriptions',
+            `${uuid.slice(0, 2)}.json`
+          ),
           'utf8'
         )
       ) as Record<string, { title?: string }>;
@@ -32,5 +38,9 @@ export async function generateMetadata({
 }
 
 export default function Page() {
-  return <PlaceAdmin />;
+  return (
+    <Suspense fallback={null}>
+      <PlaceAdmin />
+    </Suspense>
+  );
 }
