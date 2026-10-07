@@ -2,7 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { isAdmin, uidOf } from '@/lib/admin';
 import { comparePool } from '@/lib/compare-pool';
-import { fitVotes, pickPair, predict, type Vote } from '@/lib/compare-model';
+import {
+  FEATURES,
+  fitVotes,
+  pickPair,
+  predict,
+  type Vote,
+} from '@/lib/compare-model';
 import { pool } from '@/lib/db';
 
 /**
@@ -61,10 +67,13 @@ function stats(list: Vote[]) {
   return { votes: list.length - skips, skips };
 }
 
+const HAS_IMAGE = FEATURES.indexOf('has_image');
+
 function nextPair(list: Vote[], hidden: Set<string>) {
   const { sites, byId, mean, std } = comparePool();
   const fit = fitVotes(byId, list, mean, std);
-  const open = sites.filter(s => !hidden.has(s.id));
+  // Only sites with a photograph are ever offered.
+  const open = sites.filter(s => !hidden.has(s.id) && s.f[HAS_IMAGE] > 0);
   const pair = pickPair(open, list, fit);
   if (!pair) {
     return null;
