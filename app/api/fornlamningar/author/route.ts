@@ -109,6 +109,14 @@ export async function GET(request: NextRequest) {
                     ON r.kind = 'comment_removed'
                    AND r.payload->>'target_event_id' = c.event_id::text
             WHERE c.author = $1 AND c.kind = 'comment'
+              -- Same exclusion as the place page: a note withdrawn with
+              -- reason "investigation" is a source, not a comment.
+              AND NOT EXISTS (
+                SELECT 1 FROM fl_events d
+                 WHERE d.kind = 'comment_delete'
+                   AND d.payload->>'reason' = 'investigation'
+                   AND d.payload->>'target_event_id' = c.event_id::text
+              )
             ORDER BY c.seq DESC
             LIMIT 80`,
         [author]
@@ -149,8 +157,14 @@ export async function GET(request: NextRequest) {
     ]);
 
     const { rows: commentCount } = await pool.query<{ n: string }>(
-      `SELECT count(*)::int AS n FROM fl_events
-        WHERE author = $1 AND kind = 'comment'`,
+      `SELECT count(*)::int AS n FROM fl_events c
+        WHERE c.author = $1 AND c.kind = 'comment'
+          AND NOT EXISTS (
+            SELECT 1 FROM fl_events d
+             WHERE d.kind = 'comment_delete'
+               AND d.payload->>'reason' = 'investigation'
+               AND d.payload->>'target_event_id' = c.event_id::text
+          )`,
       [author]
     );
 

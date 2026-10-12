@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { PlaceMap } from '../PlaceMap';
 
 /**
@@ -130,6 +130,8 @@ export function PlaceDesk({
   autoSearch: boolean;
 }) {
   const [satellite, setSatellite] = useState(true);
+  const streetRef = useRef<HTMLDivElement>(null);
+  const [streetFull, setStreetFull] = useState(false);
   const seed = searchQuery(title, municipality);
   const [text, setText] = useState(seed);
   const [hits, setHits] = useState<Hit[] | null>(null);
@@ -183,6 +185,26 @@ export function PlaceDesk({
     }
   };
 
+  useEffect(() => {
+    const onChange = () => {
+      setStreetFull(document.fullscreenElement === streetRef.current);
+    };
+    document.addEventListener('fullscreenchange', onChange);
+    return () => document.removeEventListener('fullscreenchange', onChange);
+  }, []);
+
+  const toggleStreet = () => {
+    const node = streetRef.current;
+    if (!node) {
+      return;
+    }
+    if (document.fullscreenElement === node) {
+      void document.exitFullscreen();
+      return;
+    }
+    void node.requestFullscreen();
+  };
+
   const located = lat != null && lon != null;
 
   return (
@@ -220,14 +242,23 @@ export function PlaceDesk({
               satellite ? 'satellite' : 'roadmap'
             )}
           />
-          <iframe
-            className="fl-embed fl-embed-street"
-            title="Street View"
-            loading="lazy"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-            src={embedSrc(mapKey, lat, lon, 'street')}
-          />
+          <div className="fl-street" ref={streetRef}>
+            <button
+              type="button"
+              className="fl-street-open"
+              onClick={toggleStreet}
+            >
+              {streetFull ? 'Exit full screen' : 'Full screen'}
+            </button>
+            <iframe
+              className="fl-embed fl-embed-street"
+              title="Street View"
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              src={embedSrc(mapKey, lat, lon, 'street')}
+            />
+          </div>
         </>
       ) : located ? (
         <p className="fl-empty">Google Maps is not configured.</p>

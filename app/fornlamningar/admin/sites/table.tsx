@@ -79,9 +79,9 @@ const SORT_KEYS = new Set([
 
 type SiteFilters = {
   q: string;
-  over6: boolean;
-  unmarked: boolean;
-  uninteresting: boolean;
+  photosMin: string;
+  photosMax: string;
+  verified: boolean;
   unverified: boolean;
   before: string;
   families: string[];
@@ -92,16 +92,41 @@ type SiteFilters = {
   columnSort: boolean;
 };
 
-function filtersFromParams(params: {
-  get(name: string): string | null;
-}): SiteFilters {
+/** A non-negative integer, or empty when the side of the range is open. */
+function photoCount(raw: string): string {
+  return /^\d+$/.test(raw) ? String(Number(raw)) : '';
+}
+
+type QueryParams = { get: (name: string) => string | null };
+
+function photoRange(params: QueryParams): {
+  min: string;
+  max: string;
+} {
+  const raw = params.get('photos');
+  if (raw != null && raw.includes('-')) {
+    const dash = raw.indexOf('-');
+    return {
+      min: photoCount(raw.slice(0, dash)),
+      max: photoCount(raw.slice(dash + 1)),
+    };
+  }
+  // The old checkbox meant seven or more.
+  if (params.get('over6') === '1') {
+    return { min: '7', max: '' };
+  }
+  return { min: '', max: '' };
+}
+
+function filtersFromParams(params: QueryParams): SiteFilters {
   const sort = params.get('sort') ?? '';
   const columnSort = SORT_KEYS.has(sort);
+  const photos = photoRange(params);
   return {
     q: params.get('q') ?? '',
-    over6: params.get('over6') === '1',
-    unmarked: params.get('unmarked') === '1',
-    uninteresting: params.get('uninteresting') === '1',
+    photosMin: photos.min,
+    photosMax: photos.max,
+    verified: params.get('verified') === '1',
     unverified: params.get('unverified') === '1',
     before: params.get('before') ?? '',
     families: (params.get('families') ?? '').split('|').filter(Boolean),
@@ -117,14 +142,13 @@ function filterQuery(filters: SiteFilters): string {
   if (q) {
     p.set('q', q);
   }
-  if (filters.over6) {
-    p.set('over6', '1');
+  const photosMin = photoCount(filters.photosMin);
+  const photosMax = photoCount(filters.photosMax);
+  if (photosMin || photosMax) {
+    p.set('photos', `${photosMin}-${photosMax}`);
   }
-  if (filters.unmarked) {
-    p.set('unmarked', '1');
-  }
-  if (filters.uninteresting) {
-    p.set('uninteresting', '1');
+  if (filters.verified) {
+    p.set('verified', '1');
   }
   if (filters.unverified) {
     p.set('unverified', '1');
@@ -227,9 +251,9 @@ function SiteTable({ token }: { token: string }) {
   // sorts those same rows; the next edit of the query goes back to rank.
   const [columnSort, setColumnSort] = useState(initial.columnSort);
   const [q, setQ] = useState(initial.q);
-  const [over6, setOver6] = useState(initial.over6);
-  const [noPriority, setNoPriority] = useState(initial.unmarked);
-  const [onlyDull, setOnlyDull] = useState(initial.uninteresting);
+  const [photosMin, setPhotosMin] = useState(initial.photosMin);
+  const [photosMax, setPhotosMax] = useState(initial.photosMax);
+  const [verified, setVerified] = useState(initial.verified);
   const [unverified, setUnverified] = useState(initial.unverified);
   const [verifiedBefore, setVerifiedBefore] = useState(initial.before);
   const [families, setFamilies] = useState<string[]>(initial.families);
@@ -312,9 +336,9 @@ function SiteTable({ token }: { token: string }) {
 
   const stateQuery = filterQuery({
     q,
-    over6,
-    unmarked: noPriority,
-    uninteresting: onlyDull,
+    photosMin,
+    photosMax,
+    verified,
     unverified,
     before: verifiedBefore,
     families,
@@ -345,9 +369,9 @@ function SiteTable({ token }: { token: string }) {
     if (urlChanged) {
       const next = filtersFromParams(params);
       setQ(next.q);
-      setOver6(next.over6);
-      setNoPriority(next.unmarked);
-      setOnlyDull(next.uninteresting);
+      setPhotosMin(next.photosMin);
+      setPhotosMax(next.photosMax);
+      setVerified(next.verified);
       setUnverified(next.unverified);
       setVerifiedBefore(next.before);
       setFamilies(next.families);
@@ -385,33 +409,41 @@ function SiteTable({ token }: { token: string }) {
     const needle = q.trim();
     const picked = new Set(families);
     const matched = needle ? new Set(hits ?? []) : null;
+    const minPhotos = photoCount(photosMin);
+    const maxPhotos = photoCount(photosMax);
+    const onlyVerified = verified && !unverified;
+    const onlyOpen = unverified && !verified;
     return (rows ?? []).filter(row => {
-      if (over6 && row.photos <= 6) {
+      if (minPhotos !== '' && row.photos < Number(minPhotos)) {
         return false;
       }
-      if (noPriority && row.prioritized) {
-        return false;
-      }
-      if (onlyDull && !row.uninteresting) {
+      if (maxPhotos !== '' && row.photos > Number(maxPhotos)) {
         return false;
       }
       const signed = row.verified_at
         ? new Date(row.verified_at).getTime()
         : null;
       const cutoff = verifiedBefore ? new Date(verifiedBefore).getTime() : null;
-      const stale =
-        cutoff != null &&
-        Number.isFinite(cutoff) &&
-        signed != null &&
-        signed < cutoff;
+      const dated = cutoff != null && Number.isFinite(cutoff);
+      const stale = dated && signed != null && signed < cutoff;
       const never = signed == null;
-      if (unverified && Number.isFinite(cutoff ?? NaN)) {
+      if (onlyOpen && dated) {
         if (!never && !stale) {
           return false;
         }
-      } else if (unverified && !never) {
-        return false;
-      } else if (cutoff != null && Number.isFinite(cutoff) && !stale) {
+      } else if (onlyOpen) {
+        if (!never) {
+          return false;
+        }
+      } else if (onlyVerified && dated) {
+        if (!stale) {
+          return false;
+        }
+      } else if (onlyVerified) {
+        if (never) {
+          return false;
+        }
+      } else if (dated && !stale) {
         return false;
       }
       if (picked.size > 0 && !picked.has(row.family)) {
@@ -425,9 +457,9 @@ function SiteTable({ token }: { token: string }) {
   }, [
     rows,
     q,
-    over6,
-    noPriority,
-    onlyDull,
+    photosMin,
+    photosMax,
+    verified,
     unverified,
     verifiedBefore,
     families,
@@ -447,11 +479,11 @@ function SiteTable({ token }: { token: string }) {
   }, [filtered, sort, q, hits, columnSort]);
   const pageRows = sorted.slice((page - 1) * PAGE, page * PAGE);
   const rest = sorted.slice((page - 1) * PAGE);
+  const photoFilter =
+    photoCount(photosMin) !== '' || photoCount(photosMax) !== '';
   const filterCount =
-    (over6 ? 1 : 0) +
-    (noPriority ? 1 : 0) +
-    (onlyDull ? 1 : 0) +
-    (unverified ? 1 : 0) +
+    (photoFilter ? 1 : 0) +
+    (verified !== unverified ? 1 : 0) +
     (verifiedBefore ? 1 : 0) +
     (families.length > 0 ? 1 : 0);
 
@@ -520,28 +552,47 @@ function SiteTable({ token }: { token: string }) {
         size="md"
         radius="md"
       >
+        <label className="fl-filter-range">
+          <span>Photos</span>
+          <span className="fl-filter-range-inputs">
+            <input
+              type="number"
+              min={0}
+              step={1}
+              inputMode="numeric"
+              aria-label="Minimum photos"
+              placeholder="min"
+              value={photosMin}
+              onChange={e => {
+                setPhotosMin(e.currentTarget.value);
+                setPage(1);
+              }}
+            />
+            <span aria-hidden="true">–</span>
+            <input
+              type="number"
+              min={0}
+              step={1}
+              inputMode="numeric"
+              aria-label="Maximum photos"
+              placeholder="max"
+              value={photosMax}
+              onChange={e => {
+                setPhotosMax(e.currentTarget.value);
+                setPage(1);
+              }}
+            />
+          </span>
+          <span className="fl-add-hint">
+            Inclusive. Leave either side open.
+          </span>
+        </label>
         <div className="fl-filter-flags">
           <Checkbox
-            label="More than 6 photos"
-            checked={over6}
+            label="Verified"
+            checked={verified}
             onChange={e => {
-              setOver6(e.currentTarget.checked);
-              setPage(1);
-            }}
-          />
-          <Checkbox
-            label="No prioritized photos"
-            checked={noPriority}
-            onChange={e => {
-              setNoPriority(e.currentTarget.checked);
-              setPage(1);
-            }}
-          />
-          <Checkbox
-            label="Not interesting"
-            checked={onlyDull}
-            onChange={e => {
-              setOnlyDull(e.currentTarget.checked);
+              setVerified(e.currentTarget.checked);
               setPage(1);
             }}
           />
@@ -566,8 +617,8 @@ function SiteTable({ token }: { token: string }) {
           />
           <span className="fl-add-hint">
             Places signed off before this time.
-            {unverified
-              ? ' With Not verified, both are the ones due for another look.'
+            {unverified && !verified
+              ? ' With Not verified, places that were never verified are included too.'
               : ''}
           </span>
         </label>

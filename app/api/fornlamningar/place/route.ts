@@ -315,6 +315,17 @@ export async function GET(request: NextRequest) {
                   ON r.kind = 'comment_removed'
                  AND r.payload->>'target_event_id' = c.event_id::text
           WHERE c.kind = 'comment' AND c.place_uuid = $1
+            -- Taken off the sheet on 2026-09-28, reason "investigation".
+            -- The text is an investigation source now, so it is not a comment
+            -- and not a hidden one either. A comment_removed stays in this
+            -- list, greyed: that is a moderation decision somebody may need
+            -- to see again. These were withdrawn on purpose.
+            AND NOT EXISTS (
+              SELECT 1 FROM fl_events d
+               WHERE d.kind = 'comment_delete'
+                 AND d.payload->>'reason' = 'investigation'
+                 AND d.payload->>'target_event_id' = c.event_id::text
+            )
           ORDER BY c.seq DESC`,
       [uuid]
     ),

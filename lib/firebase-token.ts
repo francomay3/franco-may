@@ -42,10 +42,11 @@ export type VerifiedUser = {
 export async function verifyFirebaseToken(
   authorization: string | null
 ): Promise<VerifiedUser | null> {
-  const projectId = process.env.FIREBASE_PROJECT_ID;
-  if (!projectId) {
-    return null;
-  }
+  // The admin page signs in against this project. The id is public — it
+  // ships in the client config — and production sets the same value. When
+  // the env is missing, a real token used to verify as nobody and the
+  // session route answered 404.
+  const projectId = process.env.FIREBASE_PROJECT_ID || 'fornlamningar';
   const token = authorization?.startsWith('Bearer ')
     ? authorization.slice(7).trim()
     : null;
