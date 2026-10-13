@@ -42,7 +42,7 @@ function envFromLocal(key) {
       'Neon-Connection-String': url,
     },
     body: JSON.stringify({
-      query: `SELECT place_uuid, verified_at, verified_by
+      query: `SELECT place_uuid, verified_at, verified_by, by_agent
                 FROM fl_verified
                ORDER BY verified_at, place_uuid`,
       params: [],

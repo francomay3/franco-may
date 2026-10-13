@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { isAdmin, uidOf } from '@/lib/admin';
 import { comparePool } from '@/lib/compare-pool';
+import { placeUuidOf } from '@/lib/lamning';
 import {
   FEATURES,
   fitVotes,
@@ -160,7 +161,7 @@ const voteSchema = z.object({
 
 const asideSchema = z.object({
   action: z.literal('aside'),
-  place: z.string().uuid(),
+  place: z.string().min(1),
 });
 
 export async function POST(request: NextRequest) {
@@ -182,16 +183,10 @@ export async function POST(request: NextRequest) {
   }
   const holding = asideSchema.safeParse(raw);
   if (holding.success) {
-    let loaded;
-    try {
-      loaded = comparePool();
-    } catch {
-      return NextResponse.json(
-        { error: 'compare pool is not built' },
-        { status: 503 }
-      );
-    }
-    if (!loaded.byId.has(holding.data.place)) {
+    // Any place, not only one the tinder would offer. An agent marks a
+    // place here when it cannot verify it, and the assigner skips those.
+    const uuid = placeUuidOf(holding.data.place);
+    if (!uuid) {
       return NextResponse.json({ error: 'unknown place' }, { status: 400 });
     }
     try {
@@ -199,7 +194,7 @@ export async function POST(request: NextRequest) {
         `INSERT INTO fl_compare_aside (place_uuid, created_by)
          VALUES ($1, $2)
          ON CONFLICT (place_uuid) DO NOTHING`,
-        [holding.data.place, uid]
+        [uuid, uid]
       );
     } catch (err) {
       if (missingTable(err)) {
@@ -210,21 +205,22 @@ export async function POST(request: NextRequest) {
       }
       throw err;
     }
-    let list: Vote[];
+    // The tinder still wants the following pair. A missing pool must not
+    // undo the row just written: the agent does not read `next`.
+    let next: ReturnType<typeof nextPair> = null;
     try {
-      list = await votes();
-    } catch (err) {
-      if (missingTable(err)) {
-        return NextResponse.json(
-          { error: 'fl_comparisons is not created' },
-          { status: 503 }
-        );
-      }
-      throw err;
+      comparePool();
+    } catch {
+      return NextResponse.json({ ok: true, next: null });
     }
-    return NextResponse.json({
-      next: nextPair(list, await hiddenPlaces()),
-    });
+    try {
+      next = nextPair(await votes(), await hiddenPlaces());
+    } catch (err) {
+      if (!missingTable(err)) {
+        throw err;
+      }
+    }
+    return NextResponse.json({ ok: true, next });
   }
 
   const parsed = voteSchema.safeParse(raw);

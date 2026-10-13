@@ -133,6 +133,14 @@ INSERT INTO fl_config (key, value)
 VALUES ('author_salt', encode(gen_random_bytes(32), 'hex'))
 ON CONFLICT (key) DO NOTHING;
 
+-- The bearer the review agents send. Not a person's login: one shared
+-- secret, generated once, and the author recorded for those writes is the
+-- literal `agent`. ON CONFLICT leaves a token that already exists alone,
+-- so applying this file again does not lock the agents out.
+INSERT INTO fl_config (key, value)
+VALUES ('agent_token', encode(gen_random_bytes(32), 'hex'))
+ON CONFLICT (key) DO NOTHING;
+
 -- ---------------------------------------------------------------------------
 -- fl_reports: somebody telling us that something published here is wrong.
 --
@@ -359,16 +367,22 @@ CREATE TABLE IF NOT EXISTS fl_photos_added (
 CREATE INDEX IF NOT EXISTS fl_photos_added_place
   ON fl_photos_added (place_uuid);
 
--- The moment a person signed off a place in the admin.
+-- The moment a place was signed off.
 --
 -- Clicking again moves the timestamp forward. Clearing the row forgets
 -- it. The sites list filters on this: never signed off, or signed off
 -- before a chosen moment.
+--
+-- `by_agent` is true when an agent signed it off. A person's click
+-- leaves it false, including a later click on a place an agent already
+-- signed. The pipeline trains on the false rows only. An agent sign-off
+-- takes the place out of the queue and stays visible as such.
 CREATE TABLE IF NOT EXISTS fl_verified (
   place_uuid   TEXT        PRIMARY KEY,
   verified_at  TIMESTAMPTZ NOT NULL,
   verified_by  TEXT        NOT NULL
 );
+ALTER TABLE fl_verified ADD COLUMN IF NOT EXISTS by_agent BOOLEAN NOT NULL DEFAULT false;
 
 -- Places a person has marked not worth the trip.
 --
@@ -436,12 +450,17 @@ ALTER TABLE fl_comparisons DROP CONSTRAINT IF EXISTS fl_comparisons_outcome_chec
 ALTER TABLE fl_comparisons ADD CONSTRAINT fl_comparisons_outcome_check
   CHECK (outcome IN ('left', 'right', 'tie', 'skip'));
 
--- A place taken out of the compare tinder.
+-- A place an agent could not verify, also kept out of the compare tinder.
 --
--- Skip only retires the pair, so a place there is not enough to judge
--- comes back with a new partner. This retires the place. It is not a
--- vote that the place is dull: fl_uninteresting is that list, and the
--- pipeline trains on it. Nothing downstream reads this table.
+-- The manager that hands places to agents skips every row here, so a
+-- place marked once is not handed out again. An agent sets it when there
+-- is not enough to judge (too few photographs, too few sources) or when
+-- something is wrong and a flag carries the reason. Skip in the tinder
+-- only retires the pair; this retires the place from both queues.
+--
+-- It is not a vote that the place is dull. fl_uninteresting is that
+-- list, and the pipeline trains on it. The pipeline does not read this
+-- table.
 CREATE TABLE IF NOT EXISTS fl_compare_aside (
   place_uuid  TEXT        PRIMARY KEY,
   created_by  TEXT        NOT NULL,

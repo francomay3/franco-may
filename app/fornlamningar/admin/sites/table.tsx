@@ -35,6 +35,7 @@ type PlaceRow = {
   prioritized: boolean;
   uninteresting: boolean;
   verified_at: string | null;
+  verified_by_agent: boolean;
   sources: number;
   rating: number | null;
   votes: number;
@@ -64,8 +65,9 @@ function suspendAutoscroll(node: Element) {
   window.addEventListener('mouseup', restore, true);
 }
 
-function verifiedTip(iso: string): string {
-  return `Verified ${iso.slice(0, 16).replace('T', ' ')}`;
+function verifiedTip(iso: string, byAgent: boolean): string {
+  const when = iso.slice(0, 16).replace('T', ' ');
+  return byAgent ? `Verified by an agent ${when}` : `Verified ${when}`;
 }
 
 const SORT_KEYS = new Set([
@@ -751,7 +753,7 @@ function SiteTable({ token }: { token: string }) {
                 sortable: true,
                 width: 48,
                 textAlign: 'center',
-                render: ({ id, verified_at }) =>
+                render: ({ id, verified_at, verified_by_agent }) =>
                   cell(
                     id,
                     verified_at ? (
@@ -759,7 +761,9 @@ function SiteTable({ token }: { token: string }) {
                         <IconCheck size={18} stroke={2.5} />
                       </span>
                     ) : null,
-                    verified_at ? verifiedTip(verified_at) : undefined
+                    verified_at
+                      ? verifiedTip(verified_at, verified_by_agent)
+                      : undefined
                   ),
               },
             ]}

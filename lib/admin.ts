@@ -1,4 +1,6 @@
+import { timingSafeEqual } from 'crypto';
 import { NextRequest } from 'next/server';
+import { pool } from '@/lib/db';
 import { verifyFirebaseToken } from '@/lib/firebase-token';
 
 /**
@@ -30,11 +32,69 @@ import { verifyFirebaseToken } from '@/lib/firebase-token';
  * The bootstrap stays for anyone added later: an unrecognised but VALID token
  * gets its own uid shown back to it, so it can be pasted into the variable.
  * Knowing your own uid grants nothing either.
+ *
+ * THE AGENT TOKEN IS NOT A SECOND PERSON. The review runners are not
+ * Franco and must not write under his login. `fl_config.agent_token` is
+ * one shared secret. A bearer that matches it may do what an admin may
+ * do, and the author stored for that write is the literal `agent`.
  */
 
 /** Franco. See above for why this is in the file and not in a dashboard. */
 const OWNER = 'vQCtnlYDZPa5uilEqDT8IVwA5V92';
+/** Written into verified_by, added_by, and the rest when the agent token is used. */
+const AGENT = 'agent';
+
+let agentTokenCache: string | null = null;
+
+async function agentToken(): Promise<string | null> {
+  if (agentTokenCache) {
+    return agentTokenCache;
+  }
+  try {
+    const { rows } = await pool.query<{ value: string }>(
+      `SELECT value FROM fl_config WHERE key = 'agent_token'`
+    );
+    const value = rows[0]?.value ?? null;
+    if (value) {
+      agentTokenCache = value;
+    }
+    return value;
+  } catch {
+    return null;
+  }
+}
+
+function bearer(request: NextRequest): string | null {
+  const header = request.headers.get('authorization');
+  if (!header?.startsWith('Bearer ')) {
+    return null;
+  }
+  const token = header.slice(7).trim();
+  return token || null;
+}
+
+function sameSecret(got: string, expected: string): boolean {
+  const a = Buffer.from(got);
+  const b = Buffer.from(expected);
+  if (a.length !== b.length) {
+    return false;
+  }
+  return timingSafeEqual(a, b);
+}
+
+async function isAgent(request: NextRequest): Promise<boolean> {
+  const token = bearer(request);
+  const expected = await agentToken();
+  if (!token || !expected) {
+    return false;
+  }
+  return sameSecret(token, expected);
+}
+
 export async function isAdmin(request: NextRequest): Promise<boolean> {
+  if (await isAgent(request)) {
+    return true;
+  }
   const user = await verifyFirebaseToken(request.headers.get('authorization'));
   if (!user) {
     return false;
@@ -50,6 +110,9 @@ export async function isAdmin(request: NextRequest): Promise<boolean> {
  * "has a Google account" as "may moderate".
  */
 export async function uidOf(request: NextRequest): Promise<string | null> {
+  if (await isAgent(request)) {
+    return AGENT;
+  }
   const user = await verifyFirebaseToken(request.headers.get('authorization'));
   return user?.uid ?? null;
 }

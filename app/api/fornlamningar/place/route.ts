@@ -178,18 +178,27 @@ function uninterestingOf(uuid: string) {
     });
 }
 
-function verifiedAt(uuid: string) {
+function verifiedOf(uuid: string): Promise<{
+  at: string | null;
+  byAgent: boolean;
+}> {
+  const none = { at: null, byAgent: false };
   return pool
-    .query<{ verified_at: Date }>(
-      `SELECT verified_at FROM fl_verified WHERE place_uuid = $1`,
+    .query<{ verified_at: Date; by_agent: boolean }>(
+      `SELECT verified_at, by_agent FROM fl_verified WHERE place_uuid = $1`,
       [uuid]
     )
     .then(r =>
-      r.rows[0] ? new Date(r.rows[0].verified_at).toISOString() : null
+      r.rows[0]
+        ? {
+            at: new Date(r.rows[0].verified_at).toISOString(),
+            byAgent: r.rows[0].by_agent,
+          }
+        : none
     )
     .catch(err => {
       if (missingTable(err)) {
-        return null;
+        return none;
       }
       throw err;
     });
@@ -305,7 +314,7 @@ export async function GET(request: NextRequest) {
     flags,
     pinOverride,
     titleOverride,
-    verified,
+    verifiedOfPlace,
   ] = await Promise.all([
     pool.query(
       `SELECT c.event_id, c.author, c.payload, c.server_ts,
@@ -377,7 +386,7 @@ export async function GET(request: NextRequest) {
     flagsForPlace(uuid),
     pinOverrideOf(uuid),
     titleOverrideOf(uuid),
-    verifiedAt(uuid),
+    verifiedOf(uuid),
   ]);
   // Once the pipeline has taken an added source in, it comes back in
   // fl_sources too. Listed once, as the pipeline's, which is the one the
@@ -422,7 +431,9 @@ export async function GET(request: NextRequest) {
     map_key: process.env.GOOGLE_MAPS_EMBED_API_KEY || null,
     calculated: coord == null ? null : { lon: coord[0], lat: coord[1] },
     pin_override: pinOverride,
-    verified_at: verified,
+    verified_at: verifiedOfPlace.at,
+    /** True when an agent signed this off. A person's click leaves it false. */
+    verified_by_agent: verifiedOfPlace.byAgent,
     texts: [
       ...added
         .filter(r => !r.url || !known.has(r.url))
@@ -571,6 +582,8 @@ const bodySchema = z.discriminatedUnion('action', [
   z.object({
     action: z.literal('verify'),
     place: z.string().min(1),
+    /** Set by an agent. Absent on a person's click, which stays false. */
+    by_agent: z.boolean().optional(),
   }),
   z.object({
     action: z.literal('clear_verified'),
@@ -682,20 +695,30 @@ export async function POST(request: NextRequest) {
     }
     if (parsed.data.action === 'clear_verified') {
       await pool.query(`DELETE FROM fl_verified WHERE place_uuid = $1`, [uuid]);
-      return NextResponse.json({ ok: true, verified_at: null });
+      return NextResponse.json({
+        ok: true,
+        verified_at: null,
+        verified_by_agent: false,
+      });
     }
-    const { rows } = await pool.query<{ verified_at: Date }>(
-      `INSERT INTO fl_verified (place_uuid, verified_at, verified_by)
-       VALUES ($1, now(), $2)
+    const byAgent = parsed.data.by_agent === true;
+    const { rows } = await pool.query<{
+      verified_at: Date;
+      by_agent: boolean;
+    }>(
+      `INSERT INTO fl_verified (place_uuid, verified_at, verified_by, by_agent)
+       VALUES ($1, now(), $2, $3)
        ON CONFLICT (place_uuid) DO UPDATE SET
          verified_at = now(),
-         verified_by = EXCLUDED.verified_by
-       RETURNING verified_at`,
-      [uuid, uid]
+         verified_by = EXCLUDED.verified_by,
+         by_agent = EXCLUDED.by_agent
+       RETURNING verified_at, by_agent`,
+      [uuid, uid, byAgent]
     );
     return NextResponse.json({
       ok: true,
       verified_at: new Date(rows[0].verified_at).toISOString(),
+      verified_by_agent: rows[0].by_agent,
     });
   }
   if (parsed.data.action === 'uninteresting') {

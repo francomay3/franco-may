@@ -106,6 +106,8 @@ type Place = {
   uninteresting: boolean;
   /** When this place was signed off. Null until then. */
   verified_at: string | null;
+  /** Signed off by an agent. A person's click leaves this false. */
+  verified_by_agent: boolean;
   /** `mine` is the score under this account. `average` is what the app shows. */
   rating: { mine: number | null; average: number | null; votes: number };
   /** Notes that something here is wrong. `corrected_at` means it was fixed. */
@@ -567,9 +569,18 @@ export default function PlaceAdminPage() {
         setError(`could not update: ${res.status}`);
         return;
       }
-      const body = (await res.json()) as { verified_at: string | null };
+      const body = (await res.json()) as {
+        verified_at: string | null;
+        verified_by_agent?: boolean;
+      };
       setPlace(current =>
-        current ? { ...current, verified_at: body.verified_at } : current
+        current
+          ? {
+              ...current,
+              verified_at: body.verified_at,
+              verified_by_agent: body.verified_by_agent ?? false,
+            }
+          : current
       );
       if (on && inPass) {
         advance();
@@ -794,7 +805,9 @@ export default function PlaceAdminPage() {
               </button>
               <p className="fl-sub">
                 {place.verified_at
-                  ? `Verified ${flagWhen(place.verified_at)}.`
+                  ? place.verified_by_agent
+                    ? `Verified by an agent ${flagWhen(place.verified_at)}.`
+                    : `Verified ${flagWhen(place.verified_at)}.`
                   : 'Stamps this moment, once the photos, sources and rating are in order.'}
                 {inPass ? ' Verifying opens the next place.' : ''}
               </p>
