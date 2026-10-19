@@ -36,9 +36,9 @@ type PlaceRow = {
   uninteresting: boolean;
   verified_at: string | null;
   verified_by_agent: boolean;
+  verified_backend: string | null;
+  verified_model: string | null;
   sources: number;
-  rating: number | null;
-  votes: number;
   score: number | null;
   estimate: number | null;
   comments: number;
@@ -65,16 +65,30 @@ function suspendAutoscroll(node: Element) {
   window.addEventListener('mouseup', restore, true);
 }
 
-function verifiedTip(iso: string, byAgent: boolean): string {
+function verifiedTip(
+  iso: string,
+  byAgent: boolean,
+  backend: string | null,
+  model: string | null
+): string {
   const when = iso.slice(0, 16).replace('T', ' ');
-  return byAgent ? `Verified by an agent ${when}` : `Verified ${when}`;
+  if (!byAgent) {
+    return `Verified ${when}`;
+  }
+  if (backend === 'local') {
+    return model ? `Verified by local ${model} ${when}` : `Verified by a local model ${when}`;
+  }
+  if (backend === 'cursor') {
+    return model ? `Verified by Cursor ${model} ${when}` : `Verified by Cursor ${when}`;
+  }
+  return `Verified by an agent ${when}`;
 }
 
 const SORT_KEYS = new Set([
   'name',
   'photos',
   'sources',
-  'rating',
+  'estimate',
   'score',
   'verified_at',
 ]);
@@ -499,9 +513,9 @@ function SiteTable({ token }: { token: string }) {
     <div className="fl-sites">
       <p className="fl-sub fl-sites-note">
         Photos is every photograph held for the place. The app receives at most
-        six of them. Rating is what visitors gave, and how many. Score is where
-        the place sits after the comparison model reorders the top 6 000. 100 is
-        first. A dash means the place is outside that list.
+        six of them. Stars is the 1–5 band the app shows, its own estimate.
+        Score is where the place sits after the comparison model reorders the
+        top 6 000. 100 is first. A dash means the place is outside that list.
       </p>
       <div className="fl-sites-tools">
         <SearchBox
@@ -729,15 +743,12 @@ function SiteTable({ token }: { token: string }) {
                 render: ({ id, sources }) => cell(id, sources),
               },
               {
-                accessor: 'rating',
-                title: 'Rating',
+                accessor: 'estimate',
+                title: 'Stars',
                 sortable: true,
                 textAlign: 'right',
-                render: ({ id, rating, votes }) =>
-                  cell(
-                    id,
-                    rating == null ? '—' : `${rating.toFixed(1)} · ${votes}`
-                  ),
+                render: ({ id, estimate }) =>
+                  cell(id, estimate == null ? '—' : String(estimate)),
               },
               {
                 accessor: 'score',
@@ -753,7 +764,13 @@ function SiteTable({ token }: { token: string }) {
                 sortable: true,
                 width: 48,
                 textAlign: 'center',
-                render: ({ id, verified_at, verified_by_agent }) =>
+                render: ({
+                  id,
+                  verified_at,
+                  verified_by_agent,
+                  verified_backend,
+                  verified_model,
+                }) =>
                   cell(
                     id,
                     verified_at ? (
@@ -762,7 +779,12 @@ function SiteTable({ token }: { token: string }) {
                       </span>
                     ) : null,
                     verified_at
-                      ? verifiedTip(verified_at, verified_by_agent)
+                      ? verifiedTip(
+                          verified_at,
+                          verified_by_agent,
+                          verified_backend,
+                          verified_model
+                        )
                       : undefined
                   ),
               },

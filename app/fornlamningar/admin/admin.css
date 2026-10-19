@@ -322,23 +322,6 @@
   border-color: var(--accent);
 }
 
-.fl-rating {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 14px;
-  margin: 0 0 14px;
-}
-
-.fl-rating-label {
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.fl-rating .fl-sub {
-  margin: 0;
-}
-
 .fl-interest {
   display: flex;
   flex-wrap: wrap;

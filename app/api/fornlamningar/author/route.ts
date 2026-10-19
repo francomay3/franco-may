@@ -16,7 +16,7 @@ import { cleanPayload, publicAuthor } from '@/lib/fl-authors';
  *
  * What comes back is what that person has said and where. Comments and
  * photos are the things they published. Places are the ones they answered
- * about: a confirmed visit, a rating, or a sign. A "no" with no visit is
+ * about: a confirmed visit, or a sign. A "no" with no visit is
  * not a place they went to and is left out.
  */
 
@@ -150,7 +150,7 @@ export async function GET(request: NextRequest) {
                   kind, place_uuid, payload, server_ts
              FROM fl_events
             WHERE author = $1
-              AND kind IN ('presence', 'visit', 'rating', 'sign')
+              AND kind IN ('presence', 'visit', 'sign')
             ORDER BY place_uuid, kind, seq DESC`,
         [author]
       ),
@@ -172,8 +172,6 @@ export async function GET(request: NextRequest) {
       place_uuid: string;
       title: string | null;
       been: boolean | null;
-      stars: number | null;
-      not_found: boolean;
       sign: string | null;
       last_at: string;
     };
@@ -185,8 +183,6 @@ export async function GET(request: NextRequest) {
           place_uuid: uuid,
           title: placeTitle(uuid),
           been: null,
-          stars: null,
-          not_found: false,
           sign: null,
           last_at: at.toISOString(),
         };
@@ -205,17 +201,13 @@ export async function GET(request: NextRequest) {
         const row = touch(r.place_uuid, at);
         if (payload.been === true) row.been = true;
         else if (payload.been === false && row.been !== true) row.been = false;
-      } else if (r.kind === 'rating') {
-        const row = touch(r.place_uuid, at);
-        if (payload.not_found === true) row.not_found = true;
-        else if (typeof payload.stars === 'number') row.stars = payload.stars;
       } else if (r.kind === 'sign' && typeof payload.answer === 'string') {
         touch(r.place_uuid, at).sign = payload.answer;
       }
     }
 
     const placeList = [...places.values()]
-      .filter(p => p.been === true || p.stars !== null || p.not_found || p.sign)
+      .filter(p => p.been === true || p.been === false || p.sign)
       .sort((a, b) => (a.last_at < b.last_at ? 1 : -1));
 
     return NextResponse.json({

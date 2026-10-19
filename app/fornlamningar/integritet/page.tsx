@@ -64,14 +64,14 @@ export default function PrivacyPage() {
       <p style={s.p}>
         Fornkoll är en gratis app utan annonser. Den mesta informationen stannar
         i telefonen: du behöver inget konto för att använda kartan, läsa
-        beskrivningar, sätta betyg, markera besök eller svara på frågor.
+        beskrivningar, markera besök eller svara på frågor.
       </p>
 
       <h2 style={s.h2}>Det som stannar i telefonen</h2>
       <p style={s.p}>
         Din GPS-position används för att visa var du är och för att känna igen
         att du har varit på en plats.{' '}
-        <strong>Den lämnar aldrig telefonen.</strong> Dina betyg, besök, svar
+        <strong>Den lämnar aldrig telefonen.</strong> Dina besök, svar
         och favoriter sparas lokalt först och visas för dig även utan konto och
         utan täckning.
       </p>
@@ -87,7 +87,7 @@ export default function PrivacyPage() {
         </li>
         <li style={s.li}>vilken fornlämning det gäller</li>
         <li style={s.li}>
-          ditt betyg, ditt svar eller din kommentar, och vilken dag det var
+          ditt svar eller din kommentar, och vilken dag det var
         </li>
         <li style={s.li}>
           för ett besök: avståndet i meter och GPS-noggrannheten —{' '}
@@ -149,15 +149,15 @@ export default function PrivacyPage() {
 
       <p style={s.p}>
         Fornkoll is a free app with no ads. Most of what it knows stays on the
-        phone: you need no account to use the map, read descriptions, rate a
-        place, mark a visit or answer questions.
+        phone: you need no account to use the map, read descriptions, mark a
+        visit or answer questions.
       </p>
 
       <h2 style={s.h2}>What stays on the phone</h2>
       <p style={s.p}>
         Your GPS position is used to show where you are and to recognise that
         you have been to a place. <strong>It never leaves the phone.</strong>{' '}
-        Your ratings, visits, answers and favourites are saved locally first and
+        Your visits, answers and favourites are saved locally first and
         shown back to you with no account and no signal.
       </p>
 
@@ -172,7 +172,7 @@ export default function PrivacyPage() {
         </li>
         <li style={s.li}>which archaeological site it is about</li>
         <li style={s.li}>
-          your rating, your answer or your comment, and which day it was
+          your answer or your comment, and which day it was
         </li>
         <li style={s.li}>
           for a visit: the distance in metres and the GPS accuracy —{' '}

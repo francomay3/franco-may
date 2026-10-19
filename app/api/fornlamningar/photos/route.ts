@@ -8,11 +8,12 @@ import { placeCoord } from '@/lib/place-coords';
 /**
  * Add a Commons photograph to one place, or take one back.
  *
- * Two ways in. Pasting a file is a person saying this picture is the
- * place, so it is stored as `hand` and prioritized: the app will ship it
- * once the pipeline has read the export. Searching nearby is the one-place
- * version of crawl_wikimedia.fetch_nearby -- Commons geosearch, 500 m, one
- * page of results. Those land as `geosearch` and stay out of the app until
+ * Three ways in. Pasting a Commons file is a person saying this picture
+ * is the place, so it is stored as `hand` and prioritized. An image on a
+ * Swedish public page is stored as `official` and prioritized the same
+ * way. Searching nearby is the one-place version of
+ * crawl_wikimedia.fetch_nearby -- Commons geosearch, 500 m, one page of
+ * results. Those land as `geosearch` and stay out of the app until
  * someone prioritizes one, which is the rule that source already has.
  *
  * Rows go in fl_photos_added, not fl_photos. The catalog load replaces
@@ -33,11 +34,41 @@ const COMMONS = 'https://commons.wikimedia.org/w/api.php';
 const RADIUS_M = 500;
 const NEARBY_LIMIT = 24;
 
+/**
+ * Pages whose photographs can be stored as they stand. A Swedish public
+ * authority, or the museum register that publishes those collections.
+ * The agent is told the same list. A blog is not on it.
+ */
+const OFFICIAL_HOSTS = [
+  'lansstyrelsen.se',
+  'raa.se',
+  'riksantikvarieambetet.se',
+  'kulturarvsdata.se',
+  'kringla.nu',
+  'digitaltmuseum.se',
+  'dimu.org',
+];
+
+function officialHost(hostname: string): boolean {
+  const host = hostname.toLowerCase().replace(/\.$/, '');
+  return OFFICIAL_HOSTS.some(
+    suffix => host === suffix || host.endsWith(`.${suffix}`)
+  );
+}
+
 const bodySchema = z.discriminatedUnion('action', [
   z.object({
     action: z.literal('add'),
     place: z.string().min(1),
     file: z.string().trim().min(1).max(2000),
+  }),
+  z.object({
+    action: z.literal('official'),
+    place: z.string().min(1),
+    /** The image itself, on one of OFFICIAL_HOSTS. */
+    url: z.string().trim().url().max(2000),
+    /** The article the image was taken from. */
+    page: z.string().trim().url().max(2000).optional(),
   }),
   z.object({
     action: z.literal('nearby'),
@@ -273,7 +304,7 @@ async function held(uuid: string): Promise<Set<string>> {
 async function insertPhoto(
   uuid: string,
   uid: string,
-  source: 'hand' | 'geosearch' | 'paste',
+  source: 'hand' | 'geosearch' | 'paste' | 'official',
   file: CommonsFile,
   distance: number | null,
   prioritized: boolean
@@ -360,7 +391,9 @@ export async function POST(request: NextRequest) {
           ? 'geosearch'
           : parsed.data.source === 'paste'
             ? 'paste'
-            : null;
+            : parsed.data.source === 'official'
+              ? 'official'
+              : null;
     if (!source) {
       return NextResponse.json(
         { error: 'only a photograph added here can be removed' },
@@ -466,6 +499,78 @@ export async function POST(request: NextRequest) {
     // only when someone marks it.
     await insertPhoto(uuid, uid, 'hand', file, null, true);
     return NextResponse.json({ ok: true, file: file.file });
+  }
+
+  if (parsed.data.action === 'official') {
+    let image: URL;
+    let page: URL | null = null;
+    try {
+      image = new URL(parsed.data.url);
+      if (parsed.data.page) {
+        page = new URL(parsed.data.page);
+      }
+    } catch {
+      return NextResponse.json({ error: 'not a url' }, { status: 400 });
+    }
+    if (image.protocol !== 'https:' || (page && page.protocol !== 'https:')) {
+      return NextResponse.json({ error: 'https only' }, { status: 400 });
+    }
+    if (!officialHost(image.hostname) || (page && !officialHost(page.hostname))) {
+      return NextResponse.json(
+        { error: 'not an official Swedish page' },
+        { status: 400 }
+      );
+    }
+    let fetched: Response;
+    try {
+      fetched = await fetch(image, {
+        redirect: 'follow',
+        headers: { 'User-Agent': UA, Accept: 'image/*' },
+        signal: AbortSignal.timeout(15000),
+      });
+    } catch {
+      return NextResponse.json({ error: 'could not fetch the image' }, { status: 502 });
+    }
+    const type = fetched.headers.get('content-type') ?? '';
+    await fetched.body?.cancel();
+    let landed: URL;
+    try {
+      landed = new URL(fetched.url);
+    } catch {
+      return NextResponse.json({ error: 'could not fetch the image' }, { status: 502 });
+    }
+    if (!fetched.ok || !type.startsWith('image/') || !officialHost(landed.hostname)) {
+      return NextResponse.json(
+        { error: 'that url is not an image on the official page' },
+        { status: 422 }
+      );
+    }
+    if (landed.toString().length > 2000) {
+      return NextResponse.json({ error: 'image url is too long' }, { status: 400 });
+    }
+    const known = await held(uuid);
+    if (known.has(landed.toString().toLowerCase())) {
+      return NextResponse.json({ ok: true, file: landed.toString() });
+    }
+    await insertPhoto(
+      uuid,
+      uid,
+      'official',
+      {
+        file: landed.toString(),
+        thumb: landed.toString(),
+        page: page?.toString() ?? null,
+        author: landed.hostname,
+        licence: null,
+        licence_url: null,
+        image_url: landed.toString(),
+        width: null,
+        height: null,
+      },
+      null,
+      true
+    );
+    return NextResponse.json({ ok: true, file: landed.toString(), source: 'official' });
   }
 
   if (parsed.data.action === 'paste') {

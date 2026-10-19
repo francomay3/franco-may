@@ -6,6 +6,7 @@ import { isAdmin, uidOf } from '@/lib/admin';
 import { pool, tx } from '@/lib/db';
 import { cleanPayload, publicAuthor } from '@/lib/fl-authors';
 import { flagsForPlace } from '@/lib/fl-flags';
+import { appStars } from '@/lib/fl-place-list';
 import { placeUuidOf } from '@/lib/lamning';
 import { placeCoord } from '@/lib/place-coords';
 import { placeMunicipality } from '@/lib/place-municipality';
@@ -74,61 +75,8 @@ type ArchiveRow = {
 const ADDED_SOURCE: Record<string, string> = {
   hand: 'commons_hand',
   geosearch: 'commons_geosearch',
+  official: 'official',
 };
-
-type RatingView = {
-  /** This admin's own score, the latest one under their account. */
-  mine: number | null;
-  /** What the app shows: the mean, one vote per person. */
-  average: number | null;
-  votes: number;
-};
-
-/**
- * The ratings the app is averaging for this place, and which of them is
- * the caller's.
- *
- * A person who rated from two phones is one vote. The devices stay as
- * separate authors in the log; the account they were linked to is the
- * person, which is the same collapse the phone does when it syncs.
- */
-function ratingOf(uuid: string, uid: string): Promise<RatingView> {
-  return pool
-    .query<{ payload: { stars?: unknown }; mine: boolean }>(
-      `WITH latest AS (
-         SELECT DISTINCT ON (e.author)
-                e.author, e.seq, e.payload
-           FROM fl_events e
-          WHERE e.place_uuid = $1 AND e.kind = 'rating'
-            AND NOT EXISTS (
-              SELECT 1 FROM fl_events d
-               WHERE d.kind = 'rating_delete'
-                 AND d.payload->>'target_event_id' = e.event_id::text
-            )
-          ORDER BY e.author, e.seq DESC
-       )
-       SELECT DISTINCT ON (COALESCE(d.account, l.author))
-              l.payload,
-              (COALESCE(d.account, l.author) = $2) AS mine
-         FROM latest l
-         LEFT JOIN fl_account_devices d ON d.device = l.author
-        ORDER BY COALESCE(d.account, l.author), l.seq DESC`,
-      [uuid, uid]
-    )
-    .then(r => {
-      const scored = r.rows.flatMap(row => {
-        const stars = row.payload?.stars;
-        return typeof stars === 'number' ? [{ stars, mine: row.mine }] : [];
-      });
-      const mine = scored.find(row => row.mine)?.stars ?? null;
-      const votes = scored.length;
-      const average =
-        votes > 0
-          ? scored.reduce((sum, row) => sum + row.stars, 0) / votes
-          : null;
-      return { mine, average, votes };
-    });
-}
 
 function titleOverrideOf(uuid: string) {
   return pool
@@ -181,11 +129,19 @@ function uninterestingOf(uuid: string) {
 function verifiedOf(uuid: string): Promise<{
   at: string | null;
   byAgent: boolean;
+  backend: string | null;
+  model: string | null;
 }> {
-  const none = { at: null, byAgent: false };
+  const none = { at: null, byAgent: false, backend: null, model: null };
   return pool
-    .query<{ verified_at: Date; by_agent: boolean }>(
-      `SELECT verified_at, by_agent FROM fl_verified WHERE place_uuid = $1`,
+    .query<{
+      verified_at: Date;
+      by_agent: boolean;
+      agent_backend: string | null;
+      agent_model: string | null;
+    }>(
+      `SELECT verified_at, by_agent, agent_backend, agent_model
+         FROM fl_verified WHERE place_uuid = $1`,
       [uuid]
     )
     .then(r =>
@@ -193,6 +149,8 @@ function verifiedOf(uuid: string): Promise<{
         ? {
             at: new Date(r.rows[0].verified_at).toISOString(),
             byAgent: r.rows[0].by_agent,
+            backend: r.rows[0].agent_backend,
+            model: r.rows[0].agent_model,
           }
         : none
     )
@@ -301,7 +259,6 @@ export async function GET(request: NextRequest) {
 
   const desc = description(uuid);
   const coord = placeCoord(uuid);
-  const uid = await uidOf(request);
   const [
     { rows: comments },
     { rows: pending },
@@ -310,7 +267,6 @@ export async function GET(request: NextRequest) {
     { rows: added },
     archive,
     uninteresting,
-    rating,
     flags,
     pinOverride,
     titleOverride,
@@ -380,9 +336,6 @@ export async function GET(request: NextRequest) {
     ),
     archiveOf(uuid),
     uninterestingOf(uuid),
-    uid
-      ? ratingOf(uuid, uid)
-      : Promise.resolve({ mine: null, average: null, votes: 0 }),
     flagsForPlace(uuid),
     pinOverrideOf(uuid),
     titleOverrideOf(uuid),
@@ -434,6 +387,10 @@ export async function GET(request: NextRequest) {
     verified_at: verifiedOfPlace.at,
     /** True when an agent signed this off. A person's click leaves it false. */
     verified_by_agent: verifiedOfPlace.byAgent,
+    /** 'local' or 'cursor' when an agent signed. Null on a person's click. */
+    verified_backend: verifiedOfPlace.backend,
+    /** The model that signed, when an agent did. */
+    verified_model: verifiedOfPlace.model,
     texts: [
       ...added
         .filter(r => !r.url || !known.has(r.url))
@@ -475,7 +432,8 @@ export async function GET(request: NextRequest) {
       page: img.page ?? null,
     })),
     uninteresting,
-    rating,
+    /** The 1–5 band the app shows. Not a visitor average. */
+    stars: appStars(uuid),
     flags,
     archive: archive.map(r => ({
       source: r.source,
@@ -501,6 +459,7 @@ const STORED_SOURCE: Record<string, string> = {
   commons_hand: 'hand',
   commons_geosearch: 'geosearch',
   paste: 'paste',
+  official: 'official',
 };
 
 /**
@@ -584,6 +543,10 @@ const bodySchema = z.discriminatedUnion('action', [
     place: z.string().min(1),
     /** Set by an agent. Absent on a person's click, which stays false. */
     by_agent: z.boolean().optional(),
+    /** 'local' or 'cursor'. Ignored unless by_agent is true. */
+    backend: z.enum(['local', 'cursor']).optional(),
+    /** Model name. Ignored unless by_agent is true. */
+    model: z.string().trim().max(120).optional(),
   }),
   z.object({
     action: z.literal('clear_verified'),
@@ -593,11 +556,6 @@ const bodySchema = z.discriminatedUnion('action', [
     action: z.literal('uninteresting'),
     place: z.string().min(1),
     uninteresting: z.boolean(),
-  }),
-  z.object({
-    action: z.literal('rate'),
-    place: z.string().min(1),
-    stars: z.number().int().min(1).max(5),
   }),
   z.object({
     action: z.literal('set_pin'),
@@ -699,26 +657,38 @@ export async function POST(request: NextRequest) {
         ok: true,
         verified_at: null,
         verified_by_agent: false,
+        verified_backend: null,
+        verified_model: null,
       });
     }
     const byAgent = parsed.data.by_agent === true;
+    const backend = byAgent ? (parsed.data.backend ?? null) : null;
+    const model =
+      byAgent && parsed.data.model ? parsed.data.model : null;
     const { rows } = await pool.query<{
       verified_at: Date;
       by_agent: boolean;
+      agent_backend: string | null;
+      agent_model: string | null;
     }>(
-      `INSERT INTO fl_verified (place_uuid, verified_at, verified_by, by_agent)
-       VALUES ($1, now(), $2, $3)
+      `INSERT INTO fl_verified
+         (place_uuid, verified_at, verified_by, by_agent, agent_backend, agent_model)
+       VALUES ($1, now(), $2, $3, $4, $5)
        ON CONFLICT (place_uuid) DO UPDATE SET
          verified_at = now(),
          verified_by = EXCLUDED.verified_by,
-         by_agent = EXCLUDED.by_agent
-       RETURNING verified_at, by_agent`,
-      [uuid, uid, byAgent]
+         by_agent = EXCLUDED.by_agent,
+         agent_backend = EXCLUDED.agent_backend,
+         agent_model = EXCLUDED.agent_model
+       RETURNING verified_at, by_agent, agent_backend, agent_model`,
+      [uuid, uid, byAgent, backend, model]
     );
     return NextResponse.json({
       ok: true,
       verified_at: new Date(rows[0].verified_at).toISOString(),
       verified_by_agent: rows[0].by_agent,
+      verified_backend: rows[0].agent_backend,
+      verified_model: rows[0].agent_model,
     });
   }
   if (parsed.data.action === 'uninteresting') {
@@ -824,61 +794,6 @@ export async function POST(request: NextRequest) {
       title,
       title_override: title,
     });
-  }
-  if (parsed.data.action === 'rate') {
-    const uuid = placeUuidOf(parsed.data.place);
-    if (!uuid) {
-      return NextResponse.json({ error: 'unknown place' }, { status: 400 });
-    }
-    const uid = await uidOf(request);
-    if (!uid) {
-      return NextResponse.json({ error: 'not found' }, { status: 404 });
-    }
-    const { stars } = parsed.data;
-    const { rows: prev } = await pool.query<{
-      author: string;
-      payload: { visited?: unknown };
-    }>(
-      `SELECT e.author, e.payload
-         FROM fl_events e
-         LEFT JOIN fl_account_devices d ON d.device = e.author
-        WHERE e.place_uuid = $1 AND e.kind = 'rating'
-          AND COALESCE(d.account, e.author) = $2
-          AND NOT EXISTS (
-            SELECT 1 FROM fl_events x
-             WHERE x.kind = 'rating_delete'
-               AND x.payload->>'target_event_id' = e.event_id::text
-          )
-        ORDER BY e.seq DESC
-        LIMIT 1`,
-      [uuid, uid]
-    );
-    // Same author as the rating already under this account, so the new
-    // row replaces it instead of counting as a second person. No
-    // client_ts: a row this server writes has to reach the phone that
-    // filed the previous one, and the sync drops a device's own events
-    // only when that device sent them.
-    const payload: { stars: number; visited?: boolean } = { stars };
-    if (typeof prev[0]?.payload?.visited === 'boolean') {
-      payload.visited = prev[0].payload.visited;
-    }
-    await tx(async c => {
-      const { rows: seq } = await c.query<{ v: string }>(
-        'UPDATE fl_event_seq SET v = v + 1 WHERE id = 1 RETURNING v'
-      );
-      await c.query(
-        `INSERT INTO fl_events (seq, event_id, kind, place_uuid, author, payload)
-         VALUES ($1, $2, 'rating', $3, $4, $5)`,
-        [
-          Number(seq[0].v),
-          crypto.randomUUID(),
-          uuid,
-          prev[0]?.author ?? uid,
-          JSON.stringify(payload),
-        ]
-      );
-    });
-    return NextResponse.json({ ok: true, ...(await ratingOf(uuid, uid)) });
   }
   const { event_id } = parsed.data;
 

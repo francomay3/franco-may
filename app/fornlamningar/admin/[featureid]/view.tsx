@@ -9,7 +9,6 @@ import {
   Checkbox,
   Group,
   Loader,
-  Rating,
   Text,
 } from '@mantine/core';
 import { IconArrowLeft, IconTrash } from '@tabler/icons-react';
@@ -40,8 +39,8 @@ import { PhotoTools } from './photo-tools';
  * picture held for the place, plus any added here by hand or by the nearby
  * search. Prioritizing one puts it first when the app next chooses its six.
  * "Not interesting" puts the place on the list the pipeline trains against.
- * "Your rating" is the score under this account, which is the one the app
- * averages. A flag is a note that something about the place is wrong;
+ * The stars are the pipeline's estimate, the same number the app shows.
+ * A flag is a note that something about the place is wrong;
  * marking it corrected keeps the note, and deleting it forgets it.
  */
 
@@ -108,8 +107,12 @@ type Place = {
   verified_at: string | null;
   /** Signed off by an agent. A person's click leaves this false. */
   verified_by_agent: boolean;
-  /** `mine` is the score under this account. `average` is what the app shows. */
-  rating: { mine: number | null; average: number | null; votes: number };
+  /** 'local' or 'cursor' when an agent signed. */
+  verified_backend: string | null;
+  /** The model that signed, when an agent did. */
+  verified_model: string | null;
+  /** The 1–5 band the app shows. Null when the pipeline has none. */
+  stars: number | null;
   /** Notes that something here is wrong. `corrected_at` means it was fixed. */
   flags: {
     id: string;
@@ -155,13 +158,24 @@ function flagWhen(iso: string): string {
   return iso.slice(0, 16).replace('T', ' ');
 }
 
-function ratingLine(rating: Place['rating'] | undefined): string {
-  if (!rating || rating.average == null || rating.votes === 0) {
-    return 'Yours is the rating the app will show.';
+function verifiedLine(place: Place): string {
+  const when = flagWhen(place.verified_at ?? '');
+  if (!place.verified_by_agent) {
+    return `Verified ${when}`;
   }
-  const avg = rating.average.toFixed(1);
-  const n = rating.votes === 1 ? '1 rating' : `${rating.votes} ratings`;
-  return `The app shows ${avg} from ${n}.`;
+  if (place.verified_backend === 'local') {
+    const who = place.verified_model
+      ? `local ${place.verified_model}`
+      : 'a local model';
+    return `Verified by ${who} ${when}`;
+  }
+  if (place.verified_backend === 'cursor') {
+    const who = place.verified_model
+      ? `Cursor ${place.verified_model}`
+      : 'Cursor';
+    return `Verified by ${who} ${when}`;
+  }
+  return `Verified by an agent ${when}`;
 }
 
 function commonsThumb(file: string): string {
@@ -299,49 +313,6 @@ export default function PlaceAdminPage() {
       }
       setPending(null);
       await load(token);
-    } finally {
-      setBusy(null);
-    }
-  };
-
-  const setStars = async (stars: number) => {
-    if (!token || !place?.uuid || stars < 1 || stars > 5) {
-      return;
-    }
-    if (place.rating.mine === stars) {
-      return;
-    }
-    setBusy('rating');
-    try {
-      const res = await fetch('/api/fornlamningar/place', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          action: 'rate',
-          place: place.uuid,
-          stars,
-        }),
-      });
-      if (!res.ok) {
-        setError(`could not update: ${res.status}`);
-        return;
-      }
-      const body = (await res.json()) as Place['rating'];
-      setPlace(current =>
-        current
-          ? {
-              ...current,
-              rating: {
-                mine: body.mine,
-                average: body.average,
-                votes: body.votes,
-              },
-            }
-          : current
-      );
     } finally {
       setBusy(null);
     }
@@ -572,6 +543,8 @@ export default function PlaceAdminPage() {
       const body = (await res.json()) as {
         verified_at: string | null;
         verified_by_agent?: boolean;
+        verified_backend?: string | null;
+        verified_model?: string | null;
       };
       setPlace(current =>
         current
@@ -579,6 +552,8 @@ export default function PlaceAdminPage() {
               ...current,
               verified_at: body.verified_at,
               verified_by_agent: body.verified_by_agent ?? false,
+              verified_backend: body.verified_backend ?? null,
+              verified_model: body.verified_model ?? null,
             }
           : current
       );
@@ -768,17 +743,11 @@ export default function PlaceAdminPage() {
               ) : null}
             </div>
 
-            <div className="fl-rating">
-              <span className="fl-rating-label">Your rating</span>
-              <Rating
-                value={place.rating?.mine ?? 0}
-                count={5}
-                color="yellow"
-                readOnly={busy === 'rating'}
-                onChange={value => void setStars(value)}
-              />
-              <p className="fl-sub">{ratingLine(place.rating)}</p>
-            </div>
+            <p className="fl-sub">
+              {place.stars
+                ? `The app shows ${place.stars} stars. That is its estimate.`
+                : 'The app shows no star estimate for this place.'}
+            </p>
 
             <div className="fl-interest">
               <Checkbox
@@ -805,10 +774,8 @@ export default function PlaceAdminPage() {
               </button>
               <p className="fl-sub">
                 {place.verified_at
-                  ? place.verified_by_agent
-                    ? `Verified by an agent ${flagWhen(place.verified_at)}.`
-                    : `Verified ${flagWhen(place.verified_at)}.`
-                  : 'Stamps this moment, once the photos, sources and rating are in order.'}
+                  ? `${verifiedLine(place)}.`
+                  : 'Stamps this moment, once the photos and sources are in order.'}
                 {inPass ? ' Verifying opens the next place.' : ''}
               </p>
               {place.verified_at ? (

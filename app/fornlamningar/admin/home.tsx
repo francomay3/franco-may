@@ -83,7 +83,7 @@ function HomeNav({ token }: { token: string }) {
         <span className="fl-nav-copy">
           <span className="fl-nav-title">Sites</span>
           <span className="fl-nav-note">
-            Every published place, with photos, sources and ratings.
+            Every published place, with photos and sources.
           </span>
         </span>
       </Link>

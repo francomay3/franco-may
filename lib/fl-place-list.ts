@@ -10,7 +10,7 @@ import { pool } from '@/lib/db';
  *
  * The name comes from the published descriptions, which is the set of places
  * that have a page. A place with no description still appears when somebody
- * has rated it, commented, sent a photo, or when a source was stored for it
+ * has commented, sent a photo, or when a source was stored for it
  * -- otherwise sorting by those columns would hide the only rows that make
  * the column worth having.
  *
@@ -19,11 +19,10 @@ import { pool } from '@/lib/db';
  * Until that catalog is loaded, the count falls back to the pictures the
  * description shipped.
  *
- * Rating is the visitors' mean, the same number the app draws once anyone
- * has answered, and `votes` is how many gave a score. Score is where the
- * place sits after the comparison model reorders the top 6 000: 100 is
- * first, and a place outside that list has none. Estimate is the star
- * band from that same order.
+ * Stars is the 1–5 band the app draws next to the name: the pipeline's
+ * estimate, not a visitor average. Score is where the place sits after
+ * the comparison model reorders the top 6 000: 100 is first, and a place
+ * outside that list has none.
  */
 
 export type PlaceRow = {
@@ -42,16 +41,19 @@ export type PlaceRow = {
   verified_at: string | null;
   /** Signed off by an agent. A person's click leaves this false. */
   verified_by_agent: boolean;
+  /** 'local' or 'cursor' when an agent signed. */
+  verified_backend: string | null;
+  /** The model that signed, when an agent did. */
+  verified_model: string | null;
   /** Set aside: an agent could not verify it, so it is not handed out again. */
   aside: boolean;
   sources: number;
-  rating: number | null;
-  votes: number;
   /**
    * Percentile of the post-6k order (stars, then the comparison score).
    * 100 is first. Null when the place is outside the top 6 000.
    */
   score: number | null;
+  /** The 1–5 band the app shows. Null when the tile has none. */
   estimate: number | null;
   comments: number;
 };
@@ -207,6 +209,11 @@ function tiles(): Map<string, TileInfo> {
   return map;
 }
 
+/** The star band the app shows for this place, or null when it has none. */
+export function appStars(id: string): number | null {
+  return tiles().get(id)?.stars ?? null;
+}
+
 function blank(id: string, name = ''): PlaceRow {
   return {
     id,
@@ -218,10 +225,10 @@ function blank(id: string, name = ''): PlaceRow {
     uninteresting: false,
     verified_at: null,
     verified_by_agent: false,
+    verified_backend: null,
+    verified_model: null,
     aside: false,
     sources: 0,
-    rating: null,
-    votes: 0,
     score: null,
     estimate: null,
     comments: 0,
@@ -229,7 +236,6 @@ function blank(id: string, name = ''): PlaceRow {
 }
 
 type Count = { place_uuid: string; n: string };
-type Rated = { place_uuid: string; rating: string; votes: string };
 type HeldRow = { place_uuid: string; n: string; marked: string };
 type Held = { n: number; marked: number };
 
@@ -265,7 +271,12 @@ async function photoCounts(): Promise<Map<string, Held> | null> {
   }
 }
 
-type Signed = { at: string; byAgent: boolean };
+type Signed = {
+  at: string;
+  byAgent: boolean;
+  backend: string | null;
+  model: string | null;
+};
 
 async function verifiedAt(): Promise<Map<string, Signed>> {
   try {
@@ -273,13 +284,20 @@ async function verifiedAt(): Promise<Map<string, Signed>> {
       place_uuid: string;
       verified_at: Date;
       by_agent: boolean;
-    }>(`SELECT place_uuid, verified_at, by_agent FROM fl_verified`);
+      agent_backend: string | null;
+      agent_model: string | null;
+    }>(
+      `SELECT place_uuid, verified_at, by_agent, agent_backend, agent_model
+         FROM fl_verified`
+    );
     return new Map(
       rows.map(r => [
         r.place_uuid,
         {
           at: new Date(r.verified_at).toISOString(),
           byAgent: r.by_agent,
+          backend: r.agent_backend,
+          model: r.agent_model,
         },
       ])
     );
@@ -338,6 +356,8 @@ export async function placeRows(): Promise<PlaceRow[]> {
     const stamp = signed.get(row.id);
     row.verified_at = stamp?.at ?? null;
     row.verified_by_agent = stamp?.byAgent ?? false;
+    row.verified_backend = stamp?.backend ?? null;
+    row.verified_model = stamp?.model ?? null;
     row.aside = aside.has(row.id);
     row.kind = fromTile?.kind ?? '';
     row.family = fromTile?.family ?? '';
@@ -359,7 +379,7 @@ export async function placeRows(): Promise<PlaceRow[]> {
     return row;
   };
 
-  const [sources, ratings, comments, uploads] = await Promise.all([
+  const [sources, comments, uploads] = await Promise.all([
     pool.query<Count>(
       `SELECT place_uuid, count(*) AS n
          FROM (
@@ -376,28 +396,6 @@ export async function placeRows(): Promise<PlaceRow[]> {
               )
          ) src
         GROUP BY place_uuid`
-    ),
-    pool.query<Rated>(
-      `SELECT place_uuid,
-              round(avg(stars), 2) AS rating,
-              count(stars) AS votes
-         FROM (
-           SELECT DISTINCT ON (e.place_uuid, e.author)
-                  e.place_uuid,
-                  CASE WHEN e.payload ? 'stars'
-                       THEN (e.payload->>'stars')::numeric
-                  END AS stars
-             FROM fl_events e
-            WHERE e.kind = 'rating'
-              AND NOT EXISTS (
-                SELECT 1 FROM fl_events d
-                 WHERE d.kind = 'rating_delete'
-                   AND d.payload->>'target_event_id' = e.event_id::text
-              )
-            ORDER BY e.place_uuid, e.author, e.seq DESC
-         ) latest
-        GROUP BY place_uuid
-       HAVING count(stars) > 0`
     ),
     pool.query<Count>(
       `SELECT c.place_uuid, count(*) AS n
@@ -436,11 +434,6 @@ export async function placeRows(): Promise<PlaceRow[]> {
 
   for (const r of sources.rows) {
     ensure(r.place_uuid).sources = Number(r.n);
-  }
-  for (const r of ratings.rows) {
-    const row = ensure(r.place_uuid);
-    row.rating = Number(r.rating);
-    row.votes = Number(r.votes);
   }
   for (const r of comments.rows) {
     ensure(r.place_uuid).comments = Number(r.n);

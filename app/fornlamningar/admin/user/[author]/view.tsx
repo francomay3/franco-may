@@ -45,8 +45,6 @@ type Author = {
     place_uuid: string;
     title: string | null;
     been: boolean | null;
-    stars: number | null;
-    not_found: boolean;
     sign: string | null;
     last_at: string;
   }[];
@@ -250,11 +248,6 @@ function placeLine(p: Author['places'][number]): string {
     bits.push('Been here');
   } else if (p.been === false) {
     bits.push('Has not been');
-  }
-  if (p.not_found) {
-    bits.push('Could not find it');
-  } else if (p.stars != null) {
-    bits.push(`${p.stars} stars`);
   }
   if (p.sign) {
     bits.push(`Sign: ${p.sign}`);

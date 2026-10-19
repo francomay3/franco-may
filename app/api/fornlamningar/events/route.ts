@@ -13,14 +13,13 @@ import { cleanPayload, publicAuthors } from '@/lib/fl-authors';
  *
  * WRITING NEEDS AN ACCOUNT; READING DOES NOT. The POST requires that the
  * calling device be linked to one (see /link); the GET is open, because the
- * map has to show everybody's averages to everybody.
+ * map has to show everybody's contributions to everybody.
  *
  * THAT IS A REVERSAL, and the reasoning is worth keeping. A device id is 122
  * bits of cryptographic randomness, so it cannot be guessed -- a bearer
  * secret, travelling in a header and never in a URL where it would land in
  * access logs. The old line was drawn at *does anyone else read it*: a
- * rating is one number that gets averaged, a comment appears in front of
- * people, so comments needed an account and ratings did not.
+ * a comment appears in front of people, so comments needed an account.
  *
  * What that missed is that AN ANONYMOUS ID IS MINTED, NOT HELD. Anyone can
  * generate a fresh uuid as often as they like, so a per-author rate limit is
@@ -32,7 +31,7 @@ import { cleanPayload, publicAuthors } from '@/lib/fl-authors';
  * A Google account is not unforgeable either, but it costs something to mint
  * at scale and it can be banned, which is the whole difference.
  *
- * NOTHING BECOMES UNUSABLE WITHOUT SIGNING IN. Rating, favouriting, visiting
+ * NOTHING BECOMES UNUSABLE WITHOUT SIGNING IN. Favouriting, visiting
  * and answering are all recorded on the phone and shown back to their author
  * with no account at all; the queue simply holds them until there is one. The
  * device id is still the author -- signing in adopts it rather than replacing
@@ -212,7 +211,7 @@ const payloadSchemas: Record<string, z.ZodTypeAny> = {
     .refine(p => p.answer !== undefined || p.has_sign !== undefined, {
       message: 'a sign event carries answer or has_sign',
     }),
-  // "Have you been here?" -- the answer that gates rating and sign on the
+  // "Have you been here?" -- the answer that gates the sign on the
   // phone. Anonymous for the same reason a visit is: it is a statement about
   // the author, not about anybody else.
   //
@@ -436,7 +435,11 @@ export async function POST(request: NextRequest) {
       // outbox, and they get a seq only when somebody approves them -- a
       // seq is what makes every other phone download the row.
       let last = 0;
-      const publishing = body.events.filter(e => e.kind !== 'photo');
+      // Star ratings are retired. An old phone may still have one queued;
+      // accepting it clears that queue without writing the row back.
+      const publishing = body.events.filter(
+        e => e.kind !== 'photo' && e.kind !== 'rating' && e.kind !== 'rating_delete'
+      );
       for (const e of body.events) {
         if (e.kind !== 'photo') continue;
         await c.query(

@@ -133,13 +133,9 @@ INSERT INTO fl_config (key, value)
 VALUES ('author_salt', encode(gen_random_bytes(32), 'hex'))
 ON CONFLICT (key) DO NOTHING;
 
--- The bearer the review agents send. Not a person's login: one shared
--- secret, generated once, and the author recorded for those writes is the
--- literal `agent`. ON CONFLICT leaves a token that already exists alone,
--- so applying this file again does not lock the agents out.
-INSERT INTO fl_config (key, value)
-VALUES ('agent_token', encode(gen_random_bytes(32), 'hex'))
-ON CONFLICT (key) DO NOTHING;
+-- The review agents do not keep their secret here. It is FL_AGENT_TOKEN
+-- in the environment. A row `agent_token` left from the first version is
+-- unused once that variable is set.
 
 -- ---------------------------------------------------------------------------
 -- fl_reports: somebody telling us that something published here is wrong.
@@ -335,11 +331,13 @@ ALTER TABLE fl_photos ADD COLUMN IF NOT EXISTS skipped BOOLEAN NOT NULL DEFAULT 
 -- reads it (scripts/export-fl-added-photos.cjs) and copies the rows into
 -- places.sqlite. Until that run, they are only in the admin drawer.
 --
--- `source` is `hand` (a Commons file someone pasted) or `geosearch` (the
--- nearby search, the same 500 m Commons query the crawl runs). The
--- pipeline stores those as `commons_hand` and `commons_geosearch`. A
--- hand-added file ships. A nearby one ships only once someone prioritizes
--- it, which is the rule the app already has for that source.
+-- `source` is `hand` (a Commons file someone pasted), `geosearch` (the
+-- nearby search, the same 500 m Commons query the crawl runs), `paste`
+-- (bytes already in storage) or `official` (an image on a Swedish public
+-- page: Länsstyrelsen, RAÄ, Kringla, Kulturarvsdata, DigitaltMuseum).
+-- The pipeline stores hand and geosearch as `commons_hand` and
+-- `commons_geosearch`. A hand-added file, a paste and an official image
+-- ship. A nearby one ships only once someone prioritizes it.
 --
 -- A removed row stays, so the nearby search does not bring the same file
 -- back. Taking it back is `removed_at`, not a delete.
@@ -383,6 +381,10 @@ CREATE TABLE IF NOT EXISTS fl_verified (
   verified_by  TEXT        NOT NULL
 );
 ALTER TABLE fl_verified ADD COLUMN IF NOT EXISTS by_agent BOOLEAN NOT NULL DEFAULT false;
+-- Which agent signed, when by_agent is true. A person's click clears both.
+-- agent_backend is 'local' or 'cursor'. agent_model is the model name.
+ALTER TABLE fl_verified ADD COLUMN IF NOT EXISTS agent_backend TEXT;
+ALTER TABLE fl_verified ADD COLUMN IF NOT EXISTS agent_model TEXT;
 
 -- Places a person has marked not worth the trip.
 --
@@ -500,3 +502,8 @@ CREATE TABLE IF NOT EXISTS fl_title_overrides (
   created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_at  TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+-- Visitor star ratings are retired. They were never their own table: each
+-- score was a row in fl_events. The app shows the pipeline's star band.
+-- Idempotent: a second run deletes nothing.
+DELETE FROM fl_events WHERE kind IN ('rating', 'rating_delete');
