@@ -8,10 +8,12 @@
 -- statements of one script to different sessions.
 --
 -- One append-only table plus a counter row. Everything a user contributes is
--- an event; the app replays them into its local SQLite. Nothing here is ever
--- updated or deleted, so a retraction is itself an event
--- ('comment_delete') -- otherwise a phone that was offline when a comment
--- was written and deleted would never learn that either happened.
+-- an event; the app replays them into its local SQLite. A retraction is
+-- itself an event ('comment_delete', 'author_erased'): a phone that already
+-- copied a row will never ask for it again, so deleting it without a later
+-- event would leave the copy in place. "Glöm mig" does both. It deletes the
+-- author's rows, so a phone that has not synced yet never receives them, and
+-- it appends `author_erased` for the phones that already have them.
 
 -- gen_random_bytes, used for the salt at the bottom of this file, lives in
 -- pgcrypto. gen_random_uuid() is core since Postgres 13; gen_random_bytes is

@@ -2,7 +2,7 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import { NextRequest, NextResponse } from 'next/server';
 import { isAdmin } from '@/lib/admin';
-import { pool } from '@/lib/db';
+import { pool, tx } from '@/lib/db';
 import { cleanPayload, publicAuthor } from '@/lib/fl-authors';
 
 /**
@@ -246,6 +246,102 @@ export async function GET(request: NextRequest) {
     });
   } catch (e) {
     console.error('author read failed', e);
+    return NextResponse.json({ error: 'server error' }, { status: 500 });
+  }
+}
+
+const DEVICE =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+/** Not a place. `place_uuid` is NOT NULL and this event is not about one. */
+const NO_PLACE = '00000000-0000-0000-0000-000000000000';
+
+/**
+ * "Glöm mig". The phone calls this before it wipes itself.
+ *
+ * TWO THINGS HAVE TO HAPPEN, and neither is enough alone. Deleting the rows
+ * stops a phone that has not synced yet from ever receiving them. It does
+ * nothing for a phone that already has them: the log is read from a cursor,
+ * and a row behind the cursor is never fetched again. `author_erased` is
+ * that later row. The app deletes every local copy filed under that
+ * pseudonym when it arrives.
+ *
+ * THE LINK TO THE ACCOUNT STAYS. The pseudonym other phones stored is the
+ * hash of the account, computed at read time from `fl_account_devices`.
+ * Dropping the link would make this event hash as the bare device, and
+ * every phone that already grouped the person by their account would not
+ * recognise it. A later sign-in on a new device joins the same account,
+ * which is what keeps "forget me" from being a way to vote twice.
+ *
+ * ONE EVENT COVERS EVERY DEVICE ON THE ACCOUNT. They already share a
+ * pseudonym, so one retraction withdraws all of them. Moderation rows are
+ * filed under the nil author and are not in this set, so a removal decision
+ * is not erased along with the person it was about.
+ *
+ * The photograph's bytes stay in the bucket. This server has no credential
+ * that can delete an object there; what leaves is the pointer, which is the
+ * part every phone was showing.
+ */
+export async function DELETE(request: NextRequest) {
+  const device = request.headers.get('x-author-id')?.trim() ?? '';
+  if (!DEVICE.test(device)) {
+    return NextResponse.json(
+      { error: 'missing or malformed X-Author-Id' },
+      { status: 401 }
+    );
+  }
+
+  try {
+    const deleted = await tx(async c => {
+      const { rows: link } = await c.query<{ account: string }>(
+        'SELECT account FROM fl_account_devices WHERE device = $1',
+        [device]
+      );
+      const account = link[0]?.account;
+      const { rows: siblings } = account
+        ? await c.query<{ device: string }>(
+            'SELECT device FROM fl_account_devices WHERE account = $1',
+            [account]
+          )
+        : { rows: [] as { device: string }[] };
+      const devices = [...new Set([device, ...siblings.map(r => r.device)])];
+
+      await c.query(
+        `DELETE FROM fl_comment_accept
+          WHERE event_id IN (
+            SELECT event_id FROM fl_events
+             WHERE author = ANY($1::text[]) AND kind = 'comment'
+          )`,
+        [devices]
+      );
+      await c.query(
+        'DELETE FROM fl_photo_queue WHERE author = ANY($1::text[])',
+        [devices]
+      );
+      await c.query('DELETE FROM fl_reports WHERE reporter = ANY($1::text[])', [
+        devices,
+      ]);
+      const removed = await c.query(
+        'DELETE FROM fl_events WHERE author = ANY($1::text[])',
+        [devices]
+      );
+      const n = removed.rowCount ?? 0;
+      if (n === 0) return 0;
+
+      const { rows: seq } = await c.query<{ v: string }>(
+        'UPDATE fl_event_seq SET v = v + 1 WHERE id = 1 RETURNING v'
+      );
+      await c.query(
+        `INSERT INTO fl_events
+           (seq, event_id, kind, place_uuid, author, payload)
+         VALUES ($1, $2, 'author_erased', $3, $4, '{}'::jsonb)`,
+        [Number(seq[0].v), crypto.randomUUID(), NO_PLACE, device]
+      );
+      return n;
+    });
+    return NextResponse.json({ deleted });
+  } catch (e) {
+    console.error('forget me failed', e);
     return NextResponse.json({ error: 'server error' }, { status: 500 });
   }
 }

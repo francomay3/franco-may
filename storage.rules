@@ -41,5 +41,16 @@ service firebase.storage {
 
       allow delete: if isAdmin();
     }
+
+    // The published dataset. The pipeline writes it with the project
+    // owner's credential, which does not pass through these rules; the app
+    // and anyone else only read. Photos stay under /photos, where a file is
+    // private until it is approved.
+    match /releases/{file} {
+      allow read: if true;
+    }
+    match /releases/{generation}/{file} {
+      allow read: if true;
+    }
   }
 }
