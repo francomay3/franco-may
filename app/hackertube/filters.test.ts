@@ -12,7 +12,7 @@ import {
   toggleArea,
   toggleCategory,
 } from './filters';
-import { combineRelevance } from './search';
+import { combineRelevance, excludeMask } from './search';
 import type { Video } from './types';
 
 const tax = new Taxonomy([
@@ -226,9 +226,9 @@ describe('exclude', () => {
     expect(combineRelevance(null, pos, 0.5)).toBeNull();
   });
 
-  it('only counts as active next to a query, and restores safely', () => {
+  it('counts as active alone or with a query, and restores safely', () => {
     const b = boundsOf(videos);
-    expect(activeCount({ ...empty, exclude: 'god' }, b)).toBe(0);
+    expect(activeCount({ ...empty, exclude: 'god' }, b)).toBe(1);
     expect(activeCount({ ...empty, query: 'x', exclude: 'god' }, b)).toBe(2);
     const s = restoreFilters(
       { exclude: 5, excludeStrength: 9, blend: -1 },
@@ -239,5 +239,22 @@ describe('exclude', () => {
     expect(restoreFilters({}, b, tax)).toEqual(empty);
     expect(restoreSort('best', '')).toBe('rating');
     expect(restoreSort('best', 'x')).toBe('best');
+  });
+});
+
+describe('exclude without a query', () => {
+  it('hides only videos unusually close to the negative query', () => {
+    // One outlier in 20 stands well above the rest.
+    const neg = Float32Array.from({ length: 20 }, (_, i) =>
+      i === 7 ? 1 : 0.5
+    );
+    const mask = excludeMask(neg, 0.5)!;
+    expect(Array.from(mask).reduce((a, b) => a + b, 0)).toBe(1);
+    expect(mask[7]).toBe(1);
+  });
+
+  it('hides nothing at zero strength or without a negative query', () => {
+    expect(excludeMask(Float32Array.from([1, 2, 3]), 0)).toBeNull();
+    expect(excludeMask(null, 0.5)).toBeNull();
   });
 });

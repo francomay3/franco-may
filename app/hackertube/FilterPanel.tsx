@@ -227,64 +227,69 @@ export function FilterPanel({
               </Text>
             )}
 
-            {/* Both extras only mean something next to a query. */}
-            {queryDraft.trim() && (
-              <Stack gap="xs" mt="sm">
-                <TextInput
-                  size="xs"
-                  label="Exclude"
-                  description="Name the topic, not a negation: god, religion"
-                  placeholder="Videos about this rank lower"
-                  value={excludeDraft}
-                  onChange={e => onExcludeDraft(e.currentTarget.value)}
-                  rightSection={
-                    excludeDraft ? (
-                      <IconX
-                        size={14}
-                        style={{ cursor: 'pointer' }}
-                        onClick={() => onExcludeDraft('')}
-                      />
-                    ) : null
-                  }
-                />
-                {excludeDraft.trim() && (
-                  <div>
-                    <Text size="xs" c="dimmed">
-                      Exclude strength ·{' '}
-                      {Math.round(state.excludeStrength * 100)}%
-                    </Text>
-                    <Slider
-                      size="sm"
-                      color="orange"
-                      min={0}
-                      max={100}
-                      step={5}
-                      value={Math.round(state.excludeStrength * 100)}
-                      onChange={v => set({ excludeStrength: v / 100 })}
-                      label={null}
+            <Stack gap="xs" mt="sm">
+              <TextInput
+                size="xs"
+                label="Exclude"
+                description={
+                  queryDraft.trim()
+                    ? 'Name the topic, not a negation: god, religion'
+                    : 'Hides videos about these topics: god, religion'
+                }
+                placeholder={
+                  queryDraft.trim()
+                    ? 'Videos about this rank lower'
+                    : 'Videos about this are hidden'
+                }
+                value={excludeDraft}
+                onChange={e => onExcludeDraft(e.currentTarget.value)}
+                rightSection={
+                  excludeDraft ? (
+                    <IconX
+                      size={14}
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => onExcludeDraft('')}
                     />
-                  </div>
-                )}
-                {sort === 'best' && (
-                  <div>
-                    <Text size="xs" c="dimmed">
-                      {Math.round((1 - state.blend) * 100)}% relevance ·{' '}
-                      {Math.round(state.blend * 100)}% rating
-                    </Text>
-                    <Slider
-                      size="sm"
-                      color="orange"
-                      min={0}
-                      max={100}
-                      step={5}
-                      value={Math.round(state.blend * 100)}
-                      onChange={v => set({ blend: v / 100 })}
-                      label={null}
-                    />
-                  </div>
-                )}
-              </Stack>
-            )}
+                  ) : null
+                }
+              />
+              {excludeDraft.trim() && (
+                <div>
+                  <Text size="xs" c="dimmed">
+                    Exclude strength · {Math.round(state.excludeStrength * 100)}
+                    %
+                  </Text>
+                  <Slider
+                    size="sm"
+                    color="orange"
+                    min={0}
+                    max={100}
+                    step={5}
+                    value={Math.round(state.excludeStrength * 100)}
+                    onChange={v => set({ excludeStrength: v / 100 })}
+                    label={null}
+                  />
+                </div>
+              )}
+              {sort === 'best' && (
+                <div>
+                  <Text size="xs" c="dimmed">
+                    {Math.round((1 - state.blend) * 100)}% relevance ·{' '}
+                    {Math.round(state.blend * 100)}% rating
+                  </Text>
+                  <Slider
+                    size="sm"
+                    color="orange"
+                    min={0}
+                    max={100}
+                    step={5}
+                    value={Math.round(state.blend * 100)}
+                    onChange={v => set({ blend: v / 100 })}
+                    label={null}
+                  />
+                </div>
+              )}
+            </Stack>
           </div>
 
           <div>

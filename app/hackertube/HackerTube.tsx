@@ -55,7 +55,12 @@ import {
   sortVideos,
 } from './filters';
 import styles from './hackertube.module.css';
-import { combineRelevance, embedQuery, similarities } from './search';
+import {
+  combineRelevance,
+  embedQuery,
+  excludeMask,
+  similarities,
+} from './search';
 import {
   deleteSearch,
   loadUserData,
@@ -87,7 +92,31 @@ function errorCode(e: unknown): string {
     : '';
 }
 
+/**
+ * The site theme asks for "Source Serif 4" and "Poppins", but nothing loads
+ * them, so Mantine's own controls fall back to Times while the text this page
+ * styles is sans-serif. Portals (the mobile filters drawer, dropdowns, the
+ * save dialog) render outside the page's container, so a class on it cannot
+ * reach them. Overriding the variables on :root does, and is undone on leave
+ * so the rest of the site is untouched.
+ */
+const SANS =
+  'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
+
+function useSansFonts() {
+  useEffect(() => {
+    const root = document.documentElement.style;
+    root.setProperty('--mantine-font-family', SANS);
+    root.setProperty('--mantine-font-family-headings', SANS);
+    return () => {
+      root.removeProperty('--mantine-font-family');
+      root.removeProperty('--mantine-font-family-headings');
+    };
+  }, []);
+}
+
 export function HackerTube() {
+  useSansFonts();
   const [gate, setGate] = useState<Gate>({ at: 'loading' });
 
   useEffect(
@@ -317,25 +346,28 @@ function Browser({
 
     const run = ++latest.current;
     if (!debounced) {
+      // Without a query there is nothing to be relevant to.
       setSimsPos(null);
+      setSort(s => (s === 'relevance' || s === 'best' ? 'rating' : s));
+    }
+    if (!debounced && !debouncedExclude) {
       setSimsNeg(null);
       setSearching('idle');
-      setSort(s => (s === 'relevance' || s === 'best' ? 'rating' : s));
       return;
     }
     setSearching('loading');
     Promise.all([
-      embedQuery(debounced),
+      debounced ? embedQuery(debounced) : Promise.resolve(null),
       debouncedExclude ? embedQuery(debouncedExclude) : Promise.resolve(null),
     ])
       .then(([pos, neg]) => {
         if (run !== latest.current) {
           return;
         }
-        setSimsPos(similarities(pos, data.embeddings));
+        setSimsPos(pos ? similarities(pos, data.embeddings) : null);
         setSimsNeg(neg ? similarities(neg, data.embeddings) : null);
         setSearching('idle');
-        if (queryChanged && !keepSort.current) {
+        if (debounced && queryChanged && !keepSort.current) {
           setSort('best');
         }
         keepSort.current = false;
@@ -349,6 +381,12 @@ function Browser({
 
   const relevance = useMemo(
     () => combineRelevance(simsPos, simsNeg, filters.excludeStrength),
+    [simsPos, simsNeg, filters.excludeStrength]
+  );
+  // With a query the exclude pulls matches down the ranking. With none there
+  // is no ranking to pull them down in, so it hides them instead.
+  const hidden = useMemo(
+    () => (simsPos ? null : excludeMask(simsNeg, filters.excludeStrength)),
     [simsPos, simsNeg, filters.excludeStrength]
   );
 
@@ -387,9 +425,12 @@ function Browser({
 
   // ---- the list --------------------------------------------------------
   const sorted = useMemo(() => {
-    const filtered = applyFilters(data.videos, filters, taxonomy, seen);
+    let filtered = applyFilters(data.videos, filters, taxonomy, seen);
+    if (hidden) {
+      filtered = filtered.filter(v => !hidden[indexOf.get(v.id)!]);
+    }
     return sortVideos(filtered, sort, relevance, indexOf, filters.blend);
-  }, [data.videos, filters, taxonomy, seen, sort, relevance, indexOf]);
+  }, [data.videos, filters, taxonomy, seen, sort, relevance, hidden, indexOf]);
 
   // Back to the top of the list whenever what it holds changes.
   useEffect(() => {

@@ -109,3 +109,28 @@ export function combineRelevance(
   }
   return out;
 }
+
+/**
+ * Which videos to hide when there is an exclude but no query (1 = hide).
+ *
+ * With a query, an exclude can pull matches down the ranking. With none there
+ * is no ranking, so it has to be a cut: hide videos that are unusually close
+ * to the negative query. "Unusually" is in standard deviations from the typical
+ * video, and strength moves the cut: higher strength cuts closer to average
+ * and so hides more.
+ */
+export function excludeMask(
+  negative: Float32Array | null,
+  strength: number
+): Uint8Array | null {
+  if (!negative || strength <= 0) {
+    return null;
+  }
+  const z = zscores(negative);
+  const cutoff = 3 - 2 * strength;
+  const mask = new Uint8Array(z.length);
+  for (let i = 0; i < z.length; i++) {
+    mask[i] = z[i] > cutoff ? 1 : 0;
+  }
+  return mask;
+}

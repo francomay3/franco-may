@@ -34,8 +34,8 @@ export type FilterState = {
   seen: SeenFilter;
   query: string;
   /**
-   * What the result should NOT be about ("god, religion"). Only means anything
-   * next to a query: it pulls matches down in the ranking, it does not filter.
+   * What the result should NOT be about ("god, religion"). Next to a query it
+   * pulls matches down the ranking; on its own it hides videos about it.
    */
   exclude: string;
   /** 0..1, how hard `exclude` pulls down. */
@@ -147,7 +147,7 @@ export function activeCount(s: FilterState, bounds: Bounds): number {
     (s.minMinutes !== null || s.maxMinutes !== null ? 1 : 0) +
     (s.seen !== 'all' ? 1 : 0) +
     (s.query.trim() ? 1 : 0) +
-    (s.query.trim() && s.exclude.trim() ? 1 : 0)
+    (s.exclude.trim() ? 1 : 0)
   );
 }
 
@@ -427,7 +427,7 @@ export function describeFilters(
   if (s.query.trim()) {
     parts.push(`“${s.query.trim()}”`);
   }
-  if (s.query.trim() && s.exclude.trim()) {
+  if (s.exclude.trim()) {
     parts.push(`not “${s.exclude.trim()}”`);
   }
   if (s.areas.length) {
