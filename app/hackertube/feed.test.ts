@@ -1,4 +1,10 @@
-import { SEEN_SHARE, buildFeed, clusterTastes } from './feed';
+import {
+  EXPLORE_EVERY,
+  SEEN_SHARE,
+  buildFeed,
+  clusterTastes,
+  collectSignals,
+} from './feed';
 import { type SimilarityData, unitRow } from './similar';
 import { DIM, type Video } from './types';
 
@@ -68,6 +74,7 @@ describe('for-you feed', () => {
       liked: [],
       disliked: [],
       seen: NONE,
+      saved: [],
       seed: 1,
     });
     expect(feed.personalised).toBe(false);
@@ -88,6 +95,7 @@ describe('for-you feed', () => {
       liked: ['a0', 'a1'],
       disliked: ['a2'],
       seen: NONE,
+      saved: [],
       seed: 1,
     });
     const got = ids(feed);
@@ -107,6 +115,7 @@ describe('for-you feed', () => {
       liked: ['a0'],
       disliked: [],
       seen: NONE,
+      saved: [],
       seed: 1,
     });
     expect(ids(feed)).not.toContain('a5');
@@ -114,7 +123,7 @@ describe('for-you feed', () => {
 
   it('is the same for the same seed and different for another', () => {
     const data = build([...around('a', 0, 60), ...around('b', 1, 60)]);
-    const input = { liked: ['a0'], disliked: [], seen: NONE };
+    const input = { liked: ['a0'], disliked: [], seen: NONE, saved: [] };
     const one = ids(buildFeed(data, { ...input, seed: 7 }));
     expect(ids(buildFeed(data, { ...input, seed: 7 }))).toEqual(one);
     expect(ids(buildFeed(data, { ...input, seed: 8 }))).not.toEqual(one);
@@ -126,9 +135,13 @@ describe('for-you feed', () => {
       liked: ['a0', 'a1', 'a2'],
       disliked: [],
       seen: NONE,
+      saved: [],
       seed: 3,
     });
-    const first = ids(feed).slice(0, 20);
+    // Every tenth place is exploration, so leave those out.
+    const first = ids(feed)
+      .slice(0, 20)
+      .filter((_, i) => (i + 1) % EXPLORE_EVERY !== 0);
     expect(first.every(id => id.startsWith('a'))).toBe(true);
   });
 
@@ -138,6 +151,7 @@ describe('for-you feed', () => {
       liked: ['a0', 'a1', 'a2', 'b0', 'b1', 'b2'],
       disliked: [],
       seen: NONE,
+      saved: [],
       seed: 3,
     });
     const first = ids(feed).slice(0, 10);
@@ -157,6 +171,7 @@ describe('for-you feed', () => {
         liked: ['seed0'],
         disliked: [],
         seen: NONE,
+        saved: [],
         seed,
       });
       const first = ids(feed).slice(0, 20);
@@ -177,6 +192,7 @@ describe('for-you feed', () => {
       liked: ['u0'],
       disliked: [],
       seen,
+      saved: [],
       seed: 5,
     });
     let count = 0;
@@ -199,7 +215,13 @@ describe('for-you feed', () => {
     const data = build(specs);
     const run = (disliked: string[]) =>
       ids(
-        buildFeed(data, { liked: ['seed'], disliked, seen: NONE, seed: 2 })
+        buildFeed(data, {
+          liked: ['seed'],
+          disliked,
+          seen: NONE,
+          saved: [],
+          seed: 2,
+        })
       ).slice(0, 20);
     const base = run([]);
     const after = run(['a0', 'a1']);
@@ -214,12 +236,110 @@ describe('for-you feed', () => {
       liked: ['a0', 'b0', 'b1', 'b2', 'a1', 'a2'],
       disliked: [],
       seen: NONE,
+      saved: [],
       seed: 1,
     });
     for (const { video, because } of feed.items) {
       expect(because).not.toBeNull();
       expect(because!.id[0]).toBe(video.id[0]);
     }
+  });
+});
+
+describe('what the feed learns from', () => {
+  const data = build([
+    ...around('a', 0, 40),
+    ...around('b', 1, 40),
+    ...around('c', 2, 40),
+  ]);
+  const base = { disliked: [], liked: [], seen: NONE, saved: [], seed: 1 };
+
+  it('weighs a video once, at its strongest signal', () => {
+    const got = collectSignals(
+      {
+        ...base,
+        liked: ['a0'],
+        seen: new Set(['a0', 'a1']),
+        saved: ['a1', 'a2'],
+      },
+      data.indexOf
+    );
+    const byId = new Map(got.map(s => [data.videos[s.index].id, s.weight]));
+    expect(byId.get('a0')).toBe(1);
+    expect(byId.get('a1')).toBeCloseTo(1 / 3);
+    expect(byId.get('a2')).toBeCloseTo(1 / 5);
+    expect(got).toHaveLength(3);
+  });
+
+  it('drops a dismissed video even if it was seen or liked', () => {
+    const got = collectSignals(
+      {
+        ...base,
+        liked: ['a0'],
+        seen: new Set(['a1']),
+        disliked: ['a0', 'a1'],
+      },
+      data.indexOf
+    );
+    expect(got).toHaveLength(0);
+  });
+
+  it('holds watched and saved together to the weight of the likes', () => {
+    const seen = new Set(Array.from({ length: 30 }, (_, i) => `b${i}`));
+    const got = collectSignals({ ...base, liked: ['a0'], seen }, data.indexOf);
+    const implicit = got.filter(s => !s.liked);
+    expect(implicit.reduce((n, s) => n + s.weight, 0)).toBeCloseTo(1);
+    // With no likes there is nothing to hold them to.
+    const alone = collectSignals({ ...base, seen }, data.indexOf);
+    expect(alone.reduce((n, s) => n + s.weight, 0)).toBeCloseTo(10);
+  });
+
+  it('personalises from watched and saved videos alone', () => {
+    const feed = buildFeed(data, {
+      ...base,
+      seen: new Set(['a0', 'a1']),
+      saved: ['a2'],
+    });
+    expect(feed.personalised).toBe(true);
+    expect(ids(feed).slice(0, EXPLORE_EVERY - 1)).toEqual(
+      expect.arrayContaining([expect.stringMatching(/^a/)])
+    );
+    expect(
+      ids(feed)
+        .slice(0, EXPLORE_EVERY - 1)
+        .every(id => id.startsWith('a'))
+    ).toBe(true);
+  });
+
+  it('says "because you liked" only for likes, not watched or saved', () => {
+    const feed = buildFeed(data, {
+      ...base,
+      liked: ['b0'],
+      seen: new Set(['a0', 'a1', 'a2', 'a3', 'a4']),
+    });
+    const fromA = feed.items.filter(x => x.video.id.startsWith('a'));
+    const fromB = feed.items.filter(x => x.video.id.startsWith('b'));
+    expect(fromA.length).toBeGreaterThan(0);
+    expect(fromA.every(x => x.because === null)).toBe(true);
+    expect(fromB.length).toBeGreaterThan(0);
+    expect(fromB.every(x => x.because?.id === 'b0')).toBe(true);
+  });
+
+  it('reserves every tenth place for corners you have not touched', () => {
+    const feed = buildFeed(data, {
+      ...base,
+      liked: ['a0', 'a1', 'a2', 'a3'],
+    });
+    const got = ids(feed);
+    for (let i = 0; i < EXPLORE_EVERY - 1; i++) {
+      expect(got[i].startsWith('a')).toBe(true);
+    }
+    const explorers = [EXPLORE_EVERY - 1, 2 * EXPLORE_EVERY - 1].map(
+      i => got[i]
+    );
+    expect(explorers.every(id => !id.startsWith('a'))).toBe(true);
+    // Spread out: two explorers are not from the same far corner.
+    expect(explorers[0][0]).not.toBe(explorers[1][0]);
   });
 });
 
@@ -232,7 +352,7 @@ describe('clusterTastes', () => {
   };
 
   it('keeps few likes as one taste and groups many by direction', () => {
-    expect(clusterTastes([row(1, 0), row(0, 1)])).toHaveLength(1);
+    expect(clusterTastes([row(1, 0), row(0, 1)], [1, 1])).toHaveLength(1);
     const rows = [
       row(1, 0),
       row(1, 0.1),
@@ -241,7 +361,10 @@ describe('clusterTastes', () => {
       row(0.1, 1),
       row(-0.1, 1),
     ];
-    const groups = clusterTastes(rows);
+    const groups = clusterTastes(
+      rows,
+      rows.map(() => 1)
+    );
     expect(groups.length).toBeGreaterThanOrEqual(2);
     // Whatever the count, a taste never mixes the two directions.
     for (const g of groups) {

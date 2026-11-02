@@ -69,6 +69,7 @@ export function ForYou() {
         liked: [...liked.keys()],
         disliked: [...disliked.keys()],
         seen: new Set(seen),
+        saved: [...watchLater.keys()],
         seed: newSeed(),
       }
   );
@@ -161,6 +162,7 @@ export function ForYou() {
       liked: [...liked.keys()],
       disliked: [...disliked.keys()],
       seen: new Set(seen),
+      saved: [...watchLater.keys()],
       seed: newSeed(),
     });
     window.scrollTo(0, 0);
@@ -198,6 +200,13 @@ export function ForYou() {
   );
 
   const likedCount = liked.size;
+  const likes = input.liked.length;
+  const implicit = input.seen.size + input.saved.length > 0;
+  const basis = !feed.personalised
+    ? 'Like a few videos to personalise this. Until then: the best-rated ones, shuffled.'
+    : likes === 0
+      ? 'Based on what you have watched and saved. Like a few videos to sharpen it.'
+      : `Based on your ${likes} like${likes === 1 ? '' : 's'}${implicit ? ', and on what you have watched and saved' : ''}`;
 
   return (
     <div className={styles.shell}>
@@ -253,9 +262,7 @@ export function ForYou() {
             <Text size="sm" c="dimmed">
               {showingResults
                 ? `${results.length.toLocaleString()} videos, best match first`
-                : feed.personalised
-                  ? `Based on your ${input.liked.length} like${input.liked.length === 1 ? '' : 's'}`
-                  : 'Like a few videos to personalise this. Until then: the best-rated ones, shuffled.'}
+                : basis}
             </Text>
           </div>
           {!searchMode && (

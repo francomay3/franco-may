@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
@@ -60,16 +60,6 @@ export function VideoPage() {
   const video = videoById.get(id);
   const [playerFailed, setPlayerFailed] = useState(false);
 
-  // Opening a video is what marks it seen, whether you got here from the list
-  // or from a link. Once per video, so un-marking it here sticks.
-  const marked = useRef<string | null>(null);
-  useEffect(() => {
-    if (video && marked.current !== video.id) {
-      marked.current = video.id;
-      markSeen(video.id, true);
-    }
-  }, [video, markSeen]);
-
   useEffect(() => {
     setPlayerFailed(false);
   }, [id]);
@@ -126,6 +116,7 @@ export function VideoPage() {
           <Button
             component="a"
             href={youtubeUrl(video.id)}
+            onClick={() => markSeen(video.id, true)}
             target="_blank"
             rel="noopener noreferrer"
             color="red"
@@ -157,6 +148,7 @@ export function VideoPage() {
                 <Button
                   component="a"
                   href={youtubeUrl(video.id)}
+                  onClick={() => markSeen(video.id, true)}
                   target="_blank"
                   rel="noopener noreferrer"
                   size="lg"
@@ -200,6 +192,7 @@ export function VideoPage() {
           <Button
             component="a"
             href={youtubeUrl(video.id)}
+            onClick={() => markSeen(video.id, true)}
             target="_blank"
             rel="noopener noreferrer"
             size="lg"

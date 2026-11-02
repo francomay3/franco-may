@@ -10,19 +10,31 @@ import { DIM, type Video } from './types';
 
 /**
  * The "For you" feed: videos close to what you liked, nudged by rating, with a
- * little luck mixed in.
+ * little luck mixed in, and a few from corners of the catalogue you have not
+ * touched.
  *
- * How a video is scored, for each of your tastes:
+ * What counts as taste. A like counts 1. A video you opened on YouTube (seen)
+ * counts 1/3 and one saved to watch later 1/5: weaker, because they say less.
+ * A video counts once, at its strongest signal, and one marked "not
+ * interested" counts for nothing. Once you have likes, seen and saved together
+ * can weigh at most as much as the likes, so a long watching session cannot
+ * drown out what you said you liked. Every signal counts the same however old
+ * it is.
+ *
+ * How a video is scored, for each taste:
  *   0.6 closeness to that taste + 0.2 rating + 0.2 random
  * Closeness and rating are percentile ranks within the taste's best candidates
  * (raw cosines sit in a narrow band and ratings run 0-25, so they cannot be
  * added as they are; see `bestMatch`). The random part is what now and then
  * lifts a lower-rated or slightly further-off video above a safer one.
  *
- * Your likes are grouped into up to four tastes, so liking both algebra and
+ * The signals are grouped into up to four tastes, so liking both algebra and
  * woodworking gives you both, not an average of the two that is neither. The
- * feed takes turns between the tastes, in proportion to how many likes each
- * one has. Every like counts the same however old it is.
+ * feed takes turns between the tastes in proportion to their weight.
+ *
+ * Every EXPLORE_EVERY-th place goes to exploration: well-rated videos far from
+ * every taste, spread out from each other. What you do with them (like, save,
+ * open) is how the feed learns about the parts it knows least.
  *
  * Seen videos are scored down and, whatever their score, never make up more
  * than SEEN_SHARE of the feed at any point of it. Videos you marked "not
@@ -34,9 +46,14 @@ const POOL = 200;
 const W_SIM = 0.6;
 const W_RATING = 0.2;
 const W_NOISE = 0.2;
-/** With nothing liked yet there is no closeness: rating leads, luck shuffles. */
+/** With nothing to go on there is no closeness: rating leads, luck shuffles. */
 const COLD_W_RATING = 0.7;
 const COLD_W_NOISE = 0.3;
+
+export const WEIGHT_LIKE = 1;
+export const WEIGHT_SEEN = 1 / 3;
+export const WEIGHT_SAVED = 1 / 5;
+
 /** At most this share of the feed (and of any start of it) is already seen. */
 export const SEEN_SHARE = 0.2;
 const SEEN_PENALTY = 0.35;
@@ -44,17 +61,29 @@ const PER_CHANNEL = 3;
 const MAX_TASTES = 4;
 const DISLIKE_PENALTY = 0.5;
 
+/** One place in this many is for exploring. */
+export const EXPLORE_EVERY = 10;
+/** Exploration draws from the least-covered share of the catalogue. */
+const EXPLORE_REGION = 0.4;
+const EXPLORE_POOL = 80;
+const EXPLORE_MAX = FEED_LENGTH / EXPLORE_EVERY;
+/** How hard exploration avoids repeating one far corner. */
+const EXPLORE_SPREAD = 1;
+
 export type FeedInput = {
   liked: readonly string[];
   disliked: readonly string[];
+  /** Videos opened on YouTube. */
   seen: ReadonlySet<string>;
+  /** Videos in the watch-later list. */
+  saved: readonly string[];
   /** Fixes the luck: the same seed and inputs give the same feed. */
   seed: number;
 };
 
 export type FeedItem = {
   video: Video;
-  /** The liked video this is closest to, for "because you liked". */
+  /** The liked video this is closest to; null unless it is a liked one. */
   because: Video | null;
 };
 
@@ -100,14 +129,66 @@ function percentiles(values: number[]): number[] {
   return out;
 }
 
+export type Signal = { index: number; weight: number; liked: boolean };
+
 /**
- * Group unit vectors into up to MAX_TASTES by k-means, one taste per two
- * likes at most. Starts from the vector farthest from those already chosen,
- * so it is the same every time for the same likes.
+ * What the feed learns from: each video once, at its strongest signal, with
+ * dismissed videos left out and the implicit signals held to the likes' total.
  */
-export function clusterTastes(rows: Float32Array[]): number[][] {
-  const k = Math.max(1, Math.min(MAX_TASTES, Math.ceil(rows.length / 2)));
-  const centers: Float32Array[] = [rows[0]];
+export function collectSignals(
+  input: FeedInput,
+  indexOf: ReadonlyMap<string, number>
+): Signal[] {
+  const found = new Map<number, Signal>();
+  const add = (id: string, weight: number, liked: boolean) => {
+    const index = indexOf.get(id);
+    if (index === undefined) {
+      return;
+    }
+    const have = found.get(index);
+    if (!have || weight > have.weight) {
+      found.set(index, { index, weight, liked });
+    }
+  };
+  input.seen.forEach(id => add(id, WEIGHT_SEEN, false));
+  input.saved.forEach(id => add(id, WEIGHT_SAVED, false));
+  input.liked.forEach(id => add(id, WEIGHT_LIKE, true));
+  input.disliked.forEach(id => {
+    const index = indexOf.get(id);
+    if (index !== undefined) {
+      found.delete(index);
+    }
+  });
+
+  const all = [...found.values()];
+  const likedTotal = all.filter(s => s.liked).length * WEIGHT_LIKE;
+  const implicitTotal = all
+    .filter(s => !s.liked)
+    .reduce((sum, s) => sum + s.weight, 0);
+  const scale =
+    likedTotal > 0 && implicitTotal > likedTotal
+      ? likedTotal / implicitTotal
+      : 1;
+  return all.map(s => (s.liked ? s : { ...s, weight: s.weight * scale }));
+}
+
+/**
+ * Group unit vectors into up to MAX_TASTES by weighted k-means, aiming at one
+ * taste per two likes' worth of weight. Starts from the heaviest vector and
+ * then the one farthest from those chosen, so it is the same every time for
+ * the same signals.
+ */
+export function clusterTastes(
+  rows: Float32Array[],
+  weights: number[]
+): number[][] {
+  const total = weights.reduce((a, b) => a + b, 0);
+  const k = Math.max(
+    1,
+    Math.min(MAX_TASTES, Math.ceil(total / 2), rows.length)
+  );
+  const heaviest = weights.indexOf(Math.max(...weights));
+  const centers: Float32Array[] = [rows[heaviest]];
   while (centers.length < k) {
     let far = 0;
     let farDot = Infinity;
@@ -140,7 +221,7 @@ export function clusterTastes(rows: Float32Array[]): number[][] {
       rows.forEach((r, i) => {
         if (assign[i] === ci) {
           for (let d = 0; d < DIM; d++) {
-            sum[d] += r[d];
+            sum[d] += weights[i] * r[d];
           }
         }
       });
@@ -169,6 +250,7 @@ export function buildFeed(data: SimilarityData, input: FeedInput): Feed {
   const { videos, indexOf, embeddings } = data;
   const rng = mulberry32(input.seed);
 
+  const signals = collectSignals(input, indexOf);
   const likedIdx = input.liked
     .map(id => indexOf.get(id))
     .filter((i): i is number => i !== undefined);
@@ -205,8 +287,8 @@ export function buildFeed(data: SimilarityData, input: FeedInput): Feed {
     }
   });
 
-  const likedUnits = likedIdx.map(i => unitRow(embeddings, i));
-  const personalised = likedIdx.length > 0;
+  const signalUnits = signals.map(s => unitRow(embeddings, s.index));
+  const personalised = signals.length > 0;
 
   const scoreCandidates = (
     pool: number[],
@@ -227,20 +309,28 @@ export function buildFeed(data: SimilarityData, input: FeedInput): Feed {
   };
 
   const tastes: Taste[] = [];
+  const closenessOfTaste: Float32Array[] = [];
   if (personalised) {
-    for (const group of clusterTastes(likedUnits)) {
+    const groups = clusterTastes(
+      signalUnits,
+      signals.map(s => s.weight)
+    );
+    for (const group of groups) {
       const sum = new Float32Array(DIM);
+      let weight = 0;
       for (const m of group) {
+        weight += signals[m].weight;
         for (let d = 0; d < DIM; d++) {
-          sum[d] += likedUnits[m][d];
+          sum[d] += signals[m].weight * signalUnits[m][d];
         }
       }
       const closeness = cosines(embeddings, normalise(sum));
+      closenessOfTaste.push(closeness);
       const pool = [...eligible]
         .sort((a, b) => closeness[b] - closeness[a])
         .slice(0, POOL);
       tastes.push({
-        weight: group.length,
+        weight,
         candidates: scoreCandidates(pool, closeness),
         next: 0,
         taken: 0,
@@ -256,6 +346,58 @@ export function buildFeed(data: SimilarityData, input: FeedInput): Feed {
       next: 0,
       taken: 0,
     });
+  }
+
+  // ---- exploration ---------------------------------------------------------
+  // Far from every taste, then well rated, then spread out: each pick is
+  // marked down for being close to one already picked.
+  let explore: Taste | null = null;
+  if (personalised) {
+    // How near each video is to its nearest taste; low means unexplored.
+    const near = new Float32Array(videos.length).fill(-1);
+    for (const c of closenessOfTaste) {
+      for (let i = 0; i < near.length; i++) {
+        near[i] = Math.max(near[i], c[i]);
+      }
+    }
+    const unexplored = eligible
+      .filter(i => !input.seen.has(videos[i].id))
+      .sort((a, b) => near[a] - near[b])
+      .slice(0, Math.ceil(eligible.length * EXPLORE_REGION));
+    const ratingPct = percentiles(unexplored.map(i => videos[i].score));
+    const best = unexplored
+      .map((i, p) => ({ i, score: 0.7 * ratingPct[p] + 0.3 * rng() }))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, EXPLORE_POOL);
+    const rows = best.map(c => unitRow(embeddings, c.i));
+    const chosen: number[] = [];
+    while (chosen.length < Math.min(EXPLORE_MAX, best.length)) {
+      let pick = -1;
+      let pickScore = -Infinity;
+      best.forEach((c, k) => {
+        if (chosen.includes(k)) {
+          return;
+        }
+        const crowd = chosen.length
+          ? Math.max(...chosen.map(j => dot(rows[j], rows[k])))
+          : 0;
+        const score = c.score - EXPLORE_SPREAD * crowd;
+        if (score > pickScore) {
+          pickScore = score;
+          pick = k;
+        }
+      });
+      chosen.push(pick);
+    }
+    explore = {
+      weight: 1,
+      candidates: chosen.map((k, rank) => ({
+        i: best[k].i,
+        score: -rank,
+      })),
+      next: 0,
+      taken: 0,
+    };
   }
 
   // ---- take turns between the tastes ---------------------------------------
@@ -297,15 +439,23 @@ export function buildFeed(data: SimilarityData, input: FeedInput): Feed {
   };
 
   while (picked.length < FEED_LENGTH) {
-    const order = [...tastes].sort(
-      (a, b) => a.taken / a.weight - b.taken / b.weight
-    );
     let chosen: { taste: Taste; c: Candidate } | null = null;
-    for (const t of order) {
-      const c = take(t);
+    if (explore && (picked.length + 1) % EXPLORE_EVERY === 0) {
+      const c = take(explore);
       if (c) {
-        chosen = { taste: t, c };
-        break;
+        chosen = { taste: explore, c };
+      }
+    }
+    if (!chosen) {
+      const order = [...tastes].sort(
+        (a, b) => a.taken / a.weight - b.taken / b.weight
+      );
+      for (const t of order) {
+        const c = take(t);
+        if (c) {
+          chosen = { taste: t, c };
+          break;
+        }
       }
     }
     if (!chosen) {
@@ -322,6 +472,8 @@ export function buildFeed(data: SimilarityData, input: FeedInput): Feed {
     picked.push(v);
   }
 
+  // "Because you liked": only when the closest thing you have touched is a
+  // like. Where it is a watched or saved video the suggestion simply appears.
   const items = picked.map<FeedItem>(v => {
     if (!personalised) {
       return { video: v, because: null };
@@ -329,14 +481,17 @@ export function buildFeed(data: SimilarityData, input: FeedInput): Feed {
     const row = unitRow(embeddings, indexOf.get(v.id)!);
     let best = 0;
     let bestDot = -Infinity;
-    likedUnits.forEach((u, k) => {
+    signalUnits.forEach((u, k) => {
       const d = dot(u, row);
       if (d > bestDot) {
         bestDot = d;
         best = k;
       }
     });
-    return { video: v, because: videos[likedIdx[best]] };
+    return {
+      video: v,
+      because: signals[best].liked ? videos[signals[best].index] : null,
+    };
   });
 
   return { items, personalised };
