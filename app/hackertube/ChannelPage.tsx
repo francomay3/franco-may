@@ -12,6 +12,7 @@ import styles from './hackertube.module.css';
 import { useHackerTube } from './HackerTubeProvider';
 import { similarChannels, similarToChannel } from './similar';
 import { ChannelCards, MiniVideoGrid, Section } from './SimilarSections';
+import { reactionOf } from './seen';
 import { VideoRow } from './VideoRow';
 
 type Sort = 'rating' | 'newest' | 'oldest' | 'views';
@@ -36,6 +37,9 @@ export function ChannelPage() {
     markSeen,
     watchLater,
     toggleWatchLater,
+    liked,
+    disliked,
+    react,
   } = useHackerTube();
   const [sort, setSort] = useState<Sort>('rating');
   const [visible, setVisible] = useState(PAGE);
@@ -196,6 +200,8 @@ export function ChannelPage() {
             seen={seen.has(v.id)}
             watchLater={watchLater.has(v.id)}
             categoryNames={v.cats.map(c => categoryName.get(c) ?? c)}
+            reaction={reactionOf(v.id, liked, disliked)}
+            onReact={react}
             onToggleSeen={markSeen}
             onToggleWatchLater={toggleWatchLater}
           />

@@ -31,6 +31,7 @@ import {
   excludeMask,
   similarities,
 } from './search';
+import { reactionOf } from './seen';
 import { VideoRow } from './VideoRow';
 
 const PAGE = 50;
@@ -98,6 +99,9 @@ export function Browser() {
     markSeen,
     watchLater,
     toggleWatchLater,
+    liked,
+    disliked,
+    react,
     searches,
     putSearch,
     removeSearch,
@@ -442,6 +446,8 @@ export function Browser() {
               seen={seen.has(v.id)}
               watchLater={watchLater.has(v.id)}
               categoryNames={v.cats.map(c => categoryName.get(c) ?? c)}
+              reaction={reactionOf(v.id, liked, disliked)}
+              onReact={react}
               onToggleSeen={markSeen}
               onToggleWatchLater={toggleWatchLater}
             />

@@ -7,6 +7,10 @@ import {
   IconBookmarkFilled,
   IconMail,
   IconMailOpened,
+  IconThumbDown,
+  IconThumbDownFilled,
+  IconThumbUp,
+  IconThumbUpFilled,
 } from '@tabler/icons-react';
 import { channelHref, videoHref } from './channels';
 import {
@@ -17,6 +21,7 @@ import {
   uploaderThumb,
 } from './format';
 import styles from './hackertube.module.css';
+import type { Reaction } from './seen';
 import type { Video } from './types';
 
 type Props = {
@@ -24,6 +29,10 @@ type Props = {
   seen: boolean;
   watchLater: boolean;
   categoryNames: string[];
+  reaction: Reaction | null;
+  onReact: (id: string, reaction: Reaction | null) => void;
+  /** Title of the liked video this one was suggested because of. */
+  because?: string;
   onToggleSeen: (id: string, seen: boolean) => void;
   onToggleWatchLater: (id: string, on: boolean) => void;
 };
@@ -33,6 +42,9 @@ function VideoRowImpl({
   seen,
   watchLater,
   categoryNames,
+  reaction,
+  onReact,
+  because,
   onToggleSeen,
   onToggleWatchLater,
 }: Props) {
@@ -102,6 +114,11 @@ function VideoRowImpl({
           )}
           <span>{video.recommenders} HN recommenders</span>
         </div>
+        {because && (
+          <div className={styles.because}>
+            <IconThumbUp size={13} /> Because you liked {because}
+          </div>
+        )}
         <p className={styles.summary}>{video.summary}</p>
         <div className={styles.why}>{video.whyHn}</div>
         <Group gap={6} mt={8}>
@@ -124,7 +141,48 @@ function VideoRowImpl({
           {video.score}
           <small>rating</small>
         </div>
-        <Group gap={2}>
+        <Group gap={2} justify="flex-end">
+          <Tooltip label={reaction === 'like' ? 'Unlike' : 'Like'} withArrow>
+            <ActionIcon
+              variant="subtle"
+              color={reaction === 'like' ? 'orange' : 'gray'}
+              aria-label={reaction === 'like' ? 'Unlike' : 'Like'}
+              onClick={() =>
+                onReact(video.id, reaction === 'like' ? null : 'like')
+              }
+            >
+              {reaction === 'like' ? (
+                <IconThumbUpFilled size={18} />
+              ) : (
+                <IconThumbUp size={18} />
+              )}
+            </ActionIcon>
+          </Tooltip>
+          <Tooltip
+            label={
+              reaction === 'dislike' ? 'Undo not interested' : 'Not interested'
+            }
+            withArrow
+          >
+            <ActionIcon
+              variant="subtle"
+              color={reaction === 'dislike' ? 'red' : 'gray'}
+              aria-label={
+                reaction === 'dislike'
+                  ? 'Undo not interested'
+                  : 'Not interested'
+              }
+              onClick={() =>
+                onReact(video.id, reaction === 'dislike' ? null : 'dislike')
+              }
+            >
+              {reaction === 'dislike' ? (
+                <IconThumbDownFilled size={18} />
+              ) : (
+                <IconThumbDown size={18} />
+              )}
+            </ActionIcon>
+          </Tooltip>
           <Tooltip
             label={watchLater ? 'Remove from watch later' : 'Watch later'}
             withArrow

@@ -8,6 +8,10 @@ import { Badge, Button, Group, Text } from '@mantine/core';
 import {
   IconBookmark,
   IconBookmarkFilled,
+  IconThumbDown,
+  IconThumbDownFilled,
+  IconThumbUp,
+  IconThumbUpFilled,
   IconBrandYoutube,
   IconExternalLink,
   IconMail,
@@ -26,6 +30,7 @@ import {
 import { SimpleHeader } from './Header';
 import styles from './hackertube.module.css';
 import { useHackerTube } from './HackerTubeProvider';
+import { reactionOf } from './seen';
 import { coRecommended, similarToVideo } from './similar';
 import { MiniVideoGrid, Section } from './SimilarSections';
 
@@ -48,6 +53,9 @@ export function VideoPage() {
     markSeen,
     watchLater,
     toggleWatchLater,
+    liked,
+    disliked,
+    react,
   } = useHackerTube();
   const video = videoById.get(id);
   const [playerFailed, setPlayerFailed] = useState(false);
@@ -105,6 +113,7 @@ export function VideoPage() {
 
   const isSeen = seen.has(video.id);
   const isLater = watchLater.has(video.id);
+  const reaction = reactionOf(video.id, liked, disliked);
   const embeddable = video.embeddable !== false && !playerFailed;
 
   return (
@@ -199,6 +208,38 @@ export function VideoPage() {
             rightSection={<IconExternalLink size={18} />}
           >
             Open on YouTube
+          </Button>
+          <Button
+            size="lg"
+            color="orange"
+            variant={reaction === 'like' ? 'filled' : 'light'}
+            leftSection={
+              reaction === 'like' ? (
+                <IconThumbUpFilled size={20} />
+              ) : (
+                <IconThumbUp size={20} />
+              )
+            }
+            onClick={() => react(video.id, reaction === 'like' ? null : 'like')}
+          >
+            {reaction === 'like' ? 'Liked' : 'Like'}
+          </Button>
+          <Button
+            size="lg"
+            color="red"
+            variant={reaction === 'dislike' ? 'filled' : 'default'}
+            leftSection={
+              reaction === 'dislike' ? (
+                <IconThumbDownFilled size={20} />
+              ) : (
+                <IconThumbDown size={20} />
+              )
+            }
+            onClick={() =>
+              react(video.id, reaction === 'dislike' ? null : 'dislike')
+            }
+          >
+            Not interested
           </Button>
           <Button
             size="lg"

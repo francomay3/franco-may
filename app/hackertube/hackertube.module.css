@@ -643,3 +643,62 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+/* ---- For you home ---- */
+.headerSearch {
+  flex: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.mobileSearch {
+  display: none;
+}
+
+.advancedIcon {
+  display: none;
+}
+
+.feedPage {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.feedHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.feedTitle {
+  margin: 0 0 2px;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.because {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: light-dark(#c2410c, #ffb27a);
+}
+
+@media (max-width: 960px) {
+  .headerSearch,
+  .advancedButton {
+    display: none;
+  }
+
+  .advancedIcon {
+    display: inline-flex;
+  }
+
+  .mobileSearch {
+    display: block;
+    margin-bottom: 14px;
+  }
+}

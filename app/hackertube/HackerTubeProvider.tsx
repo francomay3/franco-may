@@ -24,10 +24,12 @@ import { type Bounds, type SavedSearch, Taxonomy, boundsOf } from './filters';
 import type { SimilarityData } from './similar';
 import styles from './hackertube.module.css';
 import {
+  type Reaction,
   deleteSearch,
   loadUserData,
   parseUserData,
   saveSearch,
+  setReaction,
   setSeen,
   setWatchLater,
 } from './seen';
@@ -55,6 +57,11 @@ export type HackerTubeContext = {
   /** Video id to when it was added. */
   watchLater: ReadonlyMap<string, number>;
   toggleWatchLater: (id: string, on: boolean) => void;
+  /** Video id to when it was liked. A video is never in both maps. */
+  liked: ReadonlyMap<string, number>;
+  disliked: ReadonlyMap<string, number>;
+  /** Like, mark "not interested", or (null) take either back. */
+  react: (id: string, reaction: Reaction | null) => void;
   searches: SavedSearch[];
   putSearch: (search: SavedSearch) => void;
   removeSearch: (search: SavedSearch) => void;
@@ -81,6 +88,8 @@ type Gate =
       data: Dataset;
       seen: Set<string>;
       watchLater: Map<string, number>;
+      liked: Map<string, number>;
+      disliked: Map<string, number>;
       searches: SavedSearch[];
     };
 
@@ -134,12 +143,21 @@ export function HackerTubeProvider({
             loadDataset(),
             loadUserData(user.uid),
           ]);
-          const { seen, watchLater, searches } = parseUserData(
+          const { seen, watchLater, liked, disliked, searches } = parseUserData(
             rawUser,
             boundsOf(data.videos),
             new Taxonomy(data.areas)
           );
-          setGate({ at: 'ready', user, data, seen, watchLater, searches });
+          setGate({
+            at: 'ready',
+            user,
+            data,
+            seen,
+            watchLater,
+            liked,
+            disliked,
+            searches,
+          });
         } catch (e) {
           // The rules are the only allow-list, so "not allowed" is whatever
           // they refuse, and the page does not need to know who is on it.
@@ -248,6 +266,8 @@ export function HackerTubeProvider({
       data={gate.data}
       initialSeen={gate.seen}
       initialWatchLater={gate.watchLater}
+      initialLiked={gate.liked}
+      initialDisliked={gate.disliked}
       initialSearches={gate.searches}
     >
       {children}
@@ -260,6 +280,8 @@ function Ready({
   data,
   initialSeen,
   initialWatchLater,
+  initialLiked,
+  initialDisliked,
   initialSearches,
   children,
 }: {
@@ -267,6 +289,8 @@ function Ready({
   data: Dataset;
   initialSeen: Set<string>;
   initialWatchLater: Map<string, number>;
+  initialLiked: Map<string, number>;
+  initialDisliked: Map<string, number>;
   initialSearches: SavedSearch[];
   children: React.ReactNode;
 }) {
@@ -302,6 +326,8 @@ function Ready({
 
   const [seen, setSeenSet] = useState(initialSeen);
   const [watchLater, setWatchLaterMap] = useState(initialWatchLater);
+  const [liked, setLiked] = useState(initialLiked);
+  const [disliked, setDisliked] = useState(initialDisliked);
   const [searches, setSearches] = useState(initialSearches);
   const [failure, setFailure] = useState<string | null>(null);
 
@@ -359,6 +385,36 @@ function Ready({
     [user.uid, watchLater, fail]
   );
 
+  const react = useCallback(
+    (id: string, reaction: Reaction | null) => {
+      // Functional updates, so several quick clicks each keep their own.
+      const put =
+        (on: boolean, at: number | undefined) =>
+        (prev: ReadonlyMap<string, number>) => {
+          if (prev.has(id) === on) {
+            return prev as Map<string, number>;
+          }
+          const next = new Map(prev);
+          if (on) {
+            next.set(id, at ?? Date.now());
+          } else {
+            next.delete(id);
+          }
+          return next;
+        };
+      const wasLiked = liked.get(id);
+      const wasDisliked = disliked.get(id);
+      setLiked(put(reaction === 'like', undefined));
+      setDisliked(put(reaction === 'dislike', undefined));
+      setReaction(user.uid, id, reaction).catch(e => {
+        setLiked(put(wasLiked !== undefined, wasLiked));
+        setDisliked(put(wasDisliked !== undefined, wasDisliked));
+        fail(e);
+      });
+    },
+    [user.uid, liked, disliked, fail]
+  );
+
   const putSearch = useCallback(
     (search: SavedSearch) => {
       const before = searches;
@@ -397,6 +453,9 @@ function Ready({
       markSeen,
       watchLater,
       toggleWatchLater,
+      liked,
+      disliked,
+      react,
       searches,
       putSearch,
       removeSearch,
@@ -414,6 +473,9 @@ function Ready({
       markSeen,
       watchLater,
       toggleWatchLater,
+      liked,
+      disliked,
+      react,
       searches,
       putSearch,
       removeSearch,

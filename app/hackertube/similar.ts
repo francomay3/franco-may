@@ -34,7 +34,7 @@ const REFERENCE_VIDEOS = 12;
 const norms = new WeakMap<Int8Array, Float32Array>();
 
 /** Row lengths, once: quantising to int8 leaves them near, not exactly, equal. */
-function rowNorms(emb: Int8Array): Float32Array {
+export function rowNorms(emb: Int8Array): Float32Array {
   let cached = norms.get(emb);
   if (!cached) {
     const n = emb.length / DIM;
@@ -52,7 +52,7 @@ function rowNorms(emb: Int8Array): Float32Array {
   return cached;
 }
 
-function unitRow(emb: Int8Array, i: number): Float32Array {
+export function unitRow(emb: Int8Array, i: number): Float32Array {
   const norm = rowNorms(emb)[i];
   const out = new Float32Array(DIM);
   for (let d = 0; d < DIM; d++) {
@@ -61,7 +61,7 @@ function unitRow(emb: Int8Array, i: number): Float32Array {
   return out;
 }
 
-function normalise(v: Float32Array): Float32Array {
+export function normalise(v: Float32Array): Float32Array {
   let sum = 0;
   for (let d = 0; d < DIM; d++) {
     sum += v[d] * v[d];
@@ -74,7 +74,7 @@ function normalise(v: Float32Array): Float32Array {
 }
 
 /** Cosine of every row with a unit vector `q`, indexed like the videos. */
-function cosines(emb: Int8Array, q: Float32Array): Float32Array {
+export function cosines(emb: Int8Array, q: Float32Array): Float32Array {
   const n = emb.length / DIM;
   const norm = rowNorms(emb);
   const out = new Float32Array(n);
@@ -91,7 +91,7 @@ function cosines(emb: Int8Array, q: Float32Array): Float32Array {
 
 // ---- ranking ---------------------------------------------------------------
 
-function titleKey(title: string): string {
+export function titleKey(title: string): string {
   const key = title
     .toLowerCase()
     .replace(/[^\p{L}\p{N}]+/gu, ' ')
@@ -100,7 +100,7 @@ function titleKey(title: string): string {
   return key || title;
 }
 
-const channelKey = (v: Video) => v.channelId ?? v.channel;
+export const channelKey = (v: Video) => v.channelId ?? v.channel;
 
 /**
  * The best `limit` videos by relevance (with the rating bias), minus anything

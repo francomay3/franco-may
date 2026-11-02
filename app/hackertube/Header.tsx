@@ -8,7 +8,10 @@ import { signOut, type User } from 'firebase/auth';
 import { auth } from './firebase';
 import styles from './hackertube.module.css';
 
+/** The "For you" home. */
 export const LIST_HREF = '/hackertube';
+export const ADVANCED_HREF = '/hackertube/search';
+export const LIKED_HREF = '/hackertube/liked';
 
 export function BrandLink() {
   return (
