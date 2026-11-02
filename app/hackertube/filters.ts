@@ -234,7 +234,7 @@ const POOL = 100;
  * follow in relevance order, so a rating-25 video that barely relates to the
  * query can never outrank one that is exactly on topic.
  */
-function bestMatch(
+export function bestMatch(
   videos: Video[],
   relevance: Float32Array,
   indexOf: ReadonlyMap<string, number>,

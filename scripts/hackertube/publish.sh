@@ -8,4 +8,4 @@ here="$(cd "$(dirname "$0")" && pwd)"
 
 gsutil cors set "$here/bucket-cors.json" "$bucket"
 gsutil -h "Cache-Control:private, max-age=0" cp \
-  "$dir/videos.json" "$dir/embeddings.i8" "$bucket/hackertube/"
+  "$dir/videos.json" "$dir/embeddings.i8" "$dir/related.json" "$bucket/hackertube/"

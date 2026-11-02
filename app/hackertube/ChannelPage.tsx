@@ -10,6 +10,8 @@ import { formatCount } from './format';
 import { SimpleHeader } from './Header';
 import styles from './hackertube.module.css';
 import { useHackerTube } from './HackerTubeProvider';
+import { similarChannels, similarToChannel } from './similar';
+import { ChannelCards, MiniVideoGrid, Section } from './SimilarSections';
 import { VideoRow } from './VideoRow';
 
 type Sort = 'rating' | 'newest' | 'oldest' | 'views';
@@ -29,6 +31,7 @@ export function ChannelPage() {
     user,
     data,
     categoryName,
+    similarity,
     seen,
     markSeen,
     watchLater,
@@ -42,6 +45,15 @@ export function ChannelPage() {
     [data.videos, id]
   );
   const stats = useMemo(() => channelStats(videos), [videos]);
+
+  const similarChannelList = useMemo(
+    () => similarChannels(similarity, id),
+    [similarity, id]
+  );
+  const similarVideoList = useMemo(
+    () => similarToChannel(similarity, id),
+    [similarity, id]
+  );
 
   const sorted = useMemo(() => {
     const out = [...videos];
@@ -198,6 +210,22 @@ export function ChannelPage() {
             Show more ({sorted.length - visible} left)
           </Button>
         )}
+
+        <Section
+          title="Similar channels"
+          hint="Their videos sit close to this channel's"
+          empty={similarChannelList.length === 0}
+        >
+          <ChannelCards channels={similarChannelList} />
+        </Section>
+
+        <Section
+          title="Similar videos"
+          hint="In the spirit of this channel, from other channels"
+          empty={similarVideoList.length === 0}
+        >
+          <MiniVideoGrid videos={similarVideoList} />
+        </Section>
       </div>
     </div>
   );

@@ -34,6 +34,8 @@ export type Dataset = {
   videos: Video[];
   /** int8, row i is videos[i], DIM values per row. */
   embeddings: Int8Array;
+  /** Videos recommended by the same HN commenters, most shared first. */
+  related: ReadonlyMap<string, [id: string, shared: number][]>;
 };
 
 export const DIM = 384;

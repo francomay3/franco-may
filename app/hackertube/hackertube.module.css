@@ -584,3 +584,62 @@
     font-size: 1.25rem;
   }
 }
+
+.sectionHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.miniCaption {
+  font-size: 0.76rem;
+  color: var(--mantine-color-dimmed);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.channelCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.channelCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  background: light-dark(#fff, #1c1f26);
+  border: 1px solid light-dark(#e8eaee, #292d35);
+  transition: border-color 0.15s ease;
+}
+
+.channelCard:hover {
+  border-color: #ff6600;
+}
+
+.channelAvatarSmall {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #ff6600, #ff9a44);
+}
+
+.channelCardName {
+  font-weight: 600;
+  font-size: 0.92rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

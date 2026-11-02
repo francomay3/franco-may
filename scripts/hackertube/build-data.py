@@ -10,6 +10,8 @@ private bucket path (see scripts/hackertube/publish.sh).
 
   videos.json   {taxonomy, videos[]} -- only what the page shows or filters on.
                 YouTube descriptions are deliberately left out (large, unused).
+  related.json  {videoId: [[otherId, sharedRecommenders], ...]}, the videos
+                recommended by at least two of the same HN commenters.
   embeddings.i8 int8, row i = videos[i], 384 values per row. The source vectors
                 are L2-normalised, so value * 127 loses nothing the ranking
                 can see, and the file is 2.5 MB instead of 5.
@@ -84,10 +86,31 @@ for line in open(src / "videos.jsonl"):
     json.dumps({"taxonomy": areas, "videos": videos}, separators=(",", ":"))
 )
 
+# Videos recommended by the same HN commenters. Kept only where both ends are
+# in the dataset and at least two different commenters recommended both: 99%
+# of the raw pairs come from a single shared commenter, which is one person who
+# happened to like both and says nothing about the videos. That leaves about 3%
+# of videos with any, and those are real links.
+MIN_SHARED = 2
+known = {v["id"] for v in videos}
+related = {}
+for line in open(src / "related.jsonl"):
+    r = json.loads(line)
+    pairs = [
+        [x["vid"], x["shared_recommenders"]]
+        for x in r["related"]
+        if x["vid"] in known
+        and x["vid"] != r["vid"]
+        and x["shared_recommenders"] >= MIN_SHARED
+    ][:12]
+    if r["vid"] in known and pairs:
+        related[r["vid"]] = pairs
+(out / "related.json").write_text(json.dumps(related, separators=(",", ":")))
+
 emb = np.load(src / "embeddings.npy").astype(np.float32)
 row = {vid: i for i, vid in enumerate(json.load(open(src / "embedding_ids.json")))}
 ordered = emb[[row[v["id"]] for v in videos]]
 q = np.clip(np.round(ordered * 127), -127, 127).astype(np.int8)
 (out / "embeddings.i8").write_bytes(q.tobytes())
 
-print(f"{len(videos)} videos, {sum(v['gone'] for v in videos)} gone, emb {q.shape}")
+print(f"{len(videos)} videos, {sum(v['gone'] for v in videos)} gone, emb {q.shape}, related for {len(related)}")

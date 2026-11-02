@@ -14,7 +14,7 @@ import {
   IconMailOpened,
 } from '@tabler/icons-react';
 import { BackButton } from './BackButton';
-import { channelHref, videoHref } from './channels';
+import { channelHref } from './channels';
 import {
   formatCount,
   formatDate,
@@ -26,6 +26,8 @@ import {
 import { SimpleHeader } from './Header';
 import styles from './hackertube.module.css';
 import { useHackerTube } from './HackerTubeProvider';
+import { coRecommended, similarToVideo } from './similar';
+import { MiniVideoGrid, Section } from './SimilarSections';
 
 const Player = dynamic(() => import('./Player'), {
   ssr: false,
@@ -41,6 +43,7 @@ export function VideoPage() {
     data,
     videoById,
     categoryName,
+    similarity,
     seen,
     markSeen,
     watchLater,
@@ -75,6 +78,15 @@ export function VideoPage() {
       total: all.length + 1,
     };
   }, [data.videos, video]);
+
+  const similarVideos = useMemo(
+    () => (video ? similarToVideo(similarity, video.id) : []),
+    [similarity, video]
+  );
+  const alsoRecommended = useMemo(
+    () => (video ? coRecommended(similarity, video.id) : []),
+    [similarity, video]
+  );
 
   if (!video) {
     return (
@@ -256,34 +268,48 @@ export function VideoPage() {
           </section>
         </div>
 
-        {fromChannel.more.length > 0 && video.channelId && (
-          <section style={{ marginTop: 28 }}>
-            <Group justify="space-between" mb="sm">
-              <h2 className={styles.sectionTitle}>More from {video.channel}</h2>
+        <Section
+          title={`More from ${video.channel}`}
+          action={
+            video.channelId && (
               <Link
                 href={channelHref(video.channelId)}
                 className={styles.channelLink}
               >
                 See all {fromChannel.total} →
               </Link>
-            </Group>
-            <div className={styles.miniGrid}>
-              {fromChannel.more.map(v => (
-                <Link key={v.id} href={videoHref(v.id)} className={styles.mini}>
-                  <div className={styles.miniThumb}>
-                    <img src={midFrame(v.id)} alt="" loading="lazy" />
-                    {v.duration !== null && (
-                      <span className={styles.duration}>
-                        {formatDuration(v.duration)}
-                      </span>
-                    )}
-                  </div>
-                  <span className={styles.miniTitle}>{v.title}</span>
-                </Link>
-              ))}
-            </div>
-          </section>
-        )}
+            )
+          }
+          empty={fromChannel.more.length === 0 || !video.channelId}
+        >
+          <MiniVideoGrid videos={fromChannel.more} />
+        </Section>
+
+        <Section
+          title="Similar videos"
+          hint="Close in topic, from other channels"
+          empty={similarVideos.length === 0}
+        >
+          <MiniVideoGrid videos={similarVideos} />
+        </Section>
+
+        <Section
+          title="Hacker News readers also recommended"
+          hint="Recommended by the same commenters"
+          empty={alsoRecommended.length === 0}
+        >
+          <MiniVideoGrid
+            videos={alsoRecommended.map(r => r.video)}
+            caption={v => {
+              const shared = alsoRecommended.find(
+                r => r.video.id === v.id
+              )?.shared;
+              return shared
+                ? `${shared} shared recommender${shared === 1 ? '' : 's'}`
+                : undefined;
+            }}
+          />
+        </Section>
       </div>
     </div>
   );

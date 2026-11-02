@@ -21,6 +21,7 @@ import {
 import { loadDataset } from './data';
 import { auth } from './firebase';
 import { type Bounds, type SavedSearch, Taxonomy, boundsOf } from './filters';
+import type { SimilarityData } from './similar';
 import styles from './hackertube.module.css';
 import {
   deleteSearch,
@@ -47,6 +48,8 @@ export type HackerTubeContext = {
   indexOf: ReadonlyMap<string, number>;
   videoById: ReadonlyMap<string, Video>;
   categoryName: ReadonlyMap<string, string>;
+  /** What the "similar to this" sections are computed from. */
+  similarity: SimilarityData;
   seen: ReadonlySet<string>;
   markSeen: (id: string, value: boolean) => void;
   /** Video id to when it was added. */
@@ -287,6 +290,16 @@ function Ready({
     return m;
   }, [data.areas]);
 
+  const similarity = useMemo<SimilarityData>(
+    () => ({
+      videos: data.videos,
+      indexOf,
+      embeddings: data.embeddings,
+      related: data.related,
+    }),
+    [data.videos, data.embeddings, data.related, indexOf]
+  );
+
   const [seen, setSeenSet] = useState(initialSeen);
   const [watchLater, setWatchLaterMap] = useState(initialWatchLater);
   const [searches, setSearches] = useState(initialSearches);
@@ -379,6 +392,7 @@ function Ready({
       indexOf,
       videoById,
       categoryName,
+      similarity,
       seen,
       markSeen,
       watchLater,
@@ -395,6 +409,7 @@ function Ready({
       indexOf,
       videoById,
       categoryName,
+      similarity,
       seen,
       markSeen,
       watchLater,
