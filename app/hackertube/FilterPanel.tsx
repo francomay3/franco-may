@@ -68,7 +68,6 @@ export function FilterPanel({
   }, [videos, taxonomy]);
 
   const set = (patch: Partial<FilterState>) => onChange({ ...state, ...patch });
-  const nothingPicked = state.areas.length === 0;
   const active = activeCount(state, bounds);
 
   return (
@@ -189,6 +188,8 @@ export function FilterPanel({
       </div>
 
       <div>
+        {/* Nothing ticked means no narrowing: the same as everything ticked,
+            and far less noisy to look at. */}
         <div className={styles.filterTitle}>Category</div>
         {taxonomy.areas.map(area => {
           const open = state.areas.includes(area.id);
@@ -197,7 +198,7 @@ export function FilterPanel({
               <Checkbox
                 size="xs"
                 color="orange"
-                checked={nothingPicked || open}
+                checked={open}
                 onChange={() => onChange(toggleArea(state, area.id, taxonomy))}
                 label={
                   <>
