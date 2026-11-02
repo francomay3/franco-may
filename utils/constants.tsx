@@ -29,7 +29,7 @@ export const NAV_LINKS: Record<string, NavLink> = {
     icon: <IconMail size={16} stroke={1.5} />,
   },
   fornlamningar: {
-    label: 'Fornlamningar',
+    label: 'Historia Kartan',
     href: '/fornlamningar/map',
     icon: <IconBuilding size={16} stroke={1.5} />,
   },

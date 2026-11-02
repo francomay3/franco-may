@@ -28,7 +28,7 @@ function pastedPhotoUrl(id: string): string {
   return `https://firebasestorage.googleapis.com/v0/b/${PHOTO_BUCKET}/o/${encodeURIComponent(path)}?alt=media`;
 }
 
-const UA = 'fornkoll/1.0 (https://franco-may.com)';
+const UA = 'historiakartan/1.0 (https://franco-may.com)';
 const COMMONS = 'https://commons.wikimedia.org/w/api.php';
 /** Same radius and page size as crawl_wikimedia.fetch_nearby. */
 const RADIUS_M = 500;

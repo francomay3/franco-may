@@ -37,9 +37,9 @@ import type { Metadata } from 'next';
  * NOT REVIEWED BY A LAWYER. A good-faith description of what the code does.
  */
 export const metadata: Metadata = {
-  title: 'Integritet — Fornkoll',
+  title: 'Integritet — Historia Kartan',
   description:
-    'Vilka uppgifter Fornkoll samlar in, varför, och hur du tar bort dem.',
+    'Vilka uppgifter Historia Kartan samlar in, varför, och hur du tar bort dem.',
 };
 
 const CONTACT_URL = '/contact';
@@ -62,7 +62,7 @@ export default function PrivacyPage() {
       <h1 style={s.h1}>Integritet</h1>
 
       <p style={s.p}>
-        Fornkoll är en gratis app utan annonser. Den mesta informationen stannar
+        Historia Kartan är en gratis app utan annonser. Den mesta informationen stannar
         i telefonen: du behöver inget konto för att använda kartan, läsa
         beskrivningar, markera besök eller svara på frågor.
       </p>
@@ -148,7 +148,7 @@ export default function PrivacyPage() {
       <h1 style={s.h1Later}>Privacy</h1>
 
       <p style={s.p}>
-        Fornkoll is a free app with no ads. Most of what it knows stays on the
+        Historia Kartan is a free app with no ads. Most of what it knows stays on the
         phone: you need no account to use the map, read descriptions, mark a
         visit or answer questions.
       </p>

@@ -265,7 +265,7 @@ export default function ModerationPage() {
     return (
       <Stack align="flex-start">
         <Back />
-        <p className="fl-kicker">Fornkoll</p>
+        <p className="fl-kicker">Historia Kartan</p>
         <h1 className="fl-title">Moderation</h1>
         {state.signinError ? (
           <Alert color="red" title="Sign-in failed" maw={640}>
@@ -283,7 +283,7 @@ export default function ModerationPage() {
     return (
       <Stack align="flex-start">
         <Back />
-        <p className="fl-kicker">Fornkoll</p>
+        <p className="fl-kicker">Historia Kartan</p>
         <h1 className="fl-title">Moderation</h1>
         <Alert title="Signed in, but not a moderator" color="yellow">
           <Text size="sm">
@@ -308,7 +308,7 @@ export default function ModerationPage() {
     return (
       <Stack align="flex-start">
         <Back />
-        <p className="fl-kicker">Fornkoll</p>
+        <p className="fl-kicker">Historia Kartan</p>
         <h1 className="fl-title">Moderation</h1>
         <Alert color="red" title="Could not load">
           {state.message}
@@ -330,7 +330,7 @@ export default function ModerationPage() {
       <Back />
       <header className="fl-top">
         <div>
-          <p className="fl-kicker">Fornkoll</p>
+          <p className="fl-kicker">Historia Kartan</p>
           <h1 className="fl-title">Moderation</h1>
         </div>
         <button

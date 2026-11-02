@@ -95,7 +95,7 @@ export function AdminGate({
     return (
       <Stack align="flex-start">
         {back}
-        <p className="fl-kicker">Fornkoll</p>
+        <p className="fl-kicker">Historia Kartan</p>
         <h1 className="fl-title">{title}</h1>
         {state.error ? (
           <Alert color="red" title="Sign-in failed" maw={640}>
@@ -133,7 +133,7 @@ export function AdminGate({
     return (
       <Stack align="flex-start">
         {back}
-        <p className="fl-kicker">Fornkoll</p>
+        <p className="fl-kicker">Historia Kartan</p>
         <h1 className="fl-title">{title}</h1>
         <Alert title="Signed in, but not a moderator" color="yellow">
           <Text size="sm">
@@ -158,7 +158,7 @@ export function AdminGate({
     return (
       <Stack align="flex-start">
         {back}
-        <p className="fl-kicker">Fornkoll</p>
+        <p className="fl-kicker">Historia Kartan</p>
         <h1 className="fl-title">{title}</h1>
         <Alert color="red" title="Could not load">
           {state.message}
@@ -179,7 +179,7 @@ export function AdminGate({
       {back}
       <header className="fl-top">
         <div>
-          <p className="fl-kicker">Fornkoll</p>
+          <p className="fl-kicker">Historia Kartan</p>
           <h1 className="fl-title">{title}</h1>
         </div>
         <button

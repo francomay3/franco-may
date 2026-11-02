@@ -34,7 +34,7 @@ export async function generateMetadata({
       // A place with no published text still has a page.
     }
   }
-  return { title: `${title} · Fornkoll` };
+  return { title: `${title} · Historia Kartan` };
 }
 
 export default function Page() {

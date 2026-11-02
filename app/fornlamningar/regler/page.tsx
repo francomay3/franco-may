@@ -37,8 +37,8 @@ import type { Metadata } from 'next';
  * of a service this size, written by somebody who is not one.
  */
 export const metadata: Metadata = {
-  title: 'Regler för kommentarer — Fornkoll',
-  description: 'Vad som inte är tillåtet i Fornkoll, och hur du anmäler något.',
+  title: 'Regler för kommentarer — Historia Kartan',
+  description: 'Vad som inte är tillåtet i Historia Kartan, och hur du anmäler något.',
 };
 
 /**
@@ -76,7 +76,7 @@ export default function RulesPage() {
       <h1 style={s.h1}>Regler för kommentarer</h1>
 
       <p style={s.p}>
-        Fornkoll är en gratis app för att hitta och besöka fornlämningar i
+        Historia Kartan är en gratis app för att hitta och besöka fornlämningar i
         Sverige. Du kan skriva kommentarer om en plats så att nästa besökare vet
         vad hen ska förvänta sig. Den här sidan säger vad som inte är tillåtet
         och vad som händer då.
@@ -133,7 +133,7 @@ export default function RulesPage() {
       <h1 style={s.h1Later}>Comment rules</h1>
 
       <p style={s.p}>
-        Fornkoll is a free app for finding and visiting Sweden&apos;s
+        Historia Kartan is a free app for finding and visiting Sweden&apos;s
         archaeological sites. You can write comments about a place so the next
         visitor knows what to expect. This page says what is not allowed and
         what happens then.

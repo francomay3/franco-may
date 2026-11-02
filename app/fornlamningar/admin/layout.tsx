@@ -15,7 +15,7 @@ import './admin.css';
  * free.
  */
 export const metadata: Metadata = {
-  title: 'Admin · Fornkoll',
+  title: 'Admin · Historia Kartan',
   robots: { index: false, follow: false },
 };
 

@@ -88,7 +88,7 @@ async function wikipedia(url: string) {
     api.searchParams.set(k, v);
   }
   const res = await fetch(api, {
-    headers: { 'User-Agent': 'fornkoll/1.0 (https://franco-may.com)' },
+    headers: { 'User-Agent': 'historiakartan/1.0 (https://franco-may.com)' },
   });
   if (!res.ok) {
     return { error: `Wikipedia answered ${res.status}` };
