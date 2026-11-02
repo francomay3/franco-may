@@ -274,3 +274,37 @@
     grid-column: 1 / -1;
   }
 }
+
+.savedRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid light-dark(#e5e7eb, #2a2e36);
+  background: light-dark(#fff, #1c1f26);
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.savedRow:hover {
+  border-color: #ff6600;
+}
+
+.savedActive {
+  border-color: #ff6600;
+  background: light-dark(#fff3ea, #2b2017);
+}
+
+.savedName {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.savedDesc {
+  margin-top: 2px;
+  font-size: 0.76rem;
+  color: var(--mantine-color-dimmed);
+  overflow-wrap: anywhere;
+}

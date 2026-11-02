@@ -39,17 +39,27 @@ import { loadDataset } from './data';
 import { auth } from './firebase';
 import { FilterPanel } from './FilterPanel';
 import {
+  type Bounds,
   type FilterState,
+  type SavedSearch,
   type SortKey,
   Taxonomy,
   applyFilters,
   boundsOf,
   emptyFilters,
+  restoreFilters,
+  restoreSort,
   sortVideos,
 } from './filters';
 import styles from './hackertube.module.css';
 import { embedQuery, similarities } from './search';
-import { loadSeen, setSeen } from './seen';
+import {
+  deleteSearch,
+  loadUserData,
+  parseUserData,
+  saveSearch,
+  setSeen,
+} from './seen';
 import type { Dataset } from './types';
 import { VideoRow } from './VideoRow';
 
@@ -58,7 +68,13 @@ type Gate =
   | { at: 'anon'; error?: string }
   | { at: 'denied'; uid: string }
   | { at: 'error'; message: string }
-  | { at: 'ready'; user: User; data: Dataset; seen: Set<string> };
+  | {
+      at: 'ready';
+      user: User;
+      data: Dataset;
+      seen: Set<string>;
+      searches: SavedSearch[];
+    };
 
 const PAGE = 50;
 
@@ -80,11 +96,16 @@ export function HackerTube() {
         }
         setGate({ at: 'loading' });
         try {
-          const [data, seen] = await Promise.all([
+          const [data, rawUser] = await Promise.all([
             loadDataset(),
-            loadSeen(user.uid),
+            loadUserData(user.uid),
           ]);
-          setGate({ at: 'ready', user, data, seen });
+          const { seen, searches } = parseUserData(
+            rawUser,
+            boundsOf(data.videos),
+            new Taxonomy(data.areas)
+          );
+          setGate({ at: 'ready', user, data, seen, searches });
         } catch (e) {
           // The rules are the only allow-list, so "not allowed" is whatever
           // they refuse, and the page does not need to know who is on it.
@@ -187,7 +208,14 @@ export function HackerTube() {
     );
   }
 
-  return <Browser user={gate.user} data={gate.data} initialSeen={gate.seen} />;
+  return (
+    <Browser
+      user={gate.user}
+      data={gate.data}
+      initialSeen={gate.seen}
+      initialSearches={gate.searches}
+    />
+  );
 }
 
 const SORT_LABELS: Record<SortKey, string> = {
@@ -200,14 +228,35 @@ const SORT_LABELS: Record<SortKey, string> = {
   shortest: 'Shortest',
 };
 
+/**
+ * The current selection, kept per person on this device so reopening the page
+ * finds it as it was left. Per uid, because two people can share a browser.
+ * Anything unreadable falls back to an empty selection: this is a convenience
+ * and must never stop the page from loading.
+ */
+const stateKey = (uid: string) => `hackertube:state:${uid}`;
+
+function readStored(uid: string, bounds: Bounds, tax: Taxonomy) {
+  let raw: { filters?: unknown; sort?: unknown } | null = null;
+  try {
+    raw = JSON.parse(localStorage.getItem(stateKey(uid)) ?? 'null');
+  } catch {
+    raw = null;
+  }
+  const filters = restoreFilters(raw?.filters, bounds, tax);
+  return { filters, sort: restoreSort(raw?.sort, filters.query) };
+}
+
 function Browser({
   user,
   data,
   initialSeen,
+  initialSearches,
 }: {
   user: User;
   data: Dataset;
   initialSeen: Set<string>;
+  initialSearches: SavedSearch[];
 }) {
   const taxonomy = useMemo(() => new Taxonomy(data.areas), [data.areas]);
   const bounds = useMemo(() => boundsOf(data.videos), [data.videos]);
@@ -225,24 +274,29 @@ function Browser({
     return m;
   }, [data.areas]);
 
-  const [filters, setFilters] = useState<FilterState>(() =>
-    emptyFilters(bounds)
-  );
+  const [stored] = useState(() => readStored(user.uid, bounds, taxonomy));
+  const [filters, setFilters] = useState<FilterState>(stored.filters);
   const [seen, setSeenSet] = useState(initialSeen);
-  const [sort, setSort] = useState<SortKey>('rating');
+  const [searches, setSearches] = useState(initialSearches);
+  const [sort, setSort] = useState<SortKey>(stored.sort);
   const [visible, setVisible] = useState(PAGE);
   const [failure, setFailure] = useState<string | null>(null);
   const [drawerOpen, drawer] = useDisclosure(false);
   const narrow = useMediaQuery('(max-width: 960px)');
 
   // ---- semantic search -------------------------------------------------
-  const [draft, setDraft] = useState('');
+  const [draft, setDraft] = useState(stored.filters.query);
   const [debounced] = useDebouncedValue(draft.trim(), 450);
   const [sims, setSims] = useState<Float32Array | null>(null);
   const [searching, setSearching] = useState<'idle' | 'loading' | 'error'>(
     'idle'
   );
   const latest = useRef(0);
+  // A query that arrives with its own sort (restored, or from a saved search)
+  // must not be overridden by "a new query sorts by relevance".
+  const keepSort = useRef(
+    !!stored.filters.query.trim() && stored.sort !== 'relevance'
+  );
 
   useEffect(() => {
     setFilters(f => (f.query === debounced ? f : { ...f, query: debounced }));
@@ -261,7 +315,11 @@ function Browser({
         }
         setSims(similarities(q, data.embeddings));
         setSearching('idle');
-        setSort('relevance');
+        if (keepSort.current) {
+          keepSort.current = false;
+        } else {
+          setSort('relevance');
+        }
       })
       .catch(() => {
         if (run === latest.current) {
@@ -337,6 +395,67 @@ function Browser({
     setDraft('');
   };
 
+  // Remember the selection on this device.
+  useEffect(() => {
+    try {
+      localStorage.setItem(
+        stateKey(user.uid),
+        JSON.stringify({ filters, sort })
+      );
+    } catch {
+      // Storage can be full or blocked; the page works without it.
+    }
+  }, [filters, sort, user.uid]);
+
+  // ---- saved searches --------------------------------------------------
+  const onSaveSearch = (name: string) => {
+    const query = draft.trim();
+    const existing = searches.find(
+      s => s.name.toLowerCase() === name.toLowerCase()
+    );
+    const search: SavedSearch = {
+      id: existing?.id ?? crypto.randomUUID(),
+      name,
+      // filters.query lags the box by the debounce; save what is on screen.
+      filters: { ...filters, query },
+      sort,
+      createdAt: Date.now(),
+    };
+    const before = searches;
+    setSearches([search, ...before.filter(s => s.id !== search.id)]);
+    saveSearch(user.uid, search).catch(e => {
+      setSearches(before);
+      setFailure(e instanceof Error ? e.message : String(e));
+    });
+  };
+
+  const onApplySearch = (search: SavedSearch) => {
+    const query = search.filters.query.trim();
+    if (query !== debounced) {
+      // Stale similarities belong to the old query.
+      setSims(null);
+      keepSort.current = !!query && search.sort !== 'relevance';
+    }
+    setFilters(search.filters);
+    setDraft(search.filters.query);
+    setSort(search.sort);
+    drawer.close();
+  };
+
+  const onDeleteSearch = (search: SavedSearch) => {
+    // A native confirm is enough for a rare, personal delete.
+    // eslint-disable-next-line no-alert
+    if (!window.confirm(`Delete the saved search "${search.name}"?`)) {
+      return;
+    }
+    const before = searches;
+    setSearches(before.filter(s => s.id !== search.id));
+    deleteSearch(user.uid, search.id).catch(e => {
+      setSearches(before);
+      setFailure(e instanceof Error ? e.message : String(e));
+    });
+  };
+
   const panel = (
     <FilterPanel
       state={filters}
@@ -348,11 +467,15 @@ function Browser({
       queryDraft={draft}
       onQueryDraft={setDraft}
       searching={searching}
+      searches={searches}
+      onSaveSearch={onSaveSearch}
+      onApplySearch={onApplySearch}
+      onDeleteSearch={onDeleteSearch}
     />
   );
 
   const sortOptions = (Object.keys(SORT_LABELS) as SortKey[])
-    .filter(k => k !== 'relevance' || sims)
+    .filter(k => k !== 'relevance' || sims || sort === 'relevance')
     .map(k => ({ value: k, label: SORT_LABELS[k] }));
 
   return (

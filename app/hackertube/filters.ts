@@ -11,8 +11,8 @@ import type { Area, Video } from './types';
  *                     categories ticked, only those; areas with none ticked
  *                     stay whole.
  *
- * Nothing ticked is the same as everything ticked, so every box shows as
- * ticked until the first click. Ticking an area OPENS it and reveals its
+ * Nothing ticked is the same as everything ticked, so the boxes start
+ * unticked and stay quiet until the first click. Ticking an area OPENS it and reveals its
  * categories, all unticked. The invariant that keeps this readable:
  * `categories` may only contain categories whose area is in `areas`, so
  * unticking an area drops its categories with it. Otherwise a category could
@@ -210,4 +210,162 @@ export function sortVideos(
     );
   }
   return out.sort(SORTS[key === 'relevance' ? 'rating' : key]);
+}
+
+const SEEN_VALUES: readonly SeenFilter[] = ['all', 'unseen', 'seen'];
+const SORT_KEYS: readonly SortKey[] = [
+  'relevance',
+  'rating',
+  'newest',
+  'oldest',
+  'views',
+  'longest',
+  'shortest',
+];
+
+/** A search saved by name, like a playlist. Lives in the person's Firestore doc. */
+export type SavedSearch = {
+  id: string;
+  name: string;
+  filters: FilterState;
+  sort: SortKey;
+  createdAt: number;
+};
+
+const num = (x: unknown): number | null =>
+  typeof x === 'number' && Number.isFinite(x) && x >= 0 ? x : null;
+
+const strings = (x: unknown): string[] =>
+  Array.isArray(x) ? x.filter((i): i is string => typeof i === 'string') : [];
+
+/**
+ * Turn whatever was stored back into a valid FilterState.
+ *
+ * Stored state outlives the code and the data that wrote it: a category can be
+ * renamed away, the rating bounds move when the dataset is rebuilt, a person
+ * can edit localStorage. So nothing is trusted. Unknown ids are dropped, the
+ * rating is clamped into today's bounds, and the area/category invariant is
+ * re-established, so a restored selection can never filter from inside a
+ * closed section.
+ */
+export function restoreFilters(
+  raw: unknown,
+  bounds: Bounds,
+  tax: Taxonomy
+): FilterState {
+  const base = emptyFilters(bounds);
+  if (!raw || typeof raw !== 'object') {
+    return base;
+  }
+  const r = raw as Record<string, unknown>;
+
+  const areaIds = new Set(tax.areas.map(a => a.id));
+  const areas = strings(r.areas).filter(a => areaIds.has(a));
+  const categories = strings(r.categories).filter(c => {
+    const area = tax.areaOfCategory(c);
+    return area !== undefined && areas.includes(area);
+  });
+
+  let score = base.score;
+  if (
+    Array.isArray(r.score) &&
+    r.score.length === 2 &&
+    r.score.every(n => typeof n === 'number' && Number.isFinite(n))
+  ) {
+    const [lo, hi] = bounds.score;
+    const a = Math.min(hi, Math.max(lo, Math.min(r.score[0], r.score[1])));
+    const b = Math.min(hi, Math.max(lo, Math.max(r.score[0], r.score[1])));
+    score = [a, b];
+  }
+
+  const date = (x: unknown) =>
+    typeof x === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(x) ? x : '';
+
+  return {
+    areas,
+    categories,
+    score,
+    dateFrom: date(r.dateFrom),
+    dateTo: date(r.dateTo),
+    minMinutes: num(r.minMinutes),
+    maxMinutes: num(r.maxMinutes),
+    seen: SEEN_VALUES.includes(r.seen as SeenFilter)
+      ? (r.seen as SeenFilter)
+      : 'all',
+    query: typeof r.query === 'string' ? r.query : '',
+  };
+}
+
+export function restoreSort(raw: unknown, query: string): SortKey {
+  const key = SORT_KEYS.includes(raw as SortKey) ? (raw as SortKey) : 'rating';
+  // Relevance only means something while there is a query to be relevant to.
+  return key === 'relevance' && !query.trim() ? 'rating' : key;
+}
+
+export function restoreSearch(
+  id: string,
+  raw: unknown,
+  bounds: Bounds,
+  tax: Taxonomy
+): SavedSearch | null {
+  if (!raw || typeof raw !== 'object') {
+    return null;
+  }
+  const r = raw as Record<string, unknown>;
+  if (typeof r.name !== 'string' || !r.name.trim()) {
+    return null;
+  }
+  const filters = restoreFilters(r.filters, bounds, tax);
+  return {
+    id,
+    name: r.name,
+    filters,
+    sort: restoreSort(r.sort, filters.query),
+    createdAt: typeof r.createdAt === 'number' ? r.createdAt : 0,
+  };
+}
+
+/** Key order is fixed by restoreFilters/emptyFilters, so stringify compares. */
+export function sameFilters(a: FilterState, b: FilterState): boolean {
+  return JSON.stringify(a) === JSON.stringify(b);
+}
+
+/** One line saying what a saved search narrows by, for the Saved tab. */
+export function describeFilters(
+  s: FilterState,
+  bounds: Bounds,
+  tax: Taxonomy
+): string {
+  const parts: string[] = [];
+  if (s.query.trim()) {
+    parts.push(`“${s.query.trim()}”`);
+  }
+  if (s.areas.length) {
+    const names = s.areas
+      .map(id => tax.areas.find(a => a.id === id)?.name)
+      .filter((n): n is string => !!n);
+    parts.push(
+      names.length > 2
+        ? `${names.slice(0, 2).join(', ')} +${names.length - 2}`
+        : names.join(', ')
+    );
+  }
+  if (s.categories.length) {
+    parts.push(
+      `${s.categories.length} categor${s.categories.length === 1 ? 'y' : 'ies'}`
+    );
+  }
+  if (s.score[0] > bounds.score[0] || s.score[1] < bounds.score[1]) {
+    parts.push(`rating ${s.score[0]}–${s.score[1]}`);
+  }
+  if (s.dateFrom || s.dateTo) {
+    parts.push(`${s.dateFrom || '…'} → ${s.dateTo || '…'}`);
+  }
+  if (s.minMinutes !== null || s.maxMinutes !== null) {
+    parts.push(`${s.minMinutes ?? 0}–${s.maxMinutes ?? '∞'} min`);
+  }
+  if (s.seen !== 'all') {
+    parts.push(s.seen === 'unseen' ? 'not seen' : 'seen');
+  }
+  return parts.join(' · ');
 }

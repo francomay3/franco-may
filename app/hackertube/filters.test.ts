@@ -2,7 +2,11 @@ import {
   Taxonomy,
   applyFilters,
   boundsOf,
+  describeFilters,
   emptyFilters,
+  restoreFilters,
+  restoreSort,
+  sameFilters,
   toggleArea,
   toggleCategory,
 } from './filters';
@@ -112,5 +116,61 @@ describe('other filters', () => {
     expect(
       ids(applyFilters(vs, { ...f, seen: 'unseen' }, tax, new Set(['a'])))
     ).toBe('b');
+  });
+});
+
+describe('restoring stored state', () => {
+  const bounds = boundsOf(videos);
+
+  it('returns an empty selection for junk', () => {
+    expect(restoreFilters(null, bounds, tax)).toEqual(empty);
+    expect(restoreFilters('x', bounds, tax)).toEqual(empty);
+    expect(restoreFilters({ areas: 5, seen: 'bogus' }, bounds, tax)).toEqual(
+      empty
+    );
+  });
+
+  it('drops unknown ids and re-establishes the area/category invariant', () => {
+    const s = restoreFilters(
+      { areas: ['math', 'gone'], categories: ['algebra', 'rust', 'nope'] },
+      bounds,
+      tax
+    );
+    // rust belongs to software, which is not open, so it cannot stay.
+    expect(s).toMatchObject({ areas: ['math'], categories: ['algebra'] });
+  });
+
+  it('clamps the rating into the current bounds', () => {
+    const s = restoreFilters({ score: [-10, 99] }, bounds, tax);
+    expect(s.score).toEqual(bounds.score);
+  });
+
+  it('round-trips a real selection', () => {
+    let s = toggleArea(empty, 'math', tax);
+    s = toggleCategory(s, 'logic');
+    s = {
+      ...s,
+      dateFrom: '2020-01-01',
+      minMinutes: 5,
+      query: 'proofs',
+      seen: 'unseen',
+    };
+    const back = restoreFilters(JSON.parse(JSON.stringify(s)), bounds, tax);
+    expect(sameFilters(back, s)).toBe(true);
+  });
+
+  it('only keeps relevance sorting while there is a query', () => {
+    expect(restoreSort('relevance', '')).toBe('rating');
+    expect(restoreSort('relevance', 'x')).toBe('relevance');
+    expect(restoreSort('nonsense', 'x')).toBe('rating');
+  });
+
+  it('describes a selection in one line', () => {
+    const s = {
+      ...toggleArea(empty, 'math', tax),
+      query: 'proofs',
+      seen: 'unseen' as const,
+    };
+    expect(describeFilters(s, bounds, tax)).toBe('“proofs” · Math · not seen');
   });
 });
