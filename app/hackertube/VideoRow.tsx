@@ -1,13 +1,20 @@
 import React, { memo } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { ActionIcon, Badge, Group, Text, Tooltip } from '@mantine/core';
-import { IconMail, IconMailOpened } from '@tabler/icons-react';
+import {
+  IconBookmark,
+  IconBookmarkFilled,
+  IconMail,
+  IconMailOpened,
+} from '@tabler/icons-react';
+import { channelHref, videoHref } from './channels';
 import {
   formatCount,
   formatDate,
   formatDuration,
   midFrame,
   uploaderThumb,
-  youtubeUrl,
 } from './format';
 import styles from './hackertube.module.css';
 import type { Video } from './types';
@@ -15,38 +22,32 @@ import type { Video } from './types';
 type Props = {
   video: Video;
   seen: boolean;
+  watchLater: boolean;
   categoryNames: string[];
-  onOpen: (id: string) => void;
   onToggleSeen: (id: string, seen: boolean) => void;
+  onToggleWatchLater: (id: string, on: boolean) => void;
 };
 
 function VideoRowImpl({
   video,
   seen,
+  watchLater,
   categoryNames,
-  onOpen,
   onToggleSeen,
+  onToggleWatchLater,
 }: Props) {
-  const url = youtubeUrl(video.id);
+  const router = useRouter();
+  const href = videoHref(video.id);
 
-  // The whole card is the click target, like a mail row. Real anchors inside
-  // keep middle-click and "copy link" working; they just also mark it seen.
+  // The whole card opens the video page, like a mail row. Real links inside
+  // keep middle-click and "copy link" working; the buttons and the channel
+  // link are left to do their own thing.
   const handleClick = (e: React.MouseEvent) => {
     const target = e.target as HTMLElement;
-    if (target.closest('[data-noopen]')) {
+    if (target.closest('a, [data-noopen]')) {
       return;
     }
-    if (!target.closest('a')) {
-      window.open(url, '_blank', 'noopener,noreferrer');
-    }
-    onOpen(video.id);
-  };
-
-  const handleAux = (e: React.MouseEvent) => {
-    const target = e.target as HTMLElement;
-    if (e.button === 1 && target.closest('a')) {
-      onOpen(video.id);
-    }
+    router.push(href);
   };
 
   return (
@@ -56,10 +57,9 @@ function VideoRowImpl({
     <article
       className={`${styles.row} ${seen ? styles.seen : styles.unseen}`}
       onClick={handleClick}
-      onAuxClick={handleAux}
     >
       <div className={styles.thumb}>
-        <a href={url} target="_blank" rel="noopener noreferrer" tabIndex={-1}>
+        <Link href={href} tabIndex={-1}>
           <img
             src={midFrame(video.id)}
             alt=""
@@ -72,7 +72,7 @@ function VideoRowImpl({
               }
             }}
           />
-        </a>
+        </Link>
         {video.duration !== null && (
           <span className={styles.duration}>
             {formatDuration(video.duration)}
@@ -81,16 +81,20 @@ function VideoRowImpl({
       </div>
 
       <div style={{ minWidth: 0 }}>
-        <a
-          className={styles.title}
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link className={styles.title} href={href}>
           {video.title}
-        </a>
+        </Link>
         <div className={styles.meta}>
-          <span>{video.channel}</span>
+          {video.channelId ? (
+            <Link
+              href={channelHref(video.channelId)}
+              className={styles.channelLink}
+            >
+              {video.channel}
+            </Link>
+          ) : (
+            <span>{video.channel}</span>
+          )}
           {video.published && <span>{formatDate(video.published)}</span>}
           <span>{formatCount(video.views)} views</span>
           {video.likes !== null && (
@@ -120,16 +124,37 @@ function VideoRowImpl({
           {video.score}
           <small>rating</small>
         </div>
-        <Tooltip label={seen ? 'Mark as not seen' : 'Mark as seen'} withArrow>
-          <ActionIcon
-            variant="subtle"
-            color={seen ? 'gray' : 'orange'}
-            aria-label={seen ? 'Mark as not seen' : 'Mark as seen'}
-            onClick={() => onToggleSeen(video.id, !seen)}
+        <Group gap={2}>
+          <Tooltip
+            label={watchLater ? 'Remove from watch later' : 'Watch later'}
+            withArrow
           >
-            {seen ? <IconMailOpened size={18} /> : <IconMail size={18} />}
-          </ActionIcon>
-        </Tooltip>
+            <ActionIcon
+              variant="subtle"
+              color={watchLater ? 'orange' : 'gray'}
+              aria-label={
+                watchLater ? 'Remove from watch later' : 'Add to watch later'
+              }
+              onClick={() => onToggleWatchLater(video.id, !watchLater)}
+            >
+              {watchLater ? (
+                <IconBookmarkFilled size={18} />
+              ) : (
+                <IconBookmark size={18} />
+              )}
+            </ActionIcon>
+          </Tooltip>
+          <Tooltip label={seen ? 'Mark as not seen' : 'Mark as seen'} withArrow>
+            <ActionIcon
+              variant="subtle"
+              color={seen ? 'gray' : 'orange'}
+              aria-label={seen ? 'Mark as not seen' : 'Mark as seen'}
+              onClick={() => onToggleSeen(video.id, !seen)}
+            >
+              {seen ? <IconMailOpened size={18} /> : <IconMail size={18} />}
+            </ActionIcon>
+          </Tooltip>
+        </Group>
         <Text size="xs" c="dimmed">
           {seen ? 'seen' : 'new'}
         </Text>

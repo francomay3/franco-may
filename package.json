@@ -28,6 +28,7 @@
     "@tabler/icons-react": "^3.34.1",
     "@tanstack/react-query": "^5.86.0",
     "@types/lodash": "^4.17.20",
+    "@vidstack/react": "^1.15.7",
     "@vis.gl/react-maplibre": "^8.0.4",
     "clsx": "^2.1.1",
     "firebase": "^12.19.0",
@@ -43,6 +44,7 @@
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "react-hook-form": "^7.62.0",
+    "vidstack": "^1.15.7",
     "zod": "^4.1.5"
   },
   "devDependencies": {

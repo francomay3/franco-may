@@ -62,6 +62,7 @@ for line in open(src / "videos.jsonl"):
             "id": v["vid"],
             "title": v["title"],
             "channel": v["channel"],
+            "channelId": sn.get("channelId"),
             "summary": v["summary"],
             "whyHn": v["why_hn"],
             "type": v["content_type"],

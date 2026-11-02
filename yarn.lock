@@ -1738,6 +1738,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@floating-ui/core@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "@floating-ui/core@npm:1.8.0"
+  dependencies:
+    "@floating-ui/utils": "npm:^0.2.12"
+  checksum: 10c0/cece958f6fab0f8cd7740cd57988c4f8bc5356dca39dd4c093433d44c91952c3a02c7a54d93d7ed6c078b6544d531a29f66621d2839c8bfbb4467dca6aed7df0
+  languageName: node
+  linkType: hard
+
+"@floating-ui/dom@npm:^1.6.10":
+  version: 1.8.0
+  resolution: "@floating-ui/dom@npm:1.8.0"
+  dependencies:
+    "@floating-ui/core": "npm:^1.8.0"
+    "@floating-ui/utils": "npm:^0.2.12"
+  checksum: 10c0/c32b2de7a596b69cfffa909c7028825e14f6319be1b45da529f8943c89fe16b75a49c214e800c87ded3f172353d3b99163d50072f11410488e756961b7b629cc
+  languageName: node
+  linkType: hard
+
 "@floating-ui/dom@npm:^1.7.3":
   version: 1.7.3
   resolution: "@floating-ui/dom@npm:1.7.3"
@@ -1778,6 +1797,13 @@ __metadata:
   version: 0.2.10
   resolution: "@floating-ui/utils@npm:0.2.10"
   checksum: 10c0/e9bc2a1730ede1ee25843937e911ab6e846a733a4488623cd353f94721b05ec2c9ec6437613a2ac9379a94c2fd40c797a2ba6fa1df2716f5ce4aa6ddb1cf9ea4
+  languageName: node
+  linkType: hard
+
+"@floating-ui/utils@npm:^0.2.12":
+  version: 0.2.12
+  resolution: "@floating-ui/utils@npm:0.2.12"
+  checksum: 10c0/bb910b90d56991a62011afaf5f8e0c4b7fb6dab69403f4dd17fbd6eb25560b28d533dff9791f270b4f459852e9006a1077b5d73cbedb5e34d9424afc6a828314
   languageName: node
   linkType: hard
 
@@ -4007,6 +4033,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/trusted-types@npm:^2.0.2":
+  version: 2.0.7
+  resolution: "@types/trusted-types@npm:2.0.7"
+  checksum: 10c0/4c4855f10de7c6c135e0d32ce462419d8abbbc33713b31d294596c0cc34ae1fa6112a2f9da729c8f7a20707782b0d69da3b1f8df6645b0366d08825ca1522e0c
+  languageName: node
+  linkType: hard
+
 "@types/uuid@npm:^9.0.1":
   version: 9.0.8
   resolution: "@types/uuid@npm:9.0.8"
@@ -4309,6 +4342,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vidstack/react@npm:^1.15.7":
+  version: 1.15.7
+  resolution: "@vidstack/react@npm:1.15.7"
+  dependencies:
+    "@floating-ui/dom": "npm:^1.6.10"
+    media-captions: "npm:^1.0.4"
+  peerDependencies:
+    "@types/react": ^18.0.0 || ^19.0.0
+    react: ^18.0.0 || ^19.0.0
+  checksum: 10c0/f565c366eb8e765f1734a7ac356ae00f5f30c737a454e7f5f8721453f119059eb2dfb0ffbce07f3e56c8dbb7bbfa600e284abf57d420a12ab86b061f1505cea8
+  languageName: node
+  linkType: hard
+
 "@vis.gl/react-maplibre@npm:^8.0.4":
   version: 8.0.4
   resolution: "@vis.gl/react-maplibre@npm:8.0.4"
@@ -4356,6 +4402,15 @@ __metadata:
   bin:
     acorn: bin/acorn
   checksum: 10c0/dec73ff59b7d6628a01eebaece7f2bdb8bb62b9b5926dcad0f8931f2b8b79c2be21f6c68ac095592adb5adb15831a3635d9343e6a91d028bbe85d564875ec3ec
+  languageName: node
+  linkType: hard
+
+"acorn@npm:^8.14.0":
+  version: 8.19.0
+  resolution: "acorn@npm:8.19.0"
+  bin:
+    acorn: bin/acorn
+  checksum: 10c0/21007e0ca638dd13d44a0ad26856b7a885cc6c4319cd2bc71694bc8ec3f0606c23ecd12b157e167f909d9d2b2d68d5b50fe3f54211b1aab7c3451a7c801fe62e
   languageName: node
   linkType: hard
 
@@ -6109,6 +6164,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fscreen@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "fscreen@npm:1.2.0"
+  checksum: 10c0/1a5cb44446c9e9f7411454408f47ebdce7320a2493a0135b4b6b34af0e1a56c23fcd01d1f33201ce9e2da3f4d07da6ef7258e9f16960d0ec98e51653e0f16d60
+  languageName: node
+  linkType: hard
+
 "fsevents@npm:^2.3.3":
   version: 2.3.3
   resolution: "fsevents@npm:2.3.3"
@@ -7788,6 +7850,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lit-html@npm:^2.8.0":
+  version: 2.8.0
+  resolution: "lit-html@npm:2.8.0"
+  dependencies:
+    "@types/trusted-types": "npm:^2.0.2"
+  checksum: 10c0/90057dee050803823ac884c1355b0213ab8c05fbe2ec63943c694b61aade5d36272068f3925f45a312835e504f9c9784738ef797009f0a756a750351eafb52d5
+  languageName: node
+  linkType: hard
+
 "locate-path@npm:^5.0.0":
   version: 5.0.0
   resolution: "locate-path@npm:5.0.0"
@@ -7951,6 +8022,7 @@ __metadata:
     "@types/pg": "npm:^8.23.1"
     "@types/react": "npm:19.1.12"
     "@types/react-dom": "npm:^19.1.9"
+    "@vidstack/react": "npm:^1.15.7"
     "@vis.gl/react-maplibre": "npm:^8.0.4"
     clsx: "npm:^2.1.1"
     eslint: "npm:^9.34.0"
@@ -7981,6 +8053,7 @@ __metadata:
     stylelint-config-standard-scss: "npm:^15.0.1"
     typescript: "npm:5.9.2"
     typescript-eslint: "npm:^8.42.0"
+    vidstack: "npm:^1.15.7"
     zod: "npm:^4.1.5"
   languageName: unknown
   linkType: soft
@@ -8049,6 +8122,13 @@ __metadata:
   version: 2.24.0
   resolution: "mdn-data@npm:2.24.0"
   checksum: 10c0/7263bad5f58d732461d8664cbcd225584c1a982f4d76d383e110debce69e28c579d8dae8f8faf43fe9aafea80a2c00d4d80539750fe1531fac1f007a5d7fb70e
+  languageName: node
+  linkType: hard
+
+"media-captions@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "media-captions@npm:1.0.4"
+  checksum: 10c0/62c6df2909b748284e929fe3d169548b42b91ea79374f67f89a313aa529395b024d5be82056613f3e88ebb2e4a86464f6c6a8d569bc7bae2f5542baa350031ba
   languageName: node
   linkType: hard
 
@@ -10779,6 +10859,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"unplugin@npm:^1.12.0":
+  version: 1.16.1
+  resolution: "unplugin@npm:1.16.1"
+  dependencies:
+    acorn: "npm:^8.14.0"
+    webpack-virtual-modules: "npm:^0.6.2"
+  checksum: 10c0/dd5f8c5727d0135847da73cf03fb199107f1acf458167034886fda3405737dab871ad3926431b4f70e1e82cdac482ac1383cea4019d782a68515c8e3e611b6cc
+  languageName: node
+  linkType: hard
+
 "unrs-resolver@npm:^1.7.11":
   version: 1.11.1
   resolution: "unrs-resolver@npm:1.11.1"
@@ -10965,6 +11055,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vidstack@npm:^1.15.7":
+  version: 1.15.7
+  resolution: "vidstack@npm:1.15.7"
+  dependencies:
+    "@floating-ui/dom": "npm:^1.6.10"
+    fscreen: "npm:^1.2.0"
+    lit-html: "npm:^2.8.0"
+    media-captions: "npm:^1.0.4"
+    unplugin: "npm:^1.12.0"
+  checksum: 10c0/f9e9d876f009cfc2d7bf0f3dac0c3c630440bcd6e60e5316c811e03ea825d3055a67ef6d96b723c417f4097af76fd07c5d562061df180774718f54d2276873d9
+  languageName: node
+  linkType: hard
+
 "w3c-xmlserializer@npm:^5.0.0":
   version: 5.0.0
   resolution: "w3c-xmlserializer@npm:5.0.0"
@@ -11024,6 +11127,13 @@ __metadata:
   bin:
     webpack-bundle-analyzer: lib/bin/analyzer.js
   checksum: 10c0/6a94c8f6aa03296fb2eb00d6ad3b27bd5c551590fd253772bc61debf3177414d42701014079d4f85c74ba1ca685ae9f0cb4063812b58c21f294d108e9908e5cd
+  languageName: node
+  linkType: hard
+
+"webpack-virtual-modules@npm:^0.6.2":
+  version: 0.6.2
+  resolution: "webpack-virtual-modules@npm:0.6.2"
+  checksum: 10c0/5ffbddf0e84bf1562ff86cf6fcf039c74edf09d78358a6904a09bbd4484e8bb6812dc385fe14330b715031892dcd8423f7a88278b57c9f5002c84c2860179add
   languageName: node
   linkType: hard
 

@@ -2,6 +2,8 @@ export type Video = {
   id: string;
   title: string;
   channel: string;
+  /** YouTube channel id; videos of one channel share it. */
+  channelId: string | null;
   summary: string;
   whyHn: string;
   type: string;

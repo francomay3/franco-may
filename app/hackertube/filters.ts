@@ -19,6 +19,7 @@ import type { Area, Video } from './types';
  * keep filtering from inside a closed section.
  */
 export type SeenFilter = 'all' | 'unseen' | 'seen';
+export type WatchLaterFilter = 'all' | 'only';
 
 export type FilterState = {
   areas: string[];
@@ -32,6 +33,8 @@ export type FilterState = {
   minMinutes: number | null;
   maxMinutes: number | null;
   seen: SeenFilter;
+  /** 'only' shows just what is in the watch-later playlist. */
+  watchLater: WatchLaterFilter;
   query: string;
   /**
    * What the result should NOT be about ("god, religion"). Next to a query it
@@ -69,6 +72,7 @@ export function emptyFilters(bounds: Bounds): FilterState {
     minMinutes: null,
     maxMinutes: null,
     seen: 'all',
+    watchLater: 'all',
     query: '',
     exclude: '',
     excludeStrength: DEFAULT_EXCLUDE_STRENGTH,
@@ -146,16 +150,20 @@ export function activeCount(s: FilterState, bounds: Bounds): number {
     (s.dateFrom || s.dateTo ? 1 : 0) +
     (s.minMinutes !== null || s.maxMinutes !== null ? 1 : 0) +
     (s.seen !== 'all' ? 1 : 0) +
+    (s.watchLater !== 'all' ? 1 : 0) +
     (s.query.trim() ? 1 : 0) +
     (s.exclude.trim() ? 1 : 0)
   );
 }
 
+const NO_WATCH_LATER: ReadonlyMap<string, number> = new Map();
+
 export function applyFilters(
   videos: Video[],
   s: FilterState,
   tax: Taxonomy,
-  seen: ReadonlySet<string>
+  seen: ReadonlySet<string>,
+  watchLater: ReadonlyMap<string, number> = NO_WATCH_LATER
 ): Video[] {
   const catOk = categoryMatcher(s, tax);
   const minSec = s.minMinutes === null ? null : s.minMinutes * 60;
@@ -182,6 +190,9 @@ export function applyFilters(
     if (s.seen === 'unseen' && seen.has(v.id)) {
       return false;
     }
+    if (s.watchLater === 'only' && !watchLater.has(v.id)) {
+      return false;
+    }
     return catOk(v.cats);
   });
 }
@@ -189,6 +200,7 @@ export function applyFilters(
 export type SortKey =
   | 'relevance'
   | 'best'
+  | 'added'
   | 'rating'
   | 'newest'
   | 'oldest'
@@ -199,7 +211,7 @@ export type SortKey =
 const NONE = -Infinity;
 
 const SORTS: Record<
-  Exclude<SortKey, 'relevance' | 'best'>,
+  Exclude<SortKey, 'relevance' | 'best' | 'added'>,
   (a: Video, b: Video) => number
 > = {
   rating: (a, b) => b.score - a.score,
@@ -272,12 +284,22 @@ export function sortVideos(
   key: SortKey,
   relevance: Float32Array | null,
   indexOf: ReadonlyMap<string, number>,
-  blend: number = DEFAULT_BLEND
+  blend: number = DEFAULT_BLEND,
+  addedAt: ReadonlyMap<string, number> = NO_WATCH_LATER
 ): Video[] {
   if (key === 'best' && relevance) {
     return bestMatch(videos, relevance, indexOf, blend);
   }
   const out = [...videos];
+  if (key === 'added') {
+    // Latest addition first; anything not in the playlist falls to the end,
+    // best rated first, so the order stays sensible without a watch-later.
+    return out.sort(
+      (a, b) =>
+        (addedAt.get(b.id) ?? -1) - (addedAt.get(a.id) ?? -1) ||
+        b.score - a.score
+    );
+  }
   if (key === 'relevance' && relevance) {
     return out.sort(
       (a, b) => relevance[indexOf.get(b.id)!] - relevance[indexOf.get(a.id)!]
@@ -292,6 +314,7 @@ const SEEN_VALUES: readonly SeenFilter[] = ['all', 'unseen', 'seen'];
 const SORT_KEYS: readonly SortKey[] = [
   'relevance',
   'best',
+  'added',
   'rating',
   'newest',
   'oldest',
@@ -374,6 +397,7 @@ export function restoreFilters(
     seen: SEEN_VALUES.includes(r.seen as SeenFilter)
       ? (r.seen as SeenFilter)
       : 'all',
+    watchLater: r.watchLater === 'only' ? 'only' : 'all',
     query: typeof r.query === 'string' ? r.query : '',
     exclude: typeof r.exclude === 'string' ? r.exclude : '',
     excludeStrength: unit(r.excludeStrength, DEFAULT_EXCLUDE_STRENGTH),
@@ -456,6 +480,9 @@ export function describeFilters(
   }
   if (s.seen !== 'all') {
     parts.push(s.seen === 'unseen' ? 'not seen' : 'seen');
+  }
+  if (s.watchLater === 'only') {
+    parts.push('watch later');
   }
   return parts.join(' · ');
 }

@@ -25,6 +25,7 @@ import {
   type SavedSearch,
   type SeenFilter,
   type SortKey,
+  type WatchLaterFilter,
   activeCount,
   describeFilters,
   sameFilters,
@@ -49,6 +50,8 @@ type Props = {
   excludeDraft: string;
   onExcludeDraft: (text: string) => void;
   sort: SortKey;
+  /** How many videos are in the watch-later playlist. */
+  watchLaterCount: number;
   searching: 'idle' | 'loading' | 'error';
   searches: SavedSearch[];
   onSaveSearch: (name: string) => void;
@@ -68,6 +71,7 @@ export function FilterPanel({
   excludeDraft,
   onExcludeDraft,
   sort,
+  watchLaterCount,
   searching,
   searches,
   onSaveSearch,
@@ -290,6 +294,20 @@ export function FilterPanel({
                 </div>
               )}
             </Stack>
+          </div>
+
+          <div>
+            <div className={styles.filterTitle}>Watch later</div>
+            <SegmentedControl
+              fullWidth
+              size="xs"
+              value={state.watchLater}
+              onChange={v => set({ watchLater: v as WatchLaterFilter })}
+              data={[
+                { value: 'all', label: 'All' },
+                { value: 'only', label: `In playlist (${watchLaterCount})` },
+              ]}
+            />
           </div>
 
           <div>

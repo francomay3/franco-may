@@ -12,6 +12,7 @@ import {
   toggleArea,
   toggleCategory,
 } from './filters';
+import { channelStats } from './channels';
 import { combineRelevance, excludeMask } from './search';
 import type { Video } from './types';
 
@@ -35,6 +36,7 @@ const video = (
   id,
   title: id,
   channel: 'c',
+  channelId: 'c1',
   summary: '',
   whyHn: '',
   type: 'talk',
@@ -256,5 +258,74 @@ describe('exclude without a query', () => {
   it('hides nothing at zero strength or without a negative query', () => {
     expect(excludeMask(Float32Array.from([1, 2, 3]), 0)).toBeNull();
     expect(excludeMask(null, 0.5)).toBeNull();
+  });
+});
+
+describe('watch later', () => {
+  const vs = [video('a', []), video('b', []), video('c', [])];
+  const f = emptyFilters(boundsOf(vs));
+  const later = new Map([
+    ['b', 100],
+    ['c', 200],
+  ]);
+
+  it('shows only the playlist when asked', () => {
+    const only = { ...f, watchLater: 'only' as const };
+    expect(ids(applyFilters(vs, only, tax, none, later))).toBe('bc');
+    expect(ids(applyFilters(vs, f, tax, none, later))).toBe('abc');
+  });
+
+  it('sorts the playlist by when each was added, newest first', () => {
+    const indexOf = new Map(vs.map((v, i) => [v.id, i]));
+    const out = sortVideos(vs, 'added', null, indexOf, 0.2, later);
+    expect(ids(out)).toBe('cba');
+  });
+
+  it('restores, counts and describes the filter', () => {
+    const b = boundsOf(vs);
+    const s = restoreFilters({ watchLater: 'only' }, b, tax);
+    expect(s.watchLater).toBe('only');
+    expect(restoreFilters({ watchLater: 'x' }, b, tax).watchLater).toBe('all');
+    expect(activeCount(s, b)).toBe(1);
+    expect(describeFilters(s, b, tax)).toBe('watch later');
+    expect(restoreSort('added', '')).toBe('added');
+  });
+});
+
+describe('channel stats', () => {
+  it('summarises what the dataset knows about a channel', () => {
+    const vs = [
+      video('a', ['x', 'y'], {
+        score: 10,
+        recommenders: 4,
+        views: 100,
+        published: '2012-05-01',
+      }),
+      video('b', ['x'], {
+        score: 2,
+        recommenders: 1,
+        views: 50,
+        published: '2020-01-01',
+      }),
+      video('c', ['z'], {
+        score: 6,
+        recommenders: 2,
+        views: null,
+        published: null,
+        channel: 'Other name',
+      }),
+    ];
+    const s = channelStats(vs);
+    expect(s).toMatchObject({
+      name: 'c',
+      videos: 3,
+      recommenders: 7,
+      bestRating: 10,
+      views: 150,
+      firstYear: 2012,
+      lastYear: 2020,
+    });
+    expect(s.avgRating).toBeCloseTo(6);
+    expect(s.topCategories[0]).toEqual({ id: 'x', count: 2 });
   });
 });

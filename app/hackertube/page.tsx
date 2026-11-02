@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { HackerTube } from './HackerTube';
+import { Browser } from './HackerTube';
 
 export const metadata: Metadata = {
   title: 'HackerTube',
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <HackerTube />;
+  return <Browser />;
 }
