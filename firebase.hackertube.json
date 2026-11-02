@@ -1,0 +1,4 @@
+{
+  "firestore": { "rules": "firestore.hackertube.rules" },
+  "storage": { "rules": "storage.hackertube.rules" }
+}

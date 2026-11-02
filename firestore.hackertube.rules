@@ -1,0 +1,25 @@
+rules_version = '2';
+
+// Deploy with:
+//   firebase deploy --only firestore:rules --config firebase.hackertube.json --project franco-may
+//
+// Deny by default. The only thing in this database is each person's own
+// /hackertube state, and only people on the list below can touch it. To add
+// someone, add their uid here AND in storage.hackertube.rules (their uid is
+// shown on the /hackertube sign-in screen) and redeploy.
+//
+// A uid is a name, not a key: it matches only a Firebase token Google signed
+// for that account.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function allowed() {
+      return request.auth != null
+        && request.auth.uid in ['KHFEjqRin4bwIg49qER0gMz0Rvi1'];
+    }
+
+    // One document per person: { seen: { <videoId>: <millis> } }.
+    match /ht_users/{uid} {
+      allow read, write: if allowed() && request.auth.uid == uid;
+    }
+  }
+}

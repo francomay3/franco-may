@@ -1,0 +1,32 @@
+rules_version = '2';
+
+// Deploy with:
+//   firebase deploy --only storage --config firebase.hackertube.json --project franco-may
+//
+// hackertube/ holds the merged video table and embeddings. They contain
+// YouTube API data, which may not be redistributed, so only the uids below
+// can read them. Nobody can write from a client: the files are uploaded with
+// gsutil (scripts/hackertube/publish.sh), which bypasses these rules.
+//
+// Download URLs bypass rules too, so the page reads with getBytes and nothing
+// may mint a URL for these files.
+//
+// images/ was already in the bucket and stays readable as it was.
+service firebase.storage {
+  match /b/{bucket}/o {
+    function allowed() {
+      return request.auth != null
+        && request.auth.uid in ['KHFEjqRin4bwIg49qER0gMz0Rvi1'];
+    }
+
+    match /hackertube/{file} {
+      allow read: if allowed();
+    }
+
+    match /images/{file=**} {
+      allow read;
+      allow write: if request.auth != null
+        && request.auth.uid == 'KHFEjqRin4bwIg49qER0gMz0Rvi1';
+    }
+  }
+}
