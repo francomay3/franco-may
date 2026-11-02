@@ -26,6 +26,7 @@
 }
 
 .brand {
+  flex-shrink: 0;
   font-weight: 700;
   font-size: 1.15rem;
   letter-spacing: -0.01em;
@@ -33,6 +34,18 @@
 
 .brand span {
   color: #ff6600;
+}
+
+.headerCount {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The same count and sort live in the header on desktop and above the list
+   on small screens, where the header only has room for the essentials. */
+.toolbar {
+  display: none;
 }
 
 .layout {
@@ -243,6 +256,28 @@
 }
 
 @media (max-width: 960px) {
+  .header {
+    padding: 0 12px;
+    gap: 10px;
+  }
+
+  .brand {
+    margin-right: auto;
+  }
+
+  .headerCount,
+  .headerSort {
+    display: none;
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
   .layout {
     grid-template-columns: minmax(0, 1fr);
   }

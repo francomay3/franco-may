@@ -8,10 +8,12 @@ import React, {
   useState,
 } from 'react';
 import {
+  ActionIcon,
   Alert,
   Avatar,
   Button,
   Drawer,
+  Indicator,
   Loader,
   Menu,
   Select,
@@ -44,6 +46,7 @@ import {
   type SavedSearch,
   type SortKey,
   Taxonomy,
+  activeCount,
   applyFilters,
   boundsOf,
   emptyFilters,
@@ -478,35 +481,55 @@ function Browser({
     .filter(k => k !== 'relevance' || sims || sort === 'relevance')
     .map(k => ({ value: k, label: SORT_LABELS[k] }));
 
+  const summary = `${sorted.length.toLocaleString()} of ${data.videos.length.toLocaleString()} videos · ${seen.size} seen`;
+  const active = activeCount(filters, bounds);
+  const shortSummary = `${sorted.length.toLocaleString()} of ${data.videos.length.toLocaleString()} · ${seen.size} seen`;
+
+  const sortSelect = (
+    <Select
+      size="xs"
+      w={150}
+      allowDeselect={false}
+      value={sort}
+      onChange={v => v && setSort(v as SortKey)}
+      data={sortOptions}
+      aria-label="Sort"
+    />
+  );
+
   return (
     <div className={styles.shell}>
       <header className={styles.header}>
         <div className={styles.brand}>
           Hacker<span>Tube</span>
         </div>
-        <Text size="sm" c="dimmed" style={{ flex: 1 }}>
-          {sorted.length.toLocaleString()} of{' '}
-          {data.videos.length.toLocaleString()} videos · {seen.size} seen
+        <Text
+          size="sm"
+          c="dimmed"
+          className={styles.headerCount}
+          style={{ flex: 1 }}
+        >
+          {summary}
         </Text>
+        <div className={styles.headerSort}>{sortSelect}</div>
         {narrow && (
-          <Button
-            variant="default"
-            size="xs"
-            leftSection={<IconAdjustments size={16} />}
-            onClick={drawer.open}
+          <Indicator
+            label={active}
+            size={16}
+            color="orange"
+            disabled={active === 0}
+            offset={4}
           >
-            Filters
-          </Button>
+            <ActionIcon
+              variant="default"
+              size="lg"
+              aria-label="Filters"
+              onClick={drawer.open}
+            >
+              <IconAdjustments size={18} />
+            </ActionIcon>
+          </Indicator>
         )}
-        <Select
-          size="xs"
-          w={150}
-          allowDeselect={false}
-          value={sort}
-          onChange={v => v && setSort(v as SortKey)}
-          data={sortOptions}
-          aria-label="Sort"
-        />
         <Menu position="bottom-end" withArrow>
           <Menu.Target>
             <Avatar
@@ -535,6 +558,13 @@ function Browser({
         <aside className={styles.aside}>{panel}</aside>
 
         <main className={styles.main}>
+          <div className={styles.toolbar}>
+            <Text size="sm" c="dimmed" style={{ whiteSpace: 'nowrap' }}>
+              {shortSummary}
+            </Text>
+            {sortSelect}
+          </div>
+
           {failure && (
             <Alert
               color="red"
