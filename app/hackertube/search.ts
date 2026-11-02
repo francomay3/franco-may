@@ -56,3 +56,56 @@ export function similarities(
   }
   return sims;
 }
+
+function zscores(values: Float32Array): Float32Array {
+  const n = values.length;
+  let mean = 0;
+  for (let i = 0; i < n; i++) {
+    mean += values[i];
+  }
+  mean /= n;
+  let variance = 0;
+  for (let i = 0; i < n; i++) {
+    variance += (values[i] - mean) ** 2;
+  }
+  const sd = Math.sqrt(variance / n) || 1;
+  const out = new Float32Array(n);
+  for (let i = 0; i < n; i++) {
+    out[i] = (values[i] - mean) / sd;
+  }
+  return out;
+}
+
+/**
+ * The positive query's similarity, pulled down where a video is unusually
+ * close to the negative one.
+ *
+ * Raw similarities are no good for subtracting: this model scores everything
+ * in a narrow, high band, so "close to the negative query" would mostly mean
+ * "close to anything". Both are put in standard deviations from the typical
+ * video first, and only videos MORE related to the negative query than
+ * average are penalised -- being unrelated to it earns no bonus. `strength`
+ * is 0..1 and maps onto a penalty of `strength * 2` per standard deviation,
+ * so the default 0.5 takes one standard deviation of relevance off for every
+ * standard deviation a video sits above average closeness to the negative.
+ */
+export function combineRelevance(
+  positive: Float32Array | null,
+  negative: Float32Array | null,
+  strength: number
+): Float32Array | null {
+  if (!positive) {
+    return null;
+  }
+  if (!negative || strength <= 0) {
+    return positive;
+  }
+  const zPos = zscores(positive);
+  const zNeg = zscores(negative);
+  const alpha = strength * 2;
+  const out = new Float32Array(positive.length);
+  for (let i = 0; i < out.length; i++) {
+    out[i] = zPos[i] - alpha * Math.max(0, zNeg[i]);
+  }
+  return out;
+}

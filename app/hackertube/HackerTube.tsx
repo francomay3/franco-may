@@ -55,7 +55,7 @@ import {
   sortVideos,
 } from './filters';
 import styles from './hackertube.module.css';
-import { embedQuery, similarities } from './search';
+import { combineRelevance, embedQuery, similarities } from './search';
 import {
   deleteSearch,
   loadUserData,
@@ -222,6 +222,7 @@ export function HackerTube() {
 }
 
 const SORT_LABELS: Record<SortKey, string> = {
+  best: 'Best match',
   relevance: 'Most relevant',
   rating: 'Highest rated',
   newest: 'Newest',
@@ -289,47 +290,67 @@ function Browser({
 
   // ---- semantic search -------------------------------------------------
   const [draft, setDraft] = useState(stored.filters.query);
+  const [excludeDraft, setExcludeDraft] = useState(stored.filters.exclude);
   const [debounced] = useDebouncedValue(draft.trim(), 450);
-  const [sims, setSims] = useState<Float32Array | null>(null);
+  const [debouncedExclude] = useDebouncedValue(excludeDraft.trim(), 450);
+  const [simsPos, setSimsPos] = useState<Float32Array | null>(null);
+  const [simsNeg, setSimsNeg] = useState<Float32Array | null>(null);
   const [searching, setSearching] = useState<'idle' | 'loading' | 'error'>(
     'idle'
   );
   const latest = useRef(0);
-  // A query that arrives with its own sort (restored, or from a saved search)
-  // must not be overridden by "a new query sorts by relevance".
-  const keepSort = useRef(
-    !!stored.filters.query.trim() && stored.sort !== 'relevance'
-  );
+  const lastQuery = useRef(debounced);
+  // A query that arrives with its own sort (a saved search) must not be
+  // overridden by "a new query sorts by best match".
+  const keepSort = useRef(false);
 
   useEffect(() => {
-    setFilters(f => (f.query === debounced ? f : { ...f, query: debounced }));
+    setFilters(f =>
+      f.query === debounced && f.exclude === debouncedExclude
+        ? f
+        : { ...f, query: debounced, exclude: debouncedExclude }
+    );
+    // Only a changed query picks a sort for you. Editing the exclude text, or
+    // the page loading with a restored query, leaves your sort alone.
+    const queryChanged = debounced !== lastQuery.current;
+    lastQuery.current = debounced;
+
     const run = ++latest.current;
     if (!debounced) {
-      setSims(null);
+      setSimsPos(null);
+      setSimsNeg(null);
       setSearching('idle');
-      setSort(s => (s === 'relevance' ? 'rating' : s));
+      setSort(s => (s === 'relevance' || s === 'best' ? 'rating' : s));
       return;
     }
     setSearching('loading');
-    embedQuery(debounced)
-      .then(q => {
+    Promise.all([
+      embedQuery(debounced),
+      debouncedExclude ? embedQuery(debouncedExclude) : Promise.resolve(null),
+    ])
+      .then(([pos, neg]) => {
         if (run !== latest.current) {
           return;
         }
-        setSims(similarities(q, data.embeddings));
+        setSimsPos(similarities(pos, data.embeddings));
+        setSimsNeg(neg ? similarities(neg, data.embeddings) : null);
         setSearching('idle');
-        if (keepSort.current) {
-          keepSort.current = false;
-        } else {
-          setSort('relevance');
+        if (queryChanged && !keepSort.current) {
+          setSort('best');
         }
+        keepSort.current = false;
       })
       .catch(() => {
         if (run === latest.current) {
           setSearching('error');
         }
       });
-  }, [debounced, data.embeddings]);
+  }, [debounced, debouncedExclude, data.embeddings]);
+
+  const relevance = useMemo(
+    () => combineRelevance(simsPos, simsNeg, filters.excludeStrength),
+    [simsPos, simsNeg, filters.excludeStrength]
+  );
 
   // ---- seen ------------------------------------------------------------
   const mark = useCallback(
@@ -367,8 +388,8 @@ function Browser({
   // ---- the list --------------------------------------------------------
   const sorted = useMemo(() => {
     const filtered = applyFilters(data.videos, filters, taxonomy, seen);
-    return sortVideos(filtered, sort, sims, indexOf);
-  }, [data.videos, filters, taxonomy, seen, sort, sims, indexOf]);
+    return sortVideos(filtered, sort, relevance, indexOf, filters.blend);
+  }, [data.videos, filters, taxonomy, seen, sort, relevance, indexOf]);
 
   // Back to the top of the list whenever what it holds changes.
   useEffect(() => {
@@ -396,6 +417,7 @@ function Browser({
   const resetFilters = () => {
     setFilters(emptyFilters(bounds));
     setDraft('');
+    setExcludeDraft('');
   };
 
   // Remember the selection on this device.
@@ -420,7 +442,7 @@ function Browser({
       id: existing?.id ?? crypto.randomUUID(),
       name,
       // filters.query lags the box by the debounce; save what is on screen.
-      filters: { ...filters, query },
+      filters: { ...filters, query, exclude: excludeDraft.trim() },
       sort,
       createdAt: Date.now(),
     };
@@ -435,12 +457,14 @@ function Browser({
   const onApplySearch = (search: SavedSearch) => {
     const query = search.filters.query.trim();
     if (query !== debounced) {
-      // Stale similarities belong to the old query.
-      setSims(null);
-      keepSort.current = !!query && search.sort !== 'relevance';
+      // Stale similarities belong to the old query; the saved sort wins.
+      setSimsPos(null);
+      setSimsNeg(null);
+      keepSort.current = !!query;
     }
     setFilters(search.filters);
     setDraft(search.filters.query);
+    setExcludeDraft(search.filters.exclude);
     setSort(search.sort);
     drawer.close();
   };
@@ -469,6 +493,9 @@ function Browser({
       videos={data.videos}
       queryDraft={draft}
       onQueryDraft={setDraft}
+      excludeDraft={excludeDraft}
+      onExcludeDraft={setExcludeDraft}
+      sort={sort}
       searching={searching}
       searches={searches}
       onSaveSearch={onSaveSearch}
@@ -478,7 +505,7 @@ function Browser({
   );
 
   const sortOptions = (Object.keys(SORT_LABELS) as SortKey[])
-    .filter(k => k !== 'relevance' || sims || sort === 'relevance')
+    .filter(k => (k !== 'relevance' && k !== 'best') || relevance || sort === k)
     .map(k => ({ value: k, label: SORT_LABELS[k] }));
 
   const summary = `${sorted.length.toLocaleString()} of ${data.videos.length.toLocaleString()} videos · ${seen.size} seen`;

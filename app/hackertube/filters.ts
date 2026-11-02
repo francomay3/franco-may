@@ -33,7 +33,19 @@ export type FilterState = {
   maxMinutes: number | null;
   seen: SeenFilter;
   query: string;
+  /**
+   * What the result should NOT be about ("god, religion"). Only means anything
+   * next to a query: it pulls matches down in the ranking, it does not filter.
+   */
+  exclude: string;
+  /** 0..1, how hard `exclude` pulls down. */
+  excludeStrength: number;
+  /** 0..1, the rating's share in "Best match"; the rest is relevance. */
+  blend: number;
 };
+
+export const DEFAULT_EXCLUDE_STRENGTH = 0.25;
+export const DEFAULT_BLEND = 0.2;
 
 export type Bounds = { score: [number, number] };
 
@@ -58,6 +70,9 @@ export function emptyFilters(bounds: Bounds): FilterState {
     maxMinutes: null,
     seen: 'all',
     query: '',
+    exclude: '',
+    excludeStrength: DEFAULT_EXCLUDE_STRENGTH,
+    blend: DEFAULT_BLEND,
   };
 }
 
@@ -131,7 +146,8 @@ export function activeCount(s: FilterState, bounds: Bounds): number {
     (s.dateFrom || s.dateTo ? 1 : 0) +
     (s.minMinutes !== null || s.maxMinutes !== null ? 1 : 0) +
     (s.seen !== 'all' ? 1 : 0) +
-    (s.query.trim() ? 1 : 0)
+    (s.query.trim() ? 1 : 0) +
+    (s.query.trim() && s.exclude.trim() ? 1 : 0)
   );
 }
 
@@ -172,6 +188,7 @@ export function applyFilters(
 
 export type SortKey =
   | 'relevance'
+  | 'best'
   | 'rating'
   | 'newest'
   | 'oldest'
@@ -182,7 +199,7 @@ export type SortKey =
 const NONE = -Infinity;
 
 const SORTS: Record<
-  Exclude<SortKey, 'relevance'>,
+  Exclude<SortKey, 'relevance' | 'best'>,
   (a: Video, b: Video) => number
 > = {
   rating: (a, b) => b.score - a.score,
@@ -193,28 +210,88 @@ const SORTS: Record<
   shortest: (a, b) => (a.duration ?? Infinity) - (b.duration ?? Infinity),
 };
 
+/** How many top matches "Best match" reorders by rating. */
+const POOL = 100;
+
 /**
- * `similarity` is indexed like the full video list, which is why it is looked
- * up by the video's position in it rather than in the filtered array.
+ * Relevance and rating on one scale, without letting either swamp the other.
+ *
+ * They cannot be added raw: similarity sits in a narrow band while rating runs
+ * 0-25 and a quarter of videos are 0. So both become percentile ranks (0-1)
+ * and are blended. Only the top POOL by relevance are reordered; the rest
+ * follow in relevance order, so a rating-25 video that barely relates to the
+ * query can never outrank one that is exactly on topic.
+ */
+function bestMatch(
+  videos: Video[],
+  relevance: Float32Array,
+  indexOf: ReadonlyMap<string, number>,
+  blend: number
+): Video[] {
+  const byRelevance = [...videos].sort(
+    (a, b) => relevance[indexOf.get(b.id)!] - relevance[indexOf.get(a.id)!]
+  );
+  const pool = byRelevance.slice(0, POOL);
+  const n = pool.length;
+  if (n < 2) {
+    return byRelevance;
+  }
+
+  // Rating percentile within the pool; equal ratings share their mean rank.
+  const byScore = [...pool].sort((a, b) => a.score - b.score);
+  const scoreRank = new Map<string, number>();
+  for (let i = 0; i < n; ) {
+    let j = i;
+    while (j + 1 < n && byScore[j + 1].score === byScore[i].score) {
+      j++;
+    }
+    const rank = (i + j) / 2 / (n - 1);
+    for (let k = i; k <= j; k++) {
+      scoreRank.set(byScore[k].id, rank);
+    }
+    i = j + 1;
+  }
+
+  const final = new Map(
+    pool.map((v, i) => [
+      v.id,
+      (1 - blend) * (1 - i / (n - 1)) + blend * scoreRank.get(v.id)!,
+    ])
+  );
+  pool.sort((a, b) => final.get(b.id)! - final.get(a.id)!);
+  return [...pool, ...byRelevance.slice(POOL)];
+}
+
+/**
+ * `relevance` is indexed like the full video list, which is why it is looked
+ * up by the video's position in it rather than in the filtered array. Without
+ * it (no query, or still computing) both query sorts fall back to rating.
  */
 export function sortVideos(
   videos: Video[],
   key: SortKey,
-  similarity: Float32Array | null,
-  indexOf: ReadonlyMap<string, number>
+  relevance: Float32Array | null,
+  indexOf: ReadonlyMap<string, number>,
+  blend: number = DEFAULT_BLEND
 ): Video[] {
+  if (key === 'best' && relevance) {
+    return bestMatch(videos, relevance, indexOf, blend);
+  }
   const out = [...videos];
-  if (key === 'relevance' && similarity) {
+  if (key === 'relevance' && relevance) {
     return out.sort(
-      (a, b) => similarity[indexOf.get(b.id)!] - similarity[indexOf.get(a.id)!]
+      (a, b) => relevance[indexOf.get(b.id)!] - relevance[indexOf.get(a.id)!]
     );
   }
-  return out.sort(SORTS[key === 'relevance' ? 'rating' : key]);
+  return out.sort(
+    SORTS[key === 'relevance' || key === 'best' ? 'rating' : key]
+  );
 }
 
 const SEEN_VALUES: readonly SeenFilter[] = ['all', 'unseen', 'seen'];
 const SORT_KEYS: readonly SortKey[] = [
   'relevance',
+  'best',
   'rating',
   'newest',
   'oldest',
@@ -234,6 +311,11 @@ export type SavedSearch = {
 
 const num = (x: unknown): number | null =>
   typeof x === 'number' && Number.isFinite(x) && x >= 0 ? x : null;
+
+const unit = (x: unknown, fallback: number): number =>
+  typeof x === 'number' && Number.isFinite(x)
+    ? Math.min(1, Math.max(0, x))
+    : fallback;
 
 const strings = (x: unknown): string[] =>
   Array.isArray(x) ? x.filter((i): i is string => typeof i === 'string') : [];
@@ -293,13 +375,18 @@ export function restoreFilters(
       ? (r.seen as SeenFilter)
       : 'all',
     query: typeof r.query === 'string' ? r.query : '',
+    exclude: typeof r.exclude === 'string' ? r.exclude : '',
+    excludeStrength: unit(r.excludeStrength, DEFAULT_EXCLUDE_STRENGTH),
+    blend: unit(r.blend, DEFAULT_BLEND),
   };
 }
 
 export function restoreSort(raw: unknown, query: string): SortKey {
   const key = SORT_KEYS.includes(raw as SortKey) ? (raw as SortKey) : 'rating';
-  // Relevance only means something while there is a query to be relevant to.
-  return key === 'relevance' && !query.trim() ? 'rating' : key;
+  // Both only mean something while there is a query to be relevant to.
+  return (key === 'relevance' || key === 'best') && !query.trim()
+    ? 'rating'
+    : key;
 }
 
 export function restoreSearch(
@@ -339,6 +426,9 @@ export function describeFilters(
   const parts: string[] = [];
   if (s.query.trim()) {
     parts.push(`“${s.query.trim()}”`);
+  }
+  if (s.query.trim() && s.exclude.trim()) {
+    parts.push(`not “${s.exclude.trim()}”`);
   }
   if (s.areas.length) {
     const names = s.areas

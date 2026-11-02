@@ -1,5 +1,6 @@
 import {
   Taxonomy,
+  activeCount,
   applyFilters,
   boundsOf,
   describeFilters,
@@ -7,9 +8,11 @@ import {
   restoreFilters,
   restoreSort,
   sameFilters,
+  sortVideos,
   toggleArea,
   toggleCategory,
 } from './filters';
+import { combineRelevance } from './search';
 import type { Video } from './types';
 
 const tax = new Taxonomy([
@@ -172,5 +175,69 @@ describe('restoring stored state', () => {
       seen: 'unseen' as const,
     };
     expect(describeFilters(s, bounds, tax)).toBe('“proofs” · Math · not seen');
+  });
+});
+
+describe('best match', () => {
+  // 400 videos; index i has relevance 400 - i, so v0 is the most relevant.
+  const many = Array.from({ length: 400 }, (_, i) =>
+    video(`v${i}`, [], { score: i === 350 ? 25 : i % 5 })
+  );
+  const indexOf = new Map(many.map((v, i) => [v.id, i]));
+  const relevance = Float32Array.from(many, (_, i) => 400 - i);
+  const order = (blend: number) =>
+    sortVideos(many, 'best', relevance, indexOf, blend).map(v => v.id);
+
+  it('is pure relevance when the rating has no weight', () => {
+    expect(order(0).slice(0, 3)).toEqual(['v0', 'v1', 'v2']);
+  });
+
+  it('lets rating lift a close match above a closer, lower-rated one', () => {
+    const ids = order(1);
+    // v4 has rating 4 (the pool's best apart from v350, which is out of it).
+    expect(ids.indexOf('v4')).toBeLessThan(ids.indexOf('v0'));
+  });
+
+  it('never lifts a video from outside the top of the pool', () => {
+    // v350 has the highest rating of all but is not among the top of the pool.
+    expect(order(1).indexOf('v350')).toBeGreaterThanOrEqual(100);
+  });
+
+  it('falls back to rating without relevance scores', () => {
+    const ids = sortVideos(many, 'best', null, indexOf).map(v => v.id);
+    expect(ids[0]).toBe('v350');
+  });
+});
+
+describe('exclude', () => {
+  it('pulls down videos unusually close to the negative query', () => {
+    const pos = Float32Array.from([4, 3, 2, 1, 0]);
+    const neg = Float32Array.from([9, 0, 0, 0, 0]);
+    const out = combineRelevance(pos, neg, 0.5)!;
+    const top = out.indexOf(Math.max(...out));
+    // The best positive match is also the one about the excluded topic.
+    expect(top).toBe(1);
+  });
+
+  it('leaves the ranking alone with no negative query or no strength', () => {
+    const pos = Float32Array.from([1, 2, 3]);
+    expect(combineRelevance(pos, null, 0.5)).toBe(pos);
+    expect(combineRelevance(pos, Float32Array.from([9, 0, 0]), 0)).toBe(pos);
+    expect(combineRelevance(null, pos, 0.5)).toBeNull();
+  });
+
+  it('only counts as active next to a query, and restores safely', () => {
+    const b = boundsOf(videos);
+    expect(activeCount({ ...empty, exclude: 'god' }, b)).toBe(0);
+    expect(activeCount({ ...empty, query: 'x', exclude: 'god' }, b)).toBe(2);
+    const s = restoreFilters(
+      { exclude: 5, excludeStrength: 9, blend: -1 },
+      b,
+      tax
+    );
+    expect(s).toMatchObject({ exclude: '', excludeStrength: 1, blend: 0 });
+    expect(restoreFilters({}, b, tax)).toEqual(empty);
+    expect(restoreSort('best', '')).toBe('rating');
+    expect(restoreSort('best', 'x')).toBe('best');
   });
 });

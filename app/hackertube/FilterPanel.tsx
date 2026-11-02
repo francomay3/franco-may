@@ -8,6 +8,7 @@ import {
   NumberInput,
   RangeSlider,
   SegmentedControl,
+  Slider,
   Stack,
   Text,
   TextInput,
@@ -23,6 +24,7 @@ import {
   type FilterState,
   type SavedSearch,
   type SeenFilter,
+  type SortKey,
   activeCount,
   describeFilters,
   sameFilters,
@@ -43,6 +45,10 @@ type Props = {
   /** Draft text of the query box; applied with a debounce by the parent. */
   queryDraft: string;
   onQueryDraft: (text: string) => void;
+  /** Draft text of the exclude box, same debounce as the query. */
+  excludeDraft: string;
+  onExcludeDraft: (text: string) => void;
+  sort: SortKey;
   searching: 'idle' | 'loading' | 'error';
   searches: SavedSearch[];
   onSaveSearch: (name: string) => void;
@@ -59,6 +65,9 @@ export function FilterPanel({
   videos,
   queryDraft,
   onQueryDraft,
+  excludeDraft,
+  onExcludeDraft,
+  sort,
   searching,
   searches,
   onSaveSearch,
@@ -216,6 +225,65 @@ export function FilterPanel({
               <Text size="xs" c="dimmed" mt={4}>
                 Loading the search model (first time only, ~35 MB)…
               </Text>
+            )}
+
+            {/* Both extras only mean something next to a query. */}
+            {queryDraft.trim() && (
+              <Stack gap="xs" mt="sm">
+                <TextInput
+                  size="xs"
+                  label="Exclude"
+                  description="Name the topic, not a negation: god, religion"
+                  placeholder="Videos about this rank lower"
+                  value={excludeDraft}
+                  onChange={e => onExcludeDraft(e.currentTarget.value)}
+                  rightSection={
+                    excludeDraft ? (
+                      <IconX
+                        size={14}
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => onExcludeDraft('')}
+                      />
+                    ) : null
+                  }
+                />
+                {excludeDraft.trim() && (
+                  <div>
+                    <Text size="xs" c="dimmed">
+                      Exclude strength ·{' '}
+                      {Math.round(state.excludeStrength * 100)}%
+                    </Text>
+                    <Slider
+                      size="sm"
+                      color="orange"
+                      min={0}
+                      max={100}
+                      step={5}
+                      value={Math.round(state.excludeStrength * 100)}
+                      onChange={v => set({ excludeStrength: v / 100 })}
+                      label={null}
+                    />
+                  </div>
+                )}
+                {sort === 'best' && (
+                  <div>
+                    <Text size="xs" c="dimmed">
+                      {Math.round((1 - state.blend) * 100)}% relevance ·{' '}
+                      {Math.round(state.blend * 100)}% rating
+                    </Text>
+                    <Slider
+                      size="sm"
+                      color="orange"
+                      min={0}
+                      max={100}
+                      step={5}
+                      value={Math.round(state.blend * 100)}
+                      onChange={v => set({ blend: v / 100 })}
+                      label={null}
+                    />
+                  </div>
+                )}
+              </Stack>
             )}
           </div>
 
@@ -379,6 +447,7 @@ export function FilterPanel({
           <Stack gap="sm">
             <TextInput
               data-autofocus
+              onFocus={e => e.currentTarget.select()}
               label="Name"
               placeholder="e.g. Short compiler talks"
               value={name}
