@@ -1,17 +1,8 @@
 import React, { memo } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ActionIcon, Badge, Group, Text, Tooltip } from '@mantine/core';
-import {
-  IconBookmark,
-  IconBookmarkFilled,
-  IconMail,
-  IconMailOpened,
-  IconThumbDown,
-  IconThumbDownFilled,
-  IconThumbUp,
-  IconThumbUpFilled,
-} from '@tabler/icons-react';
+import { Badge, Group, Text } from '@mantine/core';
+import { IconThumbUp } from '@tabler/icons-react';
 import { channelHref, videoHref } from './channels';
 import {
   formatCount,
@@ -21,6 +12,7 @@ import {
   uploaderThumb,
 } from './format';
 import styles from './hackertube.module.css';
+import { ReactionButtons } from './ReactionButtons';
 import type { Reaction } from './seen';
 import type { Video } from './types';
 
@@ -141,78 +133,14 @@ function VideoRowImpl({
           {video.score}
           <small>rating</small>
         </div>
-        <Group gap={2} justify="flex-end" data-noopen>
-          <Tooltip label={reaction === 'like' ? 'Unlike' : 'Like'} withArrow>
-            <ActionIcon
-              variant="subtle"
-              color={reaction === 'like' ? 'orange' : 'gray'}
-              aria-label={reaction === 'like' ? 'Unlike' : 'Like'}
-              onClick={() =>
-                onReact(video.id, reaction === 'like' ? null : 'like')
-              }
-            >
-              {reaction === 'like' ? (
-                <IconThumbUpFilled size={18} />
-              ) : (
-                <IconThumbUp size={18} />
-              )}
-            </ActionIcon>
-          </Tooltip>
-          <Tooltip
-            label={
-              reaction === 'dislike' ? 'Undo not interested' : 'Not interested'
-            }
-            withArrow
-          >
-            <ActionIcon
-              variant="subtle"
-              color={reaction === 'dislike' ? 'red' : 'gray'}
-              aria-label={
-                reaction === 'dislike'
-                  ? 'Undo not interested'
-                  : 'Not interested'
-              }
-              onClick={() =>
-                onReact(video.id, reaction === 'dislike' ? null : 'dislike')
-              }
-            >
-              {reaction === 'dislike' ? (
-                <IconThumbDownFilled size={18} />
-              ) : (
-                <IconThumbDown size={18} />
-              )}
-            </ActionIcon>
-          </Tooltip>
-          <Tooltip
-            label={watchLater ? 'Remove from watch later' : 'Watch later'}
-            withArrow
-          >
-            <ActionIcon
-              variant="subtle"
-              color={watchLater ? 'orange' : 'gray'}
-              aria-label={
-                watchLater ? 'Remove from watch later' : 'Add to watch later'
-              }
-              onClick={() => onToggleWatchLater(video.id, !watchLater)}
-            >
-              {watchLater ? (
-                <IconBookmarkFilled size={18} />
-              ) : (
-                <IconBookmark size={18} />
-              )}
-            </ActionIcon>
-          </Tooltip>
-          <Tooltip label={seen ? 'Mark as not seen' : 'Mark as seen'} withArrow>
-            <ActionIcon
-              variant="subtle"
-              color={seen ? 'gray' : 'orange'}
-              aria-label={seen ? 'Mark as not seen' : 'Mark as seen'}
-              onClick={() => onToggleSeen(video.id, !seen)}
-            >
-              {seen ? <IconMailOpened size={18} /> : <IconMail size={18} />}
-            </ActionIcon>
-          </Tooltip>
-        </Group>
+        <ReactionButtons
+          reaction={reaction}
+          onReact={r => onReact(video.id, r)}
+          watchLater={watchLater}
+          onToggleWatchLater={on => onToggleWatchLater(video.id, on)}
+          seen={seen}
+          onToggleSeen={v => onToggleSeen(video.id, v)}
+        />
         <Text size="xs" c="dimmed">
           {seen ? 'seen' : 'new'}
         </Text>
