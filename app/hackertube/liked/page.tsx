@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { LikedPage } from '../LikedPage';
+import { LikedPage } from '../MyVideos';
 
 export const metadata: Metadata = {
   title: 'Liked · HackerTube',

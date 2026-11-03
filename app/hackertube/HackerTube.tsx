@@ -109,12 +109,27 @@ export function Browser() {
 
   const [stored] = useState(() => readStored(user.uid, bounds, taxonomy));
   const [restored] = useState(() => readList(user.uid));
+  // The account menu links here with ?tab=saved to land on the saved searches.
+  const [initialView] = useState<'filters' | 'saved'>(() =>
+    new URLSearchParams(window.location.search).get('tab') === 'saved'
+      ? 'saved'
+      : 'filters'
+  );
   const [filters, setFilters] = useState<FilterState>(stored.filters);
   const [sort, setSort] = useState<SortKey>(stored.sort);
   const [visible, setVisible] = useState(restored?.visible ?? PAGE);
   const [drawerOpen, drawer] = useDisclosure(false);
   const narrow = useMediaQuery('(max-width: 960px)');
   const sortBeforePlaylist = useRef<SortKey>('rating');
+
+  // On a narrow screen the panel is a drawer, so open it on that tab too.
+  const drawerShown = useRef(false);
+  useEffect(() => {
+    if (initialView === 'saved' && narrow && !drawerShown.current) {
+      drawerShown.current = true;
+      drawer.open();
+    }
+  }, [initialView, narrow, drawer]);
 
   // ---- semantic search -------------------------------------------------
   const [draft, setDraft] = useState(stored.filters.query);
@@ -371,6 +386,7 @@ export function Browser() {
       onSaveSearch={onSaveSearch}
       onApplySearch={onApplySearch}
       onDeleteSearch={onDeleteSearch}
+      initialView={initialView}
     />
   );
 

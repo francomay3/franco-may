@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Avatar, Menu } from '@mantine/core';
-import { IconLogout } from '@tabler/icons-react';
+import { IconBookmark, IconBookmarks, IconLogout } from '@tabler/icons-react';
 import { signOut, type User } from 'firebase/auth';
 import { auth } from './firebase';
 import styles from './hackertube.module.css';
@@ -12,6 +12,8 @@ import styles from './hackertube.module.css';
 export const LIST_HREF = '/hackertube';
 export const ADVANCED_HREF = '/hackertube/search';
 export const LIKED_HREF = '/hackertube/liked';
+export const WATCH_LATER_HREF = '/hackertube/watch-later';
+export const SAVED_SEARCHES_HREF = '/hackertube/search?tab=saved';
 
 export function BrandLink() {
   return (
@@ -41,6 +43,21 @@ export function UserMenu({ user }: { user: User }) {
       </Menu.Target>
       <Menu.Dropdown>
         <Menu.Label>{user.email}</Menu.Label>
+        <Menu.Item
+          component={Link}
+          href={WATCH_LATER_HREF}
+          leftSection={<IconBookmark size={14} />}
+        >
+          Watch later
+        </Menu.Item>
+        <Menu.Item
+          component={Link}
+          href={SAVED_SEARCHES_HREF}
+          leftSection={<IconBookmarks size={14} />}
+        >
+          Saved searches
+        </Menu.Item>
+        <Menu.Divider />
         <Menu.Item
           leftSection={<IconLogout size={14} />}
           onClick={() => signOut(auth)}

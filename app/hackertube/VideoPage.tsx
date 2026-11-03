@@ -161,10 +161,89 @@ export function VideoPage() {
             </div>
           )}
         </div>
-        <Text size="xs" c="dimmed" mt={6}>
-          Space play/pause · ← → seek · ↑ ↓ volume · &lt; &gt; speed · F
-          fullscreen · M mute
-        </Text>
+        <Group gap={6} wrap="nowrap" mt="sm">
+          <Tooltip label={reaction === 'like' ? 'Unlike' : 'Like'} withArrow>
+            <ActionIcon
+              size="xl"
+              radius="md"
+              color="orange"
+              variant={reaction === 'like' ? 'filled' : 'light'}
+              aria-label={reaction === 'like' ? 'Unlike' : 'Like'}
+              onClick={() =>
+                react(video.id, reaction === 'like' ? null : 'like')
+              }
+            >
+              {reaction === 'like' ? (
+                <IconThumbUpFilled size={22} />
+              ) : (
+                <IconThumbUp size={22} />
+              )}
+            </ActionIcon>
+          </Tooltip>
+          <Tooltip
+            label={
+              reaction === 'dislike' ? 'Undo not interested' : 'Not interested'
+            }
+            withArrow
+          >
+            <ActionIcon
+              size="xl"
+              radius="md"
+              color="red"
+              variant={reaction === 'dislike' ? 'filled' : 'light'}
+              aria-label={
+                reaction === 'dislike'
+                  ? 'Undo not interested'
+                  : 'Not interested'
+              }
+              onClick={() =>
+                react(video.id, reaction === 'dislike' ? null : 'dislike')
+              }
+            >
+              {reaction === 'dislike' ? (
+                <IconThumbDownFilled size={22} />
+              ) : (
+                <IconThumbDown size={22} />
+              )}
+            </ActionIcon>
+          </Tooltip>
+          <Tooltip
+            label={isLater ? 'Remove from watch later' : 'Watch later'}
+            withArrow
+          >
+            <ActionIcon
+              size="xl"
+              radius="md"
+              color="orange"
+              variant={isLater ? 'filled' : 'light'}
+              aria-label={
+                isLater ? 'Remove from watch later' : 'Add to watch later'
+              }
+              onClick={() => toggleWatchLater(video.id, !isLater)}
+            >
+              {isLater ? (
+                <IconBookmarkFilled size={22} />
+              ) : (
+                <IconBookmark size={22} />
+              )}
+            </ActionIcon>
+          </Tooltip>
+          <Tooltip
+            label={isSeen ? 'Mark as not seen' : 'Mark as seen'}
+            withArrow
+          >
+            <ActionIcon
+              size="xl"
+              radius="md"
+              color="gray"
+              variant={isSeen ? 'filled' : 'light'}
+              aria-label={isSeen ? 'Mark as not seen' : 'Mark as seen'}
+              onClick={() => markSeen(video.id, !isSeen)}
+            >
+              {isSeen ? <IconMailOpened size={22} /> : <IconMail size={22} />}
+            </ActionIcon>
+          </Tooltip>
+        </Group>
 
         <h1 className={styles.videoTitle}>{video.title}</h1>
         <div className={styles.videoMeta}>
@@ -187,107 +266,6 @@ export function VideoPage() {
             <span>{formatCount(video.likes)} likes</span>
           )}
         </div>
-
-        <Group gap="sm" mt="md" className={styles.actions}>
-          <Button
-            component="a"
-            href={youtubeUrl(video.id)}
-            onClick={() => markSeen(video.id, true)}
-            target="_blank"
-            rel="noopener noreferrer"
-            size="lg"
-            color="red"
-            leftSection={<IconBrandYoutube size={22} />}
-            rightSection={<IconExternalLink size={18} />}
-          >
-            Open on YouTube
-          </Button>
-          <Group gap={6} wrap="nowrap">
-            <Tooltip label={reaction === 'like' ? 'Unlike' : 'Like'} withArrow>
-              <ActionIcon
-                size="xl"
-                radius="md"
-                color="orange"
-                variant={reaction === 'like' ? 'filled' : 'light'}
-                aria-label={reaction === 'like' ? 'Unlike' : 'Like'}
-                onClick={() =>
-                  react(video.id, reaction === 'like' ? null : 'like')
-                }
-              >
-                {reaction === 'like' ? (
-                  <IconThumbUpFilled size={22} />
-                ) : (
-                  <IconThumbUp size={22} />
-                )}
-              </ActionIcon>
-            </Tooltip>
-            <Tooltip
-              label={
-                reaction === 'dislike'
-                  ? 'Undo not interested'
-                  : 'Not interested'
-              }
-              withArrow
-            >
-              <ActionIcon
-                size="xl"
-                radius="md"
-                color="red"
-                variant={reaction === 'dislike' ? 'filled' : 'light'}
-                aria-label={
-                  reaction === 'dislike'
-                    ? 'Undo not interested'
-                    : 'Not interested'
-                }
-                onClick={() =>
-                  react(video.id, reaction === 'dislike' ? null : 'dislike')
-                }
-              >
-                {reaction === 'dislike' ? (
-                  <IconThumbDownFilled size={22} />
-                ) : (
-                  <IconThumbDown size={22} />
-                )}
-              </ActionIcon>
-            </Tooltip>
-            <Tooltip
-              label={isLater ? 'Remove from watch later' : 'Watch later'}
-              withArrow
-            >
-              <ActionIcon
-                size="xl"
-                radius="md"
-                color="orange"
-                variant={isLater ? 'filled' : 'light'}
-                aria-label={
-                  isLater ? 'Remove from watch later' : 'Add to watch later'
-                }
-                onClick={() => toggleWatchLater(video.id, !isLater)}
-              >
-                {isLater ? (
-                  <IconBookmarkFilled size={22} />
-                ) : (
-                  <IconBookmark size={22} />
-                )}
-              </ActionIcon>
-            </Tooltip>
-            <Tooltip
-              label={isSeen ? 'Mark as not seen' : 'Mark as seen'}
-              withArrow
-            >
-              <ActionIcon
-                size="xl"
-                radius="md"
-                color="gray"
-                variant={isSeen ? 'filled' : 'light'}
-                aria-label={isSeen ? 'Mark as not seen' : 'Mark as seen'}
-                onClick={() => markSeen(video.id, !isSeen)}
-              >
-                {isSeen ? <IconMailOpened size={22} /> : <IconMail size={22} />}
-              </ActionIcon>
-            </Tooltip>
-          </Group>
-        </Group>
 
         <div className={styles.cards}>
           <section className={styles.card}>

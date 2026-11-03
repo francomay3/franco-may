@@ -57,6 +57,8 @@ type Props = {
   onSaveSearch: (name: string) => void;
   onApplySearch: (search: SavedSearch) => void;
   onDeleteSearch: (search: SavedSearch) => void;
+  /** Which tab to show first. */
+  initialView?: 'filters' | 'saved';
 };
 
 export function FilterPanel({
@@ -77,8 +79,9 @@ export function FilterPanel({
   onSaveSearch,
   onApplySearch,
   onDeleteSearch,
+  initialView = 'filters',
 }: Props) {
-  const [view, setView] = useState<'filters' | 'saved'>('filters');
+  const [view, setView] = useState<'filters' | 'saved'>(initialView);
   const [saving, setSaving] = useState(false);
   const [name, setName] = useState('');
 

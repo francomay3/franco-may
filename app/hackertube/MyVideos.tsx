@@ -12,8 +12,19 @@ import { VideoRow } from './VideoRow';
 
 const PAGE = 30;
 
-/** Everything you liked, the latest like first. */
-export function LikedPage() {
+/** A list of videos you picked out, the latest pick first. */
+function MyVideos({
+  title,
+  note,
+  empty,
+  picks,
+}: {
+  title: string;
+  note: string;
+  empty: string;
+  /** Video id to when it was picked. */
+  picks: ReadonlyMap<string, number>;
+}) {
   const {
     user,
     videoById,
@@ -29,11 +40,11 @@ export function LikedPage() {
 
   const videos = useMemo(
     () =>
-      [...liked]
+      [...picks]
         .sort((a, b) => b[1] - a[1])
         .map(([id]) => videoById.get(id))
         .filter(v => v !== undefined),
-    [liked, videoById]
+    [picks, videoById]
   );
   const { visible, sentinel } = useInfinite(videos.length, PAGE);
 
@@ -42,10 +53,10 @@ export function LikedPage() {
       <SimpleHeader user={user} />
       <div className={styles.page}>
         <BackButton />
-        <h1 className={styles.videoTitle}>Liked</h1>
+        <h1 className={styles.videoTitle}>{title}</h1>
         <Text c="dimmed" size="sm" mb="md">
           {videos.length.toLocaleString()} video{videos.length === 1 ? '' : 's'}
-          , latest first. What you like here shapes the For you feed.
+          , latest first. {note}
         </Text>
 
         {videos.slice(0, visible).map(v => (
@@ -64,7 +75,7 @@ export function LikedPage() {
 
         {videos.length === 0 && (
           <Text c="dimmed" ta="center" py="xl">
-            Nothing liked yet. Use the thumbs-up on a video to add it here.
+            {empty}
           </Text>
         )}
         {visible < videos.length && (
@@ -72,5 +83,29 @@ export function LikedPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export function LikedPage() {
+  const { liked } = useHackerTube();
+  return (
+    <MyVideos
+      title="Liked"
+      note="What you like here shapes the For you feed."
+      empty="Nothing liked yet. Use the thumbs-up on a video to add it here."
+      picks={liked}
+    />
+  );
+}
+
+export function WatchLaterPage() {
+  const { watchLater } = useHackerTube();
+  return (
+    <MyVideos
+      title="Watch later"
+      note="Taking one off the list is the bookmark on its row."
+      empty="Your watch-later list is empty. Use the bookmark on a video to add it."
+      picks={watchLater}
+    />
   );
 }
