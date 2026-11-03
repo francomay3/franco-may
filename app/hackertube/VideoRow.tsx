@@ -12,6 +12,7 @@ import {
   uploaderThumb,
 } from './format';
 import styles from './hackertube.module.css';
+import { useHackerTube } from './HackerTubeProvider';
 import { ReactionButtons } from './ReactionButtons';
 import type { Reaction } from './seen';
 import type { Video } from './types';
@@ -41,6 +42,7 @@ function VideoRowImpl({
   onToggleWatchLater,
 }: Props) {
   const router = useRouter();
+  const { topPercentOf } = useHackerTube();
   const href = videoHref(video.id);
 
   // The whole card opens the video page, like a mail row. Real links inside
@@ -129,9 +131,12 @@ function VideoRowImpl({
       </div>
 
       <div className={styles.side}>
-        <div className={styles.rating} title="HackerTube rating">
-          {video.score}
-          <small>rating</small>
+        <div
+          className={styles.rating}
+          title={`HackerTube rating: ${video.score}`}
+        >
+          {video.score === 0 ? 'Unrated' : `Top ${topPercentOf(video.score)}%`}
+          <small>{video.score === 0 ? 'no rating' : 'rating'}</small>
         </div>
         <ReactionButtons
           reaction={reaction}

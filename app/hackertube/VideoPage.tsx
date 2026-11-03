@@ -20,7 +20,6 @@ import { SimpleHeader } from './Header';
 import styles from './hackertube.module.css';
 import { useHackerTube } from './HackerTubeProvider';
 import { ReactionButtons } from './ReactionButtons';
-import { topPercent } from './rating';
 import { reactionOf } from './seen';
 import { coRecommended, similarToVideo } from './similar';
 import { MiniVideoGrid, Section } from './SimilarSections';
@@ -37,6 +36,7 @@ export function VideoPage() {
   const {
     user,
     data,
+    topPercentOf,
     videoById,
     categoryName,
     similarity,
@@ -72,7 +72,6 @@ export function VideoPage() {
     () => (video ? similarToVideo(similarity, video.id) : []),
     [similarity, video]
   );
-  const scores = useMemo(() => data.videos.map(v => v.score), [data.videos]);
   const alsoRecommended = useMemo(
     () => (video ? coRecommended(similarity, video.id) : []),
     [similarity, video]
@@ -96,7 +95,7 @@ export function VideoPage() {
   const isSeen = seen.has(video.id);
   const isLater = watchLater.has(video.id);
   const reaction = reactionOf(video.id, liked, disliked);
-  const top = topPercent(scores, video.score);
+  const top = topPercentOf(video.score);
   const embeddable = video.embeddable !== false && !playerFailed;
 
   return (

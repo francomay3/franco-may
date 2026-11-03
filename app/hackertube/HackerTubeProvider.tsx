@@ -19,6 +19,7 @@ import {
   type User,
 } from 'firebase/auth';
 import { loadDataset } from './data';
+import { topPercent } from './rating';
 import { auth } from './firebase';
 import { type Bounds, type SavedSearch, Taxonomy, boundsOf } from './filters';
 import type { SimilarityData } from './similar';
@@ -50,6 +51,8 @@ export type HackerTubeContext = {
   indexOf: ReadonlyMap<string, number>;
   videoById: ReadonlyMap<string, Video>;
   categoryName: ReadonlyMap<string, string>;
+  /** Where a rating stands: the N of "top N%" of all videos. */
+  topPercentOf: (score: number) => number;
   /** What the "similar to this" sections are computed from. */
   similarity: SimilarityData;
   seen: ReadonlySet<string>;
@@ -314,6 +317,20 @@ function Ready({
     return m;
   }, [data.areas]);
 
+  const topPercentOf = useMemo(() => {
+    const scores = data.videos.map(v => v.score);
+    // Ratings repeat a lot, so each distinct one is worked out once.
+    const known = new Map<number, number>();
+    return (score: number) => {
+      let top = known.get(score);
+      if (top === undefined) {
+        top = topPercent(scores, score);
+        known.set(score, top);
+      }
+      return top;
+    };
+  }, [data.videos]);
+
   const similarity = useMemo<SimilarityData>(
     () => ({
       videos: data.videos,
@@ -448,6 +465,7 @@ function Ready({
       indexOf,
       videoById,
       categoryName,
+      topPercentOf,
       similarity,
       seen,
       markSeen,
@@ -468,6 +486,7 @@ function Ready({
       indexOf,
       videoById,
       categoryName,
+      topPercentOf,
       similarity,
       seen,
       markSeen,
