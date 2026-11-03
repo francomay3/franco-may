@@ -20,6 +20,7 @@ import { SimpleHeader } from './Header';
 import styles from './hackertube.module.css';
 import { useHackerTube } from './HackerTubeProvider';
 import { ReactionButtons } from './ReactionButtons';
+import { topPercent } from './rating';
 import { reactionOf } from './seen';
 import { coRecommended, similarToVideo } from './similar';
 import { MiniVideoGrid, Section } from './SimilarSections';
@@ -71,6 +72,7 @@ export function VideoPage() {
     () => (video ? similarToVideo(similarity, video.id) : []),
     [similarity, video]
   );
+  const scores = useMemo(() => data.videos.map(v => v.score), [data.videos]);
   const alsoRecommended = useMemo(
     () => (video ? coRecommended(similarity, video.id) : []),
     [similarity, video]
@@ -94,6 +96,7 @@ export function VideoPage() {
   const isSeen = seen.has(video.id);
   const isLater = watchLater.has(video.id);
   const reaction = reactionOf(video.id, liked, disliked);
+  const top = topPercent(scores, video.score);
   const embeddable = video.embeddable !== false && !playerFailed;
 
   return (
@@ -187,8 +190,9 @@ export function VideoPage() {
 
         <div className={styles.cards}>
           <section className={styles.card}>
-            <h2>About this video</h2>
+            <h2>Description</h2>
             <p>{video.summary}</p>
+            <p style={{ marginTop: 10 }}>{video.whyHn}</p>
             <Group gap={6} mt="sm">
               {video.cats.map(c => (
                 <Badge
@@ -207,19 +211,10 @@ export function VideoPage() {
                 {video.tags.join(' · ')}
               </Text>
             )}
-          </section>
-
-          <section className={styles.card}>
-            <h2>Why Hacker News recommends it</h2>
-            <p>{video.whyHn}</p>
-            <div className={styles.stats} style={{ marginTop: 12 }}>
+            <div className={styles.stats} style={{ marginTop: 14 }}>
               <div className={styles.stat}>
-                <b>{video.score}</b>
-                <span>HackerTube rating</span>
-              </div>
-              <div className={styles.stat}>
-                <b>{video.recommenders}</b>
-                <span>HN recommenders</span>
+                <b>Top {top}%</b>
+                <span>of all videos by HackerTube rating ({video.score})</span>
               </div>
             </div>
           </section>
