@@ -211,7 +211,10 @@ export function VideoPage() {
                 {video.tags.join(' · ')}
               </Text>
             )}
-            <div className={styles.stats} style={{ marginTop: 14 }}>
+            <div
+              className={styles.stats}
+              style={{ marginTop: 14, gridTemplateColumns: 'minmax(0, 280px)' }}
+            >
               <div className={styles.stat}>
                 {video.score === 0 ? (
                   <>

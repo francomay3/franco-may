@@ -141,7 +141,7 @@ function VideoRowImpl({
           seen={seen}
           onToggleSeen={v => onToggleSeen(video.id, v)}
         />
-        <Text size="xs" c="dimmed">
+        <Text size="xs" c="dimmed" className={styles.sideState}>
           {seen ? 'seen' : 'new'}
         </Text>
       </div>

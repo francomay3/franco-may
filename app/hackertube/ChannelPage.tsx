@@ -112,7 +112,7 @@ export function ChannelPage() {
           <div className={styles.channelAvatar}>
             {stats.name.slice(0, 1).toUpperCase()}
           </div>
-          <div style={{ minWidth: 0, flex: 1 }}>
+          <div className={styles.channelInfo}>
             <h1 className={styles.videoTitle} style={{ margin: 0 }}>
               {stats.name}
             </h1>
@@ -127,6 +127,7 @@ export function ChannelPage() {
             target="_blank"
             rel="noopener noreferrer"
             color="red"
+            className={styles.channelAction}
             leftSection={<IconBrandYoutube size={20} />}
             rightSection={<IconExternalLink size={16} />}
           >
