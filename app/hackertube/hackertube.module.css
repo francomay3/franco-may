@@ -229,14 +229,6 @@
   line-height: 1.1;
 }
 
-.rating small {
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  opacity: 0.8;
-}
-
 .center {
   min-height: 100dvh;
   display: flex;

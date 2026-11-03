@@ -136,7 +136,6 @@ function VideoRowImpl({
           title={`HackerTube rating: ${video.score}`}
         >
           {video.score === 0 ? 'Unrated' : `Top ${topPercentOf(video.score)}%`}
-          <small>{video.score === 0 ? 'no rating' : 'rating'}</small>
         </div>
         <ReactionButtons
           reaction={reaction}
