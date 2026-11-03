@@ -13,7 +13,6 @@ import {
 import { useDebouncedValue } from '@mantine/hooks';
 import {
   IconAdjustments,
-  IconRefresh,
   IconSearch,
   IconThumbUp,
   IconX,
@@ -32,7 +31,7 @@ const PAGE = 30;
 
 /**
  * What the feed was built from. Kept while you move between pages and rebuilt
- * only by Refresh (or a reload), so liking, dismissing or opening a video does
+ * only by a reload, so liking, dismissing or opening a video does
  * not reshuffle the page under you. The luck is fixed per seed.
  */
 type Kept = {
@@ -63,7 +62,7 @@ export function ForYou() {
   } = useHackerTube();
 
   const resume = kept?.uid === user.uid ? kept : null;
-  const [input, setInput] = useState<FeedInput>(
+  const [input] = useState<FeedInput>(
     () =>
       resume?.input ?? {
         liked: [...liked.keys()],
@@ -74,7 +73,7 @@ export function ForYou() {
       }
   );
   const feed = useMemo(() => buildFeed(similarity, input), [similarity, input]);
-  // Dismissing takes a video out at once; everything else waits for Refresh.
+  // Dismissing takes a video out at once; everything else waits for a reload.
   const items = useMemo(
     () => feed.items.filter(x => !disliked.has(x.video.id)),
     [feed, disliked]
@@ -155,17 +154,6 @@ export function ForYou() {
       visible,
       scrollY: window.scrollY,
     };
-  };
-
-  const refresh = () => {
-    setInput({
-      liked: [...liked.keys()],
-      disliked: [...disliked.keys()],
-      seen: new Set(seen),
-      saved: [...watchLater.keys()],
-      seed: newSeed(),
-    });
-    window.scrollTo(0, 0);
   };
 
   const searchBox = (
@@ -265,16 +253,6 @@ export function ForYou() {
                 : basis}
             </Text>
           </div>
-          {!searchMode && (
-            <Button
-              variant="default"
-              size="compact-md"
-              leftSection={<IconRefresh size={16} />}
-              onClick={refresh}
-            >
-              Refresh
-            </Button>
-          )}
         </div>
 
         {searching === 'error' && (
