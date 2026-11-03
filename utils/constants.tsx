@@ -1,44 +1,83 @@
 import {
+  IconApps,
   IconBook,
+  IconBrandYoutube,
   IconBuilding,
   IconHome2,
   IconMail,
   IconMoodSmile,
 } from '@tabler/icons-react';
 
-type NavLink = {
+export type NavLink = {
   label: string;
   href: string;
+  /** Pages under this path also count as being on this link. */
+  match?: string;
   icon: React.ReactNode;
 };
 
-export const NAV_LINKS: Record<string, NavLink> = {
-  home: {
+/** Links shown together under one name, expanded on demand. */
+export type NavGroup = {
+  label: string;
+  icon: React.ReactNode;
+  children: NavLink[];
+};
+
+export type NavItem = NavLink | NavGroup;
+
+export const isNavGroup = (item: NavItem): item is NavGroup =>
+  'children' in item;
+
+/** Whether the page at `pathName` is this link, or inside this group. */
+export function isNavActive(item: NavItem, pathName: string): boolean {
+  if (isNavGroup(item)) {
+    return item.children.some(child => isNavActive(child, pathName));
+  }
+  return item.match
+    ? pathName === item.match || pathName.startsWith(`${item.match}/`)
+    : pathName === item.href;
+}
+
+export const NAV_ITEMS: NavItem[] = [
+  {
     label: 'Home',
     href: '/',
     icon: <IconHome2 size={16} stroke={1.5} />,
   },
-  blog: {
+  {
     label: 'Blog',
     href: '/blog',
     icon: <IconBook size={16} stroke={1.5} />,
   },
-  contact: {
+  {
     label: 'Contact',
     href: '/contact',
     icon: <IconMail size={16} stroke={1.5} />,
   },
-  fornlamningar: {
-    label: 'Historia Kartan',
-    href: '/fornlamningar/map',
-    icon: <IconBuilding size={16} stroke={1.5} />,
+  {
+    label: 'Projects',
+    icon: <IconApps size={16} stroke={1.5} />,
+    children: [
+      {
+        label: 'Historia Kartan',
+        href: '/fornlamningar/map',
+        match: '/fornlamningar',
+        icon: <IconBuilding size={16} stroke={1.5} />,
+      },
+      {
+        label: 'Life satisfaction',
+        href: '/life-satisfaction',
+        icon: <IconMoodSmile size={16} stroke={1.5} />,
+      },
+      {
+        label: 'HackerTube',
+        href: '/hackertube',
+        match: '/hackertube',
+        icon: <IconBrandYoutube size={16} stroke={1.5} />,
+      },
+    ],
   },
-  lifeSatisfaction: {
-    label: 'Life satisfaction',
-    href: '/life-satisfaction',
-    icon: <IconMoodSmile size={16} stroke={1.5} />,
-  },
-};
+];
 
 export const SITE_CONFIG = {
   name: 'Franco May',

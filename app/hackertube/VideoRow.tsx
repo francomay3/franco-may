@@ -136,12 +136,12 @@ function VideoRowImpl({
         </Group>
       </div>
 
-      <div className={styles.side} data-noopen>
+      <div className={styles.side}>
         <div className={styles.rating} title="HackerTube rating">
           {video.score}
           <small>rating</small>
         </div>
-        <Group gap={2} justify="flex-end">
+        <Group gap={2} justify="flex-end" data-noopen>
           <Tooltip label={reaction === 'like' ? 'Unlike' : 'Like'} withArrow>
             <ActionIcon
               variant="subtle"

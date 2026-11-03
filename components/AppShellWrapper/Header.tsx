@@ -1,14 +1,18 @@
 'use client';
 
 import {
+  Anchor,
   BoxProps,
   Burger,
   Flex,
   FloatingIndicator,
+  Menu,
   Title,
 } from '@mantine/core';
+import { IconChevronDown } from '@tabler/icons-react';
+import NextLink from 'next/link';
 import { ColorSchemeIcon } from './ColorSchemeIcon';
-import { NAV_LINKS } from '@/utils/constants';
+import { NAV_ITEMS, isNavActive, isNavGroup } from '@/utils/constants';
 import Link from '../Link';
 import Glass from '../Glass';
 import { useState, useEffect } from 'react';
@@ -21,46 +25,87 @@ const NavLinks = (
 ) => {
   const pathName = usePathname();
 
-  const [controlsRefs, setControlsRefs] = useState<
-    Record<string, HTMLAnchorElement>
-  >({});
+  const [controlsRefs, setControlsRefs] = useState<Record<string, HTMLElement>>(
+    {}
+  );
 
   const [active, setActive] = useState(
-    Object.values(NAV_LINKS).findIndex(link => link.href === pathName)
+    NAV_ITEMS.findIndex(item => isNavActive(item, pathName))
   );
 
   const [rootRef, setRootRef] = useState<HTMLDivElement | null>(null);
 
   // Update active state when pathname changes
   useEffect(() => {
-    const newActiveIndex = Object.values(NAV_LINKS).findIndex(
-      link => link.href === pathName
+    const newActiveIndex = NAV_ITEMS.findIndex(item =>
+      isNavActive(item, pathName)
     );
     if (newActiveIndex !== -1) {
       setActive(newActiveIndex);
     }
   }, [pathName]);
 
-  const setControlRef = (index: number) => (node: HTMLAnchorElement) => {
-    controlsRefs[index] = node;
-    setControlsRefs(controlsRefs);
+  const setControlRef = (index: number) => (node: HTMLElement | null) => {
+    if (node) {
+      controlsRefs[index] = node;
+      setControlsRefs(controlsRefs);
+    }
   };
   return (
     <>
       <Flex {...props} ref={setRootRef} pos="relative">
-        {Object.values(NAV_LINKS).map((link, index) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            ref={setControlRef(index)}
-            onClick={() => setActive(index)}
-            px="10"
-            py="2"
-            ff="var(--mantine-font-family-headings)"
-          >
-            {link.label}
-          </Link>
-        ))}
+        {NAV_ITEMS.map((item, index) =>
+          isNavGroup(item) ? (
+            <Menu key={item.label} position="bottom-start" withinPortal>
+              <Menu.Target>
+                <Anchor
+                  component="button"
+                  type="button"
+                  ref={setControlRef(index)}
+                  px="10"
+                  py="2"
+                  ff="var(--mantine-font-family-headings)"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 4,
+                    background: 'none',
+                    border: 0,
+                    font: 'inherit',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {item.label}
+                  <IconChevronDown size={14} />
+                </Anchor>
+              </Menu.Target>
+              <Menu.Dropdown>
+                {item.children.map(child => (
+                  <Menu.Item
+                    key={child.href}
+                    component={NextLink}
+                    href={child.href}
+                    leftSection={child.icon}
+                  >
+                    {child.label}
+                  </Menu.Item>
+                ))}
+              </Menu.Dropdown>
+            </Menu>
+          ) : (
+            <Link
+              key={item.href}
+              href={item.href}
+              ref={setControlRef(index)}
+              onClick={() => setActive(index)}
+              px="10"
+              py="2"
+              ff="var(--mantine-font-family-headings)"
+            >
+              {item.label}
+            </Link>
+          )
+        )}
         <FloatingIndicator
           target={controlsRefs[active]}
           parent={rootRef}
