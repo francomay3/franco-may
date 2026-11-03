@@ -213,8 +213,19 @@ export function VideoPage() {
             )}
             <div className={styles.stats} style={{ marginTop: 14 }}>
               <div className={styles.stat}>
-                <b>Top {top}%</b>
-                <span>of all videos by HackerTube rating ({video.score})</span>
+                {video.score === 0 ? (
+                  <>
+                    <b>Unrated</b>
+                    <span>no HackerTube rating yet</span>
+                  </>
+                ) : (
+                  <>
+                    <b>Top {top}%</b>
+                    <span>
+                      of all videos by HackerTube rating ({video.score})
+                    </span>
+                  </>
+                )}
               </div>
             </div>
           </section>
@@ -222,6 +233,7 @@ export function VideoPage() {
 
         <Section
           title={`More from ${video.channel}`}
+          collapsible
           action={
             video.channelId && (
               <Link
@@ -239,6 +251,7 @@ export function VideoPage() {
 
         <Section
           title="Similar videos"
+          collapsible
           hint="Close in topic, from other channels"
           empty={similarVideos.length === 0}
         >

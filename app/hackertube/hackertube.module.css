@@ -698,3 +698,13 @@
     margin-bottom: 14px;
   }
 }
+
+/* ---- Collapsible sections ---- */
+.collapsed {
+  max-height: 250px;
+  overflow: hidden;
+}
+
+.fade {
+  mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+}

@@ -1,8 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { Text } from '@mantine/core';
+import { Button, Text } from '@mantine/core';
+import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 import { channelHref, videoHref } from './channels';
 import { formatDuration, midFrame } from './format';
 import styles from './hackertube.module.css';
@@ -15,12 +16,15 @@ export function Section({
   hint,
   action,
   empty,
+  collapsible,
   children,
 }: {
   title: string;
   hint?: string;
   action?: React.ReactNode;
   empty: boolean;
+  /** Show the first row or so, fading out, with a button to see the rest. */
+  collapsible?: boolean;
   children: React.ReactNode;
 }) {
   if (empty) {
@@ -39,8 +43,68 @@ export function Section({
         </div>
         {action}
       </div>
-      {children}
+      {collapsible ? <Collapsible>{children}</Collapsible> : children}
     </section>
+  );
+}
+
+/**
+ * Keeps a long block to about a row and a half, fading to nothing, so the
+ * sections below it stay in reach. The button only appears when there is more
+ * than that to show.
+ */
+function Collapsible({ children }: { children: React.ReactNode }) {
+  const box = useRef<HTMLDivElement | null>(null);
+  const [expanded, setExpanded] = useState(false);
+  const [overflowing, setOverflowing] = useState(false);
+
+  useEffect(() => {
+    const el = box.current;
+    if (!el) {
+      return;
+    }
+    const measure = () => {
+      // Measured while collapsed only: expanded, nothing overflows by design.
+      if (!expanded) {
+        setOverflowing(el.scrollHeight > el.clientHeight + 4);
+      }
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [expanded, children]);
+
+  return (
+    <>
+      <div
+        ref={box}
+        className={`${expanded ? '' : styles.collapsed} ${
+          overflowing && !expanded ? styles.fade : ''
+        }`}
+      >
+        {children}
+      </div>
+      {(overflowing || expanded) && (
+        <div style={{ textAlign: 'center', marginTop: 6 }}>
+          <Button
+            variant="subtle"
+            color="gray"
+            size="compact-md"
+            rightSection={
+              expanded ? (
+                <IconChevronUp size={16} />
+              ) : (
+                <IconChevronDown size={16} />
+              )
+            }
+            onClick={() => setExpanded(e => !e)}
+          >
+            {expanded ? 'Show less' : 'View more'}
+          </Button>
+        </div>
+      )}
+    </>
   );
 }
 
