@@ -40,3 +40,5 @@ next-env.d.ts
 
 # environment
 .env
+# painting: built by scripts/painting/build-data.mjs, uploaded to Storage, never committed
+/scripts/painting/out/

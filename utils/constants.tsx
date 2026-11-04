@@ -6,6 +6,7 @@ import {
   IconHome2,
   IconMail,
   IconMoodSmile,
+  IconPalette,
 } from '@tabler/icons-react';
 
 export type NavLink = {
@@ -48,6 +49,12 @@ export const NAV_ITEMS: NavItem[] = [
     label: 'Blog',
     href: '/blog',
     icon: <IconBook size={16} stroke={1.5} />,
+  },
+  {
+    label: 'Painting',
+    href: '/painting',
+    match: '/painting',
+    icon: <IconPalette size={16} stroke={1.5} />,
   },
   {
     label: 'Contact',

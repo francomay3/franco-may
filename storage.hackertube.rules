@@ -19,6 +19,40 @@ service firebase.storage {
         && request.auth.uid in ['KHFEjqRin4bwIg49qER0gMz0Rvi1'];
     }
 
+    // ===================  /painting: WHO MAY WATCH  ===================
+    // THIS LIST IS THE WHOLE GATE for franco-may.com/painting. The page has
+    // no list of its own: it signs in with Google, tries to read
+    // painting/library.json, and shows "not on the list" when this refuses.
+    //
+    // To add someone (e.g. Franco's wife): she opens /painting, signs in and
+    // sees her uid. Paste it into the list below, then deploy:
+    //   firebase deploy --only storage --config firebase.hackertube.json --project franco-may
+    // No site deploy is needed.
+    //
+    // A uid is a name, not a key: it only matches a token Google signed.
+    function PAINTING_VIEWERS() {
+      return [
+        'KHFEjqRin4bwIg49qER0gMz0Rvi1', // Franco
+        // 'her-uid-here', // wife
+      ];
+    }
+
+    function paintingViewer() {
+      return request.auth != null
+        && request.auth.uid in PAINTING_VIEWERS();
+    }
+
+    // painting/library.json (titles and Patreon text) and
+    // painting/videos/<id>.mp4. Uploaded with scripts/painting/publish.sh,
+    // which bypasses these rules, so nobody writes from a client.
+    //
+    // Reading the file's metadata needs this rule too, which is what stops
+    // anyone else being handed a download URL for a video (see videoUrl() in
+    // app/painting/PaintingProvider.tsx).
+    match /painting/{file=**} {
+      allow read: if paintingViewer();
+    }
+
     match /hackertube/{file} {
       allow read: if allowed();
     }
