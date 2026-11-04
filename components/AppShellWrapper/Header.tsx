@@ -12,11 +12,22 @@ import {
 import { IconChevronDown } from '@tabler/icons-react';
 import NextLink from 'next/link';
 import { ColorSchemeIcon } from './ColorSchemeIcon';
-import { NAV_ITEMS, isNavActive, isNavGroup } from '@/utils/constants';
+import {
+  NAV_ITEMS,
+  type NavGroup,
+  isNavActive,
+  isNavGroup,
+} from '@/utils/constants';
 import Link from '../Link';
 import Glass from '../Glass';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+
+/** "Projects", or "Projects · Painting" when on one of its pages. */
+const groupLabel = (group: NavGroup, pathName: string) => {
+  const current = group.children.find(child => isNavActive(child, pathName));
+  return current ? `${group.label} · ${current.label}` : group.label;
+};
 
 const NavLinks = (
   props: BoxProps & {
@@ -75,7 +86,7 @@ const NavLinks = (
                     cursor: 'pointer',
                   }}
                 >
-                  {item.label}
+                  {groupLabel(item, pathName)}
                   <IconChevronDown size={14} />
                 </Anchor>
               </Menu.Target>
@@ -113,6 +124,9 @@ const NavLinks = (
             backgroundColor: 'var(--mantine-color-anchor)',
             borderRadius: 'var(--mantine-radius-default)',
             zIndex: 1,
+            // The indicator sits over the active item; without this it eats the
+            // click, and an active group (Projects) could not be opened.
+            pointerEvents: 'none',
             mixBlendMode: 'overlay',
             opacity: 0.6,
           }}

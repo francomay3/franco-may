@@ -8,7 +8,8 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import { Alert, Button, Loader, Text } from '@mantine/core';
+import Link from 'next/link';
+import { Alert, Anchor, Button, Loader, Text } from '@mantine/core';
 import { IconBrandGoogle } from '@tabler/icons-react';
 import {
   GoogleAuthProvider,
@@ -227,6 +228,9 @@ export function HackerTubeProvider({
             {gate.error}
           </Text>
         )}
+        <Anchor component={Link} href="/" size="sm" c="dimmed">
+          ← franco-may.com
+        </Anchor>
       </div>
     );
   }
@@ -246,6 +250,9 @@ export function HackerTubeProvider({
         <Button variant="default" onClick={() => signOut(auth)}>
           Sign out
         </Button>
+        <Anchor component={Link} href="/" size="sm" c="dimmed">
+          ← franco-may.com
+        </Anchor>
       </div>
     );
   }
