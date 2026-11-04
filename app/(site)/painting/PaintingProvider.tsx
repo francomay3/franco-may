@@ -7,9 +7,16 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import Link from 'next/link';
-import { Alert, Avatar, Button, Loader, Menu, Text } from '@mantine/core';
-import { IconBrandGoogle, IconLogout } from '@tabler/icons-react';
+import {
+  Alert,
+  Button,
+  Group,
+  Loader,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core';
+import { IconBrandGoogle } from '@tabler/icons-react';
 import {
   GoogleAuthProvider,
   onAuthStateChanged,
@@ -19,8 +26,7 @@ import {
   type User,
 } from 'firebase/auth';
 import { getBytes, getDownloadURL, ref } from 'firebase/storage';
-import { auth, storage } from '../hackertube/firebase';
-import styles from './painting.module.css';
+import { auth, storage } from '@/app/hackertube/firebase';
 import type { Library } from './types';
 
 /**
@@ -159,27 +165,21 @@ export function PaintingProvider({ children }: { children: React.ReactNode }) {
 
   if (gate.at === 'loading') {
     return (
-      <div className={`${styles.shell} ${styles.center}`}>
-        <Loader color="orange" />
+      <Centered>
+        <Loader />
         <Text c="dimmed" size="sm">
           Loading…
         </Text>
-      </div>
+      </Centered>
     );
   }
 
   if (gate.at === 'anon') {
     return (
-      <div className={`${styles.shell} ${styles.center}`}>
-        <div className={styles.brand} style={{ fontSize: '1.8rem' }}>
-          Painting
-        </div>
+      <Centered>
+        <Title order={2}>Painting</Title>
         <Text c="dimmed">Private. Sign in to continue.</Text>
-        <Button
-          color="orange"
-          leftSection={<IconBrandGoogle size={18} />}
-          onClick={signIn}
-        >
+        <Button leftSection={<IconBrandGoogle size={18} />} onClick={signIn}>
           Sign in with Google
         </Button>
         {gate.error && (
@@ -187,16 +187,14 @@ export function PaintingProvider({ children }: { children: React.ReactNode }) {
             {gate.error}
           </Text>
         )}
-      </div>
+      </Centered>
     );
   }
 
   if (gate.at === 'denied') {
     return (
-      <div className={`${styles.shell} ${styles.center}`}>
-        <Text fw={700} size="lg">
-          This account isn&apos;t on the list
-        </Text>
+      <Centered>
+        <Title order={3}>This account isn&apos;t on the list</Title>
         <Text c="dimmed" size="sm" maw={460}>
           To allow it, add this uid to <code>PAINTING_VIEWERS</code> in{' '}
           <code>storage.hackertube.rules</code> and redeploy the rules:
@@ -205,56 +203,46 @@ export function PaintingProvider({ children }: { children: React.ReactNode }) {
         <Button variant="default" onClick={() => signOut(auth)}>
           Sign out
         </Button>
-      </div>
+      </Centered>
     );
   }
 
   if (gate.at === 'error' || !value) {
     return (
-      <div className={`${styles.shell} ${styles.center}`}>
+      <Centered>
         <Alert color="red" title="Could not load the library" maw={520}>
           {gate.at === 'error' ? gate.message : 'Unknown error'}
         </Alert>
         <Button variant="default" onClick={() => signOut(auth)}>
           Sign out
         </Button>
-      </div>
+      </Centered>
     );
   }
 
   return (
     <Context.Provider value={value}>
-      <div className={styles.shell}>
-        <header className={styles.header}>
-          <Link href="/painting" className={styles.brand}>
-            Painting
-          </Link>
-          <div style={{ flex: 1 }} />
-          <Menu position="bottom-end" withArrow>
-            <Menu.Target>
-              <Avatar
-                src={value.user.photoURL}
-                alt={value.user.displayName ?? ''}
-                radius="xl"
-                size={32}
-                style={{ cursor: 'pointer' }}
-              >
-                {value.user.displayName?.[0]}
-              </Avatar>
-            </Menu.Target>
-            <Menu.Dropdown>
-              <Menu.Label>{value.user.email}</Menu.Label>
-              <Menu.Item
-                leftSection={<IconLogout size={14} />}
-                onClick={() => signOut(auth)}
-              >
-                Sign out
-              </Menu.Item>
-            </Menu.Dropdown>
-          </Menu>
-        </header>
-        {children}
-      </div>
+      <Group justify="flex-end" gap="xs" mb="xs">
+        <Text c="dimmed" size="xs">
+          {value.user.email}
+        </Text>
+        <Button
+          variant="subtle"
+          size="compact-xs"
+          onClick={() => signOut(auth)}
+        >
+          Sign out
+        </Button>
+      </Group>
+      {children}
     </Context.Provider>
+  );
+}
+
+function Centered({ children }: { children: React.ReactNode }) {
+  return (
+    <Stack align="center" justify="center" gap="sm" mih="50vh" ta="center">
+      {children}
+    </Stack>
   );
 }

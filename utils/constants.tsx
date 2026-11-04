@@ -51,12 +51,6 @@ export const NAV_ITEMS: NavItem[] = [
     icon: <IconBook size={16} stroke={1.5} />,
   },
   {
-    label: 'Painting',
-    href: '/painting',
-    match: '/painting',
-    icon: <IconPalette size={16} stroke={1.5} />,
-  },
-  {
     label: 'Contact',
     href: '/contact',
     icon: <IconMail size={16} stroke={1.5} />,
@@ -81,6 +75,12 @@ export const NAV_ITEMS: NavItem[] = [
         href: '/hackertube',
         match: '/hackertube',
         icon: <IconBrandYoutube size={16} stroke={1.5} />,
+      },
+      {
+        label: 'Painting',
+        href: '/painting',
+        match: '/painting',
+        icon: <IconPalette size={16} stroke={1.5} />,
       },
     ],
   },

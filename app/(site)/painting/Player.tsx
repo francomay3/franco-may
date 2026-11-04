@@ -8,9 +8,9 @@ import {
 } from '@vidstack/react/player/layouts/default';
 import '@vidstack/react/player/styles/default/theme.css';
 import '@vidstack/react/player/styles/default/layouts/video.css';
-import { Text } from '@mantine/core';
+import { Box, Text } from '@mantine/core';
 import { videoUrl } from './PaintingProvider';
-import styles from './painting.module.css';
+import { PlayerPlaceholder } from './PlayerPlaceholder';
 
 /**
  * Vidstack's default layout, as in the HackerTube player.
@@ -52,32 +52,39 @@ export default function Player({
 
   if (failed) {
     return (
-      <div className={styles.playerLoading}>
+      <PlayerPlaceholder>
         <Text c="dimmed" size="sm">
           This video is not available.
         </Text>
-      </div>
+      </PlayerPlaceholder>
     );
   }
   if (!src) {
-    return <div className={styles.playerLoading} />;
+    return <PlayerPlaceholder />;
   }
 
   return (
-    <MediaPlayer
-      key={id}
-      className={styles.player}
-      title={title}
-      src={{ src, type: 'video/mp4' }}
-      playsInline
-      storage="painting-player"
-      preload="metadata"
-      onError={() => setFailed(true)}
+    <Box
+      style={{
+        borderRadius: 'var(--mantine-radius-md)',
+        overflow: 'hidden',
+        '--media-brand': 'var(--mantine-primary-color-filled)',
+      }}
     >
-      <MediaProvider>
-        <Poster className="vds-poster" src={poster} alt={title} />
-      </MediaProvider>
-      <DefaultVideoLayout icons={defaultLayoutIcons} seekStep={10} />
-    </MediaPlayer>
+      <MediaPlayer
+        key={id}
+        title={title}
+        src={{ src, type: 'video/mp4' }}
+        playsInline
+        storage="painting-player"
+        preload="metadata"
+        onError={() => setFailed(true)}
+      >
+        <MediaProvider>
+          <Poster className="vds-poster" src={poster} alt={title} />
+        </MediaProvider>
+        <DefaultVideoLayout icons={defaultLayoutIcons} seekStep={10} />
+      </MediaPlayer>
+    </Box>
   );
 }

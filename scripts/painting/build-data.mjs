@@ -139,9 +139,16 @@ const stripHtml = h =>
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 // The text is Patreon's own HTML. It is rendered with dangerouslySetInnerHTML,
-// so scripts and inline handlers are dropped here.
+// so scripts and inline handlers are dropped here. Links to Patreon are
+// unwrapped to their text: nothing on the page points back at it.
 const safeHtml = h =>
-  h.replace(/<script[\s\S]*?<\/script>/gi, '').replace(/ on\w+="[^"]*"/gi, '');
+  h
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/ on\w+="[^"]*"/gi, '')
+    .replace(
+      /<a\s[^>]*href="[^"]*patreon\.com[^"]*"[^>]*>([\s\S]*?)<\/a>/gi,
+      '$1'
+    );
 
 /** Writes a WebP no wider than `width`; skips work when the output is newer. */
 async function webp(src, destRel, width) {
@@ -230,7 +237,6 @@ for (const dir of fs.readdirSync(POSTS).filter(d => /^\d+ - /.test(d))) {
     id,
     title: api.title,
     date: api.published_at,
-    patreonUrl: api.url,
     summary: stripHtml(content),
     html: safeHtml(content),
     // Where publish.sh puts it in the bucket. The page asks Storage for it by

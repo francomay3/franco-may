@@ -8,7 +8,6 @@ export interface Post {
   id: string;
   title: string;
   date: string;
-  patreonUrl: string;
   summary: string;
   html: string;
   /** Path in the Storage bucket, e.g. painting/videos/123.mp4. */
