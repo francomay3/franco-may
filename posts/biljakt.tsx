@@ -117,8 +117,8 @@ const thisPost: Post = {
   title: 'Biljakt: Ranking Used Cars with Simple Rules',
   slug: 'biljakt-ranking-used-cars',
   html,
-  date: new Date('2026-11-04'),
-  lastUpdated: new Date('2026-11-04'),
+  date: new Date('2026-03-30'),
+  lastUpdated: new Date('2026-03-30'),
   excerpt:
     'How Biljakt scrapes Blocket, enriches listings with vehicle history, and ranks cars using just two kinds of rules: linear interpolation and boolean flags.',
   author: 'Franco May',

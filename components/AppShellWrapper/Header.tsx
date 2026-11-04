@@ -23,7 +23,7 @@ import Glass from '../Glass';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
-/** "Projects", or "Projects · Painting" when on one of its pages. */
+/** "Portfolio", or "Portfolio · Painting" when on one of its pages. */
 const groupLabel = (group: NavGroup, pathName: string) => {
   const current = group.children.find(child => isNavActive(child, pathName));
   return current ? `${group.label} · ${current.label}` : group.label;
@@ -125,7 +125,7 @@ const NavLinks = (
             borderRadius: 'var(--mantine-radius-default)',
             zIndex: 1,
             // The indicator sits over the active item; without this it eats the
-            // click, and an active group (Projects) could not be opened.
+            // click, and an active group (Portfolio) could not be opened.
             pointerEvents: 'none',
             mixBlendMode: 'overlay',
             opacity: 0.6,

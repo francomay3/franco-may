@@ -191,8 +191,10 @@ for (const dir of fs.readdirSync(POSTS).filter(d => /^\d+ - /.test(d))) {
   const content =
     info.match(/^Content: ([\s\S]*?)\nPublished: /m)?.[1]?.trim() ?? '';
   const vdir = path.join(base, 'video');
-  const mp4 = fs.readdirSync(vdir).find(f => f.endsWith('.mp4'));
   const poster = fs.readdirSync(vdir).find(f => f.endsWith('-thumbnail.jpg'));
+  // The original video is not needed (and may be deleted): the poster shares
+  // its number, and the compressed copy is what is uploaded and measured.
+  const videoSource = `compressed/${id}/${poster.replace(/-thumbnail\.jpg$/, '')}.mp4`;
   const duration = parseFloat(
     execFileSync('ffprobe', [
       '-v',
@@ -201,7 +203,7 @@ for (const dir of fs.readdirSync(POSTS).filter(d => /^\d+ - /.test(d))) {
       'format=duration',
       '-of',
       'csv=p=0',
-      path.join(vdir, mp4),
+      path.join(SRC, videoSource),
     ]).toString()
   );
 
@@ -242,8 +244,8 @@ for (const dir of fs.readdirSync(POSTS).filter(d => /^\d+ - /.test(d))) {
     // Where publish.sh puts it in the bucket. The page asks Storage for it by
     // this path; nothing in the repo can play it.
     video: `painting/videos/${id}.mp4`,
-    // the file compress-videos.sh made, so publish.sh knows what to upload
-    videoSource: `compressed/${id}/${mp4.split(' ')[0]}.mp4`,
+    // the file compress-all.sh made, so publish.sh knows what to upload
+    videoSource,
     poster: await webp(path.join(vdir, poster), `${id}/_poster.webp`, POSTER_W),
     posterFull: await webp(
       path.join(vdir, poster),

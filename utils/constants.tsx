@@ -1,9 +1,12 @@
 import {
   IconApps,
   IconLayoutGrid,
-  IconBook,
   IconBrandYoutube,
   IconBuilding,
+  IconChartDots,
+  IconColorSwatch,
+  IconGridDots,
+  IconSwords,
   IconHome2,
   IconMail,
   IconMoodSmile,
@@ -47,22 +50,17 @@ export const NAV_ITEMS: NavItem[] = [
     icon: <IconHome2 size={16} stroke={1.5} />,
   },
   {
-    label: 'Blog',
-    href: '/blog',
-    icon: <IconBook size={16} stroke={1.5} />,
-  },
-  {
     label: 'Contact',
     href: '/contact',
     icon: <IconMail size={16} stroke={1.5} />,
   },
   {
-    label: 'Projects',
+    label: 'Portfolio',
     icon: <IconApps size={16} stroke={1.5} />,
     children: [
       {
-        label: 'All projects',
-        href: '/projects',
+        label: 'Overview',
+        href: '/portfolio',
         icon: <IconLayoutGrid size={16} stroke={1.5} />,
       },
       {
@@ -81,6 +79,26 @@ export const NAV_ITEMS: NavItem[] = [
         href: '/hackertube',
         match: '/hackertube',
         icon: <IconBrandYoutube size={16} stroke={1.5} />,
+      },
+      {
+        label: 'Gravity Grid',
+        href: '/gravity',
+        icon: <IconChartDots size={16} stroke={1.5} />,
+      },
+      {
+        label: 'Sudoku',
+        href: '/sudoku',
+        icon: <IconGridDots size={16} stroke={1.5} />,
+      },
+      {
+        label: 'Name duels',
+        href: '/duel',
+        icon: <IconSwords size={16} stroke={1.5} />,
+      },
+      {
+        label: 'Impasto',
+        href: '/impasto',
+        icon: <IconColorSwatch size={16} stroke={1.5} />,
       },
       {
         label: 'Painting',

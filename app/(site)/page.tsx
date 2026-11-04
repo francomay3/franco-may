@@ -1,16 +1,7 @@
 import PageTitle from '@/components/PageTitle';
-import {
-  Text,
-  Typography,
-  Box,
-  Button,
-  Group,
-  Title,
-  Card,
-  Stack,
-} from '@mantine/core';
+import { Text, Typography, Box, Stack, Title } from '@mantine/core';
 import Image from '@/components/Image';
-import Link from '@/components/Link';
+import PostList from '@/components/PostList';
 
 //TODO: check all todos from: https://github.com/thedaviddias/Front-End-Checklist
 
@@ -49,21 +40,14 @@ export default function HomePage() {
           </Text>
         </Box>
 
-        <Card withBorder maw={400} mx="auto">
-          <Title order={3}>Let's Connect</Title>
+        <Box>
+          <Title order={2}>Blog</Title>
           <Text>
-            Interested in my thoughts or want to discuss ideas? I'd love to hear
-            from you.
+            This is where I collect thoughts, and now and then a write-up of
+            something I built. The things themselves are under Portfolio.
           </Text>
-          <Group justify="center">
-            <Link href="/blog">
-              <Button variant="filled">Read My Blog</Button>
-            </Link>
-            <Link href="/contact">
-              <Button variant="outline">Get in Touch</Button>
-            </Link>
-          </Group>
-        </Card>
+          <PostList />
+        </Box>
       </Stack>
     </Typography>
   );

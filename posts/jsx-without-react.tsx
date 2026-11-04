@@ -116,8 +116,8 @@ const thisPost: Post = {
   title: 'JSX Without React',
   slug: 'jsx-without-react',
   html,
-  date: new Date('2026-11-04'),
-  lastUpdated: new Date('2026-11-04'),
+  date: new Date('2023-09-11'),
+  lastUpdated: new Date('2023-09-11'),
   excerpt:
     'A small experiment building a JSX app with a custom jsx-runtime and no React: how JSX really works, and what you give up without state or re-rendering.',
   author: 'Franco May',

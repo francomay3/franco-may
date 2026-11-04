@@ -150,8 +150,8 @@ const thisPost: Post = {
   title: 'From 312,000 Remains to 10,000 Pins',
   slug: 'from-312000-remains-to-10000-pins',
   html,
-  date: new Date('2026-11-04'),
-  lastUpdated: new Date('2026-11-04'),
+  date: new Date('2026-10-19'),
+  lastUpdated: new Date('2026-10-19'),
   excerpt:
     'How a register of 312,000 Swedish archaeological remains becomes 10,000 map pins: grouping records into places, ranking them with weak labels, and keeping a local model from inventing history.',
   author: 'Franco May',

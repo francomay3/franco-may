@@ -117,8 +117,8 @@ const thisPost: Post = {
   title: 'Importing C++ Straight into TypeScript',
   slug: 'importing-cpp-into-typescript',
   html,
-  date: new Date('2026-11-04'),
-  lastUpdated: new Date('2026-11-04'),
+  date: new Date('2026-04-02'),
+  lastUpdated: new Date('2026-04-02'),
   excerpt:
     'Why I built vite-plugin-cpp-loader, a Vite plugin that compiles C++ to WebAssembly with Emscripten and gives you typed imports.',
   author: 'Franco May',

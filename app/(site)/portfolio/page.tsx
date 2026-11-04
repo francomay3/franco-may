@@ -7,10 +7,10 @@ import {
   type Project,
   formatRange,
   projectsByYear,
-} from './projects';
+} from '@/utils/projects';
 
 export const metadata: Metadata = {
-  title: 'Projects',
+  title: 'Portfolio',
   description:
     'Things I have built, newest first, each with the months I worked on it.',
 };
@@ -46,15 +46,14 @@ const ProjectCard = ({ project }: { project: Project }) => (
 );
 
 /** A date column next to the card, like the blog index but for date ranges. */
-export default function ProjectsPage() {
+export default function PortfolioPage() {
   return (
     <Box>
-      <PageTitle>Projects</PageTitle>
+      <PageTitle>Portfolio</PageTitle>
       <Text>
         Things I have built, newest first. The dates are the months between the
         first and the last commit, so a long span means I kept coming back to
-        it. <strong>Try it</strong> opens a demo on this site, and
-        <strong> Write-up</strong> opens the post about it.
+        it.
       </Text>
 
       {projectsByYear().map(([year, projects]) => (

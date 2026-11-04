@@ -1,4 +1,4 @@
-export type ProjectKind = 'demo' | 'live' | 'writeup' | 'repo';
+export type ProjectKind = 'demo' | 'live' | 'repo';
 
 export type Project = {
   slug: string;
@@ -12,7 +12,7 @@ export type Project = {
   /** Where the card leads on this site, or to an external page. */
   href: string;
   repo?: string;
-  /** Blog post that goes with it. */
+  /** Blog post about it, if there is one. */
   post?: string;
   tags: string[];
 };
@@ -29,21 +29,9 @@ export const PROJECTS: Project[] = [
     start: '2023-08',
     end: '2025-01',
     kind: 'demo',
-    href: '/projects/gravity',
+    href: '/gravity',
     repo: `${GITHUB}/gravity-grid-pixijs`,
     tags: ['Simulation', 'Canvas', 'TypeScript'],
-  },
-  {
-    slug: 'not-react',
-    title: 'not-react',
-    summary: 'A JSX app with no React in it, to see how little it takes.',
-    start: '2023-09',
-    end: '2023-09',
-    kind: 'writeup',
-    href: '/blog/jsx-without-react',
-    repo: `${GITHUB}/not-react`,
-    post: 'jsx-without-react',
-    tags: ['JSX', 'Babel'],
   },
   {
     slug: 'sudoku',
@@ -53,22 +41,9 @@ export const PROJECTS: Project[] = [
     start: '2024-01',
     end: '2024-02',
     kind: 'demo',
-    href: '/projects/sudoku',
+    href: '/sudoku',
     repo: `${GITHUB}/sudokuApp`,
     tags: ['Game', 'React'],
-  },
-  {
-    slug: 'cpp-loader',
-    title: 'vite-plugin-cpp-loader',
-    summary:
-      'An npm package that lets you import C++ files into TypeScript, compiled to WebAssembly.',
-    start: '2025-05',
-    end: '2026-04',
-    kind: 'writeup',
-    href: '/blog/importing-cpp-into-typescript',
-    repo: `${GITHUB}/vite-plugin-cpp-loader`,
-    post: 'importing-cpp-into-typescript',
-    tags: ['Vite', 'WebAssembly', 'C++', 'npm'],
   },
   {
     slug: 'naturalneits',
@@ -106,19 +81,6 @@ export const PROJECTS: Project[] = [
     tags: ['React Native', 'Expo'],
   },
   {
-    slug: 'biljakt',
-    title: 'Biljakt',
-    summary:
-      'Scrapes used-car listings and ranks them with configurable scoring rules.',
-    start: '2026-01',
-    end: '2026-03',
-    kind: 'writeup',
-    href: '/blog/biljakt-ranking-used-cars',
-    repo: `${GITHUB}/Biljakt`,
-    post: 'biljakt-ranking-used-cars',
-    tags: ['Scraping', 'Scoring'],
-  },
-  {
     slug: 'duel',
     title: 'Name duels',
     summary:
@@ -126,7 +88,7 @@ export const PROJECTS: Project[] = [
     start: '2026-02',
     end: '2026-03',
     kind: 'demo',
-    href: '/projects/duel',
+    href: '/duel',
     repo: `${GITHUB}/babyname`,
     tags: ['Ranking', 'Firebase'],
   },
@@ -138,7 +100,7 @@ export const PROJECTS: Project[] = [
     start: '2026-03',
     end: '2026-04',
     kind: 'demo',
-    href: '/projects/impasto',
+    href: '/impasto',
     repo: `${GITHUB}/impasto`,
     tags: ['Color', 'k-means', 'Painting'],
   },
@@ -233,6 +195,5 @@ export const projectsByYear = () => {
 export const KIND_LABEL: Record<ProjectKind, string> = {
   demo: 'Try it',
   live: 'Live',
-  writeup: 'Write-up',
   repo: 'Code',
 };

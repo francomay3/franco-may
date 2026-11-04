@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Text } from '@mantine/core';
-import { ProjectHeader } from '../ProjectHeader';
+import { ProjectHeader } from '@/components/ProjectHeader';
 import { Duel } from './Duel';
 
 export const metadata: Metadata = {

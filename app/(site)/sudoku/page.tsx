@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ProjectHeader } from '../ProjectHeader';
+import { ProjectHeader } from '@/components/ProjectHeader';
 import { Sudoku } from './Sudoku';
 
 export const metadata: Metadata = {

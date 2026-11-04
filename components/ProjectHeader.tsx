@@ -1,15 +1,19 @@
 import { Badge, Group, Text, Title } from '@mantine/core';
 import { IconBrandGithub, IconCalendar } from '@tabler/icons-react';
 import Link from '@/components/Link';
-import { formatRange, getProject } from './projects';
+import { formatRange, getProject } from '@/utils/projects';
 
 /** Title, dates and links for a project page; the data lives in projects.ts. */
 export function ProjectHeader({ slug }: { slug: string }) {
   const project = getProject(slug);
   return (
     <>
-      <Link href="/projects" size="sm" ff="var(--mantine-font-family-headings)">
-        ← All projects
+      <Link
+        href="/portfolio"
+        size="sm"
+        ff="var(--mantine-font-family-headings)"
+      >
+        ← Portfolio
       </Link>
       <Title order={1} mt="xs">
         {project.title}

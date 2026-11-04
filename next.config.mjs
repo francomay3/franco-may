@@ -23,6 +23,14 @@ export default withBundleAnalyzer({
     ],
   },
 
+  async redirects() {
+    return [
+      // Home is the blog now.
+      { source: '/blog', destination: '/', permanent: true },
+      { source: '/projects', destination: '/portfolio', permanent: true },
+    ];
+  },
+
   async headers() {
     return [
       {
