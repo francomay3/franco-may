@@ -1,4 +1,8 @@
 import aigoals from './ai-goals';
+import biljakt from './biljakt';
+import cppInVite from './cpp-in-vite';
+import fornlamningarPipeline from './fornlamningar-pipeline';
+import jsxWithoutReact from './jsx-without-react';
 import leibniz from './leibniz';
 import { Post } from './types';
 
@@ -7,6 +11,10 @@ import { Post } from './types';
 const posts: Post[] = [
   aigoals,
   leibniz,
+  biljakt,
+  fornlamningarPipeline,
+  cppInVite,
+  jsxWithoutReact,
   // {
   //   title: 'Why Is There Something Rather Than Nothing?',
   //   slug: 'why-is-there-something-rather-than-nothing',

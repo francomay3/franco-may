@@ -1,5 +1,6 @@
 import {
   IconApps,
+  IconLayoutGrid,
   IconBook,
   IconBrandYoutube,
   IconBuilding,
@@ -59,6 +60,11 @@ export const NAV_ITEMS: NavItem[] = [
     label: 'Projects',
     icon: <IconApps size={16} stroke={1.5} />,
     children: [
+      {
+        label: 'All projects',
+        href: '/projects',
+        icon: <IconLayoutGrid size={16} stroke={1.5} />,
+      },
       {
         label: 'Historia Kartan',
         href: '/fornlamningar/map',
