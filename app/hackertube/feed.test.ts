@@ -85,7 +85,7 @@ describe('for-you feed', () => {
     );
   });
 
-  it('leaves out liked, not-interested, news and removed videos', () => {
+  it('leaves out liked, saved, not-interested, news and removed videos', () => {
     const data = build([
       ...around('a', 0, 20),
       { id: 'news', vec: [100, 0, 0], shelfLife: 'news' },
@@ -95,14 +95,32 @@ describe('for-you feed', () => {
       liked: ['a0', 'a1'],
       disliked: ['a2'],
       seen: NONE,
-      saved: [],
+      saved: ['a3', 'a4'],
       seed: 1,
     });
     const got = ids(feed);
-    for (const id of ['a0', 'a1', 'a2', 'news', 'gone']) {
+    for (const id of ['a0', 'a1', 'a2', 'a3', 'a4', 'news', 'gone']) {
       expect(got).not.toContain(id);
     }
-    expect(got).toContain('a3');
+    expect(got).toContain('a5');
+  });
+
+  it('leaves out a re-upload of something you saved', () => {
+    const data = build([...around('a', 0, 10)]);
+    (data.videos as Video[])[4] = {
+      ...data.videos[4],
+      title: data.videos[1].title,
+    };
+    const feed = buildFeed(data, {
+      liked: ['a0'],
+      disliked: [],
+      seen: NONE,
+      saved: ['a1'],
+      seed: 1,
+    });
+    expect(ids(feed)).not.toContain('a1');
+    expect(ids(feed)).not.toContain('a4');
+    expect(ids(feed)).toContain('a2');
   });
 
   it('leaves out a re-upload of something you liked', () => {

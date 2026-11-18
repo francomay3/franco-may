@@ -26,7 +26,7 @@ import {
 const userDoc = (uid: string) => doc(db, 'ht_users', uid);
 
 export type RawUserData = {
-  seen: string[];
+  seen: [id: string, at: unknown][];
   watchLater: [id: string, addedAt: unknown][];
   liked: [id: string, at: unknown][];
   disliked: [id: string, at: unknown][];
@@ -35,6 +35,8 @@ export type RawUserData = {
 
 export type UserData = {
   seen: Set<string>;
+  /** When the seen mark was written. 0 means the stored value was not a time. */
+  seenAt: Map<string, number>;
   /** Video id to when it was added, so the list can be shown newest first. */
   watchLater: Map<string, number>;
   /** Video id to when it was liked. Never also in `disliked`. */
@@ -57,7 +59,7 @@ export function reactionOf(
 export async function loadUserData(uid: string): Promise<RawUserData> {
   const data = (await getDoc(userDoc(uid))).data() ?? {};
   return {
-    seen: Object.keys((data.seen ?? {}) as object),
+    seen: Object.entries((data.seen ?? {}) as object),
     watchLater: Object.entries((data.watchLater ?? {}) as object),
     liked: Object.entries((data.liked ?? {}) as object),
     disliked: Object.entries((data.disliked ?? {}) as object),
@@ -73,8 +75,10 @@ export function parseUserData(
   bounds: Bounds,
   tax: Taxonomy
 ): UserData {
+  const seenAt = toTimes(raw.seen);
   return {
-    seen: new Set(raw.seen),
+    seen: new Set(seenAt.keys()),
+    seenAt,
     watchLater: new Map(
       raw.watchLater.map(([id, at]) => [id, typeof at === 'number' ? at : 0])
     ),

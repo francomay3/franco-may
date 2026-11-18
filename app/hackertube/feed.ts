@@ -38,7 +38,9 @@ import { DIM, type Video } from './types';
  *
  * Seen videos are scored down and, whatever their score, never make up more
  * than SEEN_SHARE of the feed at any point of it. Videos you marked "not
- * interested" are gone, and videos close to them are pushed down.
+ * interested" are gone, and videos close to them are pushed down. Videos
+ * saved for later are gone too: they already sit in a list. Saving one still
+ * counts as taste, above.
  */
 export const FEED_LENGTH = 300;
 /** Candidates considered per taste. */
@@ -257,7 +259,10 @@ export function buildFeed(data: SimilarityData, input: FeedInput): Feed {
   const dislikedIdx = input.disliked
     .map(id => indexOf.get(id))
     .filter((i): i is number => i !== undefined);
-  const out = new Set([...likedIdx, ...dislikedIdx]);
+  const savedIdx = input.saved
+    .map(id => indexOf.get(id))
+    .filter((i): i is number => i !== undefined);
+  const out = new Set([...likedIdx, ...dislikedIdx, ...savedIdx]);
 
   // How close each video is to something you dismissed, in standard
   // deviations; only "unusually close" (above one) costs anything.
@@ -403,9 +408,11 @@ export function buildFeed(data: SimilarityData, input: FeedInput): Feed {
   // ---- take turns between the tastes ---------------------------------------
   const picked: Video[] = [];
   const used = new Set<number>();
-  // A re-upload of something you liked or dismissed is the same video to you.
+  // A re-upload of something you liked, saved or dismissed is the same video.
   const titles = new Set(
-    [...likedIdx, ...dislikedIdx].map(i => titleKey(videos[i].title))
+    [...likedIdx, ...dislikedIdx, ...savedIdx].map(i =>
+      titleKey(videos[i].title)
+    )
   );
   const perChannel = new Map<string, number>();
   let seenCount = 0;

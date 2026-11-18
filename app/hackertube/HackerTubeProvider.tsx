@@ -57,6 +57,8 @@ export type HackerTubeContext = {
   /** What the "similar to this" sections are computed from. */
   similarity: SimilarityData;
   seen: ReadonlySet<string>;
+  /** When the seen mark was written. 0 means the stored value was not a time. */
+  seenAt: ReadonlyMap<string, number>;
   markSeen: (id: string, value: boolean) => void;
   /** Video id to when it was added. */
   watchLater: ReadonlyMap<string, number>;
@@ -91,6 +93,7 @@ type Gate =
       user: User;
       data: Dataset;
       seen: Set<string>;
+      seenAt: Map<string, number>;
       watchLater: Map<string, number>;
       liked: Map<string, number>;
       disliked: Map<string, number>;
@@ -147,16 +150,18 @@ export function HackerTubeProvider({
             loadDataset(),
             loadUserData(user.uid),
           ]);
-          const { seen, watchLater, liked, disliked, searches } = parseUserData(
-            rawUser,
-            boundsOf(data.videos),
-            new Taxonomy(data.areas)
-          );
+          const { seen, seenAt, watchLater, liked, disliked, searches } =
+            parseUserData(
+              rawUser,
+              boundsOf(data.videos),
+              new Taxonomy(data.areas)
+            );
           setGate({
             at: 'ready',
             user,
             data,
             seen,
+            seenAt,
             watchLater,
             liked,
             disliked,
@@ -275,6 +280,7 @@ export function HackerTubeProvider({
       user={gate.user}
       data={gate.data}
       initialSeen={gate.seen}
+      initialSeenAt={gate.seenAt}
       initialWatchLater={gate.watchLater}
       initialLiked={gate.liked}
       initialDisliked={gate.disliked}
@@ -289,6 +295,7 @@ function Ready({
   user,
   data,
   initialSeen,
+  initialSeenAt,
   initialWatchLater,
   initialLiked,
   initialDisliked,
@@ -298,6 +305,7 @@ function Ready({
   user: User;
   data: Dataset;
   initialSeen: Set<string>;
+  initialSeenAt: Map<string, number>;
   initialWatchLater: Map<string, number>;
   initialLiked: Map<string, number>;
   initialDisliked: Map<string, number>;
@@ -349,6 +357,7 @@ function Ready({
   );
 
   const [seen, setSeenSet] = useState(initialSeen);
+  const [seenAt, setSeenAt] = useState(initialSeenAt);
   const [watchLater, setWatchLaterMap] = useState(initialWatchLater);
   const [liked, setLiked] = useState(initialLiked);
   const [disliked, setDisliked] = useState(initialDisliked);
@@ -361,7 +370,9 @@ function Ready({
 
   const markSeen = useCallback(
     (id: string, value: boolean) => {
-      const flip = (on: boolean) =>
+      const at = Date.now();
+      const previousAt = seenAt.get(id);
+      const apply = (on: boolean, when: number | undefined) => {
         setSeenSet(prev => {
           if (prev.has(id) === on) {
             return prev;
@@ -374,14 +385,31 @@ function Ready({
           }
           return next;
         });
-      flip(value);
+        setSeenAt(prev => {
+          if (!on) {
+            if (!prev.has(id)) {
+              return prev;
+            }
+            const next = new Map(prev);
+            next.delete(id);
+            return next;
+          }
+          if (when !== undefined && prev.get(id) === when) {
+            return prev;
+          }
+          const next = new Map(prev);
+          next.set(id, when ?? at);
+          return next;
+        });
+      };
+      apply(value, value ? at : undefined);
       setSeen(user.uid, id, value).catch(e => {
         // Put it back: a seen mark that did not save would be a lie.
-        flip(!value);
+        apply(previousAt !== undefined, previousAt);
         fail(e);
       });
     },
-    [user.uid, fail]
+    [user.uid, seenAt, fail]
   );
 
   const toggleWatchLater = useCallback(
@@ -475,6 +503,7 @@ function Ready({
       topPercentOf,
       similarity,
       seen,
+      seenAt,
       markSeen,
       watchLater,
       toggleWatchLater,
@@ -496,6 +525,7 @@ function Ready({
       topPercentOf,
       similarity,
       seen,
+      seenAt,
       markSeen,
       watchLater,
       toggleWatchLater,

@@ -73,10 +73,14 @@ export function ForYou() {
       }
   );
   const feed = useMemo(() => buildFeed(similarity, input), [similarity, input]);
-  // Dismissing takes a video out at once; everything else waits for a reload.
+  // Dismissing or saving takes a video out at once; everything else waits
+  // for a reload.
   const items = useMemo(
-    () => feed.items.filter(x => !disliked.has(x.video.id)),
-    [feed, disliked]
+    () =>
+      feed.items.filter(
+        x => !disliked.has(x.video.id) && !watchLater.has(x.video.id)
+      ),
+    [feed, disliked, watchLater]
   );
 
   // ---- search ----------------------------------------------------------

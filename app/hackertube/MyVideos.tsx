@@ -9,6 +9,7 @@ import { useHackerTube } from './HackerTubeProvider';
 import { reactionOf } from './seen';
 import { useInfinite } from './useInfinite';
 import { VideoRow } from './VideoRow';
+import { orderWatchLater } from './watchLaterList';
 
 const PAGE = 30;
 
@@ -18,18 +19,22 @@ function MyVideos({
   note,
   empty,
   picks,
+  burySeen = false,
 }: {
   title: string;
   note: string;
   empty: string;
   /** Video id to when it was picked. */
   picks: ReadonlyMap<string, number>;
+  /** Seen more than two weeks ago go last. The rest stay newest first. */
+  burySeen?: boolean;
 }) {
   const {
     user,
     videoById,
     categoryName,
     seen,
+    seenAt,
     markSeen,
     watchLater,
     toggleWatchLater,
@@ -38,14 +43,15 @@ function MyVideos({
     react,
   } = useHackerTube();
 
-  const videos = useMemo(
-    () =>
-      [...picks]
-        .sort((a, b) => b[1] - a[1])
-        .map(([id]) => videoById.get(id))
-        .filter(v => v !== undefined),
-    [picks, videoById]
-  );
+  const order = burySeen
+    ? 'latest first, with videos seen more than two weeks ago at the bottom'
+    : 'latest first';
+  const videos = useMemo(() => {
+    const ids = burySeen
+      ? orderWatchLater(picks, seenAt, Date.now())
+      : [...picks].sort((a, b) => b[1] - a[1]).map(([id]) => id);
+    return ids.map(id => videoById.get(id)).filter(v => v !== undefined);
+  }, [picks, videoById, burySeen, seenAt]);
   const { visible, sentinel } = useInfinite(videos.length, PAGE);
 
   return (
@@ -56,7 +62,7 @@ function MyVideos({
         <h1 className={styles.videoTitle}>{title}</h1>
         <Text c="dimmed" size="sm" mb="md">
           {videos.length.toLocaleString()} video{videos.length === 1 ? '' : 's'}
-          , latest first. {note}
+          , {order}. {note}
         </Text>
 
         {videos.slice(0, visible).map(v => (
@@ -106,6 +112,7 @@ export function WatchLaterPage() {
       note="Taking one off the list is the bookmark on its row."
       empty="Your watch-later list is empty. Use the bookmark on a video to add it."
       picks={watchLater}
+      burySeen
     />
   );
 }
