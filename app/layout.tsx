@@ -24,9 +24,13 @@ const sourceSerif = Source_Serif_4({
   weight: ['400'],
 });
 
+const planetIcon =
+  'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>';
+
 export const metadata = {
   title: 'Franco May - Personal Website',
   description: 'A place to share my thoughts and projects.',
+  icons: { icon: planetIcon },
 };
 
 export default function RootLayout({ children }: { children: any }) {
@@ -37,10 +41,6 @@ export default function RootLayout({ children }: { children: any }) {
       // className={`${poppins.className} ${sourceSerif.className}`}
     >
       <head>
-        <link
-          rel="icon"
-          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>"
-        />
         <ColorSchemeScript />
         <meta
           name="viewport"

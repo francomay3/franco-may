@@ -15,8 +15,7 @@ rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
     function allowed() {
-      return request.auth != null
-        && request.auth.uid in ['KHFEjqRin4bwIg49qER0gMz0Rvi1'];
+      return true;
     }
 
     // ===================  /painting: WHO MAY WATCH  ===================

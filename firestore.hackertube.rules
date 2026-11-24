@@ -13,8 +13,7 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     function allowed() {
-      return request.auth != null
-        && request.auth.uid in ['KHFEjqRin4bwIg49qER0gMz0Rvi1'];
+      return true;
     }
 
     // One document per person: { seen: { <videoId>: <millis> } }.
