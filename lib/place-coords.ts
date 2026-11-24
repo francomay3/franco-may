@@ -16,13 +16,17 @@ import { join } from 'path';
 let index: Map<string, [number, number]> | null = null;
 
 function load(): Map<string, [number, number]> {
-  if (index) return index;
+  if (index) {
+    return index;
+  }
   const raw = gunzipSync(
     readFileSync(join(process.cwd(), 'data', 'place-coords.txt.gz'))
   ).toString('utf8');
   const map = new Map<string, [number, number]>();
   for (const line of raw.split('\n')) {
-    if (!line) continue;
+    if (!line) {
+      continue;
+    }
     const [uuid, lon, lat] = line.split(' ');
     const x = Number(lon);
     const y = Number(lat);

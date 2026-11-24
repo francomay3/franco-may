@@ -577,9 +577,8 @@ function PendingPhotoCard({
   const approve = async () => {
     setWorking('approve');
     try {
-      const { ref, getMetadata, updateMetadata } = await import(
-        'firebase/storage'
-      );
+      const { ref, getMetadata, updateMetadata } =
+        await import('firebase/storage');
       const object = ref(await photoStorage(), PHOTO_PATH(photo.event_id));
       const meta = await getMetadata(object);
       await updateMetadata(object, {

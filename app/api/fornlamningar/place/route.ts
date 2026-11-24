@@ -663,8 +663,7 @@ export async function POST(request: NextRequest) {
     }
     const byAgent = parsed.data.by_agent === true;
     const backend = byAgent ? (parsed.data.backend ?? null) : null;
-    const model =
-      byAgent && parsed.data.model ? parsed.data.model : null;
+    const model = byAgent && parsed.data.model ? parsed.data.model : null;
     const { rows } = await pool.query<{
       verified_at: Date;
       by_agent: boolean;

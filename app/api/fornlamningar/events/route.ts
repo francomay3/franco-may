@@ -438,10 +438,15 @@ export async function POST(request: NextRequest) {
       // Star ratings are retired. An old phone may still have one queued;
       // accepting it clears that queue without writing the row back.
       const publishing = body.events.filter(
-        e => e.kind !== 'photo' && e.kind !== 'rating' && e.kind !== 'rating_delete'
+        e =>
+          e.kind !== 'photo' &&
+          e.kind !== 'rating' &&
+          e.kind !== 'rating_delete'
       );
       for (const e of body.events) {
-        if (e.kind !== 'photo') continue;
+        if (e.kind !== 'photo') {
+          continue;
+        }
         await c.query(
           `INSERT INTO fl_photo_queue
              (event_id, place_uuid, author, payload, client_ts)
@@ -456,7 +461,9 @@ export async function POST(request: NextRequest) {
           ]
         );
       }
-      if (!publishing.length) return last;
+      if (!publishing.length) {
+        return last;
+      }
 
       // Take the counter's row lock, then insert with the numbers it hands
       // out, all in this transaction. See scripts/fornlamningar-events.sql

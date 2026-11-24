@@ -11,17 +11,17 @@
  * itself, which is ugly but visible -- better than an empty checkbox label.
  */
 const FAMILY_LABEL: Record<string, string> = {
-  graves: "Graves & burial grounds",
-  rockart: "Rune stones & rock art",
-  forts: "Forts & castles",
-  religious: "Churches & sacred places",
-  settlement: "Settlements & dwellings",
-  farming: "Farming & earthworks",
-  industry: "Mining, iron & industry",
-  transport: "Roads, bridges & boundaries",
-  maritime: "Coast & seafaring",
-  hunting: "Hunting traps",
-  misc: "Other & uncertain",
+  graves: 'Graves & burial grounds',
+  rockart: 'Rune stones & rock art',
+  forts: 'Forts & castles',
+  religious: 'Churches & sacred places',
+  settlement: 'Settlements & dwellings',
+  farming: 'Farming & earthworks',
+  industry: 'Mining, iron & industry',
+  transport: 'Roads, bridges & boundaries',
+  maritime: 'Coast & seafaring',
+  hunting: 'Hunting traps',
+  misc: 'Other & uncertain',
 };
 
 export function familyLabel(id: string): string {

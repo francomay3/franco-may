@@ -62,8 +62,8 @@ export default function PrivacyPage() {
       <h1 style={s.h1}>Integritet</h1>
 
       <p style={s.p}>
-        Historia Kartan är en gratis app utan annonser. Den mesta informationen stannar
-        i telefonen: du behöver inget konto för att använda kartan, läsa
+        Historia Kartan är en gratis app utan annonser. Den mesta informationen
+        stannar i telefonen: du behöver inget konto för att använda kartan, läsa
         beskrivningar, markera besök eller svara på frågor.
       </p>
 
@@ -71,9 +71,9 @@ export default function PrivacyPage() {
       <p style={s.p}>
         Din GPS-position används för att visa var du är och för att känna igen
         att du har varit på en plats.{' '}
-        <strong>Den lämnar aldrig telefonen.</strong> Dina besök, svar
-        och favoriter sparas lokalt först och visas för dig även utan konto och
-        utan täckning.
+        <strong>Den lämnar aldrig telefonen.</strong> Dina besök, svar och
+        favoriter sparas lokalt först och visas för dig även utan konto och utan
+        täckning.
       </p>
 
       <h2 style={s.h2}>Det som skickas när du publicerar</h2>
@@ -148,17 +148,17 @@ export default function PrivacyPage() {
       <h1 style={s.h1Later}>Privacy</h1>
 
       <p style={s.p}>
-        Historia Kartan is a free app with no ads. Most of what it knows stays on the
-        phone: you need no account to use the map, read descriptions, mark a
-        visit or answer questions.
+        Historia Kartan is a free app with no ads. Most of what it knows stays
+        on the phone: you need no account to use the map, read descriptions,
+        mark a visit or answer questions.
       </p>
 
       <h2 style={s.h2}>What stays on the phone</h2>
       <p style={s.p}>
         Your GPS position is used to show where you are and to recognise that
         you have been to a place. <strong>It never leaves the phone.</strong>{' '}
-        Your visits, answers and favourites are saved locally first and
-        shown back to you with no account and no signal.
+        Your visits, answers and favourites are saved locally first and shown
+        back to you with no account and no signal.
       </p>
 
       <h2 style={s.h2}>What is sent when you publish</h2>
@@ -171,9 +171,7 @@ export default function PrivacyPage() {
           a random id for your phone — not your name, not your email
         </li>
         <li style={s.li}>which archaeological site it is about</li>
-        <li style={s.li}>
-          your answer or your comment, and which day it was
-        </li>
+        <li style={s.li}>your answer or your comment, and which day it was</li>
         <li style={s.li}>
           for a visit: the distance in metres and the GPS accuracy —{' '}
           <strong>never coordinates</strong>

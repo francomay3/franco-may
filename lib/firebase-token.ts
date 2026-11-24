@@ -72,8 +72,7 @@ export async function verifyFirebaseToken(
     // yet; noted because it is what a "re-authenticate before deleting your
     // account" check would need.
     const firebase = payload.firebase as
-      | { sign_in_provider?: string }
-      | undefined;
+      { sign_in_provider?: string } | undefined;
     return {
       uid,
       provider: firebase?.sign_in_provider ?? 'unknown',

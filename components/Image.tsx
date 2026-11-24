@@ -7,8 +7,7 @@ import {
 } from '@mantine/core';
 
 interface ImageProps
-  extends BoxProps,
-    Omit<MantineImageProps, 'component' | 'src' | 'alt'> {
+  extends BoxProps, Omit<MantineImageProps, 'component' | 'src' | 'alt'> {
   src: string;
   alt: string;
   fit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';

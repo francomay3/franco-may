@@ -232,7 +232,9 @@ function filesFrom(json: Record<string, unknown>): CommonsFile[] {
   return out;
 }
 
-async function lookup(titles: string[]): Promise<CommonsFile[] | { error: string }> {
+async function lookup(
+  titles: string[]
+): Promise<CommonsFile[] | { error: string }> {
   const groups: string[][] = [];
   let batch: string[] = [];
   const flush = () => {
@@ -380,7 +382,10 @@ export async function POST(request: NextRequest) {
   }
   const uuid = placeUuidOf(parsed.data.place);
   if (!uuid) {
-    return NextResponse.json({ error: 'no place with that id' }, { status: 404 });
+    return NextResponse.json(
+      { error: 'no place with that id' },
+      { status: 404 }
+    );
   }
 
   if (parsed.data.action === 'remove') {
@@ -420,8 +425,7 @@ export async function POST(request: NextRequest) {
     if (!title) {
       return NextResponse.json(
         {
-          error:
-            'Paste a Commons file link, or a title that starts with File:',
+          error: 'Paste a Commons file link, or a title that starts with File:',
         },
         { status: 422 }
       );
@@ -515,7 +519,10 @@ export async function POST(request: NextRequest) {
     if (image.protocol !== 'https:' || (page && page.protocol !== 'https:')) {
       return NextResponse.json({ error: 'https only' }, { status: 400 });
     }
-    if (!officialHost(image.hostname) || (page && !officialHost(page.hostname))) {
+    if (
+      !officialHost(image.hostname) ||
+      (page && !officialHost(page.hostname))
+    ) {
       return NextResponse.json(
         { error: 'not an official Swedish page' },
         { status: 400 }
@@ -529,7 +536,10 @@ export async function POST(request: NextRequest) {
         signal: AbortSignal.timeout(15000),
       });
     } catch {
-      return NextResponse.json({ error: 'could not fetch the image' }, { status: 502 });
+      return NextResponse.json(
+        { error: 'could not fetch the image' },
+        { status: 502 }
+      );
     }
     const type = fetched.headers.get('content-type') ?? '';
     await fetched.body?.cancel();
@@ -537,16 +547,26 @@ export async function POST(request: NextRequest) {
     try {
       landed = new URL(fetched.url);
     } catch {
-      return NextResponse.json({ error: 'could not fetch the image' }, { status: 502 });
+      return NextResponse.json(
+        { error: 'could not fetch the image' },
+        { status: 502 }
+      );
     }
-    if (!fetched.ok || !type.startsWith('image/') || !officialHost(landed.hostname)) {
+    if (
+      !fetched.ok ||
+      !type.startsWith('image/') ||
+      !officialHost(landed.hostname)
+    ) {
       return NextResponse.json(
         { error: 'that url is not an image on the official page' },
         { status: 422 }
       );
     }
     if (landed.toString().length > 2000) {
-      return NextResponse.json({ error: 'image url is too long' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'image url is too long' },
+        { status: 400 }
+      );
     }
     const known = await held(uuid);
     if (known.has(landed.toString().toLowerCase())) {
@@ -570,7 +590,11 @@ export async function POST(request: NextRequest) {
       null,
       true
     );
-    return NextResponse.json({ ok: true, file: landed.toString(), source: 'official' });
+    return NextResponse.json({
+      ok: true,
+      file: landed.toString(),
+      source: 'official',
+    });
   }
 
   if (parsed.data.action === 'paste') {
@@ -628,9 +652,8 @@ export async function POST(request: NextRequest) {
   }
   const hits = (
     (
-      json['query'] as
-        | { geosearch?: { title?: string; dist?: number }[] }
-        | undefined
+      json.query as
+        { geosearch?: { title?: string; dist?: number }[] } | undefined
     )?.geosearch ?? []
   ).flatMap(hit =>
     hit.title ? [{ title: hit.title, dist: hit.dist ?? null }] : []

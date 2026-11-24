@@ -118,7 +118,7 @@ function percentiles(values: number[]): number[] {
   if (n < 2) {
     return out;
   }
-  for (let i = 0; i < n; ) {
+  for (let i = 0; i < n;) {
     let j = i;
     while (j + 1 < n && values[order[j + 1]] === values[order[i]]) {
       j++;

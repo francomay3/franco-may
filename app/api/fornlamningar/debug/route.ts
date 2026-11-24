@@ -7,7 +7,9 @@ import { NextRequest, NextResponse } from 'next/server';
  */
 async function sql(query: string, params: unknown[]) {
   const url = process.env.DATABASE_URL;
-  if (!url) throw new Error('no DATABASE_URL');
+  if (!url) {
+    throw new Error('no DATABASE_URL');
+  }
   const res = await fetch(`https://${new URL(url).hostname}/sql`, {
     method: 'POST',
     headers: {
@@ -17,7 +19,9 @@ async function sql(query: string, params: unknown[]) {
     body: JSON.stringify({ query, params }),
   });
   const text = await res.text();
-  if (!res.ok) throw new Error(`${res.status}: ${text.slice(0, 200)}`);
+  if (!res.ok) {
+    throw new Error(`${res.status}: ${text.slice(0, 200)}`);
+  }
   return (JSON.parse(text).rows ?? []) as Record<string, unknown>[];
 }
 

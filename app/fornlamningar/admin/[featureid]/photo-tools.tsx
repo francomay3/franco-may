@@ -70,7 +70,9 @@ export function PhotoTools({
   const [error, setError] = useState<string | null>(null);
   const [note, setNote] = useState<string | null>(null);
 
-  const post = async (body: object): Promise<Record<string, unknown> | null> => {
+  const post = async (
+    body: object
+  ): Promise<Record<string, unknown> | null> => {
     const res = await fetch('/api/fornlamningar/photos', {
       method: 'POST',
       headers: {
@@ -99,7 +101,9 @@ export function PhotoTools({
         return;
       }
       setFile('');
-      setNote('Added. It shows here now, and the app picks it up on the next pipeline run.');
+      setNote(
+        'Added. It shows here now, and the app picks it up on the next pipeline run.'
+      );
       onChange();
     } finally {
       setBusy(null);
@@ -120,9 +124,8 @@ export function PhotoTools({
         return;
       }
       const id = crypto.randomUUID();
-      const { ref, uploadBytes, updateMetadata } = await import(
-        'firebase/storage'
-      );
+      const { ref, uploadBytes, updateMetadata } =
+        await import('firebase/storage');
       const object = ref(storage, `photos/${id}.jpg`);
       await uploadBytes(object, jpeg.blob, {
         contentType: 'image/jpeg',
@@ -172,7 +175,9 @@ export function PhotoTools({
         return;
       }
       if (added === 0) {
-        setNote('Commons has photographs nearby. They were already in the drawer.');
+        setNote(
+          'Commons has photographs nearby. They were already in the drawer.'
+        );
         return;
       }
       setNote(
@@ -213,8 +218,8 @@ export function PhotoTools({
         onChange={e => setFile(e.target.value)}
       />
       <span className="fl-add-hint">
-        Paste a photo onto this card, or a Commons link in the box. Either
-        one is prioritized, so the app ships it on the next pipeline run.
+        Paste a photo onto this card, or a Commons link in the box. Either one
+        is prioritized, so the app ships it on the next pipeline run.
       </span>
       <div className="fl-photo-tools-row">
         <button
@@ -234,8 +239,8 @@ export function PhotoTools({
         </button>
       </div>
       <span className="fl-add-hint">
-        Search nearby looks on Commons within 500 m of the pin. New files
-        land in the drawer and stay out of the app until you prioritize one.
+        Search nearby looks on Commons within 500 m of the pin. New files land
+        in the drawer and stay out of the app until you prioritize one.
       </span>
       {error ? <span className="fl-add-error">{error}</span> : null}
       {note ? <span className="fl-add-hint">{note}</span> : null}

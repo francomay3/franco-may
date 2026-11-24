@@ -29,7 +29,9 @@ export async function withdrawPhoto(
         AND payload->>'target_event_id' = $1`,
     [eventId]
   );
-  if (already.length) return;
+  if (already.length) {
+    return;
+  }
 
   const { rows: place } = await c.query(
     `SELECT place_uuid FROM fl_photo_queue WHERE event_id = $1
@@ -40,7 +42,9 @@ export async function withdrawPhoto(
     [eventId]
   );
   const placeUuid = place[0]?.place_uuid;
-  if (!placeUuid) return;
+  if (!placeUuid) {
+    return;
+  }
 
   const { rows: seq } = await c.query<{ v: string }>(
     'UPDATE fl_event_seq SET v = v + 1 WHERE id = 1 RETURNING v'

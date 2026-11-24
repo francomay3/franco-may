@@ -15,11 +15,7 @@ import { placeUuidOf, placeUuidsByPrefix } from '@/lib/lamning';
  */
 
 export type SearchKind =
-  | 'title'
-  | 'title-fuzzy'
-  | 'description'
-  | 'description-fuzzy'
-  | 'id';
+  'title' | 'title-fuzzy' | 'description' | 'description-fuzzy' | 'id';
 
 export type SearchHit = {
   id: string;
@@ -30,8 +26,7 @@ export type SearchHit = {
 };
 
 export type SearchOutcome =
-  | { redirect: string }
-  | { hits: SearchHit[]; total: number };
+  { redirect: string } | { hits: SearchHit[]; total: number };
 
 type Lang = 'sv' | 'en';
 

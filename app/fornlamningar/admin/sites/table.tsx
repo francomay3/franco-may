@@ -76,10 +76,14 @@ function verifiedTip(
     return `Verified ${when}`;
   }
   if (backend === 'local') {
-    return model ? `Verified by local ${model} ${when}` : `Verified by a local model ${when}`;
+    return model
+      ? `Verified by local ${model} ${when}`
+      : `Verified by a local model ${when}`;
   }
   if (backend === 'cursor') {
-    return model ? `Verified by Cursor ${model} ${when}` : `Verified by Cursor ${when}`;
+    return model
+      ? `Verified by Cursor ${model} ${when}`
+      : `Verified by Cursor ${when}`;
   }
   return `Verified by an agent ${when}`;
 }

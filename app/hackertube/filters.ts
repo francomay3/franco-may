@@ -252,7 +252,7 @@ export function bestMatch(
   // Rating percentile within the pool; equal ratings share their mean rank.
   const byScore = [...pool].sort((a, b) => a.score - b.score);
   const scoreRank = new Map<string, number>();
-  for (let i = 0; i < n; ) {
+  for (let i = 0; i < n;) {
     let j = i;
     while (j + 1 < n && byScore[j + 1].score === byScore[i].score) {
       j++;

@@ -55,7 +55,9 @@ async function resolveAuthors(pub: string): Promise<string[] | null> {
   const hits: string[] = [];
   for (const row of rows) {
     const hash = await publicAuthor(row.author);
-    if (!hash) return null;
+    if (!hash) {
+      return null;
+    }
     if (hash === want || (want.length < 32 && hash.startsWith(want))) {
       hits.push(row.author);
     }
@@ -188,7 +190,9 @@ export async function GET(request: NextRequest) {
         };
         places.set(uuid, row);
       }
-      if (at.toISOString() > row.last_at) row.last_at = at.toISOString();
+      if (at.toISOString() > row.last_at) {
+        row.last_at = at.toISOString();
+      }
       return row;
     };
 
@@ -199,8 +203,11 @@ export async function GET(request: NextRequest) {
         touch(r.place_uuid, at).been = true;
       } else if (r.kind === 'presence') {
         const row = touch(r.place_uuid, at);
-        if (payload.been === true) row.been = true;
-        else if (payload.been === false && row.been !== true) row.been = false;
+        if (payload.been === true) {
+          row.been = true;
+        } else if (payload.been === false && row.been !== true) {
+          row.been = false;
+        }
       } else if (r.kind === 'sign' && typeof payload.answer === 'string') {
         touch(r.place_uuid, at).sign = payload.answer;
       }
@@ -326,7 +333,9 @@ export async function DELETE(request: NextRequest) {
         [devices]
       );
       const n = removed.rowCount ?? 0;
-      if (n === 0) return 0;
+      if (n === 0) {
+        return 0;
+      }
 
       const { rows: seq } = await c.query<{ v: string }>(
         'UPDATE fl_event_seq SET v = v + 1 WHERE id = 1 RETURNING v'

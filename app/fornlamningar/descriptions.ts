@@ -58,7 +58,8 @@ export function formatSize(size: PlaceDescription['size']): string | null {
   if (!size) {
     return null;
   }
-  const round = (n: number) => (n < 10 ? Math.round(n * 10) / 10 : Math.round(n));
+  const round = (n: number) =>
+    n < 10 ? Math.round(n * 10) / 10 : Math.round(n);
   const parts: string[] = [];
   if (size.across_m) {
     parts.push(`${round(size.across_m)} m across`);

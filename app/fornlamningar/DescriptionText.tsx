@@ -5,13 +5,15 @@ import { Text, TextProps } from '@mantine/core';
 // line and **bold** around a name. Register text has neither and renders as
 // the single paragraph it always was.
 const inline = (text: string) =>
-  text.split(/(\*\*[^*]+\*\*)/).map((part, i) =>
-    part.startsWith('**') && part.endsWith('**') && part.length > 4 ? (
-      <strong key={i}>{part.slice(2, -2)}</strong>
-    ) : (
-      part
-    ),
-  );
+  text
+    .split(/(\*\*[^*]+\*\*)/)
+    .map((part, i) =>
+      part.startsWith('**') && part.endsWith('**') && part.length > 4 ? (
+        <strong key={i}>{part.slice(2, -2)}</strong>
+      ) : (
+        part
+      )
+    );
 
 const DescriptionText = ({
   content,

@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { PointFeature } from './models';
-import {
-  formatSize,
-  loadDescription,
-  PlaceDescription,
-} from './descriptions';
+import { formatSize, loadDescription, PlaceDescription } from './descriptions';
 import { LngLatLike, Popup, PopupEvent } from '@vis.gl/react-maplibre';
 import { Title, Text, Flex, Stack } from '@mantine/core';
 import Link from '@/components/Link';
@@ -39,9 +35,15 @@ const KIND_LABEL: Record<string, string> = {
   web_page: 'Web page',
 };
 
-function photoUrl(image: NonNullable<PlaceDescription['images']>[number]): string | null {
-  if (image.src) return image.src;
-  if (!image.f) return null;
+function photoUrl(
+  image: NonNullable<PlaceDescription['images']>[number]
+): string | null {
+  if (image.src) {
+    return image.src;
+  }
+  if (!image.f) {
+    return null;
+  }
   let name = image.f;
   try {
     name = decodeURIComponent(image.f);
@@ -71,15 +73,21 @@ const PointPopup = ({
     setSources(null);
     setSourcesError(null);
     loadDescription(uuid).then(text => {
-      if (live) setDescription(text);
+      if (live) {
+        setDescription(text);
+      }
     });
     fetch(`/api/fornlamningar/debug?id=${encodeURIComponent(uuid)}`)
       .then(r => (r.ok ? r.json() : Promise.reject(new Error(`${r.status}`))))
       .then(data => {
-        if (live) setSources((data.texts ?? []) as SourceText[]);
+        if (live) {
+          setSources((data.texts ?? []) as SourceText[]);
+        }
       })
       .catch(e => {
-        if (live) setSourcesError(e instanceof Error ? e.message : 'failed');
+        if (live) {
+          setSourcesError(e instanceof Error ? e.message : 'failed');
+        }
       });
     return () => {
       live = false;
@@ -126,13 +134,18 @@ const PointPopup = ({
       maxWidth="440px"
       focusAfterOpen
     >
-      <Stack gap={8} style={{ maxHeight: '70vh', overflowY: 'auto', paddingRight: 4 }}>
+      <Stack
+        gap={8}
+        style={{ maxHeight: '70vh', overflowY: 'auto', paddingRight: 4 }}
+      >
         <Title order={3}>
           {description?.title || feature.properties.label}
         </Title>
         <Text size="xs" c="dimmed" mt={-6}>
           {feature.properties.class ?? feature.properties.label}
-          {feature.properties.score != null ? ` · ${feature.properties.score}` : ''}
+          {feature.properties.score != null
+            ? ` · ${feature.properties.score}`
+            : ''}
           {` · ${uuid}`}
         </Text>
         <Text lang={description?.raw ? 'sv' : 'en'} size="sm">
@@ -196,7 +209,12 @@ const PointPopup = ({
                 </Stack>
               );
               return image.page ? (
-                <a key={`${image.f ?? image.src}-${i}`} href={image.page} target="_blank" rel="noreferrer">
+                <a
+                  key={`${image.f ?? image.src}-${i}`}
+                  href={image.page}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   {card}
                 </a>
               ) : (
@@ -242,9 +260,17 @@ const PointPopup = ({
 function SourceRow({ source: s }: { source: SourceText }) {
   const [open, setOpen] = useState(false);
   const long = s.body.length > 280;
-  const credit = [s.publisher, s.author, s.licence, s.lang].filter(Boolean).join(' · ');
+  const credit = [s.publisher, s.author, s.licence, s.lang]
+    .filter(Boolean)
+    .join(' · ');
   return (
-    <Stack gap={2} style={{ borderTop: '1px solid var(--mantine-color-default-border)', paddingTop: 6 }}>
+    <Stack
+      gap={2}
+      style={{
+        borderTop: '1px solid var(--mantine-color-default-border)',
+        paddingTop: 6,
+      }}
+    >
       <Text size="xs">
         <Text span fw={700}>
           {KIND_LABEL[s.kind] ?? s.kind}
@@ -253,7 +279,11 @@ function SourceRow({ source: s }: { source: SourceText }) {
         {s.added_id ? ' · added by hand' : ''}
         {s.title ? ` · ${s.title}` : ''}
       </Text>
-      <Text size="xs" lineClamp={open || !long ? undefined : 4} style={{ whiteSpace: 'pre-wrap' }}>
+      <Text
+        size="xs"
+        lineClamp={open || !long ? undefined : 4}
+        style={{ whiteSpace: 'pre-wrap' }}
+      >
         {s.body}
       </Text>
       <Flex gap={8} wrap="wrap">
@@ -268,14 +298,26 @@ function SourceRow({ source: s }: { source: SourceText }) {
             component="button"
             type="button"
             c="blue"
-            style={{ background: 'none', border: 0, padding: 0, cursor: 'pointer' }}
+            style={{
+              background: 'none',
+              border: 0,
+              padding: 0,
+              cursor: 'pointer',
+            }}
             onClick={() => setOpen(!open)}
           >
             {open ? 'Less' : 'More'}
           </Text>
         ) : null}
         {s.url ? (
-          <Text size="xs" component="a" href={s.url} target="_blank" rel="noreferrer" c="blue">
+          <Text
+            size="xs"
+            component="a"
+            href={s.url}
+            target="_blank"
+            rel="noreferrer"
+            c="blue"
+          >
             Open
           </Text>
         ) : null}

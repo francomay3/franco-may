@@ -38,7 +38,8 @@ import type { Metadata } from 'next';
  */
 export const metadata: Metadata = {
   title: 'Regler för kommentarer — Historia Kartan',
-  description: 'Vad som inte är tillåtet i Historia Kartan, och hur du anmäler något.',
+  description:
+    'Vad som inte är tillåtet i Historia Kartan, och hur du anmäler något.',
 };
 
 /**
@@ -76,10 +77,10 @@ export default function RulesPage() {
       <h1 style={s.h1}>Regler för kommentarer</h1>
 
       <p style={s.p}>
-        Historia Kartan är en gratis app för att hitta och besöka fornlämningar i
-        Sverige. Du kan skriva kommentarer om en plats så att nästa besökare vet
-        vad hen ska förvänta sig. Den här sidan säger vad som inte är tillåtet
-        och vad som händer då.
+        Historia Kartan är en gratis app för att hitta och besöka fornlämningar
+        i Sverige. Du kan skriva kommentarer om en plats så att nästa besökare
+        vet vad hen ska förvänta sig. Den här sidan säger vad som inte är
+        tillåtet och vad som händer då.
       </p>
 
       <h2 style={s.h2}>Det här är inte tillåtet</h2>

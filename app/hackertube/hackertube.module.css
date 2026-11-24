@@ -20,7 +20,7 @@
   align-items: center;
   gap: 16px;
   padding: 0 20px;
-  background: light-dark(rgba(255, 255, 255, 0.85), rgba(26, 29, 35, 0.85));
+  background: light-dark(rgb(255 255 255 / 85%), rgb(26 29 35 / 85%));
   backdrop-filter: blur(10px);
   border-bottom: 1px solid light-dark(#e5e7eb, #2a2e36);
 }
@@ -33,7 +33,7 @@
 }
 
 .brand span {
-  color: #ff6600;
+  color: #f60;
 }
 
 .headerCount {
@@ -113,7 +113,7 @@
 }
 
 .row:hover {
-  box-shadow: 0 6px 22px light-dark(rgba(20, 30, 50, 0.1), rgba(0, 0, 0, 0.45));
+  box-shadow: 0 6px 22px light-dark(rgb(20 30 50 / 10%), rgb(0 0 0 / 45%));
   transform: translateY(-1px);
 }
 
@@ -125,7 +125,7 @@
   bottom: 14px;
   width: 4px;
   border-radius: 0 4px 4px 0;
-  background: #ff6600;
+  background: #f60;
 }
 
 .seen {
@@ -161,7 +161,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   color: #fff;
-  background: rgba(0, 0, 0, 0.78);
+  background: rgb(0 0 0 / 78%);
 }
 
 .title {
@@ -247,7 +247,7 @@
   color: var(--mantine-color-dimmed);
 }
 
-@media (max-width: 960px) {
+@media (width <= 960px) {
   .header {
     padding: 0 12px;
     gap: 10px;
@@ -288,7 +288,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .main {
     padding: 12px;
   }
@@ -325,11 +325,11 @@
 }
 
 .savedRow:hover {
-  border-color: #ff6600;
+  border-color: #f60;
 }
 
 .savedActive {
-  border-color: #ff6600;
+  border-color: #f60;
   background: light-dark(#fff3ea, #2b2017);
 }
 
@@ -361,7 +361,7 @@
 }
 
 .channelLink:hover {
-  color: #ff6600;
+  color: #f60;
   text-decoration: underline;
 }
 
@@ -390,12 +390,13 @@
   background: #000;
   aspect-ratio: 16 / 9;
   box-shadow: 0 10px 40px
-    light-dark(rgba(20, 30, 50, 0.18), rgba(0, 0, 0, 0.55));
+    light-dark(rgb(20 30 50 / 18%), rgb(0 0 0 / 55%));
 }
 
 .player {
-  --media-brand: #ff6600;
-  --media-focus-ring-color: #ff6600;
+  --media-brand: #f60;
+  --media-focus-ring-color: #f60;
+
   width: 100%;
   height: 100%;
   border-radius: 14px;
@@ -560,7 +561,7 @@
   min-width: 0;
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .channelAction {
     width: 100%;
   }
@@ -580,10 +581,10 @@
   font-size: 1.8rem;
   font-weight: 700;
   color: #fff;
-  background: linear-gradient(135deg, #ff6600, #ff9a44);
+  background: linear-gradient(135deg, #f60, #ff9a44);
 }
 
-@media (max-width: 760px) {
+@media (width <= 760px) {
   .cards {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -639,7 +640,7 @@
 }
 
 .channelCard:hover {
-  border-color: #ff6600;
+  border-color: #f60;
 }
 
 .channelAvatarSmall {
@@ -651,7 +652,7 @@
   place-items: center;
   font-weight: 700;
   color: #fff;
-  background: linear-gradient(135deg, #ff6600, #ff9a44);
+  background: linear-gradient(135deg, #f60, #ff9a44);
 }
 
 .channelCardName {
@@ -714,7 +715,7 @@
   color: light-dark(#c2410c, #ffb27a);
 }
 
-@media (max-width: 960px) {
+@media (width <= 960px) {
   .headerSearch,
   .advancedButton {
     display: none;

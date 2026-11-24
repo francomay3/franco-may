@@ -462,8 +462,8 @@ function CompareBody({ token }: { token: string }) {
     <div className="fl-compare">
       <p className="fl-sub fl-compare-note">
         Which of these two is more striking at a glance. Tie when they are
-        equal, skip when this pair is unclear. Leave out drops one place
-        from later matches. {pair.votes} judged
+        equal, skip when this pair is unclear. Leave out drops one place from
+        later matches. {pair.votes} judged
         {pair.skips ? `, ${pair.skips} skipped` : ''}.
       </p>
       {reveal ? (

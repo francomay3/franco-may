@@ -2,7 +2,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'fs';
 import { join } from 'path';
 import { DatabaseSync } from 'node:sqlite';
 import { VectorTile } from '@mapbox/vector-tile';
-import Pbf from 'pbf';
+import { PbfReader } from 'pbf';
 import { pool } from '@/lib/db';
 
 /**
@@ -171,7 +171,7 @@ function tiles(): Map<string, TileInfo> {
       if (!name.endsWith('.pbf')) {
         continue;
       }
-      const tile = new VectorTile(new Pbf(tileBytes(path)));
+      const tile = new VectorTile(new PbfReader(tileBytes(path)));
       const layer = tile.layers.archaeological_sites;
       if (!layer) {
         continue;

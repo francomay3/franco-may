@@ -3,14 +3,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
-import {
-  Alert,
-  Button,
-  Checkbox,
-  Group,
-  Loader,
-  Text,
-} from '@mantine/core';
+import { Alert, Button, Checkbox, Group, Loader, Text } from '@mantine/core';
 import { IconArrowLeft, IconTrash } from '@tabler/icons-react';
 import {
   currentToken,

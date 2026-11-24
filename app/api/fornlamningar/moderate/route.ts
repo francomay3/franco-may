@@ -54,7 +54,8 @@ const actionSchema = z
     note: z.string().max(500).optional(),
   })
   .refine(
-    v => (v.action === 'accept' ? (v.event_ids?.length ?? 0) > 0 : !!v.event_id),
+    v =>
+      v.action === 'accept' ? (v.event_ids?.length ?? 0) > 0 : !!v.event_id,
     { message: 'missing event' }
   );
 

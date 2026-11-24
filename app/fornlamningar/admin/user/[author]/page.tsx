@@ -7,7 +7,9 @@ export async function generateMetadata({
   params: Promise<{ author: string }>;
 }): Promise<Metadata> {
   const { author } = await params;
-  return { title: `User ${decodeURIComponent(author).slice(0, 8)} · Historia Kartan` };
+  return {
+    title: `User ${decodeURIComponent(author).slice(0, 8)} · Historia Kartan`,
+  };
 }
 
 export default function Page() {
